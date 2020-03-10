@@ -1,0 +1,16 @@
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material-experimental/mdc-progress-bar/public-api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+export { MatProgressBar } from './progress-bar';
+export { MatProgressBarModule } from './module';
+export { MAT_PROGRESS_BAR_LOCATION, MAT_PROGRESS_BAR_LOCATION_FACTORY, } from '@angular/material/progress-bar';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9tYXRlcmlhbC1leHBlcmltZW50YWwvbWRjLXByb2dyZXNzLWJhci9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQVFBLCtCQUFjLGdCQUFnQixDQUFDO0FBQy9CLHFDQUFjLFVBQVUsQ0FBQztBQUV6QixPQUFPLEVBRUwseUJBQXlCLEVBRXpCLGlDQUFpQyxHQUNsQyxNQUFNLGdDQUFnQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vcHJvZ3Jlc3MtYmFyJztcbmV4cG9ydCAqIGZyb20gJy4vbW9kdWxlJztcblxuZXhwb3J0IHtcbiAgUHJvZ3Jlc3NBbmltYXRpb25FbmQsXG4gIE1BVF9QUk9HUkVTU19CQVJfTE9DQVRJT04sXG4gIE1hdFByb2dyZXNzQmFyTG9jYXRpb24sXG4gIE1BVF9QUk9HUkVTU19CQVJfTE9DQVRJT05fRkFDVE9SWSxcbn0gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvcHJvZ3Jlc3MtYmFyJztcbiJdfQ==

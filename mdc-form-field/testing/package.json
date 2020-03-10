@@ -1,0 +1,11 @@
+{
+  "name": "@angular/material-experimental/mdc-form-field/testing",
+  "main": "../../bundles/material-experimental-mdc-form-field-testing.umd.js",
+  "fesm5": "../../fesm5/mdc-form-field/testing.js",
+  "fesm2015": "../../fesm2015/mdc-form-field/testing.js",
+  "esm5": "../../esm5/mdc-form-field/testing/index.js",
+  "esm2015": "../../esm2015/mdc-form-field/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm5/mdc-form-field/testing.js",
+  "es2015": "../../fesm2015/mdc-form-field/testing.js"
+}

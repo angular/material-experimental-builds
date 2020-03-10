@@ -1,0 +1,11 @@
+{
+  "name": "@angular/material-experimental/mdc-button",
+  "main": "../bundles/material-experimental-mdc-button.umd.js",
+  "fesm5": "../fesm5/mdc-button.js",
+  "fesm2015": "../fesm2015/mdc-button.js",
+  "esm5": "../esm5/mdc-button/index.js",
+  "esm2015": "../esm2015/mdc-button/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm5/mdc-button.js",
+  "es2015": "../fesm2015/mdc-button.js"
+}

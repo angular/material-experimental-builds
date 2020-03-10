@@ -1,0 +1,11 @@
+{
+  "name": "@angular/material-experimental/mdc-checkbox",
+  "main": "../bundles/material-experimental-mdc-checkbox.umd.js",
+  "fesm5": "../fesm5/mdc-checkbox.js",
+  "fesm2015": "../fesm2015/mdc-checkbox.js",
+  "esm5": "../esm5/mdc-checkbox/index.js",
+  "esm2015": "../esm2015/mdc-checkbox/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm5/mdc-checkbox.js",
+  "es2015": "../fesm2015/mdc-checkbox.js"
+}

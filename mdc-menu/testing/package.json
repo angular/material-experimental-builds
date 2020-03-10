@@ -1,0 +1,11 @@
+{
+  "name": "@angular/material-experimental/mdc-menu/testing",
+  "main": "../../bundles/material-experimental-mdc-menu-testing.umd.js",
+  "fesm5": "../../fesm5/mdc-menu/testing.js",
+  "fesm2015": "../../fesm2015/mdc-menu/testing.js",
+  "esm5": "../../esm5/mdc-menu/testing/index.js",
+  "esm2015": "../../esm2015/mdc-menu/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm5/mdc-menu/testing.js",
+  "es2015": "../../fesm2015/mdc-menu/testing.js"
+}

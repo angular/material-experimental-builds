@@ -1,0 +1,22 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { CdkEditControl, CdkEditRevert, CdkEditClose } from '@angular/cdk-experimental/popover-edit';
+/**
+ * A component that attaches to a form within the edit.
+ * It coordinates the form state with the table-wide edit system and handles
+ * closing the edit when the form is submitted or the user clicks
+ * out.
+ */
+export declare class MatEditLens<FormValue> extends CdkEditControl<FormValue> {
+}
+/** Reverts the form to its initial or previously submitted state on click. */
+export declare class MatEditRevert<FormValue> extends CdkEditRevert<FormValue> {
+}
+/** Closes the lens on click. */
+export declare class MatEditClose<FormValue> extends CdkEditClose<FormValue> {
+}

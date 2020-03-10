@@ -1,0 +1,11 @@
+{
+  "name": "@angular/material-experimental/mdc-sidenav",
+  "main": "../bundles/material-experimental-mdc-sidenav.umd.js",
+  "fesm5": "../fesm5/mdc-sidenav.js",
+  "fesm2015": "../fesm2015/mdc-sidenav.js",
+  "esm5": "../esm5/mdc-sidenav/index.js",
+  "esm2015": "../esm2015/mdc-sidenav/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm5/mdc-sidenav.js",
+  "es2015": "../fesm2015/mdc-sidenav.js"
+}

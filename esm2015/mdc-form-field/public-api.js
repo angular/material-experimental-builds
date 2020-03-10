@@ -1,0 +1,21 @@
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material-experimental/mdc-form-field/public-api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+export { MatFormFieldControl, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError, } from '@angular/material/form-field';
+export { MatLabel } from './directives/label';
+export { MatError } from './directives/error';
+export { MatHint } from './directives/hint';
+export { MatPrefix } from './directives/prefix';
+export { MatSuffix } from './directives/suffix';
+export { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormField } from './form-field';
+export { MatFormFieldModule } from './module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9tYXRlcmlhbC1leHBlcmltZW50YWwvbWRjLWZvcm0tZmllbGQvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFRQSxPQUFPLEVBQ0wsbUJBQW1CLEVBQ25CLGtDQUFrQyxFQUNsQyxrQ0FBa0MsR0FDbkMsTUFBTSw4QkFBOEIsQ0FBQztBQUV0Qyx5QkFBYyxvQkFBb0IsQ0FBQztBQUNuQyx5QkFBYyxvQkFBb0IsQ0FBQztBQUNuQyx3QkFBYyxtQkFBbUIsQ0FBQztBQUNsQywwQkFBYyxxQkFBcUIsQ0FBQztBQUNwQywwQkFBYyxxQkFBcUIsQ0FBQztBQUNwQyw2REFBYyxjQUFjLENBQUM7QUFDN0IsbUNBQWMsVUFBVSxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmV4cG9ydCB7XG4gIE1hdEZvcm1GaWVsZENvbnRyb2wsXG4gIGdldE1hdEZvcm1GaWVsZER1cGxpY2F0ZWRIaW50RXJyb3IsXG4gIGdldE1hdEZvcm1GaWVsZE1pc3NpbmdDb250cm9sRXJyb3IsXG59IGZyb20gJ0Bhbmd1bGFyL21hdGVyaWFsL2Zvcm0tZmllbGQnO1xuXG5leHBvcnQgKiBmcm9tICcuL2RpcmVjdGl2ZXMvbGFiZWwnO1xuZXhwb3J0ICogZnJvbSAnLi9kaXJlY3RpdmVzL2Vycm9yJztcbmV4cG9ydCAqIGZyb20gJy4vZGlyZWN0aXZlcy9oaW50JztcbmV4cG9ydCAqIGZyb20gJy4vZGlyZWN0aXZlcy9wcmVmaXgnO1xuZXhwb3J0ICogZnJvbSAnLi9kaXJlY3RpdmVzL3N1ZmZpeCc7XG5leHBvcnQgKiBmcm9tICcuL2Zvcm0tZmllbGQnO1xuZXhwb3J0ICogZnJvbSAnLi9tb2R1bGUnO1xuIl19

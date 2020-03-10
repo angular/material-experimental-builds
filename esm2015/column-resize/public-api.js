@@ -1,0 +1,22 @@
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material-experimental/column-resize/public-api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+export { MatColumnResize } from './column-resize-directives/column-resize';
+export { MatColumnResizeFlex } from './column-resize-directives/column-resize-flex';
+export { MatDefaultEnabledColumnResize } from './column-resize-directives/default-enabled-column-resize';
+export { MatDefaultEnabledColumnResizeFlex } from './column-resize-directives/default-enabled-column-resize-flex';
+export { MatColumnResizeCommonModule, MatDefaultEnabledColumnResizeModule, MatColumnResizeModule } from './column-resize-module';
+export { MatDefaultResizable } from './resizable-directives/default-enabled-resizable';
+export { MatResizable } from './resizable-directives/resizable';
+export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, MatFlexTableResizeStrategy, FLEX_RESIZE_STRATEGY_PROVIDER } from './resize-strategy';
+export { MatColumnResizeOverlayHandle } from './overlay-handle';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9tYXRlcmlhbC1leHBlcmltZW50YWwvY29sdW1uLXJlc2l6ZS9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQVFBLGdDQUFjLDBDQUEwQyxDQUFDO0FBQ3pELG9DQUFjLCtDQUErQyxDQUFDO0FBQzlELDhDQUFjLDBEQUEwRCxDQUFDO0FBQ3pFLGtEQUFjLCtEQUErRCxDQUFDO0FBQzlFLHdHQUFjLHdCQUF3QixDQUFDO0FBQ3ZDLG9DQUFjLGtEQUFrRCxDQUFDO0FBQ2pFLDZCQUFjLGtDQUFrQyxDQUFDO0FBQ2pELHVIQUFjLG1CQUFtQixDQUFDO0FBQ2xDLDZDQUFjLGtCQUFrQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vY29sdW1uLXJlc2l6ZS1kaXJlY3RpdmVzL2NvbHVtbi1yZXNpemUnO1xuZXhwb3J0ICogZnJvbSAnLi9jb2x1bW4tcmVzaXplLWRpcmVjdGl2ZXMvY29sdW1uLXJlc2l6ZS1mbGV4JztcbmV4cG9ydCAqIGZyb20gJy4vY29sdW1uLXJlc2l6ZS1kaXJlY3RpdmVzL2RlZmF1bHQtZW5hYmxlZC1jb2x1bW4tcmVzaXplJztcbmV4cG9ydCAqIGZyb20gJy4vY29sdW1uLXJlc2l6ZS1kaXJlY3RpdmVzL2RlZmF1bHQtZW5hYmxlZC1jb2x1bW4tcmVzaXplLWZsZXgnO1xuZXhwb3J0ICogZnJvbSAnLi9jb2x1bW4tcmVzaXplLW1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL3Jlc2l6YWJsZS1kaXJlY3RpdmVzL2RlZmF1bHQtZW5hYmxlZC1yZXNpemFibGUnO1xuZXhwb3J0ICogZnJvbSAnLi9yZXNpemFibGUtZGlyZWN0aXZlcy9yZXNpemFibGUnO1xuZXhwb3J0ICogZnJvbSAnLi9yZXNpemUtc3RyYXRlZ3knO1xuZXhwb3J0ICogZnJvbSAnLi9vdmVybGF5LWhhbmRsZSc7XG4iXX0=

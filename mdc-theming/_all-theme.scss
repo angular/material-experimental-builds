@@ -1,0 +1,34 @@
+@import '../mdc-button/button-theme';
+@import '../mdc-card/card-theme';
+@import '../mdc-checkbox/checkbox-theme';
+@import '../mdc-chips/chips-theme';
+@import '../mdc-list/list-theme';
+@import '../mdc-menu/menu-theme';
+@import '../mdc-radio/radio-theme';
+@import '../mdc-slide-toggle/slide-toggle-theme';
+@import '../mdc-tabs/tabs-theme';
+@import '../mdc-table/table-theme';
+@import '../mdc-progress-bar/progress-bar-theme';
+@import '../mdc-input/input-theme';
+@import '../mdc-form-field/form-field-theme';
+
+
+@mixin angular-material-mdc-theme($theme) {
+  @include mat-mdc-button-theme($theme);
+  @include mat-mdc-fab-theme($theme);
+  @include mat-mdc-icon-button-theme($theme);
+  @include mat-mdc-card-theme($theme);
+  @include mat-mdc-checkbox-theme($theme);
+  @include mat-mdc-chips-theme($theme);
+  @include mat-mdc-list-theme($theme);
+  @include mat-mdc-menu-theme($theme);
+  @include mat-mdc-progress-bar-theme($theme);
+  @include mat-mdc-radio-theme($theme);
+  @include mat-mdc-slide-toggle-theme($theme);
+  @include mat-mdc-table-theme($theme);
+  @include mat-mdc-form-field-theme($theme);
+  @include mat-mdc-input-theme($theme);
+  // TODO(andrewjs): Add this back when MDC syncs their slider code into Google-internal code
+  // @include mat-mdc-slider-theme($theme);
+  @include mat-mdc-tabs-theme($theme);
+}
