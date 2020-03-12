@@ -10,11 +10,11 @@ import { ColumnResize } from '@angular/cdk-experimental/column-resize';
 export declare const TABLE_PROVIDERS: Provider[];
 export declare const FLEX_PROVIDERS: Provider[];
 export declare const TABLE_HOST_BINDINGS: {
-    'class': string;
+    class: string;
     '[class.mat-column-resize-rtl]': string;
 };
 export declare const FLEX_HOST_BINDINGS: {
-    'class': string;
+    class: string;
     '[class.mat-column-resize-rtl]': string;
 };
 export declare abstract class AbstractMatColumnResize extends ColumnResize {

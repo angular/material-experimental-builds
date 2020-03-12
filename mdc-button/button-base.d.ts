@@ -17,7 +17,7 @@ export declare const MAT_BUTTON_HOST: {
     '[class._mat-animation-noopable]': string;
     '[class.mat-unthemed]': string;
     '[class.mat-mdc-button-base]': string;
-    'class': string;
+    class: string;
 };
 /** @docs-private */
 export declare class MatButtonMixinCore {
@@ -54,7 +54,7 @@ export declare const MAT_ANCHOR_HOST: {
     '[attr.tabindex]': string;
     '[attr.aria-disabled]': string;
     '[class.mat-unthemed]': string;
-    'class': string;
+    class: string;
     '[class.mat-mdc-button-base]': string;
 };
 /**

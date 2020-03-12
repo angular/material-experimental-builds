@@ -14,6 +14,6 @@ export declare abstract class AbstractMatResizable extends Resizable<MatColumnRe
     protected getOverlayHandleComponentType(): Type<MatColumnResizeOverlayHandle>;
 }
 export declare const RESIZABLE_HOST_BINDINGS: {
-    'class': string;
+    class: string;
 };
 export declare const RESIZABLE_INPUTS: string[];
