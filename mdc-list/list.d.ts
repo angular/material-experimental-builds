@@ -5,6 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { ElementRef, NgZone, QueryList } from '@angular/core';
 import { MatListBase, MatListItemBase } from './list-base';
 /**
  * Directive whose purpose is to add the mat- CSS styling to this selector.
@@ -27,4 +28,6 @@ export declare class MatListSubheaderCssMatStyler {
 export declare class MatList extends MatListBase {
 }
 export declare class MatListItem extends MatListItemBase {
+    lines: QueryList<ElementRef<Element>>;
+    constructor(element: ElementRef, ngZone: NgZone);
 }
