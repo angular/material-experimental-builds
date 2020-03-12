@@ -8,7 +8,7 @@ import { Version } from '@angular/core';
  * found in the LICENSE file at https://angular.io/license
  */
 /** Current version of the Material experimental package. */
-const VERSION = new Version('9.1.2-sha-dd239dd94');
+const VERSION = new Version('9.1.2-sha-76c3fb6db');
 
 /**
  * @license
