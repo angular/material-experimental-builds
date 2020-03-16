@@ -1,9 +1,9 @@
 import { Injectable, Inject, Directive, ElementRef, NgZone, Component, ChangeDetectionStrategy, ViewEncapsulation, Injector, ViewContainerRef, NgModule } from '@angular/core';
-import { Directionality } from '@angular/cdk/bidi';
 import { CdkFlexTableResizeStrategy, ColumnResize, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { DOCUMENT } from '@angular/common';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
+import { Directionality } from '@angular/cdk/bidi';
 import { CdkColumnDef } from '@angular/cdk/table';
 
 /**
@@ -64,13 +64,13 @@ const TABLE_PROVIDERS = [
 /** @type {?} */
 const FLEX_PROVIDERS = [...PROVIDERS, FLEX_RESIZE_STRATEGY_PROVIDER];
 /** @type {?} */
-const HOST_BINDINGS = {
-    '[class.mat-column-resize-rtl]': 'directionality.value === "rtl"',
+const TABLE_HOST_BINDINGS = {
+    'class': 'mat-column-resize-table',
 };
 /** @type {?} */
-const TABLE_HOST_BINDINGS = Object.assign(Object.assign({}, HOST_BINDINGS), { 'class': 'mat-column-resize-table' });
-/** @type {?} */
-const FLEX_HOST_BINDINGS = Object.assign(Object.assign({}, HOST_BINDINGS), { 'class': 'mat-column-resize-flex' });
+const FLEX_HOST_BINDINGS = {
+    'class': 'mat-column-resize-flex',
+};
 /**
  * @abstract
  */
@@ -95,16 +95,14 @@ class AbstractMatColumnResize extends ColumnResize {
 class MatColumnResize extends AbstractMatColumnResize {
     /**
      * @param {?} columnResizeNotifier
-     * @param {?} directionality
      * @param {?} elementRef
      * @param {?} eventDispatcher
      * @param {?} ngZone
      * @param {?} notifier
      */
-    constructor(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+    constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
         super();
         this.columnResizeNotifier = columnResizeNotifier;
-        this.directionality = directionality;
         this.elementRef = elementRef;
         this.eventDispatcher = eventDispatcher;
         this.ngZone = ngZone;
@@ -124,7 +122,6 @@ MatColumnResize.decorators = [
 /** @nocollapse */
 MatColumnResize.ctorParameters = () => [
     { type: ColumnResizeNotifier },
-    { type: Directionality },
     { type: ElementRef },
     { type: HeaderRowEventDispatcher },
     { type: NgZone },
@@ -133,8 +130,6 @@ MatColumnResize.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatColumnResize.prototype.columnResizeNotifier;
-    /** @type {?} */
-    MatColumnResize.prototype.directionality;
     /**
      * @type {?}
      * @protected
@@ -169,16 +164,14 @@ if (false) {
 class MatColumnResizeFlex extends AbstractMatColumnResize {
     /**
      * @param {?} columnResizeNotifier
-     * @param {?} directionality
      * @param {?} elementRef
      * @param {?} eventDispatcher
      * @param {?} ngZone
      * @param {?} notifier
      */
-    constructor(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+    constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
         super();
         this.columnResizeNotifier = columnResizeNotifier;
-        this.directionality = directionality;
         this.elementRef = elementRef;
         this.eventDispatcher = eventDispatcher;
         this.ngZone = ngZone;
@@ -198,7 +191,6 @@ MatColumnResizeFlex.decorators = [
 /** @nocollapse */
 MatColumnResizeFlex.ctorParameters = () => [
     { type: ColumnResizeNotifier },
-    { type: Directionality },
     { type: ElementRef },
     { type: HeaderRowEventDispatcher },
     { type: NgZone },
@@ -207,8 +199,6 @@ MatColumnResizeFlex.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatColumnResizeFlex.prototype.columnResizeNotifier;
-    /** @type {?} */
-    MatColumnResizeFlex.prototype.directionality;
     /**
      * @type {?}
      * @protected
@@ -243,16 +233,14 @@ if (false) {
 class MatDefaultEnabledColumnResize extends AbstractMatColumnResize {
     /**
      * @param {?} columnResizeNotifier
-     * @param {?} directionality
      * @param {?} elementRef
      * @param {?} eventDispatcher
      * @param {?} ngZone
      * @param {?} notifier
      */
-    constructor(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+    constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
         super();
         this.columnResizeNotifier = columnResizeNotifier;
-        this.directionality = directionality;
         this.elementRef = elementRef;
         this.eventDispatcher = eventDispatcher;
         this.ngZone = ngZone;
@@ -272,7 +260,6 @@ MatDefaultEnabledColumnResize.decorators = [
 /** @nocollapse */
 MatDefaultEnabledColumnResize.ctorParameters = () => [
     { type: ColumnResizeNotifier },
-    { type: Directionality },
     { type: ElementRef },
     { type: HeaderRowEventDispatcher },
     { type: NgZone },
@@ -281,8 +268,6 @@ MatDefaultEnabledColumnResize.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatDefaultEnabledColumnResize.prototype.columnResizeNotifier;
-    /** @type {?} */
-    MatDefaultEnabledColumnResize.prototype.directionality;
     /**
      * @type {?}
      * @protected
@@ -317,16 +302,14 @@ if (false) {
 class MatDefaultEnabledColumnResizeFlex extends AbstractMatColumnResize {
     /**
      * @param {?} columnResizeNotifier
-     * @param {?} directionality
      * @param {?} elementRef
      * @param {?} eventDispatcher
      * @param {?} ngZone
      * @param {?} notifier
      */
-    constructor(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+    constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
         super();
         this.columnResizeNotifier = columnResizeNotifier;
-        this.directionality = directionality;
         this.elementRef = elementRef;
         this.eventDispatcher = eventDispatcher;
         this.ngZone = ngZone;
@@ -346,7 +329,6 @@ MatDefaultEnabledColumnResizeFlex.decorators = [
 /** @nocollapse */
 MatDefaultEnabledColumnResizeFlex.ctorParameters = () => [
     { type: ColumnResizeNotifier },
-    { type: Directionality },
     { type: ElementRef },
     { type: HeaderRowEventDispatcher },
     { type: NgZone },
@@ -355,8 +337,6 @@ MatDefaultEnabledColumnResizeFlex.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatDefaultEnabledColumnResizeFlex.prototype.columnResizeNotifier;
-    /** @type {?} */
-    MatDefaultEnabledColumnResizeFlex.prototype.directionality;
     /**
      * @type {?}
      * @protected

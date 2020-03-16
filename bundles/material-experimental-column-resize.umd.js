@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk-experimental/column-resize'), require('@angular/common'), require('@angular/cdk/overlay'), require('@angular/cdk/table')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/column-resize', ['exports', '@angular/core', '@angular/cdk/bidi', '@angular/cdk-experimental/column-resize', '@angular/common', '@angular/cdk/overlay', '@angular/cdk/table'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.columnResize = {}), global.ng.core, global.ng.cdk.bidi, global.ng.cdkExperimental.columnResize, global.ng.common, global.ng.cdk.overlay, global.ng.cdk.table));
-}(this, (function (exports, core, bidi, columnResize, common, overlay, table) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk-experimental/column-resize'), require('@angular/common'), require('@angular/cdk/overlay'), require('@angular/cdk/bidi'), require('@angular/cdk/table')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/column-resize', ['exports', '@angular/core', '@angular/cdk-experimental/column-resize', '@angular/common', '@angular/cdk/overlay', '@angular/cdk/bidi', '@angular/cdk/table'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.columnResize = {}), global.ng.core, global.ng.cdkExperimental.columnResize, global.ng.common, global.ng.cdk.overlay, global.ng.cdk.bidi, global.ng.cdk.table));
+}(this, (function (exports, core, columnResize, common, overlay, bidi, table) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -250,11 +250,12 @@
         columnResize.TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER,
     ]);
     var FLEX_PROVIDERS = __spread(PROVIDERS, [FLEX_RESIZE_STRATEGY_PROVIDER]);
-    var HOST_BINDINGS = {
-        '[class.mat-column-resize-rtl]': 'directionality.value === "rtl"',
+    var TABLE_HOST_BINDINGS = {
+        'class': 'mat-column-resize-table',
     };
-    var TABLE_HOST_BINDINGS = __assign(__assign({}, HOST_BINDINGS), { 'class': 'mat-column-resize-table' });
-    var FLEX_HOST_BINDINGS = __assign(__assign({}, HOST_BINDINGS), { 'class': 'mat-column-resize-flex' });
+    var FLEX_HOST_BINDINGS = {
+        'class': 'mat-column-resize-flex',
+    };
     var AbstractMatColumnResize = /** @class */ (function (_super) {
         __extends(AbstractMatColumnResize, _super);
         function AbstractMatColumnResize() {
@@ -279,10 +280,9 @@
      */
     var MatColumnResize = /** @class */ (function (_super) {
         __extends(MatColumnResize, _super);
-        function MatColumnResize(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+        function MatColumnResize(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             var _this = _super.call(this) || this;
             _this.columnResizeNotifier = columnResizeNotifier;
-            _this.directionality = directionality;
             _this.elementRef = elementRef;
             _this.eventDispatcher = eventDispatcher;
             _this.ngZone = ngZone;
@@ -301,7 +301,6 @@
         /** @nocollapse */
         MatColumnResize.ctorParameters = function () { return [
             { type: columnResize.ColumnResizeNotifier },
-            { type: bidi.Directionality },
             { type: core.ElementRef },
             { type: columnResize.HeaderRowEventDispatcher },
             { type: core.NgZone },
@@ -323,10 +322,9 @@
      */
     var MatColumnResizeFlex = /** @class */ (function (_super) {
         __extends(MatColumnResizeFlex, _super);
-        function MatColumnResizeFlex(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+        function MatColumnResizeFlex(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             var _this = _super.call(this) || this;
             _this.columnResizeNotifier = columnResizeNotifier;
-            _this.directionality = directionality;
             _this.elementRef = elementRef;
             _this.eventDispatcher = eventDispatcher;
             _this.ngZone = ngZone;
@@ -345,7 +343,6 @@
         /** @nocollapse */
         MatColumnResizeFlex.ctorParameters = function () { return [
             { type: columnResize.ColumnResizeNotifier },
-            { type: bidi.Directionality },
             { type: core.ElementRef },
             { type: columnResize.HeaderRowEventDispatcher },
             { type: core.NgZone },
@@ -367,10 +364,9 @@
      */
     var MatDefaultEnabledColumnResize = /** @class */ (function (_super) {
         __extends(MatDefaultEnabledColumnResize, _super);
-        function MatDefaultEnabledColumnResize(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+        function MatDefaultEnabledColumnResize(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             var _this = _super.call(this) || this;
             _this.columnResizeNotifier = columnResizeNotifier;
-            _this.directionality = directionality;
             _this.elementRef = elementRef;
             _this.eventDispatcher = eventDispatcher;
             _this.ngZone = ngZone;
@@ -389,7 +385,6 @@
         /** @nocollapse */
         MatDefaultEnabledColumnResize.ctorParameters = function () { return [
             { type: columnResize.ColumnResizeNotifier },
-            { type: bidi.Directionality },
             { type: core.ElementRef },
             { type: columnResize.HeaderRowEventDispatcher },
             { type: core.NgZone },
@@ -411,10 +406,9 @@
      */
     var MatDefaultEnabledColumnResizeFlex = /** @class */ (function (_super) {
         __extends(MatDefaultEnabledColumnResizeFlex, _super);
-        function MatDefaultEnabledColumnResizeFlex(columnResizeNotifier, directionality, elementRef, eventDispatcher, ngZone, notifier) {
+        function MatDefaultEnabledColumnResizeFlex(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             var _this = _super.call(this) || this;
             _this.columnResizeNotifier = columnResizeNotifier;
-            _this.directionality = directionality;
             _this.elementRef = elementRef;
             _this.eventDispatcher = eventDispatcher;
             _this.ngZone = ngZone;
@@ -433,7 +427,6 @@
         /** @nocollapse */
         MatDefaultEnabledColumnResizeFlex.ctorParameters = function () { return [
             { type: columnResize.ColumnResizeNotifier },
-            { type: bidi.Directionality },
             { type: core.ElementRef },
             { type: columnResize.HeaderRowEventDispatcher },
             { type: core.NgZone },
