@@ -482,6 +482,8 @@ class MatChip extends _MatChipMixinBase {
         };
         this._chipFoundation = new MDCChipFoundation(this._chipAdapter);
         this._animationsDisabled = animationMode === 'NoopAnimations';
+        this._isBasicChip = _elementRef.nativeElement.hasAttribute(this.basicChipAttrName) ||
+            _elementRef.nativeElement.tagName.toLowerCase() === this.basicChipAttrName;
     }
     // We have to use a `HostListener` here in order to support both Ivy and ViewEngine.
     // In Ivy the `host` bindings will be merged when this class is extended, whereas in
@@ -630,16 +632,6 @@ class MatChip extends _MatChipMixinBase {
         }
     }
     /**
-     * Whether this chip is a basic (unstyled) chip.
-     * @return {?}
-     */
-    _isBasicChip() {
-        /** @type {?} */
-        const element = (/** @type {?} */ (this._elementRef.nativeElement));
-        return element.hasAttribute(this.basicChipAttrName) ||
-            element.tagName.toLowerCase() === this.basicChipAttrName;
-    }
-    /**
      * Sets whether the given CSS class should be applied to the MDC chip.
      * @private
      * @param {?} cssClass
@@ -667,7 +659,7 @@ class MatChip extends _MatChipMixinBase {
      * @return {?}
      */
     _isRippleDisabled() {
-        return this.disabled || this.disableRipple || this._isBasicChip();
+        return this.disabled || this.disableRipple || this._isBasicChip;
     }
 }
 MatChip.decorators = [
@@ -681,8 +673,8 @@ MatChip.decorators = [
                     '[class.mat-mdc-chip-highlighted]': 'highlighted',
                     '[class.mat-mdc-chip-with-avatar]': 'leadingIcon',
                     '[class.mat-mdc-chip-with-trailing-icon]': 'trailingIcon || removeIcon',
-                    '[class.mat-mdc-basic-chip]': '_isBasicChip()',
-                    '[class.mat-mdc-standard-chip]': '!_isBasicChip()',
+                    '[class.mat-mdc-basic-chip]': '_isBasicChip',
+                    '[class.mat-mdc-standard-chip]': '!_isBasicChip',
                     '[class._mat-animation-noopable]': '_animationsDisabled',
                     '[id]': 'id',
                     '[attr.disabled]': 'disabled || null',
@@ -748,6 +740,11 @@ if (false) {
     MatChip.prototype._onBlur;
     /** @type {?} */
     MatChip.prototype.HANDLED_KEYS;
+    /**
+     * Whether this chip is a basic (unstyled) chip.
+     * @type {?}
+     */
+    MatChip.prototype._isBasicChip;
     /**
      * Whether the chip has focus.
      * @type {?}
