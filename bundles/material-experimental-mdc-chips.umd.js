@@ -489,6 +489,8 @@
             };
             _this._chipFoundation = new chips.MDCChipFoundation(_this._chipAdapter);
             _this._animationsDisabled = animationMode === 'NoopAnimations';
+            _this._isBasicChip = _elementRef.nativeElement.hasAttribute(_this.basicChipAttrName) ||
+                _elementRef.nativeElement.tagName.toLowerCase() === _this.basicChipAttrName;
             return _this;
         }
         // We have to use a `HostListener` here in order to support both Ivy and ViewEngine.
@@ -605,12 +607,6 @@
                 this._chipFoundation.beginExit();
             }
         };
-        /** Whether this chip is a basic (unstyled) chip. */
-        MatChip.prototype._isBasicChip = function () {
-            var element = this._elementRef.nativeElement;
-            return element.hasAttribute(this.basicChipAttrName) ||
-                element.tagName.toLowerCase() === this.basicChipAttrName;
-        };
         /** Sets whether the given CSS class should be applied to the MDC chip. */
         MatChip.prototype._setMdcClass = function (cssClass, active) {
             var classes = this._elementRef.nativeElement.classList;
@@ -625,7 +621,7 @@
         };
         /** Whether or not the ripple should be disabled. */
         MatChip.prototype._isRippleDisabled = function () {
-            return this.disabled || this.disableRipple || this._isBasicChip();
+            return this.disabled || this.disableRipple || this._isBasicChip;
         };
         MatChip.decorators = [
             { type: core.Component, args: [{
@@ -638,8 +634,8 @@
                             '[class.mat-mdc-chip-highlighted]': 'highlighted',
                             '[class.mat-mdc-chip-with-avatar]': 'leadingIcon',
                             '[class.mat-mdc-chip-with-trailing-icon]': 'trailingIcon || removeIcon',
-                            '[class.mat-mdc-basic-chip]': '_isBasicChip()',
-                            '[class.mat-mdc-standard-chip]': '!_isBasicChip()',
+                            '[class.mat-mdc-basic-chip]': '_isBasicChip',
+                            '[class.mat-mdc-standard-chip]': '!_isBasicChip',
                             '[class._mat-animation-noopable]': '_animationsDisabled',
                             '[id]': 'id',
                             '[attr.disabled]': 'disabled || null',

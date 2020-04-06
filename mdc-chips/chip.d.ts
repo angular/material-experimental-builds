@@ -52,6 +52,8 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     /** Emits when the chip is blurred. */
     readonly _onBlur: Subject<MatChipEvent>;
     readonly HANDLED_KEYS: number[];
+    /** Whether this chip is a basic (unstyled) chip. */
+    readonly _isBasicChip: boolean;
     /** Whether the chip has focus. */
     protected _hasFocusInternal: boolean;
     /** Whether animations for the chip are enabled. */
@@ -122,8 +124,6 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
      * Informs any listeners of the removal request. Does not remove the chip from the DOM.
      */
     remove(): void;
-    /** Whether this chip is a basic (unstyled) chip. */
-    _isBasicChip(): boolean;
     /** Sets whether the given CSS class should be applied to the MDC chip. */
     private _setMdcClass;
     /** Forwards interaction events to the MDC chip foundation. */
