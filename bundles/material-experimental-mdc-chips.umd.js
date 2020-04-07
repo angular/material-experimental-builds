@@ -2552,6 +2552,7 @@
             placeholder: [{ type: core.Input }, { type: core.Input }],
             required: [{ type: core.Input }],
             value: [{ type: core.Input }],
+            errorStateMatcher: [{ type: core.Input }],
             change: [{ type: core.Output }],
             valueChange: [{ type: core.Output }],
             _chips: [{ type: core.ContentChildren, args: [MatChipRow, {

@@ -2365,6 +2365,7 @@ var MatChipGrid = /** @class */ (function (_super) {
         placeholder: [{ type: Input }, { type: Input }],
         required: [{ type: Input }],
         value: [{ type: Input }],
+        errorStateMatcher: [{ type: Input }],
         change: [{ type: Output }],
         valueChange: [{ type: Output }],
         _chips: [{ type: ContentChildren, args: [MatChipRow, {

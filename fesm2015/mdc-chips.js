@@ -3646,6 +3646,7 @@ MatChipGrid.propDecorators = {
     placeholder: [{ type: Input }, { type: Input }],
     required: [{ type: Input }],
     value: [{ type: Input }],
+    errorStateMatcher: [{ type: Input }],
     change: [{ type: Output }],
     valueChange: [{ type: Output }],
     _chips: [{ type: ContentChildren, args: [MatChipRow, {
@@ -3715,6 +3716,11 @@ if (false) {
      * @protected
      */
     MatChipGrid.prototype._value;
+    /**
+     * An object used to control when error messages are shown.
+     * @type {?}
+     */
+    MatChipGrid.prototype.errorStateMatcher;
     /**
      * Emits when the chip grid value has been changed by the user.
      * @type {?}
