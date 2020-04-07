@@ -333,11 +333,11 @@ var MatChip = /** @class */ (function (_super) {
         configurable: true
     });
     Object.defineProperty(MatChip.prototype, "value", {
-        /** The value of the chip. Defaults to the content inside `<mat-chip>` tags. */
+        /** The value of the chip. Defaults to the content inside the mdc-chip__text element. */
         get: function () {
             return this._value !== undefined
                 ? this._value
-                : this._elementRef.nativeElement.textContent;
+                : this._textElement.textContent.trim();
         },
         set: function (value) { this._value = value; },
         enumerable: true,
@@ -370,6 +370,7 @@ var MatChip = /** @class */ (function (_super) {
     };
     MatChip.prototype.ngAfterViewInit = function () {
         this._chipFoundation.init();
+        this._textElement = this._elementRef.nativeElement.querySelector('.mdc-chip__text');
     };
     MatChip.prototype.ngOnDestroy = function () {
         this.destroyed.emit({ chip: this });
@@ -1948,6 +1949,7 @@ var MatChipGrid = /** @class */ (function (_super) {
          */
         _this._onChange = function () { };
         _this._required = false;
+        _this._value = [];
         /** Emits when the chip grid value has been changed by the user. */
         _this.change = new EventEmitter();
         /**
@@ -2277,8 +2279,8 @@ var MatChipGrid = /** @class */ (function (_super) {
         });
     };
     /** Emits change event to set the model value. */
-    MatChipGrid.prototype._propagateChanges = function (fallbackValue) {
-        var valueToEmit = this._chips.length ? this._chips.toArray().map(function (chip) { return chip.value; }) : fallbackValue;
+    MatChipGrid.prototype._propagateChanges = function () {
+        var valueToEmit = this._chips.length ? this._chips.toArray().map(function (chip) { return chip.value; }) : [];
         this._value = valueToEmit;
         this.change.emit(new MatChipGridChange(this, valueToEmit));
         this.valueChange.emit(valueToEmit);

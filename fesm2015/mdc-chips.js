@@ -518,13 +518,13 @@ class MatChip extends _MatChipMixinBase {
         }
     }
     /**
-     * The value of the chip. Defaults to the content inside `<mat-chip>` tags.
+     * The value of the chip. Defaults to the content inside the mdc-chip__text element.
      * @return {?}
      */
     get value() {
         return this._value !== undefined
             ? this._value
-            : this._elementRef.nativeElement.textContent;
+            : (/** @type {?} */ (this._textElement.textContent)).trim();
     }
     /**
      * @param {?} value
@@ -566,6 +566,7 @@ class MatChip extends _MatChipMixinBase {
      */
     ngAfterViewInit() {
         this._chipFoundation.init();
+        this._textElement = this._elementRef.nativeElement.querySelector('.mdc-chip__text');
     }
     /**
      * @return {?}
@@ -772,6 +773,11 @@ if (false) {
      * @protected
      */
     MatChip.prototype._disabled;
+    /**
+     * @type {?}
+     * @private
+     */
+    MatChip.prototype._textElement;
     /**
      * @type {?}
      * @protected
@@ -3122,6 +3128,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
          */
         () => { });
         this._required = false;
+        this._value = [];
         /**
          * Emits when the chip grid value has been changed by the user.
          */
@@ -3529,16 +3536,15 @@ class MatChipGrid extends _MatChipGridMixinBase {
     /**
      * Emits change event to set the model value.
      * @private
-     * @param {?=} fallbackValue
      * @return {?}
      */
-    _propagateChanges(fallbackValue) {
+    _propagateChanges() {
         /** @type {?} */
         const valueToEmit = this._chips.length ? this._chips.toArray().map((/**
          * @param {?} chip
          * @return {?}
          */
-        chip => chip.value)) : fallbackValue;
+        chip => chip.value)) : [];
         this._value = valueToEmit;
         this.change.emit(new MatChipGridChange(this, valueToEmit));
         this.valueChange.emit(valueToEmit);
