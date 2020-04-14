@@ -119,7 +119,9 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      */
     get value(): any;
     set value(value: any);
-    protected _value: any;
+    protected _value: Array<any>;
+    /** An object used to control when error messages are shown. */
+    errorStateMatcher: ErrorStateMatcher;
     /** Combined stream of all of the child chips' blur events. */
     get chipBlurChanges(): Observable<MatChipEvent>;
     /** Combined stream of all of the child chips' focus events. */

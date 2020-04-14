@@ -67,7 +67,8 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     get disabled(): boolean;
     set disabled(value: boolean);
     protected _disabled: boolean;
-    /** The value of the chip. Defaults to the content inside `<mat-chip>` tags. */
+    private _textElement;
+    /** The value of the chip. Defaults to the content inside the mdc-chip__text element. */
     get value(): any;
     set value(value: any);
     protected _value: any;
