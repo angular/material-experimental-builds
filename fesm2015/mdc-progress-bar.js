@@ -5,7 +5,6 @@ import { MDCLinearProgressFoundation } from '@material/linear-progress';
 import { Subscription, fromEvent } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Directionality } from '@angular/cdk/bidi';
-import { Platform } from '@angular/cdk/platform';
 export { MAT_PROGRESS_BAR_LOCATION, MAT_PROGRESS_BAR_LOCATION_FACTORY } from '@angular/material/progress-bar';
 
 /**
@@ -35,15 +34,13 @@ class MatProgressBar extends _MatProgressBarMixinBase {
     /**
      * @param {?} _elementRef
      * @param {?} _ngZone
-     * @param {?} _platform
      * @param {?=} _dir
      * @param {?=} _animationMode
      */
-    constructor(_elementRef, _ngZone, _platform, _dir, _animationMode) {
+    constructor(_elementRef, _ngZone, _dir, _animationMode) {
         super(_elementRef);
         this._elementRef = _elementRef;
         this._ngZone = _ngZone;
-        this._platform = _platform;
         this._dir = _dir;
         this._animationMode = _animationMode;
         /**
@@ -58,7 +55,7 @@ class MatProgressBar extends _MatProgressBarMixinBase {
             forceLayout: (/**
              * @return {?}
              */
-            () => this._platform.isBrowser && this._rootElement.offsetWidth),
+            () => this._rootElement.offsetWidth),
             removeAttribute: (/**
              * @param {?} name
              * @return {?}
@@ -227,8 +224,7 @@ class MatProgressBar extends _MatProgressBarMixinBase {
     _syncFoundation() {
         /** @type {?} */
         const foundation = this._foundation;
-        // Don't sync any state if we're not in a browser, because MDC uses some window APIs.
-        if (foundation && this._platform.isBrowser) {
+        if (foundation) {
             /** @type {?} */
             const direction = this._dir ? this._dir.value : 'ltr';
             /** @type {?} */
@@ -267,7 +263,6 @@ MatProgressBar.decorators = [
 MatProgressBar.ctorParameters = () => [
     { type: ElementRef },
     { type: NgZone },
-    { type: Platform },
     { type: Directionality, decorators: [{ type: Optional }] },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
 ];
@@ -351,11 +346,6 @@ if (false) {
      * @private
      */
     MatProgressBar.prototype._ngZone;
-    /**
-     * @type {?}
-     * @private
-     */
-    MatProgressBar.prototype._platform;
     /**
      * @type {?}
      * @private

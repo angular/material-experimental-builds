@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('@angular/platform-browser/animations'), require('@material/linear-progress'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/material/progress-bar')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-bar', ['exports', '@angular/core', '@angular/material/core', '@angular/platform-browser/animations', '@material/linear-progress', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/material/progress-bar'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressBar = {}), global.ng.core, global.ng.material.core, global.ng.platformBrowser.animations, global.mdc.linearProgress, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.progressBar));
-}(this, (function (exports, core, core$1, animations, linearProgress, rxjs, operators, bidi, platform, progressBar) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('@angular/platform-browser/animations'), require('@material/linear-progress'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi'), require('@angular/material/progress-bar')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-bar', ['exports', '@angular/core', '@angular/material/core', '@angular/platform-browser/animations', '@material/linear-progress', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi', '@angular/material/progress-bar'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressBar = {}), global.ng.core, global.ng.material.core, global.ng.platformBrowser.animations, global.mdc.linearProgress, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi, global.ng.material.progressBar));
+}(this, (function (exports, core, core$1, animations, linearProgress, rxjs, operators, bidi, progressBar) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -219,17 +219,16 @@
     var _MatProgressBarMixinBase = core$1.mixinColor(MatProgressBarBase, 'primary');
     var MatProgressBar = /** @class */ (function (_super) {
         __extends(MatProgressBar, _super);
-        function MatProgressBar(_elementRef, _ngZone, _platform, _dir, _animationMode) {
+        function MatProgressBar(_elementRef, _ngZone, _dir, _animationMode) {
             var _this = _super.call(this, _elementRef) || this;
             _this._elementRef = _elementRef;
             _this._ngZone = _ngZone;
-            _this._platform = _platform;
             _this._dir = _dir;
             _this._animationMode = _animationMode;
             /** Adapter used by MDC to interact with the DOM. */
             _this._adapter = {
                 addClass: function (className) { return _this._rootElement.classList.add(className); },
-                forceLayout: function () { return _this._platform.isBrowser && _this._rootElement.offsetWidth; },
+                forceLayout: function () { return _this._rootElement.offsetWidth; },
                 removeAttribute: function (name) { return _this._rootElement.removeAttribute(name); },
                 setAttribute: function (name, value) { return _this._rootElement.setAttribute(name, value); },
                 hasClass: function (className) { return _this._rootElement.classList.contains(className); },
@@ -332,8 +331,7 @@
         /** Syncs the state of the progress bar with the MDC foundation. */
         MatProgressBar.prototype._syncFoundation = function () {
             var foundation = this._foundation;
-            // Don't sync any state if we're not in a browser, because MDC uses some window APIs.
-            if (foundation && this._platform.isBrowser) {
+            if (foundation) {
                 var direction = this._dir ? this._dir.value : 'ltr';
                 var mode = this.mode;
                 foundation.setReverse(direction === 'rtl' ? mode !== 'query' : mode === 'query');
@@ -369,7 +367,6 @@
         MatProgressBar.ctorParameters = function () { return [
             { type: core.ElementRef },
             { type: core.NgZone },
-            { type: platform.Platform },
             { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
             { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
         ]; };

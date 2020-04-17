@@ -6,7 +6,6 @@ import { MDCLinearProgressFoundation } from '@material/linear-progress';
 import { Subscription, fromEvent } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Directionality } from '@angular/cdk/bidi';
-import { Platform } from '@angular/cdk/platform';
 export { MAT_PROGRESS_BAR_LOCATION, MAT_PROGRESS_BAR_LOCATION_FACTORY } from '@angular/material/progress-bar';
 
 /**
@@ -27,17 +26,16 @@ var MatProgressBarBase = /** @class */ (function () {
 var _MatProgressBarMixinBase = mixinColor(MatProgressBarBase, 'primary');
 var MatProgressBar = /** @class */ (function (_super) {
     __extends(MatProgressBar, _super);
-    function MatProgressBar(_elementRef, _ngZone, _platform, _dir, _animationMode) {
+    function MatProgressBar(_elementRef, _ngZone, _dir, _animationMode) {
         var _this = _super.call(this, _elementRef) || this;
         _this._elementRef = _elementRef;
         _this._ngZone = _ngZone;
-        _this._platform = _platform;
         _this._dir = _dir;
         _this._animationMode = _animationMode;
         /** Adapter used by MDC to interact with the DOM. */
         _this._adapter = {
             addClass: function (className) { return _this._rootElement.classList.add(className); },
-            forceLayout: function () { return _this._platform.isBrowser && _this._rootElement.offsetWidth; },
+            forceLayout: function () { return _this._rootElement.offsetWidth; },
             removeAttribute: function (name) { return _this._rootElement.removeAttribute(name); },
             setAttribute: function (name, value) { return _this._rootElement.setAttribute(name, value); },
             hasClass: function (className) { return _this._rootElement.classList.contains(className); },
@@ -140,8 +138,7 @@ var MatProgressBar = /** @class */ (function (_super) {
     /** Syncs the state of the progress bar with the MDC foundation. */
     MatProgressBar.prototype._syncFoundation = function () {
         var foundation = this._foundation;
-        // Don't sync any state if we're not in a browser, because MDC uses some window APIs.
-        if (foundation && this._platform.isBrowser) {
+        if (foundation) {
             var direction = this._dir ? this._dir.value : 'ltr';
             var mode = this.mode;
             foundation.setReverse(direction === 'rtl' ? mode !== 'query' : mode === 'query');
@@ -177,7 +174,6 @@ var MatProgressBar = /** @class */ (function (_super) {
     MatProgressBar.ctorParameters = function () { return [
         { type: ElementRef },
         { type: NgZone },
-        { type: Platform },
         { type: Directionality, decorators: [{ type: Optional }] },
         { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
     ]; };

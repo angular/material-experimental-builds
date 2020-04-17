@@ -57,7 +57,7 @@
             this._animationMode = _animationMode;
             this._onChange = function (_) { };
             this._onTouched = function () { };
-            this._uniqueId = "mat-slide-toggle-" + ++nextUniqueId;
+            this._uniqueId = "mat-mdc-slide-toggle-" + ++nextUniqueId;
             this._required = false;
             this._checked = false;
             this._adapter = {

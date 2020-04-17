@@ -6,7 +6,6 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { BooleanInput } from '@angular/cdk/coercion';
-import { Platform } from '@angular/cdk/platform';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxClickAction, MatCheckboxDefaultOptions } from '@angular/material/checkbox';
@@ -22,7 +21,6 @@ export declare class MatCheckboxChange {
 }
 export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlValueAccessor {
     private _changeDetectorRef;
-    private _platform;
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`
@@ -109,7 +107,7 @@ export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlVal
     private _attrBlacklist;
     /** The `MDCCheckboxAdapter` instance for this checkbox. */
     private _checkboxAdapter;
-    constructor(_changeDetectorRef: ChangeDetectorRef, _platform: Platform, tabIndex: string, 
+    constructor(_changeDetectorRef: ChangeDetectorRef, tabIndex: string, 
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`
