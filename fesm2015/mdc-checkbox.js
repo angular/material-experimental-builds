@@ -1,5 +1,4 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Platform } from '@angular/cdk/platform';
 import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, Attribute, Optional, Inject, Input, Output, ViewChild, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MAT_CHECKBOX_CLICK_ACTION, MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
@@ -54,15 +53,13 @@ const RIPPLE_ANIMATION_CONFIG = {
 class MatCheckbox {
     /**
      * @param {?} _changeDetectorRef
-     * @param {?} _platform
      * @param {?} tabIndex
      * @param {?} _clickAction
      * @param {?=} _animationMode
      * @param {?=} _options
      */
-    constructor(_changeDetectorRef, _platform, tabIndex, _clickAction, _animationMode, _options) {
+    constructor(_changeDetectorRef, tabIndex, _clickAction, _animationMode, _options) {
         this._changeDetectorRef = _changeDetectorRef;
-        this._platform = _platform;
         this._clickAction = _clickAction;
         this._animationMode = _animationMode;
         this._options = _options;
@@ -152,7 +149,7 @@ class MatCheckbox {
             forceLayout: (/**
              * @return {?}
              */
-            () => this._platform.isBrowser && this._checkbox.nativeElement.offsetWidth),
+            () => this._checkbox.nativeElement.offsetWidth),
             hasNativeControl: (/**
              * @return {?}
              */
@@ -474,7 +471,6 @@ MatCheckbox.decorators = [
 /** @nocollapse */
 MatCheckbox.ctorParameters = () => [
     { type: ChangeDetectorRef },
-    { type: Platform },
     { type: String, decorators: [{ type: Attribute, args: ['tabindex',] }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_CHECKBOX_CLICK_ACTION,] }] },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
@@ -654,11 +650,6 @@ if (false) {
      * @private
      */
     MatCheckbox.prototype._changeDetectorRef;
-    /**
-     * @type {?}
-     * @private
-     */
-    MatCheckbox.prototype._platform;
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`

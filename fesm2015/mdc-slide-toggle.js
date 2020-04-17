@@ -117,7 +117,7 @@ class MatSlideToggle {
          * @return {?}
          */
         () => { });
-        this._uniqueId = `mat-slide-toggle-${++nextUniqueId}`;
+        this._uniqueId = `mat-mdc-slide-toggle-${++nextUniqueId}`;
         this._required = false;
         this._checked = false;
         this._adapter = {

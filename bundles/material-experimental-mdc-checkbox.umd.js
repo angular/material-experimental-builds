@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/cdk/platform'), require('@angular/core'), require('@angular/forms'), require('@angular/material/checkbox'), require('@angular/platform-browser/animations'), require('@material/checkbox'), require('@material/ripple'), require('@angular/common'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox', ['exports', '@angular/cdk/coercion', '@angular/cdk/platform', '@angular/core', '@angular/forms', '@angular/material/checkbox', '@angular/platform-browser/animations', '@material/checkbox', '@material/ripple', '@angular/common', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = {}), global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.core, global.ng.forms, global.ng.material.checkbox, global.ng.platformBrowser.animations, global.mdc.checkbox, global.mdc.ripple, global.ng.common, global.ng.material.core));
-}(this, (function (exports, coercion, platform, core, forms, checkbox, animations, checkbox$1, ripple, common, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/forms'), require('@angular/material/checkbox'), require('@angular/platform-browser/animations'), require('@material/checkbox'), require('@material/ripple'), require('@angular/common'), require('@angular/material/core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox', ['exports', '@angular/cdk/coercion', '@angular/core', '@angular/forms', '@angular/material/checkbox', '@angular/platform-browser/animations', '@material/checkbox', '@material/ripple', '@angular/common', '@angular/material/core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = {}), global.ng.cdk.coercion, global.ng.core, global.ng.forms, global.ng.material.checkbox, global.ng.platformBrowser.animations, global.mdc.checkbox, global.mdc.ripple, global.ng.common, global.ng.material.core));
+}(this, (function (exports, coercion, core, forms, checkbox, animations, checkbox$1, ripple, common, core$1) { 'use strict';
 
     /**
      * @license
@@ -29,7 +29,7 @@
         exitDuration: ripple.numbers.FG_DEACTIVATION_MS,
     };
     var MatCheckbox = /** @class */ (function () {
-        function MatCheckbox(_changeDetectorRef, _platform, tabIndex, 
+        function MatCheckbox(_changeDetectorRef, tabIndex, 
         /**
          * @deprecated `_clickAction` parameter to be removed, use
          * `MAT_CHECKBOX_DEFAULT_OPTIONS`
@@ -38,7 +38,6 @@
         _clickAction, _animationMode, _options) {
             var _this = this;
             this._changeDetectorRef = _changeDetectorRef;
-            this._platform = _platform;
             this._clickAction = _clickAction;
             this._animationMode = _animationMode;
             this._options = _options;
@@ -86,7 +85,7 @@
             this._checkboxAdapter = {
                 addClass: function (className) { return _this._setClass(className, true); },
                 removeClass: function (className) { return _this._setClass(className, false); },
-                forceLayout: function () { return _this._platform.isBrowser && _this._checkbox.nativeElement.offsetWidth; },
+                forceLayout: function () { return _this._checkbox.nativeElement.offsetWidth; },
                 hasNativeControl: function () { return !!_this._nativeCheckbox; },
                 isAttachedToDOM: function () { return !!_this._checkbox.nativeElement.parentNode; },
                 isChecked: function () { return _this.checked; },
@@ -328,7 +327,6 @@
         /** @nocollapse */
         MatCheckbox.ctorParameters = function () { return [
             { type: core.ChangeDetectorRef },
-            { type: platform.Platform },
             { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] },
             { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [checkbox.MAT_CHECKBOX_CLICK_ACTION,] }] },
             { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
