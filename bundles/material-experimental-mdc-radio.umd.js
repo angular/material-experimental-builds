@@ -295,9 +295,6 @@
                         template: "<div class=\"mdc-form-field\" #formField\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div class=\"mdc-radio\" [ngClass]=\"_classes\">\n    <input #input class=\"mdc-radio__native-control\" type=\"radio\"\n           [id]=\"inputId\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [tabIndex]=\"tabIndex\"\n           [attr.name]=\"name\"\n           [attr.value]=\"value\"\n           [required]=\"required\"\n           [attr.aria-label]=\"ariaLabel\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           [attr.aria-describedby]=\"ariaDescribedby\"\n           (change)=\"_onInputChange($event)\">\n    <div class=\"mdc-radio__background\">\n      <div class=\"mdc-radio__outer-circle\"></div>\n      <div class=\"mdc-radio__inner-circle\"></div>\n    </div>\n    <div class=\"mdc-radio__ripple\"></div>\n    <div mat-ripple class=\"mat-radio-ripple mat-mdc-focus-indicator\"\n         [matRippleTrigger]=\"formField\"\n         [matRippleDisabled]=\"_isRippleDisabled()\"\n         [matRippleCentered]=\"true\"\n         [matRippleRadius]=\"20\"\n         [matRippleAnimation]=\"_rippleAnimation\">\n      <div class=\"mat-ripple-element mat-radio-persistent-ripple\"></div>\n    </div>\n  </div>\n  <label [for]=\"inputId\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
                         host: {
                             'class': 'mat-mdc-radio-button',
-                            // Ivy will inherit the mat-radio-button class from the parent class, but we do not want
-                            // this to be applied in the MDC component. Set this explicitly to false so it is not applied.
-                            '[class.mat-radio-button]': 'false',
                             '[attr.id]': 'id',
                             '[class.mat-primary]': 'color === "primary"',
                             '[class.mat-accent]': 'color === "accent"',
@@ -329,7 +326,7 @@
             { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [radio$1.MAT_RADIO_DEFAULT_OPTIONS,] }] }
         ]; };
         return MatRadioButton;
-    }(radio$1.MatRadioButton));
+    }(radio$1._MatRadioButtonBase));
 
     /**
      * @license
