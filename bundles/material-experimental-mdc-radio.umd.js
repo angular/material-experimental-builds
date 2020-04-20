@@ -344,7 +344,7 @@
         MatRadioModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [core$1.MatCommonModule, common.CommonModule, core$1.MatRippleModule],
-                        exports: [MatRadioGroup, MatRadioButton],
+                        exports: [core$1.MatCommonModule, MatRadioGroup, MatRadioButton],
                         declarations: [MatRadioGroup, MatRadioButton],
                     },] }
         ];

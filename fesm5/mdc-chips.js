@@ -2576,7 +2576,7 @@ var MatChipsModule = /** @class */ (function () {
     MatChipsModule.decorators = [
         { type: NgModule, args: [{
                     imports: [MatCommonModule, CommonModule, MatRippleModule],
-                    exports: CHIP_DECLARATIONS,
+                    exports: [MatCommonModule, CHIP_DECLARATIONS],
                     declarations: CHIP_DECLARATIONS,
                     providers: [
                         ErrorStateMatcher,

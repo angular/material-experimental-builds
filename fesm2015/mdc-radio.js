@@ -210,7 +210,7 @@ class MatRadioModule {
 MatRadioModule.decorators = [
     { type: NgModule, args: [{
                 imports: [MatCommonModule, CommonModule, MatRippleModule],
-                exports: [MatRadioGroup, MatRadioButton],
+                exports: [MatCommonModule, MatRadioGroup, MatRadioButton],
                 declarations: [MatRadioGroup, MatRadioButton],
             },] }
 ];

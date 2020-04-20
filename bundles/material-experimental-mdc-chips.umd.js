@@ -2763,7 +2763,7 @@
         MatChipsModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [core$1.MatCommonModule, common.CommonModule, core$1.MatRippleModule],
-                        exports: CHIP_DECLARATIONS,
+                        exports: [core$1.MatCommonModule, CHIP_DECLARATIONS],
                         declarations: CHIP_DECLARATIONS,
                         providers: [
                             core$1.ErrorStateMatcher,

@@ -366,7 +366,7 @@ var MatTableModule = /** @class */ (function () {
     MatTableModule.decorators = [
         { type: NgModule, args: [{
                     imports: [MatCommonModule, CdkTableModule],
-                    exports: EXPORTED_DECLARATIONS,
+                    exports: [MatCommonModule, EXPORTED_DECLARATIONS],
                     declarations: EXPORTED_DECLARATIONS,
                 },] }
     ];

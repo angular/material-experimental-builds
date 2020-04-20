@@ -564,7 +564,7 @@
         MatTableModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [core$1.MatCommonModule, table.CdkTableModule],
-                        exports: EXPORTED_DECLARATIONS,
+                        exports: [core$1.MatCommonModule, EXPORTED_DECLARATIONS],
                         declarations: EXPORTED_DECLARATIONS,
                     },] }
         ];

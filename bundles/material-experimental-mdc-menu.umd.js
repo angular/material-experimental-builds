@@ -322,7 +322,7 @@
                             overlay.OverlayModule,
                             menu._MatMenuDirectivesModule
                         ],
-                        exports: [MatMenu, MatMenuItem, menu._MatMenuDirectivesModule],
+                        exports: [MatMenu, core$1.MatCommonModule, MatMenuItem, menu._MatMenuDirectivesModule],
                         declarations: [MatMenu, MatMenuItem],
                         providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
                     },] }
