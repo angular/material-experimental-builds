@@ -131,7 +131,7 @@ MatMenuModule.decorators = [
                     OverlayModule,
                     _MatMenuDirectivesModule
                 ],
-                exports: [MatMenu, MatMenuItem, _MatMenuDirectivesModule],
+                exports: [MatMenu, MatCommonModule, MatMenuItem, _MatMenuDirectivesModule],
                 declarations: [MatMenu, MatMenuItem],
                 providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
             },] }
