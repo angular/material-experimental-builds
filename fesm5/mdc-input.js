@@ -44,9 +44,6 @@ var MatInput = /** @class */ (function (_super) {
                         '[attr.aria-describedby]': '_ariaDescribedby || null',
                         '[attr.aria-invalid]': 'errorState',
                         '[attr.aria-required]': 'required.toString()',
-                        '(blur)': '_focusChanged(false)',
-                        '(focus)': '_focusChanged(true)',
-                        '(input)': '_onInput()',
                     },
                     providers: [{ provide: MatFormFieldControl, useExisting: MatInput }],
                 },] }
