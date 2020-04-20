@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Directive, Input, ElementRef, NgModule } from '@angular/core';
-import { CdkTable, CDK_TABLE_TEMPLATE, CdkCellDef, CdkHeaderCellDef, CdkFooterCellDef, CdkColumnDef, CdkHeaderCell, CdkFooterCell, CdkCell, CdkHeaderRowDef, CdkFooterRowDef, CdkRowDef, CdkHeaderRow, CDK_ROW_TEMPLATE, CdkFooterRow, CdkRow, CdkTableModule } from '@angular/cdk/table';
+import { CdkTable, CDK_TABLE_TEMPLATE, CdkCellDef, CdkHeaderCellDef, CdkFooterCellDef, CdkColumnDef, CdkHeaderCell, CdkFooterCell, CdkCell, CdkHeaderRowDef, CdkFooterRowDef, CdkRowDef, CdkHeaderRow, CDK_ROW_TEMPLATE, CdkFooterRow, CdkRow, CdkNoDataRow, CdkTableModule } from '@angular/cdk/table';
 import { MatCommonModule } from '@angular/material/core';
 
 /**
@@ -321,6 +321,17 @@ MatRow.decorators = [
                 providers: [{ provide: CdkRow, useExisting: MatRow }]
             }] }
 ];
+/**
+ * Row that can be used to display a message when no data is shown in the table.
+ */
+class MatNoDataRow extends CdkNoDataRow {
+}
+MatNoDataRow.decorators = [
+    { type: Directive, args: [{
+                selector: 'ng-template[matNoDataRow]',
+                providers: [{ provide: CdkNoDataRow, useExisting: MatNoDataRow }],
+            },] }
+];
 
 /**
  * @fileoverview added by tsickle
@@ -347,6 +358,7 @@ const EXPORTED_DECLARATIONS = [
     MatHeaderRow,
     MatRow,
     MatFooterRow,
+    MatNoDataRow,
 ];
 class MatTableModule {
 }
@@ -368,5 +380,5 @@ MatTableModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MatCell, MatCellDef, MatColumnDef, MatFooterCell, MatFooterCellDef, MatFooterRow, MatFooterRowDef, MatHeaderCell, MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatTable, MatTableModule };
+export { MatCell, MatCellDef, MatColumnDef, MatFooterCell, MatFooterCellDef, MatFooterRow, MatFooterRowDef, MatHeaderCell, MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatNoDataRow, MatRow, MatRowDef, MatTable, MatTableModule };
 //# sourceMappingURL=mdc-table.js.map
