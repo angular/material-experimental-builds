@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-experimental",
-  "version": "9.2.1-sha-715b08efd",
+  "version": "9.2.1-sha-cedae6f82",
   "description": "Experimental components for Angular Material",
   "main": "./bundles/material-experimental.umd.js",
   "fesm5": "./fesm5/material-experimental.js",
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/angular/components#readme",
   "peerDependencies": {
     "@angular/core": "^9.0.0 || ^10.0.0-0",
-    "@angular/material": "9.2.1-sha-715b08efd",
+    "@angular/material": "9.2.1-sha-cedae6f82",
     "material-components-web": "^6.0.0-canary.265ecbad5.0",
     "tslib": "^1.9.0"
   },
