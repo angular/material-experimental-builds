@@ -4,6 +4,7 @@ import { MAT_MENU_SCROLL_STRATEGY, MatMenu as MatMenu$1, matMenuAnimations, MAT_
 export { MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { MatRippleModule, MatCommonModule } from '@angular/material/core';
+import { CdkScrollableModule } from '@angular/cdk/scrolling';
 
 /**
  * @fileoverview added by tsickle
@@ -131,7 +132,7 @@ MatMenuModule.decorators = [
                     OverlayModule,
                     _MatMenuDirectivesModule
                 ],
-                exports: [MatMenu, MatCommonModule, MatMenuItem, _MatMenuDirectivesModule],
+                exports: [CdkScrollableModule, MatMenu, MatCommonModule, MatMenuItem, _MatMenuDirectivesModule],
                 declarations: [MatMenu, MatMenuItem],
                 providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
             },] }

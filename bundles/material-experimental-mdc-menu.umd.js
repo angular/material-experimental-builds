@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/core'), require('@angular/material/menu'), require('@angular/common'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-menu', ['exports', '@angular/cdk/overlay', '@angular/core', '@angular/material/menu', '@angular/common', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcMenu = {}), global.ng.cdk.overlay, global.ng.core, global.ng.material.menu, global.ng.common, global.ng.material.core));
-}(this, (function (exports, overlay, core, menu, common, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/core'), require('@angular/material/menu'), require('@angular/common'), require('@angular/material/core'), require('@angular/cdk/scrolling')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-menu', ['exports', '@angular/cdk/overlay', '@angular/core', '@angular/material/menu', '@angular/common', '@angular/material/core', '@angular/cdk/scrolling'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcMenu = {}), global.ng.cdk.overlay, global.ng.core, global.ng.material.menu, global.ng.common, global.ng.material.core, global.ng.cdk.scrolling));
+}(this, (function (exports, overlay, core, menu, common, core$1, scrolling) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -322,7 +322,7 @@
                             overlay.OverlayModule,
                             menu._MatMenuDirectivesModule
                         ],
-                        exports: [MatMenu, core$1.MatCommonModule, MatMenuItem, menu._MatMenuDirectivesModule],
+                        exports: [scrolling.CdkScrollableModule, MatMenu, core$1.MatCommonModule, MatMenuItem, menu._MatMenuDirectivesModule],
                         declarations: [MatMenu, MatMenuItem],
                         providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
                     },] }
