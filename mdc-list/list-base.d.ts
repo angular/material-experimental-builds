@@ -8,7 +8,7 @@
 import { AfterContentInit, ElementRef, NgZone, OnDestroy, QueryList } from '@angular/core';
 export declare class MatListBase {
 }
-export declare class MatListItemBase implements AfterContentInit, OnDestroy {
+export declare abstract class MatListItemBase implements AfterContentInit, OnDestroy {
     protected _element: ElementRef;
     protected _ngZone: NgZone;
     lines: QueryList<ElementRef<Element>>;
