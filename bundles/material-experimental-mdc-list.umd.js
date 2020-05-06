@@ -242,6 +242,14 @@
         MatListItemBase.prototype.ngOnDestroy = function () {
             this._subscriptions.unsubscribe();
         };
+        MatListItemBase.decorators = [
+            { type: core.Directive }
+        ];
+        /** @nocollapse */
+        MatListItemBase.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: core.NgZone }
+        ]; };
         return MatListItemBase;
     }());
 

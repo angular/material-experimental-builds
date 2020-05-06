@@ -1,4 +1,4 @@
-import { Directive, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, NgZone, ContentChildren, forwardRef, NgModule } from '@angular/core';
+import { Directive, ElementRef, NgZone, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, forwardRef, NgModule } from '@angular/core';
 import { setLines, MatLine, MatLineModule } from '@angular/material/core';
 import { Subscription } from 'rxjs';
 import { startWith } from 'rxjs/operators';
@@ -12,6 +12,9 @@ import { MatDividerModule } from '@angular/material/divider';
  */
 class MatListBase {
 }
+/**
+ * @abstract
+ */
 class MatListItemBase {
     /**
      * @param {?} _element
@@ -65,6 +68,14 @@ class MatListItemBase {
         this._subscriptions.unsubscribe();
     }
 }
+MatListItemBase.decorators = [
+    { type: Directive }
+];
+/** @nocollapse */
+MatListItemBase.ctorParameters = () => [
+    { type: ElementRef },
+    { type: NgZone }
+];
 if (false) {
     /** @type {?} */
     MatListItemBase.prototype.lines;
