@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-export { MatFormFieldControl, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError, } from '@angular/material/form-field';
+export { MAT_FORM_FIELD, MatFormFieldControl, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError, } from '@angular/material/form-field';
 export * from './directives/label';
 export * from './directives/error';
 export * from './directives/hint';

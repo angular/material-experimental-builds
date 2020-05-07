@@ -1115,6 +1115,12 @@
      * Generated bundle index. Do not edit.
      */
 
+    Object.defineProperty(exports, 'MAT_FORM_FIELD', {
+        enumerable: true,
+        get: function () {
+            return formField.MAT_FORM_FIELD;
+        }
+    });
     Object.defineProperty(exports, 'MatFormFieldControl', {
         enumerable: true,
         get: function () {
