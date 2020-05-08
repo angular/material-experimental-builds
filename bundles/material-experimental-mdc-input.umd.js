@@ -227,7 +227,7 @@
                             '[class.mat-form-field-autofill-control]': 'false',
                             '[class.mat-input-element]': 'false',
                             '[class.mat-input-server]': '_isServer',
-                            '[class.mat-mdc-textarea-input]': '_isTextarea()',
+                            '[class.mat-mdc-textarea-input]': '_isTextarea',
                             // Native input properties that are overwritten by Angular inputs need to be synced with
                             // the native input element. Otherwise property bindings for those don't work.
                             '[id]': 'id',
