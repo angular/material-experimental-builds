@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-autocomplete",
   "main": "../bundles/material-experimental-mdc-autocomplete.umd.js",
-  "fesm5": "../fesm5/mdc-autocomplete.js",
   "fesm2015": "../fesm2015/mdc-autocomplete.js",
-  "esm5": "../esm5/mdc-autocomplete/index.js",
   "esm2015": "../esm2015/mdc-autocomplete/index.js",
   "typings": "./index.d.ts",
-  "module": "../fesm5/mdc-autocomplete.js",
+  "module": "../fesm2015/mdc-autocomplete.js",
   "es2015": "../fesm2015/mdc-autocomplete.js"
 }

@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-tabs",
   "main": "../bundles/material-experimental-mdc-tabs.umd.js",
-  "fesm5": "../fesm5/mdc-tabs.js",
   "fesm2015": "../fesm2015/mdc-tabs.js",
-  "esm5": "../esm5/mdc-tabs/index.js",
   "esm2015": "../esm2015/mdc-tabs/index.js",
   "typings": "./index.d.ts",
-  "module": "../fesm5/mdc-tabs.js",
+  "module": "../fesm2015/mdc-tabs.js",
   "es2015": "../fesm2015/mdc-tabs.js"
 }

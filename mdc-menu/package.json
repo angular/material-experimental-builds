@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-menu",
   "main": "../bundles/material-experimental-mdc-menu.umd.js",
-  "fesm5": "../fesm5/mdc-menu.js",
   "fesm2015": "../fesm2015/mdc-menu.js",
-  "esm5": "../esm5/mdc-menu/index.js",
   "esm2015": "../esm2015/mdc-menu/index.js",
   "typings": "./index.d.ts",
-  "module": "../fesm5/mdc-menu.js",
+  "module": "../fesm2015/mdc-menu.js",
   "es2015": "../fesm2015/mdc-menu.js"
 }

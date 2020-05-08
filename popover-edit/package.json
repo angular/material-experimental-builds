@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/popover-edit",
   "main": "../bundles/material-experimental-popover-edit.umd.js",
-  "fesm5": "../fesm5/popover-edit.js",
   "fesm2015": "../fesm2015/popover-edit.js",
-  "esm5": "../esm5/popover-edit/index.js",
   "esm2015": "../esm2015/popover-edit/index.js",
   "typings": "./index.d.ts",
-  "module": "../fesm5/popover-edit.js",
+  "module": "../fesm2015/popover-edit.js",
   "es2015": "../fesm2015/popover-edit.js"
 }

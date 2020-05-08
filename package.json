@@ -1,15 +1,7 @@
 {
   "name": "@angular/material-experimental",
-  "version": "9.2.1-sha-dfe92fcac",
+  "version": "9.2.1-sha-6bfacb253",
   "description": "Experimental components for Angular Material",
-  "main": "./bundles/material-experimental.umd.js",
-  "fesm5": "./fesm5/material-experimental.js",
-  "fesm2015": "./fesm2015/material-experimental.js",
-  "esm5": "./esm5/index.js",
-  "esm2015": "./esm2015/index.js",
-  "typings": "./index.d.ts",
-  "module": "./fesm5/material-experimental.js",
-  "es2015": "./fesm2015/material-experimental.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/angular/components.git"
@@ -20,13 +12,19 @@
   },
   "homepage": "https://github.com/angular/components#readme",
   "peerDependencies": {
-    "@angular/core": "^9.0.0 || ^10.0.0-0",
-    "@angular/material": "9.2.1-sha-dfe92fcac",
+    "@angular/core": "^10.0.0-0 || ^11.0.0-0",
+    "@angular/material": "9.2.1-sha-6bfacb253",
     "material-components-web": "^6.0.0-canary.265ecbad5.0",
-    "tslib": "^1.9.0"
+    "tslib": "^1.10.0"
   },
   "sideEffects": false,
   "publishConfig": {
     "registry": "https://wombat-dressing-room.appspot.com"
-  }
+  },
+  "main": "./bundles/material-experimental.umd.js",
+  "fesm2015": "./fesm2015/material-experimental.js",
+  "esm2015": "./esm2015/index.js",
+  "typings": "./index.d.ts",
+  "module": "./fesm2015/material-experimental.js",
+  "es2015": "./fesm2015/material-experimental.js"
 }

@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-slider",
   "main": "../bundles/material-experimental-mdc-slider.umd.js",
-  "fesm5": "../fesm5/mdc-slider.js",
   "fesm2015": "../fesm2015/mdc-slider.js",
-  "esm5": "../esm5/mdc-slider/index.js",
   "esm2015": "../esm2015/mdc-slider/index.js",
   "typings": "./index.d.ts",
-  "module": "../fesm5/mdc-slider.js",
+  "module": "../fesm2015/mdc-slider.js",
   "es2015": "../fesm2015/mdc-slider.js"
 }

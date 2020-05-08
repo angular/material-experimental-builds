@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-select",
   "main": "../bundles/material-experimental-mdc-select.umd.js",
-  "fesm5": "../fesm5/mdc-select.js",
   "fesm2015": "../fesm2015/mdc-select.js",
-  "esm5": "../esm5/mdc-select/index.js",
   "esm2015": "../esm2015/mdc-select/index.js",
   "typings": "./index.d.ts",
-  "module": "../fesm5/mdc-select.js",
+  "module": "../fesm2015/mdc-select.js",
   "es2015": "../fesm2015/mdc-select.js"
 }

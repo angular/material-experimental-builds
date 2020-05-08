@@ -1,11 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-button/testing",
   "main": "../../bundles/material-experimental-mdc-button-testing.umd.js",
-  "fesm5": "../../fesm5/mdc-button/testing.js",
   "fesm2015": "../../fesm2015/mdc-button/testing.js",
-  "esm5": "../../esm5/mdc-button/testing/index.js",
   "esm2015": "../../esm2015/mdc-button/testing/index.js",
   "typings": "./index.d.ts",
-  "module": "../../fesm5/mdc-button/testing.js",
+  "module": "../../fesm2015/mdc-button/testing.js",
   "es2015": "../../fesm2015/mdc-button/testing.js"
 }
