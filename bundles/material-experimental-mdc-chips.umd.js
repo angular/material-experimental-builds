@@ -244,14 +244,43 @@
      */
     var MatChipTrailingIcon = /** @class */ (function () {
         function MatChipTrailingIcon(_elementRef) {
+            var _this = this;
             this._elementRef = _elementRef;
+            this._adapter = {
+                focus: function () { return _this._elementRef.nativeElement.focus(); },
+                getAttribute: function (name) {
+                    return _this._elementRef.nativeElement.getAttribute(name);
+                },
+                setAttribute: function (name, value) {
+                    _this._elementRef.nativeElement.setAttribute(name, value);
+                },
+                // TODO(crisbeto): there's also a `trigger` parameter that the chip isn't
+                // handling yet. Consider passing it along once MDC start using it.
+                notifyInteraction: function () {
+                    // TODO(crisbeto): uncomment this code once we've inverted the
+                    // dependency on `MatChip`. this._chip._notifyInteraction();
+                },
+                // TODO(crisbeto): there's also a `key` parameter that the chip isn't
+                // handling yet. Consider passing it along once MDC start using it.
+                notifyNavigation: function () {
+                    // TODO(crisbeto): uncomment this code once we've inverted the
+                    // dependency on `MatChip`. this._chip._notifyNavigation();
+                }
+            };
+            this._foundation = new chips.MDCChipTrailingActionFoundation(this._adapter);
         }
+        MatChipTrailingIcon.prototype.ngOnDestroy = function () {
+            this._foundation.destroy();
+        };
         MatChipTrailingIcon.prototype.focus = function () {
             this._elementRef.nativeElement.focus();
         };
         /** Sets an attribute on the icon. */
         MatChipTrailingIcon.prototype.setAttribute = function (name, value) {
             this._elementRef.nativeElement.setAttribute(name, value);
+        };
+        MatChipTrailingIcon.prototype.isNavigable = function () {
+            return this._foundation.isNavigable();
         };
         MatChipTrailingIcon.decorators = [
             { type: core.Directive, args: [{
@@ -275,8 +304,8 @@
      */
     var MatChipRemoveBase = /** @class */ (function (_super) {
         __extends(MatChipRemoveBase, _super);
-        function MatChipRemoveBase(_elementRef) {
-            return _super.call(this, _elementRef) || this;
+        function MatChipRemoveBase(elementRef) {
+            return _super.call(this, elementRef) || this;
         }
         return MatChipRemoveBase;
     }(MatChipTrailingIcon));
@@ -423,34 +452,44 @@
             _this._chipAdapter = {
                 addClass: function (className) { return _this._setMdcClass(className, true); },
                 removeClass: function (className) { return _this._setMdcClass(className, false); },
-                hasClass: function (className) { return _this._elementRef.nativeElement.classList.contains(className); },
-                addClassToLeadingIcon: function (className) { return _this.leadingIcon.setClass(className, true); },
-                removeClassFromLeadingIcon: function (className) { return _this.leadingIcon.setClass(className, false); },
+                hasClass: function (className) {
+                    return _this._elementRef.nativeElement.classList.contains(className);
+                },
+                addClassToLeadingIcon: function (className) {
+                    return _this.leadingIcon.setClass(className, true);
+                },
+                removeClassFromLeadingIcon: function (className) {
+                    return _this.leadingIcon.setClass(className, false);
+                },
                 eventTargetHasClass: function (target, className) {
-                    // We need to null check the `classList`, because IE and Edge don't support it on SVG elements
-                    // and Edge seems to throw for ripple elements, because they're outside the DOM.
+                    // We need to null check the `classList`, because IE and Edge don't
+                    // support it on SVG elements and Edge seems to throw for ripple
+                    // elements, because they're outside the DOM.
                     return (target && target.classList) ?
-                        target.classList.contains(className) : false;
+                        target.classList.contains(className) :
+                        false;
                 },
-                notifyInteraction: function () { return _this.interaction.emit(_this.id); },
+                notifyInteraction: function () { return _this._notifyInteraction(); },
                 notifySelection: function () {
-                    // No-op. We call dispatchSelectionEvent ourselves in MatChipOption, because we want to
-                    // specify whether selection occurred via user input.
+                    // No-op. We call dispatchSelectionEvent ourselves in MatChipOption,
+                    // because we want to specify whether selection occurred via user
+                    // input.
                 },
-                notifyNavigation: function () {
-                    // TODO: This is a new feature added by MDC; consider exposing this event to users in the
-                    // future.
+                notifyNavigation: function () { return _this._notifyNavigation(); },
+                notifyTrailingIconInteraction: function () {
+                    return _this.removeIconInteraction.emit(_this.id);
                 },
-                notifyTrailingIconInteraction: function () { return _this.removeIconInteraction.emit(_this.id); },
                 notifyRemoval: function () {
                     _this.removed.emit({ chip: _this });
-                    // When MDC removes a chip it just transitions it to `width: 0px` which means that it's still
-                    // in the DOM and it's still focusable. Make it `display: none` so users can't tab into it.
+                    // When MDC removes a chip it just transitions it to `width: 0px`
+                    // which means that it's still in the DOM and it's still focusable.
+                    // Make it `display: none` so users can't tab into it.
                     _this._elementRef.nativeElement.style.display = 'none';
                 },
                 getComputedStyleValue: function (propertyName) {
                     // This function is run when a chip is removed so it might be
-                    // invoked during server-side rendering. Add some extra checks just in case.
+                    // invoked during server-side rendering. Add some extra checks just in
+                    // case.
                     if (typeof window !== 'undefined' && window) {
                         var getComputedStyle_1 = window.getComputedStyle(_this._elementRef.nativeElement);
                         return getComputedStyle_1.getPropertyValue(propertyName);
@@ -461,21 +500,26 @@
                     _this._elementRef.nativeElement.style.setProperty(propertyName, value);
                 },
                 hasLeadingIcon: function () { return !!_this.leadingIcon; },
-                hasTrailingAction: function () { return !!_this.trailingIcon; },
+                isTrailingActionNavigable: function () {
+                    if (_this.trailingIcon) {
+                        return _this.trailingIcon.isNavigable();
+                    }
+                    return false;
+                },
                 isRTL: function () { return !!_this._dir && _this._dir.value === 'rtl'; },
                 focusPrimaryAction: function () {
-                    // Angular Material MDC chips fully manage focus. TODO: Managing focus and handling keyboard
-                    // events was added by MDC after our implementation; consider consolidating.
+                    // Angular Material MDC chips fully manage focus. TODO: Managing focus
+                    // and handling keyboard events was added by MDC after our
+                    // implementation; consider consolidating.
                 },
                 focusTrailingAction: function () { },
-                setTrailingActionAttr: function (attr, value) {
-                    return _this.trailingIcon && _this.trailingIcon.setAttribute(attr, value);
-                },
+                removeTrailingActionFocus: function () { },
                 setPrimaryActionAttr: function (name, value) {
-                    // MDC is currently using this method to set aria-checked on choice and filter chips,
-                    // which in the MDC templates have role="checkbox" and role="radio" respectively.
-                    // We have role="option" on those chips instead, so we do not want aria-checked.
-                    // Since we also manage the tabindex ourselves, we don't allow MDC to set it.
+                    // MDC is currently using this method to set aria-checked on choice
+                    // and filter chips, which in the MDC templates have role="checkbox"
+                    // and role="radio" respectively. We have role="option" on those chips
+                    // instead, so we do not want aria-checked. Since we also manage the
+                    // tabindex ourselves, we don't allow MDC to set it.
                     if (name === 'aria-checked' || name === 'tabindex') {
                         return;
                     }
@@ -483,7 +527,9 @@
                 },
                 // The 2 functions below are used by the MDC ripple, which we aren't using,
                 // so they will never be called
-                getRootBoundingClientRect: function () { return _this._elementRef.nativeElement.getBoundingClientRect(); },
+                getRootBoundingClientRect: function () {
+                    return _this._elementRef.nativeElement.getBoundingClientRect();
+                },
                 getCheckmarkBoundingClientRect: function () { return null; },
                 getAttribute: function (attr) { return _this._elementRef.nativeElement.getAttribute(attr); },
             };
@@ -588,7 +634,7 @@
                     _this.HANDLED_KEYS.indexOf(event.keyCode) !== -1)) {
                     return;
                 }
-                _this._chipFoundation.handleTrailingIconInteraction(event);
+                _this._chipFoundation.handleTrailingActionInteraction();
                 if (isKeyboardEvent && !keycodes.hasModifierKey(event)) {
                     var keyCode = event.keyCode;
                     // Prevent default space and enter presses so we don't scroll the page or submit forms.
@@ -616,13 +662,28 @@
         };
         /** Forwards interaction events to the MDC chip foundation. */
         MatChip.prototype._handleInteraction = function (event) {
-            if (!this.disabled) {
-                this._chipFoundation.handleInteraction(event);
+            if (this.disabled) {
+                return;
+            }
+            if (event.type === 'click') {
+                this._chipFoundation.handleClick();
+                return;
+            }
+            if (event.type === 'keydown') {
+                this._chipFoundation.handleKeydown(event);
+                return;
             }
         };
         /** Whether or not the ripple should be disabled. */
         MatChip.prototype._isRippleDisabled = function () {
             return this.disabled || this.disableRipple || this._animationsDisabled || this._isBasicChip;
+        };
+        MatChip.prototype._notifyInteraction = function () {
+            this.interaction.emit(this.id);
+        };
+        MatChip.prototype._notifyNavigation = function () {
+            // TODO: This is a new feature added by MDC. Consider exposing it to users
+            // in the future.
         };
         MatChip.decorators = [
             { type: core.Component, args: [{

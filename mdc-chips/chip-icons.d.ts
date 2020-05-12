@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { BooleanInput } from '@angular/cdk/coercion';
-import { ChangeDetectorRef, ElementRef } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, OnDestroy } from '@angular/core';
 import { CanDisable, CanDisableCtor, HasTabIndex, HasTabIndexCtor } from '@angular/material/core';
 import { Subject } from 'rxjs';
 /**
@@ -24,19 +24,23 @@ export declare class MatChipAvatar {
  * Directive to add CSS classes to and configure attributes for chip trailing icon.
  * @docs-private
  */
-export declare class MatChipTrailingIcon {
+export declare class MatChipTrailingIcon implements OnDestroy {
     _elementRef: ElementRef;
+    private _foundation;
+    private _adapter;
     constructor(_elementRef: ElementRef);
+    ngOnDestroy(): void;
     focus(): void;
     /** Sets an attribute on the icon. */
     setAttribute(name: string, value: string): void;
+    isNavigable(): boolean;
 }
 /**
  * Boilerplate for applying mixins to MatChipRemove.
  * @docs-private
  */
 declare class MatChipRemoveBase extends MatChipTrailingIcon {
-    constructor(_elementRef: ElementRef);
+    constructor(elementRef: ElementRef);
 }
 declare const _MatChipRemoveMixinBase: CanDisableCtor & HasTabIndexCtor & typeof MatChipRemoveBase;
 /**
