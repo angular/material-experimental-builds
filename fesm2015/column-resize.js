@@ -130,7 +130,10 @@ MatColumnResize.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatColumnResize.prototype.columnResizeNotifier;
-    /** @type {?} */
+    /**
+     * @type {?}
+     * @protected
+     */
     MatColumnResize.prototype.elementRef;
     /**
      * @type {?}
@@ -196,7 +199,10 @@ MatColumnResizeFlex.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatColumnResizeFlex.prototype.columnResizeNotifier;
-    /** @type {?} */
+    /**
+     * @type {?}
+     * @protected
+     */
     MatColumnResizeFlex.prototype.elementRef;
     /**
      * @type {?}
@@ -262,7 +268,10 @@ MatDefaultEnabledColumnResize.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatDefaultEnabledColumnResize.prototype.columnResizeNotifier;
-    /** @type {?} */
+    /**
+     * @type {?}
+     * @protected
+     */
     MatDefaultEnabledColumnResize.prototype.elementRef;
     /**
      * @type {?}
@@ -328,7 +337,10 @@ MatDefaultEnabledColumnResizeFlex.ctorParameters = () => [
 if (false) {
     /** @type {?} */
     MatDefaultEnabledColumnResizeFlex.prototype.columnResizeNotifier;
-    /** @type {?} */
+    /**
+     * @type {?}
+     * @protected
+     */
     MatDefaultEnabledColumnResizeFlex.prototype.elementRef;
     /**
      * @type {?}
