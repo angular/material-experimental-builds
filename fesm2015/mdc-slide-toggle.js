@@ -24,13 +24,6 @@ if (false) {
      * @type {?|undefined}
      */
     MatSlideToggleDefaultOptions.prototype.disableToggleValue;
-    /**
-     * Whether drag action triggers value changes in slide toggle.
-     * @deprecated No longer being used.
-     * \@breaking-change 9.0.0.
-     * @type {?|undefined}
-     */
-    MatSlideToggleDefaultOptions.prototype.disableDragValue;
 }
 /**
  * Injection token to be used to override the default options for `mat-slide-toggle`.
@@ -188,15 +181,6 @@ class MatSlideToggle {
          * Event will be dispatched each time the slide-toggle input is toggled.
          */
         this.toggleChange = new EventEmitter();
-        /**
-         * An event will be dispatched each time the slide-toggle is dragged.
-         * This event is always emitted when the user drags the slide toggle to make a change greater
-         * than 50%. It does not mean the slide toggle's value is changed. The event is not emitted when
-         * the user toggles the slide toggle to change its value.
-         * @deprecated No longer being used.
-         * \@breaking-change 9.0.0
-         */
-        this.dragChange = new EventEmitter();
         this.tabIndex = parseInt(tabIndex) || 0;
     }
     /**
@@ -445,7 +429,6 @@ MatSlideToggle.propDecorators = {
     disabled: [{ type: Input }],
     change: [{ type: Output }],
     toggleChange: [{ type: Output }],
-    dragChange: [{ type: Output }],
     _inputElement: [{ type: ViewChild, args: ['input',] }],
     _switchElement: [{ type: ViewChild, args: ['switch',] }]
 };
@@ -560,16 +543,6 @@ if (false) {
      * @type {?}
      */
     MatSlideToggle.prototype.toggleChange;
-    /**
-     * An event will be dispatched each time the slide-toggle is dragged.
-     * This event is always emitted when the user drags the slide toggle to make a change greater
-     * than 50%. It does not mean the slide toggle's value is changed. The event is not emitted when
-     * the user toggles the slide toggle to change its value.
-     * @deprecated No longer being used.
-     * \@breaking-change 9.0.0
-     * @type {?}
-     */
-    MatSlideToggle.prototype.dragChange;
     /**
      * Reference to the underlying input element.
      * @type {?}
