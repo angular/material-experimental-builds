@@ -89,6 +89,15 @@
             this.change = new core.EventEmitter();
             /** Event will be dispatched each time the slide-toggle input is toggled. */
             this.toggleChange = new core.EventEmitter();
+            /**
+             * An event will be dispatched each time the slide-toggle is dragged.
+             * This event is always emitted when the user drags the slide toggle to make a change greater
+             * than 50%. It does not mean the slide toggle's value is changed. The event is not emitted when
+             * the user toggles the slide toggle to change its value.
+             * @deprecated No longer being used.
+             * @breaking-change 9.0.0
+             */
+            this.dragChange = new core.EventEmitter();
             this.tabIndex = parseInt(tabIndex) || 0;
         }
         Object.defineProperty(MatSlideToggle.prototype, "tabIndex", {
@@ -280,6 +289,7 @@
             disabled: [{ type: core.Input }],
             change: [{ type: core.Output }],
             toggleChange: [{ type: core.Output }],
+            dragChange: [{ type: core.Output }],
             _inputElement: [{ type: core.ViewChild, args: ['input',] }],
             _switchElement: [{ type: core.ViewChild, args: ['switch',] }]
         };
