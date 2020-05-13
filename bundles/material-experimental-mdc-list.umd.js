@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/material/core'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/common'), require('@angular/material/divider')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/material/core', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/common', '@angular/material/divider'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.cdk.platform, global.ng.core, global.ng.material.core, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.common, global.ng.material.divider));
-}(this, (function (exports, platform, core, core$1, rxjs, operators, forms, common, divider) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/material/core'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/material/divider')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/material/core', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/material/divider'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.cdk.platform, global.ng.core, global.ng.material.core, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.material.divider));
+}(this, (function (exports, platform, core, core$1, rxjs, operators, forms, divider) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -208,21 +208,8 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    function toggleClass(el, className, on) {
-        if (on) {
-            el.classList.add(className);
-        }
-        else {
-            el.classList.remove(className);
-        }
-    }
     var MatListBase = /** @class */ (function () {
         function MatListBase() {
-            // @HostBinding is used in the class as it is expected to be extended. Since @Component decorator
-            // metadata is not inherited by child classes, instead the host binding data is defined in a way
-            // that can be inherited.
-            // tslint:disable-next-line:no-host-decorator-in-concrete
-            this._isNonInteractive = false;
         }
         MatListBase.decorators = [
             { type: core.Directive }
@@ -260,8 +247,8 @@
                 _this._subscriptions.add(_this.lines.changes.pipe(operators.startWith(_this.lines))
                     .subscribe(function (lines) {
                     lines.forEach(function (line, index) {
-                        toggleClass(line.nativeElement, 'mdc-list-item__primary-text', index === 0 && lines.length > 1);
-                        toggleClass(line.nativeElement, 'mdc-list-item__secondary-text', index !== 0);
+                        line.nativeElement.classList.toggle('mdc-list-item__primary-text', index === 0);
+                        line.nativeElement.classList.toggle('mdc-list-item__secondary-text', index !== 0);
                     });
                     core$1.setLines(lines, _this._element, 'mat-mdc');
                 }));
@@ -375,7 +362,7 @@
                         host: {
                             'class': 'mat-mdc-list-item mdc-list-item',
                         },
-                        template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n\n<!-- If lines were explicitly given, use those as the text. -->\n<ng-container *ngIf=\"lines.length\">\n  <span class=\"mdc-list-item__text\"><ng-content select=\"[mat-line],[matLine]\"></ng-content></span>\n</ng-container>\n\n<!--\n  If lines were not explicitly given, assume the remaining content is the text, otherwise assume it\n  is an action that belongs in the \"meta\" section.\n-->\n<span [class.mdc-list-item__text]=\"!lines.length\" [class.mdc-list-item__meta]=\"lines.length\">\n  <ng-content></ng-content>\n</span>\n\n<ng-content select=\"mat-divider\"></ng-content>\n",
+                        template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n<span class=\"mdc-list-item__text\"><ng-content></ng-content></span>\n<ng-content select=\"mat-divider\"></ng-content>\n",
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush
                     }] }
@@ -555,7 +542,6 @@
         MatListModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [
-                            common.CommonModule,
                             core$1.MatLineModule,
                             core$1.MatRippleModule,
                         ],
