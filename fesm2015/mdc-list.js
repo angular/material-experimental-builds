@@ -4,6 +4,7 @@ import { RippleRenderer, setLines, MatLine, MatLineModule, MatRippleModule } fro
 import { Subscription } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 
 /**
@@ -11,7 +12,32 @@ import { MatDividerModule } from '@angular/material/divider';
  * Generated from: src/material-experimental/mdc-list/list-base.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @param {?} el
+ * @param {?} className
+ * @param {?} on
+ * @return {?}
+ */
+function toggleClass(el, className, on) {
+    if (on) {
+        el.classList.add(className);
+    }
+    else {
+        el.classList.remove(className);
+    }
+}
+/**
+ * @abstract
+ */
+/** @docs-private */
 class MatListBase {
+    constructor() {
+        // @HostBinding is used in the class as it is expected to be extended. Since @Component decorator
+        // metadata is not inherited by child classes, instead the host binding data is defined in a way
+        // that can be inherited.
+        // tslint:disable-next-line:no-host-decorator-in-concrete
+        this._isNonInteractive = false;
+    }
 }
 MatListBase.decorators = [
     { type: Directive }
@@ -26,6 +52,7 @@ if (false) {
 /**
  * @abstract
  */
+/** @docs-private */
 class MatListItemBase {
     /**
      * @param {?} _element
@@ -71,14 +98,16 @@ class MatListItemBase {
              * @return {?}
              */
             (lines) => {
+                this._element.nativeElement.classList
+                    .toggle('mat-mdc-list-item-single-line', lines.length <= 1);
                 lines.forEach((/**
                  * @param {?} line
                  * @param {?} index
                  * @return {?}
                  */
                 (line, index) => {
-                    line.nativeElement.classList.toggle('mdc-list-item__primary-text', index === 0);
-                    line.nativeElement.classList.toggle('mdc-list-item__secondary-text', index !== 0);
+                    toggleClass(line.nativeElement, 'mdc-list-item__primary-text', index === 0 && lines.length > 1);
+                    toggleClass(line.nativeElement, 'mdc-list-item__secondary-text', index !== 0);
                 }));
                 setLines(lines, this._element, 'mat-mdc');
             })));
@@ -218,7 +247,7 @@ MatListItem.decorators = [
                 host: {
                     'class': 'mat-mdc-list-item mdc-list-item',
                 },
-                template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n<span class=\"mdc-list-item__text\"><ng-content></ng-content></span>\n<ng-content select=\"mat-divider\"></ng-content>\n",
+                template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n\n<!-- If lines were explicitly given, use those as the text. -->\n<ng-container *ngIf=\"lines.length\">\n  <span class=\"mdc-list-item__text\"><ng-content select=\"[mat-line],[matLine]\"></ng-content></span>\n</ng-container>\n\n<!--\n  If lines were not explicitly given, assume the remaining content is the text, otherwise assume it\n  is an action that belongs in the \"meta\" section.\n-->\n<span [class.mdc-list-item__text]=\"!lines.length\" [class.mdc-list-item__meta]=\"lines.length\">\n  <ng-content></ng-content>\n</span>\n\n<ng-content select=\"mat-divider\"></ng-content>\n",
                 encapsulation: ViewEncapsulation.None,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }] }
@@ -401,6 +430,7 @@ class MatListModule {
 MatListModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
+                    CommonModule,
                     MatLineModule,
                     MatRippleModule,
                 ],
