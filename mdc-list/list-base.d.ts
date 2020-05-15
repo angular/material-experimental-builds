@@ -8,7 +8,7 @@
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ElementRef, NgZone, OnDestroy, QueryList } from '@angular/core';
 import { RippleConfig, RippleTarget } from '@angular/material/core';
-export declare class MatListBase {
+export declare abstract class MatListBase {
     _isNonInteractive: boolean;
 }
 export declare abstract class MatListItemBase implements AfterContentInit, OnDestroy, RippleTarget {

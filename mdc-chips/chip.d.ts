@@ -131,6 +131,8 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     _handleInteraction(event: MouseEvent | KeyboardEvent): void;
     /** Whether or not the ripple should be disabled. */
     _isRippleDisabled(): boolean;
+    _notifyInteraction(): void;
+    _notifyNavigation(): void;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_removable: BooleanInput;
     static ngAcceptInputType_highlighted: BooleanInput;

@@ -14,9 +14,9 @@ import { AbstractMatColumnResize } from './common';
  */
 export declare class MatDefaultEnabledColumnResize extends AbstractMatColumnResize {
     readonly columnResizeNotifier: ColumnResizeNotifier;
-    protected readonly elementRef: ElementRef;
+    readonly elementRef: ElementRef<HTMLElement>;
     protected readonly eventDispatcher: HeaderRowEventDispatcher;
     protected readonly ngZone: NgZone;
     protected readonly notifier: ColumnResizeNotifierSource;
-    constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
+    constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
 }
