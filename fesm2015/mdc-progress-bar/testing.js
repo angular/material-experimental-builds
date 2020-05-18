@@ -10,40 +10,46 @@ import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
 /**
  * Harness for interacting with an MDC-based `mat-progress-bar` in tests.
  */
-class MatProgressBarHarness extends ComponentHarness {
+let MatProgressBarHarness = /** @class */ (() => {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a progress bar with specific
-     * attributes.
-     * @param {?=} options
-     * @return {?}
+     * Harness for interacting with an MDC-based `mat-progress-bar` in tests.
      */
-    static with(options = {}) {
-        return new HarnessPredicate(MatProgressBarHarness, options);
+    class MatProgressBarHarness extends ComponentHarness {
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a progress bar with specific
+         * attributes.
+         * @param {?=} options
+         * @return {?}
+         */
+        static with(options = {}) {
+            return new HarnessPredicate(MatProgressBarHarness, options);
+        }
+        /**
+         * Gets a promise for the progress bar's value.
+         * @return {?}
+         */
+        getValue() {
+            return __awaiter(this, void 0, void 0, function* () {
+                /** @type {?} */
+                const host = yield this.host();
+                /** @type {?} */
+                const ariaValue = yield host.getAttribute('aria-valuenow');
+                return ariaValue ? coerceNumberProperty(ariaValue) : null;
+            });
+        }
+        /**
+         * Gets a promise for the progress bar's mode.
+         * @return {?}
+         */
+        getMode() {
+            return __awaiter(this, void 0, void 0, function* () {
+                return (yield this.host()).getAttribute('mode');
+            });
+        }
     }
-    /**
-     * Gets a promise for the progress bar's value.
-     * @return {?}
-     */
-    getValue() {
-        return __awaiter(this, void 0, void 0, function* () {
-            /** @type {?} */
-            const host = yield this.host();
-            /** @type {?} */
-            const ariaValue = yield host.getAttribute('aria-valuenow');
-            return ariaValue ? coerceNumberProperty(ariaValue) : null;
-        });
-    }
-    /**
-     * Gets a promise for the progress bar's mode.
-     * @return {?}
-     */
-    getMode() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.host()).getAttribute('mode');
-        });
-    }
-}
-MatProgressBarHarness.hostSelector = 'mat-progress-bar';
+    MatProgressBarHarness.hostSelector = 'mat-progress-bar';
+    return MatProgressBarHarness;
+})();
 if (false) {
     /** @type {?} */
     MatProgressBarHarness.hostSelector;

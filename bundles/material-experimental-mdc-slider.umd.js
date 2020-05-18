@@ -183,7 +183,7 @@
             set: function (value) {
                 this._min = coercion.coerceNumberProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlider.prototype, "max", {
@@ -194,7 +194,7 @@
             set: function (value) {
                 this._max = coercion.coerceNumberProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlider.prototype, "value", {
@@ -210,7 +210,7 @@
             set: function (value) {
                 this._value = coercion.coerceNumberProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlider.prototype, "step", {
@@ -221,7 +221,7 @@
             set: function (v) {
                 this._step = coercion.coerceNumberProperty(v, this._step);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlider.prototype, "tickInterval", {
@@ -243,7 +243,7 @@
                     this._tickInterval = 0;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlider.prototype, "thumbLabel", {
@@ -254,7 +254,7 @@
             set: function (value) {
                 this._thumbLabel = coercion.coerceBooleanProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlider.prototype, "disabled", {
@@ -265,7 +265,7 @@
             set: function (disabled) {
                 this._disabled = coercion.coerceBooleanProperty(disabled);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatSlider.prototype.ngAfterViewInit = function () {
@@ -339,7 +339,7 @@
                 }
                 return this.value.toString() || '0';
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /** Creates a slider change object from the specified value. */

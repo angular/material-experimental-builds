@@ -6,14 +6,17 @@ import { MatCommonModule } from '@angular/material/core';
  * Generated from: src/material-experimental/mdc-select/module.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-class MatSelectModule {
-}
-MatSelectModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [MatCommonModule],
-                exports: [MatCommonModule],
-            },] }
-];
+let MatSelectModule = /** @class */ (() => {
+    class MatSelectModule {
+    }
+    MatSelectModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule],
+                    exports: [MatCommonModule],
+                },] }
+    ];
+    return MatSelectModule;
+})();
 
 /**
  * @fileoverview added by tsickle

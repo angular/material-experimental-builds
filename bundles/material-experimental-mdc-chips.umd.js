@@ -5,18 +5,18 @@
 }(this, (function (exports, bidi, coercion, animations, core, core$1, chips, ripple, keycodes, rxjs, operators, a11y, forms, formField, common) { 'use strict';
 
     /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation. All rights reserved.
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-    this file except in compliance with the License. You may obtain a copy of the
-    License at http://www.apache.org/licenses/LICENSE-2.0
+    Copyright (c) Microsoft Corporation.
 
-    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-    MERCHANTABLITY OR NON-INFRINGEMENT.
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
 
-    See the Apache Version 2.0 License for specific language governing permissions
-    and limitations under the License.
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
     /* global Reflect, Promise */
 
@@ -72,10 +72,11 @@
     }
 
     function __awaiter(thisArg, _arguments, P, generator) {
+        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     }
@@ -108,19 +109,28 @@
         }
     }
 
+    const __createBinding = Object.create ? (function(o, m, k, k2) {
+        if (k2 === undefined) k2 = k;
+        Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    }) : (function(o, m, k, k2) {
+        if (k2 === undefined) k2 = k;
+        o[k2] = m[k];
+    });
+
     function __exportStar(m, exports) {
-        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+        for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
     }
 
     function __values(o) {
-        var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
         if (m) return m.call(o);
-        return {
+        if (o && typeof o.length === "number") return {
             next: function () {
                 if (o && i >= o.length) o = void 0;
                 return { value: o && o[i++], done: !o };
             }
         };
+        throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
 
     function __read(o, n) {
@@ -189,16 +199,37 @@
         return cooked;
     };
 
+    const __setModuleDefault = Object.create ? (function(o, v) {
+        Object.defineProperty(o, "default", { enumerable: true, value: v });
+    }) : function(o, v) {
+        o["default"] = v;
+    };
+
     function __importStar(mod) {
         if (mod && mod.__esModule) return mod;
         var result = {};
-        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-        result.default = mod;
+        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+        __setModuleDefault(result, mod);
         return result;
     }
 
     function __importDefault(mod) {
         return (mod && mod.__esModule) ? mod : { default: mod };
+    }
+
+    function __classPrivateFieldGet(receiver, privateMap) {
+        if (!privateMap.has(receiver)) {
+            throw new TypeError("attempted to get private field on non-instance");
+        }
+        return privateMap.get(receiver);
+    }
+
+    function __classPrivateFieldSet(receiver, privateMap, value) {
+        if (!privateMap.has(receiver)) {
+            throw new TypeError("attempted to set private field on non-instance");
+        }
+        privateMap.set(receiver, value);
+        return value;
     }
 
     /**
@@ -551,7 +582,7 @@
             get: function () {
                 return this._hasFocusInternal;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChip.prototype, "disabled", {
@@ -562,7 +593,7 @@
                     this.removeIcon.disabled = value;
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChip.prototype, "value", {
@@ -573,7 +604,7 @@
                     : this._textElement.textContent.trim();
             },
             set: function (value) { this._value = value; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChip.prototype, "removable", {
@@ -584,7 +615,7 @@
             set: function (value) {
                 this._removable = coercion.coerceBooleanProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChip.prototype, "highlighted", {
@@ -595,7 +626,7 @@
             set: function (value) {
                 this._highlighted = coercion.coerceBooleanProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatChip.prototype.ngAfterContentInit = function () {
@@ -791,7 +822,7 @@
             set: function (value) {
                 this._selectable = coercion.coerceBooleanProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipOption.prototype, "selected", {
@@ -809,7 +840,7 @@
                     this._dispatchSelectionChange();
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipOption.prototype, "ariaSelected", {
@@ -820,7 +851,7 @@
                 return this.selectable && (this._chipListMultiple || this.selected) ?
                     this.selected.toString() : null;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatChipOption.prototype.ngAfterContentInit = function () {
@@ -1059,7 +1090,7 @@
             get: function () {
                 return this._activeRowIndex;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(GridKeyManager.prototype, "activeColumnIndex", {
@@ -1067,7 +1098,7 @@
             get: function () {
                 return this._activeColumnIndex;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(GridKeyManager.prototype, "activeCell", {
@@ -1075,7 +1106,7 @@
             get: function () {
                 return this._activeCell;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         /** Sets the active cell to the first cell in the grid. */
@@ -1375,25 +1406,25 @@
                 this._disabled = coercion.coerceBooleanProperty(value);
                 this._syncChipsState();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipSet.prototype, "empty", {
             /** Whether the chip list contains chips or not. */
             get: function () { return this._chips.length === 0; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipSet.prototype, "role", {
             /** The ARIA role applied to the chip set. */
             get: function () { return this.empty ? null : 'presentation'; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipSet.prototype, "focused", {
             /** Whether any of the chips inside of this chip-set has focus. */
             get: function () { return this._hasFocusedChip(); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipSet.prototype, "chipRemoveChanges", {
@@ -1401,7 +1432,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.removed; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipSet.prototype, "chipDestroyedChanges", {
@@ -1409,7 +1440,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.destroyed; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipSet.prototype, "chipInteractionChanges", {
@@ -1417,7 +1448,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.interaction; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatChipSet.prototype.ngAfterViewInit = function () {
@@ -1647,7 +1678,7 @@
         Object.defineProperty(MatChipListbox.prototype, "role", {
             /** The ARIA role applied to the chip listbox. */
             get: function () { return this.empty ? null : 'listbox'; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "multiple", {
@@ -1658,7 +1689,7 @@
                 this._updateMdcSelectionClasses();
                 this._syncListboxProperties();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "selected", {
@@ -1667,7 +1698,7 @@
                 var selectedChips = this._chips.toArray().filter(function (chip) { return chip.selected; });
                 return this.multiple ? selectedChips : selectedChips[0];
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "selectable", {
@@ -1683,7 +1714,7 @@
                 this._updateMdcSelectionClasses();
                 this._syncListboxProperties();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "compareWith", {
@@ -1697,7 +1728,7 @@
                 this._compareWith = fn;
                 this._initializeSelection();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "required", {
@@ -1706,7 +1737,7 @@
             set: function (value) {
                 this._required = coercion.coerceBooleanProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "chipSelectionChanges", {
@@ -1714,7 +1745,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.selectionChange; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "chipFocusChanges", {
@@ -1722,7 +1753,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onFocus; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "chipBlurChanges", {
@@ -1730,7 +1761,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onBlur; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipListbox.prototype, "value", {
@@ -1740,7 +1771,7 @@
                 this.writeValue(value);
                 this._value = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatChipListbox.prototype.ngAfterContentInit = function () {
@@ -2221,7 +2252,7 @@
                 this._disabled = coercion.coerceBooleanProperty(value);
                 this._syncChipsState();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "id", {
@@ -2230,7 +2261,7 @@
              * @docs-private
              */
             get: function () { return this._chipInput.id; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "empty", {
@@ -2239,13 +2270,13 @@
              * @docs-private
              */
             get: function () { return this._chipInput.empty && this._chips.length === 0; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "role", {
             /** The ARIA role applied to the chip grid. */
             get: function () { return this.empty ? null : 'grid'; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "placeholder", {
@@ -2260,13 +2291,13 @@
                 this._placeholder = value;
                 this.stateChanges.next();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "focused", {
             /** Whether any chips or the matChipInput inside of this chip-grid has focus. */
             get: function () { return this._chipInput.focused || this._hasFocusedChip(); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "required", {
@@ -2279,7 +2310,7 @@
                 this._required = coercion.coerceBooleanProperty(value);
                 this.stateChanges.next();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "shouldLabelFloat", {
@@ -2288,7 +2319,7 @@
              * @docs-private
              */
             get: function () { return !this.empty || this.focused; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "value", {
@@ -2300,7 +2331,7 @@
             set: function (value) {
                 this._value = value;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "chipBlurChanges", {
@@ -2308,7 +2339,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onBlur; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipGrid.prototype, "chipFocusChanges", {
@@ -2316,7 +2347,7 @@
             get: function () {
                 return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onFocus; })));
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatChipGrid.prototype.ngAfterContentInit = function () {
@@ -2678,7 +2709,7 @@
                     this._chipGrid.registerInput(this);
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipInput.prototype, "addOnBlur", {
@@ -2687,20 +2718,20 @@
              */
             get: function () { return this._addOnBlur; },
             set: function (value) { this._addOnBlur = coercion.coerceBooleanProperty(value); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipInput.prototype, "disabled", {
             /** Whether the input is disabled. */
             get: function () { return this._disabled || (this._chipGrid && this._chipGrid.disabled); },
             set: function (value) { this._disabled = coercion.coerceBooleanProperty(value); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatChipInput.prototype, "empty", {
             /** Whether the input is empty. */
             get: function () { return !this._inputElement.value; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatChipInput.prototype.ngOnChanges = function () {
@@ -2837,6 +2868,14 @@
         ];
         return MatChipsModule;
     }());
+
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
 
     /**
      * @license

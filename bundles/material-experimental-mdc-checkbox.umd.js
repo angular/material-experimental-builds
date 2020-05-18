@@ -122,7 +122,7 @@
             set: function (checked) {
                 this._checked = coercion.coerceBooleanProperty(checked);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatCheckbox.prototype, "indeterminate", {
@@ -139,7 +139,7 @@
                 this._indeterminate = coercion.coerceBooleanProperty(indeterminate);
                 this._syncIndeterminate(this._indeterminate);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatCheckbox.prototype, "disabled", {
@@ -150,7 +150,7 @@
             set: function (disabled) {
                 this._disabled = coercion.coerceBooleanProperty(disabled);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatCheckbox.prototype, "required", {
@@ -161,7 +161,7 @@
             set: function (required) {
                 this._required = coercion.coerceBooleanProperty(required);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatCheckbox.prototype, "disableRipple", {
@@ -172,7 +172,7 @@
             set: function (disableRipple) {
                 this._disableRipple = coercion.coerceBooleanProperty(disableRipple);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatCheckbox.prototype, "inputId", {
@@ -180,7 +180,7 @@
             get: function () {
                 return (this.id || this._uniqueId) + "-input";
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatCheckbox.prototype.ngAfterViewInit = function () {

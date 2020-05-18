@@ -6,14 +6,17 @@ import { MatCommonModule } from '@angular/material/core';
  * Generated from: src/material-experimental/mdc-sidenav/module.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-class MatSidenavModule {
-}
-MatSidenavModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [MatCommonModule],
-                exports: [MatCommonModule],
-            },] }
-];
+let MatSidenavModule = /** @class */ (() => {
+    class MatSidenavModule {
+    }
+    MatSidenavModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule],
+                    exports: [MatCommonModule],
+                },] }
+    ];
+    return MatSidenavModule;
+})();
 
 /**
  * @fileoverview added by tsickle

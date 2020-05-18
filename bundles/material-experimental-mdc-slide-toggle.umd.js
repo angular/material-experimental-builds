@@ -97,14 +97,14 @@
             set: function (value) {
                 this._tabIndex = coercion.coerceNumberProperty(value);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlideToggle.prototype, "required", {
             /** Whether the slide-toggle is required. */
             get: function () { return this._required; },
             set: function (value) { this._required = coercion.coerceBooleanProperty(value); },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlideToggle.prototype, "checked", {
@@ -116,7 +116,7 @@
                     this._foundation.setChecked(this._checked);
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlideToggle.prototype, "disableRipple", {
@@ -127,7 +127,7 @@
             set: function (disableRipple) {
                 this._disableRipple = coercion.coerceBooleanProperty(disableRipple);
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlideToggle.prototype, "disabled", {
@@ -141,13 +141,13 @@
                     this._foundation.setDisabled(this._disabled);
                 }
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(MatSlideToggle.prototype, "inputId", {
             /** Returns the unique id for the visual hidden input. */
             get: function () { return (this.id || this._uniqueId) + "-input"; },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         MatSlideToggle.prototype.ngAfterViewInit = function () {

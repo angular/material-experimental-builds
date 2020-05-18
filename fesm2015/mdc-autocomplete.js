@@ -6,14 +6,17 @@ import { MatCommonModule } from '@angular/material/core';
  * Generated from: src/material-experimental/mdc-autocomplete/module.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-class MatAutocompleteModule {
-}
-MatAutocompleteModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [MatCommonModule],
-                exports: [MatCommonModule],
-            },] }
-];
+let MatAutocompleteModule = /** @class */ (() => {
+    class MatAutocompleteModule {
+    }
+    MatAutocompleteModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule],
+                    exports: [MatCommonModule],
+                },] }
+    ];
+    return MatAutocompleteModule;
+})();
 
 /**
  * @fileoverview added by tsickle
