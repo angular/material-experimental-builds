@@ -1,15 +1,11 @@
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-form-field/directives/notched-outline.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { __decorate, __metadata } from "tslib";
 import { Platform } from '@angular/cdk/platform';
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import { MDCNotchedOutline } from '@material/notched-outline';
@@ -23,39 +19,17 @@ import { MDCNotchedOutline } from '@material/notched-outline';
  * inputs to toggle the notch state and width.
  */
 let MatFormFieldNotchedOutline = /** @class */ (() => {
-    /**
-     * Internal component that creates an instance of the MDC notched-outline component. Using
-     * a directive allows us to conditionally render a notched-outline in the template without
-     * having to manually create and destroy the `MDCNotchedOutline` component whenever the
-     * appearance changes.
-     *
-     * The component sets up the HTML structure and styles for the notched-outline. It provides
-     * inputs to toggle the notch state and width.
-     */
-    class MatFormFieldNotchedOutline {
-        /**
-         * @param {?} _elementRef
-         * @param {?} _platform
-         */
+    let MatFormFieldNotchedOutline = class MatFormFieldNotchedOutline {
         constructor(_elementRef, _platform) {
             this._elementRef = _elementRef;
             this._platform = _platform;
-            /**
-             * Width of the notch.
-             */
+            /** Width of the notch. */
             this.width = 0;
-            /**
-             * Whether the notch should be opened.
-             */
+            /** Whether the notch should be opened. */
             this.open = false;
-            /**
-             * Instance of the MDC notched outline.
-             */
+            /** Instance of the MDC notched outline. */
             this._mdcNotchedOutline = null;
         }
-        /**
-         * @return {?}
-         */
         ngAfterViewInit() {
             // The notched outline cannot be attached in the server platform. It schedules tasks
             // for the next browser animation frame and relies on element client rectangles to render
@@ -69,27 +43,17 @@ let MatFormFieldNotchedOutline = /** @class */ (() => {
             // Initial sync in case state has been updated before view initialization.
             this._syncNotchedOutlineState();
         }
-        /**
-         * @return {?}
-         */
         ngOnChanges() {
             // Whenever the width, or the open state changes, sync the notched outline to be
             // based on the new values.
             this._syncNotchedOutlineState();
         }
-        /**
-         * @return {?}
-         */
         ngOnDestroy() {
             if (this._mdcNotchedOutline !== null) {
                 this._mdcNotchedOutline.destroy();
             }
         }
-        /**
-         * Synchronizes the notched outline state to be based on the `width` and `open` inputs.
-         * @private
-         * @return {?}
-         */
+        /** Synchronizes the notched outline state to be based on the `width` and `open` inputs. */
         _syncNotchedOutlineState() {
             if (this._mdcNotchedOutline === null) {
                 return;
@@ -101,59 +65,31 @@ let MatFormFieldNotchedOutline = /** @class */ (() => {
                 this._mdcNotchedOutline.closeNotch();
             }
         }
-    }
-    MatFormFieldNotchedOutline.decorators = [
-        { type: Component, args: [{
-                    selector: 'div[matFormFieldNotchedOutline]',
-                    template: "<div class=\"mdc-notched-outline__leading\"></div>\n<div class=\"mdc-notched-outline__notch\">\n  <ng-content></ng-content>\n</div>\n<div class=\"mdc-notched-outline__trailing\"></div>\n",
-                    host: {
-                        'class': 'mdc-notched-outline',
-                        // Besides updating the notch state through the MDC component, we toggle this class through
-                        // a host binding in order to ensure that the notched-outline renders correctly on the server.
-                        '[class.mdc-notched-outline--notched]': 'open',
-                    },
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    encapsulation: ViewEncapsulation.None
-                }] }
-    ];
-    /** @nocollapse */
-    MatFormFieldNotchedOutline.ctorParameters = () => [
-        { type: ElementRef },
-        { type: Platform }
-    ];
-    MatFormFieldNotchedOutline.propDecorators = {
-        width: [{ type: Input, args: ['matFormFieldNotchedOutlineWidth',] }],
-        open: [{ type: Input, args: ['matFormFieldNotchedOutlineOpen',] }]
     };
+    __decorate([
+        Input('matFormFieldNotchedOutlineWidth'),
+        __metadata("design:type", Number)
+    ], MatFormFieldNotchedOutline.prototype, "width", void 0);
+    __decorate([
+        Input('matFormFieldNotchedOutlineOpen'),
+        __metadata("design:type", Boolean)
+    ], MatFormFieldNotchedOutline.prototype, "open", void 0);
+    MatFormFieldNotchedOutline = __decorate([
+        Component({
+            selector: 'div[matFormFieldNotchedOutline]',
+            template: "<div class=\"mdc-notched-outline__leading\"></div>\n<div class=\"mdc-notched-outline__notch\">\n  <ng-content></ng-content>\n</div>\n<div class=\"mdc-notched-outline__trailing\"></div>\n",
+            host: {
+                'class': 'mdc-notched-outline',
+                // Besides updating the notch state through the MDC component, we toggle this class through
+                // a host binding in order to ensure that the notched-outline renders correctly on the server.
+                '[class.mdc-notched-outline--notched]': 'open',
+            },
+            changeDetection: ChangeDetectionStrategy.OnPush,
+            encapsulation: ViewEncapsulation.None
+        }),
+        __metadata("design:paramtypes", [ElementRef, Platform])
+    ], MatFormFieldNotchedOutline);
     return MatFormFieldNotchedOutline;
 })();
 export { MatFormFieldNotchedOutline };
-if (false) {
-    /**
-     * Width of the notch.
-     * @type {?}
-     */
-    MatFormFieldNotchedOutline.prototype.width;
-    /**
-     * Whether the notch should be opened.
-     * @type {?}
-     */
-    MatFormFieldNotchedOutline.prototype.open;
-    /**
-     * Instance of the MDC notched outline.
-     * @type {?}
-     * @private
-     */
-    MatFormFieldNotchedOutline.prototype._mdcNotchedOutline;
-    /**
-     * @type {?}
-     * @private
-     */
-    MatFormFieldNotchedOutline.prototype._elementRef;
-    /**
-     * @type {?}
-     * @private
-     */
-    MatFormFieldNotchedOutline.prototype._platform;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibm90Y2hlZC1vdXRsaW5lLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9tZGMtZm9ybS1maWVsZC9kaXJlY3RpdmVzL25vdGNoZWQtb3V0bGluZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFRQSxPQUFPLEVBQUMsUUFBUSxFQUFDLE1BQU0sdUJBQXVCLENBQUM7QUFDL0MsT0FBTyxFQUVMLHVCQUF1QixFQUN2QixTQUFTLEVBQ1QsVUFBVSxFQUNWLEtBQUssRUFHTCxpQkFBaUIsRUFDbEIsTUFBTSxlQUFlLENBQUM7QUFDdkIsT0FBTyxFQUFDLGlCQUFpQixFQUFDLE1BQU0sMkJBQTJCLENBQUM7Ozs7Ozs7Ozs7QUFXNUQ7Ozs7Ozs7Ozs7SUFBQSxNQVlhLDBCQUEwQjs7Ozs7UUFVckMsWUFBb0IsV0FBdUIsRUFBVSxTQUFtQjtZQUFwRCxnQkFBVyxHQUFYLFdBQVcsQ0FBWTtZQUFVLGNBQVMsR0FBVCxTQUFTLENBQVU7Ozs7WUFSOUIsVUFBSyxHQUFXLENBQUMsQ0FBQzs7OztZQUduQixTQUFJLEdBQVksS0FBSyxDQUFDOzs7O1lBR3ZELHVCQUFrQixHQUEyQixJQUFJLENBQUM7UUFFaUIsQ0FBQzs7OztRQUU1RSxlQUFlO1lBQ2Isb0ZBQW9GO1lBQ3BGLHlGQUF5RjtZQUN6RixvRkFBb0Y7WUFDcEYsaUVBQWlFO1lBQ2pFLElBQUksSUFBSSxDQUFDLFNBQVMsQ0FBQyxTQUFTLEVBQUU7Z0JBQzVCLHVFQUF1RTtnQkFDdkUsc0RBQXNEO2dCQUN0RCxJQUFJLENBQUMsa0JBQWtCLEdBQUcsaUJBQWlCLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsYUFBYSxDQUFDLENBQUM7YUFDdEY7WUFDRCwwRUFBMEU7WUFDMUUsSUFBSSxDQUFDLHdCQUF3QixFQUFFLENBQUM7UUFDbEMsQ0FBQzs7OztRQUVELFdBQVc7WUFDVCxnRkFBZ0Y7WUFDaEYsMkJBQTJCO1lBQzNCLElBQUksQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ2xDLENBQUM7Ozs7UUFFRCxXQUFXO1lBQ1QsSUFBSSxJQUFJLENBQUMsa0JBQWtCLEtBQUssSUFBSSxFQUFFO2dCQUNwQyxJQUFJLENBQUMsa0JBQWtCLENBQUMsT0FBTyxFQUFFLENBQUM7YUFDbkM7UUFDSCxDQUFDOzs7Ozs7UUFHTyx3QkFBd0I7WUFDOUIsSUFBSSxJQUFJLENBQUMsa0JBQWtCLEtBQUssSUFBSSxFQUFFO2dCQUNwQyxPQUFPO2FBQ1I7WUFDRCxJQUFJLElBQUksQ0FBQyxJQUFJLEVBQUU7Z0JBQ2IsSUFBSSxDQUFDLGtCQUFrQixDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7YUFDM0M7aUJBQU07Z0JBQ0wsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFVBQVUsRUFBRSxDQUFDO2FBQ3RDO1FBQ0gsQ0FBQzs7O2dCQTVERixTQUFTLFNBQUM7b0JBQ1QsUUFBUSxFQUFFLGlDQUFpQztvQkFDM0Msc01BQXFDO29CQUNyQyxJQUFJLEVBQUU7d0JBQ0osT0FBTyxFQUFFLHFCQUFxQjs7O3dCQUc5QixzQ0FBc0MsRUFBRSxNQUFNO3FCQUMvQztvQkFDRCxlQUFlLEVBQUUsdUJBQXVCLENBQUMsTUFBTTtvQkFDL0MsYUFBYSxFQUFFLGlCQUFpQixDQUFDLElBQUk7aUJBQ3RDOzs7O2dCQTVCQyxVQUFVO2dCQUxKLFFBQVE7Ozt3QkFvQ2IsS0FBSyxTQUFDLGlDQUFpQzt1QkFHdkMsS0FBSyxTQUFDLGdDQUFnQzs7SUE0Q3pDLGlDQUFDO0tBQUE7U0FqRFksMEJBQTBCOzs7Ozs7SUFFckMsMkNBQTREOzs7OztJQUc1RCwwQ0FBK0Q7Ozs7OztJQUcvRCx3REFBMEQ7Ozs7O0lBRTlDLGlEQUErQjs7Ozs7SUFBRSwrQ0FBMkIiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtQbGF0Zm9ybX0gZnJvbSAnQGFuZ3VsYXIvY2RrL3BsYXRmb3JtJztcbmltcG9ydCB7XG4gIEFmdGVyVmlld0luaXQsXG4gIENoYW5nZURldGVjdGlvblN0cmF0ZWd5LFxuICBDb21wb25lbnQsXG4gIEVsZW1lbnRSZWYsXG4gIElucHV0LFxuICBPbkNoYW5nZXMsXG4gIE9uRGVzdHJveSxcbiAgVmlld0VuY2Fwc3VsYXRpb25cbn0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge01EQ05vdGNoZWRPdXRsaW5lfSBmcm9tICdAbWF0ZXJpYWwvbm90Y2hlZC1vdXRsaW5lJztcblxuLyoqXG4gKiBJbnRlcm5hbCBjb21wb25lbnQgdGhhdCBjcmVhdGVzIGFuIGluc3RhbmNlIG9mIHRoZSBNREMgbm90Y2hlZC1vdXRsaW5lIGNvbXBvbmVudC4gVXNpbmdcbiAqIGEgZGlyZWN0aXZlIGFsbG93cyB1cyB0byBjb25kaXRpb25hbGx5IHJlbmRlciBhIG5vdGNoZWQtb3V0bGluZSBpbiB0aGUgdGVtcGxhdGUgd2l0aG91dFxuICogaGF2aW5nIHRvIG1hbnVhbGx5IGNyZWF0ZSBhbmQgZGVzdHJveSB0aGUgYE1EQ05vdGNoZWRPdXRsaW5lYCBjb21wb25lbnQgd2hlbmV2ZXIgdGhlXG4gKiBhcHBlYXJhbmNlIGNoYW5nZXMuXG4gKlxuICogVGhlIGNvbXBvbmVudCBzZXRzIHVwIHRoZSBIVE1MIHN0cnVjdHVyZSBhbmQgc3R5bGVzIGZvciB0aGUgbm90Y2hlZC1vdXRsaW5lLiBJdCBwcm92aWRlc1xuICogaW5wdXRzIHRvIHRvZ2dsZSB0aGUgbm90Y2ggc3RhdGUgYW5kIHdpZHRoLlxuICovXG5AQ29tcG9uZW50KHtcbiAgc2VsZWN0b3I6ICdkaXZbbWF0Rm9ybUZpZWxkTm90Y2hlZE91dGxpbmVdJyxcbiAgdGVtcGxhdGVVcmw6ICcuL25vdGNoZWQtb3V0bGluZS5odG1sJyxcbiAgaG9zdDoge1xuICAgICdjbGFzcyc6ICdtZGMtbm90Y2hlZC1vdXRsaW5lJyxcbiAgICAvLyBCZXNpZGVzIHVwZGF0aW5nIHRoZSBub3RjaCBzdGF0ZSB0aHJvdWdoIHRoZSBNREMgY29tcG9uZW50LCB3ZSB0b2dnbGUgdGhpcyBjbGFzcyB0aHJvdWdoXG4gICAgLy8gYSBob3N0IGJpbmRpbmcgaW4gb3JkZXIgdG8gZW5zdXJlIHRoYXQgdGhlIG5vdGNoZWQtb3V0bGluZSByZW5kZXJzIGNvcnJlY3RseSBvbiB0aGUgc2VydmVyLlxuICAgICdbY2xhc3MubWRjLW5vdGNoZWQtb3V0bGluZS0tbm90Y2hlZF0nOiAnb3BlbicsXG4gIH0sXG4gIGNoYW5nZURldGVjdGlvbjogQ2hhbmdlRGV0ZWN0aW9uU3RyYXRlZ3kuT25QdXNoLFxuICBlbmNhcHN1bGF0aW9uOiBWaWV3RW5jYXBzdWxhdGlvbi5Ob25lLFxufSlcbmV4cG9ydCBjbGFzcyBNYXRGb3JtRmllbGROb3RjaGVkT3V0bGluZSBpbXBsZW1lbnRzIEFmdGVyVmlld0luaXQsIE9uQ2hhbmdlcywgT25EZXN0cm95IHtcbiAgLyoqIFdpZHRoIG9mIHRoZSBub3RjaC4gKi9cbiAgQElucHV0KCdtYXRGb3JtRmllbGROb3RjaGVkT3V0bGluZVdpZHRoJykgd2lkdGg6IG51bWJlciA9IDA7XG5cbiAgLyoqIFdoZXRoZXIgdGhlIG5vdGNoIHNob3VsZCBiZSBvcGVuZWQuICovXG4gIEBJbnB1dCgnbWF0Rm9ybUZpZWxkTm90Y2hlZE91dGxpbmVPcGVuJykgb3BlbjogYm9vbGVhbiA9IGZhbHNlO1xuXG4gIC8qKiBJbnN0YW5jZSBvZiB0aGUgTURDIG5vdGNoZWQgb3V0bGluZS4gKi9cbiAgcHJpdmF0ZSBfbWRjTm90Y2hlZE91dGxpbmU6IE1EQ05vdGNoZWRPdXRsaW5lfG51bGwgPSBudWxsO1xuXG4gIGNvbnN0cnVjdG9yKHByaXZhdGUgX2VsZW1lbnRSZWY6IEVsZW1lbnRSZWYsIHByaXZhdGUgX3BsYXRmb3JtOiBQbGF0Zm9ybSkge31cblxuICBuZ0FmdGVyVmlld0luaXQoKSB7XG4gICAgLy8gVGhlIG5vdGNoZWQgb3V0bGluZSBjYW5ub3QgYmUgYXR0YWNoZWQgaW4gdGhlIHNlcnZlciBwbGF0Zm9ybS4gSXQgc2NoZWR1bGVzIHRhc2tzXG4gICAgLy8gZm9yIHRoZSBuZXh0IGJyb3dzZXIgYW5pbWF0aW9uIGZyYW1lIGFuZCByZWxpZXMgb24gZWxlbWVudCBjbGllbnQgcmVjdGFuZ2xlcyB0byByZW5kZXJcbiAgICAvLyB0aGUgb3V0bGluZSBub3RjaC4gVG8gYXZvaWQgZmFpbHVyZXMgb24gdGhlIHNlcnZlciwgd2UganVzdCBkbyBub3QgaW5pdGlhbGl6ZSBpdCxcbiAgICAvLyBidXQgdGhlIGFjdHVhbCBub3RjaGVkLW91dGxpbmUgc3R5bGVzIHdpbGwgYmUgc3RpbGwgZGlzcGxheWVkLlxuICAgIGlmICh0aGlzLl9wbGF0Zm9ybS5pc0Jyb3dzZXIpIHtcbiAgICAgIC8vIFRoZSBub3RjaCBjb21wb25lbnQgcmVsaWVzIG9uIHRoZSB2aWV3IHRvIGJlIGluaXRpYWxpemVkLiBUaGlzIG1lYW5zXG4gICAgICAvLyB0aGF0IHdlIGNhbm5vdCBleHRlbmQgZnJvbSB0aGUgXCJNRENOb3RjaGVkT3V0bGluZVwiLlxuICAgICAgdGhpcy5fbWRjTm90Y2hlZE91dGxpbmUgPSBNRENOb3RjaGVkT3V0bGluZS5hdHRhY2hUbyh0aGlzLl9lbGVtZW50UmVmLm5hdGl2ZUVsZW1lbnQpO1xuICAgIH1cbiAgICAvLyBJbml0aWFsIHN5bmMgaW4gY2FzZSBzdGF0ZSBoYXMgYmVlbiB1cGRhdGVkIGJlZm9yZSB2aWV3IGluaXRpYWxpemF0aW9uLlxuICAgIHRoaXMuX3N5bmNOb3RjaGVkT3V0bGluZVN0YXRlKCk7XG4gIH1cblxuICBuZ09uQ2hhbmdlcygpIHtcbiAgICAvLyBXaGVuZXZlciB0aGUgd2lkdGgsIG9yIHRoZSBvcGVuIHN0YXRlIGNoYW5nZXMsIHN5bmMgdGhlIG5vdGNoZWQgb3V0bGluZSB0byBiZVxuICAgIC8vIGJhc2VkIG9uIHRoZSBuZXcgdmFsdWVzLlxuICAgIHRoaXMuX3N5bmNOb3RjaGVkT3V0bGluZVN0YXRlKCk7XG4gIH1cblxuICBuZ09uRGVzdHJveSgpIHtcbiAgICBpZiAodGhpcy5fbWRjTm90Y2hlZE91dGxpbmUgIT09IG51bGwpIHtcbiAgICAgIHRoaXMuX21kY05vdGNoZWRPdXRsaW5lLmRlc3Ryb3koKTtcbiAgICB9XG4gIH1cblxuICAvKiogU3luY2hyb25pemVzIHRoZSBub3RjaGVkIG91dGxpbmUgc3RhdGUgdG8gYmUgYmFzZWQgb24gdGhlIGB3aWR0aGAgYW5kIGBvcGVuYCBpbnB1dHMuICovXG4gIHByaXZhdGUgX3N5bmNOb3RjaGVkT3V0bGluZVN0YXRlKCkge1xuICAgIGlmICh0aGlzLl9tZGNOb3RjaGVkT3V0bGluZSA9PT0gbnVsbCkge1xuICAgICAgcmV0dXJuO1xuICAgIH1cbiAgICBpZiAodGhpcy5vcGVuKSB7XG4gICAgICB0aGlzLl9tZGNOb3RjaGVkT3V0bGluZS5ub3RjaCh0aGlzLndpZHRoKTtcbiAgICB9IGVsc2Uge1xuICAgICAgdGhpcy5fbWRjTm90Y2hlZE91dGxpbmUuY2xvc2VOb3RjaCgpO1xuICAgIH1cbiAgfVxufVxuIl19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibm90Y2hlZC1vdXRsaW5lLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9tZGMtZm9ybS1maWVsZC9kaXJlY3RpdmVzL25vdGNoZWQtb3V0bGluZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7O0FBRUgsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLHVCQUF1QixDQUFDO0FBQy9DLE9BQU8sRUFFTCx1QkFBdUIsRUFDdkIsU0FBUyxFQUNULFVBQVUsRUFDVixLQUFLLEVBR0wsaUJBQWlCLEVBQ2xCLE1BQU0sZUFBZSxDQUFDO0FBQ3ZCLE9BQU8sRUFBQyxpQkFBaUIsRUFBQyxNQUFNLDJCQUEyQixDQUFDO0FBRTVEOzs7Ozs7OztHQVFHO0FBYUg7SUFBQSxJQUFhLDBCQUEwQixHQUF2QyxNQUFhLDBCQUEwQjtRQVVyQyxZQUFvQixXQUF1QixFQUFVLFNBQW1CO1lBQXBELGdCQUFXLEdBQVgsV0FBVyxDQUFZO1lBQVUsY0FBUyxHQUFULFNBQVMsQ0FBVTtZQVR4RSwwQkFBMEI7WUFDZ0IsVUFBSyxHQUFXLENBQUMsQ0FBQztZQUU1RCwwQ0FBMEM7WUFDRCxTQUFJLEdBQVksS0FBSyxDQUFDO1lBRS9ELDJDQUEyQztZQUNuQyx1QkFBa0IsR0FBMkIsSUFBSSxDQUFDO1FBRWlCLENBQUM7UUFFNUUsZUFBZTtZQUNiLG9GQUFvRjtZQUNwRix5RkFBeUY7WUFDekYsb0ZBQW9GO1lBQ3BGLGlFQUFpRTtZQUNqRSxJQUFJLElBQUksQ0FBQyxTQUFTLENBQUMsU0FBUyxFQUFFO2dCQUM1Qix1RUFBdUU7Z0JBQ3ZFLHNEQUFzRDtnQkFDdEQsSUFBSSxDQUFDLGtCQUFrQixHQUFHLGlCQUFpQixDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxDQUFDO2FBQ3RGO1lBQ0QsMEVBQTBFO1lBQzFFLElBQUksQ0FBQyx3QkFBd0IsRUFBRSxDQUFDO1FBQ2xDLENBQUM7UUFFRCxXQUFXO1lBQ1QsZ0ZBQWdGO1lBQ2hGLDJCQUEyQjtZQUMzQixJQUFJLENBQUMsd0JBQXdCLEVBQUUsQ0FBQztRQUNsQyxDQUFDO1FBRUQsV0FBVztZQUNULElBQUksSUFBSSxDQUFDLGtCQUFrQixLQUFLLElBQUksRUFBRTtnQkFDcEMsSUFBSSxDQUFDLGtCQUFrQixDQUFDLE9BQU8sRUFBRSxDQUFDO2FBQ25DO1FBQ0gsQ0FBQztRQUVELDJGQUEyRjtRQUNuRix3QkFBd0I7WUFDOUIsSUFBSSxJQUFJLENBQUMsa0JBQWtCLEtBQUssSUFBSSxFQUFFO2dCQUNwQyxPQUFPO2FBQ1I7WUFDRCxJQUFJLElBQUksQ0FBQyxJQUFJLEVBQUU7Z0JBQ2IsSUFBSSxDQUFDLGtCQUFrQixDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7YUFDM0M7aUJBQU07Z0JBQ0wsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFVBQVUsRUFBRSxDQUFDO2FBQ3RDO1FBQ0gsQ0FBQztLQUNGLENBQUE7SUEvQzJDO1FBQXpDLEtBQUssQ0FBQyxpQ0FBaUMsQ0FBQzs7NkRBQW1CO0lBR25CO1FBQXhDLEtBQUssQ0FBQyxnQ0FBZ0MsQ0FBQzs7NERBQXVCO0lBTHBELDBCQUEwQjtRQVp0QyxTQUFTLENBQUM7WUFDVCxRQUFRLEVBQUUsaUNBQWlDO1lBQzNDLHNNQUFxQztZQUNyQyxJQUFJLEVBQUU7Z0JBQ0osT0FBTyxFQUFFLHFCQUFxQjtnQkFDOUIsMkZBQTJGO2dCQUMzRiw4RkFBOEY7Z0JBQzlGLHNDQUFzQyxFQUFFLE1BQU07YUFDL0M7WUFDRCxlQUFlLEVBQUUsdUJBQXVCLENBQUMsTUFBTTtZQUMvQyxhQUFhLEVBQUUsaUJBQWlCLENBQUMsSUFBSTtTQUN0QyxDQUFDO3lDQVdpQyxVQUFVLEVBQXFCLFFBQVE7T0FWN0QsMEJBQTBCLENBaUR0QztJQUFELGlDQUFDO0tBQUE7U0FqRFksMEJBQTBCIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7UGxhdGZvcm19IGZyb20gJ0Bhbmd1bGFyL2Nkay9wbGF0Zm9ybSc7XG5pbXBvcnQge1xuICBBZnRlclZpZXdJbml0LFxuICBDaGFuZ2VEZXRlY3Rpb25TdHJhdGVneSxcbiAgQ29tcG9uZW50LFxuICBFbGVtZW50UmVmLFxuICBJbnB1dCxcbiAgT25DaGFuZ2VzLFxuICBPbkRlc3Ryb3ksXG4gIFZpZXdFbmNhcHN1bGF0aW9uXG59IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtNRENOb3RjaGVkT3V0bGluZX0gZnJvbSAnQG1hdGVyaWFsL25vdGNoZWQtb3V0bGluZSc7XG5cbi8qKlxuICogSW50ZXJuYWwgY29tcG9uZW50IHRoYXQgY3JlYXRlcyBhbiBpbnN0YW5jZSBvZiB0aGUgTURDIG5vdGNoZWQtb3V0bGluZSBjb21wb25lbnQuIFVzaW5nXG4gKiBhIGRpcmVjdGl2ZSBhbGxvd3MgdXMgdG8gY29uZGl0aW9uYWxseSByZW5kZXIgYSBub3RjaGVkLW91dGxpbmUgaW4gdGhlIHRlbXBsYXRlIHdpdGhvdXRcbiAqIGhhdmluZyB0byBtYW51YWxseSBjcmVhdGUgYW5kIGRlc3Ryb3kgdGhlIGBNRENOb3RjaGVkT3V0bGluZWAgY29tcG9uZW50IHdoZW5ldmVyIHRoZVxuICogYXBwZWFyYW5jZSBjaGFuZ2VzLlxuICpcbiAqIFRoZSBjb21wb25lbnQgc2V0cyB1cCB0aGUgSFRNTCBzdHJ1Y3R1cmUgYW5kIHN0eWxlcyBmb3IgdGhlIG5vdGNoZWQtb3V0bGluZS4gSXQgcHJvdmlkZXNcbiAqIGlucHV0cyB0byB0b2dnbGUgdGhlIG5vdGNoIHN0YXRlIGFuZCB3aWR0aC5cbiAqL1xuQENvbXBvbmVudCh7XG4gIHNlbGVjdG9yOiAnZGl2W21hdEZvcm1GaWVsZE5vdGNoZWRPdXRsaW5lXScsXG4gIHRlbXBsYXRlVXJsOiAnLi9ub3RjaGVkLW91dGxpbmUuaHRtbCcsXG4gIGhvc3Q6IHtcbiAgICAnY2xhc3MnOiAnbWRjLW5vdGNoZWQtb3V0bGluZScsXG4gICAgLy8gQmVzaWRlcyB1cGRhdGluZyB0aGUgbm90Y2ggc3RhdGUgdGhyb3VnaCB0aGUgTURDIGNvbXBvbmVudCwgd2UgdG9nZ2xlIHRoaXMgY2xhc3MgdGhyb3VnaFxuICAgIC8vIGEgaG9zdCBiaW5kaW5nIGluIG9yZGVyIHRvIGVuc3VyZSB0aGF0IHRoZSBub3RjaGVkLW91dGxpbmUgcmVuZGVycyBjb3JyZWN0bHkgb24gdGhlIHNlcnZlci5cbiAgICAnW2NsYXNzLm1kYy1ub3RjaGVkLW91dGxpbmUtLW5vdGNoZWRdJzogJ29wZW4nLFxuICB9LFxuICBjaGFuZ2VEZXRlY3Rpb246IENoYW5nZURldGVjdGlvblN0cmF0ZWd5Lk9uUHVzaCxcbiAgZW5jYXBzdWxhdGlvbjogVmlld0VuY2Fwc3VsYXRpb24uTm9uZSxcbn0pXG5leHBvcnQgY2xhc3MgTWF0Rm9ybUZpZWxkTm90Y2hlZE91dGxpbmUgaW1wbGVtZW50cyBBZnRlclZpZXdJbml0LCBPbkNoYW5nZXMsIE9uRGVzdHJveSB7XG4gIC8qKiBXaWR0aCBvZiB0aGUgbm90Y2guICovXG4gIEBJbnB1dCgnbWF0Rm9ybUZpZWxkTm90Y2hlZE91dGxpbmVXaWR0aCcpIHdpZHRoOiBudW1iZXIgPSAwO1xuXG4gIC8qKiBXaGV0aGVyIHRoZSBub3RjaCBzaG91bGQgYmUgb3BlbmVkLiAqL1xuICBASW5wdXQoJ21hdEZvcm1GaWVsZE5vdGNoZWRPdXRsaW5lT3BlbicpIG9wZW46IGJvb2xlYW4gPSBmYWxzZTtcblxuICAvKiogSW5zdGFuY2Ugb2YgdGhlIE1EQyBub3RjaGVkIG91dGxpbmUuICovXG4gIHByaXZhdGUgX21kY05vdGNoZWRPdXRsaW5lOiBNRENOb3RjaGVkT3V0bGluZXxudWxsID0gbnVsbDtcblxuICBjb25zdHJ1Y3Rvcihwcml2YXRlIF9lbGVtZW50UmVmOiBFbGVtZW50UmVmLCBwcml2YXRlIF9wbGF0Zm9ybTogUGxhdGZvcm0pIHt9XG5cbiAgbmdBZnRlclZpZXdJbml0KCkge1xuICAgIC8vIFRoZSBub3RjaGVkIG91dGxpbmUgY2Fubm90IGJlIGF0dGFjaGVkIGluIHRoZSBzZXJ2ZXIgcGxhdGZvcm0uIEl0IHNjaGVkdWxlcyB0YXNrc1xuICAgIC8vIGZvciB0aGUgbmV4dCBicm93c2VyIGFuaW1hdGlvbiBmcmFtZSBhbmQgcmVsaWVzIG9uIGVsZW1lbnQgY2xpZW50IHJlY3RhbmdsZXMgdG8gcmVuZGVyXG4gICAgLy8gdGhlIG91dGxpbmUgbm90Y2guIFRvIGF2b2lkIGZhaWx1cmVzIG9uIHRoZSBzZXJ2ZXIsIHdlIGp1c3QgZG8gbm90IGluaXRpYWxpemUgaXQsXG4gICAgLy8gYnV0IHRoZSBhY3R1YWwgbm90Y2hlZC1vdXRsaW5lIHN0eWxlcyB3aWxsIGJlIHN0aWxsIGRpc3BsYXllZC5cbiAgICBpZiAodGhpcy5fcGxhdGZvcm0uaXNCcm93c2VyKSB7XG4gICAgICAvLyBUaGUgbm90Y2ggY29tcG9uZW50IHJlbGllcyBvbiB0aGUgdmlldyB0byBiZSBpbml0aWFsaXplZC4gVGhpcyBtZWFuc1xuICAgICAgLy8gdGhhdCB3ZSBjYW5ub3QgZXh0ZW5kIGZyb20gdGhlIFwiTURDTm90Y2hlZE91dGxpbmVcIi5cbiAgICAgIHRoaXMuX21kY05vdGNoZWRPdXRsaW5lID0gTURDTm90Y2hlZE91dGxpbmUuYXR0YWNoVG8odGhpcy5fZWxlbWVudFJlZi5uYXRpdmVFbGVtZW50KTtcbiAgICB9XG4gICAgLy8gSW5pdGlhbCBzeW5jIGluIGNhc2Ugc3RhdGUgaGFzIGJlZW4gdXBkYXRlZCBiZWZvcmUgdmlldyBpbml0aWFsaXphdGlvbi5cbiAgICB0aGlzLl9zeW5jTm90Y2hlZE91dGxpbmVTdGF0ZSgpO1xuICB9XG5cbiAgbmdPbkNoYW5nZXMoKSB7XG4gICAgLy8gV2hlbmV2ZXIgdGhlIHdpZHRoLCBvciB0aGUgb3BlbiBzdGF0ZSBjaGFuZ2VzLCBzeW5jIHRoZSBub3RjaGVkIG91dGxpbmUgdG8gYmVcbiAgICAvLyBiYXNlZCBvbiB0aGUgbmV3IHZhbHVlcy5cbiAgICB0aGlzLl9zeW5jTm90Y2hlZE91dGxpbmVTdGF0ZSgpO1xuICB9XG5cbiAgbmdPbkRlc3Ryb3koKSB7XG4gICAgaWYgKHRoaXMuX21kY05vdGNoZWRPdXRsaW5lICE9PSBudWxsKSB7XG4gICAgICB0aGlzLl9tZGNOb3RjaGVkT3V0bGluZS5kZXN0cm95KCk7XG4gICAgfVxuICB9XG5cbiAgLyoqIFN5bmNocm9uaXplcyB0aGUgbm90Y2hlZCBvdXRsaW5lIHN0YXRlIHRvIGJlIGJhc2VkIG9uIHRoZSBgd2lkdGhgIGFuZCBgb3BlbmAgaW5wdXRzLiAqL1xuICBwcml2YXRlIF9zeW5jTm90Y2hlZE91dGxpbmVTdGF0ZSgpIHtcbiAgICBpZiAodGhpcy5fbWRjTm90Y2hlZE91dGxpbmUgPT09IG51bGwpIHtcbiAgICAgIHJldHVybjtcbiAgICB9XG4gICAgaWYgKHRoaXMub3Blbikge1xuICAgICAgdGhpcy5fbWRjTm90Y2hlZE91dGxpbmUubm90Y2godGhpcy53aWR0aCk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHRoaXMuX21kY05vdGNoZWRPdXRsaW5lLmNsb3NlTm90Y2goKTtcbiAgICB9XG4gIH1cbn1cbiJdfQ==

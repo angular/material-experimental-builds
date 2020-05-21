@@ -1,24 +1,19 @@
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-chips/public-api.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-export { MatChipCssInternalOnly, MatChip } from './chip';
-export { MatChipSelectionChange, MatChipOption } from './chip-option';
-export { MatChipRow } from './chip-row';
-export { MatChipSet } from './chip-set';
-export { MatChipListboxChange, MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR, MatChipListbox } from './chip-listbox';
-export { MatChipGridChange, MatChipGrid } from './chip-grid';
-export { MatChipsModule } from './module';
-export { MatChipInput } from './chip-input';
-export { MAT_CHIPS_DEFAULT_OPTIONS } from './chip-default-options';
-export { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';
-export {} from './chip-text-control';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9tYXRlcmlhbC1leHBlcmltZW50YWwvbWRjLWNoaXBzL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBUUEsZ0RBQWMsUUFBUSxDQUFDO0FBQ3ZCLHNEQUFjLGVBQWUsQ0FBQztBQUM5QiwyQkFBYyxZQUFZLENBQUM7QUFDM0IsMkJBQWMsWUFBWSxDQUFDO0FBQzNCLDhGQUFjLGdCQUFnQixDQUFDO0FBQy9CLCtDQUFjLGFBQWEsQ0FBQztBQUM1QiwrQkFBYyxVQUFVLENBQUM7QUFDekIsNkJBQWMsY0FBYyxDQUFDO0FBQzdCLDBDQUFjLHdCQUF3QixDQUFDO0FBQ3ZDLGtFQUFjLGNBQWMsQ0FBQztBQUM3QixlQUFjLHFCQUFxQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vY2hpcCc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtb3B0aW9uJztcbmV4cG9ydCAqIGZyb20gJy4vY2hpcC1yb3cnO1xuZXhwb3J0ICogZnJvbSAnLi9jaGlwLXNldCc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtbGlzdGJveCc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtZ3JpZCc7XG5leHBvcnQgKiBmcm9tICcuL21vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtaW5wdXQnO1xuZXhwb3J0ICogZnJvbSAnLi9jaGlwLWRlZmF1bHQtb3B0aW9ucyc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtaWNvbnMnO1xuZXhwb3J0ICogZnJvbSAnLi9jaGlwLXRleHQtY29udHJvbCc7XG4iXX0=
+export * from './chip';
+export * from './chip-option';
+export * from './chip-row';
+export * from './chip-set';
+export * from './chip-listbox';
+export * from './chip-grid';
+export * from './module';
+export * from './chip-input';
+export * from './chip-default-options';
+export * from './chip-icons';
+export * from './chip-text-control';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9tYXRlcmlhbC1leHBlcmltZW50YWwvbWRjLWNoaXBzL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsY0FBYyxRQUFRLENBQUM7QUFDdkIsY0FBYyxlQUFlLENBQUM7QUFDOUIsY0FBYyxZQUFZLENBQUM7QUFDM0IsY0FBYyxZQUFZLENBQUM7QUFDM0IsY0FBYyxnQkFBZ0IsQ0FBQztBQUMvQixjQUFjLGFBQWEsQ0FBQztBQUM1QixjQUFjLFVBQVUsQ0FBQztBQUN6QixjQUFjLGNBQWMsQ0FBQztBQUM3QixjQUFjLHdCQUF3QixDQUFDO0FBQ3ZDLGNBQWMsY0FBYyxDQUFDO0FBQzdCLGNBQWMscUJBQXFCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9jaGlwJztcbmV4cG9ydCAqIGZyb20gJy4vY2hpcC1vcHRpb24nO1xuZXhwb3J0ICogZnJvbSAnLi9jaGlwLXJvdyc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtc2V0JztcbmV4cG9ydCAqIGZyb20gJy4vY2hpcC1saXN0Ym94JztcbmV4cG9ydCAqIGZyb20gJy4vY2hpcC1ncmlkJztcbmV4cG9ydCAqIGZyb20gJy4vbW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vY2hpcC1pbnB1dCc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtZGVmYXVsdC1vcHRpb25zJztcbmV4cG9ydCAqIGZyb20gJy4vY2hpcC1pY29ucyc7XG5leHBvcnQgKiBmcm9tICcuL2NoaXAtdGV4dC1jb250cm9sJztcbiJdfQ==

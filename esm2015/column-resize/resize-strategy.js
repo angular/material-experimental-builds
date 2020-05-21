@@ -1,15 +1,11 @@
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/column-resize/resize-strategy.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { __decorate, __metadata, __param } from "tslib";
 import { Inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ColumnResize, ResizeStrategy, CdkFlexTableResizeStrategy, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, } from '@angular/cdk-experimental/column-resize';
@@ -18,40 +14,24 @@ export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER };
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 let MatFlexTableResizeStrategy = /** @class */ (() => {
-    /**
-     * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
-     */
-    class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
-        /**
-         * @param {?} columnResize
-         * @param {?} document
-         */
+    let MatFlexTableResizeStrategy = class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
         constructor(columnResize, document) {
             super(columnResize, document);
         }
-        /**
-         * @protected
-         * @param {?} cssFriendlyColumnName
-         * @return {?}
-         */
         getColumnCssClass(cssFriendlyColumnName) {
             return `mat-column-${cssFriendlyColumnName}`;
         }
-    }
-    MatFlexTableResizeStrategy.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    MatFlexTableResizeStrategy.ctorParameters = () => [
-        { type: ColumnResize },
-        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
-    ];
+    };
+    MatFlexTableResizeStrategy = __decorate([
+        Injectable(),
+        __param(1, Inject(DOCUMENT)),
+        __metadata("design:paramtypes", [ColumnResize, Object])
+    ], MatFlexTableResizeStrategy);
     return MatFlexTableResizeStrategy;
 })();
 export { MatFlexTableResizeStrategy };
-/** @type {?} */
 export const FLEX_RESIZE_STRATEGY_PROVIDER = {
     provide: ResizeStrategy,
     useClass: MatFlexTableResizeStrategy,
 };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVzaXplLXN0cmF0ZWd5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9jb2x1bW4tcmVzaXplL3Jlc2l6ZS1zdHJhdGVneS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFRQSxPQUFPLEVBQUMsTUFBTSxFQUFFLFVBQVUsRUFBVyxNQUFNLGVBQWUsQ0FBQztBQUMzRCxPQUFPLEVBQUMsUUFBUSxFQUFDLE1BQU0saUJBQWlCLENBQUM7QUFFekMsT0FBTyxFQUNMLFlBQVksRUFDWixjQUFjLEVBQ2QsMEJBQTBCLEVBQzFCLDJDQUEyQyxHQUM1QyxNQUFNLHlDQUF5QyxDQUFDO0FBRWpELE9BQU8sRUFBQywyQ0FBMkMsRUFBQyxDQUFDOzs7O0FBS3JEOzs7O0lBQUEsTUFDYSwwQkFBMkIsU0FBUSwwQkFBMEI7Ozs7O1FBQ3hFLFlBQ0ksWUFBMEIsRUFDUixRQUFhO1lBQ2pDLEtBQUssQ0FBQyxZQUFZLEVBQUUsUUFBUSxDQUFDLENBQUM7UUFDaEMsQ0FBQzs7Ozs7O1FBRVMsaUJBQWlCLENBQUMscUJBQTZCO1lBQ3ZELE9BQU8sY0FBYyxxQkFBcUIsRUFBRSxDQUFDO1FBQy9DLENBQUM7OztnQkFWRixVQUFVOzs7O2dCQVhULFlBQVk7Z0RBZVAsTUFBTSxTQUFDLFFBQVE7O0lBT3RCLGlDQUFDO0tBQUE7U0FWWSwwQkFBMEI7O0FBWXZDLE1BQU0sT0FBTyw2QkFBNkIsR0FBYTtJQUNyRCxPQUFPLEVBQUUsY0FBYztJQUN2QixRQUFRLEVBQUUsMEJBQTBCO0NBQ3JDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7SW5qZWN0LCBJbmplY3RhYmxlLCBQcm92aWRlcn0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge0RPQ1VNRU5UfSBmcm9tICdAYW5ndWxhci9jb21tb24nO1xuXG5pbXBvcnQge1xuICBDb2x1bW5SZXNpemUsXG4gIFJlc2l6ZVN0cmF0ZWd5LFxuICBDZGtGbGV4VGFibGVSZXNpemVTdHJhdGVneSxcbiAgVEFCTEVfTEFZT1VUX0ZJWEVEX1JFU0laRV9TVFJBVEVHWV9QUk9WSURFUixcbn0gZnJvbSAnQGFuZ3VsYXIvY2RrLWV4cGVyaW1lbnRhbC9jb2x1bW4tcmVzaXplJztcblxuZXhwb3J0IHtUQUJMRV9MQVlPVVRfRklYRURfUkVTSVpFX1NUUkFURUdZX1BST1ZJREVSfTtcblxuLyoqXG4gKiBPdmVycmlkZXMgQ2RrRmxleFRhYmxlUmVzaXplU3RyYXRlZ3kgdG8gbWF0Y2ggbWF0LWNvbHVtbiBlbGVtZW50cy5cbiAqL1xuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIE1hdEZsZXhUYWJsZVJlc2l6ZVN0cmF0ZWd5IGV4dGVuZHMgQ2RrRmxleFRhYmxlUmVzaXplU3RyYXRlZ3kge1xuICBjb25zdHJ1Y3RvcihcbiAgICAgIGNvbHVtblJlc2l6ZTogQ29sdW1uUmVzaXplLFxuICAgICAgQEluamVjdChET0NVTUVOVCkgZG9jdW1lbnQ6IGFueSkge1xuICAgIHN1cGVyKGNvbHVtblJlc2l6ZSwgZG9jdW1lbnQpO1xuICB9XG5cbiAgcHJvdGVjdGVkIGdldENvbHVtbkNzc0NsYXNzKGNzc0ZyaWVuZGx5Q29sdW1uTmFtZTogc3RyaW5nKTogc3RyaW5nIHtcbiAgICByZXR1cm4gYG1hdC1jb2x1bW4tJHtjc3NGcmllbmRseUNvbHVtbk5hbWV9YDtcbiAgfVxufVxuXG5leHBvcnQgY29uc3QgRkxFWF9SRVNJWkVfU1RSQVRFR1lfUFJPVklERVI6IFByb3ZpZGVyID0ge1xuICBwcm92aWRlOiBSZXNpemVTdHJhdGVneSxcbiAgdXNlQ2xhc3M6IE1hdEZsZXhUYWJsZVJlc2l6ZVN0cmF0ZWd5LFxufTtcbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVzaXplLXN0cmF0ZWd5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9jb2x1bW4tcmVzaXplL3Jlc2l6ZS1zdHJhdGVneS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7O0FBRUgsT0FBTyxFQUFDLE1BQU0sRUFBRSxVQUFVLEVBQVcsTUFBTSxlQUFlLENBQUM7QUFDM0QsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLGlCQUFpQixDQUFDO0FBRXpDLE9BQU8sRUFDTCxZQUFZLEVBQ1osY0FBYyxFQUNkLDBCQUEwQixFQUMxQiwyQ0FBMkMsR0FDNUMsTUFBTSx5Q0FBeUMsQ0FBQztBQUVqRCxPQUFPLEVBQUMsMkNBQTJDLEVBQUMsQ0FBQztBQUVyRDs7R0FFRztBQUVIO0lBQUEsSUFBYSwwQkFBMEIsR0FBdkMsTUFBYSwwQkFBMkIsU0FBUSwwQkFBMEI7UUFDeEUsWUFDSSxZQUEwQixFQUNSLFFBQWE7WUFDakMsS0FBSyxDQUFDLFlBQVksRUFBRSxRQUFRLENBQUMsQ0FBQztRQUNoQyxDQUFDO1FBRVMsaUJBQWlCLENBQUMscUJBQTZCO1lBQ3ZELE9BQU8sY0FBYyxxQkFBcUIsRUFBRSxDQUFDO1FBQy9DLENBQUM7S0FDRixDQUFBO0lBVlksMEJBQTBCO1FBRHRDLFVBQVUsRUFBRTtRQUlOLFdBQUEsTUFBTSxDQUFDLFFBQVEsQ0FBQyxDQUFBO3lDQURILFlBQVk7T0FGbkIsMEJBQTBCLENBVXRDO0lBQUQsaUNBQUM7S0FBQTtTQVZZLDBCQUEwQjtBQVl2QyxNQUFNLENBQUMsTUFBTSw2QkFBNkIsR0FBYTtJQUNyRCxPQUFPLEVBQUUsY0FBYztJQUN2QixRQUFRLEVBQUUsMEJBQTBCO0NBQ3JDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtJbmplY3QsIEluamVjdGFibGUsIFByb3ZpZGVyfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7RE9DVU1FTlR9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5cbmltcG9ydCB7XG4gIENvbHVtblJlc2l6ZSxcbiAgUmVzaXplU3RyYXRlZ3ksXG4gIENka0ZsZXhUYWJsZVJlc2l6ZVN0cmF0ZWd5LFxuICBUQUJMRV9MQVlPVVRfRklYRURfUkVTSVpFX1NUUkFURUdZX1BST1ZJREVSLFxufSBmcm9tICdAYW5ndWxhci9jZGstZXhwZXJpbWVudGFsL2NvbHVtbi1yZXNpemUnO1xuXG5leHBvcnQge1RBQkxFX0xBWU9VVF9GSVhFRF9SRVNJWkVfU1RSQVRFR1lfUFJPVklERVJ9O1xuXG4vKipcbiAqIE92ZXJyaWRlcyBDZGtGbGV4VGFibGVSZXNpemVTdHJhdGVneSB0byBtYXRjaCBtYXQtY29sdW1uIGVsZW1lbnRzLlxuICovXG5ASW5qZWN0YWJsZSgpXG5leHBvcnQgY2xhc3MgTWF0RmxleFRhYmxlUmVzaXplU3RyYXRlZ3kgZXh0ZW5kcyBDZGtGbGV4VGFibGVSZXNpemVTdHJhdGVneSB7XG4gIGNvbnN0cnVjdG9yKFxuICAgICAgY29sdW1uUmVzaXplOiBDb2x1bW5SZXNpemUsXG4gICAgICBASW5qZWN0KERPQ1VNRU5UKSBkb2N1bWVudDogYW55KSB7XG4gICAgc3VwZXIoY29sdW1uUmVzaXplLCBkb2N1bWVudCk7XG4gIH1cblxuICBwcm90ZWN0ZWQgZ2V0Q29sdW1uQ3NzQ2xhc3MoY3NzRnJpZW5kbHlDb2x1bW5OYW1lOiBzdHJpbmcpOiBzdHJpbmcge1xuICAgIHJldHVybiBgbWF0LWNvbHVtbi0ke2Nzc0ZyaWVuZGx5Q29sdW1uTmFtZX1gO1xuICB9XG59XG5cbmV4cG9ydCBjb25zdCBGTEVYX1JFU0laRV9TVFJBVEVHWV9QUk9WSURFUjogUHJvdmlkZXIgPSB7XG4gIHByb3ZpZGU6IFJlc2l6ZVN0cmF0ZWd5LFxuICB1c2VDbGFzczogTWF0RmxleFRhYmxlUmVzaXplU3RyYXRlZ3ksXG59O1xuIl19

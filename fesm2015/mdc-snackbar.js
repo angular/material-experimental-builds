@@ -1,49 +1,56 @@
+import { __decorate } from 'tslib';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-snackbar/snackbar.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 let MatSnackbar = /** @class */ (() => {
-    class MatSnackbar {
-    }
-    MatSnackbar.decorators = [
-        { type: Component, args: [{
-                    selector: 'mat-snackbar',
-                    template: "<!-- WIP: MDC-based snackbar -->\n",
-                    exportAs: 'matSnackbar',
-                    encapsulation: ViewEncapsulation.None,
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: ["\n"]
-                }] }
-    ];
+    let MatSnackbar = class MatSnackbar {
+    };
+    MatSnackbar = __decorate([
+        Component({
+            selector: 'mat-snackbar',
+            template: "<!-- WIP: MDC-based snackbar -->\n",
+            exportAs: 'matSnackbar',
+            encapsulation: ViewEncapsulation.None,
+            changeDetection: ChangeDetectionStrategy.OnPush,
+            styles: ["\n"]
+        })
+    ], MatSnackbar);
     return MatSnackbar;
 })();
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-snackbar/module.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 let MatSnackbarModule = /** @class */ (() => {
-    class MatSnackbarModule {
-    }
-    MatSnackbarModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [MatCommonModule],
-                    exports: [MatSnackbar, MatCommonModule],
-                    declarations: [MatSnackbar],
-                },] }
-    ];
+    let MatSnackbarModule = class MatSnackbarModule {
+    };
+    MatSnackbarModule = __decorate([
+        NgModule({
+            imports: [MatCommonModule],
+            exports: [MatSnackbar, MatCommonModule],
+            declarations: [MatSnackbar],
+        })
+    ], MatSnackbarModule);
     return MatSnackbarModule;
 })();
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-snackbar/public-api.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 
 /**

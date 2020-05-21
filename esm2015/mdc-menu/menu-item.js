@@ -1,53 +1,47 @@
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-menu/menu-item.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
  * @license
  * Copyright Google LLC All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { __decorate } from "tslib";
 import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { MatMenuItem as BaseMatMenuItem } from '@angular/material/menu';
 /**
  * Single item inside of a `mat-menu`. Provides the menu item styling and accessibility treatment.
  */
 let MatMenuItem = /** @class */ (() => {
-    /**
-     * Single item inside of a `mat-menu`. Provides the menu item styling and accessibility treatment.
-     */
-    class MatMenuItem extends BaseMatMenuItem {
-    }
-    MatMenuItem.decorators = [
-        { type: Component, args: [{
-                    selector: '[mat-menu-item]',
-                    exportAs: 'matMenuItem',
-                    inputs: ['disabled', 'disableRipple'],
-                    host: {
-                        '[attr.role]': 'role',
-                        // The MatMenuItem parent class adds `mat-menu-item` and `mat-focus-indicator` to the CSS
-                        // classlist, but these should not be added for this MDC equivalent menu item.
-                        '[class.mat-menu-item]': 'false',
-                        '[class.mat-focus-indicator]': 'false',
-                        'class': 'mat-mdc-menu-item mat-mdc-focus-indicator',
-                        '[class.mat-mdc-menu-item-highlighted]': '_highlighted',
-                        '[class.mat-mdc-menu-item-submenu-trigger]': '_triggersSubmenu',
-                        '[attr.tabindex]': '_getTabIndex()',
-                        '[attr.aria-disabled]': 'disabled',
-                        '[attr.disabled]': 'disabled || null',
-                    },
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    encapsulation: ViewEncapsulation.None,
-                    template: "<ng-content></ng-content>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\">\n</div>\n",
-                    providers: [
-                        { provide: BaseMatMenuItem, useExisting: MatMenuItem },
-                    ]
-                }] }
-    ];
+    var MatMenuItem_1;
+    let MatMenuItem = MatMenuItem_1 = class MatMenuItem extends BaseMatMenuItem {
+    };
+    MatMenuItem = MatMenuItem_1 = __decorate([
+        Component({
+            selector: '[mat-menu-item]',
+            exportAs: 'matMenuItem',
+            inputs: ['disabled', 'disableRipple'],
+            host: {
+                '[attr.role]': 'role',
+                // The MatMenuItem parent class adds `mat-menu-item` and `mat-focus-indicator` to the CSS
+                // classlist, but these should not be added for this MDC equivalent menu item.
+                '[class.mat-menu-item]': 'false',
+                '[class.mat-focus-indicator]': 'false',
+                'class': 'mat-mdc-menu-item mat-mdc-focus-indicator',
+                '[class.mat-mdc-menu-item-highlighted]': '_highlighted',
+                '[class.mat-mdc-menu-item-submenu-trigger]': '_triggersSubmenu',
+                '[attr.tabindex]': '_getTabIndex()',
+                '[attr.aria-disabled]': 'disabled',
+                '[attr.disabled]': 'disabled || null',
+            },
+            changeDetection: ChangeDetectionStrategy.OnPush,
+            encapsulation: ViewEncapsulation.None,
+            template: "<ng-content></ng-content>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\">\n</div>\n",
+            providers: [
+                { provide: BaseMatMenuItem, useExisting: MatMenuItem_1 },
+            ]
+        })
+    ], MatMenuItem);
     return MatMenuItem;
 })();
 export { MatMenuItem };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWVudS1pdGVtLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9tZGMtbWVudS9tZW51LWl0ZW0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBUUEsT0FBTyxFQUFDLFNBQVMsRUFBRSx1QkFBdUIsRUFBRSxpQkFBaUIsRUFBQyxNQUFNLGVBQWUsQ0FBQztBQUNwRixPQUFPLEVBQUMsV0FBVyxJQUFJLGVBQWUsRUFBQyxNQUFNLHdCQUF3QixDQUFDOzs7O0FBS3RFOzs7O0lBQUEsTUF3QmEsV0FBWSxTQUFRLGVBQWU7OztnQkF4Qi9DLFNBQVMsU0FBQztvQkFDVCxRQUFRLEVBQUUsaUJBQWlCO29CQUMzQixRQUFRLEVBQUUsYUFBYTtvQkFDdkIsTUFBTSxFQUFFLENBQUMsVUFBVSxFQUFFLGVBQWUsQ0FBQztvQkFDckMsSUFBSSxFQUFFO3dCQUNKLGFBQWEsRUFBRSxNQUFNOzs7d0JBR3JCLHVCQUF1QixFQUFFLE9BQU87d0JBQ2hDLDZCQUE2QixFQUFFLE9BQU87d0JBQ3RDLE9BQU8sRUFBRSwyQ0FBMkM7d0JBQ3BELHVDQUF1QyxFQUFFLGNBQWM7d0JBQ3ZELDJDQUEyQyxFQUFFLGtCQUFrQjt3QkFDL0QsaUJBQWlCLEVBQUUsZ0JBQWdCO3dCQUNuQyxzQkFBc0IsRUFBRSxVQUFVO3dCQUNsQyxpQkFBaUIsRUFBRSxrQkFBa0I7cUJBQ3RDO29CQUNELGVBQWUsRUFBRSx1QkFBdUIsQ0FBQyxNQUFNO29CQUMvQyxhQUFhLEVBQUUsaUJBQWlCLENBQUMsSUFBSTtvQkFDckMscU1BQTZCO29CQUM3QixTQUFTLEVBQUU7d0JBQ1QsRUFBQyxPQUFPLEVBQUUsZUFBZSxFQUFFLFdBQVcsRUFBRSxXQUFXLEVBQUM7cUJBQ3JEO2lCQUNGOztJQUVELGtCQUFDO0tBQUE7U0FEWSxXQUFXIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7Q29tcG9uZW50LCBDaGFuZ2VEZXRlY3Rpb25TdHJhdGVneSwgVmlld0VuY2Fwc3VsYXRpb259IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtNYXRNZW51SXRlbSBhcyBCYXNlTWF0TWVudUl0ZW19IGZyb20gJ0Bhbmd1bGFyL21hdGVyaWFsL21lbnUnO1xuXG4vKipcbiAqIFNpbmdsZSBpdGVtIGluc2lkZSBvZiBhIGBtYXQtbWVudWAuIFByb3ZpZGVzIHRoZSBtZW51IGl0ZW0gc3R5bGluZyBhbmQgYWNjZXNzaWJpbGl0eSB0cmVhdG1lbnQuXG4gKi9cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogJ1ttYXQtbWVudS1pdGVtXScsXG4gIGV4cG9ydEFzOiAnbWF0TWVudUl0ZW0nLFxuICBpbnB1dHM6IFsnZGlzYWJsZWQnLCAnZGlzYWJsZVJpcHBsZSddLFxuICBob3N0OiB7XG4gICAgJ1thdHRyLnJvbGVdJzogJ3JvbGUnLFxuICAgICAvLyBUaGUgTWF0TWVudUl0ZW0gcGFyZW50IGNsYXNzIGFkZHMgYG1hdC1tZW51LWl0ZW1gIGFuZCBgbWF0LWZvY3VzLWluZGljYXRvcmAgdG8gdGhlIENTU1xuICAgICAvLyBjbGFzc2xpc3QsIGJ1dCB0aGVzZSBzaG91bGQgbm90IGJlIGFkZGVkIGZvciB0aGlzIE1EQyBlcXVpdmFsZW50IG1lbnUgaXRlbS5cbiAgICAnW2NsYXNzLm1hdC1tZW51LWl0ZW1dJzogJ2ZhbHNlJyxcbiAgICAnW2NsYXNzLm1hdC1mb2N1cy1pbmRpY2F0b3JdJzogJ2ZhbHNlJyxcbiAgICAnY2xhc3MnOiAnbWF0LW1kYy1tZW51LWl0ZW0gbWF0LW1kYy1mb2N1cy1pbmRpY2F0b3InLFxuICAgICdbY2xhc3MubWF0LW1kYy1tZW51LWl0ZW0taGlnaGxpZ2h0ZWRdJzogJ19oaWdobGlnaHRlZCcsXG4gICAgJ1tjbGFzcy5tYXQtbWRjLW1lbnUtaXRlbS1zdWJtZW51LXRyaWdnZXJdJzogJ190cmlnZ2Vyc1N1Ym1lbnUnLFxuICAgICdbYXR0ci50YWJpbmRleF0nOiAnX2dldFRhYkluZGV4KCknLFxuICAgICdbYXR0ci5hcmlhLWRpc2FibGVkXSc6ICdkaXNhYmxlZCcsXG4gICAgJ1thdHRyLmRpc2FibGVkXSc6ICdkaXNhYmxlZCB8fCBudWxsJyxcbiAgfSxcbiAgY2hhbmdlRGV0ZWN0aW9uOiBDaGFuZ2VEZXRlY3Rpb25TdHJhdGVneS5PblB1c2gsXG4gIGVuY2Fwc3VsYXRpb246IFZpZXdFbmNhcHN1bGF0aW9uLk5vbmUsXG4gIHRlbXBsYXRlVXJsOiAnbWVudS1pdGVtLmh0bWwnLFxuICBwcm92aWRlcnM6IFtcbiAgICB7cHJvdmlkZTogQmFzZU1hdE1lbnVJdGVtLCB1c2VFeGlzdGluZzogTWF0TWVudUl0ZW19LFxuICBdXG59KVxuZXhwb3J0IGNsYXNzIE1hdE1lbnVJdGVtIGV4dGVuZHMgQmFzZU1hdE1lbnVJdGVtIHtcbn1cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWVudS1pdGVtLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9tZGMtbWVudS9tZW51LWl0ZW0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HOztBQUVILE9BQU8sRUFBQyxTQUFTLEVBQUUsdUJBQXVCLEVBQUUsaUJBQWlCLEVBQUMsTUFBTSxlQUFlLENBQUM7QUFDcEYsT0FBTyxFQUFDLFdBQVcsSUFBSSxlQUFlLEVBQUMsTUFBTSx3QkFBd0IsQ0FBQztBQUV0RTs7R0FFRztBQXlCSDs7SUFBQSxJQUFhLFdBQVcsbUJBQXhCLE1BQWEsV0FBWSxTQUFRLGVBQWU7S0FDL0MsQ0FBQTtJQURZLFdBQVc7UUF4QnZCLFNBQVMsQ0FBQztZQUNULFFBQVEsRUFBRSxpQkFBaUI7WUFDM0IsUUFBUSxFQUFFLGFBQWE7WUFDdkIsTUFBTSxFQUFFLENBQUMsVUFBVSxFQUFFLGVBQWUsQ0FBQztZQUNyQyxJQUFJLEVBQUU7Z0JBQ0osYUFBYSxFQUFFLE1BQU07Z0JBQ3BCLHlGQUF5RjtnQkFDekYsOEVBQThFO2dCQUMvRSx1QkFBdUIsRUFBRSxPQUFPO2dCQUNoQyw2QkFBNkIsRUFBRSxPQUFPO2dCQUN0QyxPQUFPLEVBQUUsMkNBQTJDO2dCQUNwRCx1Q0FBdUMsRUFBRSxjQUFjO2dCQUN2RCwyQ0FBMkMsRUFBRSxrQkFBa0I7Z0JBQy9ELGlCQUFpQixFQUFFLGdCQUFnQjtnQkFDbkMsc0JBQXNCLEVBQUUsVUFBVTtnQkFDbEMsaUJBQWlCLEVBQUUsa0JBQWtCO2FBQ3RDO1lBQ0QsZUFBZSxFQUFFLHVCQUF1QixDQUFDLE1BQU07WUFDL0MsYUFBYSxFQUFFLGlCQUFpQixDQUFDLElBQUk7WUFDckMscU1BQTZCO1lBQzdCLFNBQVMsRUFBRTtnQkFDVCxFQUFDLE9BQU8sRUFBRSxlQUFlLEVBQUUsV0FBVyxFQUFFLGFBQVcsRUFBQzthQUNyRDtTQUNGLENBQUM7T0FDVyxXQUFXLENBQ3ZCO0lBQUQsa0JBQUM7S0FBQTtTQURZLFdBQVciLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtDb21wb25lbnQsIENoYW5nZURldGVjdGlvblN0cmF0ZWd5LCBWaWV3RW5jYXBzdWxhdGlvbn0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge01hdE1lbnVJdGVtIGFzIEJhc2VNYXRNZW51SXRlbX0gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvbWVudSc7XG5cbi8qKlxuICogU2luZ2xlIGl0ZW0gaW5zaWRlIG9mIGEgYG1hdC1tZW51YC4gUHJvdmlkZXMgdGhlIG1lbnUgaXRlbSBzdHlsaW5nIGFuZCBhY2Nlc3NpYmlsaXR5IHRyZWF0bWVudC5cbiAqL1xuQENvbXBvbmVudCh7XG4gIHNlbGVjdG9yOiAnW21hdC1tZW51LWl0ZW1dJyxcbiAgZXhwb3J0QXM6ICdtYXRNZW51SXRlbScsXG4gIGlucHV0czogWydkaXNhYmxlZCcsICdkaXNhYmxlUmlwcGxlJ10sXG4gIGhvc3Q6IHtcbiAgICAnW2F0dHIucm9sZV0nOiAncm9sZScsXG4gICAgIC8vIFRoZSBNYXRNZW51SXRlbSBwYXJlbnQgY2xhc3MgYWRkcyBgbWF0LW1lbnUtaXRlbWAgYW5kIGBtYXQtZm9jdXMtaW5kaWNhdG9yYCB0byB0aGUgQ1NTXG4gICAgIC8vIGNsYXNzbGlzdCwgYnV0IHRoZXNlIHNob3VsZCBub3QgYmUgYWRkZWQgZm9yIHRoaXMgTURDIGVxdWl2YWxlbnQgbWVudSBpdGVtLlxuICAgICdbY2xhc3MubWF0LW1lbnUtaXRlbV0nOiAnZmFsc2UnLFxuICAgICdbY2xhc3MubWF0LWZvY3VzLWluZGljYXRvcl0nOiAnZmFsc2UnLFxuICAgICdjbGFzcyc6ICdtYXQtbWRjLW1lbnUtaXRlbSBtYXQtbWRjLWZvY3VzLWluZGljYXRvcicsXG4gICAgJ1tjbGFzcy5tYXQtbWRjLW1lbnUtaXRlbS1oaWdobGlnaHRlZF0nOiAnX2hpZ2hsaWdodGVkJyxcbiAgICAnW2NsYXNzLm1hdC1tZGMtbWVudS1pdGVtLXN1Ym1lbnUtdHJpZ2dlcl0nOiAnX3RyaWdnZXJzU3VibWVudScsXG4gICAgJ1thdHRyLnRhYmluZGV4XSc6ICdfZ2V0VGFiSW5kZXgoKScsXG4gICAgJ1thdHRyLmFyaWEtZGlzYWJsZWRdJzogJ2Rpc2FibGVkJyxcbiAgICAnW2F0dHIuZGlzYWJsZWRdJzogJ2Rpc2FibGVkIHx8IG51bGwnLFxuICB9LFxuICBjaGFuZ2VEZXRlY3Rpb246IENoYW5nZURldGVjdGlvblN0cmF0ZWd5Lk9uUHVzaCxcbiAgZW5jYXBzdWxhdGlvbjogVmlld0VuY2Fwc3VsYXRpb24uTm9uZSxcbiAgdGVtcGxhdGVVcmw6ICdtZW51LWl0ZW0uaHRtbCcsXG4gIHByb3ZpZGVyczogW1xuICAgIHtwcm92aWRlOiBCYXNlTWF0TWVudUl0ZW0sIHVzZUV4aXN0aW5nOiBNYXRNZW51SXRlbX0sXG4gIF1cbn0pXG5leHBvcnQgY2xhc3MgTWF0TWVudUl0ZW0gZXh0ZW5kcyBCYXNlTWF0TWVudUl0ZW0ge1xufVxuIl19

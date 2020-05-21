@@ -1,27 +1,32 @@
+import { __decorate } from 'tslib';
 import { NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-select/module.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 let MatSelectModule = /** @class */ (() => {
-    class MatSelectModule {
-    }
-    MatSelectModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [MatCommonModule],
-                    exports: [MatCommonModule],
-                },] }
-    ];
+    let MatSelectModule = class MatSelectModule {
+    };
+    MatSelectModule = __decorate([
+        NgModule({
+            imports: [MatCommonModule],
+            exports: [MatCommonModule],
+        })
+    ], MatSelectModule);
     return MatSelectModule;
 })();
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-select/public-api.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 
 /**

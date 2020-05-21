@@ -1,27 +1,32 @@
+import { __decorate } from 'tslib';
 import { NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-autocomplete/module.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 let MatAutocompleteModule = /** @class */ (() => {
-    class MatAutocompleteModule {
-    }
-    MatAutocompleteModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [MatCommonModule],
-                    exports: [MatCommonModule],
-                },] }
-    ];
+    let MatAutocompleteModule = class MatAutocompleteModule {
+    };
+    MatAutocompleteModule = __decorate([
+        NgModule({
+            imports: [MatCommonModule],
+            exports: [MatCommonModule],
+        })
+    ], MatAutocompleteModule);
     return MatAutocompleteModule;
 })();
 
 /**
- * @fileoverview added by tsickle
- * Generated from: src/material-experimental/mdc-autocomplete/public-api.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
  */
 
 /**
