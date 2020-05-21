@@ -254,6 +254,7 @@
         function MatMenu(_elementRef, _ngZone, _defaultOptions) {
             return _super.call(this, _elementRef, _ngZone, _defaultOptions) || this;
         }
+        MatMenu_1 = MatMenu;
         MatMenu.prototype.setElevation = function (_depth) {
             // TODO(crisbeto): MDC's styles come with elevation already and we haven't mapped our mixins
             // to theirs. Disable the elevation stacking for now until everything has been mapped.
@@ -263,30 +264,28 @@
             // - should update the elevation when the same menu is opened at a different depth
             // - should not increase the elevation if the user specified a custom one
         };
-        MatMenu.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'mat-menu',
-                        template: "<ng-template>\n  <div\n    class=\"mat-mdc-menu-panel mdc-menu-surface mdc-menu-surface--open\"\n    [id]=\"panelId\"\n    [ngClass]=\"_classList\"\n    (keydown)=\"_handleKeydown($event)\"\n    (click)=\"closed.emit('click')\"\n    [@transformMenu]=\"_panelAnimationState\"\n    (@transformMenu.start)=\"_onAnimationStart($event)\"\n    (@transformMenu.done)=\"_onAnimationDone($event)\"\n    tabindex=\"-1\"\n    role=\"menu\"\n    [attr.aria-label]=\"ariaLabel || null\"\n    [attr.aria-labelledby]=\"ariaLabelledby || null\"\n    [attr.aria-describedby]=\"ariaDescribedby || null\">\n    <div class=\"mat-mdc-menu-content mdc-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</ng-template>\n",
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        encapsulation: core.ViewEncapsulation.None,
-                        exportAs: 'matMenu',
-                        animations: [
-                            menu.matMenuAnimations.transformMenu,
-                            menu.matMenuAnimations.fadeInItems
-                        ],
-                        providers: [
-                            { provide: menu.MAT_MENU_PANEL, useExisting: MatMenu },
-                            { provide: menu.MatMenu, useExisting: MatMenu },
-                        ],
-                        styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mat-mdc-menu-content{margin:0;padding:8px 0;list-style-type:none}.mat-mdc-menu-content:focus{outline:none}.mat-mdc-menu-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;position:static}.cdk-high-contrast-active .mat-mdc-menu-panel{outline:solid 1px}.mat-mdc-menu-item{display:flex;position:relative;align-items:center;justify-content:flex-start;padding:0 16px;overflow:hidden;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;height:48px;cursor:pointer;width:100%;text-align:left;box-sizing:border-box;color:inherit;font-size:inherit;background:none;text-decoration:none}.mat-mdc-menu-item:focus{outline:none}.mat-mdc-menu-item::-moz-focus-inner{border:0}.mat-mdc-menu-item[disabled]{pointer-events:none;cursor:default}.mat-mdc-menu-item .mat-icon{margin-right:16px}[dir=rtl] .mat-mdc-menu-item{text-align:right}[dir=rtl] .mat-mdc-menu-item .mat-icon{margin-right:0;margin-left:16px}.cdk-high-contrast-active .mat-mdc-menu-item.cdk-program-focused,.cdk-high-contrast-active .mat-mdc-menu-item.cdk-keyboard-focused,.cdk-high-contrast-active .mat-mdc-menu-item-highlighted{outline:dotted 1px}.mat-mdc-menu-item-submenu-trigger{padding-right:32px}.mat-mdc-menu-item-submenu-trigger::after{width:0;height:0;border-style:solid;border-width:5px 0 5px 5px;border-color:transparent transparent transparent currentColor;content:\"\";display:inline-block;position:absolute;top:50%;right:16px;transform:translateY(-50%)}[dir=rtl] .mat-mdc-menu-item-submenu-trigger{padding-right:16px;padding-left:32px}[dir=rtl] .mat-mdc-menu-item-submenu-trigger::after{right:auto;left:16px;transform:rotateY(180deg) translateY(-50%)}.mat-mdc-menu-item .mat-mdc-menu-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}\n"]
-                    }] }
-        ];
-        /** @nocollapse */
-        MatMenu.ctorParameters = function () { return [
-            { type: core.ElementRef },
-            { type: core.NgZone },
-            { type: undefined, decorators: [{ type: core.Inject, args: [menu.MAT_MENU_DEFAULT_OPTIONS,] }] }
-        ]; };
+        var MatMenu_1;
+        MatMenu = MatMenu_1 = __decorate([
+            core.Component({
+                selector: 'mat-menu',
+                template: "<ng-template>\n  <div\n    class=\"mat-mdc-menu-panel mdc-menu-surface mdc-menu-surface--open\"\n    [id]=\"panelId\"\n    [ngClass]=\"_classList\"\n    (keydown)=\"_handleKeydown($event)\"\n    (click)=\"closed.emit('click')\"\n    [@transformMenu]=\"_panelAnimationState\"\n    (@transformMenu.start)=\"_onAnimationStart($event)\"\n    (@transformMenu.done)=\"_onAnimationDone($event)\"\n    tabindex=\"-1\"\n    role=\"menu\"\n    [attr.aria-label]=\"ariaLabel || null\"\n    [attr.aria-labelledby]=\"ariaLabelledby || null\"\n    [attr.aria-describedby]=\"ariaDescribedby || null\">\n    <div class=\"mat-mdc-menu-content mdc-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</ng-template>\n",
+                changeDetection: core.ChangeDetectionStrategy.OnPush,
+                encapsulation: core.ViewEncapsulation.None,
+                exportAs: 'matMenu',
+                animations: [
+                    menu.matMenuAnimations.transformMenu,
+                    menu.matMenuAnimations.fadeInItems
+                ],
+                providers: [
+                    { provide: menu.MAT_MENU_PANEL, useExisting: MatMenu_1 },
+                    { provide: menu.MatMenu, useExisting: MatMenu_1 },
+                ],
+                styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mat-mdc-menu-content{margin:0;padding:8px 0;list-style-type:none}.mat-mdc-menu-content:focus{outline:none}.mat-mdc-menu-panel{min-width:112px;max-width:280px;overflow:auto;-webkit-overflow-scrolling:touch;position:static}.cdk-high-contrast-active .mat-mdc-menu-panel{outline:solid 1px}.mat-mdc-menu-item{display:flex;position:relative;align-items:center;justify-content:flex-start;padding:0 16px;overflow:hidden;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:none;border:none;-webkit-tap-highlight-color:transparent;height:48px;cursor:pointer;width:100%;text-align:left;box-sizing:border-box;color:inherit;font-size:inherit;background:none;text-decoration:none}.mat-mdc-menu-item:focus{outline:none}.mat-mdc-menu-item::-moz-focus-inner{border:0}.mat-mdc-menu-item[disabled]{pointer-events:none;cursor:default}.mat-mdc-menu-item .mat-icon{margin-right:16px}[dir=rtl] .mat-mdc-menu-item{text-align:right}[dir=rtl] .mat-mdc-menu-item .mat-icon{margin-right:0;margin-left:16px}.cdk-high-contrast-active .mat-mdc-menu-item.cdk-program-focused,.cdk-high-contrast-active .mat-mdc-menu-item.cdk-keyboard-focused,.cdk-high-contrast-active .mat-mdc-menu-item-highlighted{outline:dotted 1px}.mat-mdc-menu-item-submenu-trigger{padding-right:32px}.mat-mdc-menu-item-submenu-trigger::after{width:0;height:0;border-style:solid;border-width:5px 0 5px 5px;border-color:transparent transparent transparent currentColor;content:\"\";display:inline-block;position:absolute;top:50%;right:16px;transform:translateY(-50%)}[dir=rtl] .mat-mdc-menu-item-submenu-trigger{padding-right:16px;padding-left:32px}[dir=rtl] .mat-mdc-menu-item-submenu-trigger::after{right:auto;left:16px;transform:rotateY(180deg) translateY(-50%)}.mat-mdc-menu-item .mat-mdc-menu-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}\n"]
+            }),
+            __param(2, core.Inject(menu.MAT_MENU_DEFAULT_OPTIONS)),
+            __metadata("design:paramtypes", [core.ElementRef,
+                core.NgZone, Object])
+        ], MatMenu);
         return MatMenu;
     }(menu.MatMenu));
 
@@ -305,32 +304,34 @@
         function MatMenuItem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatMenuItem.decorators = [
-            { type: core.Component, args: [{
-                        selector: '[mat-menu-item]',
-                        exportAs: 'matMenuItem',
-                        inputs: ['disabled', 'disableRipple'],
-                        host: {
-                            '[attr.role]': 'role',
-                            // The MatMenuItem parent class adds `mat-menu-item` and `mat-focus-indicator` to the CSS
-                            // classlist, but these should not be added for this MDC equivalent menu item.
-                            '[class.mat-menu-item]': 'false',
-                            '[class.mat-focus-indicator]': 'false',
-                            'class': 'mat-mdc-menu-item mat-mdc-focus-indicator',
-                            '[class.mat-mdc-menu-item-highlighted]': '_highlighted',
-                            '[class.mat-mdc-menu-item-submenu-trigger]': '_triggersSubmenu',
-                            '[attr.tabindex]': '_getTabIndex()',
-                            '[attr.aria-disabled]': 'disabled',
-                            '[attr.disabled]': 'disabled || null',
-                        },
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        encapsulation: core.ViewEncapsulation.None,
-                        template: "<ng-content></ng-content>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\">\n</div>\n",
-                        providers: [
-                            { provide: menu.MatMenuItem, useExisting: MatMenuItem },
-                        ]
-                    }] }
-        ];
+        MatMenuItem_1 = MatMenuItem;
+        var MatMenuItem_1;
+        MatMenuItem = MatMenuItem_1 = __decorate([
+            core.Component({
+                selector: '[mat-menu-item]',
+                exportAs: 'matMenuItem',
+                inputs: ['disabled', 'disableRipple'],
+                host: {
+                    '[attr.role]': 'role',
+                    // The MatMenuItem parent class adds `mat-menu-item` and `mat-focus-indicator` to the CSS
+                    // classlist, but these should not be added for this MDC equivalent menu item.
+                    '[class.mat-menu-item]': 'false',
+                    '[class.mat-focus-indicator]': 'false',
+                    'class': 'mat-mdc-menu-item mat-mdc-focus-indicator',
+                    '[class.mat-mdc-menu-item-highlighted]': '_highlighted',
+                    '[class.mat-mdc-menu-item-submenu-trigger]': '_triggersSubmenu',
+                    '[attr.tabindex]': '_getTabIndex()',
+                    '[attr.aria-disabled]': 'disabled',
+                    '[attr.disabled]': 'disabled || null',
+                },
+                changeDetection: core.ChangeDetectionStrategy.OnPush,
+                encapsulation: core.ViewEncapsulation.None,
+                template: "<ng-content></ng-content>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\">\n</div>\n",
+                providers: [
+                    { provide: menu.MatMenuItem, useExisting: MatMenuItem_1 },
+                ]
+            })
+        ], MatMenuItem);
         return MatMenuItem;
     }(menu.MatMenuItem));
 
@@ -344,20 +345,20 @@
     var MatMenuModule = /** @class */ (function () {
         function MatMenuModule() {
         }
-        MatMenuModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [
-                            common.CommonModule,
-                            core$1.MatRippleModule,
-                            core$1.MatCommonModule,
-                            overlay.OverlayModule,
-                            menu._MatMenuDirectivesModule
-                        ],
-                        exports: [scrolling.CdkScrollableModule, MatMenu, core$1.MatCommonModule, MatMenuItem, menu._MatMenuDirectivesModule],
-                        declarations: [MatMenu, MatMenuItem],
-                        providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
-                    },] }
-        ];
+        MatMenuModule = __decorate([
+            core.NgModule({
+                imports: [
+                    common.CommonModule,
+                    core$1.MatRippleModule,
+                    core$1.MatCommonModule,
+                    overlay.OverlayModule,
+                    menu._MatMenuDirectivesModule
+                ],
+                exports: [scrolling.CdkScrollableModule, MatMenu, core$1.MatCommonModule, MatMenuItem, menu._MatMenuDirectivesModule],
+                declarations: [MatMenu, MatMenuItem],
+                providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
+            })
+        ], MatMenuModule);
         return MatMenuModule;
     }());
 
