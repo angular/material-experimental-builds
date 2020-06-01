@@ -1,4 +1,3 @@
-import { __decorate } from 'tslib';
 import { Directive, NgModule } from '@angular/core';
 import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, _closest, _CELL_SELECTOR, CdkEditOpen, CdkPopoverEditModule, CdkEditable } from '@angular/cdk-experimental/popover-edit';
 
@@ -16,49 +15,56 @@ import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, C
  * out.
  */
 let MatEditLens = /** @class */ (() => {
-    let MatEditLens = class MatEditLens extends CdkEditControl {
-    };
-    MatEditLens = __decorate([
-        Directive({
-            selector: 'form[matEditLens]',
-            host: {
-                'class': 'mat-edit-lens',
-            },
-            inputs: [
-                'clickOutBehavior: matEditLensClickOutBehavior',
-                'preservedFormValue: matEditLensPreservedFormValue',
-                'ignoreSubmitUnlessValid: matEditLensIgnoreSubmitUnlessValid',
-            ],
-            outputs: ['preservedFormValueChange: matEditLensPreservedFormValueChange'],
-            providers: [EditRef],
-        })
-    ], MatEditLens);
+    class MatEditLens extends CdkEditControl {
+    }
+    MatEditLens.decorators = [
+        { type: Directive, args: [{
+                    selector: 'form[matEditLens]',
+                    host: {
+                        'class': 'mat-edit-lens',
+                    },
+                    inputs: [
+                        'clickOutBehavior: matEditLensClickOutBehavior',
+                        'preservedFormValue: matEditLensPreservedFormValue',
+                        'ignoreSubmitUnlessValid: matEditLensIgnoreSubmitUnlessValid',
+                    ],
+                    outputs: ['preservedFormValueChange: matEditLensPreservedFormValueChange'],
+                    providers: [EditRef],
+                },] }
+    ];
     return MatEditLens;
 })();
 /** Reverts the form to its initial or previously submitted state on click. */
 let MatEditRevert = /** @class */ (() => {
-    let MatEditRevert = class MatEditRevert extends CdkEditRevert {
-    };
-    MatEditRevert = __decorate([
-        Directive({
-            selector: 'button[matEditRevert]',
-            host: {
-                'type': 'button',
-            }
-        })
-    ], MatEditRevert);
+    class MatEditRevert extends CdkEditRevert {
+    }
+    MatEditRevert.decorators = [
+        { type: Directive, args: [{
+                    selector: 'button[matEditRevert]',
+                    host: {
+                        'type': 'button',
+                    }
+                },] }
+    ];
     return MatEditRevert;
 })();
 /** Closes the lens on click. */
 let MatEditClose = /** @class */ (() => {
-    let MatEditClose = class MatEditClose extends CdkEditClose {
-    };
-    MatEditClose = __decorate([
-        Directive({ selector: '[matEditClose]' })
-    ], MatEditClose);
+    class MatEditClose extends CdkEditClose {
+    }
+    MatEditClose.decorators = [
+        { type: Directive, args: [{ selector: '[matEditClose]' },] }
+    ];
     return MatEditClose;
 })();
 
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 const POPOVER_EDIT_HOST_BINDINGS = {
     '[attr.tabindex]': 'disabled ? null : 0',
     'class': 'mat-popover-edit-cell',
@@ -81,18 +87,18 @@ const MAT_ROW_HOVER_CELL_CLASS = MAT_ROW_HOVER_CLASS + '-host-cell';
  * Makes the cell focusable.
  */
 let MatPopoverEdit = /** @class */ (() => {
-    let MatPopoverEdit = class MatPopoverEdit extends CdkPopoverEdit {
+    class MatPopoverEdit extends CdkPopoverEdit {
         panelClass() {
             return EDIT_PANE_CLASS;
         }
-    };
-    MatPopoverEdit = __decorate([
-        Directive({
-            selector: '[matPopoverEdit]:not([matPopoverEditTabOut])',
-            host: POPOVER_EDIT_HOST_BINDINGS,
-            inputs: POPOVER_EDIT_INPUTS,
-        })
-    ], MatPopoverEdit);
+    }
+    MatPopoverEdit.decorators = [
+        { type: Directive, args: [{
+                    selector: '[matPopoverEdit]:not([matPopoverEditTabOut])',
+                    host: POPOVER_EDIT_HOST_BINDINGS,
+                    inputs: POPOVER_EDIT_INPUTS,
+                },] }
+    ];
     return MatPopoverEdit;
 })();
 /**
@@ -101,18 +107,18 @@ let MatPopoverEdit = /** @class */ (() => {
  * Makes the cell focusable.
  */
 let MatPopoverEditTabOut = /** @class */ (() => {
-    let MatPopoverEditTabOut = class MatPopoverEditTabOut extends CdkPopoverEditTabOut {
+    class MatPopoverEditTabOut extends CdkPopoverEditTabOut {
         panelClass() {
             return EDIT_PANE_CLASS;
         }
-    };
-    MatPopoverEditTabOut = __decorate([
-        Directive({
-            selector: '[matPopoverEdit][matPopoverEditTabOut]',
-            host: POPOVER_EDIT_HOST_BINDINGS,
-            inputs: POPOVER_EDIT_INPUTS,
-        })
-    ], MatPopoverEditTabOut);
+    }
+    MatPopoverEditTabOut.decorators = [
+        { type: Directive, args: [{
+                    selector: '[matPopoverEdit][matPopoverEditTabOut]',
+                    host: POPOVER_EDIT_HOST_BINDINGS,
+                    inputs: POPOVER_EDIT_INPUTS,
+                },] }
+    ];
     return MatPopoverEditTabOut;
 })();
 /**
@@ -120,7 +126,7 @@ let MatPopoverEditTabOut = /** @class */ (() => {
  * it is hovered or when an element in the row has focus.
  */
 let MatRowHoverContent = /** @class */ (() => {
-    let MatRowHoverContent = class MatRowHoverContent extends CdkRowHoverContent {
+    class MatRowHoverContent extends CdkRowHoverContent {
         initElement(element) {
             super.initElement(element);
             element.classList.add(MAT_ROW_HOVER_CLASS);
@@ -144,12 +150,12 @@ let MatRowHoverContent = /** @class */ (() => {
                 });
             });
         }
-    };
-    MatRowHoverContent = __decorate([
-        Directive({
-            selector: '[matRowHoverContent]',
-        })
-    ], MatRowHoverContent);
+    }
+    MatRowHoverContent.decorators = [
+        { type: Directive, args: [{
+                    selector: '[matRowHoverContent]',
+                },] }
+    ];
     return MatRowHoverContent;
 })();
 /**
@@ -157,13 +163,13 @@ let MatRowHoverContent = /** @class */ (() => {
  * element or an ancestor element.
  */
 let MatEditOpen = /** @class */ (() => {
-    let MatEditOpen = class MatEditOpen extends CdkEditOpen {
-    };
-    MatEditOpen = __decorate([
-        Directive({
-            selector: '[matEditOpen]',
-        })
-    ], MatEditOpen);
+    class MatEditOpen extends CdkEditOpen {
+    }
+    MatEditOpen.decorators = [
+        { type: Directive, args: [{
+                    selector: '[matEditOpen]',
+                },] }
+    ];
     return MatEditOpen;
 })();
 
@@ -184,20 +190,20 @@ const EXPORTED_DECLARATIONS = [
     MatEditOpen
 ];
 let MatPopoverEditModule = /** @class */ (() => {
-    let MatPopoverEditModule = class MatPopoverEditModule {
-    };
-    MatPopoverEditModule = __decorate([
-        NgModule({
-            imports: [
-                CdkPopoverEditModule,
-            ],
-            exports: [
-                ...EXPORTED_DECLARATIONS,
-                CdkEditable,
-            ],
-            declarations: EXPORTED_DECLARATIONS,
-        })
-    ], MatPopoverEditModule);
+    class MatPopoverEditModule {
+    }
+    MatPopoverEditModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [
+                        CdkPopoverEditModule,
+                    ],
+                    exports: [
+                        ...EXPORTED_DECLARATIONS,
+                        CdkEditable,
+                    ],
+                    declarations: EXPORTED_DECLARATIONS,
+                },] }
+    ];
     return MatPopoverEditModule;
 })();
 

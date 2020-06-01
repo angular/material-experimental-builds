@@ -1,4 +1,3 @@
-import { __decorate } from 'tslib';
 import { NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 
@@ -10,14 +9,14 @@ import { MatCommonModule } from '@angular/material/core';
  * found in the LICENSE file at https://angular.io/license
  */
 let MatAutocompleteModule = /** @class */ (() => {
-    let MatAutocompleteModule = class MatAutocompleteModule {
-    };
-    MatAutocompleteModule = __decorate([
-        NgModule({
-            imports: [MatCommonModule],
-            exports: [MatCommonModule],
-        })
-    ], MatAutocompleteModule);
+    class MatAutocompleteModule {
+    }
+    MatAutocompleteModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule],
+                    exports: [MatCommonModule],
+                },] }
+    ];
     return MatAutocompleteModule;
 })();
 

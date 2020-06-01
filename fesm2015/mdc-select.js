@@ -1,4 +1,3 @@
-import { __decorate } from 'tslib';
 import { NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 
@@ -10,14 +9,14 @@ import { MatCommonModule } from '@angular/material/core';
  * found in the LICENSE file at https://angular.io/license
  */
 let MatSelectModule = /** @class */ (() => {
-    let MatSelectModule = class MatSelectModule {
-    };
-    MatSelectModule = __decorate([
-        NgModule({
-            imports: [MatCommonModule],
-            exports: [MatCommonModule],
-        })
-    ], MatSelectModule);
+    class MatSelectModule {
+    }
+    MatSelectModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule],
+                    exports: [MatCommonModule],
+                },] }
+    ];
     return MatSelectModule;
 })();
 

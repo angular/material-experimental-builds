@@ -250,21 +250,21 @@
         function MatEditLens() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatEditLens = __decorate([
-            core.Directive({
-                selector: 'form[matEditLens]',
-                host: {
-                    'class': 'mat-edit-lens',
-                },
-                inputs: [
-                    'clickOutBehavior: matEditLensClickOutBehavior',
-                    'preservedFormValue: matEditLensPreservedFormValue',
-                    'ignoreSubmitUnlessValid: matEditLensIgnoreSubmitUnlessValid',
-                ],
-                outputs: ['preservedFormValueChange: matEditLensPreservedFormValueChange'],
-                providers: [popoverEdit.EditRef],
-            })
-        ], MatEditLens);
+        MatEditLens.decorators = [
+            { type: core.Directive, args: [{
+                        selector: 'form[matEditLens]',
+                        host: {
+                            'class': 'mat-edit-lens',
+                        },
+                        inputs: [
+                            'clickOutBehavior: matEditLensClickOutBehavior',
+                            'preservedFormValue: matEditLensPreservedFormValue',
+                            'ignoreSubmitUnlessValid: matEditLensIgnoreSubmitUnlessValid',
+                        ],
+                        outputs: ['preservedFormValueChange: matEditLensPreservedFormValueChange'],
+                        providers: [popoverEdit.EditRef],
+                    },] }
+        ];
         return MatEditLens;
     }(popoverEdit.CdkEditControl));
     /** Reverts the form to its initial or previously submitted state on click. */
@@ -273,14 +273,14 @@
         function MatEditRevert() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatEditRevert = __decorate([
-            core.Directive({
-                selector: 'button[matEditRevert]',
-                host: {
-                    'type': 'button',
-                }
-            })
-        ], MatEditRevert);
+        MatEditRevert.decorators = [
+            { type: core.Directive, args: [{
+                        selector: 'button[matEditRevert]',
+                        host: {
+                            'type': 'button',
+                        }
+                    },] }
+        ];
         return MatEditRevert;
     }(popoverEdit.CdkEditRevert));
     /** Closes the lens on click. */
@@ -289,9 +289,9 @@
         function MatEditClose() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatEditClose = __decorate([
-            core.Directive({ selector: '[matEditClose]' })
-        ], MatEditClose);
+        MatEditClose.decorators = [
+            { type: core.Directive, args: [{ selector: '[matEditClose]' },] }
+        ];
         return MatEditClose;
     }(popoverEdit.CdkEditClose));
 
@@ -324,13 +324,13 @@
         MatPopoverEdit.prototype.panelClass = function () {
             return EDIT_PANE_CLASS;
         };
-        MatPopoverEdit = __decorate([
-            core.Directive({
-                selector: '[matPopoverEdit]:not([matPopoverEditTabOut])',
-                host: POPOVER_EDIT_HOST_BINDINGS,
-                inputs: POPOVER_EDIT_INPUTS,
-            })
-        ], MatPopoverEdit);
+        MatPopoverEdit.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matPopoverEdit]:not([matPopoverEditTabOut])',
+                        host: POPOVER_EDIT_HOST_BINDINGS,
+                        inputs: POPOVER_EDIT_INPUTS,
+                    },] }
+        ];
         return MatPopoverEdit;
     }(popoverEdit.CdkPopoverEdit));
     /**
@@ -346,13 +346,13 @@
         MatPopoverEditTabOut.prototype.panelClass = function () {
             return EDIT_PANE_CLASS;
         };
-        MatPopoverEditTabOut = __decorate([
-            core.Directive({
-                selector: '[matPopoverEdit][matPopoverEditTabOut]',
-                host: POPOVER_EDIT_HOST_BINDINGS,
-                inputs: POPOVER_EDIT_INPUTS,
-            })
-        ], MatPopoverEditTabOut);
+        MatPopoverEditTabOut.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matPopoverEdit][matPopoverEditTabOut]',
+                        host: POPOVER_EDIT_HOST_BINDINGS,
+                        inputs: POPOVER_EDIT_INPUTS,
+                    },] }
+        ];
         return MatPopoverEditTabOut;
     }(popoverEdit.CdkPopoverEditTabOut));
     /**
@@ -387,11 +387,11 @@
                 });
             });
         };
-        MatRowHoverContent = __decorate([
-            core.Directive({
-                selector: '[matRowHoverContent]',
-            })
-        ], MatRowHoverContent);
+        MatRowHoverContent.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matRowHoverContent]',
+                    },] }
+        ];
         return MatRowHoverContent;
     }(popoverEdit.CdkRowHoverContent));
     /**
@@ -403,11 +403,11 @@
         function MatEditOpen() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatEditOpen = __decorate([
-            core.Directive({
-                selector: '[matEditOpen]',
-            })
-        ], MatEditOpen);
+        MatEditOpen.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matEditOpen]',
+                    },] }
+        ];
         return MatEditOpen;
     }(popoverEdit.CdkEditOpen));
 
@@ -430,17 +430,17 @@
     var MatPopoverEditModule = /** @class */ (function () {
         function MatPopoverEditModule() {
         }
-        MatPopoverEditModule = __decorate([
-            core.NgModule({
-                imports: [
-                    popoverEdit.CdkPopoverEditModule,
-                ],
-                exports: __spread(EXPORTED_DECLARATIONS, [
-                    popoverEdit.CdkEditable,
-                ]),
-                declarations: EXPORTED_DECLARATIONS,
-            })
-        ], MatPopoverEditModule);
+        MatPopoverEditModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [
+                            popoverEdit.CdkPopoverEditModule,
+                        ],
+                        exports: __spread(EXPORTED_DECLARATIONS, [
+                            popoverEdit.CdkEditable,
+                        ]),
+                        declarations: EXPORTED_DECLARATIONS,
+                    },] }
+        ];
         return MatPopoverEditModule;
     }());
 

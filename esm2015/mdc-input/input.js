@@ -5,7 +5,6 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { __decorate } from "tslib";
 import { Directive } from '@angular/core';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatInput as BaseMatInput } from '@angular/material/input';
@@ -13,37 +12,36 @@ import { MatInput as BaseMatInput } from '@angular/material/input';
 // point we can just use the actual "MatInput" class and apply the MDC text-field
 // styles appropriately.
 let MatInput = /** @class */ (() => {
-    var MatInput_1;
-    let MatInput = MatInput_1 = class MatInput extends BaseMatInput {
-    };
-    MatInput = MatInput_1 = __decorate([
-        Directive({
-            selector: `input[matInput], textarea[matInput], select[matNativeControl],
+    class MatInput extends BaseMatInput {
+    }
+    MatInput.decorators = [
+        { type: Directive, args: [{
+                    selector: `input[matInput], textarea[matInput], select[matNativeControl],
       input[matNativeControl], textarea[matNativeControl]`,
-            exportAs: 'matInput',
-            host: {
-                'class': 'mat-mdc-input-element mdc-text-field__input',
-                // The BaseMatInput parent class adds `mat-input-element` and `mat-form-field-autofill-control`
-                // to the CSS classlist, but this should not be added for this MDC equivalent input.
-                '[class.mat-form-field-autofill-control]': 'false',
-                '[class.mat-input-element]': 'false',
-                '[class.mat-input-server]': '_isServer',
-                '[class.mat-mdc-textarea-input]': '_isTextarea',
-                // Native input properties that are overwritten by Angular inputs need to be synced with
-                // the native input element. Otherwise property bindings for those don't work.
-                '[id]': 'id',
-                '[disabled]': 'disabled',
-                '[required]': 'required',
-                '[attr.placeholder]': 'placeholder',
-                '[attr.readonly]': 'readonly && !_isNativeSelect || null',
-                '[attr.aria-describedby]': '_ariaDescribedby || null',
-                '[attr.aria-invalid]': 'errorState',
-                '[attr.aria-required]': 'required.toString()',
-            },
-            providers: [{ provide: MatFormFieldControl, useExisting: MatInput_1 }],
-        })
-    ], MatInput);
+                    exportAs: 'matInput',
+                    host: {
+                        'class': 'mat-mdc-input-element mdc-text-field__input',
+                        // The BaseMatInput parent class adds `mat-input-element` and `mat-form-field-autofill-control`
+                        // to the CSS classlist, but this should not be added for this MDC equivalent input.
+                        '[class.mat-form-field-autofill-control]': 'false',
+                        '[class.mat-input-element]': 'false',
+                        '[class.mat-input-server]': '_isServer',
+                        '[class.mat-mdc-textarea-input]': '_isTextarea',
+                        // Native input properties that are overwritten by Angular inputs need to be synced with
+                        // the native input element. Otherwise property bindings for those don't work.
+                        '[id]': 'id',
+                        '[disabled]': 'disabled',
+                        '[required]': 'required',
+                        '[attr.placeholder]': 'placeholder',
+                        '[attr.readonly]': 'readonly && !_isNativeSelect || null',
+                        '[attr.aria-describedby]': '_ariaDescribedby || null',
+                        '[attr.aria-invalid]': 'errorState',
+                        '[attr.aria-required]': 'required.toString()',
+                    },
+                    providers: [{ provide: MatFormFieldControl, useExisting: MatInput }],
+                },] }
+    ];
     return MatInput;
 })();
 export { MatInput };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5wdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvbWF0ZXJpYWwtZXhwZXJpbWVudGFsL21kYy1pbnB1dC9pbnB1dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7O0FBRUgsT0FBTyxFQUFDLFNBQVMsRUFBQyxNQUFNLGVBQWUsQ0FBQztBQUN4QyxPQUFPLEVBQUMsbUJBQW1CLEVBQUMsTUFBTSw4QkFBOEIsQ0FBQztBQUNqRSxPQUFPLEVBQUMsUUFBUSxJQUFJLFlBQVksRUFBQyxNQUFNLHlCQUF5QixDQUFDO0FBRWpFLHlFQUF5RTtBQUN6RSxpRkFBaUY7QUFDakYsd0JBQXdCO0FBMkJ4Qjs7SUFBQSxJQUFhLFFBQVEsZ0JBQXJCLE1BQWEsUUFBUyxTQUFRLFlBQVk7S0FBRyxDQUFBO0lBQWhDLFFBQVE7UUF6QnBCLFNBQVMsQ0FBQztZQUNULFFBQVEsRUFBRTswREFDOEM7WUFDeEQsUUFBUSxFQUFFLFVBQVU7WUFDcEIsSUFBSSxFQUFFO2dCQUNKLE9BQU8sRUFBRSw2Q0FBNkM7Z0JBQ3RELCtGQUErRjtnQkFDL0Ysb0ZBQW9GO2dCQUNwRix5Q0FBeUMsRUFBRSxPQUFPO2dCQUNsRCwyQkFBMkIsRUFBRSxPQUFPO2dCQUNwQywwQkFBMEIsRUFBRSxXQUFXO2dCQUN2QyxnQ0FBZ0MsRUFBRSxhQUFhO2dCQUMvQyx3RkFBd0Y7Z0JBQ3hGLDhFQUE4RTtnQkFDOUUsTUFBTSxFQUFFLElBQUk7Z0JBQ1osWUFBWSxFQUFFLFVBQVU7Z0JBQ3hCLFlBQVksRUFBRSxVQUFVO2dCQUN4QixvQkFBb0IsRUFBRSxhQUFhO2dCQUNuQyxpQkFBaUIsRUFBRSxzQ0FBc0M7Z0JBQ3pELHlCQUF5QixFQUFFLDBCQUEwQjtnQkFDckQscUJBQXFCLEVBQUUsWUFBWTtnQkFDbkMsc0JBQXNCLEVBQUUscUJBQXFCO2FBQzlDO1lBQ0QsU0FBUyxFQUFFLENBQUMsRUFBQyxPQUFPLEVBQUUsbUJBQW1CLEVBQUUsV0FBVyxFQUFFLFVBQVEsRUFBQyxDQUFDO1NBQ25FLENBQUM7T0FDVyxRQUFRLENBQXdCO0lBQUQsZUFBQztLQUFBO1NBQWhDLFFBQVEiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHtEaXJlY3RpdmV9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtNYXRGb3JtRmllbGRDb250cm9sfSBmcm9tICdAYW5ndWxhci9tYXRlcmlhbC9mb3JtLWZpZWxkJztcbmltcG9ydCB7TWF0SW5wdXQgYXMgQmFzZU1hdElucHV0fSBmcm9tICdAYW5ndWxhci9tYXRlcmlhbC9pbnB1dCc7XG5cbi8vIHdvcmthcm91bmQgdW50aWwgd2UgaGF2ZSBmZWF0dXJlIHRhcmdldGluZyBmb3IgTURDIHRleHQtZmllbGQuIEF0IHRoYXRcbi8vIHBvaW50IHdlIGNhbiBqdXN0IHVzZSB0aGUgYWN0dWFsIFwiTWF0SW5wdXRcIiBjbGFzcyBhbmQgYXBwbHkgdGhlIE1EQyB0ZXh0LWZpZWxkXG4vLyBzdHlsZXMgYXBwcm9wcmlhdGVseS5cblxuQERpcmVjdGl2ZSh7XG4gIHNlbGVjdG9yOiBgaW5wdXRbbWF0SW5wdXRdLCB0ZXh0YXJlYVttYXRJbnB1dF0sIHNlbGVjdFttYXROYXRpdmVDb250cm9sXSxcbiAgICAgIGlucHV0W21hdE5hdGl2ZUNvbnRyb2xdLCB0ZXh0YXJlYVttYXROYXRpdmVDb250cm9sXWAsXG4gIGV4cG9ydEFzOiAnbWF0SW5wdXQnLFxuICBob3N0OiB7XG4gICAgJ2NsYXNzJzogJ21hdC1tZGMtaW5wdXQtZWxlbWVudCBtZGMtdGV4dC1maWVsZF9faW5wdXQnLFxuICAgIC8vIFRoZSBCYXNlTWF0SW5wdXQgcGFyZW50IGNsYXNzIGFkZHMgYG1hdC1pbnB1dC1lbGVtZW50YCBhbmQgYG1hdC1mb3JtLWZpZWxkLWF1dG9maWxsLWNvbnRyb2xgXG4gICAgLy8gdG8gdGhlIENTUyBjbGFzc2xpc3QsIGJ1dCB0aGlzIHNob3VsZCBub3QgYmUgYWRkZWQgZm9yIHRoaXMgTURDIGVxdWl2YWxlbnQgaW5wdXQuXG4gICAgJ1tjbGFzcy5tYXQtZm9ybS1maWVsZC1hdXRvZmlsbC1jb250cm9sXSc6ICdmYWxzZScsXG4gICAgJ1tjbGFzcy5tYXQtaW5wdXQtZWxlbWVudF0nOiAnZmFsc2UnLFxuICAgICdbY2xhc3MubWF0LWlucHV0LXNlcnZlcl0nOiAnX2lzU2VydmVyJyxcbiAgICAnW2NsYXNzLm1hdC1tZGMtdGV4dGFyZWEtaW5wdXRdJzogJ19pc1RleHRhcmVhJyxcbiAgICAvLyBOYXRpdmUgaW5wdXQgcHJvcGVydGllcyB0aGF0IGFyZSBvdmVyd3JpdHRlbiBieSBBbmd1bGFyIGlucHV0cyBuZWVkIHRvIGJlIHN5bmNlZCB3aXRoXG4gICAgLy8gdGhlIG5hdGl2ZSBpbnB1dCBlbGVtZW50LiBPdGhlcndpc2UgcHJvcGVydHkgYmluZGluZ3MgZm9yIHRob3NlIGRvbid0IHdvcmsuXG4gICAgJ1tpZF0nOiAnaWQnLFxuICAgICdbZGlzYWJsZWRdJzogJ2Rpc2FibGVkJyxcbiAgICAnW3JlcXVpcmVkXSc6ICdyZXF1aXJlZCcsXG4gICAgJ1thdHRyLnBsYWNlaG9sZGVyXSc6ICdwbGFjZWhvbGRlcicsXG4gICAgJ1thdHRyLnJlYWRvbmx5XSc6ICdyZWFkb25seSAmJiAhX2lzTmF0aXZlU2VsZWN0IHx8IG51bGwnLFxuICAgICdbYXR0ci5hcmlhLWRlc2NyaWJlZGJ5XSc6ICdfYXJpYURlc2NyaWJlZGJ5IHx8IG51bGwnLFxuICAgICdbYXR0ci5hcmlhLWludmFsaWRdJzogJ2Vycm9yU3RhdGUnLFxuICAgICdbYXR0ci5hcmlhLXJlcXVpcmVkXSc6ICdyZXF1aXJlZC50b1N0cmluZygpJyxcbiAgfSxcbiAgcHJvdmlkZXJzOiBbe3Byb3ZpZGU6IE1hdEZvcm1GaWVsZENvbnRyb2wsIHVzZUV4aXN0aW5nOiBNYXRJbnB1dH1dLFxufSlcbmV4cG9ydCBjbGFzcyBNYXRJbnB1dCBleHRlbmRzIEJhc2VNYXRJbnB1dCB7fVxuXG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5wdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvbWF0ZXJpYWwtZXhwZXJpbWVudGFsL21kYy1pbnB1dC9pbnB1dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxPQUFPLEVBQUMsU0FBUyxFQUFDLE1BQU0sZUFBZSxDQUFDO0FBQ3hDLE9BQU8sRUFBQyxtQkFBbUIsRUFBQyxNQUFNLDhCQUE4QixDQUFDO0FBQ2pFLE9BQU8sRUFBQyxRQUFRLElBQUksWUFBWSxFQUFDLE1BQU0seUJBQXlCLENBQUM7QUFFakUseUVBQXlFO0FBQ3pFLGlGQUFpRjtBQUNqRix3QkFBd0I7QUFFeEI7SUFBQSxNQXlCYSxRQUFTLFNBQVEsWUFBWTs7O2dCQXpCekMsU0FBUyxTQUFDO29CQUNULFFBQVEsRUFBRTswREFDOEM7b0JBQ3hELFFBQVEsRUFBRSxVQUFVO29CQUNwQixJQUFJLEVBQUU7d0JBQ0osT0FBTyxFQUFFLDZDQUE2Qzt3QkFDdEQsK0ZBQStGO3dCQUMvRixvRkFBb0Y7d0JBQ3BGLHlDQUF5QyxFQUFFLE9BQU87d0JBQ2xELDJCQUEyQixFQUFFLE9BQU87d0JBQ3BDLDBCQUEwQixFQUFFLFdBQVc7d0JBQ3ZDLGdDQUFnQyxFQUFFLGFBQWE7d0JBQy9DLHdGQUF3Rjt3QkFDeEYsOEVBQThFO3dCQUM5RSxNQUFNLEVBQUUsSUFBSTt3QkFDWixZQUFZLEVBQUUsVUFBVTt3QkFDeEIsWUFBWSxFQUFFLFVBQVU7d0JBQ3hCLG9CQUFvQixFQUFFLGFBQWE7d0JBQ25DLGlCQUFpQixFQUFFLHNDQUFzQzt3QkFDekQseUJBQXlCLEVBQUUsMEJBQTBCO3dCQUNyRCxxQkFBcUIsRUFBRSxZQUFZO3dCQUNuQyxzQkFBc0IsRUFBRSxxQkFBcUI7cUJBQzlDO29CQUNELFNBQVMsRUFBRSxDQUFDLEVBQUMsT0FBTyxFQUFFLG1CQUFtQixFQUFFLFdBQVcsRUFBRSxRQUFRLEVBQUMsQ0FBQztpQkFDbkU7O0lBQzJDLGVBQUM7S0FBQTtTQUFoQyxRQUFRIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBMTEMgQWxsIFJpZ2h0cyBSZXNlcnZlZC5cbiAqXG4gKiBVc2Ugb2YgdGhpcyBzb3VyY2UgY29kZSBpcyBnb3Zlcm5lZCBieSBhbiBNSVQtc3R5bGUgbGljZW5zZSB0aGF0IGNhbiBiZVxuICogZm91bmQgaW4gdGhlIExJQ0VOU0UgZmlsZSBhdCBodHRwczovL2FuZ3VsYXIuaW8vbGljZW5zZVxuICovXG5cbmltcG9ydCB7RGlyZWN0aXZlfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7TWF0Rm9ybUZpZWxkQ29udHJvbH0gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvZm9ybS1maWVsZCc7XG5pbXBvcnQge01hdElucHV0IGFzIEJhc2VNYXRJbnB1dH0gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvaW5wdXQnO1xuXG4vLyB3b3JrYXJvdW5kIHVudGlsIHdlIGhhdmUgZmVhdHVyZSB0YXJnZXRpbmcgZm9yIE1EQyB0ZXh0LWZpZWxkLiBBdCB0aGF0XG4vLyBwb2ludCB3ZSBjYW4ganVzdCB1c2UgdGhlIGFjdHVhbCBcIk1hdElucHV0XCIgY2xhc3MgYW5kIGFwcGx5IHRoZSBNREMgdGV4dC1maWVsZFxuLy8gc3R5bGVzIGFwcHJvcHJpYXRlbHkuXG5cbkBEaXJlY3RpdmUoe1xuICBzZWxlY3RvcjogYGlucHV0W21hdElucHV0XSwgdGV4dGFyZWFbbWF0SW5wdXRdLCBzZWxlY3RbbWF0TmF0aXZlQ29udHJvbF0sXG4gICAgICBpbnB1dFttYXROYXRpdmVDb250cm9sXSwgdGV4dGFyZWFbbWF0TmF0aXZlQ29udHJvbF1gLFxuICBleHBvcnRBczogJ21hdElucHV0JyxcbiAgaG9zdDoge1xuICAgICdjbGFzcyc6ICdtYXQtbWRjLWlucHV0LWVsZW1lbnQgbWRjLXRleHQtZmllbGRfX2lucHV0JyxcbiAgICAvLyBUaGUgQmFzZU1hdElucHV0IHBhcmVudCBjbGFzcyBhZGRzIGBtYXQtaW5wdXQtZWxlbWVudGAgYW5kIGBtYXQtZm9ybS1maWVsZC1hdXRvZmlsbC1jb250cm9sYFxuICAgIC8vIHRvIHRoZSBDU1MgY2xhc3NsaXN0LCBidXQgdGhpcyBzaG91bGQgbm90IGJlIGFkZGVkIGZvciB0aGlzIE1EQyBlcXVpdmFsZW50IGlucHV0LlxuICAgICdbY2xhc3MubWF0LWZvcm0tZmllbGQtYXV0b2ZpbGwtY29udHJvbF0nOiAnZmFsc2UnLFxuICAgICdbY2xhc3MubWF0LWlucHV0LWVsZW1lbnRdJzogJ2ZhbHNlJyxcbiAgICAnW2NsYXNzLm1hdC1pbnB1dC1zZXJ2ZXJdJzogJ19pc1NlcnZlcicsXG4gICAgJ1tjbGFzcy5tYXQtbWRjLXRleHRhcmVhLWlucHV0XSc6ICdfaXNUZXh0YXJlYScsXG4gICAgLy8gTmF0aXZlIGlucHV0IHByb3BlcnRpZXMgdGhhdCBhcmUgb3ZlcndyaXR0ZW4gYnkgQW5ndWxhciBpbnB1dHMgbmVlZCB0byBiZSBzeW5jZWQgd2l0aFxuICAgIC8vIHRoZSBuYXRpdmUgaW5wdXQgZWxlbWVudC4gT3RoZXJ3aXNlIHByb3BlcnR5IGJpbmRpbmdzIGZvciB0aG9zZSBkb24ndCB3b3JrLlxuICAgICdbaWRdJzogJ2lkJyxcbiAgICAnW2Rpc2FibGVkXSc6ICdkaXNhYmxlZCcsXG4gICAgJ1tyZXF1aXJlZF0nOiAncmVxdWlyZWQnLFxuICAgICdbYXR0ci5wbGFjZWhvbGRlcl0nOiAncGxhY2Vob2xkZXInLFxuICAgICdbYXR0ci5yZWFkb25seV0nOiAncmVhZG9ubHkgJiYgIV9pc05hdGl2ZVNlbGVjdCB8fCBudWxsJyxcbiAgICAnW2F0dHIuYXJpYS1kZXNjcmliZWRieV0nOiAnX2FyaWFEZXNjcmliZWRieSB8fCBudWxsJyxcbiAgICAnW2F0dHIuYXJpYS1pbnZhbGlkXSc6ICdlcnJvclN0YXRlJyxcbiAgICAnW2F0dHIuYXJpYS1yZXF1aXJlZF0nOiAncmVxdWlyZWQudG9TdHJpbmcoKScsXG4gIH0sXG4gIHByb3ZpZGVyczogW3twcm92aWRlOiBNYXRGb3JtRmllbGRDb250cm9sLCB1c2VFeGlzdGluZzogTWF0SW5wdXR9XSxcbn0pXG5leHBvcnQgY2xhc3MgTWF0SW5wdXQgZXh0ZW5kcyBCYXNlTWF0SW5wdXQge31cblxuIl19

@@ -1,4 +1,3 @@
-import { __decorate } from 'tslib';
 import { NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 
@@ -10,14 +9,14 @@ import { MatCommonModule } from '@angular/material/core';
  * found in the LICENSE file at https://angular.io/license
  */
 let MatSidenavModule = /** @class */ (() => {
-    let MatSidenavModule = class MatSidenavModule {
-    };
-    MatSidenavModule = __decorate([
-        NgModule({
-            imports: [MatCommonModule],
-            exports: [MatCommonModule],
-        })
-    ], MatSidenavModule);
+    class MatSidenavModule {
+    }
+    MatSidenavModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule],
+                    exports: [MatCommonModule],
+                },] }
+    ];
     return MatSidenavModule;
 })();
 

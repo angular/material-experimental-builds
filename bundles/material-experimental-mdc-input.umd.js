@@ -247,34 +247,32 @@
         function MatInput() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatInput_1 = MatInput;
-        var MatInput_1;
-        MatInput = MatInput_1 = __decorate([
-            core.Directive({
-                selector: "input[matInput], textarea[matInput], select[matNativeControl],\n      input[matNativeControl], textarea[matNativeControl]",
-                exportAs: 'matInput',
-                host: {
-                    'class': 'mat-mdc-input-element mdc-text-field__input',
-                    // The BaseMatInput parent class adds `mat-input-element` and `mat-form-field-autofill-control`
-                    // to the CSS classlist, but this should not be added for this MDC equivalent input.
-                    '[class.mat-form-field-autofill-control]': 'false',
-                    '[class.mat-input-element]': 'false',
-                    '[class.mat-input-server]': '_isServer',
-                    '[class.mat-mdc-textarea-input]': '_isTextarea',
-                    // Native input properties that are overwritten by Angular inputs need to be synced with
-                    // the native input element. Otherwise property bindings for those don't work.
-                    '[id]': 'id',
-                    '[disabled]': 'disabled',
-                    '[required]': 'required',
-                    '[attr.placeholder]': 'placeholder',
-                    '[attr.readonly]': 'readonly && !_isNativeSelect || null',
-                    '[attr.aria-describedby]': '_ariaDescribedby || null',
-                    '[attr.aria-invalid]': 'errorState',
-                    '[attr.aria-required]': 'required.toString()',
-                },
-                providers: [{ provide: formField.MatFormFieldControl, useExisting: MatInput_1 }],
-            })
-        ], MatInput);
+        MatInput.decorators = [
+            { type: core.Directive, args: [{
+                        selector: "input[matInput], textarea[matInput], select[matNativeControl],\n      input[matNativeControl], textarea[matNativeControl]",
+                        exportAs: 'matInput',
+                        host: {
+                            'class': 'mat-mdc-input-element mdc-text-field__input',
+                            // The BaseMatInput parent class adds `mat-input-element` and `mat-form-field-autofill-control`
+                            // to the CSS classlist, but this should not be added for this MDC equivalent input.
+                            '[class.mat-form-field-autofill-control]': 'false',
+                            '[class.mat-input-element]': 'false',
+                            '[class.mat-input-server]': '_isServer',
+                            '[class.mat-mdc-textarea-input]': '_isTextarea',
+                            // Native input properties that are overwritten by Angular inputs need to be synced with
+                            // the native input element. Otherwise property bindings for those don't work.
+                            '[id]': 'id',
+                            '[disabled]': 'disabled',
+                            '[required]': 'required',
+                            '[attr.placeholder]': 'placeholder',
+                            '[attr.readonly]': 'readonly && !_isNativeSelect || null',
+                            '[attr.aria-describedby]': '_ariaDescribedby || null',
+                            '[attr.aria-invalid]': 'errorState',
+                            '[attr.aria-required]': 'required.toString()',
+                        },
+                        providers: [{ provide: formField.MatFormFieldControl, useExisting: MatInput }],
+                    },] }
+        ];
         return MatInput;
     }(input.MatInput));
 
@@ -288,13 +286,13 @@
     var MatInputModule = /** @class */ (function () {
         function MatInputModule() {
         }
-        MatInputModule = __decorate([
-            core.NgModule({
-                imports: [core$1.MatCommonModule, mdcFormField.MatFormFieldModule],
-                exports: [MatInput, mdcFormField.MatFormFieldModule, textField.TextFieldModule, core$1.MatCommonModule],
-                declarations: [MatInput],
-            })
-        ], MatInputModule);
+        MatInputModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [core$1.MatCommonModule, mdcFormField.MatFormFieldModule],
+                        exports: [MatInput, mdcFormField.MatFormFieldModule, textField.TextFieldModule, core$1.MatCommonModule],
+                        declarations: [MatInput],
+                    },] }
+        ];
         return MatInputModule;
     }());
 

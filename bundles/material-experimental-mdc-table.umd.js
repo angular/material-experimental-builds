@@ -247,30 +247,28 @@
             _this.stickyCssClass = 'mat-mdc-table-sticky';
             return _this;
         }
-        MatTable_1 = MatTable;
         // After ngOnInit, the `CdkTable` has created and inserted the table sections (thead, tbody,
         // tfoot). MDC requires the `mdc-data-table__content` class to be added to the body.
         MatTable.prototype.ngOnInit = function () {
             _super.prototype.ngOnInit.call(this);
             this._elementRef.nativeElement.querySelector('tbody').classList.add('mdc-data-table__content');
         };
-        var MatTable_1;
-        MatTable = MatTable_1 = __decorate([
-            core.Component({
-                selector: 'table[mat-table]',
-                exportAs: 'matTable',
-                template: table.CDK_TABLE_TEMPLATE,
-                host: {
-                    'class': 'mat-mdc-table mdc-data-table__table',
-                },
-                providers: [{ provide: table.CdkTable, useExisting: MatTable_1 }],
-                encapsulation: core.ViewEncapsulation.None,
-                // See note on CdkTable for explanation on why this uses the default change detection strategy.
-                // tslint:disable-next-line:validate-decorators
-                changeDetection: core.ChangeDetectionStrategy.Default,
-                styles: [".mdc-data-table{border-radius:4px;border-width:1px;border-style:solid;-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;overflow-x:auto;position:relative}.mdc-data-table__row,.mdc-data-table__pagination{border-top-width:1px;border-top-style:solid}.mdc-data-table__cell,.mdc-data-table__pagination{height:52px}.mdc-data-table__header-cell{height:56px}.mdc-data-table__cell,.mdc-data-table__header-cell{padding-right:16px;padding-left:16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:16px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:16px}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-collapse:collapse;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-align:left;text-overflow:ellipsis;overflow:hidden;outline:none}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__sort-icon-button{width:28px;height:28px;padding:2px;margin-left:4px;margin-right:0;opacity:0}[dir=rtl] .mdc-data-table__sort-icon-button,.mdc-data-table__sort-icon-button[dir=rtl]{margin-left:0;margin-right:4px}.mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button{margin-left:0;margin-right:4px}[dir=rtl] .mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button,.mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button[dir=rtl]{margin-left:4px;margin-right:0}.mdc-data-table__header-cell--sorted-descending .mdc-data-table__sort-icon-button{transform:rotate(-180deg)}.mdc-data-table__sort-icon-button:focus,.mdc-data-table__header-cell:hover .mdc-data-table__sort-icon-button,.mdc-data-table__header-cell--sorted .mdc-data-table__sort-icon-button{opacity:1}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__header-cell--with-sort{cursor:pointer}.mdc-data-table__progress-indicator{display:none;position:absolute;width:100%}.mdc-data-table--in-progress .mdc-data-table__progress-indicator{display:block}.mdc-data-table__scrim{background-color:#fff;background-color:var(--mdc-theme-surface, #fff);height:100%;opacity:.32;position:absolute;top:0;width:100%}.mdc-data-table__pagination{box-sizing:border-box;display:flex;justify-content:flex-end}.mdc-data-table__pagination-trailing{margin-left:4px;margin-right:0;align-items:center;display:flex}[dir=rtl] .mdc-data-table__pagination-trailing,.mdc-data-table__pagination-trailing[dir=rtl]{margin-left:0;margin-right:4px}.mdc-data-table__pagination-button{margin-left:0;margin-right:4px}[dir=rtl] .mdc-data-table__pagination-button .mdc-button__icon,.mdc-data-table__pagination-button .mdc-button__icon[dir=rtl]{transform:rotate(180deg)}[dir=rtl] .mdc-data-table__pagination-button,.mdc-data-table__pagination-button[dir=rtl]{margin-left:4px;margin-right:0}.mdc-data-table__pagination-total{margin-left:0;margin-right:36px;white-space:nowrap}[dir=rtl] .mdc-data-table__pagination-total,.mdc-data-table__pagination-total[dir=rtl]{margin-left:36px;margin-right:0}\n"]
-            })
-        ], MatTable);
+        MatTable.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'table[mat-table]',
+                        exportAs: 'matTable',
+                        template: table.CDK_TABLE_TEMPLATE,
+                        host: {
+                            'class': 'mat-mdc-table mdc-data-table__table',
+                        },
+                        providers: [{ provide: table.CdkTable, useExisting: MatTable }],
+                        encapsulation: core.ViewEncapsulation.None,
+                        // See note on CdkTable for explanation on why this uses the default change detection strategy.
+                        // tslint:disable-next-line:validate-decorators
+                        changeDetection: core.ChangeDetectionStrategy.Default,
+                        styles: [".mdc-data-table{border-radius:4px;border-width:1px;border-style:solid;-webkit-overflow-scrolling:touch;display:inline-flex;flex-direction:column;box-sizing:border-box;overflow-x:auto;position:relative}.mdc-data-table__row,.mdc-data-table__pagination{border-top-width:1px;border-top-style:solid}.mdc-data-table__cell,.mdc-data-table__pagination{height:52px}.mdc-data-table__header-cell{height:56px}.mdc-data-table__cell,.mdc-data-table__header-cell{padding-right:16px;padding-left:16px}.mdc-data-table__header-cell--checkbox,.mdc-data-table__cell--checkbox{padding-left:16px;padding-right:0}[dir=rtl] .mdc-data-table__header-cell--checkbox,.mdc-data-table__header-cell--checkbox[dir=rtl],[dir=rtl] .mdc-data-table__cell--checkbox,.mdc-data-table__cell--checkbox[dir=rtl]{padding-left:0;padding-right:16px}.mdc-data-table__table{min-width:100%;border:0;white-space:nowrap;border-collapse:collapse;table-layout:fixed}.mdc-data-table__cell{box-sizing:border-box;overflow:hidden;text-align:left;text-overflow:ellipsis}.mdc-data-table__cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__cell--numeric,.mdc-data-table__cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__header-cell{box-sizing:border-box;text-align:left;text-overflow:ellipsis;overflow:hidden;outline:none}[dir=rtl] .mdc-data-table__header-cell,.mdc-data-table__header-cell[dir=rtl]{text-align:right}.mdc-data-table__header-cell--numeric{text-align:right}[dir=rtl] .mdc-data-table__header-cell--numeric,.mdc-data-table__header-cell--numeric[dir=rtl]{text-align:left}.mdc-data-table__sort-icon-button{width:28px;height:28px;padding:2px;margin-left:4px;margin-right:0;opacity:0}[dir=rtl] .mdc-data-table__sort-icon-button,.mdc-data-table__sort-icon-button[dir=rtl]{margin-left:0;margin-right:4px}.mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button{margin-left:0;margin-right:4px}[dir=rtl] .mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button,.mdc-data-table__header-cell--numeric .mdc-data-table__sort-icon-button[dir=rtl]{margin-left:4px;margin-right:0}.mdc-data-table__header-cell--sorted-descending .mdc-data-table__sort-icon-button{transform:rotate(-180deg)}.mdc-data-table__sort-icon-button:focus,.mdc-data-table__header-cell:hover .mdc-data-table__sort-icon-button,.mdc-data-table__header-cell--sorted .mdc-data-table__sort-icon-button{opacity:1}.mdc-data-table__header-cell-wrapper{align-items:center;display:inline-flex;vertical-align:middle}.mdc-data-table__header-cell--with-sort{cursor:pointer}.mdc-data-table__progress-indicator{display:none;position:absolute;width:100%}.mdc-data-table--in-progress .mdc-data-table__progress-indicator{display:block}.mdc-data-table__scrim{background-color:#fff;background-color:var(--mdc-theme-surface, #fff);height:100%;opacity:.32;position:absolute;top:0;width:100%}.mdc-data-table__pagination{box-sizing:border-box;display:flex;justify-content:flex-end}.mdc-data-table__pagination-trailing{margin-left:4px;margin-right:0;align-items:center;display:flex}[dir=rtl] .mdc-data-table__pagination-trailing,.mdc-data-table__pagination-trailing[dir=rtl]{margin-left:0;margin-right:4px}.mdc-data-table__pagination-button{margin-left:0;margin-right:4px}[dir=rtl] .mdc-data-table__pagination-button .mdc-button__icon,.mdc-data-table__pagination-button .mdc-button__icon[dir=rtl]{transform:rotate(180deg)}[dir=rtl] .mdc-data-table__pagination-button,.mdc-data-table__pagination-button[dir=rtl]{margin-left:4px;margin-right:0}.mdc-data-table__pagination-total{margin-left:0;margin-right:36px;white-space:nowrap}[dir=rtl] .mdc-data-table__pagination-total,.mdc-data-table__pagination-total[dir=rtl]{margin-left:36px;margin-right:0}\n"]
+                    }] }
+        ];
         return MatTable;
     }(table.CdkTable));
 
@@ -290,14 +288,12 @@
         function MatCellDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatCellDef_1 = MatCellDef;
-        var MatCellDef_1;
-        MatCellDef = MatCellDef_1 = __decorate([
-            core.Directive({
-                selector: '[matCellDef]',
-                providers: [{ provide: table.CdkCellDef, useExisting: MatCellDef_1 }]
-            })
-        ], MatCellDef);
+        MatCellDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matCellDef]',
+                        providers: [{ provide: table.CdkCellDef, useExisting: MatCellDef }]
+                    },] }
+        ];
         return MatCellDef;
     }(table.CdkCellDef));
     /**
@@ -309,14 +305,12 @@
         function MatHeaderCellDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatHeaderCellDef_1 = MatHeaderCellDef;
-        var MatHeaderCellDef_1;
-        MatHeaderCellDef = MatHeaderCellDef_1 = __decorate([
-            core.Directive({
-                selector: '[matHeaderCellDef]',
-                providers: [{ provide: table.CdkHeaderCellDef, useExisting: MatHeaderCellDef_1 }]
-            })
-        ], MatHeaderCellDef);
+        MatHeaderCellDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matHeaderCellDef]',
+                        providers: [{ provide: table.CdkHeaderCellDef, useExisting: MatHeaderCellDef }]
+                    },] }
+        ];
         return MatHeaderCellDef;
     }(table.CdkHeaderCellDef));
     /**
@@ -328,14 +322,12 @@
         function MatFooterCellDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatFooterCellDef_1 = MatFooterCellDef;
-        var MatFooterCellDef_1;
-        MatFooterCellDef = MatFooterCellDef_1 = __decorate([
-            core.Directive({
-                selector: '[matFooterCellDef]',
-                providers: [{ provide: table.CdkFooterCellDef, useExisting: MatFooterCellDef_1 }]
-            })
-        ], MatFooterCellDef);
+        MatFooterCellDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matFooterCellDef]',
+                        providers: [{ provide: table.CdkFooterCellDef, useExisting: MatFooterCellDef }]
+                    },] }
+        ];
         return MatFooterCellDef;
     }(table.CdkFooterCellDef));
     /**
@@ -347,22 +339,19 @@
         function MatColumnDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatColumnDef_1 = MatColumnDef;
-        var MatColumnDef_1;
-        __decorate([
-            core.Input('matColumnDef'),
-            __metadata("design:type", String)
-        ], MatColumnDef.prototype, "name", void 0);
-        MatColumnDef = MatColumnDef_1 = __decorate([
-            core.Directive({
-                selector: '[matColumnDef]',
-                inputs: ['sticky'],
-                providers: [
-                    { provide: table.CdkColumnDef, useExisting: MatColumnDef_1 },
-                    { provide: 'MAT_SORT_HEADER_COLUMN_DEF', useExisting: MatColumnDef_1 }
-                ],
-            })
-        ], MatColumnDef);
+        MatColumnDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matColumnDef]',
+                        inputs: ['sticky'],
+                        providers: [
+                            { provide: table.CdkColumnDef, useExisting: MatColumnDef },
+                            { provide: 'MAT_SORT_HEADER_COLUMN_DEF', useExisting: MatColumnDef }
+                        ],
+                    },] }
+        ];
+        MatColumnDef.propDecorators = {
+            name: [{ type: core.Input, args: ['matColumnDef',] }]
+        };
         return MatColumnDef;
     }(table.CdkColumnDef));
     /** Header cell template container that adds the right classes and role. */
@@ -373,17 +362,20 @@
             elementRef.nativeElement.classList.add("mat-column-" + columnDef.cssClassFriendlyName);
             return _this;
         }
-        MatHeaderCell = __decorate([
-            core.Directive({
-                selector: 'th[mat-header-cell]',
-                host: {
-                    'class': 'mat-mdc-header-cell mdc-data-table__header-cell',
-                    'role': 'columnheader',
-                },
-            }),
-            __metadata("design:paramtypes", [table.CdkColumnDef,
-                core.ElementRef])
-        ], MatHeaderCell);
+        MatHeaderCell.decorators = [
+            { type: core.Directive, args: [{
+                        selector: 'th[mat-header-cell]',
+                        host: {
+                            'class': 'mat-mdc-header-cell mdc-data-table__header-cell',
+                            'role': 'columnheader',
+                        },
+                    },] }
+        ];
+        /** @nocollapse */
+        MatHeaderCell.ctorParameters = function () { return [
+            { type: table.CdkColumnDef },
+            { type: core.ElementRef }
+        ]; };
         return MatHeaderCell;
     }(table.CdkHeaderCell));
     /** Footer cell template container that adds the right classes and role. */
@@ -394,17 +386,20 @@
             elementRef.nativeElement.classList.add("mat-column-" + columnDef.cssClassFriendlyName);
             return _this;
         }
-        MatFooterCell = __decorate([
-            core.Directive({
-                selector: 'td[mat-footer-cell]',
-                host: {
-                    'class': 'mat-mdc-footer-cell mdc-data-table__cell',
-                    'role': 'gridcell',
-                },
-            }),
-            __metadata("design:paramtypes", [table.CdkColumnDef,
-                core.ElementRef])
-        ], MatFooterCell);
+        MatFooterCell.decorators = [
+            { type: core.Directive, args: [{
+                        selector: 'td[mat-footer-cell]',
+                        host: {
+                            'class': 'mat-mdc-footer-cell mdc-data-table__cell',
+                            'role': 'gridcell',
+                        },
+                    },] }
+        ];
+        /** @nocollapse */
+        MatFooterCell.ctorParameters = function () { return [
+            { type: table.CdkColumnDef },
+            { type: core.ElementRef }
+        ]; };
         return MatFooterCell;
     }(table.CdkFooterCell));
     /** Cell template container that adds the right classes and role. */
@@ -415,17 +410,20 @@
             elementRef.nativeElement.classList.add("mat-column-" + columnDef.cssClassFriendlyName);
             return _this;
         }
-        MatCell = __decorate([
-            core.Directive({
-                selector: 'td[mat-cell]',
-                host: {
-                    'class': 'mat-mdc-cell mdc-data-table__cell',
-                    'role': 'gridcell',
-                },
-            }),
-            __metadata("design:paramtypes", [table.CdkColumnDef,
-                core.ElementRef])
-        ], MatCell);
+        MatCell.decorators = [
+            { type: core.Directive, args: [{
+                        selector: 'td[mat-cell]',
+                        host: {
+                            'class': 'mat-mdc-cell mdc-data-table__cell',
+                            'role': 'gridcell',
+                        },
+                    },] }
+        ];
+        /** @nocollapse */
+        MatCell.ctorParameters = function () { return [
+            { type: table.CdkColumnDef },
+            { type: core.ElementRef }
+        ]; };
         return MatCell;
     }(table.CdkCell));
 
@@ -445,15 +443,13 @@
         function MatHeaderRowDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatHeaderRowDef_1 = MatHeaderRowDef;
-        var MatHeaderRowDef_1;
-        MatHeaderRowDef = MatHeaderRowDef_1 = __decorate([
-            core.Directive({
-                selector: '[matHeaderRowDef]',
-                providers: [{ provide: table.CdkHeaderRowDef, useExisting: MatHeaderRowDef_1 }],
-                inputs: ['columns: matHeaderRowDef', 'sticky: matHeaderRowDefSticky'],
-            })
-        ], MatHeaderRowDef);
+        MatHeaderRowDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matHeaderRowDef]',
+                        providers: [{ provide: table.CdkHeaderRowDef, useExisting: MatHeaderRowDef }],
+                        inputs: ['columns: matHeaderRowDef', 'sticky: matHeaderRowDefSticky'],
+                    },] }
+        ];
         return MatHeaderRowDef;
     }(table.CdkHeaderRowDef));
     /**
@@ -465,15 +461,13 @@
         function MatFooterRowDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatFooterRowDef_1 = MatFooterRowDef;
-        var MatFooterRowDef_1;
-        MatFooterRowDef = MatFooterRowDef_1 = __decorate([
-            core.Directive({
-                selector: '[matFooterRowDef]',
-                providers: [{ provide: table.CdkFooterRowDef, useExisting: MatFooterRowDef_1 }],
-                inputs: ['columns: matFooterRowDef', 'sticky: matFooterRowDefSticky'],
-            })
-        ], MatFooterRowDef);
+        MatFooterRowDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matFooterRowDef]',
+                        providers: [{ provide: table.CdkFooterRowDef, useExisting: MatFooterRowDef }],
+                        inputs: ['columns: matFooterRowDef', 'sticky: matFooterRowDefSticky'],
+                    },] }
+        ];
         return MatFooterRowDef;
     }(table.CdkFooterRowDef));
     /**
@@ -486,15 +480,13 @@
         function MatRowDef() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatRowDef_1 = MatRowDef;
-        var MatRowDef_1;
-        MatRowDef = MatRowDef_1 = __decorate([
-            core.Directive({
-                selector: '[matRowDef]',
-                providers: [{ provide: table.CdkRowDef, useExisting: MatRowDef_1 }],
-                inputs: ['columns: matRowDefColumns', 'when: matRowDefWhen'],
-            })
-        ], MatRowDef);
+        MatRowDef.decorators = [
+            { type: core.Directive, args: [{
+                        selector: '[matRowDef]',
+                        providers: [{ provide: table.CdkRowDef, useExisting: MatRowDef }],
+                        inputs: ['columns: matRowDefColumns', 'when: matRowDefWhen'],
+                    },] }
+        ];
         return MatRowDef;
     }(table.CdkRowDef));
     /** Footer template container that contains the cell outlet. Adds the right class and role. */
@@ -503,24 +495,22 @@
         function MatHeaderRow() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatHeaderRow_1 = MatHeaderRow;
-        var MatHeaderRow_1;
-        MatHeaderRow = MatHeaderRow_1 = __decorate([
-            core.Component({
-                selector: 'tr[mat-header-row]',
-                template: table.CDK_ROW_TEMPLATE,
-                host: {
-                    'class': 'mat-mdc-header-row mdc-data-table__header-row',
-                    'role': 'row',
-                },
-                // See note on CdkTable for explanation on why this uses the default change detection strategy.
-                // tslint:disable-next-line:validate-decorators
-                changeDetection: core.ChangeDetectionStrategy.Default,
-                encapsulation: core.ViewEncapsulation.None,
-                exportAs: 'matHeaderRow',
-                providers: [{ provide: table.CdkHeaderRow, useExisting: MatHeaderRow_1 }]
-            })
-        ], MatHeaderRow);
+        MatHeaderRow.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'tr[mat-header-row]',
+                        template: table.CDK_ROW_TEMPLATE,
+                        host: {
+                            'class': 'mat-mdc-header-row mdc-data-table__header-row',
+                            'role': 'row',
+                        },
+                        // See note on CdkTable for explanation on why this uses the default change detection strategy.
+                        // tslint:disable-next-line:validate-decorators
+                        changeDetection: core.ChangeDetectionStrategy.Default,
+                        encapsulation: core.ViewEncapsulation.None,
+                        exportAs: 'matHeaderRow',
+                        providers: [{ provide: table.CdkHeaderRow, useExisting: MatHeaderRow }]
+                    }] }
+        ];
         return MatHeaderRow;
     }(table.CdkHeaderRow));
     /** Footer template container that contains the cell outlet. Adds the right class and role. */
@@ -529,24 +519,22 @@
         function MatFooterRow() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatFooterRow_1 = MatFooterRow;
-        var MatFooterRow_1;
-        MatFooterRow = MatFooterRow_1 = __decorate([
-            core.Component({
-                selector: 'tr[mat-footer-row]',
-                template: table.CDK_ROW_TEMPLATE,
-                host: {
-                    'class': 'mat-mdc-footer-row mdc-data-table__row',
-                    'role': 'row',
-                },
-                // See note on CdkTable for explanation on why this uses the default change detection strategy.
-                // tslint:disable-next-line:validate-decorators
-                changeDetection: core.ChangeDetectionStrategy.Default,
-                encapsulation: core.ViewEncapsulation.None,
-                exportAs: 'matFooterRow',
-                providers: [{ provide: table.CdkFooterRow, useExisting: MatFooterRow_1 }]
-            })
-        ], MatFooterRow);
+        MatFooterRow.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'tr[mat-footer-row]',
+                        template: table.CDK_ROW_TEMPLATE,
+                        host: {
+                            'class': 'mat-mdc-footer-row mdc-data-table__row',
+                            'role': 'row',
+                        },
+                        // See note on CdkTable for explanation on why this uses the default change detection strategy.
+                        // tslint:disable-next-line:validate-decorators
+                        changeDetection: core.ChangeDetectionStrategy.Default,
+                        encapsulation: core.ViewEncapsulation.None,
+                        exportAs: 'matFooterRow',
+                        providers: [{ provide: table.CdkFooterRow, useExisting: MatFooterRow }]
+                    }] }
+        ];
         return MatFooterRow;
     }(table.CdkFooterRow));
     /** Data row template container that contains the cell outlet. Adds the right class and role. */
@@ -555,24 +543,22 @@
         function MatRow() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatRow_1 = MatRow;
-        var MatRow_1;
-        MatRow = MatRow_1 = __decorate([
-            core.Component({
-                selector: 'tr[mat-row]',
-                template: table.CDK_ROW_TEMPLATE,
-                host: {
-                    'class': 'mat-mdc-row mdc-data-table__row',
-                    'role': 'row',
-                },
-                // See note on CdkTable for explanation on why this uses the default change detection strategy.
-                // tslint:disable-next-line:validate-decorators
-                changeDetection: core.ChangeDetectionStrategy.Default,
-                encapsulation: core.ViewEncapsulation.None,
-                exportAs: 'matRow',
-                providers: [{ provide: table.CdkRow, useExisting: MatRow_1 }]
-            })
-        ], MatRow);
+        MatRow.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'tr[mat-row]',
+                        template: table.CDK_ROW_TEMPLATE,
+                        host: {
+                            'class': 'mat-mdc-row mdc-data-table__row',
+                            'role': 'row',
+                        },
+                        // See note on CdkTable for explanation on why this uses the default change detection strategy.
+                        // tslint:disable-next-line:validate-decorators
+                        changeDetection: core.ChangeDetectionStrategy.Default,
+                        encapsulation: core.ViewEncapsulation.None,
+                        exportAs: 'matRow',
+                        providers: [{ provide: table.CdkRow, useExisting: MatRow }]
+                    }] }
+        ];
         return MatRow;
     }(table.CdkRow));
     /** Row that can be used to display a message when no data is shown in the table. */
@@ -581,14 +567,12 @@
         function MatNoDataRow() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        MatNoDataRow_1 = MatNoDataRow;
-        var MatNoDataRow_1;
-        MatNoDataRow = MatNoDataRow_1 = __decorate([
-            core.Directive({
-                selector: 'ng-template[matNoDataRow]',
-                providers: [{ provide: table.CdkNoDataRow, useExisting: MatNoDataRow_1 }],
-            })
-        ], MatNoDataRow);
+        MatNoDataRow.decorators = [
+            { type: core.Directive, args: [{
+                        selector: 'ng-template[matNoDataRow]',
+                        providers: [{ provide: table.CdkNoDataRow, useExisting: MatNoDataRow }],
+                    },] }
+        ];
         return MatNoDataRow;
     }(table.CdkNoDataRow));
 
@@ -623,13 +607,13 @@
     var MatTableModule = /** @class */ (function () {
         function MatTableModule() {
         }
-        MatTableModule = __decorate([
-            core.NgModule({
-                imports: [core$1.MatCommonModule, table.CdkTableModule],
-                exports: [core$1.MatCommonModule, EXPORTED_DECLARATIONS],
-                declarations: EXPORTED_DECLARATIONS,
-            })
-        ], MatTableModule);
+        MatTableModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [core$1.MatCommonModule, table.CdkTableModule],
+                        exports: [core$1.MatCommonModule, EXPORTED_DECLARATIONS],
+                        declarations: EXPORTED_DECLARATIONS,
+                    },] }
+        ];
         return MatTableModule;
     }());
 

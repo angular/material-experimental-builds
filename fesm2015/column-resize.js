@@ -1,4 +1,3 @@
-import { __decorate, __param, __metadata } from 'tslib';
 import { Injectable, Inject, Directive, ElementRef, NgZone, Component, ChangeDetectionStrategy, ViewEncapsulation, Injector, ViewContainerRef, NgModule } from '@angular/core';
 import { CdkFlexTableResizeStrategy, ColumnResize, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
@@ -18,19 +17,22 @@ import { CdkColumnDef } from '@angular/cdk/table';
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 let MatFlexTableResizeStrategy = /** @class */ (() => {
-    let MatFlexTableResizeStrategy = class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
+    class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
         constructor(columnResize, document) {
             super(columnResize, document);
         }
         getColumnCssClass(cssFriendlyColumnName) {
             return `mat-column-${cssFriendlyColumnName}`;
         }
-    };
-    MatFlexTableResizeStrategy = __decorate([
-        Injectable(),
-        __param(1, Inject(DOCUMENT)),
-        __metadata("design:paramtypes", [ColumnResize, Object])
-    ], MatFlexTableResizeStrategy);
+    }
+    MatFlexTableResizeStrategy.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    MatFlexTableResizeStrategy.ctorParameters = () => [
+        { type: ColumnResize },
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+    ];
     return MatFlexTableResizeStrategy;
 })();
 const FLEX_RESIZE_STRATEGY_PROVIDER = {
@@ -79,8 +81,7 @@ class AbstractMatColumnResize extends ColumnResize {
  * Individual columns must be annotated specifically.
  */
 let MatColumnResize = /** @class */ (() => {
-    var MatColumnResize_1;
-    let MatColumnResize = MatColumnResize_1 = class MatColumnResize extends AbstractMatColumnResize {
+    class MatColumnResize extends AbstractMatColumnResize {
         constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             super();
             this.columnResizeNotifier = columnResizeNotifier;
@@ -89,22 +90,25 @@ let MatColumnResize = /** @class */ (() => {
             this.ngZone = ngZone;
             this.notifier = notifier;
         }
-    };
-    MatColumnResize = MatColumnResize_1 = __decorate([
-        Directive({
-            selector: 'table[mat-table][columnResize]',
-            host: TABLE_HOST_BINDINGS,
-            providers: [
-                ...TABLE_PROVIDERS,
-                { provide: ColumnResize, useExisting: MatColumnResize_1 },
-            ],
-        }),
-        __metadata("design:paramtypes", [ColumnResizeNotifier,
-            ElementRef,
-            HeaderRowEventDispatcher,
-            NgZone,
-            ColumnResizeNotifierSource])
-    ], MatColumnResize);
+    }
+    MatColumnResize.decorators = [
+        { type: Directive, args: [{
+                    selector: 'table[mat-table][columnResize]',
+                    host: TABLE_HOST_BINDINGS,
+                    providers: [
+                        ...TABLE_PROVIDERS,
+                        { provide: ColumnResize, useExisting: MatColumnResize },
+                    ],
+                },] }
+    ];
+    /** @nocollapse */
+    MatColumnResize.ctorParameters = () => [
+        { type: ColumnResizeNotifier },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: NgZone },
+        { type: ColumnResizeNotifierSource }
+    ];
     return MatColumnResize;
 })();
 
@@ -120,8 +124,7 @@ let MatColumnResize = /** @class */ (() => {
  * Individual columns must be annotated specifically.
  */
 let MatColumnResizeFlex = /** @class */ (() => {
-    var MatColumnResizeFlex_1;
-    let MatColumnResizeFlex = MatColumnResizeFlex_1 = class MatColumnResizeFlex extends AbstractMatColumnResize {
+    class MatColumnResizeFlex extends AbstractMatColumnResize {
         constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             super();
             this.columnResizeNotifier = columnResizeNotifier;
@@ -130,22 +133,25 @@ let MatColumnResizeFlex = /** @class */ (() => {
             this.ngZone = ngZone;
             this.notifier = notifier;
         }
-    };
-    MatColumnResizeFlex = MatColumnResizeFlex_1 = __decorate([
-        Directive({
-            selector: 'mat-table[columnResize]',
-            host: FLEX_HOST_BINDINGS,
-            providers: [
-                ...FLEX_PROVIDERS,
-                { provide: ColumnResize, useExisting: MatColumnResizeFlex_1 },
-            ],
-        }),
-        __metadata("design:paramtypes", [ColumnResizeNotifier,
-            ElementRef,
-            HeaderRowEventDispatcher,
-            NgZone,
-            ColumnResizeNotifierSource])
-    ], MatColumnResizeFlex);
+    }
+    MatColumnResizeFlex.decorators = [
+        { type: Directive, args: [{
+                    selector: 'mat-table[columnResize]',
+                    host: FLEX_HOST_BINDINGS,
+                    providers: [
+                        ...FLEX_PROVIDERS,
+                        { provide: ColumnResize, useExisting: MatColumnResizeFlex },
+                    ],
+                },] }
+    ];
+    /** @nocollapse */
+    MatColumnResizeFlex.ctorParameters = () => [
+        { type: ColumnResizeNotifier },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: NgZone },
+        { type: ColumnResizeNotifierSource }
+    ];
     return MatColumnResizeFlex;
 })();
 
@@ -161,8 +167,7 @@ let MatColumnResizeFlex = /** @class */ (() => {
  * Individual columns will be resizable unless opted out.
  */
 let MatDefaultEnabledColumnResize = /** @class */ (() => {
-    var MatDefaultEnabledColumnResize_1;
-    let MatDefaultEnabledColumnResize = MatDefaultEnabledColumnResize_1 = class MatDefaultEnabledColumnResize extends AbstractMatColumnResize {
+    class MatDefaultEnabledColumnResize extends AbstractMatColumnResize {
         constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             super();
             this.columnResizeNotifier = columnResizeNotifier;
@@ -171,22 +176,25 @@ let MatDefaultEnabledColumnResize = /** @class */ (() => {
             this.ngZone = ngZone;
             this.notifier = notifier;
         }
-    };
-    MatDefaultEnabledColumnResize = MatDefaultEnabledColumnResize_1 = __decorate([
-        Directive({
-            selector: 'table[mat-table]',
-            host: TABLE_HOST_BINDINGS,
-            providers: [
-                ...TABLE_PROVIDERS,
-                { provide: ColumnResize, useExisting: MatDefaultEnabledColumnResize_1 },
-            ],
-        }),
-        __metadata("design:paramtypes", [ColumnResizeNotifier,
-            ElementRef,
-            HeaderRowEventDispatcher,
-            NgZone,
-            ColumnResizeNotifierSource])
-    ], MatDefaultEnabledColumnResize);
+    }
+    MatDefaultEnabledColumnResize.decorators = [
+        { type: Directive, args: [{
+                    selector: 'table[mat-table]',
+                    host: TABLE_HOST_BINDINGS,
+                    providers: [
+                        ...TABLE_PROVIDERS,
+                        { provide: ColumnResize, useExisting: MatDefaultEnabledColumnResize },
+                    ],
+                },] }
+    ];
+    /** @nocollapse */
+    MatDefaultEnabledColumnResize.ctorParameters = () => [
+        { type: ColumnResizeNotifier },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: NgZone },
+        { type: ColumnResizeNotifierSource }
+    ];
     return MatDefaultEnabledColumnResize;
 })();
 
@@ -202,8 +210,7 @@ let MatDefaultEnabledColumnResize = /** @class */ (() => {
  * Individual columns will be resizable unless opted out.
  */
 let MatDefaultEnabledColumnResizeFlex = /** @class */ (() => {
-    var MatDefaultEnabledColumnResizeFlex_1;
-    let MatDefaultEnabledColumnResizeFlex = MatDefaultEnabledColumnResizeFlex_1 = class MatDefaultEnabledColumnResizeFlex extends AbstractMatColumnResize {
+    class MatDefaultEnabledColumnResizeFlex extends AbstractMatColumnResize {
         constructor(columnResizeNotifier, elementRef, eventDispatcher, ngZone, notifier) {
             super();
             this.columnResizeNotifier = columnResizeNotifier;
@@ -212,22 +219,25 @@ let MatDefaultEnabledColumnResizeFlex = /** @class */ (() => {
             this.ngZone = ngZone;
             this.notifier = notifier;
         }
-    };
-    MatDefaultEnabledColumnResizeFlex = MatDefaultEnabledColumnResizeFlex_1 = __decorate([
-        Directive({
-            selector: 'mat-table',
-            host: FLEX_HOST_BINDINGS,
-            providers: [
-                ...FLEX_PROVIDERS,
-                { provide: ColumnResize, useExisting: MatDefaultEnabledColumnResizeFlex_1 },
-            ],
-        }),
-        __metadata("design:paramtypes", [ColumnResizeNotifier,
-            ElementRef,
-            HeaderRowEventDispatcher,
-            NgZone,
-            ColumnResizeNotifierSource])
-    ], MatDefaultEnabledColumnResizeFlex);
+    }
+    MatDefaultEnabledColumnResizeFlex.decorators = [
+        { type: Directive, args: [{
+                    selector: 'mat-table',
+                    host: FLEX_HOST_BINDINGS,
+                    providers: [
+                        ...FLEX_PROVIDERS,
+                        { provide: ColumnResize, useExisting: MatDefaultEnabledColumnResizeFlex },
+                    ],
+                },] }
+    ];
+    /** @nocollapse */
+    MatDefaultEnabledColumnResizeFlex.ctorParameters = () => [
+        { type: ColumnResizeNotifier },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: NgZone },
+        { type: ColumnResizeNotifierSource }
+    ];
     return MatDefaultEnabledColumnResizeFlex;
 })();
 
@@ -243,7 +253,7 @@ let MatDefaultEnabledColumnResizeFlex = /** @class */ (() => {
  * for handling column resize mouse events and displaying a vertical line along the column edge.
  */
 let MatColumnResizeOverlayHandle = /** @class */ (() => {
-    let MatColumnResizeOverlayHandle = class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
+    class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
         constructor(columnDef, columnResize, directionality, elementRef, eventDispatcher, ngZone, resizeNotifier, resizeRef, document) {
             super();
             this.columnDef = columnDef;
@@ -264,24 +274,27 @@ let MatColumnResizeOverlayHandle = /** @class */ (() => {
                     this.resizeRef.origin.nativeElement.offsetHeight
             });
         }
-    };
-    MatColumnResizeOverlayHandle = __decorate([
-        Component({
-            changeDetection: ChangeDetectionStrategy.OnPush,
-            encapsulation: ViewEncapsulation.None,
-            host: { 'class': 'mat-column-resize-overlay-thumb' },
-            template: ''
-        }),
-        __param(8, Inject(DOCUMENT)),
-        __metadata("design:paramtypes", [CdkColumnDef,
-            ColumnResize,
-            Directionality,
-            ElementRef,
-            HeaderRowEventDispatcher,
-            NgZone,
-            ColumnResizeNotifierSource,
-            ResizeRef, Object])
-    ], MatColumnResizeOverlayHandle);
+    }
+    MatColumnResizeOverlayHandle.decorators = [
+        { type: Component, args: [{
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    encapsulation: ViewEncapsulation.None,
+                    host: { 'class': 'mat-column-resize-overlay-thumb' },
+                    template: ''
+                }] }
+    ];
+    /** @nocollapse */
+    MatColumnResizeOverlayHandle.ctorParameters = () => [
+        { type: CdkColumnDef },
+        { type: ColumnResize },
+        { type: Directionality },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: NgZone },
+        { type: ColumnResizeNotifierSource },
+        { type: ResizeRef },
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+    ];
     return MatColumnResizeOverlayHandle;
 })();
 
@@ -324,7 +337,7 @@ const RESIZABLE_INPUTS = [
  * is present.
  */
 let MatDefaultResizable = /** @class */ (() => {
-    let MatDefaultResizable = class MatDefaultResizable extends AbstractMatResizable {
+    class MatDefaultResizable extends AbstractMatResizable {
         constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef) {
             super();
             this.columnDef = columnDef;
@@ -340,25 +353,29 @@ let MatDefaultResizable = /** @class */ (() => {
             this.viewContainerRef = viewContainerRef;
             this.document = document;
         }
-    };
-    MatDefaultResizable = __decorate([
-        Directive({
-            selector: 'mat-header-cell:not([disableResize]), th[mat-header-cell]:not([disableResize])',
-            host: RESIZABLE_HOST_BINDINGS,
-            inputs: RESIZABLE_INPUTS,
-        }),
-        __param(3, Inject(DOCUMENT)),
-        __metadata("design:paramtypes", [CdkColumnDef,
-            ColumnResize,
-            Directionality, Object, ElementRef,
-            HeaderRowEventDispatcher,
-            Injector,
-            NgZone,
-            Overlay,
-            ColumnResizeNotifierSource,
-            ResizeStrategy,
-            ViewContainerRef])
-    ], MatDefaultResizable);
+    }
+    MatDefaultResizable.decorators = [
+        { type: Directive, args: [{
+                    selector: 'mat-header-cell:not([disableResize]), th[mat-header-cell]:not([disableResize])',
+                    host: RESIZABLE_HOST_BINDINGS,
+                    inputs: RESIZABLE_INPUTS,
+                },] }
+    ];
+    /** @nocollapse */
+    MatDefaultResizable.ctorParameters = () => [
+        { type: CdkColumnDef },
+        { type: ColumnResize },
+        { type: Directionality },
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: Injector },
+        { type: NgZone },
+        { type: Overlay },
+        { type: ColumnResizeNotifierSource },
+        { type: ResizeStrategy },
+        { type: ViewContainerRef }
+    ];
     return MatDefaultResizable;
 })();
 
@@ -373,7 +390,7 @@ let MatDefaultResizable = /** @class */ (() => {
  * Explicitly enables column resizing for a mat-header-cell.
  */
 let MatResizable = /** @class */ (() => {
-    let MatResizable = class MatResizable extends AbstractMatResizable {
+    class MatResizable extends AbstractMatResizable {
         constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef) {
             super();
             this.columnDef = columnDef;
@@ -389,25 +406,29 @@ let MatResizable = /** @class */ (() => {
             this.viewContainerRef = viewContainerRef;
             this.document = document;
         }
-    };
-    MatResizable = __decorate([
-        Directive({
-            selector: 'mat-header-cell[resizable], th[mat-header-cell][resizable]',
-            host: RESIZABLE_HOST_BINDINGS,
-            inputs: RESIZABLE_INPUTS,
-        }),
-        __param(3, Inject(DOCUMENT)),
-        __metadata("design:paramtypes", [CdkColumnDef,
-            ColumnResize,
-            Directionality, Object, ElementRef,
-            HeaderRowEventDispatcher,
-            Injector,
-            NgZone,
-            Overlay,
-            ColumnResizeNotifierSource,
-            ResizeStrategy,
-            ViewContainerRef])
-    ], MatResizable);
+    }
+    MatResizable.decorators = [
+        { type: Directive, args: [{
+                    selector: 'mat-header-cell[resizable], th[mat-header-cell][resizable]',
+                    host: RESIZABLE_HOST_BINDINGS,
+                    inputs: RESIZABLE_INPUTS,
+                },] }
+    ];
+    /** @nocollapse */
+    MatResizable.ctorParameters = () => [
+        { type: CdkColumnDef },
+        { type: ColumnResize },
+        { type: Directionality },
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
+        { type: ElementRef },
+        { type: HeaderRowEventDispatcher },
+        { type: Injector },
+        { type: NgZone },
+        { type: Overlay },
+        { type: ColumnResizeNotifierSource },
+        { type: ResizeStrategy },
+        { type: ViewContainerRef }
+    ];
     return MatResizable;
 })();
 
@@ -422,15 +443,15 @@ const ENTRY_COMMON_COMPONENTS = [
     MatColumnResizeOverlayHandle,
 ];
 let MatColumnResizeCommonModule = /** @class */ (() => {
-    let MatColumnResizeCommonModule = class MatColumnResizeCommonModule {
-    };
-    MatColumnResizeCommonModule = __decorate([
-        NgModule({
-            declarations: ENTRY_COMMON_COMPONENTS,
-            exports: ENTRY_COMMON_COMPONENTS,
-            entryComponents: ENTRY_COMMON_COMPONENTS,
-        })
-    ], MatColumnResizeCommonModule);
+    class MatColumnResizeCommonModule {
+    }
+    MatColumnResizeCommonModule.decorators = [
+        { type: NgModule, args: [{
+                    declarations: ENTRY_COMMON_COMPONENTS,
+                    exports: ENTRY_COMMON_COMPONENTS,
+                    entryComponents: ENTRY_COMMON_COMPONENTS,
+                },] }
+    ];
     return MatColumnResizeCommonModule;
 })();
 const IMPORTS = [
@@ -438,43 +459,43 @@ const IMPORTS = [
     MatColumnResizeCommonModule,
 ];
 let MatDefaultEnabledColumnResizeModule = /** @class */ (() => {
-    let MatDefaultEnabledColumnResizeModule = class MatDefaultEnabledColumnResizeModule {
-    };
-    MatDefaultEnabledColumnResizeModule = __decorate([
-        NgModule({
-            imports: IMPORTS,
-            declarations: [
-                MatDefaultEnabledColumnResize,
-                MatDefaultEnabledColumnResizeFlex,
-                MatDefaultResizable,
-            ],
-            exports: [
-                MatDefaultEnabledColumnResize,
-                MatDefaultEnabledColumnResizeFlex,
-                MatDefaultResizable,
-            ],
-        })
-    ], MatDefaultEnabledColumnResizeModule);
+    class MatDefaultEnabledColumnResizeModule {
+    }
+    MatDefaultEnabledColumnResizeModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: IMPORTS,
+                    declarations: [
+                        MatDefaultEnabledColumnResize,
+                        MatDefaultEnabledColumnResizeFlex,
+                        MatDefaultResizable,
+                    ],
+                    exports: [
+                        MatDefaultEnabledColumnResize,
+                        MatDefaultEnabledColumnResizeFlex,
+                        MatDefaultResizable,
+                    ],
+                },] }
+    ];
     return MatDefaultEnabledColumnResizeModule;
 })();
 let MatColumnResizeModule = /** @class */ (() => {
-    let MatColumnResizeModule = class MatColumnResizeModule {
-    };
-    MatColumnResizeModule = __decorate([
-        NgModule({
-            imports: IMPORTS,
-            declarations: [
-                MatColumnResize,
-                MatColumnResizeFlex,
-                MatResizable,
-            ],
-            exports: [
-                MatColumnResize,
-                MatColumnResizeFlex,
-                MatResizable,
-            ],
-        })
-    ], MatColumnResizeModule);
+    class MatColumnResizeModule {
+    }
+    MatColumnResizeModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: IMPORTS,
+                    declarations: [
+                        MatColumnResize,
+                        MatColumnResizeFlex,
+                        MatResizable,
+                    ],
+                    exports: [
+                        MatColumnResize,
+                        MatColumnResizeFlex,
+                        MatResizable,
+                    ],
+                },] }
+    ];
     return MatColumnResizeModule;
 })();
 

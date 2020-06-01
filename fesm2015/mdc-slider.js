@@ -1,8 +1,7 @@
-import { __decorate, __metadata, __param } from 'tslib';
 import { Directionality } from '@angular/cdk/bidi';
 import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { normalizePassiveListenerOptions, Platform } from '@angular/cdk/platform';
-import { forwardRef, EventEmitter, Output, Input, ViewChild, ElementRef, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Attribute, Inject, ChangeDetectorRef, NgZone, NgModule } from '@angular/core';
+import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, NgZone, Optional, Attribute, Inject, Output, Input, ViewChild, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCSliderFoundation } from '@material/slider';
@@ -46,7 +45,7 @@ const MAT_SLIDER_VALUE_ACCESSOR = {
 class MatSliderChange {
 }
 let MatSlider = /** @class */ (() => {
-    let MatSlider = class MatSlider {
+    class MatSlider {
         constructor(_elementRef, _changeDetectorRef, _ngZone, _platform, _dir, tabIndex, _animationMode) {
             this._elementRef = _elementRef;
             this._changeDetectorRef = _changeDetectorRef;
@@ -406,122 +405,68 @@ let MatSlider = /** @class */ (() => {
             this.value = value;
             this._syncValue();
         }
+    }
+    MatSlider.decorators = [
+        { type: Component, args: [{
+                    selector: 'mat-slider',
+                    template: "<div class=\"mdc-slider__track-container\">\n  <div class=\"mdc-slider__track\" #track></div>\n  <div class=\"mdc-slider__track-marker-container\" #trackMarker></div>\n</div>\n<div class=\"mdc-slider__thumb-container\" #thumbContainer>\n  <div *ngIf=\"thumbLabel\" class=\"mdc-slider__pin\">\n    <span class=\"mdc-slider__pin-value-marker\">{{displayValue}}</span>\n  </div>\n  <svg class=\"mdc-slider__thumb\" focusable=\"false\" width=\"21\" height=\"21\">\n    <circle cx=\"10.5\" cy=\"10.5\" r=\"7.875\"></circle>\n  </svg>\n  <div class=\"mdc-slider__focus-ring\"></div>\n</div>\n",
+                    host: {
+                        'class': 'mat-mdc-slider mdc-slider mat-mdc-focus-indicator',
+                        'role': 'slider',
+                        'aria-orientation': 'horizontal',
+                        // The tabindex if the slider turns disabled is managed by the MDC foundation which
+                        // dynamically updates and restores the "tabindex" attribute.
+                        '[attr.tabindex]': 'tabIndex || 0',
+                        '[class.mdc-slider--discrete]': 'thumbLabel',
+                        '[class.mat-slider-has-ticks]': 'tickInterval !== 0',
+                        '[class.mdc-slider--display-markers]': 'tickInterval !== 0',
+                        '[class.mat-slider-thumb-label-showing]': 'thumbLabel',
+                        // Class binding which is only used by the test harness as there is no other
+                        // way for the harness to detect if mouse coordinates need to be inverted.
+                        '[class.mat-slider-invert-mouse-coords]': '_isRtl()',
+                        '[class.mat-slider-disabled]': 'disabled',
+                        '[class.mat-primary]': 'color == "primary"',
+                        '[class.mat-accent]': 'color == "accent"',
+                        '[class.mat-warn]': 'color == "warn"',
+                        '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
+                        '(blur)': '_markAsTouched()',
+                    },
+                    exportAs: 'matSlider',
+                    encapsulation: ViewEncapsulation.None,
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    providers: [MAT_SLIDER_VALUE_ACCESSOR],
+                    styles: [".mdc-slider{position:relative;width:100%;height:48px;cursor:pointer;touch-action:pan-x;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-slider--disable-touch-action{touch-action:none}.mdc-slider--disabled{cursor:auto}.mdc-slider:focus{outline:none}.mdc-slider__track-container{position:absolute;top:50%;width:100%;height:2px;overflow:hidden}.mdc-slider__track-container::after{position:absolute;top:0;left:0;display:block;width:100%;height:100%;content:\"\"}.mdc-slider__track{position:absolute;width:100%;height:100%;transform-origin:left top}.mdc-slider[dir=rtl] .mdc-slider__track,[dir=rtl] .mdc-slider .mdc-slider__track{transform-origin:right top}.mdc-slider__track-marker-container{display:flex;margin-right:0;margin-left:-1px;visibility:hidden}.mdc-slider[dir=rtl] .mdc-slider__track-marker-container,[dir=rtl] .mdc-slider .mdc-slider__track-marker-container{margin-right:-1px;margin-left:0}.mdc-slider__track-marker-container::after{display:block;width:2px;height:2px;content:\"\"}.mdc-slider__track-marker{flex:1}.mdc-slider__track-marker::after{display:block;width:2px;height:2px;content:\"\"}.mdc-slider__track-marker:first-child::after{width:3px}.mdc-slider__thumb-container{position:absolute;top:15px;left:0;width:21px;height:100%;user-select:none}.mdc-slider__thumb{position:absolute;top:0;left:0;transform:scale(0.571);stroke-width:3.5}.mdc-slider__focus-ring{width:21px;height:21px;border-radius:50%;opacity:0}.mdc-slider__pin{display:flex;position:absolute;top:0;left:0;align-items:center;justify-content:center;width:26px;height:26px;margin-top:-2px;margin-left:-2px;transform:rotate(-45deg) scale(0) translate(0, 0);border-radius:50% 50% 50% 0%;z-index:1}.mdc-slider__pin-value-marker{transform:rotate(45deg)}.mdc-slider--active .mdc-slider__thumb{transform:scale3d(1, 1, 1)}.mdc-slider--focus .mdc-slider__focus-ring{transform:scale3d(1.55, 1.55, 1.55);opacity:.25}.mdc-slider--discrete.mdc-slider--active .mdc-slider__thumb{transform:scale(calc(12 / 21))}.mdc-slider--discrete.mdc-slider--active .mdc-slider__pin{transform:rotate(-45deg) scale(1) translate(19px, -20px)}.mdc-slider--discrete.mdc-slider--display-markers .mdc-slider__track-marker-container{visibility:visible}.mat-mdc-slider{display:inline-block;box-sizing:border-box;outline:none;vertical-align:middle;margin-left:8px;margin-right:8px;width:auto;min-width:112px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__track-container{height:0;outline:solid 2px;margin-top:1px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__pin-value-marker{outline:solid 1px}@keyframes mdc-slider-emphasize{0%{animation-timing-function:ease-out}50%{animation-timing-function:ease-in;transform:scale(0.85)}100%{transform:scale(0.571)}}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__track{will-change:transform}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__thumb-container{will-change:transform}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__thumb{transition:transform 100ms ease-out,fill 100ms ease-out,stroke 100ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__focus-ring{transition:transform 266.67ms ease-out,opacity 266.67ms ease-out,background-color 266.67ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__pin{transition:transform 100ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--focus .mdc-slider__thumb{animation:mdc-slider-emphasize 266.67ms linear}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__thumb{transition-delay:140ms}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__thumb-container,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__track,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__thumb-container,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__track{transition:transform 80ms ease}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--discrete.mdc-slider--focus .mdc-slider__thumb{animation:none}.mat-slider-has-ticks:not(.mat-slider-disabled) .mdc-slider__track-marker-container{visibility:visible}\n"]
+                }] }
+    ];
+    /** @nocollapse */
+    MatSlider.ctorParameters = () => [
+        { type: ElementRef },
+        { type: ChangeDetectorRef },
+        { type: NgZone },
+        { type: Platform },
+        { type: Directionality, decorators: [{ type: Optional }] },
+        { type: String, decorators: [{ type: Attribute, args: ['tabindex',] }] },
+        { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    ];
+    MatSlider.propDecorators = {
+        change: [{ type: Output }],
+        input: [{ type: Output }],
+        valueChange: [{ type: Output }],
+        tabIndex: [{ type: Input }],
+        color: [{ type: Input }],
+        displayWith: [{ type: Input }],
+        min: [{ type: Input }],
+        max: [{ type: Input }],
+        value: [{ type: Input }],
+        step: [{ type: Input }],
+        tickInterval: [{ type: Input }],
+        thumbLabel: [{ type: Input }],
+        disabled: [{ type: Input }],
+        _thumbContainer: [{ type: ViewChild, args: ['thumbContainer',] }],
+        _track: [{ type: ViewChild, args: ['track',] }],
+        _pinValueMarker: [{ type: ViewChild, args: ['pinValueMarker',] }],
+        _trackMarker: [{ type: ViewChild, args: ['trackMarker',] }]
     };
-    __decorate([
-        Output(),
-        __metadata("design:type", EventEmitter)
-    ], MatSlider.prototype, "change", void 0);
-    __decorate([
-        Output(),
-        __metadata("design:type", EventEmitter)
-    ], MatSlider.prototype, "input", void 0);
-    __decorate([
-        Output(),
-        __metadata("design:type", EventEmitter)
-    ], MatSlider.prototype, "valueChange", void 0);
-    __decorate([
-        Input(),
-        __metadata("design:type", Number)
-    ], MatSlider.prototype, "tabIndex", void 0);
-    __decorate([
-        Input(),
-        __metadata("design:type", Object)
-    ], MatSlider.prototype, "color", void 0);
-    __decorate([
-        Input(),
-        __metadata("design:type", Function)
-    ], MatSlider.prototype, "displayWith", void 0);
-    __decorate([
-        Input(),
-        __metadata("design:type", Number),
-        __metadata("design:paramtypes", [Number])
-    ], MatSlider.prototype, "min", null);
-    __decorate([
-        Input(),
-        __metadata("design:type", Number),
-        __metadata("design:paramtypes", [Number])
-    ], MatSlider.prototype, "max", null);
-    __decorate([
-        Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], MatSlider.prototype, "value", null);
-    __decorate([
-        Input(),
-        __metadata("design:type", Number),
-        __metadata("design:paramtypes", [Number])
-    ], MatSlider.prototype, "step", null);
-    __decorate([
-        Input(),
-        __metadata("design:type", Object),
-        __metadata("design:paramtypes", [Object])
-    ], MatSlider.prototype, "tickInterval", null);
-    __decorate([
-        Input(),
-        __metadata("design:type", Boolean),
-        __metadata("design:paramtypes", [Boolean])
-    ], MatSlider.prototype, "thumbLabel", null);
-    __decorate([
-        Input(),
-        __metadata("design:type", Boolean),
-        __metadata("design:paramtypes", [Object])
-    ], MatSlider.prototype, "disabled", null);
-    __decorate([
-        ViewChild('thumbContainer'),
-        __metadata("design:type", ElementRef)
-    ], MatSlider.prototype, "_thumbContainer", void 0);
-    __decorate([
-        ViewChild('track'),
-        __metadata("design:type", ElementRef)
-    ], MatSlider.prototype, "_track", void 0);
-    __decorate([
-        ViewChild('pinValueMarker'),
-        __metadata("design:type", ElementRef)
-    ], MatSlider.prototype, "_pinValueMarker", void 0);
-    __decorate([
-        ViewChild('trackMarker'),
-        __metadata("design:type", ElementRef)
-    ], MatSlider.prototype, "_trackMarker", void 0);
-    MatSlider = __decorate([
-        Component({
-            selector: 'mat-slider',
-            template: "<div class=\"mdc-slider__track-container\">\n  <div class=\"mdc-slider__track\" #track></div>\n  <div class=\"mdc-slider__track-marker-container\" #trackMarker></div>\n</div>\n<div class=\"mdc-slider__thumb-container\" #thumbContainer>\n  <div *ngIf=\"thumbLabel\" class=\"mdc-slider__pin\">\n    <span class=\"mdc-slider__pin-value-marker\">{{displayValue}}</span>\n  </div>\n  <svg class=\"mdc-slider__thumb\" focusable=\"false\" width=\"21\" height=\"21\">\n    <circle cx=\"10.5\" cy=\"10.5\" r=\"7.875\"></circle>\n  </svg>\n  <div class=\"mdc-slider__focus-ring\"></div>\n</div>\n",
-            host: {
-                'class': 'mat-mdc-slider mdc-slider mat-mdc-focus-indicator',
-                'role': 'slider',
-                'aria-orientation': 'horizontal',
-                // The tabindex if the slider turns disabled is managed by the MDC foundation which
-                // dynamically updates and restores the "tabindex" attribute.
-                '[attr.tabindex]': 'tabIndex || 0',
-                '[class.mdc-slider--discrete]': 'thumbLabel',
-                '[class.mat-slider-has-ticks]': 'tickInterval !== 0',
-                '[class.mdc-slider--display-markers]': 'tickInterval !== 0',
-                '[class.mat-slider-thumb-label-showing]': 'thumbLabel',
-                // Class binding which is only used by the test harness as there is no other
-                // way for the harness to detect if mouse coordinates need to be inverted.
-                '[class.mat-slider-invert-mouse-coords]': '_isRtl()',
-                '[class.mat-slider-disabled]': 'disabled',
-                '[class.mat-primary]': 'color == "primary"',
-                '[class.mat-accent]': 'color == "accent"',
-                '[class.mat-warn]': 'color == "warn"',
-                '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
-                '(blur)': '_markAsTouched()',
-            },
-            exportAs: 'matSlider',
-            encapsulation: ViewEncapsulation.None,
-            changeDetection: ChangeDetectionStrategy.OnPush,
-            providers: [MAT_SLIDER_VALUE_ACCESSOR],
-            styles: [".mdc-slider{position:relative;width:100%;height:48px;cursor:pointer;touch-action:pan-x;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-slider--disable-touch-action{touch-action:none}.mdc-slider--disabled{cursor:auto}.mdc-slider:focus{outline:none}.mdc-slider__track-container{position:absolute;top:50%;width:100%;height:2px;overflow:hidden}.mdc-slider__track-container::after{position:absolute;top:0;left:0;display:block;width:100%;height:100%;content:\"\"}.mdc-slider__track{position:absolute;width:100%;height:100%;transform-origin:left top}.mdc-slider[dir=rtl] .mdc-slider__track,[dir=rtl] .mdc-slider .mdc-slider__track{transform-origin:right top}.mdc-slider__track-marker-container{display:flex;margin-right:0;margin-left:-1px;visibility:hidden}.mdc-slider[dir=rtl] .mdc-slider__track-marker-container,[dir=rtl] .mdc-slider .mdc-slider__track-marker-container{margin-right:-1px;margin-left:0}.mdc-slider__track-marker-container::after{display:block;width:2px;height:2px;content:\"\"}.mdc-slider__track-marker{flex:1}.mdc-slider__track-marker::after{display:block;width:2px;height:2px;content:\"\"}.mdc-slider__track-marker:first-child::after{width:3px}.mdc-slider__thumb-container{position:absolute;top:15px;left:0;width:21px;height:100%;user-select:none}.mdc-slider__thumb{position:absolute;top:0;left:0;transform:scale(0.571);stroke-width:3.5}.mdc-slider__focus-ring{width:21px;height:21px;border-radius:50%;opacity:0}.mdc-slider__pin{display:flex;position:absolute;top:0;left:0;align-items:center;justify-content:center;width:26px;height:26px;margin-top:-2px;margin-left:-2px;transform:rotate(-45deg) scale(0) translate(0, 0);border-radius:50% 50% 50% 0%;z-index:1}.mdc-slider__pin-value-marker{transform:rotate(45deg)}.mdc-slider--active .mdc-slider__thumb{transform:scale3d(1, 1, 1)}.mdc-slider--focus .mdc-slider__focus-ring{transform:scale3d(1.55, 1.55, 1.55);opacity:.25}.mdc-slider--discrete.mdc-slider--active .mdc-slider__thumb{transform:scale(calc(12 / 21))}.mdc-slider--discrete.mdc-slider--active .mdc-slider__pin{transform:rotate(-45deg) scale(1) translate(19px, -20px)}.mdc-slider--discrete.mdc-slider--display-markers .mdc-slider__track-marker-container{visibility:visible}.mat-mdc-slider{display:inline-block;box-sizing:border-box;outline:none;vertical-align:middle;margin-left:8px;margin-right:8px;width:auto;min-width:112px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__track-container{height:0;outline:solid 2px;margin-top:1px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__pin-value-marker{outline:solid 1px}@keyframes mdc-slider-emphasize{0%{animation-timing-function:ease-out}50%{animation-timing-function:ease-in;transform:scale(0.85)}100%{transform:scale(0.571)}}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__track{will-change:transform}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__thumb-container{will-change:transform}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__thumb{transition:transform 100ms ease-out,fill 100ms ease-out,stroke 100ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__focus-ring{transition:transform 266.67ms ease-out,opacity 266.67ms ease-out,background-color 266.67ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__pin{transition:transform 100ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--focus .mdc-slider__thumb{animation:mdc-slider-emphasize 266.67ms linear}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__thumb{transition-delay:140ms}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__thumb-container,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__track,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__thumb-container,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__track{transition:transform 80ms ease}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--discrete.mdc-slider--focus .mdc-slider__thumb{animation:none}.mat-slider-has-ticks:not(.mat-slider-disabled) .mdc-slider__track-marker-container{visibility:visible}\n"]
-        }),
-        __param(4, Optional()),
-        __param(5, Attribute('tabindex')),
-        __param(6, Optional()), __param(6, Inject(ANIMATION_MODULE_TYPE)),
-        __metadata("design:paramtypes", [ElementRef,
-            ChangeDetectorRef,
-            NgZone,
-            Platform,
-            Directionality, String, String])
-    ], MatSlider);
     return MatSlider;
 })();
 
@@ -533,15 +478,15 @@ let MatSlider = /** @class */ (() => {
  * found in the LICENSE file at https://angular.io/license
  */
 let MatSliderModule = /** @class */ (() => {
-    let MatSliderModule = class MatSliderModule {
-    };
-    MatSliderModule = __decorate([
-        NgModule({
-            imports: [MatCommonModule, CommonModule],
-            exports: [MatSlider, MatCommonModule],
-            declarations: [MatSlider],
-        })
-    ], MatSliderModule);
+    class MatSliderModule {
+    }
+    MatSliderModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [MatCommonModule, CommonModule],
+                    exports: [MatSlider, MatCommonModule],
+                    declarations: [MatSlider],
+                },] }
+    ];
     return MatSliderModule;
 })();
 
