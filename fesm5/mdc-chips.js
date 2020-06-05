@@ -6,7 +6,7 @@ import { Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, View
 import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
-import { hasModifierKey, SPACE, ENTER, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, BACKSPACE, DELETE, HOME, END, TAB } from '@angular/cdk/keycodes';
+import { SPACE, ENTER, hasModifierKey, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, BACKSPACE, DELETE, HOME, END, TAB } from '@angular/cdk/keycodes';
 import { Subject, merge } from 'rxjs';
 import { takeUntil, take, startWith } from 'rxjs/operators';
 import { FocusKeyManager } from '@angular/cdk/a11y';
@@ -236,7 +236,7 @@ var MatChip = /** @class */ (function (_super) {
         _this._onFocus = new Subject();
         /** Emits when the chip is blurred. */
         _this._onBlur = new Subject();
-        _this.HANDLED_KEYS = [];
+        _this.HANDLED_KEYS = new Set([SPACE, ENTER]);
         /** Whether the chip has focus. */
         _this._hasFocusInternal = false;
         /** Default unique id for the chip. */
@@ -444,7 +444,7 @@ var MatChip = /** @class */ (function (_super) {
             // the `type`, because `instanceof KeyboardEvent` can throw during server-side rendering.
             var isKeyboardEvent = event.type.startsWith('key');
             if (_this.disabled || (isKeyboardEvent &&
-                _this.HANDLED_KEYS.indexOf(event.keyCode) !== -1)) {
+                !_this.HANDLED_KEYS.has(event.keyCode))) {
                 return;
             }
             _this._chipFoundation.handleTrailingActionInteraction();
@@ -1001,7 +1001,7 @@ var MatChipRow = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.basicChipAttrName = 'mat-basic-chip-row';
         /** Key codes for which this component has a custom handler. */
-        _this.HANDLED_KEYS = NAVIGATION_KEYS.concat([BACKSPACE, DELETE]);
+        _this.HANDLED_KEYS = new Set(__spread(NAVIGATION_KEYS, [BACKSPACE, DELETE]));
         return _this;
     }
     MatChipRow.prototype.ngAfterContentInit = function () {

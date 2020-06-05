@@ -1,6 +1,6 @@
 import { forwardRef, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, ElementRef, ChangeDetectorRef, Inject, NgModule } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
-import { MatRadioGroup as MatRadioGroup$1, _MatRadioButtonBase, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
+import { _MatRadioGroupBase, _MatRadioButtonBase, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 export { MAT_RADIO_DEFAULT_OPTIONS, MatRadioChange } from '@angular/material/radio';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
@@ -40,7 +40,7 @@ const RIPPLE_ANIMATION_CONFIG = {
 /**
  * A group of radio buttons. May contain one or more `<mat-radio-button>` elements.
  */
-class MatRadioGroup extends MatRadioGroup$1 {
+class MatRadioGroup extends _MatRadioGroupBase {
 }
 MatRadioGroup.decorators = [
     { type: Directive, args: [{
@@ -50,7 +50,6 @@ MatRadioGroup.decorators = [
                 host: {
                     'role': 'radiogroup',
                     'class': 'mat-mdc-radio-group',
-                    '[class.mat-radio-group]': 'false',
                 },
             },] }
 ];

@@ -5,7 +5,7 @@ import { Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, View
 import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
-import { hasModifierKey, SPACE, ENTER, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, BACKSPACE, DELETE, HOME, END, TAB } from '@angular/cdk/keycodes';
+import { SPACE, ENTER, hasModifierKey, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, BACKSPACE, DELETE, HOME, END, TAB } from '@angular/cdk/keycodes';
 import { Subject, merge } from 'rxjs';
 import { takeUntil, take, startWith } from 'rxjs/operators';
 import { FocusKeyManager } from '@angular/cdk/a11y';
@@ -346,7 +346,7 @@ class MatChip extends _MatChipMixinBase {
          * Emits when the chip is blurred.
          */
         this._onBlur = new Subject();
-        this.HANDLED_KEYS = [];
+        this.HANDLED_KEYS = new Set([SPACE, ENTER]);
         /**
          * Whether the chip has focus.
          */
@@ -674,7 +674,7 @@ class MatChip extends _MatChipMixinBase {
             /** @type {?} */
             const isKeyboardEvent = event.type.startsWith('key');
             if (this.disabled || (isKeyboardEvent &&
-                this.HANDLED_KEYS.indexOf(((/** @type {?} */ (event))).keyCode) !== -1)) {
+                !this.HANDLED_KEYS.has(((/** @type {?} */ (event))).keyCode))) {
                 return;
             }
             this._chipFoundation.handleTrailingActionInteraction();
@@ -1613,7 +1613,7 @@ class MatChipRow extends MatChip {
         /**
          * Key codes for which this component has a custom handler.
          */
-        this.HANDLED_KEYS = NAVIGATION_KEYS.concat([BACKSPACE, DELETE]);
+        this.HANDLED_KEYS = new Set([...NAVIGATION_KEYS, BACKSPACE, DELETE]);
     }
     /**
      * @return {?}

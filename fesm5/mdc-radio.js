@@ -1,7 +1,7 @@
 import { __extends, __assign } from 'tslib';
 import { forwardRef, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, ElementRef, ChangeDetectorRef, Inject, NgModule } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
-import { MatRadioGroup as MatRadioGroup$1, MAT_RADIO_DEFAULT_OPTIONS, _MatRadioButtonBase } from '@angular/material/radio';
+import { _MatRadioGroupBase, MAT_RADIO_DEFAULT_OPTIONS, _MatRadioButtonBase } from '@angular/material/radio';
 export { MAT_RADIO_DEFAULT_OPTIONS, MatRadioChange } from '@angular/material/radio';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
@@ -49,7 +49,6 @@ var MatRadioGroup = /** @class */ (function (_super) {
                     host: {
                         'role': 'radiogroup',
                         'class': 'mat-mdc-radio-group',
-                        '[class.mat-radio-group]': 'false',
                     },
                 },] }
     ];
@@ -57,7 +56,7 @@ var MatRadioGroup = /** @class */ (function (_super) {
         _radios: [{ type: ContentChildren, args: [forwardRef(function () { return MatRadioButton; }), { descendants: true },] }]
     };
     return MatRadioGroup;
-}(MatRadioGroup$1));
+}(_MatRadioGroupBase));
 var MatRadioButton = /** @class */ (function (_super) {
     __extends(MatRadioButton, _super);
     function MatRadioButton(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride) {
