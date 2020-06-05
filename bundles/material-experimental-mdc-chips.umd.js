@@ -454,7 +454,7 @@
             _this._onFocus = new rxjs.Subject();
             /** Emits when the chip is blurred. */
             _this._onBlur = new rxjs.Subject();
-            _this.HANDLED_KEYS = [];
+            _this.HANDLED_KEYS = new Set([keycodes.SPACE, keycodes.ENTER]);
             /** Whether the chip has focus. */
             _this._hasFocusInternal = false;
             /** Default unique id for the chip. */
@@ -665,7 +665,7 @@
                 // the `type`, because `instanceof KeyboardEvent` can throw during server-side rendering.
                 var isKeyboardEvent = event.type.startsWith('key');
                 if (_this.disabled || (isKeyboardEvent &&
-                    _this.HANDLED_KEYS.indexOf(event.keyCode) !== -1)) {
+                    !_this.HANDLED_KEYS.has(event.keyCode))) {
                     return;
                 }
                 _this._chipFoundation.handleTrailingActionInteraction();
@@ -1222,7 +1222,7 @@
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.basicChipAttrName = 'mat-basic-chip-row';
             /** Key codes for which this component has a custom handler. */
-            _this.HANDLED_KEYS = NAVIGATION_KEYS.concat([keycodes.BACKSPACE, keycodes.DELETE]);
+            _this.HANDLED_KEYS = new Set(__spread(NAVIGATION_KEYS, [keycodes.BACKSPACE, keycodes.DELETE]));
             return _this;
         }
         MatChipRow.prototype.ngAfterContentInit = function () {

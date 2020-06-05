@@ -5,7 +5,7 @@ import { Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, View
 import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
-import { hasModifierKey, SPACE, ENTER, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, BACKSPACE, DELETE, HOME, END, TAB } from '@angular/cdk/keycodes';
+import { SPACE, ENTER, hasModifierKey, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, BACKSPACE, DELETE, HOME, END, TAB } from '@angular/cdk/keycodes';
 import { Subject, merge } from 'rxjs';
 import { takeUntil, take, startWith } from 'rxjs/operators';
 import { FocusKeyManager } from '@angular/cdk/a11y';
@@ -235,7 +235,7 @@ let MatChip = /** @class */ (() => {
             this._onFocus = new Subject();
             /** Emits when the chip is blurred. */
             this._onBlur = new Subject();
-            this.HANDLED_KEYS = [];
+            this.HANDLED_KEYS = new Set([SPACE, ENTER]);
             /** Whether the chip has focus. */
             this._hasFocusInternal = false;
             /** Default unique id for the chip. */
@@ -414,7 +414,7 @@ let MatChip = /** @class */ (() => {
                 // the `type`, because `instanceof KeyboardEvent` can throw during server-side rendering.
                 const isKeyboardEvent = event.type.startsWith('key');
                 if (this.disabled || (isKeyboardEvent &&
-                    this.HANDLED_KEYS.indexOf(event.keyCode) !== -1)) {
+                    !this.HANDLED_KEYS.has(event.keyCode))) {
                     return;
                 }
                 this._chipFoundation.handleTrailingActionInteraction();
@@ -940,7 +940,7 @@ let MatChipRow = /** @class */ (() => {
             super(...arguments);
             this.basicChipAttrName = 'mat-basic-chip-row';
             /** Key codes for which this component has a custom handler. */
-            this.HANDLED_KEYS = NAVIGATION_KEYS.concat([BACKSPACE, DELETE]);
+            this.HANDLED_KEYS = new Set([...NAVIGATION_KEYS, BACKSPACE, DELETE]);
         }
         ngAfterContentInit() {
             super.ngAfterContentInit();
