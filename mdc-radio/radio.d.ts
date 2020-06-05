@@ -7,7 +7,7 @@
  */
 import { AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
-import { _MatRadioButtonBase, MatRadioDefaultOptions, MatRadioGroup as BaseMatRadioGroup } from '@angular/material/radio';
+import { _MatRadioButtonBase, MatRadioDefaultOptions, _MatRadioGroupBase } from '@angular/material/radio';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 import { RippleAnimationConfig } from '@angular/material/core';
@@ -21,9 +21,9 @@ export declare const MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR: any;
 /**
  * A group of radio buttons. May contain one or more `<mat-radio-button>` elements.
  */
-export declare class MatRadioGroup extends BaseMatRadioGroup {
+export declare class MatRadioGroup extends _MatRadioGroupBase<MatRadioButton> {
     /** Child radio buttons. */
-    _radios: QueryList<_MatRadioButtonBase>;
+    _radios: QueryList<MatRadioButton>;
 }
 export declare class MatRadioButton extends _MatRadioButtonBase implements AfterViewInit, OnDestroy {
     private _radioAdapter;

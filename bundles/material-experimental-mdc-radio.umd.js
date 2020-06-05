@@ -270,7 +270,6 @@
                         host: {
                             'role': 'radiogroup',
                             'class': 'mat-mdc-radio-group',
-                            '[class.mat-radio-group]': 'false',
                         },
                     },] }
         ];
@@ -278,7 +277,7 @@
             _radios: [{ type: core.ContentChildren, args: [core.forwardRef(function () { return MatRadioButton; }), { descendants: true },] }]
         };
         return MatRadioGroup;
-    }(radio$1.MatRadioGroup));
+    }(radio$1._MatRadioGroupBase));
     var MatRadioButton = /** @class */ (function (_super) {
         __extends(MatRadioButton, _super);
         function MatRadioButton(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride) {
