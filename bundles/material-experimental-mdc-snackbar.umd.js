@@ -22,7 +22,7 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: ["\n"]
-                    }] }
+                    },] }
         ];
         return MatSnackbar;
     }());

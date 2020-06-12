@@ -28,7 +28,6 @@ let MatFlexTableResizeStrategy = /** @class */ (() => {
     MatFlexTableResizeStrategy.decorators = [
         { type: Injectable }
     ];
-    /** @nocollapse */
     MatFlexTableResizeStrategy.ctorParameters = () => [
         { type: ColumnResize },
         { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
@@ -101,7 +100,6 @@ let MatColumnResize = /** @class */ (() => {
                     ],
                 },] }
     ];
-    /** @nocollapse */
     MatColumnResize.ctorParameters = () => [
         { type: ColumnResizeNotifier },
         { type: ElementRef },
@@ -144,7 +142,6 @@ let MatColumnResizeFlex = /** @class */ (() => {
                     ],
                 },] }
     ];
-    /** @nocollapse */
     MatColumnResizeFlex.ctorParameters = () => [
         { type: ColumnResizeNotifier },
         { type: ElementRef },
@@ -187,7 +184,6 @@ let MatDefaultEnabledColumnResize = /** @class */ (() => {
                     ],
                 },] }
     ];
-    /** @nocollapse */
     MatDefaultEnabledColumnResize.ctorParameters = () => [
         { type: ColumnResizeNotifier },
         { type: ElementRef },
@@ -230,7 +226,6 @@ let MatDefaultEnabledColumnResizeFlex = /** @class */ (() => {
                     ],
                 },] }
     ];
-    /** @nocollapse */
     MatDefaultEnabledColumnResizeFlex.ctorParameters = () => [
         { type: ColumnResizeNotifier },
         { type: ElementRef },
@@ -281,9 +276,8 @@ let MatColumnResizeOverlayHandle = /** @class */ (() => {
                     encapsulation: ViewEncapsulation.None,
                     host: { 'class': 'mat-column-resize-overlay-thumb' },
                     template: ''
-                }] }
+                },] }
     ];
-    /** @nocollapse */
     MatColumnResizeOverlayHandle.ctorParameters = () => [
         { type: CdkColumnDef },
         { type: ColumnResize },
@@ -361,7 +355,6 @@ let MatDefaultResizable = /** @class */ (() => {
                     inputs: RESIZABLE_INPUTS,
                 },] }
     ];
-    /** @nocollapse */
     MatDefaultResizable.ctorParameters = () => [
         { type: CdkColumnDef },
         { type: ColumnResize },
@@ -414,7 +407,6 @@ let MatResizable = /** @class */ (() => {
                     inputs: RESIZABLE_INPUTS,
                 },] }
     ];
-    /** @nocollapse */
     MatResizable.ctorParameters = () => [
         { type: CdkColumnDef },
         { type: ColumnResize },
