@@ -5,23 +5,29 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ElementRef, OnDestroy } from '@angular/core';
-import { MDCFloatingLabel } from '@material/floating-label';
+import { ElementRef } from '@angular/core';
 /**
- * Internal directive that creates an instance of the MDC floating label
- * component. Using a directive allows us to conditionally render a floating label
- * in the template without having to manually instantiate the `MDCFloatingLabel` component.
+ * Internal directive that maintains a MDC floating label. This directive does not
+ * use the `MDCFloatingLabelFoundation` class, as it is not worth the size cost of
+ * including it just to measure the label width and toggle some classes.
  *
- * The component is responsible for setting up the floating label styles, and for providing
- * an @Input that can be used by the form-field to toggle floating state of the label.
+ * The use of a directive allows us to conditionally render a floating label in the
+ * template without having to manually manage instantiation and destruction of the
+ * floating label component based on.
+ *
+ * The component is responsible for setting up the floating label styles, measuring label
+ * width for the outline notch, and providing inputs that can be used to toggle the
+ * label's floating or required state.
  */
-export declare class MatFormFieldFloatingLabel extends MDCFloatingLabel implements OnDestroy {
+export declare class MatFormFieldFloatingLabel {
     private _elementRef;
-    get floating(): boolean;
-    set floating(shouldFloat: boolean);
-    private _floating;
+    /** Whether the label is floating. */
+    floating: boolean;
+    /** Whether the label is required. */
+    required: boolean;
     constructor(_elementRef: ElementRef);
-    ngOnDestroy(): void;
+    /** Gets the width of the label. Used for the outline notch. */
+    getWidth(): number;
     /** Gets the HTML element for the floating label. */
     get element(): HTMLElement;
 }
