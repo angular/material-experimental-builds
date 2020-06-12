@@ -37,7 +37,7 @@ let MatMenuItem = /** @class */ (() => {
                     providers: [
                         { provide: BaseMatMenuItem, useExisting: MatMenuItem },
                     ]
-                }] }
+                },] }
     ];
     return MatMenuItem;
 })();

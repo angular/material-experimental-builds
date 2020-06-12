@@ -23,7 +23,7 @@ let MatTab = /** @class */ (() => {
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     encapsulation: ViewEncapsulation.None,
                     exportAs: 'matTab'
-                }] }
+                },] }
     ];
     MatTab.propDecorators = {
         _explicitContent: [{ type: ContentChild, args: [MatTabContent, { read: TemplateRef, static: true },] }],

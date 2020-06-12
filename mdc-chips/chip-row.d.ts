@@ -21,8 +21,6 @@ export declare class MatChipRow extends MatChip implements AfterContentInit, Aft
     chipContent: ElementRef;
     /** The focusable grid cells for this row. Implemented as part of GridKeyManagerRow. */
     cells: HTMLElement[];
-    /** Key codes for which this component has a custom handler. */
-    HANDLED_KEYS: Set<number>;
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
     /**

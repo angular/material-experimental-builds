@@ -51,7 +51,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     readonly _onFocus: Subject<MatChipEvent>;
     /** Emits when the chip is blurred. */
     readonly _onBlur: Subject<MatChipEvent>;
-    readonly HANDLED_KEYS: Set<number>;
+    readonly REMOVE_ICON_HANDLED_KEYS: Set<number>;
     /** Whether this chip is a basic (unstyled) chip. */
     readonly _isBasicChip: boolean;
     /** Whether the chip has focus. */

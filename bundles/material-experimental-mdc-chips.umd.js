@@ -262,7 +262,6 @@
                         }
                     },] }
         ];
-        /** @nocollapse */
         MatChipAvatar.ctorParameters = function () { return [
             { type: core.ChangeDetectorRef },
             { type: core.ElementRef }
@@ -323,7 +322,6 @@
                         }
                     },] }
         ];
-        /** @nocollapse */
         MatChipTrailingIcon.ctorParameters = function () { return [
             { type: core.ElementRef }
         ]; };
@@ -385,7 +383,6 @@
                         }
                     },] }
         ];
-        /** @nocollapse */
         MatChipRemove.ctorParameters = function () { return [
             { type: core.ElementRef }
         ]; };
@@ -454,7 +451,7 @@
             _this._onFocus = new rxjs.Subject();
             /** Emits when the chip is blurred. */
             _this._onBlur = new rxjs.Subject();
-            _this.HANDLED_KEYS = new Set([keycodes.SPACE, keycodes.ENTER]);
+            _this.REMOVE_ICON_HANDLED_KEYS = new Set([keycodes.SPACE, keycodes.ENTER]);
             /** Whether the chip has focus. */
             _this._hasFocusInternal = false;
             /** Default unique id for the chip. */
@@ -665,7 +662,7 @@
                 // the `type`, because `instanceof KeyboardEvent` can throw during server-side rendering.
                 var isKeyboardEvent = event.type.startsWith('key');
                 if (_this.disabled || (isKeyboardEvent &&
-                    !_this.HANDLED_KEYS.has(event.keyCode))) {
+                    !_this.REMOVE_ICON_HANDLED_KEYS.has(event.keyCode))) {
                     return;
                 }
                 _this._chipFoundation.handleTrailingActionInteraction();
@@ -740,9 +737,8 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip-trailing-action,.mdc-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;right:0;height:48px;left:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{transition-duration:1ms;animation:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-chip-row-focusable-text-content{position:relative}\n"]
-                    }] }
+                    },] }
         ];
-        /** @nocollapse */
         MatChip.ctorParameters = function () { return [
             { type: core.ChangeDetectorRef },
             { type: core.ElementRef },
@@ -992,7 +988,7 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip-trailing-action,.mdc-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;right:0;height:48px;left:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{transition-duration:1ms;animation:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-chip-row-focusable-text-content{position:relative}\n"]
-                    }] }
+                    },] }
         ];
         MatChipOption.propDecorators = {
             selectable: [{ type: core.Input }],
@@ -1001,209 +997,6 @@
         };
         return MatChipOption;
     }(MatChip));
-
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    /** The keys handled by the GridKeyManager keydown method. */
-    var NAVIGATION_KEYS = [keycodes.DOWN_ARROW, keycodes.UP_ARROW, keycodes.RIGHT_ARROW, keycodes.LEFT_ARROW];
-    /**
-     * This class manages keyboard events for grids. If you pass it a query list
-     * of GridKeyManagerRow, it will set the active cell correctly when arrow events occur.
-     *
-     * GridKeyManager expects that rows may change dynamically, but the cells for a given row are
-     * static. It also expects that all rows have the same number of cells.
-     */
-    var GridKeyManager = /** @class */ (function () {
-        function GridKeyManager(_rows) {
-            var _this = this;
-            this._rows = _rows;
-            this._activeRowIndex = -1;
-            this._activeColumnIndex = -1;
-            this._activeRow = null;
-            this._activeCell = null;
-            this._dir = 'ltr';
-            /** Stream that emits whenever the active cell of the grid manager changes. */
-            this.change = new rxjs.Subject();
-            // We allow for the rows to be an array because, in some cases, the consumer may
-            // not have access to a QueryList of the rows they want to manage (e.g. when the
-            // rows aren't being collected via `ViewChildren` or `ContentChildren`).
-            if (_rows instanceof core.QueryList) {
-                _rows.changes.subscribe(function (newRows) {
-                    if (_this._activeRow) {
-                        var newIndex = newRows.toArray().indexOf(_this._activeRow);
-                        if (newIndex > -1 && newIndex !== _this._activeRowIndex) {
-                            _this._activeRowIndex = newIndex;
-                        }
-                    }
-                });
-            }
-        }
-        /**
-         * Configures the directionality of the key manager's horizontal movement.
-         * @param direction Direction which is considered forward movement across a row.
-         *
-         * If withDirectionality is not set, the default is 'ltr'.
-         */
-        GridKeyManager.prototype.withDirectionality = function (direction) {
-            this._dir = direction;
-            return this;
-        };
-        GridKeyManager.prototype.setActiveCell = function (cell) {
-            var previousRowIndex = this._activeRowIndex;
-            var previousColumnIndex = this._activeColumnIndex;
-            this.updateActiveCell(cell);
-            if (this._activeRowIndex !== previousRowIndex ||
-                this._activeColumnIndex !== previousColumnIndex) {
-                this.change.next({ row: this._activeRowIndex, column: this._activeColumnIndex });
-            }
-        };
-        /**
-         * Sets the active cell depending on the key event passed in.
-         * @param event Keyboard event to be used for determining which element should be active.
-         */
-        GridKeyManager.prototype.onKeydown = function (event) {
-            var keyCode = event.keyCode;
-            switch (keyCode) {
-                case keycodes.DOWN_ARROW:
-                    this.setNextRowActive();
-                    break;
-                case keycodes.UP_ARROW:
-                    this.setPreviousRowActive();
-                    break;
-                case keycodes.RIGHT_ARROW:
-                    this._dir === 'rtl' ? this.setPreviousColumnActive() : this.setNextColumnActive();
-                    break;
-                case keycodes.LEFT_ARROW:
-                    this._dir === 'rtl' ? this.setNextColumnActive() : this.setPreviousColumnActive();
-                    break;
-                default:
-                    // Note that we return here, in order to avoid preventing
-                    // the default action of non-navigational keys.
-                    return;
-            }
-            event.preventDefault();
-        };
-        Object.defineProperty(GridKeyManager.prototype, "activeRowIndex", {
-            /** Index of the currently active row. */
-            get: function () {
-                return this._activeRowIndex;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(GridKeyManager.prototype, "activeColumnIndex", {
-            /** Index of the currently active column. */
-            get: function () {
-                return this._activeColumnIndex;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        Object.defineProperty(GridKeyManager.prototype, "activeCell", {
-            /** The active cell. */
-            get: function () {
-                return this._activeCell;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        /** Sets the active cell to the first cell in the grid. */
-        GridKeyManager.prototype.setFirstCellActive = function () {
-            this._setActiveCellByIndex(0, 0);
-        };
-        /** Sets the active cell to the last cell in the grid. */
-        GridKeyManager.prototype.setLastCellActive = function () {
-            var lastRowIndex = this._rows.length - 1;
-            var lastRow = this._getRowsArray()[lastRowIndex];
-            this._setActiveCellByIndex(lastRowIndex, lastRow.cells.length - 1);
-        };
-        /** Sets the active row to the next row in the grid. Active column is unchanged. */
-        GridKeyManager.prototype.setNextRowActive = function () {
-            this._activeRowIndex < 0 ? this.setFirstCellActive() : this._setActiveCellByDelta(1, 0);
-        };
-        /** Sets the active row to the previous row in the grid. Active column is unchanged. */
-        GridKeyManager.prototype.setPreviousRowActive = function () {
-            this._setActiveCellByDelta(-1, 0);
-        };
-        /**
-         * Sets the active column to the next column in the grid.
-         * Active row is unchanged, unless we reach the end of a row.
-         */
-        GridKeyManager.prototype.setNextColumnActive = function () {
-            this._activeRowIndex < 0 ? this.setFirstCellActive() : this._setActiveCellByDelta(0, 1);
-        };
-        /**
-         * Sets the active column to the previous column in the grid.
-         * Active row is unchanged, unless we reach the end of a row.
-         */
-        GridKeyManager.prototype.setPreviousColumnActive = function () {
-            this._setActiveCellByDelta(0, -1);
-        };
-        GridKeyManager.prototype.updateActiveCell = function (cell) {
-            var _this = this;
-            var rowArray = this._getRowsArray();
-            if (typeof cell === 'object' && typeof cell.row === 'number' &&
-                typeof cell.column === 'number') {
-                this._activeRowIndex = cell.row;
-                this._activeColumnIndex = cell.column;
-                this._activeRow = rowArray[cell.row] || null;
-                this._activeCell = this._activeRow ? this._activeRow.cells[cell.column] || null : null;
-            }
-            else {
-                rowArray.forEach(function (row, rowIndex) {
-                    var columnIndex = row.cells.indexOf(cell);
-                    if (columnIndex !== -1) {
-                        _this._activeRowIndex = rowIndex;
-                        _this._activeColumnIndex = columnIndex;
-                        _this._activeRow = row;
-                        _this._activeCell = row.cells[columnIndex];
-                    }
-                });
-            }
-        };
-        /**
-         * This method sets the active cell, given the row and columns deltas
-         * between the currently active cell and the new active cell.
-         */
-        GridKeyManager.prototype._setActiveCellByDelta = function (rowDelta, columnDelta) {
-            // If delta puts us past the last cell in a row, move to the first cell of the next row.
-            if (this._activeRow && this._activeColumnIndex + columnDelta >= this._activeRow.cells.length) {
-                this._setActiveCellByIndex(this._activeRowIndex + 1, 0);
-                // If delta puts us prior to the first cell in a row, move to the last cell of the previous row.
-            }
-            else if (this._activeColumnIndex + columnDelta < 0) {
-                var previousRowIndex = this._activeRowIndex - 1;
-                var previousRow = this._getRowsArray()[previousRowIndex];
-                if (previousRow) {
-                    this._setActiveCellByIndex(previousRowIndex, previousRow.cells.length - 1);
-                }
-            }
-            else {
-                this._setActiveCellByIndex(this._activeRowIndex + rowDelta, this._activeColumnIndex + columnDelta);
-            }
-        };
-        /**
-         * Sets the active cell to the cell at the indices specified, if they are valid.
-         */
-        GridKeyManager.prototype._setActiveCellByIndex = function (rowIndex, columnIndex) {
-            var rows = this._getRowsArray();
-            var targetRow = rows[rowIndex];
-            if (!targetRow || !targetRow.cells[columnIndex]) {
-                return;
-            }
-            this.setActiveCell({ row: rowIndex, column: columnIndex });
-        };
-        /** Returns the rows as an array. */
-        GridKeyManager.prototype._getRowsArray = function () {
-            return this._rows instanceof core.QueryList ? this._rows.toArray() : this._rows;
-        };
-        return GridKeyManager;
-    }());
 
     /**
      * @license
@@ -1221,8 +1014,6 @@
         function MatChipRow() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.basicChipAttrName = 'mat-basic-chip-row';
-            /** Key codes for which this component has a custom handler. */
-            _this.HANDLED_KEYS = new Set(__spread(NAVIGATION_KEYS, [keycodes.BACKSPACE, keycodes.DELETE]));
             return _this;
         }
         MatChipRow.prototype.ngAfterContentInit = function () {
@@ -1325,7 +1116,7 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip-trailing-action,.mdc-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;right:0;height:48px;left:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{transition-duration:1ms;animation:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-chip-row-focusable-text-content{position:relative}\n"]
-                    }] }
+                    },] }
         ];
         MatChipRow.propDecorators = {
             chipContent: [{ type: core.ViewChild, args: ['chipContent',] }]
@@ -1595,9 +1386,8 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip-trailing-action,.mdc-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;right:0;height:48px;left:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{transition-duration:1ms;animation:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-chip-row-focusable-text-content{position:relative}\n"]
-                    }] }
+                    },] }
         ];
-        /** @nocollapse */
         MatChipSet.ctorParameters = function () { return [
             { type: core.ElementRef },
             { type: core.ChangeDetectorRef },
@@ -2116,9 +1906,8 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip-trailing-action,.mdc-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;right:0;height:48px;left:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{transition-duration:1ms;animation:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-chip-row-focusable-text-content{position:relative}\n"]
-                    }] }
+                    },] }
         ];
-        /** @nocollapse */
         MatChipListbox.ctorParameters = function () { return [
             { type: core.ElementRef },
             { type: core.ChangeDetectorRef },
@@ -2140,6 +1929,209 @@
         };
         return MatChipListbox;
     }(MatChipSet));
+
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    /** The keys handled by the GridKeyManager keydown method. */
+    var NAVIGATION_KEYS = [keycodes.DOWN_ARROW, keycodes.UP_ARROW, keycodes.RIGHT_ARROW, keycodes.LEFT_ARROW];
+    /**
+     * This class manages keyboard events for grids. If you pass it a query list
+     * of GridKeyManagerRow, it will set the active cell correctly when arrow events occur.
+     *
+     * GridKeyManager expects that rows may change dynamically, but the cells for a given row are
+     * static. It also expects that all rows have the same number of cells.
+     */
+    var GridKeyManager = /** @class */ (function () {
+        function GridKeyManager(_rows) {
+            var _this = this;
+            this._rows = _rows;
+            this._activeRowIndex = -1;
+            this._activeColumnIndex = -1;
+            this._activeRow = null;
+            this._activeCell = null;
+            this._dir = 'ltr';
+            /** Stream that emits whenever the active cell of the grid manager changes. */
+            this.change = new rxjs.Subject();
+            // We allow for the rows to be an array because, in some cases, the consumer may
+            // not have access to a QueryList of the rows they want to manage (e.g. when the
+            // rows aren't being collected via `ViewChildren` or `ContentChildren`).
+            if (_rows instanceof core.QueryList) {
+                _rows.changes.subscribe(function (newRows) {
+                    if (_this._activeRow) {
+                        var newIndex = newRows.toArray().indexOf(_this._activeRow);
+                        if (newIndex > -1 && newIndex !== _this._activeRowIndex) {
+                            _this._activeRowIndex = newIndex;
+                        }
+                    }
+                });
+            }
+        }
+        /**
+         * Configures the directionality of the key manager's horizontal movement.
+         * @param direction Direction which is considered forward movement across a row.
+         *
+         * If withDirectionality is not set, the default is 'ltr'.
+         */
+        GridKeyManager.prototype.withDirectionality = function (direction) {
+            this._dir = direction;
+            return this;
+        };
+        GridKeyManager.prototype.setActiveCell = function (cell) {
+            var previousRowIndex = this._activeRowIndex;
+            var previousColumnIndex = this._activeColumnIndex;
+            this.updateActiveCell(cell);
+            if (this._activeRowIndex !== previousRowIndex ||
+                this._activeColumnIndex !== previousColumnIndex) {
+                this.change.next({ row: this._activeRowIndex, column: this._activeColumnIndex });
+            }
+        };
+        /**
+         * Sets the active cell depending on the key event passed in.
+         * @param event Keyboard event to be used for determining which element should be active.
+         */
+        GridKeyManager.prototype.onKeydown = function (event) {
+            var keyCode = event.keyCode;
+            switch (keyCode) {
+                case keycodes.DOWN_ARROW:
+                    this.setNextRowActive();
+                    break;
+                case keycodes.UP_ARROW:
+                    this.setPreviousRowActive();
+                    break;
+                case keycodes.RIGHT_ARROW:
+                    this._dir === 'rtl' ? this.setPreviousColumnActive() : this.setNextColumnActive();
+                    break;
+                case keycodes.LEFT_ARROW:
+                    this._dir === 'rtl' ? this.setNextColumnActive() : this.setPreviousColumnActive();
+                    break;
+                default:
+                    // Note that we return here, in order to avoid preventing
+                    // the default action of non-navigational keys.
+                    return;
+            }
+            event.preventDefault();
+        };
+        Object.defineProperty(GridKeyManager.prototype, "activeRowIndex", {
+            /** Index of the currently active row. */
+            get: function () {
+                return this._activeRowIndex;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        Object.defineProperty(GridKeyManager.prototype, "activeColumnIndex", {
+            /** Index of the currently active column. */
+            get: function () {
+                return this._activeColumnIndex;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        Object.defineProperty(GridKeyManager.prototype, "activeCell", {
+            /** The active cell. */
+            get: function () {
+                return this._activeCell;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        /** Sets the active cell to the first cell in the grid. */
+        GridKeyManager.prototype.setFirstCellActive = function () {
+            this._setActiveCellByIndex(0, 0);
+        };
+        /** Sets the active cell to the last cell in the grid. */
+        GridKeyManager.prototype.setLastCellActive = function () {
+            var lastRowIndex = this._rows.length - 1;
+            var lastRow = this._getRowsArray()[lastRowIndex];
+            this._setActiveCellByIndex(lastRowIndex, lastRow.cells.length - 1);
+        };
+        /** Sets the active row to the next row in the grid. Active column is unchanged. */
+        GridKeyManager.prototype.setNextRowActive = function () {
+            this._activeRowIndex < 0 ? this.setFirstCellActive() : this._setActiveCellByDelta(1, 0);
+        };
+        /** Sets the active row to the previous row in the grid. Active column is unchanged. */
+        GridKeyManager.prototype.setPreviousRowActive = function () {
+            this._setActiveCellByDelta(-1, 0);
+        };
+        /**
+         * Sets the active column to the next column in the grid.
+         * Active row is unchanged, unless we reach the end of a row.
+         */
+        GridKeyManager.prototype.setNextColumnActive = function () {
+            this._activeRowIndex < 0 ? this.setFirstCellActive() : this._setActiveCellByDelta(0, 1);
+        };
+        /**
+         * Sets the active column to the previous column in the grid.
+         * Active row is unchanged, unless we reach the end of a row.
+         */
+        GridKeyManager.prototype.setPreviousColumnActive = function () {
+            this._setActiveCellByDelta(0, -1);
+        };
+        GridKeyManager.prototype.updateActiveCell = function (cell) {
+            var _this = this;
+            var rowArray = this._getRowsArray();
+            if (typeof cell === 'object' && typeof cell.row === 'number' &&
+                typeof cell.column === 'number') {
+                this._activeRowIndex = cell.row;
+                this._activeColumnIndex = cell.column;
+                this._activeRow = rowArray[cell.row] || null;
+                this._activeCell = this._activeRow ? this._activeRow.cells[cell.column] || null : null;
+            }
+            else {
+                rowArray.forEach(function (row, rowIndex) {
+                    var columnIndex = row.cells.indexOf(cell);
+                    if (columnIndex !== -1) {
+                        _this._activeRowIndex = rowIndex;
+                        _this._activeColumnIndex = columnIndex;
+                        _this._activeRow = row;
+                        _this._activeCell = row.cells[columnIndex];
+                    }
+                });
+            }
+        };
+        /**
+         * This method sets the active cell, given the row and columns deltas
+         * between the currently active cell and the new active cell.
+         */
+        GridKeyManager.prototype._setActiveCellByDelta = function (rowDelta, columnDelta) {
+            // If delta puts us past the last cell in a row, move to the first cell of the next row.
+            if (this._activeRow && this._activeColumnIndex + columnDelta >= this._activeRow.cells.length) {
+                this._setActiveCellByIndex(this._activeRowIndex + 1, 0);
+                // If delta puts us prior to the first cell in a row, move to the last cell of the previous row.
+            }
+            else if (this._activeColumnIndex + columnDelta < 0) {
+                var previousRowIndex = this._activeRowIndex - 1;
+                var previousRow = this._getRowsArray()[previousRowIndex];
+                if (previousRow) {
+                    this._setActiveCellByIndex(previousRowIndex, previousRow.cells.length - 1);
+                }
+            }
+            else {
+                this._setActiveCellByIndex(this._activeRowIndex + rowDelta, this._activeColumnIndex + columnDelta);
+            }
+        };
+        /**
+         * Sets the active cell to the cell at the indices specified, if they are valid.
+         */
+        GridKeyManager.prototype._setActiveCellByIndex = function (rowIndex, columnIndex) {
+            var rows = this._getRowsArray();
+            var targetRow = rows[rowIndex];
+            if (!targetRow || !targetRow.cells[columnIndex]) {
+                return;
+            }
+            this.setActiveCell({ row: rowIndex, column: columnIndex });
+        };
+        /** Returns the rows as an array. */
+        GridKeyManager.prototype._getRowsArray = function () {
+            return this._rows instanceof core.QueryList ? this._rows.toArray() : this._rows;
+        };
+        return GridKeyManager;
+    }());
 
     /**
      * @license
@@ -2630,9 +2622,8 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip-trailing-action,.mdc-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;right:0;height:48px;left:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{transition-duration:1ms;animation:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-chip-row-focusable-text-content{position:relative}\n"]
-                    }] }
+                    },] }
         ];
-        /** @nocollapse */
         MatChipGrid.ctorParameters = function () { return [
             { type: core.ElementRef },
             { type: core.ChangeDetectorRef },
@@ -2812,7 +2803,6 @@
                         }
                     },] }
         ];
-        /** @nocollapse */
         MatChipInput.ctorParameters = function () { return [
             { type: core.ElementRef },
             { type: undefined, decorators: [{ type: core.Inject, args: [MAT_CHIPS_DEFAULT_OPTIONS,] }] }
