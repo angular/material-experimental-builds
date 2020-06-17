@@ -560,7 +560,7 @@
      */
     var MatDefaultResizable = /** @class */ (function (_super) {
         __extends(MatDefaultResizable, _super);
-        function MatDefaultResizable(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef) {
+        function MatDefaultResizable(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef, changeDetectorRef) {
             var _this = _super.call(this) || this;
             _this.columnDef = columnDef;
             _this.columnResize = columnResize;
@@ -573,6 +573,7 @@
             _this.resizeNotifier = resizeNotifier;
             _this.resizeStrategy = resizeStrategy;
             _this.viewContainerRef = viewContainerRef;
+            _this.changeDetectorRef = changeDetectorRef;
             _this.document = document;
             return _this;
         }
@@ -595,7 +596,8 @@
             { type: overlay.Overlay },
             { type: columnResize.ColumnResizeNotifierSource },
             { type: columnResize.ResizeStrategy },
-            { type: core.ViewContainerRef }
+            { type: core.ViewContainerRef },
+            { type: core.ChangeDetectorRef }
         ]; };
         return MatDefaultResizable;
     }(AbstractMatResizable));
@@ -612,7 +614,7 @@
      */
     var MatResizable = /** @class */ (function (_super) {
         __extends(MatResizable, _super);
-        function MatResizable(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef) {
+        function MatResizable(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef, changeDetectorRef) {
             var _this = _super.call(this) || this;
             _this.columnDef = columnDef;
             _this.columnResize = columnResize;
@@ -625,6 +627,7 @@
             _this.resizeNotifier = resizeNotifier;
             _this.resizeStrategy = resizeStrategy;
             _this.viewContainerRef = viewContainerRef;
+            _this.changeDetectorRef = changeDetectorRef;
             _this.document = document;
             return _this;
         }
@@ -647,7 +650,8 @@
             { type: overlay.Overlay },
             { type: columnResize.ColumnResizeNotifierSource },
             { type: columnResize.ResizeStrategy },
-            { type: core.ViewContainerRef }
+            { type: core.ViewContainerRef },
+            { type: core.ChangeDetectorRef }
         ]; };
         return MatResizable;
     }(AbstractMatResizable));

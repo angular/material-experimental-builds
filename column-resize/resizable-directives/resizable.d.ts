@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ElementRef, Injector, NgZone, ViewContainerRef } from '@angular/core';
+import { ElementRef, Injector, NgZone, ViewContainerRef, ChangeDetectorRef } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { Overlay } from '@angular/cdk/overlay';
 import { CdkColumnDef } from '@angular/cdk/table';
@@ -26,6 +26,7 @@ export declare class MatResizable extends AbstractMatResizable {
     protected readonly resizeNotifier: ColumnResizeNotifierSource;
     protected readonly resizeStrategy: ResizeStrategy;
     protected readonly viewContainerRef: ViewContainerRef;
+    protected readonly changeDetectorRef: ChangeDetectorRef;
     protected readonly document: Document;
-    constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, document: any, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, injector: Injector, ngZone: NgZone, overlay: Overlay, resizeNotifier: ColumnResizeNotifierSource, resizeStrategy: ResizeStrategy, viewContainerRef: ViewContainerRef);
+    constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, document: any, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, injector: Injector, ngZone: NgZone, overlay: Overlay, resizeNotifier: ColumnResizeNotifierSource, resizeStrategy: ResizeStrategy, viewContainerRef: ViewContainerRef, changeDetectorRef: ChangeDetectorRef);
 }

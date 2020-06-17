@@ -1,4 +1,4 @@
-import { Injectable, Inject, Directive, ElementRef, NgZone, Component, ChangeDetectionStrategy, ViewEncapsulation, Injector, ViewContainerRef, NgModule } from '@angular/core';
+import { Injectable, Inject, Directive, ElementRef, NgZone, Component, ChangeDetectionStrategy, ViewEncapsulation, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { CdkFlexTableResizeStrategy, ColumnResize, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { DOCUMENT } from '@angular/common';
@@ -332,7 +332,7 @@ const RESIZABLE_INPUTS = [
  */
 let MatDefaultResizable = /** @class */ (() => {
     class MatDefaultResizable extends AbstractMatResizable {
-        constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef) {
+        constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef, changeDetectorRef) {
             super();
             this.columnDef = columnDef;
             this.columnResize = columnResize;
@@ -345,6 +345,7 @@ let MatDefaultResizable = /** @class */ (() => {
             this.resizeNotifier = resizeNotifier;
             this.resizeStrategy = resizeStrategy;
             this.viewContainerRef = viewContainerRef;
+            this.changeDetectorRef = changeDetectorRef;
             this.document = document;
         }
     }
@@ -367,7 +368,8 @@ let MatDefaultResizable = /** @class */ (() => {
         { type: Overlay },
         { type: ColumnResizeNotifierSource },
         { type: ResizeStrategy },
-        { type: ViewContainerRef }
+        { type: ViewContainerRef },
+        { type: ChangeDetectorRef }
     ];
     return MatDefaultResizable;
 })();
@@ -384,7 +386,7 @@ let MatDefaultResizable = /** @class */ (() => {
  */
 let MatResizable = /** @class */ (() => {
     class MatResizable extends AbstractMatResizable {
-        constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef) {
+        constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef, changeDetectorRef) {
             super();
             this.columnDef = columnDef;
             this.columnResize = columnResize;
@@ -397,6 +399,7 @@ let MatResizable = /** @class */ (() => {
             this.resizeNotifier = resizeNotifier;
             this.resizeStrategy = resizeStrategy;
             this.viewContainerRef = viewContainerRef;
+            this.changeDetectorRef = changeDetectorRef;
             this.document = document;
         }
     }
@@ -419,7 +422,8 @@ let MatResizable = /** @class */ (() => {
         { type: Overlay },
         { type: ColumnResizeNotifierSource },
         { type: ResizeStrategy },
-        { type: ViewContainerRef }
+        { type: ViewContainerRef },
+        { type: ChangeDetectorRef }
     ];
     return MatResizable;
 })();
