@@ -27,7 +27,6 @@ export declare class MatListIconCssMatStyler {
 export declare class MatListSubheaderCssMatStyler {
 }
 export declare class MatList extends MatListBase {
-    _isNonInteractive: boolean;
 }
 export declare class MatListItem extends MatListItemBase {
     lines: QueryList<ElementRef<Element>>;
