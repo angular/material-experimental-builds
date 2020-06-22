@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/material/core'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/common'), require('@angular/material/divider')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/material/core', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/common', '@angular/material/divider'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.cdk.platform, global.ng.core, global.ng.material.core, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.common, global.ng.material.divider));
-}(this, (function (exports, platform, core, core$1, rxjs, operators, forms, common, divider) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/material/core'), require('@angular/common'), require('@material/list'), require('rxjs'), require('rxjs/operators'), require('@angular/forms'), require('@angular/material/divider')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/material/core', '@angular/common', '@material/list', 'rxjs', 'rxjs/operators', '@angular/forms', '@angular/material/divider'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.cdk.platform, global.ng.core, global.ng.material.core, global.ng.common, global.mdc.list, global.rxjs, global.rxjs.operators, global.ng.forms, global.ng.material.divider));
+}(this, (function (exports, platform, core, core$1, common, list, rxjs, operators, forms, divider) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -247,39 +247,37 @@
             el.classList.remove(className);
         }
     }
-    var MatListBase = /** @class */ (function () {
-        function MatListBase() {
-            // @HostBinding is used in the class as it is expected to be extended. Since @Component decorator
-            // metadata is not inherited by child classes, instead the host binding data is defined in a way
-            // that can be inherited.
-            // tslint:disable-next-line:no-host-decorator-in-concrete
-            this._isNonInteractive = false;
-        }
-        MatListBase.decorators = [
-            { type: core.Directive }
-        ];
-        MatListBase.propDecorators = {
-            _isNonInteractive: [{ type: core.HostBinding, args: ['class.mdc-list--non-interactive',] }]
-        };
-        return MatListBase;
-    }());
     var MatListItemBase = /** @class */ (function () {
-        function MatListItemBase(_element, _ngZone, listBase, platform) {
-            this._element = _element;
+        function MatListItemBase(_elementRef, _ngZone, _listBase, _platform) {
+            this._elementRef = _elementRef;
             this._ngZone = _ngZone;
+            this._listBase = _listBase;
+            this._platform = _platform;
             this.rippleConfig = {};
             this._subscriptions = new rxjs.Subscription();
-            var el = this._element.nativeElement;
-            this.rippleDisabled = listBase._isNonInteractive;
-            if (!listBase._isNonInteractive) {
-                el.classList.add('mat-mdc-list-item-interactive');
-            }
-            this._rippleRenderer =
-                new core$1.RippleRenderer(this, this._ngZone, el, platform);
-            this._rippleRenderer.setupTriggerEvents(el);
+            this._initRipple();
         }
         MatListItemBase.prototype.ngAfterContentInit = function () {
             this._monitorLines();
+        };
+        MatListItemBase.prototype.ngOnDestroy = function () {
+            this._subscriptions.unsubscribe();
+            this._rippleRenderer._removeTriggerEvents();
+        };
+        MatListItemBase.prototype._initDefaultTabIndex = function (tabIndex) {
+            var el = this._elementRef.nativeElement;
+            if (!el.hasAttribute('tabIndex')) {
+                el.tabIndex = tabIndex;
+            }
+        };
+        MatListItemBase.prototype._initRipple = function () {
+            this.rippleDisabled = this._listBase._isNonInteractive;
+            if (!this._listBase._isNonInteractive) {
+                this._elementRef.nativeElement.classList.add('mat-mdc-list-item-interactive');
+            }
+            this._rippleRenderer =
+                new core$1.RippleRenderer(this, this._ngZone, this._elementRef.nativeElement, this._platform);
+            this._rippleRenderer.setupTriggerEvents(this._elementRef.nativeElement);
         };
         /**
          * Subscribes to changes in `MatLine` content children and annotates them appropriately when they
@@ -290,19 +288,15 @@
             this._ngZone.runOutsideAngular(function () {
                 _this._subscriptions.add(_this.lines.changes.pipe(operators.startWith(_this.lines))
                     .subscribe(function (lines) {
-                    _this._element.nativeElement.classList
+                    _this._elementRef.nativeElement.classList
                         .toggle('mat-mdc-list-item-single-line', lines.length <= 1);
                     lines.forEach(function (line, index) {
                         toggleClass(line.nativeElement, 'mdc-list-item__primary-text', index === 0 && lines.length > 1);
                         toggleClass(line.nativeElement, 'mdc-list-item__secondary-text', index !== 0);
                     });
-                    core$1.setLines(lines, _this._element, 'mat-mdc');
+                    core$1.setLines(lines, _this._elementRef, 'mat-mdc');
                 }));
             });
-        };
-        MatListItemBase.prototype.ngOnDestroy = function () {
-            this._subscriptions.unsubscribe();
-            this._rippleRenderer._removeTriggerEvents();
         };
         MatListItemBase.decorators = [
             { type: core.Directive }
@@ -315,6 +309,116 @@
         ]; };
         return MatListItemBase;
     }());
+    var MatListBase = /** @class */ (function () {
+        function MatListBase() {
+            this._isNonInteractive = true;
+        }
+        MatListBase.decorators = [
+            { type: core.Directive }
+        ];
+        MatListBase.propDecorators = {
+            _isNonInteractive: [{ type: core.HostBinding, args: ['class.mdc-list--non-interactive',] }]
+        };
+        return MatListBase;
+    }());
+    var MatInteractiveListBase = /** @class */ (function (_super) {
+        __extends(MatInteractiveListBase, _super);
+        function MatInteractiveListBase(_element, document) {
+            var _this = _super.call(this) || this;
+            _this._element = _element;
+            _this._adapter = {
+                getListItemCount: function () { return _this._items.length; },
+                listItemAtIndexHasClass: function (index, className) { return _this._elementAtIndex(index).classList.contains(className); },
+                addClassForElementIndex: function (index, className) { return _this._elementAtIndex(index).classList.add(className); },
+                removeClassForElementIndex: function (index, className) { return _this._elementAtIndex(index).classList.remove(className); },
+                getAttributeForElementIndex: function (index, attr) { return _this._elementAtIndex(index).getAttribute(attr); },
+                setAttributeForElementIndex: function (index, attr, value) { return _this._elementAtIndex(index).setAttribute(attr, value); },
+                getFocusedElementIndex: function () { var _a; return _this._indexForElement((_a = _this._document) === null || _a === void 0 ? void 0 : _a.activeElement); },
+                isFocusInsideList: function () { var _a; return _this._element.nativeElement.contains((_a = _this._document) === null || _a === void 0 ? void 0 : _a.activeElement); },
+                isRootFocused: function () { var _a; return _this._element.nativeElement === ((_a = _this._document) === null || _a === void 0 ? void 0 : _a.activeElement); },
+                focusItemAtIndex: function (index) { return _this._elementAtIndex(index).focus(); },
+                // MDC uses this method to disable focusable children of list items. However, we believe that
+                // this is not an accessible pattern and should be avoided, therefore we intentionally do not
+                // implement this method. In addition, implementing this would require violating Angular
+                // Material's general principle of not having components modify DOM elements they do not own.
+                // A user who feels they really need this feature can simply listen to the `(focus)` and
+                // `(blur)` events on the list item and enable/disable focus on the children themselves as
+                // appropriate.
+                setTabIndexForListItemChildren: function () { },
+                // The following methods have a dummy implementation in the base class because they are only
+                // applicable to certain types of lists. They should be implemented for the concrete classes
+                // where they are applicable.
+                hasCheckboxAtIndex: function () { return false; },
+                hasRadioAtIndex: function () { return false; },
+                setCheckedCheckboxOrRadioAtIndex: function () { },
+                isCheckboxCheckedAtIndex: function () { return false; },
+                // TODO(mmalerba): Determine if we need to implement these.
+                getPrimaryTextAtIndex: function () { return ''; },
+                notifyAction: function () { },
+            };
+            _this._itemsArr = [];
+            _this._subscriptions = new rxjs.Subscription();
+            _this._document = document;
+            _this._isNonInteractive = false;
+            _this._foundation = new list.MDCListFoundation(_this._adapter);
+            return _this;
+        }
+        MatInteractiveListBase.prototype._handleKeydown = function (event) {
+            var index = this._indexForElement(event.target);
+            this._foundation.handleKeydown(event, this._elementAtIndex(index) === event.target, index);
+        };
+        MatInteractiveListBase.prototype._handleClick = function (event) {
+            this._foundation.handleClick(this._indexForElement(event.target), false);
+        };
+        MatInteractiveListBase.prototype._handleFocusin = function (event) {
+            this._foundation.handleFocusIn(event, this._indexForElement(event.target));
+        };
+        MatInteractiveListBase.prototype._handleFocusout = function (event) {
+            this._foundation.handleFocusOut(event, this._indexForElement(event.target));
+        };
+        MatInteractiveListBase.prototype.ngAfterViewInit = function () {
+            this._initItems();
+            this._foundation.init();
+            this._foundation.layout();
+        };
+        MatInteractiveListBase.prototype.ngOnDestroy = function () {
+            this._foundation.destroy();
+            this._subscriptions.unsubscribe();
+        };
+        MatInteractiveListBase.prototype._initItems = function () {
+            var _this = this;
+            this._subscriptions.add(this._items.changes.pipe(operators.startWith(null))
+                .subscribe(function () { return _this._itemsArr = _this._items.toArray(); }));
+            for (var i = 0; this._itemsArr.length; i++) {
+                this._itemsArr[i]._initDefaultTabIndex(i === 0 ? 0 : -1);
+            }
+        };
+        MatInteractiveListBase.prototype._itemAtIndex = function (index) {
+            return this._itemsArr[index];
+        };
+        MatInteractiveListBase.prototype._elementAtIndex = function (index) {
+            return this._itemAtIndex(index)._elementRef.nativeElement;
+        };
+        MatInteractiveListBase.prototype._indexForElement = function (element) {
+            return element ?
+                this._itemsArr.findIndex(function (i) { return i._elementRef.nativeElement.contains(element); }) : -1;
+        };
+        MatInteractiveListBase.decorators = [
+            { type: core.Directive }
+        ];
+        MatInteractiveListBase.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
+        ]; };
+        MatInteractiveListBase.propDecorators = {
+            _handleKeydown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }],
+            _handleClick: [{ type: core.HostListener, args: ['click', ['$event'],] }],
+            _handleFocusin: [{ type: core.HostListener, args: ['focusin', ['$event'],] }],
+            _handleFocusout: [{ type: core.HostListener, args: ['focusout', ['$event'],] }],
+            _items: [{ type: core.ContentChildren, args: [MatListItemBase, { descendants: true },] }]
+        };
+        return MatInteractiveListBase;
+    }(MatListBase));
 
     /**
      * @license
@@ -373,9 +477,7 @@
     var MatList = /** @class */ (function (_super) {
         __extends(MatList, _super);
         function MatList() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this._isNonInteractive = true;
-            return _this;
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         MatList.decorators = [
             { type: core.Component, args: [{
@@ -409,7 +511,10 @@
                         },
                         template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n\n<!-- If lines were explicitly given, use those as the text. -->\n<ng-container *ngIf=\"lines.length\">\n  <span class=\"mdc-list-item__text\"><ng-content select=\"[mat-line],[matLine]\"></ng-content></span>\n</ng-container>\n\n<!--\n  If lines were not explicitly given, assume the remaining content is the text, otherwise assume it\n  is an action that belongs in the \"meta\" section.\n-->\n<span [class.mdc-list-item__text]=\"!lines.length\" [class.mdc-list-item__meta]=\"lines.length\">\n  <ng-content></ng-content>\n</span>\n\n<ng-content select=\"mat-divider\"></ng-content>\n",
                         encapsulation: core.ViewEncapsulation.None,
-                        changeDetection: core.ChangeDetectionStrategy.OnPush
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        providers: [
+                            { provide: MatListItemBase, useExisting: MatListItem },
+                        ]
                     },] }
         ];
         MatListItem.ctorParameters = function () { return [
@@ -453,7 +558,7 @@
                     },] }
         ];
         return MatActionList;
-    }(MatListBase));
+    }(MatInteractiveListBase));
 
     /**
      * @license
@@ -493,7 +598,7 @@
                     },] }
         ];
         return MatNavList;
-    }(MatListBase));
+    }(MatInteractiveListBase));
 
     /**
      * @license
@@ -587,7 +692,10 @@
                         },
                         template: "<!-- Save icons and unclassified content to be placed later. -->\n<ng-template #icons>\n  <ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n</ng-template>\n<ng-template #unsortedContent>\n  <ng-content></ng-content>\n</ng-template>\n\n<!-- Prefix -->\n<span class=\"mdc-list-item__graphic\" *ngIf=\"checkboxPosition !== 'after' else icons\">\n  <mat-pseudo-checkbox></mat-pseudo-checkbox>\n</span>\n<!-- Text -->\n<span class=\"mdc-list-item__text\">\n  <ng-content *ngIf=\"lines.length else unsortedContent\" select=\"[mat-line],[matLine]\"></ng-content>\n</span>\n<!-- Suffix -->\n<span class=\"mdc-list-item__meta\">\n  <span class=\"mdc-list-item__graphic\" *ngIf=\"checkboxPosition === 'after' else icons\">\n    <mat-pseudo-checkbox></mat-pseudo-checkbox>\n  </span>\n  <ng-container *ngIf=\"lines.length\" [ngTemplateOutlet]=\"unsortedContent\"></ng-container>\n</span>\n<!-- Divider -->\n<ng-content select=\"mat-divider\"></ng-content>\n",
                         encapsulation: core.ViewEncapsulation.None,
-                        changeDetection: core.ChangeDetectionStrategy.OnPush
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        providers: [
+                            { provide: MatListItemBase, useExisting: MatListOption },
+                        ]
                     },] }
         ];
         MatListOption.ctorParameters = function () { return [
@@ -679,8 +787,9 @@
     exports.MatNavList = MatNavList;
     exports.MatSelectionList = MatSelectionList;
     exports.MatSelectionListChange = MatSelectionListChange;
-    exports.ɵangular_material_src_material_experimental_mdc_list_mdc_list_a = MatListBase;
-    exports.ɵangular_material_src_material_experimental_mdc_list_mdc_list_b = MatListItemBase;
+    exports.ɵangular_material_src_material_experimental_mdc_list_mdc_list_a = MatListItemBase;
+    exports.ɵangular_material_src_material_experimental_mdc_list_mdc_list_b = MatListBase;
+    exports.ɵangular_material_src_material_experimental_mdc_list_mdc_list_c = MatInteractiveListBase;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

@@ -1,10 +1,11 @@
 import { Platform } from '@angular/cdk/platform';
-import { Directive, HostBinding, ElementRef, NgZone, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, forwardRef, EventEmitter, Input, Output, NgModule } from '@angular/core';
+import { Directive, ElementRef, NgZone, HostBinding, Inject, HostListener, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, forwardRef, EventEmitter, Input, Output, NgModule } from '@angular/core';
 import { RippleRenderer, setLines, MatLine, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
+import { MDCListFoundation } from '@material/list';
 import { Subscription } from 'rxjs';
 import { startWith } from 'rxjs/operators';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 
 /**
@@ -22,42 +23,38 @@ function toggleClass(el, className, on) {
         el.classList.remove(className);
     }
 }
-let MatListBase = /** @class */ (() => {
-    class MatListBase {
-        constructor() {
-            // @HostBinding is used in the class as it is expected to be extended. Since @Component decorator
-            // metadata is not inherited by child classes, instead the host binding data is defined in a way
-            // that can be inherited.
-            // tslint:disable-next-line:no-host-decorator-in-concrete
-            this._isNonInteractive = false;
-        }
-    }
-    MatListBase.decorators = [
-        { type: Directive }
-    ];
-    MatListBase.propDecorators = {
-        _isNonInteractive: [{ type: HostBinding, args: ['class.mdc-list--non-interactive',] }]
-    };
-    return MatListBase;
-})();
 let MatListItemBase = /** @class */ (() => {
     class MatListItemBase {
-        constructor(_element, _ngZone, listBase, platform) {
-            this._element = _element;
+        constructor(_elementRef, _ngZone, _listBase, _platform) {
+            this._elementRef = _elementRef;
             this._ngZone = _ngZone;
+            this._listBase = _listBase;
+            this._platform = _platform;
             this.rippleConfig = {};
             this._subscriptions = new Subscription();
-            const el = this._element.nativeElement;
-            this.rippleDisabled = listBase._isNonInteractive;
-            if (!listBase._isNonInteractive) {
-                el.classList.add('mat-mdc-list-item-interactive');
-            }
-            this._rippleRenderer =
-                new RippleRenderer(this, this._ngZone, el, platform);
-            this._rippleRenderer.setupTriggerEvents(el);
+            this._initRipple();
         }
         ngAfterContentInit() {
             this._monitorLines();
+        }
+        ngOnDestroy() {
+            this._subscriptions.unsubscribe();
+            this._rippleRenderer._removeTriggerEvents();
+        }
+        _initDefaultTabIndex(tabIndex) {
+            const el = this._elementRef.nativeElement;
+            if (!el.hasAttribute('tabIndex')) {
+                el.tabIndex = tabIndex;
+            }
+        }
+        _initRipple() {
+            this.rippleDisabled = this._listBase._isNonInteractive;
+            if (!this._listBase._isNonInteractive) {
+                this._elementRef.nativeElement.classList.add('mat-mdc-list-item-interactive');
+            }
+            this._rippleRenderer =
+                new RippleRenderer(this, this._ngZone, this._elementRef.nativeElement, this._platform);
+            this._rippleRenderer.setupTriggerEvents(this._elementRef.nativeElement);
         }
         /**
          * Subscribes to changes in `MatLine` content children and annotates them appropriately when they
@@ -67,19 +64,15 @@ let MatListItemBase = /** @class */ (() => {
             this._ngZone.runOutsideAngular(() => {
                 this._subscriptions.add(this.lines.changes.pipe(startWith(this.lines))
                     .subscribe((lines) => {
-                    this._element.nativeElement.classList
+                    this._elementRef.nativeElement.classList
                         .toggle('mat-mdc-list-item-single-line', lines.length <= 1);
                     lines.forEach((line, index) => {
                         toggleClass(line.nativeElement, 'mdc-list-item__primary-text', index === 0 && lines.length > 1);
                         toggleClass(line.nativeElement, 'mdc-list-item__secondary-text', index !== 0);
                     });
-                    setLines(lines, this._element, 'mat-mdc');
+                    setLines(lines, this._elementRef, 'mat-mdc');
                 }));
             });
-        }
-        ngOnDestroy() {
-            this._subscriptions.unsubscribe();
-            this._rippleRenderer._removeTriggerEvents();
         }
     }
     MatListItemBase.decorators = [
@@ -92,6 +85,117 @@ let MatListItemBase = /** @class */ (() => {
         { type: Platform }
     ];
     return MatListItemBase;
+})();
+let MatListBase = /** @class */ (() => {
+    class MatListBase {
+        constructor() {
+            this._isNonInteractive = true;
+        }
+    }
+    MatListBase.decorators = [
+        { type: Directive }
+    ];
+    MatListBase.propDecorators = {
+        _isNonInteractive: [{ type: HostBinding, args: ['class.mdc-list--non-interactive',] }]
+    };
+    return MatListBase;
+})();
+let MatInteractiveListBase = /** @class */ (() => {
+    class MatInteractiveListBase extends MatListBase {
+        constructor(_element, document) {
+            super();
+            this._element = _element;
+            this._adapter = {
+                getListItemCount: () => this._items.length,
+                listItemAtIndexHasClass: (index, className) => this._elementAtIndex(index).classList.contains(className),
+                addClassForElementIndex: (index, className) => this._elementAtIndex(index).classList.add(className),
+                removeClassForElementIndex: (index, className) => this._elementAtIndex(index).classList.remove(className),
+                getAttributeForElementIndex: (index, attr) => this._elementAtIndex(index).getAttribute(attr),
+                setAttributeForElementIndex: (index, attr, value) => this._elementAtIndex(index).setAttribute(attr, value),
+                getFocusedElementIndex: () => { var _a; return this._indexForElement((_a = this._document) === null || _a === void 0 ? void 0 : _a.activeElement); },
+                isFocusInsideList: () => { var _a; return this._element.nativeElement.contains((_a = this._document) === null || _a === void 0 ? void 0 : _a.activeElement); },
+                isRootFocused: () => { var _a; return this._element.nativeElement === ((_a = this._document) === null || _a === void 0 ? void 0 : _a.activeElement); },
+                focusItemAtIndex: index => this._elementAtIndex(index).focus(),
+                // MDC uses this method to disable focusable children of list items. However, we believe that
+                // this is not an accessible pattern and should be avoided, therefore we intentionally do not
+                // implement this method. In addition, implementing this would require violating Angular
+                // Material's general principle of not having components modify DOM elements they do not own.
+                // A user who feels they really need this feature can simply listen to the `(focus)` and
+                // `(blur)` events on the list item and enable/disable focus on the children themselves as
+                // appropriate.
+                setTabIndexForListItemChildren: () => { },
+                // The following methods have a dummy implementation in the base class because they are only
+                // applicable to certain types of lists. They should be implemented for the concrete classes
+                // where they are applicable.
+                hasCheckboxAtIndex: () => false,
+                hasRadioAtIndex: () => false,
+                setCheckedCheckboxOrRadioAtIndex: () => { },
+                isCheckboxCheckedAtIndex: () => false,
+                // TODO(mmalerba): Determine if we need to implement these.
+                getPrimaryTextAtIndex: () => '',
+                notifyAction: () => { },
+            };
+            this._itemsArr = [];
+            this._subscriptions = new Subscription();
+            this._document = document;
+            this._isNonInteractive = false;
+            this._foundation = new MDCListFoundation(this._adapter);
+        }
+        _handleKeydown(event) {
+            const index = this._indexForElement(event.target);
+            this._foundation.handleKeydown(event, this._elementAtIndex(index) === event.target, index);
+        }
+        _handleClick(event) {
+            this._foundation.handleClick(this._indexForElement(event.target), false);
+        }
+        _handleFocusin(event) {
+            this._foundation.handleFocusIn(event, this._indexForElement(event.target));
+        }
+        _handleFocusout(event) {
+            this._foundation.handleFocusOut(event, this._indexForElement(event.target));
+        }
+        ngAfterViewInit() {
+            this._initItems();
+            this._foundation.init();
+            this._foundation.layout();
+        }
+        ngOnDestroy() {
+            this._foundation.destroy();
+            this._subscriptions.unsubscribe();
+        }
+        _initItems() {
+            this._subscriptions.add(this._items.changes.pipe(startWith(null))
+                .subscribe(() => this._itemsArr = this._items.toArray()));
+            for (let i = 0; this._itemsArr.length; i++) {
+                this._itemsArr[i]._initDefaultTabIndex(i === 0 ? 0 : -1);
+            }
+        }
+        _itemAtIndex(index) {
+            return this._itemsArr[index];
+        }
+        _elementAtIndex(index) {
+            return this._itemAtIndex(index)._elementRef.nativeElement;
+        }
+        _indexForElement(element) {
+            return element ?
+                this._itemsArr.findIndex(i => i._elementRef.nativeElement.contains(element)) : -1;
+        }
+    }
+    MatInteractiveListBase.decorators = [
+        { type: Directive }
+    ];
+    MatInteractiveListBase.ctorParameters = () => [
+        { type: ElementRef },
+        { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+    ];
+    MatInteractiveListBase.propDecorators = {
+        _handleKeydown: [{ type: HostListener, args: ['keydown', ['$event'],] }],
+        _handleClick: [{ type: HostListener, args: ['click', ['$event'],] }],
+        _handleFocusin: [{ type: HostListener, args: ['focusin', ['$event'],] }],
+        _handleFocusout: [{ type: HostListener, args: ['focusout', ['$event'],] }],
+        _items: [{ type: ContentChildren, args: [MatListItemBase, { descendants: true },] }]
+    };
+    return MatInteractiveListBase;
 })();
 
 /**
@@ -150,10 +254,6 @@ let MatListSubheaderCssMatStyler = /** @class */ (() => {
 })();
 let MatList = /** @class */ (() => {
     class MatList extends MatListBase {
-        constructor() {
-            super(...arguments);
-            this._isNonInteractive = true;
-        }
     }
     MatList.decorators = [
         { type: Component, args: [{
@@ -188,7 +288,10 @@ let MatListItem = /** @class */ (() => {
                     },
                     template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n\n<!-- If lines were explicitly given, use those as the text. -->\n<ng-container *ngIf=\"lines.length\">\n  <span class=\"mdc-list-item__text\"><ng-content select=\"[mat-line],[matLine]\"></ng-content></span>\n</ng-container>\n\n<!--\n  If lines were not explicitly given, assume the remaining content is the text, otherwise assume it\n  is an action that belongs in the \"meta\" section.\n-->\n<span [class.mdc-list-item__text]=\"!lines.length\" [class.mdc-list-item__meta]=\"lines.length\">\n  <ng-content></ng-content>\n</span>\n\n<ng-content select=\"mat-divider\"></ng-content>\n",
                     encapsulation: ViewEncapsulation.None,
-                    changeDetection: ChangeDetectionStrategy.OnPush
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    providers: [
+                        { provide: MatListItemBase, useExisting: MatListItem },
+                    ]
                 },] }
     ];
     MatListItem.ctorParameters = () => [
@@ -211,7 +314,7 @@ let MatListItem = /** @class */ (() => {
  * found in the LICENSE file at https://angular.io/license
  */
 let MatActionList = /** @class */ (() => {
-    class MatActionList extends MatListBase {
+    class MatActionList extends MatInteractiveListBase {
     }
     MatActionList.decorators = [
         { type: Component, args: [{
@@ -240,7 +343,7 @@ let MatActionList = /** @class */ (() => {
  * found in the LICENSE file at https://angular.io/license
  */
 let MatNavList = /** @class */ (() => {
-    class MatNavList extends MatListBase {
+    class MatNavList extends MatInteractiveListBase {
     }
     MatNavList.decorators = [
         { type: Component, args: [{
@@ -361,7 +464,10 @@ let MatListOption = /** @class */ (() => {
                     },
                     template: "<!-- Save icons and unclassified content to be placed later. -->\n<ng-template #icons>\n  <ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n</ng-template>\n<ng-template #unsortedContent>\n  <ng-content></ng-content>\n</ng-template>\n\n<!-- Prefix -->\n<span class=\"mdc-list-item__graphic\" *ngIf=\"checkboxPosition !== 'after' else icons\">\n  <mat-pseudo-checkbox></mat-pseudo-checkbox>\n</span>\n<!-- Text -->\n<span class=\"mdc-list-item__text\">\n  <ng-content *ngIf=\"lines.length else unsortedContent\" select=\"[mat-line],[matLine]\"></ng-content>\n</span>\n<!-- Suffix -->\n<span class=\"mdc-list-item__meta\">\n  <span class=\"mdc-list-item__graphic\" *ngIf=\"checkboxPosition === 'after' else icons\">\n    <mat-pseudo-checkbox></mat-pseudo-checkbox>\n  </span>\n  <ng-container *ngIf=\"lines.length\" [ngTemplateOutlet]=\"unsortedContent\"></ng-container>\n</span>\n<!-- Divider -->\n<ng-content select=\"mat-divider\"></ng-content>\n",
                     encapsulation: ViewEncapsulation.None,
-                    changeDetection: ChangeDetectionStrategy.OnPush
+                    changeDetection: ChangeDetectionStrategy.OnPush,
+                    providers: [
+                        { provide: MatListItemBase, useExisting: MatListOption },
+                    ]
                 },] }
     ];
     MatListOption.ctorParameters = () => [
@@ -442,5 +548,5 @@ let MatListModule = /** @class */ (() => {
  * Generated bundle index. Do not edit.
  */
 
-export { MatActionList, MatList, MatListAvatarCssMatStyler, MatListIconCssMatStyler, MatListItem, MatListModule, MatListOption, MatListSubheaderCssMatStyler, MatNavList, MatSelectionList, MatSelectionListChange, MatListBase as ɵangular_material_src_material_experimental_mdc_list_mdc_list_a, MatListItemBase as ɵangular_material_src_material_experimental_mdc_list_mdc_list_b };
+export { MatActionList, MatList, MatListAvatarCssMatStyler, MatListIconCssMatStyler, MatListItem, MatListModule, MatListOption, MatListSubheaderCssMatStyler, MatNavList, MatSelectionList, MatSelectionListChange, MatListItemBase as ɵangular_material_src_material_experimental_mdc_list_mdc_list_a, MatListBase as ɵangular_material_src_material_experimental_mdc_list_mdc_list_b, MatInteractiveListBase as ɵangular_material_src_material_experimental_mdc_list_mdc_list_c };
 //# sourceMappingURL=mdc-list.js.map
