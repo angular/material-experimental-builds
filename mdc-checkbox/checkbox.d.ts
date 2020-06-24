@@ -24,7 +24,7 @@ export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlVal
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-     * @breaking-change 10.0.0
+     * @breaking-change 10.0.0-sha-d3f287d65
      */
     private _clickAction;
     _animationMode?: string | undefined;
@@ -113,7 +113,7 @@ export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlVal
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-     * @breaking-change 10.0.0
+     * @breaking-change 10.0.0-sha-d3f287d65
      */
     _clickAction: MatCheckboxClickAction, _animationMode?: string | undefined, _options?: MatCheckboxDefaultOptions | undefined);
     ngAfterViewInit(): void;
