@@ -1,9 +1,0 @@
-{
-  "name": "@angular/material-experimental/mdc-snackbar",
-  "main": "../bundles/material-experimental-mdc-snackbar.umd.js",
-  "fesm2015": "../fesm2015/mdc-snackbar.js",
-  "esm2015": "../esm2015/mdc-snackbar/index.js",
-  "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-snackbar.js",
-  "es2015": "../fesm2015/mdc-snackbar.js"
-}
