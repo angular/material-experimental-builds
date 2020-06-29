@@ -249,6 +249,12 @@
         useExisting: core.forwardRef(function () { return MatRadioGroup; }),
         multi: true
     };
+    /**
+     * Injection token that can be used to inject instances of `MatRadioGroup`. It serves as
+     * alternative token to the actual `MatRadioGroup` class which could cause unnecessary
+     * retention of the class and its component metadata.
+     */
+    var MAT_RADIO_GROUP = new core.InjectionToken('MatRadioGroup');
     /** Configuration for the ripple animation. */
     var RIPPLE_ANIMATION_CONFIG = {
         enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
@@ -266,7 +272,10 @@
             { type: core.Directive, args: [{
                         selector: 'mat-radio-group',
                         exportAs: 'matRadioGroup',
-                        providers: [MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR],
+                        providers: [
+                            MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR,
+                            { provide: MAT_RADIO_GROUP, useExisting: MatRadioGroup },
+                        ],
                         host: {
                             'role': 'radiogroup',
                             'class': 'mat-mdc-radio-group',
@@ -346,7 +355,7 @@
                     },] }
         ];
         MatRadioButton.ctorParameters = function () { return [
-            { type: MatRadioGroup, decorators: [{ type: core.Optional }] },
+            { type: MatRadioGroup, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_RADIO_GROUP,] }] },
             { type: core.ElementRef },
             { type: core.ChangeDetectorRef },
             { type: a11y.FocusMonitor },
@@ -401,6 +410,7 @@
             return radio$1.MatRadioChange;
         }
     });
+    exports.MAT_RADIO_GROUP = MAT_RADIO_GROUP;
     exports.MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR = MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR;
     exports.MatRadioButton = MatRadioButton;
     exports.MatRadioGroup = MatRadioGroup;

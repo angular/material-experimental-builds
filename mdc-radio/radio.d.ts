@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy, QueryList } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
 import { _MatRadioButtonBase, MatRadioDefaultOptions, _MatRadioGroupBase } from '@angular/material/radio';
 import { FocusMonitor } from '@angular/cdk/a11y';
@@ -18,6 +18,12 @@ export { MatRadioChange, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/rad
  * @docs-private
  */
 export declare const MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR: any;
+/**
+ * Injection token that can be used to inject instances of `MatRadioGroup`. It serves as
+ * alternative token to the actual `MatRadioGroup` class which could cause unnecessary
+ * retention of the class and its component metadata.
+ */
+export declare const MAT_RADIO_GROUP: InjectionToken<_MatRadioGroupBase<_MatRadioButtonBase>>;
 /**
  * A group of radio buttons. May contain one or more `<mat-radio-button>` elements.
  */

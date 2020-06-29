@@ -1,6 +1,6 @@
 import { getMatFormFieldMissingControlError, getMatFormFieldDuplicatedHintError, matFormFieldAnimations, MAT_FORM_FIELD, MatFormFieldControl } from '@angular/material/form-field';
 export { MAT_FORM_FIELD, MatFormFieldControl, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError } from '@angular/material/form-field';
-import { Directive, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, InjectionToken, isDevMode, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
+import { Directive, InjectionToken, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, isDevMode, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { MAT_LABEL_GLOBAL_OPTIONS, MatCommonModule } from '@angular/material/core';
@@ -41,6 +41,12 @@ let MatLabel = /** @class */ (() => {
  * found in the LICENSE file at https://angular.io/license
  */
 let nextUniqueId = 0;
+/**
+ * Injection token that can be used to reference instances of `MatError`. It serves as
+ * alternative token to the actual `MatError` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+const MAT_ERROR = new InjectionToken('MatError');
 /** Single error message to be shown underneath the form-field. */
 let MatError = /** @class */ (() => {
     class MatError {
@@ -55,7 +61,8 @@ let MatError = /** @class */ (() => {
                         'class': 'mat-mdc-form-field-error',
                         'role': 'alert',
                         '[id]': 'id',
-                    }
+                    },
+                    providers: [{ provide: MAT_ERROR, useExisting: MatError }],
                 },] }
     ];
     MatError.propDecorators = {
@@ -91,7 +98,7 @@ let MatHint = /** @class */ (() => {
                         '[id]': 'id',
                         // Remove align attribute to prevent it from interfering with layout.
                         '[attr.align]': 'null',
-                    }
+                    },
                 },] }
     ];
     MatHint.propDecorators = {
@@ -108,6 +115,12 @@ let MatHint = /** @class */ (() => {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * Injection token that can be used to reference instances of `MatPrefix`. It serves as
+ * alternative token to the actual `MatPrefix` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+const MAT_PREFIX = new InjectionToken('MatPrefix');
 /** Prefix to be placed in front of the form field. */
 let MatPrefix = /** @class */ (() => {
     class MatPrefix {
@@ -115,6 +128,7 @@ let MatPrefix = /** @class */ (() => {
     MatPrefix.decorators = [
         { type: Directive, args: [{
                     selector: '[matPrefix]',
+                    providers: [{ provide: MAT_PREFIX, useExisting: MatPrefix }],
                 },] }
     ];
     return MatPrefix;
@@ -127,6 +141,12 @@ let MatPrefix = /** @class */ (() => {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * Injection token that can be used to reference instances of `MatSuffix`. It serves as
+ * alternative token to the actual `MatSuffix` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+const MAT_SUFFIX = new InjectionToken('MatSuffix');
 /** Suffix to be placed at the end of the form field. */
 let MatSuffix = /** @class */ (() => {
     class MatSuffix {
@@ -134,6 +154,7 @@ let MatSuffix = /** @class */ (() => {
     MatSuffix.decorators = [
         { type: Directive, args: [{
                     selector: '[matSuffix]',
+                    providers: [{ provide: MAT_SUFFIX, useExisting: MatSuffix }],
                 },] }
     ];
     return MatSuffix;
@@ -845,9 +866,9 @@ let MatFormField = /** @class */ (() => {
         _labelChildNonStatic: [{ type: ContentChild, args: [MatLabel,] }],
         _labelChildStatic: [{ type: ContentChild, args: [MatLabel, { static: true },] }],
         _formFieldControl: [{ type: ContentChild, args: [MatFormFieldControl,] }],
-        _prefixChildren: [{ type: ContentChildren, args: [MatPrefix, { descendants: true },] }],
-        _suffixChildren: [{ type: ContentChildren, args: [MatSuffix, { descendants: true },] }],
-        _errorChildren: [{ type: ContentChildren, args: [MatError, { descendants: true },] }],
+        _prefixChildren: [{ type: ContentChildren, args: [MAT_PREFIX, { descendants: true },] }],
+        _suffixChildren: [{ type: ContentChildren, args: [MAT_SUFFIX, { descendants: true },] }],
+        _errorChildren: [{ type: ContentChildren, args: [MAT_ERROR, { descendants: true },] }],
         _hintChildren: [{ type: ContentChildren, args: [MatHint, { descendants: true },] }],
         hideRequiredMarker: [{ type: Input }],
         color: [{ type: Input }],
@@ -912,5 +933,5 @@ let MatFormFieldModule = /** @class */ (() => {
  * Generated bundle index. Do not edit.
  */
 
-export { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatError, MatFormField, MatFormFieldModule, MatHint, MatLabel, MatPrefix, MatSuffix, MatFormFieldFloatingLabel as ɵangular_material_src_material_experimental_mdc_form_field_mdc_form_field_a, MatFormFieldNotchedOutline as ɵangular_material_src_material_experimental_mdc_form_field_mdc_form_field_b, MatFormFieldLineRipple as ɵangular_material_src_material_experimental_mdc_form_field_mdc_form_field_c };
+export { MAT_ERROR, MAT_FORM_FIELD_DEFAULT_OPTIONS, MAT_PREFIX, MAT_SUFFIX, MatError, MatFormField, MatFormFieldModule, MatHint, MatLabel, MatPrefix, MatSuffix, MatFormFieldFloatingLabel as ɵangular_material_src_material_experimental_mdc_form_field_mdc_form_field_a, MatFormFieldNotchedOutline as ɵangular_material_src_material_experimental_mdc_form_field_mdc_form_field_b, MatFormFieldLineRipple as ɵangular_material_src_material_experimental_mdc_form_field_mdc_form_field_c };
 //# sourceMappingURL=mdc-form-field.js.map

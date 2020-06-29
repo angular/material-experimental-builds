@@ -240,6 +240,12 @@
      * found in the LICENSE file at https://angular.io/license
      */
     /**
+     * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
+     * alternative token to the actual `MatChipAvatar` class which could cause unnecessary
+     * retention of the class and its directive metadata.
+     */
+    var MAT_CHIP_AVATAR = new core.InjectionToken('MatChipAvatar');
+    /**
      * Directive to add CSS classes to chip leading icon.
      * @docs-private
      */
@@ -259,7 +265,8 @@
                         host: {
                             'class': 'mat-mdc-chip-avatar mdc-chip__icon mdc-chip__icon--leading',
                             'role': 'img'
-                        }
+                        },
+                        providers: [{ provide: MAT_CHIP_AVATAR, useExisting: MatChipAvatar }],
                     },] }
         ];
         MatChipAvatar.ctorParameters = function () { return [
@@ -268,6 +275,12 @@
         ]; };
         return MatChipAvatar;
     }());
+    /**
+     * Injection token that can be used to reference instances of `MatChipTrailingIcon`. It serves as
+     * alternative token to the actual `MatChipTrailingIcon` class which could cause unnecessary
+     * retention of the class and its directive metadata.
+     */
+    var MAT_CHIP_TRAILING_ICON = new core.InjectionToken('MatChipTrailingIcon');
     /**
      * Directive to add CSS classes to and configure attributes for chip trailing icon.
      * @docs-private
@@ -319,7 +332,8 @@
                             'class': 'mat-mdc-chip-trailing-icon mdc-chip__icon mdc-chip__icon--trailing',
                             'tabindex': '-1',
                             'aria-hidden': 'true',
-                        }
+                        },
+                        providers: [{ provide: MAT_CHIP_TRAILING_ICON, useExisting: MatChipTrailingIcon }],
                     },] }
         ];
         MatChipTrailingIcon.ctorParameters = function () { return [
@@ -327,6 +341,12 @@
         ]; };
         return MatChipTrailingIcon;
     }());
+    /**
+     * Injection token that can be used to reference instances of `MatChipRemove`. It serves as
+     * alternative token to the actual `MatChipRemove` class which could cause unnecessary
+     * retention of the class and its directive metadata.
+     */
+    var MAT_CHIP_REMOVE = new core.InjectionToken('MatChipRemove');
     /**
      * Boilerplate for applying mixins to MatChipRemove.
      * @docs-private
@@ -380,7 +400,8 @@
                             '(keydown)': 'interaction.next($event)',
                             // We need to remove this explicitly, because it gets inherited from MatChipTrailingIcon.
                             '[attr.aria-hidden]': 'null',
-                        }
+                        },
+                        providers: [{ provide: MAT_CHIP_REMOVE, useExisting: MatChipRemove }],
                     },] }
         ];
         MatChipRemove.ctorParameters = function () { return [
@@ -757,9 +778,9 @@
             interaction: [{ type: core.Output }],
             destroyed: [{ type: core.Output }],
             removed: [{ type: core.Output }],
-            leadingIcon: [{ type: core.ContentChild, args: [MatChipAvatar,] }],
-            trailingIcon: [{ type: core.ContentChild, args: [MatChipTrailingIcon,] }],
-            removeIcon: [{ type: core.ContentChild, args: [MatChipRemove,] }],
+            leadingIcon: [{ type: core.ContentChild, args: [MAT_CHIP_AVATAR,] }],
+            trailingIcon: [{ type: core.ContentChild, args: [MAT_CHIP_TRAILING_ICON,] }],
+            removeIcon: [{ type: core.ContentChild, args: [MAT_CHIP_REMOVE,] }],
             ripple: [{ type: core.ViewChild, args: [core$1.MatRipple,] }]
         };
         return MatChip;
@@ -2883,7 +2904,10 @@
      */
 
     exports.MAT_CHIPS_DEFAULT_OPTIONS = MAT_CHIPS_DEFAULT_OPTIONS;
+    exports.MAT_CHIP_AVATAR = MAT_CHIP_AVATAR;
     exports.MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR = MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR;
+    exports.MAT_CHIP_REMOVE = MAT_CHIP_REMOVE;
+    exports.MAT_CHIP_TRAILING_ICON = MAT_CHIP_TRAILING_ICON;
     exports.MatChip = MatChip;
     exports.MatChipAvatar = MatChipAvatar;
     exports.MatChipCssInternalOnly = MatChipCssInternalOnly;

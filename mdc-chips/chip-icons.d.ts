@@ -6,9 +6,15 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { BooleanInput } from '@angular/cdk/coercion';
-import { ChangeDetectorRef, ElementRef, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy } from '@angular/core';
 import { CanDisable, CanDisableCtor, HasTabIndex, HasTabIndexCtor } from '@angular/material/core';
 import { Subject } from 'rxjs';
+/**
+ * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
+ * alternative token to the actual `MatChipAvatar` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+export declare const MAT_CHIP_AVATAR: InjectionToken<MatChipAvatar>;
 /**
  * Directive to add CSS classes to chip leading icon.
  * @docs-private
@@ -20,6 +26,12 @@ export declare class MatChipAvatar {
     /** Sets whether the given CSS class should be applied to the leading icon. */
     setClass(cssClass: string, active: boolean): void;
 }
+/**
+ * Injection token that can be used to reference instances of `MatChipTrailingIcon`. It serves as
+ * alternative token to the actual `MatChipTrailingIcon` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+export declare const MAT_CHIP_TRAILING_ICON: InjectionToken<MatChipTrailingIcon>;
 /**
  * Directive to add CSS classes to and configure attributes for chip trailing icon.
  * @docs-private
@@ -35,6 +47,12 @@ export declare class MatChipTrailingIcon implements OnDestroy {
     setAttribute(name: string, value: string): void;
     isNavigable(): boolean;
 }
+/**
+ * Injection token that can be used to reference instances of `MatChipRemove`. It serves as
+ * alternative token to the actual `MatChipRemove` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+export declare const MAT_CHIP_REMOVE: InjectionToken<MatChipRemove>;
 /**
  * Boilerplate for applying mixins to MatChipRemove.
  * @docs-private

@@ -1,4 +1,4 @@
-import { forwardRef, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, ElementRef, ChangeDetectorRef, Inject, NgModule } from '@angular/core';
+import { forwardRef, InjectionToken, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, ElementRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
 import { _MatRadioGroupBase, _MatRadioButtonBase, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 export { MAT_RADIO_DEFAULT_OPTIONS, MatRadioChange } from '@angular/material/radio';
@@ -27,6 +27,12 @@ const MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR = {
     useExisting: forwardRef(() => MatRadioGroup),
     multi: true
 };
+/**
+ * Injection token that can be used to inject instances of `MatRadioGroup`. It serves as
+ * alternative token to the actual `MatRadioGroup` class which could cause unnecessary
+ * retention of the class and its component metadata.
+ */
+const MAT_RADIO_GROUP = new InjectionToken('MatRadioGroup');
 /** Configuration for the ripple animation. */
 const RIPPLE_ANIMATION_CONFIG = {
     enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
@@ -42,7 +48,10 @@ let MatRadioGroup = /** @class */ (() => {
         { type: Directive, args: [{
                     selector: 'mat-radio-group',
                     exportAs: 'matRadioGroup',
-                    providers: [MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR],
+                    providers: [
+                        MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR,
+                        { provide: MAT_RADIO_GROUP, useExisting: MatRadioGroup },
+                    ],
                     host: {
                         'role': 'radiogroup',
                         'class': 'mat-mdc-radio-group',
@@ -121,7 +130,7 @@ let MatRadioButton = /** @class */ (() => {
                 },] }
     ];
     MatRadioButton.ctorParameters = () => [
-        { type: MatRadioGroup, decorators: [{ type: Optional }] },
+        { type: MatRadioGroup, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RADIO_GROUP,] }] },
         { type: ElementRef },
         { type: ChangeDetectorRef },
         { type: FocusMonitor },
@@ -164,5 +173,5 @@ let MatRadioModule = /** @class */ (() => {
  * Generated bundle index. Do not edit.
  */
 
-export { MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR, MatRadioButton, MatRadioGroup, MatRadioModule };
+export { MAT_RADIO_GROUP, MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR, MatRadioButton, MatRadioGroup, MatRadioModule };
 //# sourceMappingURL=mdc-radio.js.map

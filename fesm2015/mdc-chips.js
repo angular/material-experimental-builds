@@ -1,7 +1,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import { Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, NgZone, Optional, Inject, HostListener, Input, Output, ContentChild, ViewChild, ContentChildren, forwardRef, QueryList, Self, InjectionToken, NgModule } from '@angular/core';
+import { InjectionToken, Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, NgZone, Optional, Inject, HostListener, Input, Output, ContentChild, ViewChild, ContentChildren, forwardRef, QueryList, Self, NgModule } from '@angular/core';
 import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
@@ -20,6 +20,12 @@ import { CommonModule } from '@angular/common';
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/**
+ * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
+ * alternative token to the actual `MatChipAvatar` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+const MAT_CHIP_AVATAR = new InjectionToken('MatChipAvatar');
 /**
  * Directive to add CSS classes to chip leading icon.
  * @docs-private
@@ -42,7 +48,8 @@ let MatChipAvatar = /** @class */ (() => {
                     host: {
                         'class': 'mat-mdc-chip-avatar mdc-chip__icon mdc-chip__icon--leading',
                         'role': 'img'
-                    }
+                    },
+                    providers: [{ provide: MAT_CHIP_AVATAR, useExisting: MatChipAvatar }],
                 },] }
     ];
     MatChipAvatar.ctorParameters = () => [
@@ -51,6 +58,12 @@ let MatChipAvatar = /** @class */ (() => {
     ];
     return MatChipAvatar;
 })();
+/**
+ * Injection token that can be used to reference instances of `MatChipTrailingIcon`. It serves as
+ * alternative token to the actual `MatChipTrailingIcon` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+const MAT_CHIP_TRAILING_ICON = new InjectionToken('MatChipTrailingIcon');
 /**
  * Directive to add CSS classes to and configure attributes for chip trailing icon.
  * @docs-private
@@ -101,7 +114,8 @@ let MatChipTrailingIcon = /** @class */ (() => {
                         'class': 'mat-mdc-chip-trailing-icon mdc-chip__icon mdc-chip__icon--trailing',
                         'tabindex': '-1',
                         'aria-hidden': 'true',
-                    }
+                    },
+                    providers: [{ provide: MAT_CHIP_TRAILING_ICON, useExisting: MatChipTrailingIcon }],
                 },] }
     ];
     MatChipTrailingIcon.ctorParameters = () => [
@@ -109,6 +123,12 @@ let MatChipTrailingIcon = /** @class */ (() => {
     ];
     return MatChipTrailingIcon;
 })();
+/**
+ * Injection token that can be used to reference instances of `MatChipRemove`. It serves as
+ * alternative token to the actual `MatChipRemove` class which could cause unnecessary
+ * retention of the class and its directive metadata.
+ */
+const MAT_CHIP_REMOVE = new InjectionToken('MatChipRemove');
 /**
  * Boilerplate for applying mixins to MatChipRemove.
  * @docs-private
@@ -161,7 +181,8 @@ let MatChipRemove = /** @class */ (() => {
                         '(keydown)': 'interaction.next($event)',
                         // We need to remove this explicitly, because it gets inherited from MatChipTrailingIcon.
                         '[attr.aria-hidden]': 'null',
-                    }
+                    },
+                    providers: [{ provide: MAT_CHIP_REMOVE, useExisting: MatChipRemove }],
                 },] }
     ];
     MatChipRemove.ctorParameters = () => [
@@ -507,9 +528,9 @@ let MatChip = /** @class */ (() => {
         interaction: [{ type: Output }],
         destroyed: [{ type: Output }],
         removed: [{ type: Output }],
-        leadingIcon: [{ type: ContentChild, args: [MatChipAvatar,] }],
-        trailingIcon: [{ type: ContentChild, args: [MatChipTrailingIcon,] }],
-        removeIcon: [{ type: ContentChild, args: [MatChipRemove,] }],
+        leadingIcon: [{ type: ContentChild, args: [MAT_CHIP_AVATAR,] }],
+        trailingIcon: [{ type: ContentChild, args: [MAT_CHIP_TRAILING_ICON,] }],
+        removeIcon: [{ type: ContentChild, args: [MAT_CHIP_REMOVE,] }],
         ripple: [{ type: ViewChild, args: [MatRipple,] }]
     };
     return MatChip;
@@ -2436,5 +2457,5 @@ let MatChipsModule = /** @class */ (() => {
  * Generated bundle index. Do not edit.
  */
 
-export { MAT_CHIPS_DEFAULT_OPTIONS, MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR, MatChip, MatChipAvatar, MatChipCssInternalOnly, MatChipGrid, MatChipGridChange, MatChipInput, MatChipListbox, MatChipListboxChange, MatChipOption, MatChipRemove, MatChipRow, MatChipSelectionChange, MatChipSet, MatChipTrailingIcon, MatChipsModule, ɵ0 };
+export { MAT_CHIPS_DEFAULT_OPTIONS, MAT_CHIP_AVATAR, MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR, MAT_CHIP_REMOVE, MAT_CHIP_TRAILING_ICON, MatChip, MatChipAvatar, MatChipCssInternalOnly, MatChipGrid, MatChipGridChange, MatChipInput, MatChipListbox, MatChipListboxChange, MatChipOption, MatChipRemove, MatChipRow, MatChipSelectionChange, MatChipSet, MatChipTrailingIcon, MatChipsModule, ɵ0 };
 //# sourceMappingURL=mdc-chips.js.map

@@ -31,6 +31,12 @@
      * found in the LICENSE file at https://angular.io/license
      */
     var nextUniqueId = 0;
+    /**
+     * Injection token that can be used to reference instances of `MatError`. It serves as
+     * alternative token to the actual `MatError` class which could cause unnecessary
+     * retention of the class and its directive metadata.
+     */
+    var MAT_ERROR = new core.InjectionToken('MatError');
     /** Single error message to be shown underneath the form-field. */
     var MatError = /** @class */ (function () {
         function MatError() {
@@ -43,7 +49,8 @@
                             'class': 'mat-mdc-form-field-error',
                             'role': 'alert',
                             '[id]': 'id',
-                        }
+                        },
+                        providers: [{ provide: MAT_ERROR, useExisting: MatError }],
                     },] }
         ];
         MatError.propDecorators = {
@@ -77,7 +84,7 @@
                             '[id]': 'id',
                             // Remove align attribute to prevent it from interfering with layout.
                             '[attr.align]': 'null',
-                        }
+                        },
                     },] }
         ];
         MatHint.propDecorators = {
@@ -94,6 +101,12 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    /**
+     * Injection token that can be used to reference instances of `MatPrefix`. It serves as
+     * alternative token to the actual `MatPrefix` class which could cause unnecessary
+     * retention of the class and its directive metadata.
+     */
+    var MAT_PREFIX = new core.InjectionToken('MatPrefix');
     /** Prefix to be placed in front of the form field. */
     var MatPrefix = /** @class */ (function () {
         function MatPrefix() {
@@ -101,6 +114,7 @@
         MatPrefix.decorators = [
             { type: core.Directive, args: [{
                         selector: '[matPrefix]',
+                        providers: [{ provide: MAT_PREFIX, useExisting: MatPrefix }],
                     },] }
         ];
         return MatPrefix;
@@ -113,6 +127,12 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    /**
+     * Injection token that can be used to reference instances of `MatSuffix`. It serves as
+     * alternative token to the actual `MatSuffix` class which could cause unnecessary
+     * retention of the class and its directive metadata.
+     */
+    var MAT_SUFFIX = new core.InjectionToken('MatSuffix');
     /** Suffix to be placed at the end of the form field. */
     var MatSuffix = /** @class */ (function () {
         function MatSuffix() {
@@ -120,6 +140,7 @@
         MatSuffix.decorators = [
             { type: core.Directive, args: [{
                         selector: '[matSuffix]',
+                        providers: [{ provide: MAT_SUFFIX, useExisting: MatSuffix }],
                     },] }
         ];
         return MatSuffix;
@@ -1079,9 +1100,9 @@
             _labelChildNonStatic: [{ type: core.ContentChild, args: [MatLabel,] }],
             _labelChildStatic: [{ type: core.ContentChild, args: [MatLabel, { static: true },] }],
             _formFieldControl: [{ type: core.ContentChild, args: [formField.MatFormFieldControl,] }],
-            _prefixChildren: [{ type: core.ContentChildren, args: [MatPrefix, { descendants: true },] }],
-            _suffixChildren: [{ type: core.ContentChildren, args: [MatSuffix, { descendants: true },] }],
-            _errorChildren: [{ type: core.ContentChildren, args: [MatError, { descendants: true },] }],
+            _prefixChildren: [{ type: core.ContentChildren, args: [MAT_PREFIX, { descendants: true },] }],
+            _suffixChildren: [{ type: core.ContentChildren, args: [MAT_SUFFIX, { descendants: true },] }],
+            _errorChildren: [{ type: core.ContentChildren, args: [MAT_ERROR, { descendants: true },] }],
             _hintChildren: [{ type: core.ContentChildren, args: [MatHint, { descendants: true },] }],
             hideRequiredMarker: [{ type: core.Input }],
             color: [{ type: core.Input }],
@@ -1170,7 +1191,10 @@
             return formField.getMatFormFieldMissingControlError;
         }
     });
+    exports.MAT_ERROR = MAT_ERROR;
     exports.MAT_FORM_FIELD_DEFAULT_OPTIONS = MAT_FORM_FIELD_DEFAULT_OPTIONS;
+    exports.MAT_PREFIX = MAT_PREFIX;
+    exports.MAT_SUFFIX = MAT_SUFFIX;
     exports.MatError = MatError;
     exports.MatFormField = MatFormField;
     exports.MatFormFieldModule = MatFormFieldModule;
