@@ -32,7 +32,7 @@ let MatCheckbox = /** @class */ (() => {
         /**
          * @deprecated `_clickAction` parameter to be removed, use
          * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-         * @breaking-change 10.0.0-sha-27f52711c
+         * @breaking-change 10.0.0-sha-ad231390b
          */
         _clickAction, _animationMode, _options) {
             this._changeDetectorRef = _changeDetectorRef;
@@ -108,7 +108,7 @@ let MatCheckbox = /** @class */ (() => {
             if (this._options.color) {
                 this.color = this._options.color;
             }
-            // @breaking-change 10.0.0-sha-27f52711c: Remove this after the `_clickAction` parameter is removed as an
+            // @breaking-change 10.0.0-sha-ad231390b: Remove this after the `_clickAction` parameter is removed as an
             // injection parameter.
             this._clickAction = this._clickAction || this._options.clickAction;
         }
