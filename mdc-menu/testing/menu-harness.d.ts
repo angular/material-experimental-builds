@@ -26,6 +26,8 @@ export declare class MatMenuHarness extends ComponentHarness {
     focus(): Promise<void>;
     /** Blurs the menu and returns a void promise that indicates when the action is complete. */
     blur(): Promise<void>;
+    /** Whether the menu is focused. */
+    isFocused(): Promise<boolean>;
     open(): Promise<void>;
     close(): Promise<void>;
     getItems(filters?: Omit<MenuItemHarnessFilters, 'ancestor'>): Promise<MatMenuItemHarness[]>;
@@ -45,10 +47,14 @@ export declare class MatMenuItemHarness extends ComponentHarness {
     /** Gets a boolean promise indicating if the menu is disabled. */
     isDisabled(): Promise<boolean>;
     getText(): Promise<string>;
-    /** Focuses the menu and returns a void promise that indicates when the action is complete. */
+    /**
+     * Focuses the menu item and returns a void promise that indicates when the action is complete.
+     */
     focus(): Promise<void>;
-    /** Blurs the menu and returns a void promise that indicates when the action is complete. */
+    /** Blurs the menu item and returns a void promise that indicates when the action is complete. */
     blur(): Promise<void>;
+    /** Whether the menu item is focused. */
+    isFocused(): Promise<boolean>;
     click(): Promise<void>;
     hasSubmenu(): Promise<boolean>;
     getSubmenu(): Promise<MatMenuHarness | null>;

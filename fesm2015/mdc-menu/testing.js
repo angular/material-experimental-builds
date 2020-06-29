@@ -53,6 +53,12 @@ let MatMenuHarness = /** @class */ (() => {
                 return (yield this.host()).blur();
             });
         }
+        /** Whether the menu is focused. */
+        isFocused() {
+            return __awaiter(this, void 0, void 0, function* () {
+                return (yield this.host()).isFocused();
+            });
+        }
         open() {
             return __awaiter(this, void 0, void 0, function* () {
                 throw Error('not implemented');
@@ -104,16 +110,24 @@ let MatMenuItemHarness = /** @class */ (() => {
                 return (yield this.host()).text();
             });
         }
-        /** Focuses the menu and returns a void promise that indicates when the action is complete. */
+        /**
+         * Focuses the menu item and returns a void promise that indicates when the action is complete.
+         */
         focus() {
             return __awaiter(this, void 0, void 0, function* () {
                 return (yield this.host()).focus();
             });
         }
-        /** Blurs the menu and returns a void promise that indicates when the action is complete. */
+        /** Blurs the menu item and returns a void promise that indicates when the action is complete. */
         blur() {
             return __awaiter(this, void 0, void 0, function* () {
                 return (yield this.host()).blur();
+            });
+        }
+        /** Whether the menu item is focused. */
+        isFocused() {
+            return __awaiter(this, void 0, void 0, function* () {
+                return (yield this.host()).isFocused();
             });
         }
         click() {

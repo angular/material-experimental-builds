@@ -97,6 +97,12 @@ let MatSlideToggleHarness = /** @class */ (() => {
                 return (yield this._input()).blur();
             });
         }
+        /** Whether the slide-toggle is focused. */
+        isFocused() {
+            return __awaiter(this, void 0, void 0, function* () {
+                return (yield this._input()).isFocused();
+            });
+        }
         /**
          * Toggle the checked state of the slide-toggle and returns a void promise that indicates when the
          * action is complete.

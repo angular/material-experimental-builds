@@ -54,6 +54,12 @@ let MatButtonHarness = /** @class */ (() => {
                 return (yield this.host()).blur();
             });
         }
+        /** Whether the button is focused. */
+        isFocused() {
+            return __awaiter(this, void 0, void 0, function* () {
+                return (yield this.host()).isFocused();
+            });
+        }
     }
     // TODO(jelbourn) use a single class, like `.mat-button-base`
     MatButtonHarness.hostSelector = [

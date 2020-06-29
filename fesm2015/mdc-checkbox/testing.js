@@ -111,6 +111,12 @@ let MatCheckboxHarness = /** @class */ (() => {
                 return (yield this._input()).blur();
             });
         }
+        /** Whether the checkbox is focused. */
+        isFocused() {
+            return __awaiter(this, void 0, void 0, function* () {
+                return (yield this._input()).isFocused();
+            });
+        }
         /**
          * Toggle the checked state of the checkbox and returns a void promise that indicates when the
          * action is complete.

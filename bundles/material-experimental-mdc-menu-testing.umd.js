@@ -313,6 +313,17 @@
                 });
             });
         };
+        /** Whether the menu is focused. */
+        MatMenuHarness.prototype.isFocused = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
+                    }
+                });
+            });
+        };
         MatMenuHarness.prototype.open = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
@@ -400,7 +411,9 @@
                 });
             });
         };
-        /** Focuses the menu and returns a void promise that indicates when the action is complete. */
+        /**
+         * Focuses the menu item and returns a void promise that indicates when the action is complete.
+         */
         MatMenuItemHarness.prototype.focus = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
@@ -411,13 +424,24 @@
                 });
             });
         };
-        /** Blurs the menu and returns a void promise that indicates when the action is complete. */
+        /** Blurs the menu item and returns a void promise that indicates when the action is complete. */
         MatMenuItemHarness.prototype.blur = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
                         case 1: return [2 /*return*/, (_a.sent()).blur()];
+                    }
+                });
+            });
+        };
+        /** Whether the menu item is focused. */
+        MatMenuItemHarness.prototype.isFocused = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
                     }
                 });
             });

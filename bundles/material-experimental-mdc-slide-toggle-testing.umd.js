@@ -400,6 +400,17 @@
                 });
             });
         };
+        /** Whether the slide-toggle is focused. */
+        MatSlideToggleHarness.prototype.isFocused = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this._input()];
+                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
+                    }
+                });
+            });
+        };
         /**
          * Toggle the checked state of the slide-toggle and returns a void promise that indicates when the
          * action is complete.
