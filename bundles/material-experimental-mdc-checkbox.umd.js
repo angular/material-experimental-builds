@@ -33,7 +33,7 @@
         /**
          * @deprecated `_clickAction` parameter to be removed, use
          * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-         * @breaking-change 10.0.0-sha-ad231390b
+         * @breaking-change 10.0.0
          */
         _clickAction, _animationMode, _options) {
             var _this = this;
@@ -110,7 +110,7 @@
             if (this._options.color) {
                 this.color = this._options.color;
             }
-            // @breaking-change 10.0.0-sha-ad231390b: Remove this after the `_clickAction` parameter is removed as an
+            // @breaking-change 10.0.0: Remove this after the `_clickAction` parameter is removed as an
             // injection parameter.
             this._clickAction = this._clickAction || this._options.clickAction;
         }
