@@ -8,21 +8,18 @@ import { MatCommonModule } from '@angular/material/core';
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-let MatSnackbar = /** @class */ (() => {
-    class MatSnackbar {
-    }
-    MatSnackbar.decorators = [
-        { type: Component, args: [{
-                    selector: 'mat-snackbar',
-                    template: "<!-- WIP: MDC-based snackbar -->\n",
-                    exportAs: 'matSnackbar',
-                    encapsulation: ViewEncapsulation.None,
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: ["\n"]
-                },] }
-    ];
-    return MatSnackbar;
-})();
+class MatSnackbar {
+}
+MatSnackbar.decorators = [
+    { type: Component, args: [{
+                selector: 'mat-snackbar',
+                template: "<!-- WIP: MDC-based snackbar -->\n",
+                exportAs: 'matSnackbar',
+                encapsulation: ViewEncapsulation.None,
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                styles: ["\n"]
+            },] }
+];
 
 /**
  * @license
@@ -31,18 +28,15 @@ let MatSnackbar = /** @class */ (() => {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-let MatSnackbarModule = /** @class */ (() => {
-    class MatSnackbarModule {
-    }
-    MatSnackbarModule.decorators = [
-        { type: NgModule, args: [{
-                    imports: [MatCommonModule],
-                    exports: [MatSnackbar, MatCommonModule],
-                    declarations: [MatSnackbar],
-                },] }
-    ];
-    return MatSnackbarModule;
-})();
+class MatSnackbarModule {
+}
+MatSnackbarModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [MatCommonModule],
+                exports: [MatSnackbar, MatCommonModule],
+                declarations: [MatSnackbar],
+            },] }
+];
 
 /**
  * @license
