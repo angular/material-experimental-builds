@@ -49,7 +49,6 @@ export declare abstract class MatInteractiveListBase extends MatListBase impleme
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     private _initItems;
-    private _itemAtIndex;
     private _elementAtIndex;
     private _indexForElement;
 }

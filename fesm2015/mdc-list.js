@@ -159,17 +159,15 @@ class MatInteractiveListBase extends MatListBase {
         this._subscriptions.unsubscribe();
     }
     _initItems() {
-        this._subscriptions.add(this._items.changes.pipe(startWith(null))
-            .subscribe(() => this._itemsArr = this._items.toArray()));
-        for (let i = 0; this._itemsArr.length; i++) {
+        this._subscriptions.add(this._items.changes.pipe(startWith(null)).subscribe(() => {
+            this._itemsArr = this._items.toArray();
+        }));
+        for (let i = 0; i < this._itemsArr.length; i++) {
             this._itemsArr[i]._initDefaultTabIndex(i === 0 ? 0 : -1);
         }
     }
-    _itemAtIndex(index) {
-        return this._itemsArr[index];
-    }
     _elementAtIndex(index) {
-        return this._itemAtIndex(index)._elementRef.nativeElement;
+        return this._itemsArr[index]._elementRef.nativeElement;
     }
     _indexForElement(element) {
         return element ?

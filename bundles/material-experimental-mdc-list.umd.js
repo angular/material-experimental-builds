@@ -387,17 +387,15 @@
         };
         MatInteractiveListBase.prototype._initItems = function () {
             var _this = this;
-            this._subscriptions.add(this._items.changes.pipe(operators.startWith(null))
-                .subscribe(function () { return _this._itemsArr = _this._items.toArray(); }));
-            for (var i = 0; this._itemsArr.length; i++) {
+            this._subscriptions.add(this._items.changes.pipe(operators.startWith(null)).subscribe(function () {
+                _this._itemsArr = _this._items.toArray();
+            }));
+            for (var i = 0; i < this._itemsArr.length; i++) {
                 this._itemsArr[i]._initDefaultTabIndex(i === 0 ? 0 : -1);
             }
         };
-        MatInteractiveListBase.prototype._itemAtIndex = function (index) {
-            return this._itemsArr[index];
-        };
         MatInteractiveListBase.prototype._elementAtIndex = function (index) {
-            return this._itemAtIndex(index)._elementRef.nativeElement;
+            return this._itemsArr[index]._elementRef.nativeElement;
         };
         MatInteractiveListBase.prototype._indexForElement = function (element) {
             return element ?
