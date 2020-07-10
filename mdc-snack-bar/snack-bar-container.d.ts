@@ -9,6 +9,7 @@ import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal } fr
 import { AfterViewChecked, ComponentRef, ElementRef, EmbeddedViewRef, OnDestroy } from '@angular/core';
 import { MatSnackBarConfig, _SnackBarContainer } from '@angular/material/snack-bar';
 import { MDCSnackbarFoundation } from '@material/snackbar';
+import { Platform } from '@angular/cdk/platform';
 import { Observable, Subject } from 'rxjs';
 /**
  * Internal component that wraps user-provided snack bar content.
@@ -17,6 +18,7 @@ import { Observable, Subject } from 'rxjs';
 export declare class MatSnackBarContainer extends BasePortalOutlet implements _SnackBarContainer, AfterViewChecked, OnDestroy {
     private _elementRef;
     snackBarConfig: MatSnackBarConfig;
+    private _platform;
     /** Subject for notifying that the snack bar has exited from view. */
     readonly _onExit: Subject<void>;
     /** Subject for notifying that the snack bar has finished entering the view. */
@@ -37,7 +39,7 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
      * color is applied to the attached view.
      */
     _label: ElementRef;
-    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig);
+    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform);
     ngAfterViewChecked(): void;
     /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
     ngOnDestroy(): void;

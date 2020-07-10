@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/snack-bar'), require('@angular/cdk/portal'), require('@material/snackbar'), require('rxjs'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/button'), require('@angular/material/core'), require('@angular/cdk/a11y'), require('@angular/cdk/layout')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-snack-bar', ['exports', '@angular/core', '@angular/material/snack-bar', '@angular/cdk/portal', '@material/snackbar', 'rxjs', '@angular/cdk/overlay', '@angular/common', '@angular/material/button', '@angular/material/core', '@angular/cdk/a11y', '@angular/cdk/layout'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSnackBar = {}), global.ng.core, global.ng.material.snackBar, global.ng.cdk.portal, global.mdc.snackbar, global.rxjs, global.ng.cdk.overlay, global.ng.common, global.ng.material.button, global.ng.material.core, global.ng.cdk.a11y, global.ng.cdk.layout));
-}(this, (function (exports, i0, i4, portal, snackbar, rxjs, i1, common, button, core, i2, i3) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/snack-bar'), require('@angular/cdk/portal'), require('@material/snackbar'), require('@angular/cdk/platform'), require('rxjs'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/button'), require('@angular/material/core'), require('@angular/cdk/a11y'), require('@angular/cdk/layout')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-snack-bar', ['exports', '@angular/core', '@angular/material/snack-bar', '@angular/cdk/portal', '@material/snackbar', '@angular/cdk/platform', 'rxjs', '@angular/cdk/overlay', '@angular/common', '@angular/material/button', '@angular/material/core', '@angular/cdk/a11y', '@angular/cdk/layout'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSnackBar = {}), global.ng.core, global.ng.material.snackBar, global.ng.cdk.portal, global.mdc.snackbar, global.ng.cdk.platform, global.rxjs, global.ng.cdk.overlay, global.ng.common, global.ng.material.button, global.ng.material.core, global.ng.cdk.a11y, global.ng.cdk.layout));
+}(this, (function (exports, i0, i4, portal, snackbar, platform, rxjs, i1, common, button, core, i2, i3) { 'use strict';
 
     /**
      * @license
@@ -294,10 +294,11 @@
      */
     var MatSnackBarContainer = /** @class */ (function (_super) {
         __extends(MatSnackBarContainer, _super);
-        function MatSnackBarContainer(_elementRef, snackBarConfig) {
+        function MatSnackBarContainer(_elementRef, snackBarConfig, _platform) {
             var _this = _super.call(this) || this;
             _this._elementRef = _elementRef;
             _this.snackBarConfig = snackBarConfig;
+            _this._platform = _platform;
             /** Subject for notifying that the snack bar has exited from view. */
             _this._onExit = new rxjs.Subject();
             /** Subject for notifying that the snack bar has finished entering the view. */
@@ -349,7 +350,10 @@
             this._mdcFoundation.close();
         };
         MatSnackBarContainer.prototype.enter = function () {
-            this._mdcFoundation.open();
+            // MDC uses some browser APIs that will throw during server-side rendering.
+            if (this._platform.isBrowser) {
+                this._mdcFoundation.open();
+            }
         };
         MatSnackBarContainer.prototype.exit = function () {
             this._exiting = true;
@@ -416,7 +420,8 @@
         ];
         MatSnackBarContainer.ctorParameters = function () { return [
             { type: i0.ElementRef },
-            { type: i4.MatSnackBarConfig }
+            { type: i4.MatSnackBarConfig },
+            { type: platform.Platform }
         ]; };
         MatSnackBarContainer.propDecorators = {
             _portalOutlet: [{ type: i0.ViewChild, args: [portal.CdkPortalOutlet, { static: true },] }],

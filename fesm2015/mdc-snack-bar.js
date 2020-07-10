@@ -3,6 +3,7 @@ import { MatSnackBarRef, MAT_SNACK_BAR_DATA, MatSnackBarConfig, MatSnackBar as M
 export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { BasePortalOutlet, CdkPortalOutlet, PortalModule } from '@angular/cdk/portal';
 import { MDCSnackbarFoundation } from '@material/snackbar';
+import { Platform } from '@angular/cdk/platform';
 import { Subject } from 'rxjs';
 import { OverlayModule, Overlay } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
@@ -67,10 +68,11 @@ const MDC_SNACKBAR_LABEL_CLASS = 'mdc-snackbar__label';
  * @docs-private
  */
 class MatSnackBarContainer extends BasePortalOutlet {
-    constructor(_elementRef, snackBarConfig) {
+    constructor(_elementRef, snackBarConfig, _platform) {
         super();
         this._elementRef = _elementRef;
         this.snackBarConfig = snackBarConfig;
+        this._platform = _platform;
         /** Subject for notifying that the snack bar has exited from view. */
         this._onExit = new Subject();
         /** Subject for notifying that the snack bar has finished entering the view. */
@@ -121,7 +123,10 @@ class MatSnackBarContainer extends BasePortalOutlet {
         this._mdcFoundation.close();
     }
     enter() {
-        this._mdcFoundation.open();
+        // MDC uses some browser APIs that will throw during server-side rendering.
+        if (this._platform.isBrowser) {
+            this._mdcFoundation.open();
+        }
     }
     exit() {
         this._exiting = true;
@@ -188,7 +193,8 @@ MatSnackBarContainer.decorators = [
 ];
 MatSnackBarContainer.ctorParameters = () => [
     { type: ElementRef },
-    { type: MatSnackBarConfig }
+    { type: MatSnackBarConfig },
+    { type: Platform }
 ];
 MatSnackBarContainer.propDecorators = {
     _portalOutlet: [{ type: ViewChild, args: [CdkPortalOutlet, { static: true },] }],
