@@ -115,6 +115,12 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     protected _isValidIndex(index: number): boolean;
     /** Checks whether an event comes from inside a chip element. */
     protected _originatesFromChip(event: Event): boolean;
+    /**
+     * Checks whether an event comes from inside a chip element in the editing
+     * state.
+     */
+    protected _originatesFromEditingChip(event: Event): boolean;
+    private _checkForClassInHierarchy;
     static ngAcceptInputType_disabled: BooleanInput;
 }
 export {};

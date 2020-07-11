@@ -128,11 +128,15 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     /** Sets whether the given CSS class should be applied to the MDC chip. */
     private _setMdcClass;
     /** Forwards interaction events to the MDC chip foundation. */
-    _handleInteraction(event: MouseEvent | KeyboardEvent): void;
+    _handleInteraction(event: MouseEvent | KeyboardEvent | FocusEvent): void;
     /** Whether or not the ripple should be disabled. */
     _isRippleDisabled(): boolean;
     _notifyInteraction(): void;
     _notifyNavigation(): void;
+    /** Overridden by MatChipRow. */
+    protected _onEditStart(): void;
+    /** Overridden by MatChipRow. */
+    protected _onEditFinish(): void;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_removable: BooleanInput;
     static ngAcceptInputType_highlighted: BooleanInput;
