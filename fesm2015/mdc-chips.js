@@ -1097,7 +1097,7 @@ class MatChipSet extends _MatChipSetMixinBase {
     }
     /** Checks whether any of the chips is focused. */
     _hasFocusedChip() {
-        return this._chips.some(chip => chip._hasFocus);
+        return this._chips && this._chips.some(chip => chip._hasFocus);
     }
     /** Syncs the chip-set's state with the individual chips. */
     _syncChipsState() {
@@ -2005,7 +2005,10 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    get empty() { return this._chipInput.empty && this._chips.length === 0; }
+    get empty() {
+        return (!this._chipInput || this._chipInput.empty) &&
+            (!this._chips || this._chips.length === 0);
+    }
     /** The ARIA role applied to the chip grid. */
     get role() { return this.empty ? null : 'grid'; }
     /**
