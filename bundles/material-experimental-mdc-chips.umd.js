@@ -1269,7 +1269,7 @@
         };
         /** Checks whether any of the chips is focused. */
         MatChipSet.prototype._hasFocusedChip = function () {
-            return this._chips.some(function (chip) { return chip._hasFocus; });
+            return this._chips && this._chips.some(function (chip) { return chip._hasFocus; });
         };
         /** Syncs the chip-set's state with the individual chips. */
         MatChipSet.prototype._syncChipsState = function () {
@@ -2264,7 +2264,10 @@
              * Implemented as part of MatFormFieldControl.
              * @docs-private
              */
-            get: function () { return this._chipInput.empty && this._chips.length === 0; },
+            get: function () {
+                return (!this._chipInput || this._chipInput.empty) &&
+                    (!this._chips || this._chips.length === 0);
+            },
             enumerable: false,
             configurable: true
         });
