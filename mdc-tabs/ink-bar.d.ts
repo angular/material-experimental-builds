@@ -33,12 +33,12 @@ export declare class MatInkBar {
  * @docs-private
  */
 export declare class MatInkBarFoundation {
-    private _hostElement;
+    readonly _hostElement: HTMLElement;
     private _document;
-    private _destroyed;
+    readonly _destroyed: boolean;
     private _foundation;
     private _inkBarElement;
-    private _inkBarContentElement;
+    readonly _inkBarContentElement: HTMLElement;
     private _fitToContent;
     private _adapter;
     constructor(_hostElement: HTMLElement, _document: Document);

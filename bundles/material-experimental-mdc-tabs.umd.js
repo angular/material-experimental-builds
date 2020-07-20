@@ -340,6 +340,32 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    var TabIndicatorAdapter = /** @class */ (function () {
+        function TabIndicatorAdapter(_delegate) {
+            this._delegate = _delegate;
+        }
+        TabIndicatorAdapter.prototype.addClass = function (className) {
+            if (!this._delegate._destroyed) {
+                this._delegate._hostElement.classList.add(className);
+            }
+        };
+        TabIndicatorAdapter.prototype.removeClass = function (className) {
+            if (!this._delegate._destroyed) {
+                this._delegate._hostElement.classList.remove(className);
+            }
+        };
+        TabIndicatorAdapter.prototype.setContentStyleProperty = function (propName, value) {
+            this._delegate._inkBarContentElement.style.setProperty(propName, value);
+        };
+        TabIndicatorAdapter.prototype.computeContentClientRect = function () {
+            // `getBoundingClientRect` isn't available on the server.
+            return this._delegate._destroyed ||
+                !this._delegate._inkBarContentElement.getBoundingClientRect ? {
+                width: 0, height: 0, top: 0, left: 0, right: 0, bottom: 0
+            } : this._delegate._inkBarContentElement.getBoundingClientRect();
+        };
+        return TabIndicatorAdapter;
+    }());
     /**
      * Abstraction around the MDC tab indicator that acts as the tab header's ink bar.
      * @docs-private
@@ -375,31 +401,10 @@
      */
     var MatInkBarFoundation = /** @class */ (function () {
         function MatInkBarFoundation(_hostElement, _document) {
-            var _this = this;
             this._hostElement = _hostElement;
             this._document = _document;
             this._fitToContent = false;
-            this._adapter = {
-                addClass: function (className) {
-                    if (!_this._destroyed) {
-                        _this._hostElement.classList.add(className);
-                    }
-                },
-                removeClass: function (className) {
-                    if (!_this._destroyed) {
-                        _this._hostElement.classList.remove(className);
-                    }
-                },
-                setContentStyleProperty: function (propName, value) {
-                    _this._inkBarContentElement.style.setProperty(propName, value);
-                },
-                computeContentClientRect: function () {
-                    // `getBoundingClientRect` isn't available on the server.
-                    return _this._destroyed || !_this._inkBarContentElement.getBoundingClientRect ? {
-                        width: 0, height: 0, top: 0, left: 0, right: 0, bottom: 0
-                    } : _this._inkBarContentElement.getBoundingClientRect();
-                }
-            };
+            this._adapter = new TabIndicatorAdapter(this);
             this._foundation = new tabIndicator.MDCSlidingTabIndicatorFoundation(this._adapter);
         }
         /** Aligns the ink bar to the current item. */
@@ -424,7 +429,8 @@
             if (this._inkBarElement.parentNode) {
                 this._inkBarElement.parentNode.removeChild(this._inkBarElement);
             }
-            this._hostElement = this._inkBarElement = this._inkBarContentElement = null;
+            this._hostElement = this._inkBarElement
+                = this._inkBarContentElement = null;
             this._foundation.destroy();
             this._destroyed = true;
         };
@@ -448,7 +454,8 @@
         /** Creates and appends the ink bar element. */
         MatInkBarFoundation.prototype._createInkBarElement = function () {
             this._inkBarElement = this._document.createElement('span');
-            this._inkBarContentElement = this._document.createElement('span');
+            this._inkBarContentElement
+                = this._document.createElement('span');
             this._inkBarElement.className = 'mdc-tab-indicator';
             this._inkBarContentElement.className = 'mdc-tab-indicator__content' +
                 ' mdc-tab-indicator__content--underline';
