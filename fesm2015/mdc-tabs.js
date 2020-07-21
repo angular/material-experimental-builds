@@ -109,31 +109,6 @@ MatTabLabel.decorators = [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-class TabIndicatorAdapter {
-    constructor(_delegate) {
-        this._delegate = _delegate;
-    }
-    addClass(className) {
-        if (!this._delegate._destroyed) {
-            this._delegate._hostElement.classList.add(className);
-        }
-    }
-    removeClass(className) {
-        if (!this._delegate._destroyed) {
-            this._delegate._hostElement.classList.remove(className);
-        }
-    }
-    setContentStyleProperty(propName, value) {
-        this._delegate._inkBarContentElement.style.setProperty(propName, value);
-    }
-    computeContentClientRect() {
-        // `getBoundingClientRect` isn't available on the server.
-        return this._delegate._destroyed ||
-            !this._delegate._inkBarContentElement.getBoundingClientRect ? {
-            width: 0, height: 0, top: 0, left: 0, right: 0, bottom: 0
-        } : this._delegate._inkBarContentElement.getBoundingClientRect();
-    }
-}
 /**
  * Abstraction around the MDC tab indicator that acts as the tab header's ink bar.
  * @docs-private
@@ -171,7 +146,27 @@ class MatInkBarFoundation {
         this._hostElement = _hostElement;
         this._document = _document;
         this._fitToContent = false;
-        this._adapter = new TabIndicatorAdapter(this);
+        this._adapter = {
+            addClass: className => {
+                if (!this._destroyed) {
+                    this._hostElement.classList.add(className);
+                }
+            },
+            removeClass: className => {
+                if (!this._destroyed) {
+                    this._hostElement.classList.remove(className);
+                }
+            },
+            setContentStyleProperty: (propName, value) => {
+                this._inkBarContentElement.style.setProperty(propName, value);
+            },
+            computeContentClientRect: () => {
+                // `getBoundingClientRect` isn't available on the server.
+                return this._destroyed || !this._inkBarContentElement.getBoundingClientRect ? {
+                    width: 0, height: 0, top: 0, left: 0, right: 0, bottom: 0
+                } : this._inkBarContentElement.getBoundingClientRect();
+            }
+        };
         this._foundation = new MDCSlidingTabIndicatorFoundation(this._adapter);
     }
     /** Aligns the ink bar to the current item. */
@@ -196,8 +191,7 @@ class MatInkBarFoundation {
         if (this._inkBarElement.parentNode) {
             this._inkBarElement.parentNode.removeChild(this._inkBarElement);
         }
-        this._hostElement = this._inkBarElement
-            = this._inkBarContentElement = null;
+        this._hostElement = this._inkBarElement = this._inkBarContentElement = null;
         this._foundation.destroy();
         this._destroyed = true;
     }
@@ -221,8 +215,7 @@ class MatInkBarFoundation {
     /** Creates and appends the ink bar element. */
     _createInkBarElement() {
         this._inkBarElement = this._document.createElement('span');
-        this._inkBarContentElement
-            = this._document.createElement('span');
+        this._inkBarContentElement = this._document.createElement('span');
         this._inkBarElement.className = 'mdc-tab-indicator';
         this._inkBarContentElement.className = 'mdc-tab-indicator__content' +
             ' mdc-tab-indicator__content--underline';
