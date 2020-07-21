@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
-import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, NgZone, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 /**
@@ -26,7 +26,6 @@ export declare class MatSliderChange {
 }
 export declare class MatSlider implements AfterViewInit, OnChanges, OnDestroy, ControlValueAccessor {
     private _elementRef;
-    private _changeDetectorRef;
     private _ngZone;
     private _platform;
     private _dir;
@@ -98,7 +97,7 @@ export declare class MatSlider implements AfterViewInit, OnChanges, OnDestroy, C
     _track: ElementRef<HTMLElement>;
     _pinValueMarker: ElementRef<HTMLElement>;
     _trackMarker: ElementRef<HTMLElement>;
-    constructor(_elementRef: ElementRef<HTMLElement>, _changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _platform: Platform, _dir: Directionality, tabIndex: string, _animationMode?: string | undefined);
+    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _platform: Platform, _dir: Directionality, tabIndex: string, _animationMode?: string | undefined);
     ngAfterViewInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     ngOnDestroy(): void;
