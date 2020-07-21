@@ -22,9 +22,13 @@
      * TODO(devversion): ideally MDC would expose the tick marker size as constant
      */
     var TICK_MARKER_SIZE = 2;
+    // TODO: disabled until we implement the new MDC slider.
     /** Event options used to bind passive listeners. */
+    // tslint:disable-next-line:no-unused-variable
     var passiveListenerOptions = platform.normalizePassiveListenerOptions({ passive: true });
+    // TODO: disabled until we implement the new MDC slider.
     /** Event options used to bind active listeners. */
+    // tslint:disable-next-line:no-unused-variable
     var activeListenerOptions = platform.normalizePassiveListenerOptions({ passive: false });
     /**
      * Provider Expression that allows mat-slider to register as a ControlValueAccessor.
@@ -43,10 +47,9 @@
         return MatSliderChange;
     }());
     var MatSlider = /** @class */ (function () {
-        function MatSlider(_elementRef, _changeDetectorRef, _ngZone, _platform, _dir, tabIndex, _animationMode) {
+        function MatSlider(_elementRef, _ngZone, _platform, _dir, tabIndex, _animationMode) {
             var _this = this;
             this._elementRef = _elementRef;
-            this._changeDetectorRef = _changeDetectorRef;
             this._ngZone = _ngZone;
             this._platform = _platform;
             this._dir = _dir;
@@ -74,84 +77,35 @@
             this._disabled = false;
             /** Adapter for the MDC slider foundation. */
             this._sliderAdapter = {
-                hasClass: function (className) { return _this._elementRef.nativeElement.classList.contains(className); },
-                addClass: function (className) { return _this._elementRef.nativeElement.classList.add(className); },
-                removeClass: function (className) { return _this._elementRef.nativeElement.classList.remove(className); },
-                getAttribute: function (name) { return _this._elementRef.nativeElement.getAttribute(name); },
-                setAttribute: function (name, value) { return _this._elementRef.nativeElement.setAttribute(name, value); },
-                removeAttribute: function (name) { return _this._elementRef.nativeElement.removeAttribute(name); },
-                computeBoundingRect: function () { return _this._elementRef.nativeElement.getBoundingClientRect(); },
-                getTabIndex: function () { return _this._elementRef.nativeElement.tabIndex; },
-                registerInteractionHandler: function (evtType, handler) {
-                    // Interaction event handlers (which handle keyboard interaction) cannot be passive
-                    // as they will prevent the default behavior. Additionally we can't run these event
-                    // handlers outside of the Angular zone because we rely on the events to cause the
-                    // component tree to be re-checked.
-                    // TODO: take in the event listener options from the adapter once MDC supports it.
-                    return _this._elementRef.nativeElement.addEventListener(evtType, handler, activeListenerOptions);
-                },
-                deregisterInteractionHandler: function (evtType, handler) {
-                    return _this._elementRef.nativeElement.removeEventListener(evtType, handler);
-                },
-                registerThumbContainerInteractionHandler: function (evtType, handler) {
-                    // The thumb container interaction handlers are currently just used for transition
-                    // events which don't need to run in the Angular zone.
-                    _this._ngZone.runOutsideAngular(function () {
-                        _this._thumbContainer.nativeElement
-                            .addEventListener(evtType, handler, passiveListenerOptions);
-                    });
-                },
-                deregisterThumbContainerInteractionHandler: function (evtType, handler) {
-                    _this._thumbContainer.nativeElement
-                        .removeEventListener(evtType, handler, passiveListenerOptions);
-                },
-                registerBodyInteractionHandler: function (evtType, handler) {
-                    // Body event handlers (which handle thumb sliding) cannot be passive as they will
-                    // prevent the default behavior. Additionally we can't run these event handlers
-                    // outside of the Angular zone because we rely on the events to cause the component
-                    // tree to be re-checked.
-                    return document.body.addEventListener(evtType, handler);
-                },
-                deregisterBodyInteractionHandler: function (evtType, handler) {
-                    return document.body.removeEventListener(evtType, handler);
-                },
-                registerResizeHandler: function (handler) {
-                    // The resize handler is currently responsible for detecting slider dimension
-                    // changes and therefore doesn't cause a value change that needs to be propagated.
-                    _this._ngZone.runOutsideAngular(function () { return window.addEventListener('resize', handler); });
-                },
-                deregisterResizeHandler: function (handler) { return window.removeEventListener('resize', handler); },
-                notifyInput: function () {
-                    var newValue = _this._foundation.getValue();
-                    // MDC currently fires the input event multiple times.
-                    // TODO(devversion): remove this check once the input notifications are fixed.
-                    if (newValue !== _this.value) {
-                        _this.value = newValue;
-                        _this.input.emit(_this._createChangeEvent(newValue));
-                    }
-                },
-                notifyChange: function () {
-                    // TODO(devversion): bug in MDC where only the "change" event is emitted if a keypress
-                    // updated the value. Material and native range sliders also emit an input event.
-                    // Usually we sync the "value" in the "input" event, but as a workaround we now sync
-                    // the value in the "change" event.
-                    _this.value = _this._foundation.getValue();
-                    _this._emitChangeEvent(_this.value);
-                },
-                setThumbContainerStyleProperty: function (propertyName, value) {
-                    _this._thumbContainer.nativeElement.style.setProperty(propertyName, value);
-                },
-                setTrackStyleProperty: function (propertyName, value) {
-                    _this._track.nativeElement.style.setProperty(propertyName, value);
-                },
-                setMarkerValue: function () {
-                    // Mark the component for check as the thumb label needs to be re-rendered.
-                    _this._changeDetectorRef.markForCheck();
-                },
-                setTrackMarkers: function (step, max, min) {
-                    _this._trackMarker.nativeElement.style.setProperty('background', _this._getTrackMarkersBackground(min, max, step));
-                },
-                isRTL: function () { return _this._isRtl(); },
+                hasClass: function (_className) { return false; },
+                addClass: function (_className) { },
+                removeClass: function (_className) { },
+                getAttribute: function (_attribute) { return null; },
+                addThumbClass: function (_className, _thumb) { },
+                removeThumbClass: function (_className, _thumb) { },
+                getThumbAttribute: function (_attribute, _thumb) { return null; },
+                setThumbAttribute: function (_attribute, _value, _thumb) { },
+                getThumbKnobWidth: function (_thumb) { return 0; },
+                isThumbFocused: function (_thumb) { return false; },
+                focusThumb: function (_thumb) { },
+                getThumbBoundingClientRect: function (_thumb) { return null; },
+                getBoundingClientRect: function () { return null; },
+                isRTL: function () { return false; },
+                setThumbStyleProperty: function (_propertyName, _value, _thumb) { },
+                setTrackActiveStyleProperty: function (_propertyName, _value) { },
+                setValueIndicatorText: function (_value, _thumb) { },
+                updateTickMarks: function () { },
+                setPointerCapture: function (_pointerId) { },
+                emitChangeEvent: function (_value, _thumb) { },
+                emitInputEvent: function (_value, _thumb) { },
+                registerEventHandler: function () { },
+                deregisterEventHandler: function () { },
+                registerThumbEventHandler: function () { },
+                deregisterThumbEventHandler: function () { },
+                registerBodyEventHandler: function () { },
+                deregisterBodyEventHandler: function () { },
+                registerWindowEventHandler: function () { },
+                deregisterWindowEventHandler: function () { },
             };
             /** Instance of the MDC slider foundation for this slider. */
             this._foundation = new slider.MDCSliderFoundation(this._sliderAdapter);
@@ -274,7 +228,7 @@
                 // The MDC slider foundation accesses DOM globals, so we cannot initialize the
                 // foundation on the server. The foundation would be needed to move the thumb
                 // to the proper position and to render the ticks.
-                this._foundation.init();
+                // this._foundation.init();
                 // The standard Angular Material slider is always using discrete values. We always
                 // want to enable discrete values and support ticks, but want to still provide
                 // non-discrete slider visual looks if thumb label is disabled.
@@ -349,13 +303,17 @@
             event.value = newValue;
             return event;
         };
+        // TODO: disabled until we implement the new MDC slider.
         /** Emits a change event and notifies the control value accessor. */
+        // tslint:disable-next-line:no-unused-variable
         MatSlider.prototype._emitChangeEvent = function (newValue) {
             this._controlValueAccessorChangeFn(newValue);
             this.valueChange.emit(newValue);
             this.change.emit(this._createChangeEvent(newValue));
         };
+        // TODO: disabled until we implement the new MDC slider.
         /** Computes the CSS background value for the track markers (aka ticks). */
+        // tslint:disable-next-line:no-unused-variable
         MatSlider.prototype._getTrackMarkersBackground = function (min, max, step) {
             if (!this.tickInterval) {
                 return '';
@@ -381,27 +339,33 @@
             // the markers dynamically. This is a workaround until we can get a public API for it. See:
             // https://github.com/material-components/material-components-web/issues/5020
             this._foundation.hasTrackMarker_ = this.tickInterval !== 0;
-            this._foundation.setupTrackMarker();
+            // TODO: disabled until we implement the new MDC slider.
+            // this._foundation.setupTrackMarker();
         };
         /** Syncs the "step" input value with the MDC foundation. */
         MatSlider.prototype._syncStep = function () {
-            this._foundation.setStep(this.step);
+            // TODO: disabled until we implement the new MDC slider.
+            // this._foundation.setStep(this.step);
         };
         /** Syncs the "max" input value with the MDC foundation. */
         MatSlider.prototype._syncMax = function () {
-            this._foundation.setMax(this.max);
+            // TODO: disabled until we implement the new MDC slider.
+            // this._foundation.setMax(this.max);
         };
         /** Syncs the "min" input value with the MDC foundation. */
         MatSlider.prototype._syncMin = function () {
-            this._foundation.setMin(this.min);
+            // TODO: disabled until we implement the new MDC slider.
+            // this._foundation.setMin(this.min);
         };
         /** Syncs the "value" input binding with the MDC foundation. */
         MatSlider.prototype._syncValue = function () {
-            this._foundation.setValue(this.value);
+            // TODO: disabled until we implement the new MDC slider.
+            // this._foundation.setValue(this.value!);
         };
         /** Syncs the "disabled" input value with the MDC foundation. */
         MatSlider.prototype._syncDisabled = function () {
-            this._foundation.setDisabled(this.disabled);
+            // TODO: disabled until we implement the new MDC slider.
+            // this._foundation.setDisabled(this.disabled);
         };
         /** Whether the slider is displayed in RTL-mode. */
         MatSlider.prototype._isRtl = function () {
@@ -444,7 +408,7 @@
         MatSlider.decorators = [
             { type: core.Component, args: [{
                         selector: 'mat-slider',
-                        template: "<div class=\"mdc-slider__track-container\">\n  <div class=\"mdc-slider__track\" #track></div>\n  <div class=\"mdc-slider__track-marker-container\" #trackMarker></div>\n</div>\n<div class=\"mdc-slider__thumb-container\" #thumbContainer>\n  <div *ngIf=\"thumbLabel\" class=\"mdc-slider__pin\">\n    <span class=\"mdc-slider__pin-value-marker\">{{displayValue}}</span>\n  </div>\n  <svg class=\"mdc-slider__thumb\" focusable=\"false\" width=\"21\" height=\"21\">\n    <circle cx=\"10.5\" cy=\"10.5\" r=\"7.875\"></circle>\n  </svg>\n  <div class=\"mdc-slider__focus-ring\"></div>\n</div>\n",
+                        template: "<!-- TODO: to be implemented as a part of the new MDC slider -->\n",
                         host: {
                             'class': 'mat-mdc-slider mdc-slider mat-mdc-focus-indicator',
                             'role': 'slider',
@@ -470,12 +434,11 @@
                         encapsulation: core.ViewEncapsulation.None,
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         providers: [MAT_SLIDER_VALUE_ACCESSOR],
-                        styles: [".mdc-slider{position:relative;width:100%;height:48px;cursor:pointer;touch-action:pan-x;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-slider--disable-touch-action{touch-action:none}.mdc-slider--disabled{cursor:auto}.mdc-slider:focus{outline:none}.mdc-slider__track-container{position:absolute;top:50%;width:100%;height:2px;overflow:hidden}.mdc-slider__track-container::after{position:absolute;top:0;left:0;display:block;width:100%;height:100%;content:\"\"}.mdc-slider__track{position:absolute;width:100%;height:100%;transform-origin:left top}.mdc-slider[dir=rtl] .mdc-slider__track,[dir=rtl] .mdc-slider .mdc-slider__track{transform-origin:right top}.mdc-slider__track-marker-container{display:flex;margin-right:0;margin-left:-1px;visibility:hidden}.mdc-slider[dir=rtl] .mdc-slider__track-marker-container,[dir=rtl] .mdc-slider .mdc-slider__track-marker-container{margin-right:-1px;margin-left:0}.mdc-slider__track-marker-container::after{display:block;width:2px;height:2px;content:\"\"}.mdc-slider__track-marker{flex:1}.mdc-slider__track-marker::after{display:block;width:2px;height:2px;content:\"\"}.mdc-slider__track-marker:first-child::after{width:3px}.mdc-slider__thumb-container{position:absolute;top:15px;left:0;width:21px;height:100%;user-select:none}.mdc-slider__thumb{position:absolute;top:0;left:0;transform:scale(0.571);stroke-width:3.5}.mdc-slider__focus-ring{width:21px;height:21px;border-radius:50%;opacity:0}.mdc-slider__pin{display:flex;position:absolute;top:0;left:0;align-items:center;justify-content:center;width:26px;height:26px;margin-top:-2px;margin-left:-2px;transform:rotate(-45deg) scale(0) translate(0, 0);border-radius:50% 50% 50% 0%;z-index:1}.mdc-slider__pin-value-marker{transform:rotate(45deg)}.mdc-slider--active .mdc-slider__thumb{transform:scale3d(1, 1, 1)}.mdc-slider--focus .mdc-slider__focus-ring{transform:scale3d(1.55, 1.55, 1.55);opacity:.25}.mdc-slider--discrete.mdc-slider--active .mdc-slider__thumb{transform:scale(calc(12 / 21))}.mdc-slider--discrete.mdc-slider--active .mdc-slider__pin{transform:rotate(-45deg) scale(1) translate(19px, -20px)}.mdc-slider--discrete.mdc-slider--display-markers .mdc-slider__track-marker-container{visibility:visible}.mat-mdc-slider{display:inline-block;box-sizing:border-box;outline:none;vertical-align:middle;margin-left:8px;margin-right:8px;width:auto;min-width:112px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__track-container{height:0;outline:solid 2px;margin-top:1px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__pin-value-marker{outline:solid 1px}@keyframes mdc-slider-emphasize{0%{animation-timing-function:ease-out}50%{animation-timing-function:ease-in;transform:scale(0.85)}100%{transform:scale(0.571)}}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__track{will-change:transform}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__thumb-container{will-change:transform}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__thumb{transition:transform 100ms ease-out,fill 100ms ease-out,stroke 100ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__focus-ring{transition:transform 266.67ms ease-out,opacity 266.67ms ease-out,background-color 266.67ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider__pin{transition:transform 100ms ease-out}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--focus .mdc-slider__thumb{animation:mdc-slider-emphasize 266.67ms linear}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__thumb{transition-delay:140ms}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__thumb-container,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--in-transit .mdc-slider__track,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__thumb-container,.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__track{transition:transform 80ms ease}.mat-mdc-slider:not(._mat-animation-noopable) .mdc-slider--discrete.mdc-slider--focus .mdc-slider__thumb{animation:none}.mat-slider-has-ticks:not(.mat-slider-disabled) .mdc-slider__track-marker-container{visibility:visible}\n"]
+                        styles: [".mat-mdc-slider{display:inline-block;box-sizing:border-box;outline:none;vertical-align:middle;margin-left:8px;margin-right:8px;width:auto;min-width:112px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__track-container{height:0;outline:solid 2px;margin-top:1px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__pin-value-marker{outline:solid 1px}.mat-slider-has-ticks:not(.mat-slider-disabled) .mdc-slider__track-marker-container{visibility:visible}\n"]
                     },] }
         ];
         MatSlider.ctorParameters = function () { return [
             { type: core.ElementRef },
-            { type: core.ChangeDetectorRef },
             { type: core.NgZone },
             { type: platform.Platform },
             { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
