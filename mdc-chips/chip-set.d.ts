@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directionality } from '@angular/cdk/bidi';
-import { BooleanInput } from '@angular/cdk/coercion';
+import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
 import { HasTabIndex, HasTabIndexCtor } from '@angular/material/core';
 import { MDCChipSetAdapter, MDCChipSetFoundation } from '@material/chips';
@@ -122,5 +122,6 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     protected _originatesFromEditingChip(event: Event): boolean;
     private _checkForClassInHierarchy;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ngAcceptInputType_tabIndex: NumberInput;
 }
 export {};

@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { BooleanInput } from '@angular/cdk/coercion';
+import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy } from '@angular/core';
 import { CanDisable, CanDisableCtor, HasTabIndex, HasTabIndexCtor } from '@angular/material/core';
 import { Subject } from 'rxjs';
@@ -84,5 +84,6 @@ export declare class MatChipRemove extends _MatChipRemoveMixinBase implements Ca
     interaction: Subject<MouseEvent | KeyboardEvent>;
     constructor(elementRef: ElementRef);
     static ngAcceptInputType_disabled: BooleanInput;
+    static ngAcceptInputType_tabIndex: NumberInput;
 }
 export {};

@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directionality } from '@angular/cdk/bidi';
-import { BooleanInput } from '@angular/cdk/coercion';
+import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
 import { CanColor, CanColorCtor, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig } from '@angular/material/core';
 import { MDCChipAdapter, MDCChipFoundation } from '@material/chips';
@@ -141,5 +141,6 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     static ngAcceptInputType_removable: BooleanInput;
     static ngAcceptInputType_highlighted: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
+    static ngAcceptInputType_tabIndex: NumberInput;
 }
 export {};
