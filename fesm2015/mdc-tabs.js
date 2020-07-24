@@ -495,7 +495,7 @@ MatTabNav.ctorParameters = () => [
     { type: NgZone },
     { type: ChangeDetectorRef },
     { type: ViewportRuler },
-    { type: Platform, decorators: [{ type: Optional }] },
+    { type: Platform },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_TABS_CONFIG,] }] }
 ];
