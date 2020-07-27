@@ -261,7 +261,10 @@
                         host: {
                             'class': 'mat-mdc-table mdc-data-table__table',
                         },
-                        providers: [{ provide: table.CdkTable, useExisting: MatTable }],
+                        providers: [
+                            { provide: table.CdkTable, useExisting: MatTable },
+                            table._CoalescedStyleScheduler,
+                        ],
                         encapsulation: core.ViewEncapsulation.None,
                         // See note on CdkTable for explanation on why this uses the default change detection strategy.
                         // tslint:disable-next-line:validate-decorators
