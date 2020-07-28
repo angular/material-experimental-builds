@@ -361,7 +361,7 @@ class MatChip extends _MatChipMixinBase {
     _handleTransitionEnd(event) {
         this._chipFoundation.handleTransitionEnd(event);
     }
-    get _hasFocus() {
+    _hasFocus() {
         return this._hasFocusInternal;
     }
     get disabled() { return this._disabled; }
@@ -669,7 +669,7 @@ class MatChipOption extends MatChip {
         if (this.disabled) {
             return;
         }
-        if (!this._hasFocus) {
+        if (!this._hasFocus()) {
             this._elementRef.nativeElement.focus();
             this._onFocus.next({ chip: this });
         }
@@ -869,7 +869,7 @@ class MatChipRow extends MatChip {
         this._hasFocusInternal = false;
         // Wait to see if focus moves to the other gridcell
         setTimeout(() => {
-            if (this._hasFocus) {
+            if (this._hasFocus()) {
                 return;
             }
             this._onBlur.next({ chip: this });
@@ -1097,7 +1097,7 @@ class MatChipSet extends _MatChipSetMixinBase {
     }
     /** Checks whether any of the chips is focused. */
     _hasFocusedChip() {
-        return this._chips && this._chips.some(chip => chip._hasFocus);
+        return this._chips && this._chips.some(chip => chip._hasFocus());
     }
     /** Syncs the chip-set's state with the individual chips. */
     _syncChipsState() {
@@ -1147,7 +1147,7 @@ class MatChipSet extends _MatChipSetMixinBase {
             // In case the chip that will be removed is currently focused, we temporarily store
             // the index in order to be able to determine an appropriate sibling chip that will
             // receive focus.
-            if (this._isValidIndex(chipIndex) && chip._hasFocus) {
+            if (this._isValidIndex(chipIndex) && chip._hasFocus()) {
                 this._lastDestroyedChipIndex = chipIndex;
             }
         });
