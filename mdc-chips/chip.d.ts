@@ -59,7 +59,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     /** Whether animations for the chip are enabled. */
     _animationsDisabled: boolean;
     _handleTransitionEnd(event: TransitionEvent): void;
-    get _hasFocus(): boolean;
+    _hasFocus(): boolean;
     /** Default unique id for the chip. */
     private _uniqueId;
     /** A unique id for the chip. If none is supplied, it will be auto-generated. */

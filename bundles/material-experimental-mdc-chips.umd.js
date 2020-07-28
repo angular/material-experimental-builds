@@ -604,13 +604,9 @@
         MatChip.prototype._handleTransitionEnd = function (event) {
             this._chipFoundation.handleTransitionEnd(event);
         };
-        Object.defineProperty(MatChip.prototype, "_hasFocus", {
-            get: function () {
-                return this._hasFocusInternal;
-            },
-            enumerable: false,
-            configurable: true
-        });
+        MatChip.prototype._hasFocus = function () {
+            return this._hasFocusInternal;
+        };
         Object.defineProperty(MatChip.prototype, "disabled", {
             get: function () { return this._disabled; },
             set: function (value) {
@@ -952,7 +948,7 @@
             if (this.disabled) {
                 return;
             }
-            if (!this._hasFocus) {
+            if (!this._hasFocus()) {
                 this._elementRef.nativeElement.focus();
                 this._onFocus.next({ chip: this });
             }
@@ -1159,7 +1155,7 @@
             this._hasFocusInternal = false;
             // Wait to see if focus moves to the other gridcell
             setTimeout(function () {
-                if (_this._hasFocus) {
+                if (_this._hasFocus()) {
                     return;
                 }
                 _this._onBlur.next({ chip: _this });
@@ -1422,7 +1418,7 @@
         };
         /** Checks whether any of the chips is focused. */
         MatChipSet.prototype._hasFocusedChip = function () {
-            return this._chips && this._chips.some(function (chip) { return chip._hasFocus; });
+            return this._chips && this._chips.some(function (chip) { return chip._hasFocus(); });
         };
         /** Syncs the chip-set's state with the individual chips. */
         MatChipSet.prototype._syncChipsState = function () {
@@ -1475,7 +1471,7 @@
                 // In case the chip that will be removed is currently focused, we temporarily store
                 // the index in order to be able to determine an appropriate sibling chip that will
                 // receive focus.
-                if (_this._isValidIndex(chipIndex) && chip._hasFocus) {
+                if (_this._isValidIndex(chipIndex) && chip._hasFocus()) {
                     _this._lastDestroyedChipIndex = chipIndex;
                 }
             });
