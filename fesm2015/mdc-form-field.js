@@ -361,10 +361,10 @@ class MatFormField {
         this.color = 'primary';
         this._appearance = DEFAULT_APPEARANCE;
         this._hintLabel = '';
-        // Unique id for the hint label.
-        this._hintLabelId = `mat-mdc-hint-${nextUniqueId$2++}`;
         // Unique id for the internal form field label.
         this._labelId = `mat-mdc-form-field-label-${nextUniqueId$2++}`;
+        // Unique id for the hint label.
+        this._hintLabelId = `mat-mdc-hint-${nextUniqueId$2++}`;
         /** State of the mat-hint and mat-error animations. */
         this._subscriptAnimationState = '';
         this._destroyed = new Subject();
@@ -523,6 +523,12 @@ class MatFormField {
     ngOnDestroy() {
         this._destroyed.next();
         this._destroyed.complete();
+    }
+    /**
+     * Gets the id of the label element. If no label is present, returns `null`.
+     */
+    getLabelId() {
+        return this._hasFloatingLabel() ? this._labelId : null;
     }
     /**
      * Gets an ElementRef for the element that a overlay attached to the form-field

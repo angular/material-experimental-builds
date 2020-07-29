@@ -74,8 +74,8 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     get hintLabel(): string;
     set hintLabel(value: string);
     private _hintLabel;
-    _hintLabelId: string;
-    _labelId: string;
+    readonly _labelId: string;
+    readonly _hintLabelId: string;
     /** State of the mat-hint and mat-error animations. */
     _subscriptAnimationState: string;
     /** Width of the outline notch. */
@@ -94,6 +94,10 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     ngAfterContentInit(): void;
     ngAfterContentChecked(): void;
     ngOnDestroy(): void;
+    /**
+     * Gets the id of the label element. If no label is present, returns `null`.
+     */
+    getLabelId(): string | null;
     /**
      * Gets an ElementRef for the element that a overlay attached to the form-field
      * should be positioned relative to.
