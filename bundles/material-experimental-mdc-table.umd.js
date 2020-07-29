@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/table'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table', ['exports', '@angular/core', '@angular/cdk/table', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = {}), global.ng.core, global.ng.cdk.table, global.ng.material.core));
-}(this, (function (exports, core, table, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/table'), require('@angular/cdk/collections'), require('@angular/material/core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table', ['exports', '@angular/core', '@angular/cdk/table', '@angular/cdk/collections', '@angular/material/core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = {}), global.ng.core, global.ng.cdk.table, global.ng.cdk.collections, global.ng.material.core));
+}(this, (function (exports, core, table, collections, core$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -264,6 +264,9 @@
                         providers: [
                             { provide: table.CdkTable, useExisting: MatTable },
                             table._CoalescedStyleScheduler,
+                            // TODO(michaeljamesparsons) Abstract the view repeater strategy to a directive API so this code
+                            //  is only included in the build if used.
+                            { provide: collections._VIEW_REPEATER_STRATEGY, useClass: collections._DisposeViewRepeaterStrategy },
                         ],
                         encapsulation: core.ViewEncapsulation.None,
                         // See note on CdkTable for explanation on why this uses the default change detection strategy.
