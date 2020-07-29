@@ -310,7 +310,7 @@
             { type: core.ElementRef },
             { type: core.ChangeDetectorRef },
             { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_OPTION_PARENT_COMPONENT,] }] },
-            { type: MatOptgroup, decorators: [{ type: core.Optional }] }
+            { type: MatOptgroup, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_OPTGROUP,] }] }
         ]; };
         return MatOption;
     }(core$1._MatOptionBase));

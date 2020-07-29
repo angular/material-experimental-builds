@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { _MatOptgroupBase, _MatOptionBase, MAT_OPTION_PARENT_COMPONENT, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
+import { _MatOptgroupBase, _MatOptionBase, MAT_OPTION_PARENT_COMPONENT, MAT_OPTGROUP, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
 export { MAT_OPTION_PARENT_COMPONENT, MatOptionSelectionChange, _countGroupLabelsBeforeOption, _getOptionScrollPosition } from '@angular/material/core';
 
 /**
@@ -76,7 +76,7 @@ MatOption.ctorParameters = () => [
     { type: ElementRef },
     { type: ChangeDetectorRef },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_OPTION_PARENT_COMPONENT,] }] },
-    { type: MatOptgroup, decorators: [{ type: Optional }] }
+    { type: MatOptgroup, decorators: [{ type: Optional }, { type: Inject, args: [MAT_OPTGROUP,] }] }
 ];
 
 /**
