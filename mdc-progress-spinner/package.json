@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material-experimental/mdc-progress-spinner",
+  "main": "../bundles/material-experimental-mdc-progress-spinner.umd.js",
+  "fesm2015": "../fesm2015/mdc-progress-spinner.js",
+  "esm2015": "../esm2015/mdc-progress-spinner/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/mdc-progress-spinner.js",
+  "es2015": "../fesm2015/mdc-progress-spinner.js"
+}
