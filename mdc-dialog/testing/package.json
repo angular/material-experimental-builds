@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material-experimental/mdc-dialog/testing",
+  "main": "../../bundles/material-experimental-mdc-dialog-testing.umd.js",
+  "fesm2015": "../../fesm2015/mdc-dialog/testing.js",
+  "esm2015": "../../esm2015/mdc-dialog/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/mdc-dialog/testing.js",
+  "es2015": "../../fesm2015/mdc-dialog/testing.js"
+}
