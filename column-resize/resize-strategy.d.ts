@@ -6,13 +6,14 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Provider } from '@angular/core';
+import { CdkTable, _CoalescedStyleScheduler } from '@angular/cdk/table';
 import { ColumnResize, CdkFlexTableResizeStrategy, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER };
 /**
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 export declare class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
-    constructor(columnResize: ColumnResize, document: any);
+    constructor(columnResize: ColumnResize, styleScheduler: _CoalescedStyleScheduler, table: CdkTable<unknown>, document: any);
     protected getColumnCssClass(cssFriendlyColumnName: string): string;
 }
 export declare const FLEX_RESIZE_STRATEGY_PROVIDER: Provider;

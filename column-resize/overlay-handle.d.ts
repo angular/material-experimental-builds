@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ElementRef, NgZone } from '@angular/core';
-import { CdkColumnDef } from '@angular/cdk/table';
+import { CdkColumnDef, _CoalescedStyleScheduler } from '@angular/cdk/table';
 import { Directionality } from '@angular/cdk/bidi';
 import { ColumnResize, ColumnResizeNotifierSource, HeaderRowEventDispatcher, ResizeOverlayHandle, ResizeRef } from '@angular/cdk-experimental/column-resize';
 /**
@@ -22,7 +22,8 @@ export declare class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
     protected readonly ngZone: NgZone;
     protected readonly resizeNotifier: ColumnResizeNotifierSource;
     protected readonly resizeRef: ResizeRef;
+    protected readonly styleScheduler: _CoalescedStyleScheduler;
     protected readonly document: Document;
-    constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, resizeNotifier: ColumnResizeNotifierSource, resizeRef: ResizeRef, document: any);
+    constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, resizeNotifier: ColumnResizeNotifierSource, resizeRef: ResizeRef, styleScheduler: _CoalescedStyleScheduler, document: any);
     protected updateResizeActive(active: boolean): void;
 }
