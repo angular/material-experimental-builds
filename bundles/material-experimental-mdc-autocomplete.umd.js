@@ -14,14 +14,14 @@
     var MatAutocompleteModule = /** @class */ (function () {
         function MatAutocompleteModule() {
         }
-        MatAutocompleteModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [core$1.MatCommonModule],
-                        exports: [core$1.MatCommonModule],
-                    },] }
-        ];
         return MatAutocompleteModule;
     }());
+    MatAutocompleteModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [core$1.MatCommonModule],
+                    exports: [core$1.MatCommonModule],
+                },] }
+    ];
 
     /**
      * @license

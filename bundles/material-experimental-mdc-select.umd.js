@@ -14,14 +14,14 @@
     var MatSelectModule = /** @class */ (function () {
         function MatSelectModule() {
         }
-        MatSelectModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [core$1.MatCommonModule],
-                        exports: [core$1.MatCommonModule],
-                    },] }
-        ];
         return MatSelectModule;
     }());
+    MatSelectModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [core$1.MatCommonModule],
+                    exports: [core$1.MatCommonModule],
+                },] }
+    ];
 
     /**
      * @license
