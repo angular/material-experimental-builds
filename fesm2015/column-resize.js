@@ -2,9 +2,9 @@ import { Injectable, Inject, Directive, ElementRef, NgZone, Component, ChangeDet
 import { CdkFlexTableResizeStrategy, ColumnResize, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { DOCUMENT } from '@angular/common';
+import { _CoalescedStyleScheduler, CdkTable, CdkColumnDef } from '@angular/cdk/table';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
-import { CdkColumnDef } from '@angular/cdk/table';
 
 /**
  * @license
@@ -17,8 +17,8 @@ import { CdkColumnDef } from '@angular/cdk/table';
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
-    constructor(columnResize, document) {
-        super(columnResize, document);
+    constructor(columnResize, styleScheduler, table, document) {
+        super(columnResize, styleScheduler, table, document);
     }
     getColumnCssClass(cssFriendlyColumnName) {
         return `mat-column-${cssFriendlyColumnName}`;
@@ -29,6 +29,8 @@ MatFlexTableResizeStrategy.decorators = [
 ];
 MatFlexTableResizeStrategy.ctorParameters = () => [
     { type: ColumnResize },
+    { type: _CoalescedStyleScheduler },
+    { type: CdkTable },
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 const FLEX_RESIZE_STRATEGY_PROVIDER = {
@@ -233,7 +235,7 @@ MatDefaultEnabledColumnResizeFlex.ctorParameters = () => [
  * for handling column resize mouse events and displaying a vertical line along the column edge.
  */
 class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
-    constructor(columnDef, columnResize, directionality, elementRef, eventDispatcher, ngZone, resizeNotifier, resizeRef, document) {
+    constructor(columnDef, columnResize, directionality, elementRef, eventDispatcher, ngZone, resizeNotifier, resizeRef, styleScheduler, document) {
         super();
         this.columnDef = columnDef;
         this.columnResize = columnResize;
@@ -243,6 +245,7 @@ class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
         this.ngZone = ngZone;
         this.resizeNotifier = resizeNotifier;
         this.resizeRef = resizeRef;
+        this.styleScheduler = styleScheduler;
         this.document = document;
     }
     updateResizeActive(active) {
@@ -271,6 +274,7 @@ MatColumnResizeOverlayHandle.ctorParameters = () => [
     { type: NgZone },
     { type: ColumnResizeNotifierSource },
     { type: ResizeRef },
+    { type: _CoalescedStyleScheduler },
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 
@@ -313,7 +317,7 @@ const RESIZABLE_INPUTS = [
  * is present.
  */
 class MatDefaultResizable extends AbstractMatResizable {
-    constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef, changeDetectorRef) {
+    constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, styleScheduler, viewContainerRef, changeDetectorRef) {
         super();
         this.columnDef = columnDef;
         this.columnResize = columnResize;
@@ -325,6 +329,7 @@ class MatDefaultResizable extends AbstractMatResizable {
         this.overlay = overlay;
         this.resizeNotifier = resizeNotifier;
         this.resizeStrategy = resizeStrategy;
+        this.styleScheduler = styleScheduler;
         this.viewContainerRef = viewContainerRef;
         this.changeDetectorRef = changeDetectorRef;
         this.document = document;
@@ -349,6 +354,7 @@ MatDefaultResizable.ctorParameters = () => [
     { type: Overlay },
     { type: ColumnResizeNotifierSource },
     { type: ResizeStrategy },
+    { type: _CoalescedStyleScheduler },
     { type: ViewContainerRef },
     { type: ChangeDetectorRef }
 ];
@@ -364,7 +370,7 @@ MatDefaultResizable.ctorParameters = () => [
  * Explicitly enables column resizing for a mat-header-cell.
  */
 class MatResizable extends AbstractMatResizable {
-    constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, viewContainerRef, changeDetectorRef) {
+    constructor(columnDef, columnResize, directionality, document, elementRef, eventDispatcher, injector, ngZone, overlay, resizeNotifier, resizeStrategy, styleScheduler, viewContainerRef, changeDetectorRef) {
         super();
         this.columnDef = columnDef;
         this.columnResize = columnResize;
@@ -376,6 +382,7 @@ class MatResizable extends AbstractMatResizable {
         this.overlay = overlay;
         this.resizeNotifier = resizeNotifier;
         this.resizeStrategy = resizeStrategy;
+        this.styleScheduler = styleScheduler;
         this.viewContainerRef = viewContainerRef;
         this.changeDetectorRef = changeDetectorRef;
         this.document = document;
@@ -400,6 +407,7 @@ MatResizable.ctorParameters = () => [
     { type: Overlay },
     { type: ColumnResizeNotifierSource },
     { type: ResizeStrategy },
+    { type: _CoalescedStyleScheduler },
     { type: ViewContainerRef },
     { type: ChangeDetectorRef }
 ];
