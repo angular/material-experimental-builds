@@ -14,14 +14,14 @@
     var MatSidenavModule = /** @class */ (function () {
         function MatSidenavModule() {
         }
-        MatSidenavModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [core$1.MatCommonModule],
-                        exports: [core$1.MatCommonModule],
-                    },] }
-        ];
         return MatSidenavModule;
     }());
+    MatSidenavModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [core$1.MatCommonModule],
+                    exports: [core$1.MatCommonModule],
+                },] }
+    ];
 
     /**
      * @license

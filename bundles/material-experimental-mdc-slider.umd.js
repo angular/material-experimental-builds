@@ -405,67 +405,67 @@
             this.value = value;
             this._syncValue();
         };
-        MatSlider.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'mat-slider',
-                        template: "<!-- TODO: to be implemented as a part of the new MDC slider -->\n",
-                        host: {
-                            'class': 'mat-mdc-slider mdc-slider mat-mdc-focus-indicator',
-                            'role': 'slider',
-                            'aria-orientation': 'horizontal',
-                            // The tabindex if the slider turns disabled is managed by the MDC foundation which
-                            // dynamically updates and restores the "tabindex" attribute.
-                            '[attr.tabindex]': 'tabIndex || 0',
-                            '[class.mdc-slider--discrete]': 'thumbLabel',
-                            '[class.mat-slider-has-ticks]': 'tickInterval !== 0',
-                            '[class.mdc-slider--display-markers]': 'tickInterval !== 0',
-                            '[class.mat-slider-thumb-label-showing]': 'thumbLabel',
-                            // Class binding which is only used by the test harness as there is no other
-                            // way for the harness to detect if mouse coordinates need to be inverted.
-                            '[class.mat-slider-invert-mouse-coords]': '_isRtl()',
-                            '[class.mat-slider-disabled]': 'disabled',
-                            '[class.mat-primary]': 'color == "primary"',
-                            '[class.mat-accent]': 'color == "accent"',
-                            '[class.mat-warn]': 'color == "warn"',
-                            '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
-                            '(blur)': '_markAsTouched()',
-                        },
-                        exportAs: 'matSlider',
-                        encapsulation: core.ViewEncapsulation.None,
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        providers: [MAT_SLIDER_VALUE_ACCESSOR],
-                        styles: [".mat-mdc-slider{display:inline-block;box-sizing:border-box;outline:none;vertical-align:middle;margin-left:8px;margin-right:8px;width:auto;min-width:112px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__track-container{height:0;outline:solid 2px;margin-top:1px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__pin-value-marker{outline:solid 1px}.mat-slider-has-ticks:not(.mat-slider-disabled) .mdc-slider__track-marker-container{visibility:visible}\n"]
-                    },] }
-        ];
-        MatSlider.ctorParameters = function () { return [
-            { type: core.ElementRef },
-            { type: core.NgZone },
-            { type: platform.Platform },
-            { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
-            { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] },
-            { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
-        ]; };
-        MatSlider.propDecorators = {
-            change: [{ type: core.Output }],
-            input: [{ type: core.Output }],
-            valueChange: [{ type: core.Output }],
-            tabIndex: [{ type: core.Input }],
-            color: [{ type: core.Input }],
-            displayWith: [{ type: core.Input }],
-            min: [{ type: core.Input }],
-            max: [{ type: core.Input }],
-            value: [{ type: core.Input }],
-            step: [{ type: core.Input }],
-            tickInterval: [{ type: core.Input }],
-            thumbLabel: [{ type: core.Input }],
-            disabled: [{ type: core.Input }],
-            _thumbContainer: [{ type: core.ViewChild, args: ['thumbContainer',] }],
-            _track: [{ type: core.ViewChild, args: ['track',] }],
-            _pinValueMarker: [{ type: core.ViewChild, args: ['pinValueMarker',] }],
-            _trackMarker: [{ type: core.ViewChild, args: ['trackMarker',] }]
-        };
         return MatSlider;
     }());
+    MatSlider.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'mat-slider',
+                    template: "<!-- TODO: to be implemented as a part of the new MDC slider -->\n",
+                    host: {
+                        'class': 'mat-mdc-slider mdc-slider mat-mdc-focus-indicator',
+                        'role': 'slider',
+                        'aria-orientation': 'horizontal',
+                        // The tabindex if the slider turns disabled is managed by the MDC foundation which
+                        // dynamically updates and restores the "tabindex" attribute.
+                        '[attr.tabindex]': 'tabIndex || 0',
+                        '[class.mdc-slider--discrete]': 'thumbLabel',
+                        '[class.mat-slider-has-ticks]': 'tickInterval !== 0',
+                        '[class.mdc-slider--display-markers]': 'tickInterval !== 0',
+                        '[class.mat-slider-thumb-label-showing]': 'thumbLabel',
+                        // Class binding which is only used by the test harness as there is no other
+                        // way for the harness to detect if mouse coordinates need to be inverted.
+                        '[class.mat-slider-invert-mouse-coords]': '_isRtl()',
+                        '[class.mat-slider-disabled]': 'disabled',
+                        '[class.mat-primary]': 'color == "primary"',
+                        '[class.mat-accent]': 'color == "accent"',
+                        '[class.mat-warn]': 'color == "warn"',
+                        '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
+                        '(blur)': '_markAsTouched()',
+                    },
+                    exportAs: 'matSlider',
+                    encapsulation: core.ViewEncapsulation.None,
+                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    providers: [MAT_SLIDER_VALUE_ACCESSOR],
+                    styles: [".mat-mdc-slider{display:inline-block;box-sizing:border-box;outline:none;vertical-align:middle;margin-left:8px;margin-right:8px;width:auto;min-width:112px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__track-container{height:0;outline:solid 2px;margin-top:1px}.cdk-high-contrast-active .mat-mdc-slider .mdc-slider__pin-value-marker{outline:solid 1px}.mat-slider-has-ticks:not(.mat-slider-disabled) .mdc-slider__track-marker-container{visibility:visible}\n"]
+                },] }
+    ];
+    MatSlider.ctorParameters = function () { return [
+        { type: core.ElementRef },
+        { type: core.NgZone },
+        { type: platform.Platform },
+        { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
+        { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] },
+        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
+    ]; };
+    MatSlider.propDecorators = {
+        change: [{ type: core.Output }],
+        input: [{ type: core.Output }],
+        valueChange: [{ type: core.Output }],
+        tabIndex: [{ type: core.Input }],
+        color: [{ type: core.Input }],
+        displayWith: [{ type: core.Input }],
+        min: [{ type: core.Input }],
+        max: [{ type: core.Input }],
+        value: [{ type: core.Input }],
+        step: [{ type: core.Input }],
+        tickInterval: [{ type: core.Input }],
+        thumbLabel: [{ type: core.Input }],
+        disabled: [{ type: core.Input }],
+        _thumbContainer: [{ type: core.ViewChild, args: ['thumbContainer',] }],
+        _track: [{ type: core.ViewChild, args: ['track',] }],
+        _pinValueMarker: [{ type: core.ViewChild, args: ['pinValueMarker',] }],
+        _trackMarker: [{ type: core.ViewChild, args: ['trackMarker',] }]
+    };
 
     /**
      * @license
@@ -477,15 +477,15 @@
     var MatSliderModule = /** @class */ (function () {
         function MatSliderModule() {
         }
-        MatSliderModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [core$1.MatCommonModule, common.CommonModule],
-                        exports: [MatSlider, core$1.MatCommonModule],
-                        declarations: [MatSlider],
-                    },] }
-        ];
         return MatSliderModule;
     }());
+    MatSliderModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [core$1.MatCommonModule, common.CommonModule],
+                    exports: [MatSlider, core$1.MatCommonModule],
+                    declarations: [MatSlider],
+                },] }
+    ];
 
     /**
      * @license

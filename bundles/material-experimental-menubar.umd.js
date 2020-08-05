@@ -18,18 +18,18 @@
     var MatMenuBar = /** @class */ (function () {
         function MatMenuBar() {
         }
-        MatMenuBar.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'mat-menubar',
-                        exportAs: 'matMenubar',
-                        template: "<ng-content></ng-content>\n",
-                        encapsulation: core.ViewEncapsulation.None,
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: ["\n"]
-                    },] }
-        ];
         return MatMenuBar;
     }());
+    MatMenuBar.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'mat-menubar',
+                    exportAs: 'matMenubar',
+                    template: "<ng-content></ng-content>\n",
+                    encapsulation: core.ViewEncapsulation.None,
+                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    styles: ["\n"]
+                },] }
+    ];
 
     /**
      * @license
@@ -46,18 +46,18 @@
     var MatMenuBarItem = /** @class */ (function () {
         function MatMenuBarItem() {
         }
-        MatMenuBarItem.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'mat-menubar-item',
-                        exportAs: 'matMenubarItem',
-                        template: "<ng-content></ng-content>\n",
-                        encapsulation: core.ViewEncapsulation.None,
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: ["\n"]
-                    },] }
-        ];
         return MatMenuBarItem;
     }());
+    MatMenuBarItem.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'mat-menubar-item',
+                    exportAs: 'matMenubarItem',
+                    template: "<ng-content></ng-content>\n",
+                    encapsulation: core.ViewEncapsulation.None,
+                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    styles: ["\n"]
+                },] }
+    ];
 
     /**
      * @license
@@ -69,14 +69,14 @@
     var MatMenuBarModule = /** @class */ (function () {
         function MatMenuBarModule() {
         }
-        MatMenuBarModule.decorators = [
-            { type: core.NgModule, args: [{
-                        exports: [MatMenuBar, MatMenuBarItem],
-                        declarations: [MatMenuBar, MatMenuBarItem],
-                    },] }
-        ];
         return MatMenuBarModule;
     }());
+    MatMenuBarModule.decorators = [
+        { type: core.NgModule, args: [{
+                    exports: [MatMenuBar, MatMenuBarItem],
+                    declarations: [MatMenuBar, MatMenuBarItem],
+                },] }
+    ];
 
     /**
      * @license
