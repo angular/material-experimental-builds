@@ -93,6 +93,7 @@ class MatSlider {
             getBoundingClientRect: () => null,
             isRTL: () => false,
             setThumbStyleProperty: (_propertyName, _value, _thumb) => { },
+            removeThumbStyleProperty: (_propertyName, _thumb) => { },
             setTrackActiveStyleProperty: (_propertyName, _value) => { },
             setValueIndicatorText: (_value, _thumb) => { },
             updateTickMarks: () => { },

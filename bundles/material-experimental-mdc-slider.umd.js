@@ -92,6 +92,7 @@
                 getBoundingClientRect: function () { return null; },
                 isRTL: function () { return false; },
                 setThumbStyleProperty: function (_propertyName, _value, _thumb) { },
+                removeThumbStyleProperty: function (_propertyName, _thumb) { },
                 setTrackActiveStyleProperty: function (_propertyName, _value) { },
                 setValueIndicatorText: function (_value, _thumb) { },
                 updateTickMarks: function () { },
