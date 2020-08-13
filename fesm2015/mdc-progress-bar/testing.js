@@ -33,7 +33,7 @@ class MatProgressBarHarness extends ComponentHarness {
         });
     }
 }
-MatProgressBarHarness.hostSelector = 'mat-progress-bar';
+MatProgressBarHarness.hostSelector = '.mat-mdc-progress-bar';
 
 /**
  * @license

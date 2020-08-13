@@ -579,7 +579,7 @@
         };
         return MatCheckboxHarness;
     }(testing.ComponentHarness));
-    MatCheckboxHarness.hostSelector = 'mat-checkbox';
+    MatCheckboxHarness.hostSelector = '.mat-mdc-checkbox';
 
     /**
      * @license

@@ -163,7 +163,7 @@ class MatCheckboxHarness extends ComponentHarness {
         });
     }
 }
-MatCheckboxHarness.hostSelector = 'mat-checkbox';
+MatCheckboxHarness.hostSelector = '.mat-mdc-checkbox';
 
 /**
  * @license

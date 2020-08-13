@@ -373,7 +373,7 @@
         };
         return MatChipHarness;
     }(testing.ComponentHarness));
-    MatChipHarness.hostSelector = 'mat-basic-chip, mat-chip';
+    MatChipHarness.hostSelector = '.mat-mdc-basic-chip, .mat-mdc-chip';
 
     /** Harness for interacting with a mat-chip-row in tests. */
     var MatChipRowHarness = /** @class */ (function (_super) {
@@ -392,7 +392,7 @@
         };
         return MatChipRowHarness;
     }(MatChipHarness));
-    MatChipRowHarness.hostSelector = 'mat-chip-row, mat-basic-chip-row';
+    MatChipRowHarness.hostSelector = '.mat-mdc-chip-row';
 
     /** Harness for interacting with a mat-chip-grid in tests. */
     var MatChipGridHarness = /** @class */ (function (_super) {
@@ -434,7 +434,7 @@
         };
         return MatChipGridHarness;
     }(testing.ComponentHarness));
-    MatChipGridHarness.hostSelector = 'mat-chip-grid';
+    MatChipGridHarness.hostSelector = '.mat-mdc-chip-grid';
 
     /**
      * @license
@@ -486,7 +486,7 @@
         };
         return MatChipOptionHarness;
     }(MatChipHarness));
-    MatChipOptionHarness.hostSelector = 'mat-basic-chip-option, mat-chip-option';
+    MatChipOptionHarness.hostSelector = '.mat-mdc-chip-option';
 
     /** Harness for interacting with a mat-chip-listbox in tests. */
     var MatChipListboxHarness = /** @class */ (function (_super) {
@@ -539,7 +539,7 @@
         };
         return MatChipListboxHarness;
     }(testing.ComponentHarness));
-    MatChipListboxHarness.hostSelector = 'mat-chip-listbox';
+    MatChipListboxHarness.hostSelector = '.mat-mdc-chip-listbox';
 
     /** Harness for interacting with a mat-chip-set in tests. */
     var MatChipSetHarness = /** @class */ (function (_super) {
@@ -569,7 +569,7 @@
         };
         return MatChipSetHarness;
     }(testing.ComponentHarness));
-    MatChipSetHarness.hostSelector = 'mat-chip-set';
+    MatChipSetHarness.hostSelector = '.mat-mdc-chip-set';
 
     /**
      * @license

@@ -557,7 +557,7 @@
         };
         return MatSliderHarness;
     }(testing.ComponentHarness));
-    MatSliderHarness.hostSelector = 'mat-slider';
+    MatSliderHarness.hostSelector = '.mat-mdc-slider';
 
     /**
      * @license

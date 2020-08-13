@@ -55,7 +55,7 @@ class MatChipHarness extends ComponentHarness {
         });
     }
 }
-MatChipHarness.hostSelector = 'mat-basic-chip, mat-chip';
+MatChipHarness.hostSelector = '.mat-mdc-basic-chip, .mat-mdc-chip';
 
 /**
  * @license
@@ -75,7 +75,7 @@ class MatChipRowHarness extends MatChipHarness {
         return new HarnessPredicate(MatChipRowHarness, options);
     }
 }
-MatChipRowHarness.hostSelector = 'mat-chip-row, mat-basic-chip-row';
+MatChipRowHarness.hostSelector = '.mat-mdc-chip-row';
 
 /**
  * @license
@@ -110,7 +110,7 @@ class MatChipGridHarness extends ComponentHarness {
         });
     }
 }
-MatChipGridHarness.hostSelector = 'mat-chip-grid';
+MatChipGridHarness.hostSelector = '.mat-mdc-chip-grid';
 
 /**
  * @license
@@ -151,7 +151,7 @@ class MatChipOptionHarness extends MatChipHarness {
         });
     }
 }
-MatChipOptionHarness.hostSelector = 'mat-basic-chip-option, mat-chip-option';
+MatChipOptionHarness.hostSelector = '.mat-mdc-chip-option';
 
 /**
  * @license
@@ -195,7 +195,7 @@ class MatChipListboxHarness extends ComponentHarness {
         });
     }
 }
-MatChipListboxHarness.hostSelector = 'mat-chip-listbox';
+MatChipListboxHarness.hostSelector = '.mat-mdc-chip-listbox';
 
 /**
  * @license
@@ -223,7 +223,7 @@ class MatChipSetHarness extends ComponentHarness {
         });
     }
 }
-MatChipSetHarness.hostSelector = 'mat-chip-set';
+MatChipSetHarness.hostSelector = '.mat-mdc-chip-set';
 
 /**
  * @license
