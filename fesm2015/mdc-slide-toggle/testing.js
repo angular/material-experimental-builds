@@ -143,7 +143,7 @@ class MatSlideToggleHarness extends ComponentHarness {
         });
     }
 }
-MatSlideToggleHarness.hostSelector = 'mat-slide-toggle';
+MatSlideToggleHarness.hostSelector = '.mat-mdc-slide-toggle';
 
 /**
  * @license

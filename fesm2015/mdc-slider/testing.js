@@ -145,7 +145,7 @@ class MatSliderHarness extends ComponentHarness {
         });
     }
 }
-MatSliderHarness.hostSelector = 'mat-slider';
+MatSliderHarness.hostSelector = '.mat-mdc-slider';
 
 /**
  * @license
