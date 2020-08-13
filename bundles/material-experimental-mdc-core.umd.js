@@ -329,6 +329,9 @@
                         '[attr.aria-disabled]': 'disabled.toString()',
                         '[attr.aria-labelledby]': '_labelId',
                     },
+                    providers: [
+                        { provide: core$1.MAT_OPTGROUP, useExisting: MatOptgroup }
+                    ],
                     styles: [".mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}\n"]
                 },] }
     ];
