@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule } from '@angular/core';
+import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MenuStack, CdkMenuItem, CdkMenuModule } from '@angular/cdk-experimental/menu';
 
 /**
  * @license
@@ -11,7 +12,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule } from 
  * A material design Menubar adhering to the functionality of CdkMenuBar. MatMenubar
  * should contain MatMenubarItems which trigger their own sub-menus.
  */
-class MatMenuBar {
+class MatMenuBar extends CdkMenuBar {
 }
 MatMenuBar.decorators = [
     { type: Component, args: [{
@@ -20,6 +21,18 @@ MatMenuBar.decorators = [
                 template: "<ng-content></ng-content>\n",
                 encapsulation: ViewEncapsulation.None,
                 changeDetection: ChangeDetectionStrategy.OnPush,
+                host: {
+                    'role': 'menubar',
+                    'class': 'cdk-menu-bar mat-menubar',
+                    'tabindex': '0',
+                    '[attr.aria-orientation]': 'orientation',
+                },
+                providers: [
+                    { provide: CdkMenuGroup, useExisting: MatMenuBar },
+                    { provide: CdkMenuBar, useExisting: MatMenuBar },
+                    { provide: CDK_MENU, useExisting: MatMenuBar },
+                    { provide: MenuStack, useClass: MenuStack },
+                ],
                 styles: ["\n"]
             },] }
 ];
@@ -36,7 +49,7 @@ MatMenuBar.decorators = [
  * CdkMenuItemTrigger. Its main purpose is to trigger menus and it lives inside of
  * MatMenubar.
  */
-class MatMenuBarItem {
+class MatMenuBarItem extends CdkMenuItem {
 }
 MatMenuBarItem.decorators = [
     { type: Component, args: [{
@@ -45,6 +58,14 @@ MatMenuBarItem.decorators = [
                 template: "<ng-content></ng-content>\n",
                 encapsulation: ViewEncapsulation.None,
                 changeDetection: ChangeDetectionStrategy.OnPush,
+                host: {
+                    '[tabindex]': '_tabindex',
+                    'type': 'button',
+                    'role': 'menuitem',
+                    'class': 'cdk-menu-item mat-menubar-item',
+                    '[attr.aria-disabled]': 'disabled || null',
+                },
+                providers: [{ provide: CdkMenuItem, useExisting: MatMenuBarItem }],
                 styles: ["\n"]
             },] }
 ];
@@ -60,6 +81,7 @@ class MatMenuBarModule {
 }
 MatMenuBarModule.decorators = [
     { type: NgModule, args: [{
+                imports: [CdkMenuModule],
                 exports: [MatMenuBar, MatMenuBarItem],
                 declarations: [MatMenuBar, MatMenuBarItem],
             },] }
