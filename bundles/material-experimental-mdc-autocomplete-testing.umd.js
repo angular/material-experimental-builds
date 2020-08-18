@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('@angular/material-experimental/mdc-core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('@angular/material/autocomplete'), require('@angular/forms')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete', ['exports', '@angular/core', '@angular/material/core', '@angular/material-experimental/mdc-core', '@angular/common', '@angular/cdk/scrolling', '@angular/cdk/overlay', '@angular/material/autocomplete', '@angular/forms'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = {}), global.ng.core, global.ng.material.core, global.ng.materialExperimental.mdcCore, global.ng.common, global.ng.cdk.scrolling, global.ng.cdk.overlay, global.ng.material.autocomplete, global.ng.forms));
-}(this, (function (exports, core, core$1, mdcCore, common, scrolling, overlay, autocomplete, forms) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/cdk/testing'), require('@angular/material-experimental/mdc-core/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete/testing', ['exports', '@angular/cdk/coercion', '@angular/cdk/testing', '@angular/material-experimental/mdc-core/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = global.ng.materialExperimental.mdcAutocomplete || {}, global.ng.materialExperimental.mdcAutocomplete.testing = {}), global.ng.cdk.coercion, global.ng.cdk.testing, global.ng.materialExperimental.mdcCore.testing));
+}(this, (function (exports, coercion, testing, testing$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -305,122 +305,213 @@
         return value;
     }
 
-    var MatAutocomplete = /** @class */ (function (_super) {
-        __extends(MatAutocomplete, _super);
-        function MatAutocomplete() {
+    /** Harness for interacting with an MDC-based mat-autocomplete in tests. */
+    var MatAutocompleteHarness = /** @class */ (function (_super) {
+        __extends(MatAutocompleteHarness, _super);
+        function MatAutocompleteHarness() {
             var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._visibleClass = 'mat-mdc-autocomplete-visible';
-            _this._hiddenClass = 'mat-mdc-autocomplete-hidden';
+            _this._documentRootLocator = _this.documentRootLocatorFactory();
             return _this;
         }
-        return MatAutocomplete;
-    }(autocomplete._MatAutocompleteBase));
-    MatAutocomplete.decorators = [
-        { type: core.Component, args: [{
-                    selector: 'mat-autocomplete',
-                    template: "<ng-template>\n  <div\n    class=\"mat-mdc-autocomplete-panel mdc-menu-surface mdc-menu-surface--open\"\n    role=\"listbox\"\n    [id]=\"id\"\n    [ngClass]=\"_classList\"\n    #panel>\n    <ng-content></ng-content>\n  </div>\n</ng-template>\n",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
-                    exportAs: 'matAutocomplete',
-                    inputs: ['disableRipple'],
-                    host: {
-                        'class': 'mat-mdc-autocomplete'
-                    },
-                    providers: [
-                        { provide: mdcCore.MAT_OPTION_PARENT_COMPONENT, useExisting: MatAutocomplete }
-                    ],
-                    styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mat-mdc-autocomplete-panel{width:100%;max-height:256px;position:static;visibility:hidden;margin:0;padding:8px 0;list-style-type:none}.mat-mdc-autocomplete-panel:focus{outline:none}.cdk-high-contrast-active .mat-mdc-autocomplete-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) .mat-mdc-autocomplete-panel{border-top-left-radius:0;border-top-right-radius:0}.mat-mdc-autocomplete-panel-above .mat-mdc-autocomplete-panel{border-bottom-left-radius:0;border-bottom-right-radius:0}.mat-mdc-autocomplete-visible{visibility:visible}.mat-mdc-autocomplete-hidden{visibility:hidden}\n"]
-                },] }
-    ];
-    MatAutocomplete.propDecorators = {
-        optionGroups: [{ type: core.ContentChildren, args: [core$1.MAT_OPTGROUP, { descendants: true },] }],
-        options: [{ type: core.ContentChildren, args: [mdcCore.MatOption, { descendants: true },] }]
-    };
-
-    /**
-     * Provider that allows the autocomplete to register as a ControlValueAccessor.
-     * @docs-private
-     */
-    var MAT_AUTOCOMPLETE_VALUE_ACCESSOR = {
-        provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return MatAutocompleteTrigger; }),
-        multi: true
-    };
-    var MatAutocompleteTrigger = /** @class */ (function (_super) {
-        __extends(MatAutocompleteTrigger, _super);
-        function MatAutocompleteTrigger() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._aboveClass = 'mat-mdc-autocomplete-panel-above';
-            return _this;
-        }
-        MatAutocompleteTrigger.prototype._scrollToOption = function (index) {
-            // Given that we are not actually focusing active options, we must manually adjust scroll
-            // to reveal options below the fold. First, we find the offset of the option from the top
-            // of the panel. If that offset is below the fold, the new scrollTop will be the offset -
-            // the panel height + the option height, so the active option will be just visible at the
-            // bottom of the panel. If that offset is above the top of the visible panel, the new scrollTop
-            // will become the offset. If that offset is visible within the panel already, the scrollTop is
-            // not adjusted.
-            var autocomplete = this.autocomplete;
-            var labelCount = core$1._countGroupLabelsBeforeOption(index, autocomplete.options, autocomplete.optionGroups);
-            if (index === 0 && labelCount === 1) {
-                // If we've got one group label before the option and we're at the top option,
-                // scroll the list to the top. This is better UX than scrolling the list to the
-                // top of the option, because it allows the user to read the top group's label.
-                autocomplete._setScrollTop(0);
-            }
-            else {
-                var option = autocomplete.options.toArray()[index];
-                if (option) {
-                    var element = option._getHostElement();
-                    var newScrollPosition = core$1._getOptionScrollPosition(element.offsetTop, element.offsetHeight, autocomplete._getScrollTop(), autocomplete.panel.nativeElement.offsetHeight);
-                    autocomplete._setScrollTop(newScrollPosition);
-                }
-            }
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a `MatAutocompleteHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which autocomplete instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
+         */
+        MatAutocompleteHarness.with = function (options) {
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatAutocompleteHarness, options)
+                .addOption('value', options.value, function (harness, value) { return testing.HarnessPredicate.stringMatches(harness.getValue(), value); });
         };
-        return MatAutocompleteTrigger;
-    }(autocomplete._MatAutocompleteTriggerBase));
-    MatAutocompleteTrigger.decorators = [
-        { type: core.Directive, args: [{
-                    selector: "input[matAutocomplete], textarea[matAutocomplete]",
-                    host: {
-                        'class': 'mat-mdc-autocomplete-trigger',
-                        '[attr.autocomplete]': 'autocompleteAttribute',
-                        '[attr.role]': 'autocompleteDisabled ? null : "combobox"',
-                        '[attr.aria-autocomplete]': 'autocompleteDisabled ? null : "list"',
-                        '[attr.aria-activedescendant]': '(panelOpen && activeOption) ? activeOption.id : null',
-                        '[attr.aria-expanded]': 'autocompleteDisabled ? null : panelOpen.toString()',
-                        '[attr.aria-owns]': '(autocompleteDisabled || !panelOpen) ? null : autocomplete?.id',
-                        '[attr.aria-haspopup]': '!autocompleteDisabled',
-                        // Note: we use `focusin`, as opposed to `focus`, in order to open the panel
-                        // a little earlier. This avoids issues where IE delays the focusing of the input.
-                        '(focusin)': '_handleFocus()',
-                        '(blur)': '_onTouched()',
-                        '(input)': '_handleInput($event)',
-                        '(keydown)': '_handleKeydown($event)',
-                    },
-                    exportAs: 'matAutocompleteTrigger',
-                    providers: [MAT_AUTOCOMPLETE_VALUE_ACCESSOR]
-                },] }
-    ];
-
-    /**
-     * Directive applied to an element to make it usable
-     * as a connection point for an autocomplete panel.
-     */
-    var MatAutocompleteOrigin = /** @class */ (function (_super) {
-        __extends(MatAutocompleteOrigin, _super);
-        function MatAutocompleteOrigin() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return MatAutocompleteOrigin;
-    }(autocomplete._MatAutocompleteOriginBase));
-    MatAutocompleteOrigin.decorators = [
-        { type: core.Directive, args: [{
-                    selector: '[matAutocompleteOrigin]',
-                    exportAs: 'matAutocompleteOrigin',
-                },] }
-    ];
+        /** Gets the value of the autocomplete input. */
+        MatAutocompleteHarness.prototype.getValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).getProperty('value')];
+                    }
+                });
+            });
+        };
+        /** Whether the autocomplete input is disabled. */
+        MatAutocompleteHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var disabled, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1:
+                            disabled = (_b.sent()).getAttribute('disabled');
+                            _a = coercion.coerceBooleanProperty;
+                            return [4 /*yield*/, disabled];
+                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    }
+                });
+            });
+        };
+        /** Focuses the autocomplete input. */
+        MatAutocompleteHarness.prototype.focus = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).focus()];
+                    }
+                });
+            });
+        };
+        /** Blurs the autocomplete input. */
+        MatAutocompleteHarness.prototype.blur = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).blur()];
+                    }
+                });
+            });
+        };
+        /** Whether the autocomplete input is focused. */
+        MatAutocompleteHarness.prototype.isFocused = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
+                    }
+                });
+            });
+        };
+        /** Enters text into the autocomplete. */
+        MatAutocompleteHarness.prototype.enterText = function (value) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).sendKeys(value)];
+                    }
+                });
+            });
+        };
+        /** Gets the options inside the autocomplete panel. */
+        MatAutocompleteHarness.prototype.getOptions = function (filters) {
+            if (filters === void 0) { filters = {}; }
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, _b, _c, _d, _e, _f, _g, _h;
+                return __generator(this, function (_j) {
+                    switch (_j.label) {
+                        case 0:
+                            _b = (_a = this._documentRootLocator).locatorForAll;
+                            _d = (_c = testing$1.MatOptionHarness).with;
+                            _f = (_e = Object).assign;
+                            _g = [Object.assign({}, filters)];
+                            _h = {};
+                            return [4 /*yield*/, this._getPanelSelector()];
+                        case 1: return [2 /*return*/, _b.apply(_a, [_d.apply(_c, [_f.apply(_e, _g.concat([(_h.ancestor = _j.sent(), _h)]))])])()];
+                    }
+                });
+            });
+        };
+        /** Gets the option groups inside the autocomplete panel. */
+        MatAutocompleteHarness.prototype.getOptionGroups = function (filters) {
+            if (filters === void 0) { filters = {}; }
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, _b, _c, _d, _e, _f, _g, _h;
+                return __generator(this, function (_j) {
+                    switch (_j.label) {
+                        case 0:
+                            _b = (_a = this._documentRootLocator).locatorForAll;
+                            _d = (_c = testing$1.MatOptgroupHarness).with;
+                            _f = (_e = Object).assign;
+                            _g = [Object.assign({}, filters)];
+                            _h = {};
+                            return [4 /*yield*/, this._getPanelSelector()];
+                        case 1: return [2 /*return*/, _b.apply(_a, [_d.apply(_c, [_f.apply(_e, _g.concat([(_h.ancestor = _j.sent(), _h)]))])])()];
+                    }
+                });
+            });
+        };
+        /** Selects the first option matching the given filters. */
+        MatAutocompleteHarness.prototype.selectOption = function (filters) {
+            return __awaiter(this, void 0, void 0, function () {
+                var options;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.focus()];
+                        case 1:
+                            _a.sent(); // Focus the input to make sure the autocomplete panel is shown.
+                            return [4 /*yield*/, this.getOptions(filters)];
+                        case 2:
+                            options = _a.sent();
+                            if (!options.length) {
+                                throw Error("Could not find a mat-option matching " + JSON.stringify(filters));
+                            }
+                            return [4 /*yield*/, options[0].click()];
+                        case 3:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        /** Whether the autocomplete is open. */
+        MatAutocompleteHarness.prototype.isOpen = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var panel, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, this._getPanel()];
+                        case 1:
+                            panel = _b.sent();
+                            _a = !!panel;
+                            if (!_a) return [3 /*break*/, 3];
+                            return [4 /*yield*/, panel.hasClass('mat-mdc-autocomplete-visible')];
+                        case 2:
+                            _a = (_b.sent());
+                            _b.label = 3;
+                        case 3: return [2 /*return*/, _a];
+                    }
+                });
+            });
+        };
+        /** Gets the panel associated with this autocomplete trigger. */
+        MatAutocompleteHarness.prototype._getPanel = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, _b;
+                return __generator(this, function (_c) {
+                    switch (_c.label) {
+                        case 0:
+                            _b = (_a = this._documentRootLocator).locatorForOptional;
+                            return [4 /*yield*/, this._getPanelSelector()];
+                        case 1: 
+                        // Technically this is static, but it needs to be in a
+                        // function, because the autocomplete's panel ID can changed.
+                        return [2 /*return*/, _b.apply(_a, [_c.sent()])()];
+                    }
+                });
+            });
+        };
+        /** Gets the selector that can be used to find the autocomplete trigger's panel. */
+        MatAutocompleteHarness.prototype._getPanelSelector = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            _a = "#";
+                            return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_b.sent()).getAttribute('aria-owns')];
+                        case 2: return [2 /*return*/, _a + (_b.sent())];
+                    }
+                });
+            });
+        };
+        return MatAutocompleteHarness;
+    }(testing.ComponentHarness));
+    /** The selector for the host element of a `MatAutocomplete` instance. */
+    MatAutocompleteHarness.hostSelector = '.mat-mdc-autocomplete-trigger';
 
     /**
      * @license
@@ -429,31 +520,6 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var MatAutocompleteModule = /** @class */ (function () {
-        function MatAutocompleteModule() {
-        }
-        return MatAutocompleteModule;
-    }());
-    MatAutocompleteModule.decorators = [
-        { type: core.NgModule, args: [{
-                    imports: [
-                        overlay.OverlayModule,
-                        mdcCore.MatOptionModule,
-                        core$1.MatCommonModule,
-                        common.CommonModule
-                    ],
-                    exports: [
-                        scrolling.CdkScrollableModule,
-                        MatAutocomplete,
-                        mdcCore.MatOptionModule,
-                        core$1.MatCommonModule,
-                        MatAutocompleteTrigger,
-                        MatAutocompleteOrigin,
-                    ],
-                    declarations: [MatAutocomplete, MatAutocompleteTrigger, MatAutocompleteOrigin],
-                    providers: [autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER],
-                },] }
-    ];
 
     /**
      * @license
@@ -464,70 +530,16 @@
      */
 
     /**
-     * Generated bundle index. Do not edit.
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
      */
 
-    Object.defineProperty(exports, 'AUTOCOMPLETE_OPTION_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.AUTOCOMPLETE_OPTION_HEIGHT;
-        }
-    });
-    Object.defineProperty(exports, 'AUTOCOMPLETE_PANEL_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.AUTOCOMPLETE_PANEL_HEIGHT;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_DEFAULT_OPTIONS', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_DEFAULT_OPTIONS;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_SCROLL_STRATEGY', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER;
-        }
-    });
-    Object.defineProperty(exports, 'MatAutocompleteSelectedEvent', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MatAutocompleteSelectedEvent;
-        }
-    });
-    Object.defineProperty(exports, 'getMatAutocompleteMissingPanelError', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.getMatAutocompleteMissingPanelError;
-        }
-    });
-    exports.MAT_AUTOCOMPLETE_VALUE_ACCESSOR = MAT_AUTOCOMPLETE_VALUE_ACCESSOR;
-    exports.MatAutocomplete = MatAutocomplete;
-    exports.MatAutocompleteModule = MatAutocompleteModule;
-    exports.MatAutocompleteOrigin = MatAutocompleteOrigin;
-    exports.MatAutocompleteTrigger = MatAutocompleteTrigger;
+    exports.MatAutocompleteHarness = MatAutocompleteHarness;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=material-experimental-mdc-autocomplete.umd.js.map
+//# sourceMappingURL=material-experimental-mdc-autocomplete-testing.umd.js.map

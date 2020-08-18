@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('@angular/material-experimental/mdc-core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('@angular/material/autocomplete'), require('@angular/forms')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete', ['exports', '@angular/core', '@angular/material/core', '@angular/material-experimental/mdc-core', '@angular/common', '@angular/cdk/scrolling', '@angular/cdk/overlay', '@angular/material/autocomplete', '@angular/forms'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = {}), global.ng.core, global.ng.material.core, global.ng.materialExperimental.mdcCore, global.ng.common, global.ng.cdk.scrolling, global.ng.cdk.overlay, global.ng.material.autocomplete, global.ng.forms));
-}(this, (function (exports, core, core$1, mdcCore, common, scrolling, overlay, autocomplete, forms) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-core/testing', ['exports', '@angular/cdk/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCore = global.ng.materialExperimental.mdcCore || {}, global.ng.materialExperimental.mdcCore.testing = {}), global.ng.cdk.testing));
+}(this, (function (exports, testing) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -305,122 +305,107 @@
         return value;
     }
 
-    var MatAutocomplete = /** @class */ (function (_super) {
-        __extends(MatAutocomplete, _super);
-        function MatAutocomplete() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._visibleClass = 'mat-mdc-autocomplete-visible';
-            _this._hiddenClass = 'mat-mdc-autocomplete-hidden';
-            return _this;
-        }
-        return MatAutocomplete;
-    }(autocomplete._MatAutocompleteBase));
-    MatAutocomplete.decorators = [
-        { type: core.Component, args: [{
-                    selector: 'mat-autocomplete',
-                    template: "<ng-template>\n  <div\n    class=\"mat-mdc-autocomplete-panel mdc-menu-surface mdc-menu-surface--open\"\n    role=\"listbox\"\n    [id]=\"id\"\n    [ngClass]=\"_classList\"\n    #panel>\n    <ng-content></ng-content>\n  </div>\n</ng-template>\n",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
-                    exportAs: 'matAutocomplete',
-                    inputs: ['disableRipple'],
-                    host: {
-                        'class': 'mat-mdc-autocomplete'
-                    },
-                    providers: [
-                        { provide: mdcCore.MAT_OPTION_PARENT_COMPONENT, useExisting: MatAutocomplete }
-                    ],
-                    styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mat-mdc-autocomplete-panel{width:100%;max-height:256px;position:static;visibility:hidden;margin:0;padding:8px 0;list-style-type:none}.mat-mdc-autocomplete-panel:focus{outline:none}.cdk-high-contrast-active .mat-mdc-autocomplete-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) .mat-mdc-autocomplete-panel{border-top-left-radius:0;border-top-right-radius:0}.mat-mdc-autocomplete-panel-above .mat-mdc-autocomplete-panel{border-bottom-left-radius:0;border-bottom-right-radius:0}.mat-mdc-autocomplete-visible{visibility:visible}.mat-mdc-autocomplete-hidden{visibility:hidden}\n"]
-                },] }
-    ];
-    MatAutocomplete.propDecorators = {
-        optionGroups: [{ type: core.ContentChildren, args: [core$1.MAT_OPTGROUP, { descendants: true },] }],
-        options: [{ type: core.ContentChildren, args: [mdcCore.MatOption, { descendants: true },] }]
-    };
-
-    /**
-     * Provider that allows the autocomplete to register as a ControlValueAccessor.
-     * @docs-private
-     */
-    var MAT_AUTOCOMPLETE_VALUE_ACCESSOR = {
-        provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return MatAutocompleteTrigger; }),
-        multi: true
-    };
-    var MatAutocompleteTrigger = /** @class */ (function (_super) {
-        __extends(MatAutocompleteTrigger, _super);
-        function MatAutocompleteTrigger() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._aboveClass = 'mat-mdc-autocomplete-panel-above';
-            return _this;
-        }
-        MatAutocompleteTrigger.prototype._scrollToOption = function (index) {
-            // Given that we are not actually focusing active options, we must manually adjust scroll
-            // to reveal options below the fold. First, we find the offset of the option from the top
-            // of the panel. If that offset is below the fold, the new scrollTop will be the offset -
-            // the panel height + the option height, so the active option will be just visible at the
-            // bottom of the panel. If that offset is above the top of the visible panel, the new scrollTop
-            // will become the offset. If that offset is visible within the panel already, the scrollTop is
-            // not adjusted.
-            var autocomplete = this.autocomplete;
-            var labelCount = core$1._countGroupLabelsBeforeOption(index, autocomplete.options, autocomplete.optionGroups);
-            if (index === 0 && labelCount === 1) {
-                // If we've got one group label before the option and we're at the top option,
-                // scroll the list to the top. This is better UX than scrolling the list to the
-                // top of the option, because it allows the user to read the top group's label.
-                autocomplete._setScrollTop(0);
-            }
-            else {
-                var option = autocomplete.options.toArray()[index];
-                if (option) {
-                    var element = option._getHostElement();
-                    var newScrollPosition = core$1._getOptionScrollPosition(element.offsetTop, element.offsetHeight, autocomplete._getScrollTop(), autocomplete.panel.nativeElement.offsetHeight);
-                    autocomplete._setScrollTop(newScrollPosition);
-                }
-            }
-        };
-        return MatAutocompleteTrigger;
-    }(autocomplete._MatAutocompleteTriggerBase));
-    MatAutocompleteTrigger.decorators = [
-        { type: core.Directive, args: [{
-                    selector: "input[matAutocomplete], textarea[matAutocomplete]",
-                    host: {
-                        'class': 'mat-mdc-autocomplete-trigger',
-                        '[attr.autocomplete]': 'autocompleteAttribute',
-                        '[attr.role]': 'autocompleteDisabled ? null : "combobox"',
-                        '[attr.aria-autocomplete]': 'autocompleteDisabled ? null : "list"',
-                        '[attr.aria-activedescendant]': '(panelOpen && activeOption) ? activeOption.id : null',
-                        '[attr.aria-expanded]': 'autocompleteDisabled ? null : panelOpen.toString()',
-                        '[attr.aria-owns]': '(autocompleteDisabled || !panelOpen) ? null : autocomplete?.id',
-                        '[attr.aria-haspopup]': '!autocompleteDisabled',
-                        // Note: we use `focusin`, as opposed to `focus`, in order to open the panel
-                        // a little earlier. This avoids issues where IE delays the focusing of the input.
-                        '(focusin)': '_handleFocus()',
-                        '(blur)': '_onTouched()',
-                        '(input)': '_handleInput($event)',
-                        '(keydown)': '_handleKeydown($event)',
-                    },
-                    exportAs: 'matAutocompleteTrigger',
-                    providers: [MAT_AUTOCOMPLETE_VALUE_ACCESSOR]
-                },] }
-    ];
-
-    /**
-     * Directive applied to an element to make it usable
-     * as a connection point for an autocomplete panel.
-     */
-    var MatAutocompleteOrigin = /** @class */ (function (_super) {
-        __extends(MatAutocompleteOrigin, _super);
-        function MatAutocompleteOrigin() {
+    /** Harness for interacting with an MDC-based `mat-option` in tests. */
+    var MatOptionHarness = /** @class */ (function (_super) {
+        __extends(MatOptionHarness, _super);
+        function MatOptionHarness() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        return MatAutocompleteOrigin;
-    }(autocomplete._MatAutocompleteOriginBase));
-    MatAutocompleteOrigin.decorators = [
-        { type: core.Directive, args: [{
-                    selector: '[matAutocompleteOrigin]',
-                    exportAs: 'matAutocompleteOrigin',
-                },] }
-    ];
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a `MatOptionsHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which option instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
+         */
+        MatOptionHarness.with = function (options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatOptionHarness, options)
+                .addOption('text', options.text, function (harness, title) { return __awaiter(_this, void 0, void 0, function () { var _a, _b; return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _b = (_a = testing.HarnessPredicate).stringMatches;
+                        return [4 /*yield*/, harness.getText()];
+                    case 1: return [2 /*return*/, _b.apply(_a, [_c.sent(), title])];
+                }
+            }); }); })
+                .addOption('isSelected', options.isSelected, function (harness, isSelected) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, harness.isSelected()];
+                    case 1: return [2 /*return*/, (_a.sent()) === isSelected];
+                }
+            }); }); });
+        };
+        /** Clicks the option. */
+        MatOptionHarness.prototype.click = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).click()];
+                    }
+                });
+            });
+        };
+        /** Gets the option's label text. */
+        MatOptionHarness.prototype.getText = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).text()];
+                    }
+                });
+            });
+        };
+        /** Gets whether the option is disabled. */
+        MatOptionHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mdc-list-item--disabled')];
+                    }
+                });
+            });
+        };
+        /** Gets whether the option is selected. */
+        MatOptionHarness.prototype.isSelected = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mdc-list-item--selected')];
+                    }
+                });
+            });
+        };
+        /** Gets whether the option is active. */
+        MatOptionHarness.prototype.isActive = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mat-mdc-option-active')];
+                    }
+                });
+            });
+        };
+        /** Gets whether the option is in multiple selection mode. */
+        MatOptionHarness.prototype.isMultiple = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mat-mdc-option-multiple')];
+                    }
+                });
+            });
+        };
+        return MatOptionHarness;
+    }(testing.ComponentHarness));
+    /** Selector used to locate option instances. */
+    MatOptionHarness.hostSelector = '.mat-mdc-option';
 
     /**
      * @license
@@ -429,31 +414,73 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var MatAutocompleteModule = /** @class */ (function () {
-        function MatAutocompleteModule() {
+
+    /** Harness for interacting with an MDC-based `mat-optgroup` in tests. */
+    var MatOptgroupHarness = /** @class */ (function (_super) {
+        __extends(MatOptgroupHarness, _super);
+        function MatOptgroupHarness() {
+            var _this = _super.apply(this, __spread(arguments)) || this;
+            _this._label = _this.locatorFor('.mat-mdc-optgroup-label');
+            return _this;
         }
-        return MatAutocompleteModule;
-    }());
-    MatAutocompleteModule.decorators = [
-        { type: core.NgModule, args: [{
-                    imports: [
-                        overlay.OverlayModule,
-                        mdcCore.MatOptionModule,
-                        core$1.MatCommonModule,
-                        common.CommonModule
-                    ],
-                    exports: [
-                        scrolling.CdkScrollableModule,
-                        MatAutocomplete,
-                        mdcCore.MatOptionModule,
-                        core$1.MatCommonModule,
-                        MatAutocompleteTrigger,
-                        MatAutocompleteOrigin,
-                    ],
-                    declarations: [MatAutocomplete, MatAutocompleteTrigger, MatAutocompleteOrigin],
-                    providers: [autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER],
-                },] }
-    ];
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a `MatOptgroupHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which option instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
+         */
+        MatOptgroupHarness.with = function (options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatOptgroupHarness, options)
+                .addOption('labelText', options.labelText, function (harness, title) { return __awaiter(_this, void 0, void 0, function () { var _a, _b; return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _b = (_a = testing.HarnessPredicate).stringMatches;
+                        return [4 /*yield*/, harness.getLabelText()];
+                    case 1: return [2 /*return*/, _b.apply(_a, [_c.sent(), title])];
+                }
+            }); }); });
+        };
+        /** Gets the option group's label text. */
+        MatOptgroupHarness.prototype.getLabelText = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this._label()];
+                        case 1: return [2 /*return*/, (_a.sent()).text()];
+                    }
+                });
+            });
+        };
+        /** Gets whether the option group is disabled. */
+        MatOptgroupHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-disabled')];
+                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
+                    }
+                });
+            });
+        };
+        /**
+         * Gets the options that are inside the group.
+         * @param filter Optionally filters which options are included.
+         */
+        MatOptgroupHarness.prototype.getOptions = function (filter) {
+            if (filter === void 0) { filter = {}; }
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, this.locatorForAll(MatOptionHarness.with(filter))()];
+                });
+            });
+        };
+        return MatOptgroupHarness;
+    }(testing.ComponentHarness));
+    /** Selector used to locate option group instances. */
+    MatOptgroupHarness.hostSelector = '.mat-mdc-optgroup';
 
     /**
      * @license
@@ -464,70 +491,25 @@
      */
 
     /**
-     * Generated bundle index. Do not edit.
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
      */
 
-    Object.defineProperty(exports, 'AUTOCOMPLETE_OPTION_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.AUTOCOMPLETE_OPTION_HEIGHT;
-        }
-    });
-    Object.defineProperty(exports, 'AUTOCOMPLETE_PANEL_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.AUTOCOMPLETE_PANEL_HEIGHT;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_DEFAULT_OPTIONS', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_DEFAULT_OPTIONS;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_SCROLL_STRATEGY', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER;
-        }
-    });
-    Object.defineProperty(exports, 'MatAutocompleteSelectedEvent', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.MatAutocompleteSelectedEvent;
-        }
-    });
-    Object.defineProperty(exports, 'getMatAutocompleteMissingPanelError', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.getMatAutocompleteMissingPanelError;
-        }
-    });
-    exports.MAT_AUTOCOMPLETE_VALUE_ACCESSOR = MAT_AUTOCOMPLETE_VALUE_ACCESSOR;
-    exports.MatAutocomplete = MatAutocomplete;
-    exports.MatAutocompleteModule = MatAutocompleteModule;
-    exports.MatAutocompleteOrigin = MatAutocompleteOrigin;
-    exports.MatAutocompleteTrigger = MatAutocompleteTrigger;
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+
+    exports.MatOptgroupHarness = MatOptgroupHarness;
+    exports.MatOptionHarness = MatOptionHarness;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=material-experimental-mdc-autocomplete.umd.js.map
+//# sourceMappingURL=material-experimental-mdc-core-testing.umd.js.map
