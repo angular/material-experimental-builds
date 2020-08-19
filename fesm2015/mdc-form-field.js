@@ -628,7 +628,7 @@ class MatFormField {
         // Note that we have to run outside of the `NgZone` explicitly, in order to avoid
         // throwing users into an infinite loop if `zone-patch-rxjs` is included.
         this._ngZone.runOutsideAngular(() => {
-            this._ngZone.onStable.asObservable().pipe(takeUntil(this._destroyed)).subscribe(() => {
+            this._ngZone.onStable.pipe(takeUntil(this._destroyed)).subscribe(() => {
                 if (this._needsOutlineLabelOffsetUpdateOnStable) {
                     this._needsOutlineLabelOffsetUpdateOnStable = false;
                     this._updateOutlineLabelOffset();

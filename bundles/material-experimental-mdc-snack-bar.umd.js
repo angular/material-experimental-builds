@@ -424,7 +424,7 @@
         MatSnackBarContainer.prototype.exit = function () {
             this._exiting = true;
             this._mdcFoundation.close();
-            return this._onExit.asObservable();
+            return this._onExit;
         };
         /** Attach a component portal as content to this snack bar container. */
         MatSnackBarContainer.prototype.attachComponentPortal = function (portal) {
