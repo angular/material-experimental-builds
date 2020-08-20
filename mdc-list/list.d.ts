@@ -30,5 +30,6 @@ export declare class MatList extends MatListBase {
 }
 export declare class MatListItem extends MatListItemBase {
     lines: QueryList<ElementRef<Element>>;
+    _itemText: ElementRef<HTMLElement>;
     constructor(element: ElementRef, ngZone: NgZone, listBase: MatListBase, platform: Platform);
 }
