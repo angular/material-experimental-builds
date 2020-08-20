@@ -13,5 +13,4 @@ import { _MatAutocompleteTriggerBase } from '@angular/material/autocomplete';
 export declare const MAT_AUTOCOMPLETE_VALUE_ACCESSOR: any;
 export declare class MatAutocompleteTrigger extends _MatAutocompleteTriggerBase {
     protected _aboveClass: string;
-    protected _scrollToOption(index: number): void;
 }
