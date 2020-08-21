@@ -334,7 +334,6 @@
                         '[required]': 'required',
                         '[attr.placeholder]': 'placeholder',
                         '[attr.readonly]': 'readonly && !_isNativeSelect || null',
-                        '[attr.aria-describedby]': '_ariaDescribedby || null',
                         '[attr.aria-invalid]': 'errorState',
                         '[attr.aria-required]': 'required.toString()',
                     },

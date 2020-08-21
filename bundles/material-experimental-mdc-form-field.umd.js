@@ -146,66 +146,6 @@
                 },] }
     ];
 
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-    /**
-     * Internal directive that maintains a MDC floating label. This directive does not
-     * use the `MDCFloatingLabelFoundation` class, as it is not worth the size cost of
-     * including it just to measure the label width and toggle some classes.
-     *
-     * The use of a directive allows us to conditionally render a floating label in the
-     * template without having to manually manage instantiation and destruction of the
-     * floating label component based on.
-     *
-     * The component is responsible for setting up the floating label styles, measuring label
-     * width for the outline notch, and providing inputs that can be used to toggle the
-     * label's floating or required state.
-     */
-    var MatFormFieldFloatingLabel = /** @class */ (function () {
-        function MatFormFieldFloatingLabel(_elementRef) {
-            this._elementRef = _elementRef;
-            /** Whether the label is floating. */
-            this.floating = false;
-            /** Whether the label is required. */
-            this.required = false;
-        }
-        /** Gets the width of the label. Used for the outline notch. */
-        MatFormFieldFloatingLabel.prototype.getWidth = function () {
-            return dom.ponyfill.estimateScrollWidth(this._elementRef.nativeElement);
-        };
-        Object.defineProperty(MatFormFieldFloatingLabel.prototype, "element", {
-            /** Gets the HTML element for the floating label. */
-            get: function () {
-                return this._elementRef.nativeElement;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        return MatFormFieldFloatingLabel;
-    }());
-    MatFormFieldFloatingLabel.decorators = [
-        { type: core.Directive, args: [{
-                    selector: 'label[matFormFieldFloatingLabel]',
-                    host: {
-                        'class': 'mdc-floating-label',
-                        '[class.mdc-floating-label--required]': 'required',
-                        '[class.mdc-floating-label--float-above]': 'floating',
-                    },
-                },] }
-    ];
-    MatFormFieldFloatingLabel.ctorParameters = function () { return [
-        { type: core.ElementRef }
-    ]; };
-    MatFormFieldFloatingLabel.propDecorators = {
-        floating: [{ type: core.Input }],
-        required: [{ type: core.Input }]
-    };
-
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
 
@@ -508,6 +448,66 @@
     }
 
     /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    /**
+     * Internal directive that maintains a MDC floating label. This directive does not
+     * use the `MDCFloatingLabelFoundation` class, as it is not worth the size cost of
+     * including it just to measure the label width and toggle some classes.
+     *
+     * The use of a directive allows us to conditionally render a floating label in the
+     * template without having to manually manage instantiation and destruction of the
+     * floating label component based on.
+     *
+     * The component is responsible for setting up the floating label styles, measuring label
+     * width for the outline notch, and providing inputs that can be used to toggle the
+     * label's floating or required state.
+     */
+    var MatFormFieldFloatingLabel = /** @class */ (function () {
+        function MatFormFieldFloatingLabel(_elementRef) {
+            this._elementRef = _elementRef;
+            /** Whether the label is floating. */
+            this.floating = false;
+            /** Whether the label is required. */
+            this.required = false;
+        }
+        /** Gets the width of the label. Used for the outline notch. */
+        MatFormFieldFloatingLabel.prototype.getWidth = function () {
+            return dom.ponyfill.estimateScrollWidth(this._elementRef.nativeElement);
+        };
+        Object.defineProperty(MatFormFieldFloatingLabel.prototype, "element", {
+            /** Gets the HTML element for the floating label. */
+            get: function () {
+                return this._elementRef.nativeElement;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        return MatFormFieldFloatingLabel;
+    }());
+    MatFormFieldFloatingLabel.decorators = [
+        { type: core.Directive, args: [{
+                    selector: 'label[matFormFieldFloatingLabel]',
+                    host: {
+                        'class': 'mdc-floating-label',
+                        '[class.mdc-floating-label--required]': 'required',
+                        '[class.mdc-floating-label--float-above]': 'floating',
+                    },
+                },] }
+    ];
+    MatFormFieldFloatingLabel.ctorParameters = function () { return [
+        { type: core.ElementRef }
+    ]; };
+    MatFormFieldFloatingLabel.propDecorators = {
+        floating: [{ type: core.Input }],
+        required: [{ type: core.Input }]
+    };
+
+    /**
      * Internal directive that creates an instance of the MDC line-ripple component. Using a
      * directive allows us to conditionally render a line-ripple in the template without having
      * to manually create and destroy the `MDCLineRipple` component whenever the condition changes.
@@ -624,13 +624,6 @@
         open: [{ type: core.Input, args: ['matFormFieldNotchedOutlineOpen',] }]
     };
 
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
     /**
      * Injection token that can be used to configure the
      * default options for all form field within an app.
@@ -1052,6 +1045,9 @@
         MatFormField.prototype._syncDescribedByIds = function () {
             if (this._control) {
                 var ids = [];
+                if (this._control.userAriaDescribedBy) {
+                    ids.push.apply(ids, __spread(this._control.userAriaDescribedBy.split(' ')));
+                }
                 if (this._getDisplayedMessages() === 'hint') {
                     var startHint = this._hintChildren ?
                         this._hintChildren.find(function (hint) { return hint.align === 'start'; }) : null;
@@ -1068,7 +1064,7 @@
                     }
                 }
                 else if (this._errorChildren) {
-                    ids = this._errorChildren.map(function (error) { return error.id; });
+                    ids.push.apply(ids, __spread(this._errorChildren.map(function (error) { return error.id; })));
                 }
                 this._control.setDescribedByIds(ids);
             }
