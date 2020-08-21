@@ -27,6 +27,7 @@ export declare class GridKeyManager<T> {
     private _activeRow;
     private _activeCell;
     private _dir;
+    private _homeAndEnd;
     constructor(_rows: QueryList<GridKeyManagerRow<T>> | GridKeyManagerRow<T>[]);
     /** Stream that emits whenever the active cell of the grid manager changes. */
     change: Subject<{
@@ -53,6 +54,12 @@ export declare class GridKeyManager<T> {
      * @param cell The cell to be set as active.
      */
     setActiveCell(cell: T): void;
+    /**
+     * Configures the key manager to activate the first and last items
+     * respectively when the Home or End key is pressed.
+     * @param enabled Whether pressing the Home or End key activates the first/last item.
+     */
+    withHomeAndEnd(enabled?: boolean): this;
     /**
      * Sets the active cell depending on the key event passed in.
      * @param event Keyboard event to be used for determining which element should be active.

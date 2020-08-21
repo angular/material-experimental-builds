@@ -1869,17 +1869,7 @@
          */
         MatChipListbox.prototype._keydown = function (event) {
             if (this._originatesFromChip(event)) {
-                if (event.keyCode === keycodes.HOME) {
-                    this._keyManager.setFirstItemActive();
-                    event.preventDefault();
-                }
-                else if (event.keyCode === keycodes.END) {
-                    this._keyManager.setLastItemActive();
-                    event.preventDefault();
-                }
-                else {
-                    this._keyManager.onKeydown(event);
-                }
+                this._keyManager.onKeydown(event);
             }
         };
         /** Marks the field as touched */
@@ -1968,6 +1958,7 @@
             this._keyManager = new a11y.FocusKeyManager(this._chips)
                 .withWrap()
                 .withVerticalOrientation()
+                .withHomeAndEnd()
                 .withHorizontalOrientation(this._dir ? this._dir.value : 'ltr');
             if (this._dir) {
                 this._dir.change
@@ -2133,6 +2124,7 @@
             this._activeRow = null;
             this._activeCell = null;
             this._dir = 'ltr';
+            this._homeAndEnd = false;
             /** Stream that emits whenever the active cell of the grid manager changes. */
             this.change = new rxjs.Subject();
             // We allow for the rows to be an array because, in some cases, the consumer may
@@ -2169,6 +2161,16 @@
             }
         };
         /**
+         * Configures the key manager to activate the first and last items
+         * respectively when the Home or End key is pressed.
+         * @param enabled Whether pressing the Home or End key activates the first/last item.
+         */
+        GridKeyManager.prototype.withHomeAndEnd = function (enabled) {
+            if (enabled === void 0) { enabled = true; }
+            this._homeAndEnd = enabled;
+            return this;
+        };
+        /**
          * Sets the active cell depending on the key event passed in.
          * @param event Keyboard event to be used for determining which element should be active.
          */
@@ -2187,6 +2189,22 @@
                 case keycodes.LEFT_ARROW:
                     this._dir === 'rtl' ? this.setNextColumnActive() : this.setPreviousColumnActive();
                     break;
+                case keycodes.HOME:
+                    if (this._homeAndEnd) {
+                        this.setFirstCellActive();
+                        break;
+                    }
+                    else {
+                        return;
+                    }
+                case keycodes.END:
+                    if (this._homeAndEnd) {
+                        this.setLastCellActive();
+                        break;
+                    }
+                    else {
+                        return;
+                    }
                 default:
                     // Note that we return here, in order to avoid preventing
                     // the default action of non-navigational keys.
@@ -2661,17 +2679,7 @@
                 event.preventDefault();
             }
             else if (this._originatesFromChip(event)) {
-                if (keyCode === keycodes.HOME) {
-                    manager.setFirstCellActive();
-                    event.preventDefault();
-                }
-                else if (keyCode === keycodes.END) {
-                    manager.setLastCellActive();
-                    event.preventDefault();
-                }
-                else {
-                    manager.onKeydown(event);
-                }
+                manager.onKeydown(event);
             }
             this.stateChanges.next();
         };
@@ -2697,6 +2705,7 @@
         MatChipGrid.prototype._initKeyManager = function () {
             var _this = this;
             this._keyManager = new GridFocusKeyManager(this._chips)
+                .withHomeAndEnd()
                 .withDirectionality(this._dir ? this._dir.value : 'ltr');
             if (this._dir) {
                 this._dir.change

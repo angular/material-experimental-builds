@@ -5,7 +5,7 @@ import { InjectionToken, Directive, ChangeDetectorRef, ElementRef, EventEmitter,
 import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
-import { SPACE, ENTER, hasModifierKey, BACKSPACE, DELETE, HOME, END, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, TAB } from '@angular/cdk/keycodes';
+import { SPACE, ENTER, hasModifierKey, BACKSPACE, DELETE, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, END, HOME, TAB } from '@angular/cdk/keycodes';
 import { Subject, merge } from 'rxjs';
 import { takeUntil, take, startWith } from 'rxjs/operators';
 import { DOCUMENT, CommonModule } from '@angular/common';
@@ -1476,17 +1476,7 @@ class MatChipListbox extends MatChipSet {
      */
     _keydown(event) {
         if (this._originatesFromChip(event)) {
-            if (event.keyCode === HOME) {
-                this._keyManager.setFirstItemActive();
-                event.preventDefault();
-            }
-            else if (event.keyCode === END) {
-                this._keyManager.setLastItemActive();
-                event.preventDefault();
-            }
-            else {
-                this._keyManager.onKeydown(event);
-            }
+            this._keyManager.onKeydown(event);
         }
     }
     /** Marks the field as touched */
@@ -1570,6 +1560,7 @@ class MatChipListbox extends MatChipSet {
         this._keyManager = new FocusKeyManager(this._chips)
             .withWrap()
             .withVerticalOrientation()
+            .withHomeAndEnd()
             .withHorizontalOrientation(this._dir ? this._dir.value : 'ltr');
         if (this._dir) {
             this._dir.change
@@ -1730,6 +1721,7 @@ class GridKeyManager {
         this._activeRow = null;
         this._activeCell = null;
         this._dir = 'ltr';
+        this._homeAndEnd = false;
         /** Stream that emits whenever the active cell of the grid manager changes. */
         this.change = new Subject();
         // We allow for the rows to be an array because, in some cases, the consumer may
@@ -1766,6 +1758,15 @@ class GridKeyManager {
         }
     }
     /**
+     * Configures the key manager to activate the first and last items
+     * respectively when the Home or End key is pressed.
+     * @param enabled Whether pressing the Home or End key activates the first/last item.
+     */
+    withHomeAndEnd(enabled = true) {
+        this._homeAndEnd = enabled;
+        return this;
+    }
+    /**
      * Sets the active cell depending on the key event passed in.
      * @param event Keyboard event to be used for determining which element should be active.
      */
@@ -1784,6 +1785,22 @@ class GridKeyManager {
             case LEFT_ARROW:
                 this._dir === 'rtl' ? this.setNextColumnActive() : this.setPreviousColumnActive();
                 break;
+            case HOME:
+                if (this._homeAndEnd) {
+                    this.setFirstCellActive();
+                    break;
+                }
+                else {
+                    return;
+                }
+            case END:
+                if (this._homeAndEnd) {
+                    this.setLastCellActive();
+                    break;
+                }
+                else {
+                    return;
+                }
             default:
                 // Note that we return here, in order to avoid preventing
                 // the default action of non-navigational keys.
@@ -2200,17 +2217,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
             event.preventDefault();
         }
         else if (this._originatesFromChip(event)) {
-            if (keyCode === HOME) {
-                manager.setFirstCellActive();
-                event.preventDefault();
-            }
-            else if (keyCode === END) {
-                manager.setLastCellActive();
-                event.preventDefault();
-            }
-            else {
-                manager.onKeydown(event);
-            }
+            manager.onKeydown(event);
         }
         this.stateChanges.next();
     }
@@ -2235,6 +2242,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
     /** Initializes the key manager to manage focus. */
     _initKeyManager() {
         this._keyManager = new GridFocusKeyManager(this._chips)
+            .withHomeAndEnd()
             .withDirectionality(this._dir ? this._dir.value : 'ltr');
         if (this._dir) {
             this._dir.change
