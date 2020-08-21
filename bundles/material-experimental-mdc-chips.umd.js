@@ -2524,7 +2524,7 @@
         };
         MatChipGrid.prototype.ngAfterViewInit = function () {
             _super.prototype.ngAfterViewInit.call(this);
-            if (!this._chipInput) {
+            if (!this._chipInput && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 throw Error('mat-chip-grid must be used in combination with matChipInputFor.');
             }
         };

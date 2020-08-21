@@ -924,7 +924,7 @@
         };
         /** Throws an error if the form field's control is missing. */
         MatFormField.prototype._assertFormFieldControl = function () {
-            if (!this._control) {
+            if (!this._control && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 throw formField.getMatFormFieldMissingControlError();
             }
         };
@@ -1026,7 +1026,7 @@
          */
         MatFormField.prototype._validateHints = function () {
             var _this = this;
-            if (core.isDevMode() && this._hintChildren) {
+            if (this._hintChildren && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 var startHint_1;
                 var endHint_1;
                 this._hintChildren.forEach(function (hint) {

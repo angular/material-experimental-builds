@@ -1,6 +1,6 @@
 import { getMatFormFieldMissingControlError, getMatFormFieldDuplicatedHintError, matFormFieldAnimations, MAT_FORM_FIELD, MatFormFieldControl } from '@angular/material/form-field';
 export { MAT_FORM_FIELD, MatFormFieldControl, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError } from '@angular/material/form-field';
-import { Directive, InjectionToken, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, isDevMode, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
+import { Directive, InjectionToken, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { MAT_LABEL_GLOBAL_OPTIONS, MatCommonModule } from '@angular/material/core';
@@ -600,7 +600,7 @@ class MatFormField {
     }
     /** Throws an error if the form field's control is missing. */
     _assertFormFieldControl() {
-        if (!this._control) {
+        if (!this._control && (typeof ngDevMode === 'undefined' || ngDevMode)) {
             throw getMatFormFieldMissingControlError();
         }
     }
@@ -700,7 +700,7 @@ class MatFormField {
      * This method is a noop if Angular runs in production mode.
      */
     _validateHints() {
-        if (isDevMode() && this._hintChildren) {
+        if (this._hintChildren && (typeof ngDevMode === 'undefined' || ngDevMode)) {
             let startHint;
             let endHint;
             this._hintChildren.forEach((hint) => {

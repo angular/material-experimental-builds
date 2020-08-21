@@ -2065,7 +2065,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
     }
     ngAfterViewInit() {
         super.ngAfterViewInit();
-        if (!this._chipInput) {
+        if (!this._chipInput && (typeof ngDevMode === 'undefined' || ngDevMode)) {
             throw Error('mat-chip-grid must be used in combination with matChipInputFor.');
         }
     }

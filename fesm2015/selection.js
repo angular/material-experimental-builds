@@ -1,5 +1,5 @@
 import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from '@angular/cdk-experimental/selection';
-import { EventEmitter, Directive, Input, Output, isDevMode, Component, ChangeDetectionStrategy, ViewEncapsulation, Optional, Inject, ViewChild, NgModule } from '@angular/core';
+import { EventEmitter, Directive, Input, Output, Component, ChangeDetectionStrategy, ViewEncapsulation, Optional, Inject, ViewChild, NgModule } from '@angular/core';
 import { MatTable, MatColumnDef, MatCellDef, MatHeaderCellDef, MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -121,7 +121,7 @@ class MatSelectionColumn {
         this._syncColumnDefName();
     }
     ngOnInit() {
-        if (!this.selection && isDevMode()) {
+        if (!this.selection && (typeof ngDevMode === 'undefined' || ngDevMode)) {
             throw Error('MatSelectionColumn: missing MatSelection in the parent');
         }
         this._syncColumnDefName();
@@ -130,7 +130,7 @@ class MatSelectionColumn {
             this._columnDef.headerCell = this._headerCell;
             this._table.addColumnDef(this._columnDef);
         }
-        else if (isDevMode()) {
+        else if (typeof ngDevMode === 'undefined' || ngDevMode) {
             throw Error('MatSelectionColumn: missing parent table');
         }
     }

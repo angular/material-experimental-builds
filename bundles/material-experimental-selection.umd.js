@@ -418,7 +418,7 @@
             configurable: true
         });
         MatSelectionColumn.prototype.ngOnInit = function () {
-            if (!this.selection && core.isDevMode()) {
+            if (!this.selection && (typeof ngDevMode === 'undefined' || ngDevMode)) {
                 throw Error('MatSelectionColumn: missing MatSelection in the parent');
             }
             this._syncColumnDefName();
@@ -427,7 +427,7 @@
                 this._columnDef.headerCell = this._headerCell;
                 this._table.addColumnDef(this._columnDef);
             }
-            else if (core.isDevMode()) {
+            else if (typeof ngDevMode === 'undefined' || ngDevMode) {
                 throw Error('MatSelectionColumn: missing parent table');
             }
         };
