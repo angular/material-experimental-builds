@@ -670,8 +670,7 @@
             this._foundation = new list.MDCListFoundation(adapter);
         };
         MatInteractiveListBase.prototype.ngAfterViewInit = function () {
-            // TODO: Replace with `ngDevMode` build time check once #20146 is available.
-            if (core.isDevMode() && !this._foundation) {
+            if ((typeof ngDevMode === 'undefined' || ngDevMode) && !this._foundation) {
                 throw Error('MDC list foundation not initialized for Angular Material list.');
             }
             this._foundation.init();
@@ -1054,7 +1053,7 @@
             set: function (value) {
                 var newValue = coercion.coerceBooleanProperty(value);
                 if (newValue !== this._multiple) {
-                    if (core.isDevMode() && this._initialized) {
+                    if ((typeof ngDevMode === 'undefined' || ngDevMode) && this._initialized) {
                         throw new Error('Cannot change `multiple` mode of mat-selection-list after initialization.');
                     }
                     this._multiple = newValue;

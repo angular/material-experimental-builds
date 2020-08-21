@@ -1,5 +1,5 @@
 import { Platform } from '@angular/cdk/platform';
-import { Directive, ElementRef, NgZone, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, ViewChild, isDevMode, Inject, HostListener, InjectionToken, ChangeDetectorRef, forwardRef, EventEmitter, Output, NgModule } from '@angular/core';
+import { Directive, ElementRef, NgZone, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, ViewChild, Inject, HostListener, InjectionToken, ChangeDetectorRef, forwardRef, EventEmitter, Output, NgModule } from '@angular/core';
 import { RippleRenderer, setLines, MatLine, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Subscription, Subject } from 'rxjs';
@@ -356,8 +356,7 @@ class MatInteractiveListBase extends MatListBase {
         this._foundation = new MDCListFoundation(adapter);
     }
     ngAfterViewInit() {
-        // TODO: Replace with `ngDevMode` build time check once #20146 is available.
-        if (isDevMode() && !this._foundation) {
+        if ((typeof ngDevMode === 'undefined' || ngDevMode) && !this._foundation) {
             throw Error('MDC list foundation not initialized for Angular Material list.');
         }
         this._foundation.init();
@@ -720,7 +719,7 @@ class MatSelectionList extends MatInteractiveListBase {
     set multiple(value) {
         const newValue = coerceBooleanProperty(value);
         if (newValue !== this._multiple) {
-            if (isDevMode() && this._initialized) {
+            if ((typeof ngDevMode === 'undefined' || ngDevMode) && this._initialized) {
                 throw new Error('Cannot change `multiple` mode of mat-selection-list after initialization.');
             }
             this._multiple = newValue;
