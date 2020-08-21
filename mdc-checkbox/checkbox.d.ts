@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxClickAction, MatCheckboxDefaultOptions } from '@angular/material/checkbox';
-import { ThemePalette, RippleAnimationConfig } from '@angular/material/core';
+import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable } from '@angular/material/core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */
@@ -19,7 +19,13 @@ export declare class MatCheckboxChange {
     /** The new `checked` value of the checkbox. */
     checked: boolean;
 }
-export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlValueAccessor {
+/** @docs-private */
+declare class MatCheckboxBase {
+    _elementRef: ElementRef;
+    constructor(_elementRef: ElementRef);
+}
+declare const _MatCheckboxMixinBase: CanColorCtor & CanDisableCtor & typeof MatCheckboxBase;
+export declare class MatCheckbox extends _MatCheckboxMixinBase implements AfterViewInit, OnDestroy, ControlValueAccessor, CanColor, CanDisable {
     private _changeDetectorRef;
     /**
      * @deprecated `_clickAction` parameter to be removed, use
@@ -64,10 +70,6 @@ export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlVal
     get indeterminate(): boolean;
     set indeterminate(indeterminate: boolean);
     private _indeterminate;
-    /** Whether the checkbox is disabled. */
-    get disabled(): boolean;
-    set disabled(disabled: boolean);
-    private _disabled;
     /** Whether the checkbox is required. */
     get required(): boolean;
     set required(required: boolean);
@@ -109,7 +111,7 @@ export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlVal
     private _attrBlacklist;
     /** The `MDCCheckboxAdapter` instance for this checkbox. */
     private _checkboxAdapter;
-    constructor(_changeDetectorRef: ChangeDetectorRef, tabIndex: string, 
+    constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, tabIndex: string, 
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`
@@ -172,3 +174,4 @@ export declare class MatCheckbox implements AfterViewInit, OnDestroy, ControlVal
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
 }
+export {};

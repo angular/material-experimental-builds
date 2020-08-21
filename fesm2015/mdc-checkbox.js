@@ -1,13 +1,13 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, Attribute, Optional, Inject, Input, Output, ViewChild, NgModule } from '@angular/core';
+import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, Attribute, Optional, Inject, Input, Output, ViewChild, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MAT_CHECKBOX_CLICK_ACTION, MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 export { MAT_CHECKBOX_CLICK_ACTION, MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxRequiredValidator, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
+import { mixinColor, mixinDisabled, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 import { numbers } from '@material/ripple';
 import { CommonModule } from '@angular/common';
-import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 
 /**
  * @license
@@ -25,19 +25,28 @@ const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR = {
 /** Change event object emitted by MatCheckbox. */
 class MatCheckboxChange {
 }
+// Boilerplate for applying mixins to MatCheckbox.
+/** @docs-private */
+class MatCheckboxBase {
+    constructor(_elementRef) {
+        this._elementRef = _elementRef;
+    }
+}
+const _MatCheckboxMixinBase = mixinColor(mixinDisabled(MatCheckboxBase));
 /** Configuration for the ripple animation. */
 const RIPPLE_ANIMATION_CONFIG = {
     enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
     exitDuration: numbers.FG_DEACTIVATION_MS,
 };
-class MatCheckbox {
-    constructor(_changeDetectorRef, tabIndex, 
+class MatCheckbox extends _MatCheckboxMixinBase {
+    constructor(_changeDetectorRef, elementRef, tabIndex, 
     /**
      * @deprecated `_clickAction` parameter to be removed, use
      * `MAT_CHECKBOX_DEFAULT_OPTIONS`
      * @breaking-change 10.0.0
      */
     _clickAction, _animationMode, _options) {
+        super(elementRef);
         this._changeDetectorRef = _changeDetectorRef;
         this._clickAction = _clickAction;
         this._animationMode = _animationMode;
@@ -60,7 +69,6 @@ class MatCheckbox {
         this.id = this._uniqueId;
         this._checked = false;
         this._indeterminate = false;
-        this._disabled = false;
         this._required = false;
         this._disableRipple = false;
         /** Event emitted when the checkbox's `checked` value changes. */
@@ -109,7 +117,7 @@ class MatCheckbox {
         this._checkboxFoundation = new MDCCheckboxFoundation(this._checkboxAdapter);
         this._options = this._options || {};
         if (this._options.color) {
-            this.color = this._options.color;
+            this.color = this.defaultColor = this._options.color;
         }
         // @breaking-change 10.0.0: Remove this after the `_clickAction` parameter is removed as an
         // injection parameter.
@@ -134,13 +142,6 @@ class MatCheckbox {
     set indeterminate(indeterminate) {
         this._indeterminate = coerceBooleanProperty(indeterminate);
         this._syncIndeterminate(this._indeterminate);
-    }
-    /** Whether the checkbox is disabled. */
-    get disabled() {
-        return this._disabled;
-    }
-    set disabled(disabled) {
-        this._disabled = coerceBooleanProperty(disabled);
     }
     /** Whether the checkbox is required. */
     get required() {
@@ -283,12 +284,10 @@ MatCheckbox.decorators = [
     { type: Component, args: [{
                 selector: 'mat-checkbox',
                 template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div #checkbox class=\"mdc-checkbox\">\n    <input #nativeCheckbox\n           type=\"checkbox\"\n           [ngClass]=\"_classes\"\n           [attr.aria-checked]=\"_getAriaChecked()\"\n           [attr.aria-label]=\"ariaLabel || null\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           [attr.aria-describedby]=\"ariaDescribedby\"\n           [attr.name]=\"name\"\n           [attr.value]=\"value\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [id]=\"inputId\"\n           [required]=\"required\"\n           [tabIndex]=\"tabIndex\"\n           (blur)=\"_onBlur()\"\n           (click)=\"_onClick()\"\n           (change)=\"$event.stopPropagation()\"/>\n    <div class=\"mdc-checkbox__background\">\n      <svg class=\"mdc-checkbox__checkmark\"\n           focusable=\"false\"\n           viewBox=\"0 0 24 24\">\n        <path class=\"mdc-checkbox__checkmark-path\"\n              fill=\"none\"\n              d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n      </svg>\n      <div class=\"mdc-checkbox__mixedmark\"></div>\n    </div>\n    <div class=\"mat-mdc-checkbox-ripple mat-mdc-focus-indicator\" mat-ripple\n      [matRippleTrigger]=\"checkbox\"\n      [matRippleDisabled]=\"disableRipple || disabled\"\n      [matRippleCentered]=\"true\"\n      [matRippleAnimation]=\"_rippleAnimation\"></div>\n  </div>\n  <label #label\n         [for]=\"inputId\"\n         (click)=\"$event.stopPropagation()\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
+                inputs: ['color', 'disabled'],
                 host: {
                     'class': 'mat-mdc-checkbox',
                     '[attr.tabindex]': 'null',
-                    '[class.mat-primary]': 'color == "primary"',
-                    '[class.mat-accent]': 'color == "accent"',
-                    '[class.mat-warn]': 'color == "warn"',
                     '[class._mat-animation-noopable]': `_animationMode === 'NoopAnimations'`,
                     '[class.mdc-checkbox--disabled]': 'disabled',
                     '[id]': 'id',
@@ -302,6 +301,7 @@ MatCheckbox.decorators = [
 ];
 MatCheckbox.ctorParameters = () => [
     { type: ChangeDetectorRef },
+    { type: ElementRef },
     { type: String, decorators: [{ type: Attribute, args: ['tabindex',] }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_CHECKBOX_CLICK_ACTION,] }] },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
@@ -319,7 +319,6 @@ MatCheckbox.propDecorators = {
     id: [{ type: Input }],
     checked: [{ type: Input }],
     indeterminate: [{ type: Input }],
-    disabled: [{ type: Input }],
     required: [{ type: Input }],
     disableRipple: [{ type: Input }],
     change: [{ type: Output }],
