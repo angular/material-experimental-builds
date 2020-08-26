@@ -27,9 +27,9 @@ export declare class MatChipCssInternalOnly {
  * Boilerplate for applying mixins to MatChip.
  * @docs-private
  */
-declare class MatChipBase {
+declare abstract class MatChipBase {
     _elementRef: ElementRef;
-    disabled: boolean;
+    abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
 declare const _MatChipMixinBase: CanColorCtor & CanDisableRippleCtor & HasTabIndexCtor & typeof MatChipBase;

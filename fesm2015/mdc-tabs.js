@@ -298,6 +298,9 @@ MatTabLabelWrapper.propDecorators = {
  * found in the LICENSE file at https://angular.io/license
  */
 class MatTab extends MatTab$1 {
+    /** Content for the tab label given by `<ng-template mat-tab-label>`. */
+    get templateLabel() { return this._templateLabel; }
+    set templateLabel(value) { this._setTemplateLabelInput(value); }
 }
 MatTab.decorators = [
     { type: Component, args: [{

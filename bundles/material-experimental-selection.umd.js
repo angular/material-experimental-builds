@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk-experimental/selection'), require('@angular/core'), require('@angular/material/table'), require('@angular/common'), require('@angular/material/checkbox')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/selection', ['exports', '@angular/cdk-experimental/selection', '@angular/core', '@angular/material/table', '@angular/common', '@angular/material/checkbox'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.selection = {}), global.ng.cdkExperimental.selection, global.ng.core, global.ng.material.table, global.ng.common, global.ng.material.checkbox));
-}(this, (function (exports, selection, core, table, common, checkbox) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/cdk-experimental/selection'), require('@angular/core'), require('@angular/material/table'), require('@angular/common'), require('@angular/material/checkbox')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/selection', ['exports', '@angular/cdk/coercion', '@angular/cdk-experimental/selection', '@angular/core', '@angular/material/table', '@angular/common', '@angular/material/checkbox'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.selection = {}), global.ng.cdk.coercion, global.ng.cdkExperimental.selection, global.ng.core, global.ng.material.table, global.ng.common, global.ng.material.checkbox));
+}(this, (function (exports, coercion, selection, core, table, common, checkbox) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -311,6 +311,7 @@
      * It must be applied to the parent element if `matSelectionToggle`, `matSelectAll`,
      * `matRowSelection` and `matSelectionColumn` are applied.
      */
+    // tslint:disable-next-line: coercion-types
     var MatSelection = /** @class */ (function (_super) {
         __extends(MatSelection, _super);
         function MatSelection() {
@@ -319,6 +320,13 @@
             _this.change = new core.EventEmitter();
             return _this;
         }
+        Object.defineProperty(MatSelection.prototype, "multiple", {
+            /** Whether to support multiple selection */
+            get: function () { return this._multiple; },
+            set: function (multiple) { this._multiple = coercion.coerceBooleanProperty(multiple); },
+            enumerable: false,
+            configurable: true
+        });
         return MatSelection;
     }(selection.CdkSelection));
     MatSelection.decorators = [
@@ -368,11 +376,23 @@
      * not, use `checked$` to get the checked state of the value, and `toggle()` to change the selection
      * state.
      */
+    // tslint:disable-next-line: coercion-types
     var MatSelectionToggle = /** @class */ (function (_super) {
         __extends(MatSelectionToggle, _super);
         function MatSelectionToggle() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        Object.defineProperty(MatSelectionToggle.prototype, "index", {
+            /** The index of the value in the list. Required when used with `trackBy` */
+            get: function () { return this._index; },
+            set: function (index) {
+                // TODO: when we remove support for ViewEngine, change this setter to an input
+                // alias in the decorator metadata.
+                this._index = coercion.coerceNumberProperty(index);
+            },
+            enumerable: false,
+            configurable: true
+        });
         return MatSelectionToggle;
     }(selection.CdkSelectionToggle));
     MatSelectionToggle.decorators = [
@@ -470,11 +490,23 @@
      * Must be provided with the value. The index is required if `trackBy` is used on the `CdkSelection`
      * directive.
      */
+    // tslint:disable-next-line: coercion-types
     var MatRowSelection = /** @class */ (function (_super) {
         __extends(MatRowSelection, _super);
         function MatRowSelection() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        Object.defineProperty(MatRowSelection.prototype, "index", {
+            /** The index of the value in the list. Required when used with `trackBy` */
+            get: function () { return this._index; },
+            set: function (index) {
+                // TODO: when we remove support for ViewEngine, change this setter to an input
+                // alias in the decorator metadata.
+                this._index = coercion.coerceNumberProperty(index);
+            },
+            enumerable: false,
+            configurable: true
+        });
         return MatRowSelection;
     }(selection.CdkRowSelection));
     MatRowSelection.decorators = [

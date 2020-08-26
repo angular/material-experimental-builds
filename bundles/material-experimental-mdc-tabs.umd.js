@@ -581,6 +581,13 @@
         function MatTab() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        Object.defineProperty(MatTab.prototype, "templateLabel", {
+            /** Content for the tab label given by `<ng-template mat-tab-label>`. */
+            get: function () { return this._templateLabel; },
+            set: function (value) { this._setTemplateLabelInput(value); },
+            enumerable: false,
+            configurable: true
+        });
         return MatTab;
     }(tabs.MatTab));
     MatTab.decorators = [

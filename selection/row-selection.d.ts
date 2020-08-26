@@ -17,5 +17,6 @@ export declare class MatRowSelection<T> extends CdkRowSelection<T> {
     /** The value that is associated with the row */
     value: T;
     /** The index of the value in the list. Required when used with `trackBy` */
-    index: number | undefined;
+    get index(): number | undefined;
+    set index(index: number | undefined);
 }

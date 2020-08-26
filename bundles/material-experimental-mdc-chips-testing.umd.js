@@ -436,14 +436,6 @@
     }(testing.ComponentHarness));
     MatChipGridHarness.hostSelector = '.mat-mdc-chip-grid';
 
-    /**
-     * @license
-     * Copyright Google LLC All Rights Reserved.
-     *
-     * Use of this source code is governed by an MIT-style license that can be
-     * found in the LICENSE file at https://angular.io/license
-     */
-
     /** Harness for interacting with a mat-chip-option in tests. */
     var MatChipOptionHarness = /** @class */ (function (_super) {
         __extends(MatChipOptionHarness, _super);

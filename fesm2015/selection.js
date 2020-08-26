@@ -1,3 +1,4 @@
+import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from '@angular/cdk-experimental/selection';
 import { EventEmitter, Directive, Input, Output, Component, ChangeDetectionStrategy, ViewEncapsulation, Optional, Inject, ViewChild, NgModule } from '@angular/core';
 import { MatTable, MatColumnDef, MatCellDef, MatHeaderCellDef, MatTableModule } from '@angular/material/table';
@@ -17,12 +18,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
  * It must be applied to the parent element if `matSelectionToggle`, `matSelectAll`,
  * `matRowSelection` and `matSelectionColumn` are applied.
  */
+// tslint:disable-next-line: coercion-types
 class MatSelection extends CdkSelection {
     constructor() {
         super(...arguments);
         /** Emits when selection changes. */
         this.change = new EventEmitter();
     }
+    /** Whether to support multiple selection */
+    get multiple() { return this._multiple; }
+    set multiple(multiple) { this._multiple = coerceBooleanProperty(multiple); }
 }
 MatSelection.decorators = [
     { type: Directive, args: [{
@@ -80,7 +85,15 @@ MatSelectAll.decorators = [
  * not, use `checked$` to get the checked state of the value, and `toggle()` to change the selection
  * state.
  */
+// tslint:disable-next-line: coercion-types
 class MatSelectionToggle extends CdkSelectionToggle {
+    /** The index of the value in the list. Required when used with `trackBy` */
+    get index() { return this._index; }
+    set index(index) {
+        // TODO: when we remove support for ViewEngine, change this setter to an input
+        // alias in the decorator metadata.
+        this._index = coerceNumberProperty(index);
+    }
 }
 MatSelectionToggle.decorators = [
     { type: Directive, args: [{
@@ -194,7 +207,15 @@ MatSelectionColumn.propDecorators = {
  * Must be provided with the value. The index is required if `trackBy` is used on the `CdkSelection`
  * directive.
  */
+// tslint:disable-next-line: coercion-types
 class MatRowSelection extends CdkRowSelection {
+    /** The index of the value in the list. Required when used with `trackBy` */
+    get index() { return this._index; }
+    set index(index) {
+        // TODO: when we remove support for ViewEngine, change this setter to an input
+        // alias in the decorator metadata.
+        this._index = coerceNumberProperty(index);
+    }
 }
 MatRowSelection.decorators = [
     { type: Directive, args: [{

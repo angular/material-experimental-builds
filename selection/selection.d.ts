@@ -15,7 +15,8 @@ import { EventEmitter } from '@angular/core';
  */
 export declare class MatSelection<T> extends CdkSelection<T> {
     /** Whether to support multiple selection */
-    multiple: boolean;
+    get multiple(): boolean;
+    set multiple(multiple: boolean);
     /** Emits when selection changes. */
     change: EventEmitter<SelectionChange<T>>;
 }

@@ -16,8 +16,8 @@ import { MatChip, MatChipEvent } from './chip';
  * Boilerplate for applying mixins to MatChipSet.
  * @docs-private
  */
-declare class MatChipSetBase {
-    disabled: boolean;
+declare abstract class MatChipSetBase {
+    abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
 declare const _MatChipSetMixinBase: HasTabIndexCtor & typeof MatChipSetBase;

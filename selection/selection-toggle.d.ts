@@ -20,5 +20,6 @@ export declare class MatSelectionToggle<T> extends CdkSelectionToggle<T> {
     /** The value that is associated with the toggle */
     value: T;
     /** The index of the value in the list. Required when used with `trackBy` */
-    index: number | undefined;
+    get index(): number | undefined;
+    set index(index: number | undefined);
 }
