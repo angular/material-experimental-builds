@@ -726,7 +726,9 @@ class MatFormField {
     _syncDescribedByIds() {
         if (this._control) {
             let ids = [];
-            if (this._control.userAriaDescribedBy) {
+            // TODO(wagnermaciel): Remove the type check when we find the root cause of this bug.
+            if (this._control.userAriaDescribedBy &&
+                typeof this._control.userAriaDescribedBy === 'string') {
                 ids.push(...this._control.userAriaDescribedBy.split(' '));
             }
             if (this._getDisplayedMessages() === 'hint') {
