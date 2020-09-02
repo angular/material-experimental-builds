@@ -224,7 +224,9 @@ const _MatChipMixinBase = mixinTabIndex(mixinColor(mixinDisableRipple(MatChipBas
  * Extended by MatChipOption and MatChipRow for different interaction patterns.
  */
 class MatChip extends _MatChipMixinBase {
-    constructor(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode) {
+    constructor(_changeDetectorRef, _elementRef, _ngZone, _dir, 
+    // @breaking-change 8.0.0 `animationMode` parameter to become required.
+    animationMode) {
         super(_elementRef);
         this._changeDetectorRef = _changeDetectorRef;
         this._elementRef = _elementRef;
@@ -816,7 +818,9 @@ MatChipEditInput.ctorParameters = () => [
  * the matChipInputFor directive.
  */
 class MatChipRow extends MatChip {
-    constructor(_document, changeDetectorRef, elementRef, ngZone, dir, animationMode) {
+    constructor(_document, changeDetectorRef, elementRef, ngZone, dir, 
+    // @breaking-change 8.0.0 `animationMode` parameter to become required.
+    animationMode) {
         super(changeDetectorRef, elementRef, ngZone, dir, animationMode);
         this._document = _document;
         this.basicChipAttrName = 'mat-basic-chip-row';

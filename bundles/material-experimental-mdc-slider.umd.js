@@ -107,7 +107,6 @@
                 deregisterBodyEventHandler: function () { },
                 registerWindowEventHandler: function () { },
                 deregisterWindowEventHandler: function () { },
-                removeTrackActiveStyleProperty: function (_propertyName) { },
             };
             /** Instance of the MDC slider foundation for this slider. */
             this._foundation = new slider.MDCSliderFoundation(this._sliderAdapter);
