@@ -513,9 +513,7 @@
      */
     var MatChip = /** @class */ (function (_super) {
         __extends(MatChip, _super);
-        function MatChip(_changeDetectorRef, _elementRef, _ngZone, _dir, 
-        // @breaking-change 8.0.0 `animationMode` parameter to become required.
-        animationMode) {
+        function MatChip(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode) {
             var _this = _super.call(this, _elementRef) || this;
             _this._changeDetectorRef = _changeDetectorRef;
             _this._elementRef = _elementRef;
@@ -1134,9 +1132,7 @@
      */
     var MatChipRow = /** @class */ (function (_super) {
         __extends(MatChipRow, _super);
-        function MatChipRow(_document, changeDetectorRef, elementRef, ngZone, dir, 
-        // @breaking-change 8.0.0 `animationMode` parameter to become required.
-        animationMode) {
+        function MatChipRow(_document, changeDetectorRef, elementRef, ngZone, dir, animationMode) {
             var _this = _super.call(this, changeDetectorRef, elementRef, ngZone, dir, animationMode) || this;
             _this._document = _document;
             _this.basicChipAttrName = 'mat-basic-chip-row';
