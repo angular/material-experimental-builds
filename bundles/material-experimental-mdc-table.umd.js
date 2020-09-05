@@ -334,7 +334,7 @@
                     },
                     providers: [
                         { provide: table.CdkTable, useExisting: MatTable },
-                        table._CoalescedStyleScheduler,
+                        { provide: table._COALESCED_STYLE_SCHEDULER, useClass: table._CoalescedStyleScheduler },
                         // TODO(michaeljamesparsons) Abstract the view repeater strategy to a directive API so this code
                         //  is only included in the build if used.
                         { provide: collections._VIEW_REPEATER_STRATEGY, useClass: collections._DisposeViewRepeaterStrategy },

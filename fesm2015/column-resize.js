@@ -2,7 +2,7 @@ import { Injectable, Inject, Directive, ElementRef, NgZone, Component, ChangeDet
 import { CdkFlexTableResizeStrategy, ColumnResize, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { DOCUMENT } from '@angular/common';
-import { _CoalescedStyleScheduler, CdkTable, CdkColumnDef } from '@angular/cdk/table';
+import { _CoalescedStyleScheduler, _COALESCED_STYLE_SCHEDULER, CdkTable, CdkColumnDef } from '@angular/cdk/table';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
 
@@ -29,7 +29,7 @@ MatFlexTableResizeStrategy.decorators = [
 ];
 MatFlexTableResizeStrategy.ctorParameters = () => [
     { type: ColumnResize },
-    { type: _CoalescedStyleScheduler },
+    { type: _CoalescedStyleScheduler, decorators: [{ type: Inject, args: [_COALESCED_STYLE_SCHEDULER,] }] },
     { type: CdkTable },
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
@@ -274,7 +274,7 @@ MatColumnResizeOverlayHandle.ctorParameters = () => [
     { type: NgZone },
     { type: ColumnResizeNotifierSource },
     { type: ResizeRef },
-    { type: _CoalescedStyleScheduler },
+    { type: _CoalescedStyleScheduler, decorators: [{ type: Inject, args: [_COALESCED_STYLE_SCHEDULER,] }] },
     { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 
@@ -354,7 +354,7 @@ MatDefaultResizable.ctorParameters = () => [
     { type: Overlay },
     { type: ColumnResizeNotifierSource },
     { type: ResizeStrategy },
-    { type: _CoalescedStyleScheduler },
+    { type: _CoalescedStyleScheduler, decorators: [{ type: Inject, args: [_COALESCED_STYLE_SCHEDULER,] }] },
     { type: ViewContainerRef },
     { type: ChangeDetectorRef }
 ];
@@ -407,7 +407,7 @@ MatResizable.ctorParameters = () => [
     { type: Overlay },
     { type: ColumnResizeNotifierSource },
     { type: ResizeStrategy },
-    { type: _CoalescedStyleScheduler },
+    { type: _CoalescedStyleScheduler, decorators: [{ type: Inject, args: [_COALESCED_STYLE_SCHEDULER,] }] },
     { type: ViewContainerRef },
     { type: ChangeDetectorRef }
 ];
