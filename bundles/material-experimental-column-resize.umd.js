@@ -323,7 +323,7 @@
     ];
     MatFlexTableResizeStrategy.ctorParameters = function () { return [
         { type: columnResize.ColumnResize },
-        { type: table._CoalescedStyleScheduler },
+        { type: table._CoalescedStyleScheduler, decorators: [{ type: core.Inject, args: [table._COALESCED_STYLE_SCHEDULER,] }] },
         { type: table.CdkTable },
         { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
     ]; };
@@ -541,7 +541,7 @@
         { type: core.NgZone },
         { type: columnResize.ColumnResizeNotifierSource },
         { type: columnResize.ResizeRef },
-        { type: table._CoalescedStyleScheduler },
+        { type: table._CoalescedStyleScheduler, decorators: [{ type: core.Inject, args: [table._COALESCED_STYLE_SCHEDULER,] }] },
         { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
     ]; };
 
@@ -613,7 +613,7 @@
         { type: overlay.Overlay },
         { type: columnResize.ColumnResizeNotifierSource },
         { type: columnResize.ResizeStrategy },
-        { type: table._CoalescedStyleScheduler },
+        { type: table._CoalescedStyleScheduler, decorators: [{ type: core.Inject, args: [table._COALESCED_STYLE_SCHEDULER,] }] },
         { type: core.ViewContainerRef },
         { type: core.ChangeDetectorRef }
     ]; };
@@ -662,7 +662,7 @@
         { type: overlay.Overlay },
         { type: columnResize.ColumnResizeNotifierSource },
         { type: columnResize.ResizeStrategy },
-        { type: table._CoalescedStyleScheduler },
+        { type: table._CoalescedStyleScheduler, decorators: [{ type: core.Inject, args: [table._COALESCED_STYLE_SCHEDULER,] }] },
         { type: core.ViewContainerRef },
         { type: core.ChangeDetectorRef }
     ]; };
