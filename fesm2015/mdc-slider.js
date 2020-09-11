@@ -109,6 +109,8 @@ class MatSlider {
             registerWindowEventHandler: () => { },
             deregisterWindowEventHandler: () => { },
             removeTrackActiveStyleProperty: (_propertyName) => { },
+            emitDragStartEvent: (_value, _thumb) => { },
+            emitDragEndEvent: (_value, _thumb) => { }
         };
         /** Instance of the MDC slider foundation for this slider. */
         this._foundation = new MDCSliderFoundation(this._sliderAdapter);
