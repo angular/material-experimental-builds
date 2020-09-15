@@ -26,6 +26,18 @@
 			return testing.MatInputHarness;
 		}
 	});
+	Object.defineProperty(exports, 'MatNativeOptionHarness', {
+		enumerable: true,
+		get: function () {
+			return testing.MatNativeOptionHarness;
+		}
+	});
+	Object.defineProperty(exports, 'MatNativeSelectHarness', {
+		enumerable: true,
+		get: function () {
+			return testing.MatNativeSelectHarness;
+		}
+	});
 
 	Object.defineProperty(exports, '__esModule', { value: true });
 

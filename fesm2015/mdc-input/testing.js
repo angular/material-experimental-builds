@@ -1,4 +1,4 @@
-export { MatInputHarness } from '@angular/material/input/testing';
+export { MatInputHarness, MatNativeOptionHarness, MatNativeSelectHarness } from '@angular/material/input/testing';
 
 /**
  * @license
