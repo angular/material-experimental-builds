@@ -366,7 +366,9 @@
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).text()];
+                        case 1: return [2 /*return*/, (_a.sent()).text({
+                                exclude: '.mat-mdc-chip-avatar, .mat-mdc-chip-trailing-icon, .mat-icon'
+                            })];
                     }
                 });
             });
