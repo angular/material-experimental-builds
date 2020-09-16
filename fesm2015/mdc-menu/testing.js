@@ -1,5 +1,5 @@
 import { __awaiter } from 'tslib';
-import { ComponentHarness, HarnessPredicate, TestKey } from '@angular/cdk/testing';
+import { ContentContainerComponentHarness, HarnessPredicate, TestKey, ComponentHarness } from '@angular/cdk/testing';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
@@ -10,7 +10,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
  * found in the LICENSE file at https://angular.io/license
  */
 /** Harness for interacting with an MDC-based mat-menu in tests. */
-class MatMenuHarness extends ComponentHarness {
+class MatMenuHarness extends ContentContainerComponentHarness {
     constructor() {
         super(...arguments);
         this._documentRootLocator = this.documentRootLocatorFactory();
@@ -116,6 +116,33 @@ class MatMenuHarness extends ComponentHarness {
                 throw Error(`Item matching ${JSON.stringify(itemFilter)} does not have a submenu`);
             }
             return menu.clickItem(...subItemFilters);
+        });
+    }
+    getChildLoader(selector) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this._getPanelLoader()).getChildLoader(selector);
+        });
+    }
+    getAllChildLoaders(selector) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this._getPanelLoader()).getAllChildLoaders(selector);
+        });
+    }
+    getHarness(query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this._getPanelLoader()).getHarness(query);
+        });
+    }
+    getAllHarnesses(query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this._getPanelLoader()).getAllHarnesses(query);
+        });
+    }
+    /** Gets the element id for the content of the current step. */
+    _getPanelLoader() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const panelId = yield this._getPanelId();
+            return this.documentRootLocatorFactory().harnessLoaderFor(`#${panelId}`);
         });
     }
     /** Gets the menu panel associated with this menu. */
