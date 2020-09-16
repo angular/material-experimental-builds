@@ -355,8 +355,8 @@
     };
     var MatRadioButton = /** @class */ (function (_super) {
         __extends(MatRadioButton, _super);
-        function MatRadioButton(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride) {
-            var _this = _super.call(this, radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride) || this;
+        function MatRadioButton(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex) {
+            var _this = _super.call(this, radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex) || this;
             _this._radioAdapter = {
                 addClass: function (className) { return _this._setClass(className, true); },
                 removeClass: function (className) { return _this._setClass(className, false); },
@@ -429,7 +429,8 @@
         { type: a11y.FocusMonitor },
         { type: collections.UniqueSelectionDispatcher },
         { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [radio$1.MAT_RADIO_DEFAULT_OPTIONS,] }] }
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [radio$1.MAT_RADIO_DEFAULT_OPTIONS,] }] },
+        { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] }
     ]; };
 
     /**
