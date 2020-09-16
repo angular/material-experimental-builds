@@ -39,7 +39,7 @@ export declare class MatRadioButton extends _MatRadioButtonBase implements After
     _classes: {
         [key: string]: boolean;
     };
-    constructor(radioGroup: MatRadioGroup, elementRef: ElementRef, _changeDetector: ChangeDetectorRef, _focusMonitor: FocusMonitor, _radioDispatcher: UniqueSelectionDispatcher, _animationMode?: string, _providerOverride?: MatRadioDefaultOptions, tabIndex?: string);
+    constructor(radioGroup: MatRadioGroup, elementRef: ElementRef, _changeDetector: ChangeDetectorRef, _focusMonitor: FocusMonitor, _radioDispatcher: UniqueSelectionDispatcher, _animationMode?: string, _providerOverride?: MatRadioDefaultOptions);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     private _setClass;
