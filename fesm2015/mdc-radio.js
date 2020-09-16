@@ -1,4 +1,4 @@
-import { forwardRef, InjectionToken, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, ElementRef, ChangeDetectorRef, NgModule } from '@angular/core';
+import { forwardRef, InjectionToken, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, ElementRef, ChangeDetectorRef, Attribute, NgModule } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
 import { _MatRadioGroupBase, _MatRadioButtonBase, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 export { MAT_RADIO_DEFAULT_OPTIONS, MatRadioChange } from '@angular/material/radio';
@@ -61,8 +61,8 @@ MatRadioGroup.propDecorators = {
     _radios: [{ type: ContentChildren, args: [forwardRef(() => MatRadioButton), { descendants: true },] }]
 };
 class MatRadioButton extends _MatRadioButtonBase {
-    constructor(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride) {
-        super(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride);
+    constructor(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex) {
+        super(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex);
         this._radioAdapter = {
             addClass: (className) => this._setClass(className, true),
             removeClass: (className) => this._setClass(className, false),
@@ -132,7 +132,8 @@ MatRadioButton.ctorParameters = () => [
     { type: FocusMonitor },
     { type: UniqueSelectionDispatcher },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RADIO_DEFAULT_OPTIONS,] }] }
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RADIO_DEFAULT_OPTIONS,] }] },
+    { type: String, decorators: [{ type: Attribute, args: ['tabindex',] }] }
 ];
 
 /**
