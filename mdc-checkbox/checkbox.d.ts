@@ -8,7 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { MatCheckboxClickAction, MatCheckboxDefaultOptions } from '@angular/material/checkbox';
+import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
 import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable } from '@angular/material/core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
@@ -27,12 +27,6 @@ declare class MatCheckboxBase {
 declare const _MatCheckboxMixinBase: CanColorCtor & CanDisableCtor & typeof MatCheckboxBase;
 export declare class MatCheckbox extends _MatCheckboxMixinBase implements AfterViewInit, OnDestroy, ControlValueAccessor, CanColor, CanDisable {
     private _changeDetectorRef;
-    /**
-     * @deprecated `_clickAction` parameter to be removed, use
-     * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-     * @breaking-change 10.0.0
-     */
-    private _clickAction;
     _animationMode?: string | undefined;
     private _options?;
     /**
@@ -111,13 +105,7 @@ export declare class MatCheckbox extends _MatCheckboxMixinBase implements AfterV
     private _attrBlacklist;
     /** The `MDCCheckboxAdapter` instance for this checkbox. */
     private _checkboxAdapter;
-    constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, tabIndex: string, 
-    /**
-     * @deprecated `_clickAction` parameter to be removed, use
-     * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-     * @breaking-change 10.0.0
-     */
-    _clickAction: MatCheckboxClickAction, _animationMode?: string | undefined, _options?: MatCheckboxDefaultOptions | undefined);
+    constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, tabIndex: string, _animationMode?: string | undefined, _options?: MatCheckboxDefaultOptions | undefined);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /**

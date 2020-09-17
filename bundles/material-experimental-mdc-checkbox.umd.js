@@ -333,16 +333,9 @@
     };
     var MatCheckbox = /** @class */ (function (_super) {
         __extends(MatCheckbox, _super);
-        function MatCheckbox(_changeDetectorRef, elementRef, tabIndex, 
-        /**
-         * @deprecated `_clickAction` parameter to be removed, use
-         * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-         * @breaking-change 10.0.0
-         */
-        _clickAction, _animationMode, _options) {
+        function MatCheckbox(_changeDetectorRef, elementRef, tabIndex, _animationMode, _options) {
             var _this = _super.call(this, elementRef) || this;
             _this._changeDetectorRef = _changeDetectorRef;
-            _this._clickAction = _clickAction;
             _this._animationMode = _animationMode;
             _this._options = _options;
             /**
@@ -413,9 +406,6 @@
             if (_this._options.color) {
                 _this.color = _this.defaultColor = _this._options.color;
             }
-            // @breaking-change 10.0.0: Remove this after the `_clickAction` parameter is removed as an
-            // injection parameter.
-            _this._clickAction = _this._clickAction || _this._options.clickAction;
             return _this;
         }
         Object.defineProperty(MatCheckbox.prototype, "checked", {
@@ -545,12 +535,15 @@
          */
         MatCheckbox.prototype._onClick = function () {
             var _this = this;
-            if (this._clickAction === 'noop') {
-                this._nativeCheckbox.nativeElement.checked = this.checked;
-                this._nativeCheckbox.nativeElement.indeterminate = this.indeterminate;
+            var _a;
+            var clickAction = (_a = this._options) === null || _a === void 0 ? void 0 : _a.clickAction;
+            var checkbox = this._nativeCheckbox.nativeElement;
+            if (clickAction === 'noop') {
+                checkbox.checked = this.checked;
+                checkbox.indeterminate = this.indeterminate;
                 return;
             }
-            if (this.indeterminate && this._clickAction !== 'check') {
+            if (this.indeterminate && clickAction !== 'check') {
                 this.indeterminate = false;
                 // tslint:disable:max-line-length
                 // We use `Promise.resolve().then` to ensure the same timing as the original `MatCheckbox`:
@@ -559,7 +552,7 @@
                 Promise.resolve().then(function () { return _this.indeterminateChange.next(_this.indeterminate); });
             }
             else {
-                this._nativeCheckbox.nativeElement.indeterminate = this.indeterminate;
+                checkbox.indeterminate = this.indeterminate;
             }
             this.checked = !this.checked;
             this._checkboxFoundation.handleChange();
@@ -621,7 +614,6 @@
         { type: core.ChangeDetectorRef },
         { type: core.ElementRef },
         { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [checkbox.MAT_CHECKBOX_CLICK_ACTION,] }] },
         { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [checkbox.MAT_CHECKBOX_DEFAULT_OPTIONS,] }] }
     ]; };
@@ -678,12 +670,6 @@
      * Generated bundle index. Do not edit.
      */
 
-    Object.defineProperty(exports, 'MAT_CHECKBOX_CLICK_ACTION', {
-        enumerable: true,
-        get: function () {
-            return checkbox.MAT_CHECKBOX_CLICK_ACTION;
-        }
-    });
     Object.defineProperty(exports, 'MAT_CHECKBOX_REQUIRED_VALIDATOR', {
         enumerable: true,
         get: function () {

@@ -1,8 +1,8 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, Attribute, Optional, Inject, Input, Output, ViewChild, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MAT_CHECKBOX_CLICK_ACTION, MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
-export { MAT_CHECKBOX_CLICK_ACTION, MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxRequiredValidator, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
+import { MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
+export { MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxRequiredValidator, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 import { mixinColor, mixinDisabled, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCCheckboxFoundation } from '@material/checkbox';
@@ -39,16 +39,9 @@ const RIPPLE_ANIMATION_CONFIG = {
     exitDuration: numbers.FG_DEACTIVATION_MS,
 };
 class MatCheckbox extends _MatCheckboxMixinBase {
-    constructor(_changeDetectorRef, elementRef, tabIndex, 
-    /**
-     * @deprecated `_clickAction` parameter to be removed, use
-     * `MAT_CHECKBOX_DEFAULT_OPTIONS`
-     * @breaking-change 10.0.0
-     */
-    _clickAction, _animationMode, _options) {
+    constructor(_changeDetectorRef, elementRef, tabIndex, _animationMode, _options) {
         super(elementRef);
         this._changeDetectorRef = _changeDetectorRef;
-        this._clickAction = _clickAction;
         this._animationMode = _animationMode;
         this._options = _options;
         /**
@@ -119,9 +112,6 @@ class MatCheckbox extends _MatCheckboxMixinBase {
         if (this._options.color) {
             this.color = this.defaultColor = this._options.color;
         }
-        // @breaking-change 10.0.0: Remove this after the `_clickAction` parameter is removed as an
-        // injection parameter.
-        this._clickAction = this._clickAction || this._options.clickAction;
     }
     /** Whether the checkbox is checked. */
     get checked() {
@@ -228,12 +218,15 @@ class MatCheckbox extends _MatCheckboxMixinBase {
      * state like other browsers do.
      */
     _onClick() {
-        if (this._clickAction === 'noop') {
-            this._nativeCheckbox.nativeElement.checked = this.checked;
-            this._nativeCheckbox.nativeElement.indeterminate = this.indeterminate;
+        var _a;
+        const clickAction = (_a = this._options) === null || _a === void 0 ? void 0 : _a.clickAction;
+        const checkbox = this._nativeCheckbox.nativeElement;
+        if (clickAction === 'noop') {
+            checkbox.checked = this.checked;
+            checkbox.indeterminate = this.indeterminate;
             return;
         }
-        if (this.indeterminate && this._clickAction !== 'check') {
+        if (this.indeterminate && clickAction !== 'check') {
             this.indeterminate = false;
             // tslint:disable:max-line-length
             // We use `Promise.resolve().then` to ensure the same timing as the original `MatCheckbox`:
@@ -242,7 +235,7 @@ class MatCheckbox extends _MatCheckboxMixinBase {
             Promise.resolve().then(() => this.indeterminateChange.next(this.indeterminate));
         }
         else {
-            this._nativeCheckbox.nativeElement.indeterminate = this.indeterminate;
+            checkbox.indeterminate = this.indeterminate;
         }
         this.checked = !this.checked;
         this._checkboxFoundation.handleChange();
@@ -303,7 +296,6 @@ MatCheckbox.ctorParameters = () => [
     { type: ChangeDetectorRef },
     { type: ElementRef },
     { type: String, decorators: [{ type: Attribute, args: ['tabindex',] }] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_CHECKBOX_CLICK_ACTION,] }] },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_CHECKBOX_DEFAULT_OPTIONS,] }] }
 ];
