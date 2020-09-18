@@ -109,7 +109,8 @@
                 deregisterWindowEventHandler: function () { },
                 removeTrackActiveStyleProperty: function (_propertyName) { },
                 emitDragStartEvent: function (_value, _thumb) { },
-                emitDragEndEvent: function (_value, _thumb) { }
+                emitDragEndEvent: function (_value, _thumb) { },
+                getValueToAriaValueTextFn: function () { return null; }
             };
             /** Instance of the MDC slider foundation for this slider. */
             this._foundation = new slider.MDCSliderFoundation(this._sliderAdapter);
