@@ -27,8 +27,8 @@ import { takeUntil } from 'rxjs/operators';
  * @docs-private
  */
 class MatTabBodyPortal extends MatTabBodyPortal$1 {
-    constructor(componentFactoryResolver, viewContainerRef, host, _document) {
-        super(componentFactoryResolver, viewContainerRef, host, _document);
+    constructor(componentFactoryResolver, viewContainerRef, host) {
+        super(componentFactoryResolver, viewContainerRef, host);
     }
 }
 MatTabBodyPortal.decorators = [
@@ -39,8 +39,7 @@ MatTabBodyPortal.decorators = [
 MatTabBodyPortal.ctorParameters = () => [
     { type: ComponentFactoryResolver },
     { type: ViewContainerRef },
-    { type: MatTabBody, decorators: [{ type: Inject, args: [forwardRef(() => MatTabBody),] }] },
-    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
+    { type: MatTabBody, decorators: [{ type: Inject, args: [forwardRef(() => MatTabBody),] }] }
 ];
 /**
  * Wrapper for the contents of a tab.
@@ -336,7 +335,9 @@ MatTab.propDecorators = {
  * @docs-private
  */
 class MatTabHeader extends _MatTabHeaderBase {
-    constructor(elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode) {
+    constructor(elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, 
+    // @breaking-change 9.0.0 `_animationMode` parameter to be made required.
+    animationMode) {
         super(elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode);
     }
     ngAfterContentInit() {
@@ -448,7 +449,11 @@ MatTabGroup.propDecorators = {
  * Provides anchored navigation with animated ink bar.
  */
 class MatTabNav extends _MatTabNavBase {
-    constructor(elementRef, dir, ngZone, changeDetectorRef, viewportRuler, platform, animationMode, defaultConfig) {
+    constructor(elementRef, dir, ngZone, changeDetectorRef, viewportRuler, 
+    /**
+     * @deprecated @breaking-change 9.0.0 `platform` parameter to become required.
+     */
+    platform, animationMode, defaultConfig) {
         super(elementRef, dir, ngZone, changeDetectorRef, viewportRuler, platform, animationMode);
         this._fitInkBarToContent = new BehaviorSubject(false);
         this.disablePagination = defaultConfig && defaultConfig.disablePagination != null ?

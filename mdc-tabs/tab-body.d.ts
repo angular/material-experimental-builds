@@ -14,7 +14,7 @@ import { Directionality } from '@angular/cdk/bidi';
  * @docs-private
  */
 export declare class MatTabBodyPortal extends BaseMatTabBodyPortal {
-    constructor(componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef, host: MatTabBody, _document: any);
+    constructor(componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef, host: MatTabBody);
 }
 /**
  * Wrapper for the contents of a tab.
