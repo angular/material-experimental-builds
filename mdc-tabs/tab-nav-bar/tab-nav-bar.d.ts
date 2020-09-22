@@ -30,11 +30,7 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     _nextPaginator: ElementRef<HTMLElement>;
     _previousPaginator: ElementRef<HTMLElement>;
     _inkBar: MatInkBar;
-    constructor(elementRef: ElementRef, dir: Directionality, ngZone: NgZone, changeDetectorRef: ChangeDetectorRef, viewportRuler: ViewportRuler, 
-    /**
-     * @deprecated @breaking-change 9.0.0 `platform` parameter to become required.
-     */
-    platform?: Platform, animationMode?: string, defaultConfig?: MatTabsConfig);
+    constructor(elementRef: ElementRef, dir: Directionality, ngZone: NgZone, changeDetectorRef: ChangeDetectorRef, viewportRuler: ViewportRuler, platform: Platform, animationMode?: string, defaultConfig?: MatTabsConfig);
     ngAfterContentInit(): void;
     static ngAcceptInputType_fitInkBarToContent: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;

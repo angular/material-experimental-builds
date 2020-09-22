@@ -311,8 +311,8 @@
      */
     var MatTabBodyPortal = /** @class */ (function (_super) {
         __extends(MatTabBodyPortal, _super);
-        function MatTabBodyPortal(componentFactoryResolver, viewContainerRef, host) {
-            return _super.call(this, componentFactoryResolver, viewContainerRef, host) || this;
+        function MatTabBodyPortal(componentFactoryResolver, viewContainerRef, host, _document) {
+            return _super.call(this, componentFactoryResolver, viewContainerRef, host, _document) || this;
         }
         return MatTabBodyPortal;
     }(tabs.MatTabBodyPortal));
@@ -324,7 +324,8 @@
     MatTabBodyPortal.ctorParameters = function () { return [
         { type: core.ComponentFactoryResolver },
         { type: core.ViewContainerRef },
-        { type: MatTabBody, decorators: [{ type: core.Inject, args: [core.forwardRef(function () { return MatTabBody; }),] }] }
+        { type: MatTabBody, decorators: [{ type: core.Inject, args: [core.forwardRef(function () { return MatTabBody; }),] }] },
+        { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
     ]; };
     /**
      * Wrapper for the contents of a tab.
@@ -617,9 +618,7 @@
      */
     var MatTabHeader = /** @class */ (function (_super) {
         __extends(MatTabHeader, _super);
-        function MatTabHeader(elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, 
-        // @breaking-change 9.0.0 `_animationMode` parameter to be made required.
-        animationMode) {
+        function MatTabHeader(elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode) {
             return _super.call(this, elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode) || this;
         }
         MatTabHeader.prototype.ngAfterContentInit = function () {
@@ -726,11 +725,7 @@
      */
     var MatTabNav = /** @class */ (function (_super) {
         __extends(MatTabNav, _super);
-        function MatTabNav(elementRef, dir, ngZone, changeDetectorRef, viewportRuler, 
-        /**
-         * @deprecated @breaking-change 9.0.0 `platform` parameter to become required.
-         */
-        platform, animationMode, defaultConfig) {
+        function MatTabNav(elementRef, dir, ngZone, changeDetectorRef, viewportRuler, platform, animationMode, defaultConfig) {
             var _this = _super.call(this, elementRef, dir, ngZone, changeDetectorRef, viewportRuler, platform, animationMode) || this;
             _this._fitInkBarToContent = new rxjs.BehaviorSubject(false);
             _this.disablePagination = defaultConfig && defaultConfig.disablePagination != null ?
