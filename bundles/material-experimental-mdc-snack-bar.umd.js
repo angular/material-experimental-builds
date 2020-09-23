@@ -360,11 +360,16 @@
      */
     var MatSnackBarContainer = /** @class */ (function (_super) {
         __extends(MatSnackBarContainer, _super);
-        function MatSnackBarContainer(_elementRef, snackBarConfig, _platform) {
+        function MatSnackBarContainer(_elementRef, snackBarConfig, _platform, _ngZone) {
             var _this = _super.call(this) || this;
             _this._elementRef = _elementRef;
             _this.snackBarConfig = snackBarConfig;
             _this._platform = _platform;
+            _this._ngZone = _ngZone;
+            /** The number of milliseconds to wait before announcing the snack bar's content. */
+            _this._announceDelay = 150;
+            /** Subject for notifying that the snack bar has announced to screen readers. */
+            _this._onAnnounce = new rxjs.Subject();
             /** Subject for notifying that the snack bar has exited from view. */
             _this._onExit = new rxjs.Subject();
             /** Subject for notifying that the snack bar has finished entering the view. */
@@ -384,16 +389,16 @@
                 notifyOpening: function () { },
             };
             _this._mdcFoundation = new snackbar.MDCSnackbarFoundation(_this._mdcAdapter);
-            // Based on the ARIA spec, `alert` and `status` roles have an
-            // implicit `assertive` and `polite` politeness respectively.
+            // Use aria-live rather than a live role like 'alert' or 'status'
+            // because NVDA and JAWS have show inconsistent behavior with live roles.
             if (snackBarConfig.politeness === 'assertive' && !snackBarConfig.announcementMessage) {
-                _this._role = 'alert';
+                _this._live = 'assertive';
             }
             else if (snackBarConfig.politeness === 'off') {
-                _this._role = null;
+                _this._live = 'off';
             }
             else {
-                _this._role = 'status';
+                _this._live = 'polite';
             }
             // `MatSnackBar` will use the config's timeout to determine when the snack bar should be closed.
             // Set this to `-1` to mark it as indefinitely open so that MDC does not close itself.
@@ -419,11 +424,15 @@
             // MDC uses some browser APIs that will throw during server-side rendering.
             if (this._platform.isBrowser) {
                 this._mdcFoundation.open();
+                this._screenReaderAnnounce();
             }
         };
         MatSnackBarContainer.prototype.exit = function () {
             this._exiting = true;
             this._mdcFoundation.close();
+            // If the snack bar hasn't been announced by the time it exits it wouldn't have been open
+            // long enough to visually read it either, so clear the timeout for announcing.
+            clearTimeout(this._announceTimeoutId);
             return this._onExit;
         };
         /** Attach a component portal as content to this snack bar container. */
@@ -462,12 +471,41 @@
                 throw Error('Attempting to attach snack bar content after content is already attached');
             }
         };
+        /**
+         * Starts a timeout to move the snack bar content to the live region so screen readers will
+         * announce it.
+         */
+        MatSnackBarContainer.prototype._screenReaderAnnounce = function () {
+            var _this = this;
+            if (!this._announceTimeoutId) {
+                this._ngZone.runOutsideAngular(function () {
+                    _this._announceTimeoutId = setTimeout(function () {
+                        var inertElement = _this._elementRef.nativeElement.querySelector('[aria-hidden]');
+                        var liveElement = _this._elementRef.nativeElement.querySelector('[aria-live]');
+                        if (inertElement && liveElement) {
+                            // If an element in the snack bar content is focused before being moved
+                            // track it and restore focus after moving to the live region.
+                            var focusedElement = null;
+                            if (document.activeElement instanceof HTMLElement &&
+                                inertElement.contains(document.activeElement)) {
+                                focusedElement = document.activeElement;
+                            }
+                            inertElement.removeAttribute('aria-hidden');
+                            liveElement.appendChild(inertElement);
+                            focusedElement === null || focusedElement === void 0 ? void 0 : focusedElement.focus();
+                            _this._onAnnounce.next();
+                            _this._onAnnounce.complete();
+                        }
+                    }, _this._announceDelay);
+                });
+            }
+        };
         return MatSnackBarContainer;
     }(portal.BasePortalOutlet));
     MatSnackBarContainer.decorators = [
         { type: i0.Component, args: [{
                     selector: 'mat-mdc-snack-bar-container',
-                    template: "<div class=\"mdc-snackbar__surface\" #surface>\n  <!--\n    This outer label wrapper will have the class `mdc-snackbar__label` applied if\n    the attached template/component does not contain it.\n  -->\n  <div class=\"mat-mdc-snack-bar-label\" #label>\n    <ng-template cdkPortalOutlet></ng-template>\n  </div>\n</div>\n",
+                    template: "<div class=\"mdc-snackbar__surface\" #surface>\n  <!--\n    This outer label wrapper will have the class `mdc-snackbar__label` applied if\n    the attached template/component does not contain it.\n  -->\n  <div class=\"mat-mdc-snack-bar-label\" #label>\n    <!-- Initialy holds the snack bar content, will be empty after announcing to screen readers. -->\n    <div aria-hidden=\"true\">\n      <ng-template cdkPortalOutlet></ng-template>\n    </div>\n\n    <!-- Will receive the snack bar content from the non-live div, move will happen a short delay after opening -->\n    <div [attr.aria-live]=\"_live\"></div>\n  </div>\n</div>\n",
                     // In Ivy embedded views will be change detected from their declaration place, rather than
                     // where they were stamped out. This means that we can't have the snack bar container be OnPush,
                     // because it might cause snack bars that were opened from a template not to be out of date.
@@ -475,7 +513,6 @@
                     changeDetection: i0.ChangeDetectionStrategy.Default,
                     encapsulation: i0.ViewEncapsulation.None,
                     host: {
-                        '[attr.role]': '_role',
                         'class': 'mdc-snackbar mat-mdc-snack-bar-container',
                         '[class.mat-snack-bar-container]': 'false',
                         // Mark this element with a 'mat-exit' attribute to indicate that the snackbar has
@@ -489,7 +526,8 @@
     MatSnackBarContainer.ctorParameters = function () { return [
         { type: i0.ElementRef },
         { type: i4.MatSnackBarConfig },
-        { type: platform.Platform }
+        { type: platform.Platform },
+        { type: i0.NgZone }
     ]; };
     MatSnackBarContainer.propDecorators = {
         _portalOutlet: [{ type: i0.ViewChild, args: [portal.CdkPortalOutlet, { static: true },] }],

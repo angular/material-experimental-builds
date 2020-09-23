@@ -5,8 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { AriaLivePoliteness } from '@angular/cdk/a11y';
 import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal } from '@angular/cdk/portal';
-import { AfterViewChecked, ComponentRef, ElementRef, EmbeddedViewRef, OnDestroy } from '@angular/core';
+import { AfterViewChecked, ComponentRef, ElementRef, EmbeddedViewRef, NgZone, OnDestroy } from '@angular/core';
 import { MatSnackBarConfig, _SnackBarContainer } from '@angular/material/snack-bar';
 import { MDCSnackbarFoundation } from '@material/snackbar';
 import { Platform } from '@angular/cdk/platform';
@@ -19,12 +20,19 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
     private _elementRef;
     snackBarConfig: MatSnackBarConfig;
     private _platform;
+    private _ngZone;
+    /** The number of milliseconds to wait before announcing the snack bar's content. */
+    private readonly _announceDelay;
+    /** The timeout for announcing the snack bar's content. */
+    private _announceTimeoutId;
+    /** Subject for notifying that the snack bar has announced to screen readers. */
+    readonly _onAnnounce: Subject<void>;
     /** Subject for notifying that the snack bar has exited from view. */
     readonly _onExit: Subject<void>;
     /** Subject for notifying that the snack bar has finished entering the view. */
     readonly _onEnter: Subject<void>;
-    /** ARIA role for the snack bar container. */
-    _role: 'alert' | 'status' | null;
+    /** aria-live value for the live region. */
+    _live: AriaLivePoliteness;
     /** Whether the snack bar is currently exiting. */
     _exiting: boolean;
     private _mdcAdapter;
@@ -39,7 +47,7 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
      * color is applied to the attached view.
      */
     _label: ElementRef;
-    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform);
+    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform, _ngZone: NgZone);
     ngAfterViewChecked(): void;
     /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
     ngOnDestroy(): void;
@@ -54,4 +62,9 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
     private _applySnackBarClasses;
     /** Asserts that no content is already attached to the container. */
     private _assertNotAttached;
+    /**
+     * Starts a timeout to move the snack bar content to the live region so screen readers will
+     * announce it.
+     */
+    private _screenReaderAnnounce;
 }
