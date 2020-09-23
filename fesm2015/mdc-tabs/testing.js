@@ -55,7 +55,7 @@ class MatTabHarness extends ContentContainerComponentHarness {
     /** Selects the given tab by clicking on the label. Tab cannot be selected if disabled. */
     select() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield (yield this.host()).click();
+            yield (yield this.host()).click('center');
         });
     }
     /** Gets the text content of the tab. */

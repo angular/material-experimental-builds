@@ -391,7 +391,7 @@
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [4 /*yield*/, (_a.sent()).click()];
+                        case 1: return [4 /*yield*/, (_a.sent()).click('center')];
                         case 2:
                             _a.sent();
                             return [2 /*return*/];
