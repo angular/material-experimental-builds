@@ -376,7 +376,7 @@
              * MDC uses animation events to determine when to update `aria-checked` which is unreliable.
              * Therefore we disable it and handle it ourselves.
              */
-            _this._attrBlacklist = new Set(['aria-checked']);
+            _this._mdcFoundationIgnoredAttrs = new Set(['aria-checked']);
             /** The `MDCCheckboxAdapter` instance for this checkbox. */
             _this._checkboxAdapter = {
                 addClass: function (className) { return _this._setClass(className, true); },
@@ -387,12 +387,12 @@
                 isChecked: function () { return _this.checked; },
                 isIndeterminate: function () { return _this.indeterminate; },
                 removeNativeControlAttr: function (attr) {
-                    if (!_this._attrBlacklist.has(attr)) {
+                    if (!_this._mdcFoundationIgnoredAttrs.has(attr)) {
                         _this._nativeCheckbox.nativeElement.removeAttribute(attr);
                     }
                 },
                 setNativeControlAttr: function (attr, value) {
-                    if (!_this._attrBlacklist.has(attr)) {
+                    if (!_this._mdcFoundationIgnoredAttrs.has(attr)) {
                         _this._nativeCheckbox.nativeElement.setAttribute(attr, value);
                     }
                 },

@@ -102,7 +102,7 @@ export declare class MatCheckbox extends _MatCheckboxMixinBase implements AfterV
      * MDC uses animation events to determine when to update `aria-checked` which is unreliable.
      * Therefore we disable it and handle it ourselves.
      */
-    private _attrBlacklist;
+    private _mdcFoundationIgnoredAttrs;
     /** The `MDCCheckboxAdapter` instance for this checkbox. */
     private _checkboxAdapter;
     constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, tabIndex: string, _animationMode?: string | undefined, _options?: MatCheckboxDefaultOptions | undefined);
