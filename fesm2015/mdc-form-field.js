@@ -3,7 +3,6 @@ export { MAT_FORM_FIELD, MatFormFieldControl, getMatFormFieldDuplicatedHintError
 import { Directive, InjectionToken, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
-import { MAT_LABEL_GLOBAL_OPTIONS, MatCommonModule } from '@angular/material/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCTextFieldFoundation, numbers } from '@material/textfield';
 import { Subject, merge } from 'rxjs';
@@ -13,6 +12,7 @@ import { MDCLineRipple } from '@material/line-ripple';
 import { MDCNotchedOutline } from '@material/notched-outline';
 import { ObserversModule } from '@angular/cdk/observers';
 import { CommonModule } from '@angular/common';
+import { MatCommonModule } from '@angular/material/core';
 
 /**
  * @license
@@ -346,14 +346,13 @@ const DEFAULT_FLOAT_LABEL = 'auto';
 const FLOATING_LABEL_DEFAULT_DOCKED_TRANSFORM = `translateY(-50%)`;
 /** Container for form controls that applies Material Design styling and behavior. */
 class MatFormField {
-    constructor(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _labelOptions, _animationMode) {
+    constructor(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
         this._ngZone = _ngZone;
         this._dir = _dir;
         this._platform = _platform;
         this._defaults = _defaults;
-        this._labelOptions = _labelOptions;
         this._animationMode = _animationMode;
         /** Whether the required marker should be hidden. */
         this.hideRequiredMarker = false;
@@ -445,8 +444,8 @@ class MatFormField {
     }
     /** Whether the label should always float or float as the user types. */
     get floatLabel() {
-        return this._floatLabel || (this._labelOptions && this._labelOptions.float)
-            || DEFAULT_FLOAT_LABEL;
+        var _a;
+        return this._floatLabel || ((_a = this._defaults) === null || _a === void 0 ? void 0 : _a.floatLabel) || DEFAULT_FLOAT_LABEL;
     }
     set floatLabel(value) {
         if (value !== this._floatLabel) {
@@ -847,7 +846,6 @@ MatFormField.ctorParameters = () => [
     { type: Directionality },
     { type: Platform },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FORM_FIELD_DEFAULT_OPTIONS,] }] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_LABEL_GLOBAL_OPTIONS,] }] },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
 ];
 MatFormField.propDecorators = {

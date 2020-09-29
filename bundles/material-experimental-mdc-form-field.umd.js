@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/form-field'), require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/material/core'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/cdk/observers'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/material/form-field', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/material/core', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/cdk/observers', '@angular/common'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.material.formField, global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.core, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.cdk.observers, global.ng.common));
-}(this, (function (exports, formField, core, bidi, platform, core$1, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, observers, common) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/form-field'), require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/cdk/observers'), require('@angular/common'), require('@angular/material/core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/material/form-field', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/cdk/observers', '@angular/common', '@angular/material/core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.material.formField, global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.cdk.observers, global.ng.common, global.ng.material.core));
+}(this, (function (exports, formField, core, bidi, platform, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, observers, common, core$1) { 'use strict';
 
     /**
      * @license
@@ -642,7 +642,7 @@
     var FLOATING_LABEL_DEFAULT_DOCKED_TRANSFORM = "translateY(-50%)";
     /** Container for form controls that applies Material Design styling and behavior. */
     var MatFormField = /** @class */ (function () {
-        function MatFormField(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _labelOptions, _animationMode) {
+        function MatFormField(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode) {
             var _this = this;
             this._elementRef = _elementRef;
             this._changeDetectorRef = _changeDetectorRef;
@@ -650,7 +650,6 @@
             this._dir = _dir;
             this._platform = _platform;
             this._defaults = _defaults;
-            this._labelOptions = _labelOptions;
             this._animationMode = _animationMode;
             /** Whether the required marker should be hidden. */
             this.hideRequiredMarker = false;
@@ -743,8 +742,8 @@
         Object.defineProperty(MatFormField.prototype, "floatLabel", {
             /** Whether the label should always float or float as the user types. */
             get: function () {
-                return this._floatLabel || (this._labelOptions && this._labelOptions.float)
-                    || DEFAULT_FLOAT_LABEL;
+                var _a;
+                return this._floatLabel || ((_a = this._defaults) === null || _a === void 0 ? void 0 : _a.floatLabel) || DEFAULT_FLOAT_LABEL;
             },
             set: function (value) {
                 if (value !== this._floatLabel) {
@@ -1167,7 +1166,6 @@
         { type: bidi.Directionality },
         { type: platform.Platform },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_FORM_FIELD_DEFAULT_OPTIONS,] }] },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_LABEL_GLOBAL_OPTIONS,] }] },
         { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
     ]; };
     MatFormField.propDecorators = {

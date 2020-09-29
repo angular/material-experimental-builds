@@ -9,7 +9,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentChecked, AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, QueryList } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { LabelOptions, ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatError } from './directives/error';
 import { MatFormFieldFloatingLabel } from './directives/floating-label';
@@ -30,6 +30,7 @@ export declare type MatFormFieldAppearance = 'fill' | 'outline';
 export interface MatFormFieldDefaultOptions {
     appearance?: MatFormFieldAppearance;
     hideRequiredMarker?: boolean;
+    floatLabel?: FloatLabelType;
 }
 /**
  * Injection token that can be used to configure the
@@ -44,7 +45,6 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     private _dir;
     private _platform;
     private _defaults?;
-    private _labelOptions?;
     _animationMode?: string | undefined;
     _textField: ElementRef<HTMLElement>;
     _prefixContainer: ElementRef<HTMLElement>;
@@ -89,7 +89,7 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     private _foundation;
     private _needsOutlineLabelOffsetUpdateOnStable;
     private _adapter;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _dir: Directionality, _platform: Platform, _defaults?: MatFormFieldDefaultOptions | undefined, _labelOptions?: LabelOptions | undefined, _animationMode?: string | undefined);
+    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _dir: Directionality, _platform: Platform, _defaults?: MatFormFieldDefaultOptions | undefined, _animationMode?: string | undefined);
     ngAfterViewInit(): void;
     ngAfterContentInit(): void;
     ngAfterContentChecked(): void;
