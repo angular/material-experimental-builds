@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material-experimental/mdc-paginator",
+  "main": "../bundles/material-experimental-mdc-paginator.umd.js",
+  "fesm2015": "../fesm2015/mdc-paginator.js",
+  "esm2015": "../esm2015/mdc-paginator/index.js",
+  "typings": "./index.d.ts",
+  "module": "../fesm2015/mdc-paginator.js",
+  "es2015": "../fesm2015/mdc-paginator.js"
+}
