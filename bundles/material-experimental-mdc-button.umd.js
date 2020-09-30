@@ -400,8 +400,9 @@
             return _this;
         }
         /** Focuses the button. */
-        MatButtonBase.prototype.focus = function () {
-            this._elementRef.nativeElement.focus();
+        MatButtonBase.prototype.focus = function (_origin, options) {
+            if (_origin === void 0) { _origin = 'program'; }
+            this._elementRef.nativeElement.focus(options);
         };
         /** Gets whether the button has one of the given attributes. */
         MatButtonBase.prototype._hasHostAttributes = function () {
