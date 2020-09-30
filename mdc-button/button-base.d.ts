@@ -9,6 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
 import { CanColor, CanColorCtor, CanDisable, CanDisableCtor, CanDisableRipple, CanDisableRippleCtor, MatRipple, RippleAnimationConfig } from '@angular/material/core';
+import { FocusOrigin } from '@angular/cdk/a11y';
 /** Inputs common to all buttons. */
 export declare const MAT_BUTTON_INPUTS: string[];
 /** Shared host configuration for all buttons */
@@ -37,7 +38,7 @@ export declare class MatButtonBase extends _MatButtonBaseMixin implements CanDis
     ripple: MatRipple;
     constructor(elementRef: ElementRef, _platform: Platform, _ngZone: NgZone, _animationMode?: string | undefined);
     /** Focuses the button. */
-    focus(): void;
+    focus(_origin?: FocusOrigin, options?: FocusOptions): void;
     /** Gets whether the button has one of the given attributes. */
     private _hasHostAttributes;
     _isRippleDisabled(): boolean;

@@ -92,8 +92,8 @@ class MatButtonBase extends _MatButtonBaseMixin {
         }
     }
     /** Focuses the button. */
-    focus() {
-        this._elementRef.nativeElement.focus();
+    focus(_origin = 'program', options) {
+        this._elementRef.nativeElement.focus(options);
     }
     /** Gets whether the button has one of the given attributes. */
     _hasHostAttributes(...attributes) {
