@@ -5,10 +5,10 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
+import { ContentContainerComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
 import { ButtonHarnessFilters } from '@angular/material/button/testing';
 /** Harness for interacting with a MDC-based mat-button in tests. */
-export declare class MatButtonHarness extends ComponentHarness {
+export declare class MatButtonHarness extends ContentContainerComponentHarness {
     static hostSelector: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a button with specific attributes.
