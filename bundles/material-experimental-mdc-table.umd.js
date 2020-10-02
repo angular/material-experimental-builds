@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/table'), require('@angular/cdk/collections'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table', ['exports', '@angular/core', '@angular/cdk/table', '@angular/cdk/collections', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = {}), global.ng.core, global.ng.cdk.table, global.ng.cdk.collections, global.ng.material.core));
-}(this, (function (exports, core, table, collections, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/table'), require('@angular/cdk/collections'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table', ['exports', '@angular/core', '@angular/cdk/table', '@angular/cdk/collections', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = {}), global.ng.core, global.ng.cdk.table, global.ng.cdk.collections, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, core, table, collections, mdcCore) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -668,8 +668,8 @@
     }());
     MatTableModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, table.CdkTableModule],
-                    exports: [core$1.MatCommonModule, EXPORTED_DECLARATIONS],
+                    imports: [mdcCore.MatCommonModule, table.CdkTableModule],
+                    exports: [mdcCore.MatCommonModule, EXPORTED_DECLARATIONS],
                     declarations: EXPORTED_DECLARATIONS,
                 },] }
     ];

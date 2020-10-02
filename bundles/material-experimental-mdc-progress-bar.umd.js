@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/core'), require('@angular/platform-browser/animations'), require('@material/linear-progress'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi'), require('@angular/material/progress-bar')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-bar', ['exports', '@angular/core', '@angular/material/core', '@angular/platform-browser/animations', '@material/linear-progress', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi', '@angular/material/progress-bar'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressBar = {}), global.ng.core, global.ng.material.core, global.ng.platformBrowser.animations, global.mdc.linearProgress, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi, global.ng.material.progressBar));
-}(this, (function (exports, core, core$1, animations, linearProgress, rxjs, operators, bidi, progressBar) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@material/linear-progress'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi'), require('@angular/material/progress-bar')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-bar', ['exports', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@material/linear-progress', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi', '@angular/material/progress-bar'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressBar = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.mdc.linearProgress, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi, global.ng.material.progressBar));
+}(this, (function (exports, core, mdcCore, animations, linearProgress, rxjs, operators, bidi, progressBar) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -313,7 +313,7 @@
         }
         return MatProgressBarBase;
     }());
-    var _MatProgressBarMixinBase = core$1.mixinColor(MatProgressBarBase, 'primary');
+    var _MatProgressBarMixinBase = mdcCore.mixinColor(MatProgressBarBase, 'primary');
     var MatProgressBar = /** @class */ (function (_super) {
         __extends(MatProgressBar, _super);
         function MatProgressBar(_elementRef, _ngZone, _dir, _animationMode) {
@@ -507,7 +507,7 @@
     }());
     MatProgressBarModule.decorators = [
         { type: core.NgModule, args: [{
-                    exports: [MatProgressBar, core$1.MatCommonModule],
+                    exports: [MatProgressBar, mdcCore.MatCommonModule],
                     declarations: [MatProgressBar],
                 },] }
     ];

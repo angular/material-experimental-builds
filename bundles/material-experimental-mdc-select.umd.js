@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/core'), require('@angular/material/core'), require('@angular/material-experimental/mdc-core'), require('@angular/material-experimental/mdc-form-field'), require('@angular/cdk/scrolling'), require('@angular/material/select'), require('@angular/material/form-field'), require('rxjs/operators'), require('@angular/animations')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-select', ['exports', '@angular/cdk/overlay', '@angular/common', '@angular/core', '@angular/material/core', '@angular/material-experimental/mdc-core', '@angular/material-experimental/mdc-form-field', '@angular/cdk/scrolling', '@angular/material/select', '@angular/material/form-field', 'rxjs/operators', '@angular/animations'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSelect = {}), global.ng.cdk.overlay, global.ng.common, global.ng.core, global.ng.material.core, global.ng.materialExperimental.mdcCore, global.ng.materialExperimental.mdcFormField, global.ng.cdk.scrolling, global.ng.material.select, global.ng.material.formField, global.rxjs.operators, global.ng.animations));
-}(this, (function (exports, overlay, common, core, core$1, mdcCore, mdcFormField, scrolling, select, formField, operators, animations) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/material-experimental/mdc-form-field'), require('@angular/cdk/scrolling'), require('@angular/material/select'), require('@angular/material/form-field'), require('rxjs/operators'), require('@angular/animations')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-select', ['exports', '@angular/cdk/overlay', '@angular/common', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/material-experimental/mdc-form-field', '@angular/cdk/scrolling', '@angular/material/select', '@angular/material/form-field', 'rxjs/operators', '@angular/animations'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSelect = {}), global.ng.cdk.overlay, global.ng.common, global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.materialExperimental.mdcFormField, global.ng.cdk.scrolling, global.ng.material.select, global.ng.material.formField, global.rxjs.operators, global.ng.animations));
+}(this, (function (exports, overlay, common, core, mdcCore, mdcFormField, scrolling, select, formField, operators, animations) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -437,7 +437,7 @@
             if (option) {
                 var panel = this.panel.nativeElement;
                 var element = option._getHostElement();
-                panel.scrollTop = core$1._getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
+                panel.scrollTop = mdcCore._getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
             }
         };
         MatSelect.prototype._positioningSettled = function () {
@@ -489,14 +489,14 @@
                     animations: [matSelectAnimations.transformPanel],
                     providers: [
                         { provide: formField.MatFormFieldControl, useExisting: MatSelect },
-                        { provide: core$1.MAT_OPTION_PARENT_COMPONENT, useExisting: MatSelect }
+                        { provide: mdcCore.MAT_OPTION_PARENT_COMPONENT, useExisting: MatSelect }
                     ],
                     styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mat-mdc-select{display:inline-block;width:100%;outline:none}.mat-mdc-select-trigger{display:inline-table;cursor:pointer;position:relative;box-sizing:border-box}.mat-mdc-select-disabled .mat-mdc-select-trigger{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default}.mat-mdc-select-value{display:table-cell;max-width:0;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mat-mdc-select-value-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mat-mdc-select-arrow-wrapper{display:table-cell;vertical-align:middle}.mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper{transform:translateY(-40%)}.mat-mdc-select-arrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid;margin:0 4px}.mat-mdc-select-panel{width:100%;max-height:256px;position:static;margin:0;padding:8px 0;list-style-type:none}.mat-mdc-select-panel:focus{outline:none}.cdk-high-contrast-active .mat-mdc-select-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mat-mdc-select-panel{border-top-left-radius:0;border-top-right-radius:0;transform-origin:top center}.mat-mdc-select-panel-above .mat-mdc-select-panel{border-bottom-left-radius:0;border-bottom-right-radius:0;transform-origin:bottom center}.mat-mdc-select-placeholder{transition:color 400ms 133.3333333333ms cubic-bezier(0.25, 0.8, 0.25, 1)}._mat-animation-noopable .mat-mdc-select-placeholder{transition:none}.mat-form-field-hide-placeholder .mat-mdc-select-placeholder{color:transparent;-webkit-text-fill-color:transparent;transition:none;display:block}\n"]
                 },] }
     ];
     MatSelect.propDecorators = {
         options: [{ type: core.ContentChildren, args: [mdcCore.MatOption, { descendants: true },] }],
-        optionGroups: [{ type: core.ContentChildren, args: [core$1.MAT_OPTGROUP, { descendants: true },] }],
+        optionGroups: [{ type: core.ContentChildren, args: [mdcCore.MAT_OPTGROUP, { descendants: true },] }],
         customTrigger: [{ type: core.ContentChild, args: [select.MAT_SELECT_TRIGGER,] }]
     };
 
@@ -518,7 +518,7 @@
                         common.CommonModule,
                         overlay.OverlayModule,
                         mdcCore.MatOptionModule,
-                        core$1.MatCommonModule,
+                        mdcCore.MatCommonModule,
                     ],
                     exports: [
                         scrolling.CdkScrollableModule,
@@ -526,7 +526,7 @@
                         MatSelect,
                         MatSelectTrigger,
                         mdcCore.MatOptionModule,
-                        core$1.MatCommonModule
+                        mdcCore.MatCommonModule
                     ],
                     declarations: [MatSelect, MatSelectTrigger],
                     providers: [select.MAT_SELECT_SCROLL_STRATEGY_PROVIDER]

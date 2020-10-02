@@ -7,7 +7,7 @@ import { FocusTrapFactory, FocusMonitor } from '@angular/cdk/a11y';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { numbers, cssClasses } from '@material/dialog';
 import { PortalModule } from '@angular/cdk/portal';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
 /**
  * @license

@@ -9,7 +9,7 @@ import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
 import { MatAnchor } from './button';
 import { MatButtonBase } from './button-base';
-import { ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '@angular/material-experimental/mdc-core';
 /**
  * Material Design floating action button (FAB) component. These buttons represent the primary
  * or most common action for users to interact with.

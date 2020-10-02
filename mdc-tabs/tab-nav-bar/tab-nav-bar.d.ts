@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ElementRef, QueryList, OnDestroy, AfterContentInit, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
-import { RippleGlobalOptions } from '@angular/material/core';
+import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { _MatTabNavBase, _MatTabLinkBase, MatTabsConfig } from '@angular/material/tabs';
 import { Directionality } from '@angular/cdk/bidi';

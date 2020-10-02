@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@angular/core'), require('@angular/material/core'), require('@material/chips'), require('@material/ripple'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/cdk/a11y'), require('@angular/forms'), require('@angular/material/form-field')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-chips', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@angular/core', '@angular/material/core', '@material/chips', '@material/ripple', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/cdk/a11y', '@angular/forms', '@angular/material/form-field'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcChips = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.core, global.ng.material.core, global.mdc.chips, global.mdc.ripple, global.ng.cdk.keycodes, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.cdk.a11y, global.ng.forms, global.ng.material.formField));
-}(this, (function (exports, bidi, coercion, animations, core, core$1, chips, ripple, keycodes, rxjs, operators, common, a11y, forms, formField) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@material/chips'), require('@material/ripple'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/cdk/a11y'), require('@angular/forms'), require('@angular/material/form-field')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-chips', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@angular/core', '@angular/material-experimental/mdc-core', '@material/chips', '@material/ripple', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/cdk/a11y', '@angular/forms', '@angular/material/form-field'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcChips = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.core, global.ng.materialExperimental.mdcCore, global.mdc.chips, global.mdc.ripple, global.ng.cdk.keycodes, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.cdk.a11y, global.ng.forms, global.ng.material.formField));
+}(this, (function (exports, bidi, coercion, animations, core, mdcCore, chips, ripple, keycodes, rxjs, operators, common, a11y, forms, formField) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -422,7 +422,7 @@
         }
         return MatChipRemoveBase;
     }(MatChipTrailingIcon));
-    var _MatChipRemoveMixinBase = core$1.mixinTabIndex(core$1.mixinDisabled(MatChipRemoveBase), 0);
+    var _MatChipRemoveMixinBase = mdcCore.mixinTabIndex(mdcCore.mixinDisabled(MatChipRemoveBase), 0);
     /**
      * Directive to remove the parent chip when the trailing icon is clicked or
      * when the ENTER key is pressed on it.
@@ -505,7 +505,7 @@
         }
         return MatChipBase;
     }());
-    var _MatChipMixinBase = core$1.mixinTabIndex(core$1.mixinColor(core$1.mixinDisableRipple(MatChipBase), 'primary'), -1);
+    var _MatChipMixinBase = mdcCore.mixinTabIndex(mdcCore.mixinColor(mdcCore.mixinDisableRipple(MatChipBase), 'primary'), -1);
     /**
      * Material design styled Chip base component. Used inside the MatChipSet component.
      *
@@ -842,7 +842,7 @@
         leadingIcon: [{ type: core.ContentChild, args: [MAT_CHIP_AVATAR,] }],
         trailingIcon: [{ type: core.ContentChild, args: [MAT_CHIP_TRAILING_ICON,] }],
         removeIcon: [{ type: core.ContentChild, args: [MAT_CHIP_REMOVE,] }],
-        ripple: [{ type: core.ViewChild, args: [core$1.MatRipple,] }]
+        ripple: [{ type: core.ViewChild, args: [mdcCore.MatRipple,] }]
     };
 
     /** Event object emitted by MatChipOption when selected or deselected. */
@@ -1312,7 +1312,7 @@
         }
         return MatChipSetBase;
     }());
-    var _MatChipSetMixinBase = core$1.mixinTabIndex(MatChipSetBase);
+    var _MatChipSetMixinBase = mdcCore.mixinTabIndex(MatChipSetBase);
     /**
      * Basic container component for the MatChip component.
      *
@@ -2373,7 +2373,7 @@
         }
         return MatChipGridBase;
     }(MatChipSet));
-    var _MatChipGridMixinBase = core$1.mixinErrorState(MatChipGridBase);
+    var _MatChipGridMixinBase = mdcCore.mixinErrorState(MatChipGridBase);
     /**
      * An extension of the MatChipSet component used with MatChipRow chips and
      * the matChipInputFor directive.
@@ -2807,7 +2807,7 @@
         { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
         { type: forms.NgForm, decorators: [{ type: core.Optional }] },
         { type: forms.FormGroupDirective, decorators: [{ type: core.Optional }] },
-        { type: core$1.ErrorStateMatcher },
+        { type: mdcCore.ErrorStateMatcher },
         { type: forms.NgControl, decorators: [{ type: core.Optional }, { type: core.Self }] }
     ]; };
     MatChipGrid.propDecorators = {
@@ -3020,11 +3020,11 @@
     }());
     MatChipsModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, common.CommonModule, core$1.MatRippleModule],
-                    exports: [core$1.MatCommonModule, CHIP_DECLARATIONS],
+                    imports: [mdcCore.MatCommonModule, common.CommonModule, mdcCore.MatRippleModule],
+                    exports: [mdcCore.MatCommonModule, CHIP_DECLARATIONS],
                     declarations: CHIP_DECLARATIONS,
                     providers: [
-                        core$1.ErrorStateMatcher,
+                        mdcCore.ErrorStateMatcher,
                         {
                             provide: MAT_CHIPS_DEFAULT_OPTIONS,
                             useValue: ɵ0

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/cdk/platform'), require('@angular/core'), require('@angular/forms'), require('@angular/platform-browser/animations'), require('@material/slider'), require('rxjs'), require('@angular/common'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slider', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/cdk/platform', '@angular/core', '@angular/forms', '@angular/platform-browser/animations', '@material/slider', 'rxjs', '@angular/common', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlider = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.core, global.ng.forms, global.ng.platformBrowser.animations, global.mdc.slider, global.rxjs, global.ng.common, global.ng.material.core));
-}(this, (function (exports, bidi, coercion, platform, core, forms, animations, slider, rxjs, common, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/cdk/platform'), require('@angular/core'), require('@angular/forms'), require('@angular/platform-browser/animations'), require('@material/slider'), require('rxjs'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slider', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/cdk/platform', '@angular/core', '@angular/forms', '@angular/platform-browser/animations', '@material/slider', 'rxjs', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlider = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.core, global.ng.forms, global.ng.platformBrowser.animations, global.mdc.slider, global.rxjs, global.ng.common, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, bidi, coercion, platform, core, forms, animations, slider, rxjs, common, mdcCore) { 'use strict';
 
     /**
      * @license
@@ -486,8 +486,8 @@
     }());
     MatSliderModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, common.CommonModule],
-                    exports: [MatSlider, core$1.MatCommonModule],
+                    imports: [mdcCore.MatCommonModule, common.CommonModule],
+                    exports: [MatSlider, mdcCore.MatCommonModule],
                     declarations: [MatSlider],
                 },] }
     ];

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-card', ['exports', '@angular/core', '@angular/common', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCard = {}), global.ng.core, global.ng.common, global.ng.material.core));
-}(this, (function (exports, core, common, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-card', ['exports', '@angular/core', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCard = {}), global.ng.core, global.ng.common, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, core, common, mdcCore) { 'use strict';
 
     /**
      * @license
@@ -302,8 +302,8 @@
     }());
     MatCardModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, common.CommonModule],
-                    exports: [CARD_DIRECTIVES, core$1.MatCommonModule],
+                    imports: [mdcCore.MatCommonModule, common.CommonModule],
+                    exports: [CARD_DIRECTIVES, mdcCore.MatCommonModule],
                     declarations: CARD_DIRECTIVES,
                 },] }
     ];

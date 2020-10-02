@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Platform } from '@angular/cdk/platform';
 import { ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, OnInit, QueryList } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
 /**
  * Injection token that can be used to reference instances of an `SelectionList`. It serves

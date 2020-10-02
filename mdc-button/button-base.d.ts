@@ -8,7 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
-import { CanColor, CanColorCtor, CanDisable, CanDisableCtor, CanDisableRipple, CanDisableRippleCtor, MatRipple, RippleAnimationConfig } from '@angular/material/core';
+import { CanColor, CanColorCtor, CanDisable, CanDisableCtor, CanDisableRipple, CanDisableRippleCtor, MatRipple, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
 import { FocusOrigin } from '@angular/cdk/a11y';
 /** Inputs common to all buttons. */
 export declare const MAT_BUTTON_INPUTS: string[];

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/switch'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@material/ripple'), require('@angular/common'), require('@angular/material/core'), require('@angular/material/slide-toggle')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slide-toggle', ['exports', '@angular/core', '@material/switch', '@angular/forms', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@material/ripple', '@angular/common', '@angular/material/core', '@angular/material/slide-toggle'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlideToggle = {}), global.ng.core, global.mdc.switch, global.ng.forms, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.mdc.ripple, global.ng.common, global.ng.material.core, global.ng.material.slideToggle));
-}(this, (function (exports, core, _switch, forms, coercion, animations, ripple, common, core$1, slideToggle) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/switch'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@material/ripple'), require('@angular/common'), require('@angular/material-experimental/mdc-core'), require('@angular/material/slide-toggle')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slide-toggle', ['exports', '@angular/core', '@material/switch', '@angular/forms', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@material/ripple', '@angular/common', '@angular/material-experimental/mdc-core', '@angular/material/slide-toggle'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlideToggle = {}), global.ng.core, global.mdc.switch, global.ng.forms, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.mdc.ripple, global.ng.common, global.ng.materialExperimental.mdcCore, global.ng.material.slideToggle));
+}(this, (function (exports, core, _switch, forms, coercion, animations, ripple, common, mdcCore, slideToggle) { 'use strict';
 
     /**
      * @license
@@ -301,14 +301,14 @@
         { type: core.NgModule, args: [{
                     imports: [
                         slideToggle._MatSlideToggleRequiredValidatorModule,
-                        core$1.MatCommonModule,
-                        core$1.MatRippleModule,
+                        mdcCore.MatCommonModule,
+                        mdcCore.MatRippleModule,
                         common.CommonModule
                     ],
                     exports: [
                         slideToggle._MatSlideToggleRequiredValidatorModule,
                         MatSlideToggle,
-                        core$1.MatCommonModule
+                        mdcCore.MatCommonModule
                     ],
                     declarations: [MatSlideToggle],
                 },] }

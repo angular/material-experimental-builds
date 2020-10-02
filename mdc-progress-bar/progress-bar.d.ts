@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ElementRef, NgZone, EventEmitter, AfterViewInit, OnDestroy } from '@angular/core';
-import { CanColor, CanColorCtor } from '@angular/material/core';
+import { CanColor, CanColorCtor } from '@angular/material-experimental/mdc-core';
 import { ProgressAnimationEnd } from '@angular/material/progress-bar';
 import { Directionality } from '@angular/cdk/bidi';
 /** @docs-private */

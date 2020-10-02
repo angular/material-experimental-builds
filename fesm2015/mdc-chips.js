@@ -2,7 +2,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { InjectionToken, Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, NgZone, Optional, Inject, HostListener, Input, Output, ContentChild, ViewChild, ContentChildren, forwardRef, QueryList, Self, NgModule } from '@angular/core';
-import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
 import { SPACE, ENTER, hasModifierKey, BACKSPACE, DELETE, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, END, HOME, TAB } from '@angular/cdk/keycodes';

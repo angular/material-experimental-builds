@@ -1,6 +1,6 @@
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { Directive, ComponentFactoryResolver, ViewContainerRef, Inject, forwardRef, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, Optional, ChangeDetectorRef, ViewChild, Input, ContentChild, TemplateRef, NgZone, ContentChildren, Attribute, NgModule } from '@angular/core';
-import { MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { PortalHostDirective, PortalModule } from '@angular/cdk/portal';
 import { ObserversModule } from '@angular/cdk/observers';
 import { FocusMonitor, A11yModule } from '@angular/cdk/a11y';

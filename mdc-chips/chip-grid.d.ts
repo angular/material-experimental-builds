@@ -9,7 +9,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, DoCheck, ElementRef, EventEmitter, OnDestroy, QueryList } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
-import { CanUpdateErrorState, CanUpdateErrorStateCtor, ErrorStateMatcher } from '@angular/material/core';
+import { CanUpdateErrorState, CanUpdateErrorStateCtor, ErrorStateMatcher } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatChipTextControl } from './chip-text-control';
 import { Observable } from 'rxjs';

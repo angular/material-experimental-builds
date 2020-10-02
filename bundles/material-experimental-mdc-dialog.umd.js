@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/core'), require('@angular/material/dialog'), require('@angular/cdk/a11y'), require('@angular/platform-browser/animations'), require('@material/dialog'), require('@angular/cdk/portal'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-dialog', ['exports', '@angular/cdk/overlay', '@angular/common', '@angular/core', '@angular/material/dialog', '@angular/cdk/a11y', '@angular/platform-browser/animations', '@material/dialog', '@angular/cdk/portal', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcDialog = {}), global.ng.cdk.overlay, global.ng.common, global.ng.core, global.ng.material.dialog, global.ng.cdk.a11y, global.ng.platformBrowser.animations, global.mdc.dialog, global.ng.cdk.portal, global.ng.material.core));
-}(this, (function (exports, overlay, common, core, dialog, a11y, animations, dialog$1, portal, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/core'), require('@angular/material/dialog'), require('@angular/cdk/a11y'), require('@angular/platform-browser/animations'), require('@material/dialog'), require('@angular/cdk/portal'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-dialog', ['exports', '@angular/cdk/overlay', '@angular/common', '@angular/core', '@angular/material/dialog', '@angular/cdk/a11y', '@angular/platform-browser/animations', '@material/dialog', '@angular/cdk/portal', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcDialog = {}), global.ng.cdk.overlay, global.ng.common, global.ng.core, global.ng.material.dialog, global.ng.cdk.a11y, global.ng.platformBrowser.animations, global.mdc.dialog, global.ng.cdk.portal, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, overlay, common, core, dialog, a11y, animations, dialog$1, portal, mdcCore) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -697,7 +697,7 @@
                     imports: [
                         overlay.OverlayModule,
                         portal.PortalModule,
-                        core$1.MatCommonModule,
+                        mdcCore.MatCommonModule,
                     ],
                     exports: [
                         MatDialogContainer,
@@ -705,7 +705,7 @@
                         MatDialogTitle,
                         MatDialogContent,
                         MatDialogActions,
-                        core$1.MatCommonModule,
+                        mdcCore.MatCommonModule,
                     ],
                     declarations: [
                         MatDialogContainer,

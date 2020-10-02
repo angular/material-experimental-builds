@@ -8,7 +8,7 @@
 import { AfterViewInit, OnDestroy, ElementRef, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
-import { ThemePalette, RippleAnimationConfig } from '@angular/material/core';
+import { ThemePalette, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
 import { MatSlideToggleDefaultOptions } from './slide-toggle-config';
 /** @docs-private */
 export declare const MAT_SLIDE_TOGGLE_VALUE_ACCESSOR: any;

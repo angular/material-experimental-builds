@@ -9,7 +9,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentChecked, AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, QueryList } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatError } from './directives/error';
 import { MatFormFieldFloatingLabel } from './directives/floating-label';

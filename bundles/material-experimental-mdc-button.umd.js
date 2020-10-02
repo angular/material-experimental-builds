@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/platform-browser/animations'), require('@angular/material/core'), require('@material/ripple')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-button', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/platform-browser/animations', '@angular/material/core', '@material/ripple'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcButton = {}), global.ng.cdk.platform, global.ng.core, global.ng.platformBrowser.animations, global.ng.material.core, global.mdc.ripple));
-}(this, (function (exports, platform, core, animations, core$1, ripple) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/platform-browser/animations'), require('@angular/material-experimental/mdc-core'), require('@material/ripple')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-button', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/platform-browser/animations', '@angular/material-experimental/mdc-core', '@material/ripple'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcButton = {}), global.ng.cdk.platform, global.ng.core, global.ng.platformBrowser.animations, global.ng.materialExperimental.mdcCore, global.mdc.ripple));
+}(this, (function (exports, platform, core, animations, mdcCore, ripple) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -363,7 +363,7 @@
         }
         return MatButtonMixinCore;
     }());
-    var _MatButtonBaseMixin = core$1.mixinColor(core$1.mixinDisabled(core$1.mixinDisableRipple(MatButtonMixinCore)));
+    var _MatButtonBaseMixin = mdcCore.mixinColor(mdcCore.mixinDisabled(mdcCore.mixinDisableRipple(MatButtonMixinCore)));
     /** Base class for all buttons.  */
     var MatButtonBase = /** @class */ (function (_super) {
         __extends(MatButtonBase, _super);
@@ -428,7 +428,7 @@
         { type: String }
     ]; };
     MatButtonBase.propDecorators = {
-        ripple: [{ type: core.ViewChild, args: [core$1.MatRipple,] }]
+        ripple: [{ type: core.ViewChild, args: [mdcCore.MatRipple,] }]
     };
     /** Shared inputs by buttons using the `<a>` tag */
     var MAT_ANCHOR_INPUTS = ['disabled', 'disableRipple', 'color', 'tabIndex'];
@@ -706,7 +706,7 @@
     }());
     MatButtonModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, core$1.MatRippleModule],
+                    imports: [mdcCore.MatCommonModule, mdcCore.MatRippleModule],
                     exports: [
                         MatAnchor,
                         MatButton,
@@ -714,7 +714,7 @@
                         MatIconButton,
                         MatFabAnchor,
                         MatFabButton,
-                        core$1.MatCommonModule,
+                        mdcCore.MatCommonModule,
                     ],
                     declarations: [
                         MatAnchor,

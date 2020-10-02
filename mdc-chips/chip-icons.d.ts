@@ -7,7 +7,7 @@
  */
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy } from '@angular/core';
-import { CanDisable, CanDisableCtor, HasTabIndex, HasTabIndexCtor } from '@angular/material/core';
+import { CanDisable, CanDisableCtor, HasTabIndex, HasTabIndexCtor } from '@angular/material-experimental/mdc-core';
 import { Subject } from 'rxjs';
 /**
  * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as

@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
-import { CanColor, CanColorCtor, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig } from '@angular/material/core';
+import { CanColor, CanColorCtor, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
 import { MDCChipAdapter, MDCChipFoundation } from '@material/chips';
 import { Subject } from 'rxjs';
 import { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';

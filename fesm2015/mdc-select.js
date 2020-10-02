@@ -1,8 +1,7 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { Directive, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, ContentChild, NgModule } from '@angular/core';
-import { _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MAT_OPTGROUP, MatCommonModule } from '@angular/material/core';
-import { MatOption, MatOptionModule } from '@angular/material-experimental/mdc-core';
+import { _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MatOption, MAT_OPTGROUP, MatOptionModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldModule } from '@angular/material-experimental/mdc-form-field';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { MAT_SELECT_TRIGGER, _MatSelectBase, MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';

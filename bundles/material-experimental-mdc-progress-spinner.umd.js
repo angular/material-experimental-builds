@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/circular-progress'), require('@angular/material/core'), require('@angular/platform-browser/animations'), require('@angular/material/progress-spinner'), require('@angular/cdk/coercion'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-spinner', ['exports', '@angular/core', '@material/circular-progress', '@angular/material/core', '@angular/platform-browser/animations', '@angular/material/progress-spinner', '@angular/cdk/coercion', '@angular/common'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressSpinner = {}), global.ng.core, global.mdc.circularProgress, global.ng.material.core, global.ng.platformBrowser.animations, global.ng.material.progressSpinner, global.ng.cdk.coercion, global.ng.common));
-}(this, (function (exports, core, circularProgress, core$1, animations, progressSpinner, coercion, common) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/circular-progress'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@angular/material/progress-spinner'), require('@angular/cdk/coercion'), require('@angular/common')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-spinner', ['exports', '@angular/core', '@material/circular-progress', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@angular/material/progress-spinner', '@angular/cdk/coercion', '@angular/common'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressSpinner = {}), global.ng.core, global.mdc.circularProgress, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.ng.material.progressSpinner, global.ng.cdk.coercion, global.ng.common));
+}(this, (function (exports, core, circularProgress, mdcCore, animations, progressSpinner, coercion, common) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -312,7 +312,7 @@
         }
         return MatProgressSpinnerBase;
     }());
-    var _MatProgressSpinnerMixinBase = core$1.mixinColor(MatProgressSpinnerBase, 'primary');
+    var _MatProgressSpinnerMixinBase = mdcCore.mixinColor(MatProgressSpinnerBase, 'primary');
     /**
      * Base reference size of the spinner.
      */
@@ -509,7 +509,7 @@
     MatProgressSpinnerModule.decorators = [
         { type: core.NgModule, args: [{
                     imports: [common.CommonModule],
-                    exports: [MatProgressSpinner, MatSpinner, core$1.MatCommonModule],
+                    exports: [MatProgressSpinner, MatSpinner, mdcCore.MatCommonModule],
                     declarations: [MatProgressSpinner, MatSpinner],
                 },] }
     ];

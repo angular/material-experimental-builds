@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, Optional, Inject, ViewChild, Input, NgModule } from '@angular/core';
 import { MDCCircularProgressFoundation } from '@material/circular-progress';
-import { mixinColor, MatCommonModule } from '@angular/material/core';
+import { mixinColor, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS } from '@angular/material/progress-spinner';
 import { coerceNumberProperty } from '@angular/cdk/coercion';

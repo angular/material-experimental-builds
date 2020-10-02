@@ -5,7 +5,7 @@ import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coerci
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { numbers } from '@material/ripple';
 import { CommonModule } from '@angular/common';
-import { MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { _MatSlideToggleRequiredValidatorModule } from '@angular/material/slide-toggle';
 
 /**

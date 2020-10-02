@@ -7,7 +7,7 @@ import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCSliderFoundation } from '@material/slider';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
 /**
  * @license

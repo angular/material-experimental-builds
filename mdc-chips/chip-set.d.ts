@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
-import { HasTabIndex, HasTabIndexCtor } from '@angular/material/core';
+import { HasTabIndex, HasTabIndexCtor } from '@angular/material-experimental/mdc-core';
 import { MDCChipSetAdapter, MDCChipSetFoundation } from '@material/chips';
 import { Observable, Subject } from 'rxjs';
 import { MatChip, MatChipEvent } from './chip';

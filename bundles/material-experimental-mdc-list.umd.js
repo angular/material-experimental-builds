@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/material/core'), require('@angular/cdk/coercion'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/collections'), require('@angular/common'), require('@angular/forms'), require('@material/list'), require('@angular/material/divider')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/material/core', '@angular/cdk/coercion', 'rxjs', 'rxjs/operators', '@angular/cdk/collections', '@angular/common', '@angular/forms', '@material/list', '@angular/material/divider'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.cdk.platform, global.ng.core, global.ng.material.core, global.ng.cdk.coercion, global.rxjs, global.rxjs.operators, global.ng.cdk.collections, global.ng.common, global.ng.forms, global.mdc.list, global.ng.material.divider));
-}(this, (function (exports, platform, core, core$1, coercion, rxjs, operators, collections, common, forms, list, divider) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/cdk/coercion'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/collections'), require('@angular/common'), require('@angular/forms'), require('@material/list'), require('@angular/material/divider')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/cdk/coercion', 'rxjs', 'rxjs/operators', '@angular/cdk/collections', '@angular/common', '@angular/forms', '@material/list', '@angular/material/divider'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.cdk.platform, global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.cdk.coercion, global.rxjs, global.rxjs.operators, global.ng.cdk.collections, global.ng.common, global.ng.forms, global.mdc.list, global.ng.material.divider));
+}(this, (function (exports, platform, core, mdcCore, coercion, rxjs, operators, collections, common, forms, list, divider) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -388,7 +388,7 @@
         MatListItemBase.prototype._initInteractiveListItem = function () {
             this._hostElement.classList.add('mat-mdc-list-item-interactive');
             this._rippleRenderer =
-                new core$1.RippleRenderer(this, this._ngZone, this._hostElement, this._platform);
+                new mdcCore.RippleRenderer(this, this._ngZone, this._hostElement, this._platform);
             this._rippleRenderer.setupTriggerEvents(this._hostElement);
         };
         /**
@@ -405,7 +405,7 @@
                         toggleClass(line.nativeElement, 'mdc-list-item__primary-text', index === 0 && lines.length > 1);
                         toggleClass(line.nativeElement, 'mdc-list-item__secondary-text', index !== 0);
                     });
-                    core$1.setLines(lines, _this._elementRef, 'mat-mdc');
+                    mdcCore.setLines(lines, _this._elementRef, 'mat-mdc');
                 }));
             });
         };
@@ -552,7 +552,7 @@
         { type: platform.Platform }
     ]; };
     MatListItem.propDecorators = {
-        lines: [{ type: core.ContentChildren, args: [core$1.MatLine, { read: core.ElementRef, descendants: true },] }],
+        lines: [{ type: core.ContentChildren, args: [mdcCore.MatLine, { read: core.ElementRef, descendants: true },] }],
         _itemText: [{ type: core.ViewChild, args: ['text',] }]
     };
 
@@ -990,7 +990,7 @@
     ]; };
     MatListOption.propDecorators = {
         _itemText: [{ type: core.ViewChild, args: ['text',] }],
-        lines: [{ type: core.ContentChildren, args: [core$1.MatLine, { read: core.ElementRef, descendants: true },] }],
+        lines: [{ type: core.ContentChildren, args: [mdcCore.MatLine, { read: core.ElementRef, descendants: true },] }],
         _avatars: [{ type: core.ContentChildren, args: [MatListAvatarCssMatStyler, { descendants: false },] }],
         _icons: [{ type: core.ContentChildren, args: [MatListIconCssMatStyler, { descendants: false },] }],
         checkboxPosition: [{ type: core.Input }],
@@ -1339,9 +1339,9 @@
         { type: core.NgModule, args: [{
                     imports: [
                         common.CommonModule,
-                        core$1.MatLineModule,
-                        core$1.MatRippleModule,
-                        core$1.MatPseudoCheckboxModule,
+                        mdcCore.MatLineModule,
+                        mdcCore.MatRippleModule,
+                        mdcCore.MatPseudoCheckboxModule,
                     ],
                     exports: [
                         MatList,
@@ -1354,7 +1354,7 @@
                         MatListIconCssMatStyler,
                         MatListSubheaderCssMatStyler,
                         divider.MatDividerModule,
-                        core$1.MatLineModule,
+                        mdcCore.MatLineModule,
                     ],
                     declarations: [
                         MatList,

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/forms'), require('@angular/material/checkbox'), require('@angular/material/core'), require('@angular/platform-browser/animations'), require('@material/checkbox'), require('@material/ripple'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox', ['exports', '@angular/cdk/coercion', '@angular/core', '@angular/forms', '@angular/material/checkbox', '@angular/material/core', '@angular/platform-browser/animations', '@material/checkbox', '@material/ripple', '@angular/common'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = {}), global.ng.cdk.coercion, global.ng.core, global.ng.forms, global.ng.material.checkbox, global.ng.material.core, global.ng.platformBrowser.animations, global.mdc.checkbox, global.mdc.ripple, global.ng.common));
-}(this, (function (exports, coercion, core, forms, checkbox, core$1, animations, checkbox$1, ripple, common) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/forms'), require('@angular/material/checkbox'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@material/checkbox'), require('@material/ripple'), require('@angular/common')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox', ['exports', '@angular/cdk/coercion', '@angular/core', '@angular/forms', '@angular/material/checkbox', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@material/checkbox', '@material/ripple', '@angular/common'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = {}), global.ng.cdk.coercion, global.ng.core, global.ng.forms, global.ng.material.checkbox, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.mdc.checkbox, global.mdc.ripple, global.ng.common));
+}(this, (function (exports, coercion, core, forms, checkbox, mdcCore, animations, checkbox$1, ripple, common) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -325,7 +325,7 @@
         }
         return MatCheckboxBase;
     }());
-    var _MatCheckboxMixinBase = core$1.mixinColor(core$1.mixinDisabled(MatCheckboxBase));
+    var _MatCheckboxMixinBase = mdcCore.mixinColor(mdcCore.mixinDisabled(MatCheckboxBase));
     /** Configuration for the ripple animation. */
     var RIPPLE_ANIMATION_CONFIG = {
         enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
@@ -652,8 +652,8 @@
     }());
     MatCheckboxModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, core$1.MatRippleModule, common.CommonModule, checkbox._MatCheckboxRequiredValidatorModule],
-                    exports: [MatCheckbox, core$1.MatCommonModule, checkbox._MatCheckboxRequiredValidatorModule],
+                    imports: [mdcCore.MatCommonModule, mdcCore.MatRippleModule, common.CommonModule, checkbox._MatCheckboxRequiredValidatorModule],
+                    exports: [MatCheckbox, mdcCore.MatCommonModule, checkbox._MatCheckboxRequiredValidatorModule],
                     declarations: [MatCheckbox],
                 },] }
     ];

@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, forwardRef, Directive, NgModule } from '@angular/core';
-import { MAT_OPTGROUP, MatCommonModule } from '@angular/material/core';
-import { MAT_OPTION_PARENT_COMPONENT, MatOption, MatOptionModule } from '@angular/material-experimental/mdc-core';
+import { MAT_OPTION_PARENT_COMPONENT, MAT_OPTGROUP, MatOption, MatOptionModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { CommonModule } from '@angular/common';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { OverlayModule } from '@angular/cdk/overlay';

@@ -3,7 +3,7 @@ import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetection
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 export { MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxRequiredValidator, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
-import { mixinColor, mixinDisabled, MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { mixinColor, mixinDisabled, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 import { numbers } from '@material/ripple';

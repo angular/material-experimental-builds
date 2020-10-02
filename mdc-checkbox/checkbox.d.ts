@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
-import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable } from '@angular/material/core';
+import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable } from '@angular/material-experimental/mdc-core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */

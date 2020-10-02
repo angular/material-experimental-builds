@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { SelectionModel } from '@angular/cdk/collections';
 import { AfterViewInit, ElementRef, EventEmitter, OnChanges, OnDestroy, QueryList, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatInteractiveListBase } from './interactive-list-base';
 import { MatListOption, SelectionList } from './list-option';
 /** Change event that is being fired whenever the selected state of an option changes. */

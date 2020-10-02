@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { _MatOptgroupBase, MAT_OPTGROUP, _MatOptionBase, MAT_OPTION_PARENT_COMPONENT, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
-export { MAT_OPTION_PARENT_COMPONENT, MatOptionSelectionChange, _countGroupLabelsBeforeOption, _getOptionScrollPosition } from '@angular/material/core';
+export { AnimationCurves, AnimationDurations, DateAdapter, ErrorStateMatcher, MATERIAL_SANITY_CHECKS, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_DATE_LOCALE_FACTORY, MAT_NATIVE_DATE_FORMATS, MAT_OPTGROUP, MAT_OPTION_PARENT_COMPONENT, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatLine, MatLineModule, MatNativeDateModule, MatOptionSelectionChange, MatPseudoCheckbox, MatPseudoCheckboxModule, MatRipple, MatRippleModule, NativeDateAdapter, NativeDateModule, RippleRef, RippleRenderer, ShowOnDirtyErrorStateMatcher, VERSION, _countGroupLabelsBeforeOption, _getOptionScrollPosition, defaultRippleAnimationConfig, mixinColor, mixinDisableRipple, mixinDisabled, mixinErrorState, mixinInitialized, mixinTabIndex, setLines } from '@angular/material/core';
 
 /**
  * @license

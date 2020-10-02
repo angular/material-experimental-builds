@@ -10,7 +10,7 @@ import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { AfterViewInit, ElementRef, EventEmitter, NgZone, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
+import { ThemePalette } from '@angular/material-experimental/mdc-core';
 /**
  * Provider Expression that allows mat-slider to register as a ControlValueAccessor.
  * This allows it to support [(ngModel)] and [formControl].

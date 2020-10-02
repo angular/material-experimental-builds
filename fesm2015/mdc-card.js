@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Directive, Input, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
 /**
  * @license

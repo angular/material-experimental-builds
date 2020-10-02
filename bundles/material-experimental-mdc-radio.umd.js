@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/radio'), require('@angular/material/radio'), require('@angular/cdk/a11y'), require('@angular/cdk/collections'), require('@angular/platform-browser/animations'), require('@angular/forms'), require('@material/ripple'), require('@angular/common'), require('@angular/material/core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-radio', ['exports', '@angular/core', '@material/radio', '@angular/material/radio', '@angular/cdk/a11y', '@angular/cdk/collections', '@angular/platform-browser/animations', '@angular/forms', '@material/ripple', '@angular/common', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcRadio = {}), global.ng.core, global.mdc.radio, global.ng.material.radio, global.ng.cdk.a11y, global.ng.cdk.collections, global.ng.platformBrowser.animations, global.ng.forms, global.mdc.ripple, global.ng.common, global.ng.material.core));
-}(this, (function (exports, core, radio, radio$1, a11y, collections, animations, forms, ripple, common, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/radio'), require('@angular/material/radio'), require('@angular/cdk/a11y'), require('@angular/cdk/collections'), require('@angular/platform-browser/animations'), require('@angular/forms'), require('@material/ripple'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-radio', ['exports', '@angular/core', '@material/radio', '@angular/material/radio', '@angular/cdk/a11y', '@angular/cdk/collections', '@angular/platform-browser/animations', '@angular/forms', '@material/ripple', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcRadio = {}), global.ng.core, global.mdc.radio, global.ng.material.radio, global.ng.cdk.a11y, global.ng.cdk.collections, global.ng.platformBrowser.animations, global.ng.forms, global.mdc.ripple, global.ng.common, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, core, radio, radio$1, a11y, collections, animations, forms, ripple, common, mdcCore) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -447,8 +447,8 @@
     }());
     MatRadioModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [core$1.MatCommonModule, common.CommonModule, core$1.MatRippleModule],
-                    exports: [core$1.MatCommonModule, MatRadioGroup, MatRadioButton],
+                    imports: [mdcCore.MatCommonModule, common.CommonModule, mdcCore.MatRippleModule],
+                    exports: [mdcCore.MatCommonModule, MatRadioGroup, MatRadioButton],
                     declarations: [MatRadioGroup, MatRadioButton],
                 },] }
     ];

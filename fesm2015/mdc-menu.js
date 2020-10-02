@@ -3,7 +3,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZo
 import { MAT_MENU_SCROLL_STRATEGY, MatMenu as MatMenu$1, matMenuAnimations, MAT_MENU_PANEL, MAT_MENU_DEFAULT_OPTIONS, MatMenuItem as MatMenuItem$1, _MatMenuDirectivesModule } from '@angular/material/menu';
 export { MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
-import { MatRippleModule, MatCommonModule } from '@angular/material/core';
+import { MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 
 /**

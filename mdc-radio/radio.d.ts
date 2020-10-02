@@ -10,7 +10,7 @@ import { MDCRadioFoundation } from '@material/radio';
 import { _MatRadioButtonBase, MatRadioDefaultOptions, _MatRadioGroupBase } from '@angular/material/radio';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
-import { RippleAnimationConfig } from '@angular/material/core';
+import { RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
 export { MatRadioChange, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 /**
  * Provider Expression that allows mat-radio-group to register as a ControlValueAccessor. This

@@ -1,7 +1,7 @@
 import { Platform } from '@angular/cdk/platform';
 import { Directive, ElementRef, NgZone, ViewChild, HostListener, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, NgModule } from '@angular/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { numbers } from '@material/ripple';
 
 /**

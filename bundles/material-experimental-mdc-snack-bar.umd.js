@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/snack-bar'), require('@angular/cdk/portal'), require('@material/snackbar'), require('@angular/cdk/platform'), require('rxjs'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/button'), require('@angular/material/core'), require('@angular/cdk/a11y'), require('@angular/cdk/layout')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-snack-bar', ['exports', '@angular/core', '@angular/material/snack-bar', '@angular/cdk/portal', '@material/snackbar', '@angular/cdk/platform', 'rxjs', '@angular/cdk/overlay', '@angular/common', '@angular/material/button', '@angular/material/core', '@angular/cdk/a11y', '@angular/cdk/layout'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSnackBar = {}), global.ng.core, global.ng.material.snackBar, global.ng.cdk.portal, global.mdc.snackbar, global.ng.cdk.platform, global.rxjs, global.ng.cdk.overlay, global.ng.common, global.ng.material.button, global.ng.material.core, global.ng.cdk.a11y, global.ng.cdk.layout));
-}(this, (function (exports, i0, i4, portal, snackbar, platform, rxjs, i1, common, button, core, i2, i3) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/snack-bar'), require('@angular/cdk/portal'), require('@material/snackbar'), require('@angular/cdk/platform'), require('rxjs'), require('@angular/cdk/overlay'), require('@angular/common'), require('@angular/material/button'), require('@angular/material-experimental/mdc-core'), require('@angular/cdk/a11y'), require('@angular/cdk/layout')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-snack-bar', ['exports', '@angular/core', '@angular/material/snack-bar', '@angular/cdk/portal', '@material/snackbar', '@angular/cdk/platform', 'rxjs', '@angular/cdk/overlay', '@angular/common', '@angular/material/button', '@angular/material-experimental/mdc-core', '@angular/cdk/a11y', '@angular/cdk/layout'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSnackBar = {}), global.ng.core, global.ng.material.snackBar, global.ng.cdk.portal, global.mdc.snackbar, global.ng.cdk.platform, global.rxjs, global.ng.cdk.overlay, global.ng.common, global.ng.material.button, global.ng.materialExperimental.mdcCore, global.ng.cdk.a11y, global.ng.cdk.layout));
+}(this, (function (exports, i0, i4, portal, snackbar, platform, rxjs, i1, common, button, mdcCore, i2, i3) { 'use strict';
 
     /**
      * @license
@@ -604,10 +604,10 @@
                         portal.PortalModule,
                         common.CommonModule,
                         button.MatButtonModule,
-                        core.MatCommonModule,
+                        mdcCore.MatCommonModule,
                     ],
                     exports: [
-                        core.MatCommonModule,
+                        mdcCore.MatCommonModule,
                         MatSnackBarContainer,
                         MatSnackBarLabel,
                         MatSnackBarActions,

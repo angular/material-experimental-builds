@@ -7,7 +7,7 @@
  */
 import { AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { MDCCircularProgressFoundation } from '@material/circular-progress';
-import { CanColor, CanColorCtor } from '@angular/material/core';
+import { CanColor, CanColorCtor } from '@angular/material-experimental/mdc-core';
 import { MatProgressSpinnerDefaultOptions } from '@angular/material/progress-spinner';
 import { NumberInput } from '@angular/cdk/coercion';
 declare class MatProgressSpinnerBase {

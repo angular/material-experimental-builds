@@ -409,16 +409,166 @@
      * Generated bundle index. Do not edit.
      */
 
+    Object.defineProperty(exports, 'AnimationCurves', {
+        enumerable: true,
+        get: function () {
+            return core$1.AnimationCurves;
+        }
+    });
+    Object.defineProperty(exports, 'AnimationDurations', {
+        enumerable: true,
+        get: function () {
+            return core$1.AnimationDurations;
+        }
+    });
+    Object.defineProperty(exports, 'DateAdapter', {
+        enumerable: true,
+        get: function () {
+            return core$1.DateAdapter;
+        }
+    });
+    Object.defineProperty(exports, 'ErrorStateMatcher', {
+        enumerable: true,
+        get: function () {
+            return core$1.ErrorStateMatcher;
+        }
+    });
+    Object.defineProperty(exports, 'MATERIAL_SANITY_CHECKS', {
+        enumerable: true,
+        get: function () {
+            return core$1.MATERIAL_SANITY_CHECKS;
+        }
+    });
+    Object.defineProperty(exports, 'MAT_DATE_FORMATS', {
+        enumerable: true,
+        get: function () {
+            return core$1.MAT_DATE_FORMATS;
+        }
+    });
+    Object.defineProperty(exports, 'MAT_DATE_LOCALE', {
+        enumerable: true,
+        get: function () {
+            return core$1.MAT_DATE_LOCALE;
+        }
+    });
+    Object.defineProperty(exports, 'MAT_DATE_LOCALE_FACTORY', {
+        enumerable: true,
+        get: function () {
+            return core$1.MAT_DATE_LOCALE_FACTORY;
+        }
+    });
+    Object.defineProperty(exports, 'MAT_NATIVE_DATE_FORMATS', {
+        enumerable: true,
+        get: function () {
+            return core$1.MAT_NATIVE_DATE_FORMATS;
+        }
+    });
+    Object.defineProperty(exports, 'MAT_OPTGROUP', {
+        enumerable: true,
+        get: function () {
+            return core$1.MAT_OPTGROUP;
+        }
+    });
     Object.defineProperty(exports, 'MAT_OPTION_PARENT_COMPONENT', {
         enumerable: true,
         get: function () {
             return core$1.MAT_OPTION_PARENT_COMPONENT;
         }
     });
+    Object.defineProperty(exports, 'MAT_RIPPLE_GLOBAL_OPTIONS', {
+        enumerable: true,
+        get: function () {
+            return core$1.MAT_RIPPLE_GLOBAL_OPTIONS;
+        }
+    });
+    Object.defineProperty(exports, 'MatCommonModule', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatCommonModule;
+        }
+    });
+    Object.defineProperty(exports, 'MatLine', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatLine;
+        }
+    });
+    Object.defineProperty(exports, 'MatLineModule', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatLineModule;
+        }
+    });
+    Object.defineProperty(exports, 'MatNativeDateModule', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatNativeDateModule;
+        }
+    });
     Object.defineProperty(exports, 'MatOptionSelectionChange', {
         enumerable: true,
         get: function () {
             return core$1.MatOptionSelectionChange;
+        }
+    });
+    Object.defineProperty(exports, 'MatPseudoCheckbox', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatPseudoCheckbox;
+        }
+    });
+    Object.defineProperty(exports, 'MatPseudoCheckboxModule', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatPseudoCheckboxModule;
+        }
+    });
+    Object.defineProperty(exports, 'MatRipple', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatRipple;
+        }
+    });
+    Object.defineProperty(exports, 'MatRippleModule', {
+        enumerable: true,
+        get: function () {
+            return core$1.MatRippleModule;
+        }
+    });
+    Object.defineProperty(exports, 'NativeDateAdapter', {
+        enumerable: true,
+        get: function () {
+            return core$1.NativeDateAdapter;
+        }
+    });
+    Object.defineProperty(exports, 'NativeDateModule', {
+        enumerable: true,
+        get: function () {
+            return core$1.NativeDateModule;
+        }
+    });
+    Object.defineProperty(exports, 'RippleRef', {
+        enumerable: true,
+        get: function () {
+            return core$1.RippleRef;
+        }
+    });
+    Object.defineProperty(exports, 'RippleRenderer', {
+        enumerable: true,
+        get: function () {
+            return core$1.RippleRenderer;
+        }
+    });
+    Object.defineProperty(exports, 'ShowOnDirtyErrorStateMatcher', {
+        enumerable: true,
+        get: function () {
+            return core$1.ShowOnDirtyErrorStateMatcher;
+        }
+    });
+    Object.defineProperty(exports, 'VERSION', {
+        enumerable: true,
+        get: function () {
+            return core$1.VERSION;
         }
     });
     Object.defineProperty(exports, '_countGroupLabelsBeforeOption', {
@@ -431,6 +581,54 @@
         enumerable: true,
         get: function () {
             return core$1._getOptionScrollPosition;
+        }
+    });
+    Object.defineProperty(exports, 'defaultRippleAnimationConfig', {
+        enumerable: true,
+        get: function () {
+            return core$1.defaultRippleAnimationConfig;
+        }
+    });
+    Object.defineProperty(exports, 'mixinColor', {
+        enumerable: true,
+        get: function () {
+            return core$1.mixinColor;
+        }
+    });
+    Object.defineProperty(exports, 'mixinDisableRipple', {
+        enumerable: true,
+        get: function () {
+            return core$1.mixinDisableRipple;
+        }
+    });
+    Object.defineProperty(exports, 'mixinDisabled', {
+        enumerable: true,
+        get: function () {
+            return core$1.mixinDisabled;
+        }
+    });
+    Object.defineProperty(exports, 'mixinErrorState', {
+        enumerable: true,
+        get: function () {
+            return core$1.mixinErrorState;
+        }
+    });
+    Object.defineProperty(exports, 'mixinInitialized', {
+        enumerable: true,
+        get: function () {
+            return core$1.mixinInitialized;
+        }
+    });
+    Object.defineProperty(exports, 'mixinTabIndex', {
+        enumerable: true,
+        get: function () {
+            return core$1.mixinTabIndex;
+        }
+    });
+    Object.defineProperty(exports, 'setLines', {
+        enumerable: true,
+        get: function () {
+            return core$1.setLines;
         }
     });
     exports.MatOptgroup = MatOptgroup;

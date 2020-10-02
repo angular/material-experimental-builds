@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@angular/material/core'), require('@angular/cdk/portal'), require('@angular/cdk/observers'), require('@angular/cdk/a11y'), require('@angular/material/tabs'), require('@angular/cdk/bidi'), require('@material/tab-indicator'), require('@angular/cdk/coercion'), require('@angular/cdk/scrolling'), require('@angular/cdk/platform'), require('@angular/platform-browser/animations'), require('rxjs'), require('rxjs/operators')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-tabs', ['exports', '@angular/common', '@angular/core', '@angular/material/core', '@angular/cdk/portal', '@angular/cdk/observers', '@angular/cdk/a11y', '@angular/material/tabs', '@angular/cdk/bidi', '@material/tab-indicator', '@angular/cdk/coercion', '@angular/cdk/scrolling', '@angular/cdk/platform', '@angular/platform-browser/animations', 'rxjs', 'rxjs/operators'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTabs = {}), global.ng.common, global.ng.core, global.ng.material.core, global.ng.cdk.portal, global.ng.cdk.observers, global.ng.cdk.a11y, global.ng.material.tabs, global.ng.cdk.bidi, global.mdc.tabIndicator, global.ng.cdk.coercion, global.ng.cdk.scrolling, global.ng.cdk.platform, global.ng.platformBrowser.animations, global.rxjs, global.rxjs.operators));
-}(this, (function (exports, common, core, core$1, portal, observers, a11y, tabs, bidi, tabIndicator, coercion, scrolling, platform, animations, rxjs, operators) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/cdk/portal'), require('@angular/cdk/observers'), require('@angular/cdk/a11y'), require('@angular/material/tabs'), require('@angular/cdk/bidi'), require('@material/tab-indicator'), require('@angular/cdk/coercion'), require('@angular/cdk/scrolling'), require('@angular/cdk/platform'), require('@angular/platform-browser/animations'), require('rxjs'), require('rxjs/operators')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-tabs', ['exports', '@angular/common', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/cdk/portal', '@angular/cdk/observers', '@angular/cdk/a11y', '@angular/material/tabs', '@angular/cdk/bidi', '@material/tab-indicator', '@angular/cdk/coercion', '@angular/cdk/scrolling', '@angular/cdk/platform', '@angular/platform-browser/animations', 'rxjs', 'rxjs/operators'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTabs = {}), global.ng.common, global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.cdk.portal, global.ng.cdk.observers, global.ng.cdk.a11y, global.ng.material.tabs, global.ng.cdk.bidi, global.mdc.tabIndicator, global.ng.cdk.coercion, global.ng.cdk.scrolling, global.ng.cdk.platform, global.ng.platformBrowser.animations, global.rxjs, global.rxjs.operators));
+}(this, (function (exports, common, core, mdcCore, portal, observers, a11y, tabs, bidi, tabIndicator, coercion, scrolling, platform, animations, rxjs, operators) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -836,7 +836,7 @@
     MatTabLink.ctorParameters = function () { return [
         { type: MatTabNav },
         { type: core.ElementRef },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_RIPPLE_GLOBAL_OPTIONS,] }] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] },
         { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] },
         { type: a11y.FocusMonitor },
         { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
@@ -859,14 +859,14 @@
         { type: core.NgModule, args: [{
                     imports: [
                         common.CommonModule,
-                        core$1.MatCommonModule,
+                        mdcCore.MatCommonModule,
                         portal.PortalModule,
-                        core$1.MatRippleModule,
+                        mdcCore.MatRippleModule,
                         observers.ObserversModule,
                         a11y.A11yModule,
                     ],
                     exports: [
-                        core$1.MatCommonModule,
+                        mdcCore.MatCommonModule,
                         MatTabContent,
                         MatTabLabel,
                         MatTab,

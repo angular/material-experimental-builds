@@ -12,7 +12,7 @@ import { MDCLineRipple } from '@material/line-ripple';
 import { MDCNotchedOutline } from '@material/notched-outline';
 import { ObserversModule } from '@angular/cdk/observers';
 import { CommonModule } from '@angular/common';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
 /**
  * @license

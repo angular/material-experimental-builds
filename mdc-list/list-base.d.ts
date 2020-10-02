@@ -8,7 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ElementRef, NgZone, OnDestroy, QueryList } from '@angular/core';
-import { RippleConfig, RippleTarget } from '@angular/material/core';
+import { RippleConfig, RippleTarget } from '@angular/material-experimental/mdc-core';
 export declare abstract class MatListItemBase implements AfterContentInit, OnDestroy, RippleTarget {
     _elementRef: ElementRef<HTMLElement>;
     protected _ngZone: NgZone;

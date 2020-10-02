@@ -8,7 +8,7 @@ import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { numbers } from '@material/ripple';
 import { CommonModule } from '@angular/common';
-import { MatCommonModule, MatRippleModule } from '@angular/material/core';
+import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 
 /**
  * @license

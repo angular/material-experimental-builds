@@ -1,5 +1,5 @@
 import { EventEmitter, Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Optional, Inject, Input, Output, NgModule } from '@angular/core';
-import { mixinColor, MatCommonModule } from '@angular/material/core';
+import { mixinColor, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCLinearProgressFoundation } from '@material/linear-progress';
 import { Subscription, fromEvent } from 'rxjs';
