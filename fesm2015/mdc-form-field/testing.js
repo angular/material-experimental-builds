@@ -1,8 +1,8 @@
 export * from '@angular/material/form-field/testing/control';
 import { __awaiter } from 'tslib';
 import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
-import { MatInputHarness } from '@angular/material/input/testing';
-import { MatSelectHarness } from '@angular/material/select/testing';
+import { MatInputHarness } from '@angular/material-experimental/mdc-input/testing';
+import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
 
 /**
  * @license

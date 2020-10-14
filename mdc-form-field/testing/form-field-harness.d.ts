@@ -8,8 +8,8 @@
 import { ComponentHarness, ComponentHarnessConstructor, HarnessPredicate, TestElement } from '@angular/cdk/testing';
 import { FormFieldHarnessFilters } from '@angular/material/form-field/testing';
 import { MatFormFieldControlHarness } from '@angular/material/form-field/testing/control';
-import { MatInputHarness } from '@angular/material/input/testing';
-import { MatSelectHarness } from '@angular/material/select/testing';
+import { MatInputHarness } from '@angular/material-experimental/mdc-input/testing';
+import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
 /** Possible harnesses of controls which can be bound to a form-field. */
 export declare type FormFieldControlHarness = MatInputHarness | MatSelectHarness;
 /** Harness for interacting with a MDC-based form-field's in tests. */
