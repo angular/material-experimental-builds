@@ -434,6 +434,10 @@ class MatFormField {
             // abstract form control instance.
             deregisterValidationAttributeChangeHandler: () => { },
             registerValidationAttributeChangeHandler: () => null,
+            // Used by foundation to dynamically remove aria-describedby when the hint text
+            // is shown only on invalid state, which should not be applicable here.
+            setInputAttr: () => undefined,
+            removeInputAttr: () => undefined,
         };
         if (_defaults && _defaults.appearance) {
             this.appearance = _defaults.appearance;

@@ -731,6 +731,10 @@
                 // abstract form control instance.
                 deregisterValidationAttributeChangeHandler: function () { },
                 registerValidationAttributeChangeHandler: function () { return null; },
+                // Used by foundation to dynamically remove aria-describedby when the hint text
+                // is shown only on invalid state, which should not be applicable here.
+                setInputAttr: function () { return undefined; },
+                removeInputAttr: function () { return undefined; },
             };
             if (_defaults && _defaults.appearance) {
                 this.appearance = _defaults.appearance;
