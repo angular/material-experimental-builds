@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
-import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable } from '@angular/material-experimental/mdc-core';
+import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */
@@ -82,6 +82,8 @@ export declare class MatCheckbox extends _MatCheckboxMixinBase implements AfterV
     _nativeCheckbox: ElementRef<HTMLInputElement>;
     /** The native label element. */
     _label: ElementRef<HTMLElement>;
+    /** Reference to the ripple instance of the checkbox. */
+    ripple: MatRipple;
     /** Returns the unique id for the visual hidden input. */
     get inputId(): string;
     /** The `MDCCheckboxFoundation` instance for this checkbox. */

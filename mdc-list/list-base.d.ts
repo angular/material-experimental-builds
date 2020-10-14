@@ -20,6 +20,8 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
     abstract _itemText: ElementRef<HTMLElement>;
     /** Host element for the list item. */
     _hostElement: HTMLElement;
+    _avatars: QueryList<never>;
+    _icons: QueryList<never>;
     get disableRipple(): boolean;
     set disableRipple(value: boolean);
     private _disableRipple;
@@ -44,6 +46,8 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
     ngOnDestroy(): void;
     /** Gets the label for the list item. This is used for the typeahead. */
     _getItemLabel(): string;
+    /** Whether the list item has icons or avatars. */
+    _hasIconOrAvatar(): number;
     private _initInteractiveListItem;
     /**
      * Subscribes to changes in `MatLine` content children and annotates them

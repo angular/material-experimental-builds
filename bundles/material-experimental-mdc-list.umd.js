@@ -312,6 +312,61 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    /**
+     * Directive whose purpose is to add the mat- CSS styling to this selector.
+     * @docs-private
+     */
+    var MatListAvatarCssMatStyler = /** @class */ (function () {
+        function MatListAvatarCssMatStyler() {
+        }
+        return MatListAvatarCssMatStyler;
+    }());
+    MatListAvatarCssMatStyler.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[mat-list-avatar], [matListAvatar]',
+                    host: { 'class': 'mat-mdc-list-avatar mdc-list-item__graphic' }
+                },] }
+    ];
+    /**
+     * Directive whose purpose is to add the mat- CSS styling to this selector.
+     * @docs-private
+     */
+    var MatListIconCssMatStyler = /** @class */ (function () {
+        function MatListIconCssMatStyler() {
+        }
+        return MatListIconCssMatStyler;
+    }());
+    MatListIconCssMatStyler.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[mat-list-icon], [matListIcon]',
+                    host: { 'class': 'mat-mdc-list-icon mdc-list-item__graphic' }
+                },] }
+    ];
+    /**
+     * Directive whose purpose is to add the mat- CSS styling to this selector.
+     * @docs-private
+     */
+    var MatListSubheaderCssMatStyler = /** @class */ (function () {
+        function MatListSubheaderCssMatStyler() {
+        }
+        return MatListSubheaderCssMatStyler;
+    }());
+    MatListSubheaderCssMatStyler.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[mat-subheader], [matSubheader]',
+                    // TODO(mmalerba): MDC's subheader font looks identical to the list item font, figure out why and
+                    //  make a change in one of the repos to visually distinguish.
+                    host: { 'class': 'mat-mdc-subheader mdc-list-group__subheader' }
+                },] }
+    ];
+
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
     function toggleClass(el, className, on) {
         if (on) {
             el.classList.add(className);
@@ -385,6 +440,10 @@
         MatListItemBase.prototype._getItemLabel = function () {
             return this._itemText ? (this._itemText.nativeElement.textContent || '') : '';
         };
+        /** Whether the list item has icons or avatars. */
+        MatListItemBase.prototype._hasIconOrAvatar = function () {
+            return this._avatars.length || this._icons.length;
+        };
         MatListItemBase.prototype._initInteractiveListItem = function () {
             this._hostElement.classList.add('mat-mdc-list-item-interactive');
             this._rippleRenderer =
@@ -421,6 +480,8 @@
         { type: platform.Platform }
     ]; };
     MatListItemBase.propDecorators = {
+        _avatars: [{ type: core.ContentChildren, args: [MatListAvatarCssMatStyler, { descendants: false },] }],
+        _icons: [{ type: core.ContentChildren, args: [MatListIconCssMatStyler, { descendants: false },] }],
         disableRipple: [{ type: core.Input }],
         disabled: [{ type: core.HostBinding, args: ['class.mdc-list-item--disabled',] }, { type: core.HostBinding, args: ['attr.aria-disabled',] }, { type: core.Input }]
     };
@@ -456,53 +517,6 @@
         disabled: [{ type: core.HostBinding, args: ['attr.aria-disabled',] }, { type: core.Input }]
     };
 
-    /**
-     * Directive whose purpose is to add the mat- CSS styling to this selector.
-     * @docs-private
-     */
-    var MatListAvatarCssMatStyler = /** @class */ (function () {
-        function MatListAvatarCssMatStyler() {
-        }
-        return MatListAvatarCssMatStyler;
-    }());
-    MatListAvatarCssMatStyler.decorators = [
-        { type: core.Directive, args: [{
-                    selector: '[mat-list-avatar], [matListAvatar]',
-                    host: { 'class': 'mat-mdc-list-avatar mdc-list-item__graphic' }
-                },] }
-    ];
-    /**
-     * Directive whose purpose is to add the mat- CSS styling to this selector.
-     * @docs-private
-     */
-    var MatListIconCssMatStyler = /** @class */ (function () {
-        function MatListIconCssMatStyler() {
-        }
-        return MatListIconCssMatStyler;
-    }());
-    MatListIconCssMatStyler.decorators = [
-        { type: core.Directive, args: [{
-                    selector: '[mat-list-icon], [matListIcon]',
-                    host: { 'class': 'mat-mdc-list-icon mdc-list-item__graphic' }
-                },] }
-    ];
-    /**
-     * Directive whose purpose is to add the mat- CSS styling to this selector.
-     * @docs-private
-     */
-    var MatListSubheaderCssMatStyler = /** @class */ (function () {
-        function MatListSubheaderCssMatStyler() {
-        }
-        return MatListSubheaderCssMatStyler;
-    }());
-    MatListSubheaderCssMatStyler.decorators = [
-        { type: core.Directive, args: [{
-                    selector: '[mat-subheader], [matSubheader]',
-                    // TODO(mmalerba): MDC's subheader font looks identical to the list item font, figure out why and
-                    //  make a change in one of the repos to visually distinguish.
-                    host: { 'class': 'mat-mdc-subheader mdc-list-group__subheader' }
-                },] }
-    ];
     var MatList = /** @class */ (function (_super) {
         __extends(MatList, _super);
         function MatList() {
@@ -539,6 +553,7 @@
                     exportAs: 'matListItem',
                     host: {
                         'class': 'mat-mdc-list-item mdc-list-item',
+                        '[class.mat-mdc-list-item-with-avatar]': '_hasIconOrAvatar()',
                     },
                     template: "<ng-content select=\"[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]\"></ng-content>\n\n<!-- If lines were explicitly given, use those as the text. -->\n<ng-container *ngIf=\"lines.length\">\n  <span class=\"mdc-list-item__text\"><ng-content select=\"[mat-line],[matLine]\"></ng-content></span>\n</ng-container>\n\n<!--\n  If lines were not explicitly given, assume the remaining content is the text, otherwise assume it\n  is an action that belongs in the \"meta\" section.\n-->\n<span [class.mdc-list-item__text]=\"!lines.length\"\n      [class.mdc-list-item__meta]=\"lines.length\" #text>\n  <ng-content></ng-content>\n</span>\n\n<ng-content select=\"mat-divider\"></ng-content>\n\n<!--\n  Strong focus indicator element. MDC uses the `::before` pseudo element for the default\n  focus/hover/selected state, so we need a separate element.\n-->\n<div class=\"mat-mdc-focus-indicator\"></div>\n",
                     encapsulation: core.ViewEncapsulation.None,
@@ -922,10 +937,6 @@
         MatListOption.prototype._hasCheckbox = function () {
             return this._selectionList.multiple;
         };
-        /** Whether the list-option has icons or avatars. */
-        MatListOption.prototype._hasIconOrAvatar = function () {
-            return this._avatars.length || this._icons.length;
-        };
         MatListOption.prototype._handleBlur = function () {
             this._selectionList._onTouched();
         };
@@ -991,8 +1002,6 @@
     MatListOption.propDecorators = {
         _itemText: [{ type: core.ViewChild, args: ['text',] }],
         lines: [{ type: core.ContentChildren, args: [mdcCore.MatLine, { read: core.ElementRef, descendants: true },] }],
-        _avatars: [{ type: core.ContentChildren, args: [MatListAvatarCssMatStyler, { descendants: false },] }],
-        _icons: [{ type: core.ContentChildren, args: [MatListIconCssMatStyler, { descendants: false },] }],
         checkboxPosition: [{ type: core.Input }],
         color: [{ type: core.Input }],
         value: [{ type: core.Input }],

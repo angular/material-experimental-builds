@@ -41,8 +41,6 @@ export declare class MatListOption extends MatListItemBase implements OnInit, On
     private _inputsInitialized;
     _itemText: ElementRef<HTMLElement>;
     lines: QueryList<ElementRef<Element>>;
-    _avatars: QueryList<never>;
-    _icons: QueryList<never>;
     /** Unique id for the text. Used for describing the underlying checkbox input. */
     _optionTextId: string;
     /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
@@ -69,8 +67,6 @@ export declare class MatListOption extends MatListItemBase implements OnInit, On
     _isReversed(): boolean;
     /** Whether the list-option has a checkbox. */
     _hasCheckbox(): boolean;
-    /** Whether the list-option has icons or avatars. */
-    _hasIconOrAvatar(): number;
     _handleBlur(): void;
     /**
      * Sets the selected state of the option.

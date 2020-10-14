@@ -635,7 +635,8 @@
         indeterminateChange: [{ type: core.Output }],
         _checkbox: [{ type: core.ViewChild, args: ['checkbox',] }],
         _nativeCheckbox: [{ type: core.ViewChild, args: ['nativeCheckbox',] }],
-        _label: [{ type: core.ViewChild, args: ['label',] }]
+        _label: [{ type: core.ViewChild, args: ['label',] }],
+        ripple: [{ type: core.ViewChild, args: [mdcCore.MatRipple,] }]
     };
 
     /**
