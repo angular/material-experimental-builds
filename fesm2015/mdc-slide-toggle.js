@@ -1,9 +1,10 @@
-import { InjectionToken, forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, Attribute, Inject, Optional, Input, Output, ViewChild, NgModule } from '@angular/core';
+import { InjectionToken, forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Attribute, Inject, Optional, Input, Output, ViewChild, NgModule } from '@angular/core';
 import { MDCSwitchFoundation } from '@material/switch';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { numbers } from '@material/ripple';
+import { FocusMonitor } from '@angular/cdk/a11y';
 import { CommonModule } from '@angular/common';
 import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { _MatSlideToggleRequiredValidatorModule } from '@angular/material/slide-toggle';
@@ -53,7 +54,9 @@ class MatSlideToggleChange {
     }
 }
 class MatSlideToggle {
-    constructor(_changeDetectorRef, tabIndex, defaults, _animationMode) {
+    constructor(_elementRef, _focusMonitor, _changeDetectorRef, tabIndex, defaults, _animationMode) {
+        this._elementRef = _elementRef;
+        this._focusMonitor = _focusMonitor;
         this._changeDetectorRef = _changeDetectorRef;
         this.defaults = defaults;
         this._animationMode = _animationMode;
@@ -132,8 +135,33 @@ class MatSlideToggle {
         const foundation = this._foundation = new MDCSwitchFoundation(this._adapter);
         foundation.setDisabled(this.disabled);
         foundation.setChecked(this.checked);
+        this._focusMonitor
+            .monitor(this._elementRef, true)
+            .subscribe(focusOrigin => {
+            // Only forward focus manually when it was received programmatically or through the
+            // keyboard. We should not do this for mouse/touch focus for two reasons:
+            // 1. It can prevent clicks from landing in Chrome (see #18269).
+            // 2. They're already handled by the wrapping `label` element.
+            if (focusOrigin === 'keyboard' || focusOrigin === 'program') {
+                this._inputElement.nativeElement.focus();
+                this._focused = true;
+            }
+            else if (!focusOrigin) {
+                // When a focused element becomes disabled, the browser *immediately* fires a blur event.
+                // Angular does not expect events to be raised during change detection, so any state
+                // change (such as a form control's ng-touched) will cause a changed-after-checked error.
+                // See https://github.com/angular/angular/issues/17793. To work around this, we defer
+                // telling the form control it has been touched until the next tick.
+                Promise.resolve().then(() => {
+                    this._focused = false;
+                    this._onTouched();
+                    this._changeDetectorRef.markForCheck();
+                });
+            }
+        });
     }
     ngOnDestroy() {
+        this._focusMonitor.stopMonitoring(this._elementRef);
         if (this._foundation) {
             this._foundation.destroy();
         }
@@ -198,28 +226,16 @@ class MatSlideToggle {
         this.checked = !this.checked;
         this._onChange(this.checked);
     }
-    /** Handles blur events on the native input. */
-    _onBlur() {
-        // When a focused element becomes disabled, the browser *immediately* fires a blur event.
-        // Angular does not expect events to be raised during change detection, so any state change
-        // (such as a form control's 'ng-touched') will cause a changed-after-checked error.
-        // See https://github.com/angular/angular/issues/17793. To work around this, we defer
-        // telling the form control it has been touched until the next tick.
-        Promise.resolve().then(() => {
-            this._focused = false;
-            this._onTouched();
-            this._changeDetectorRef.markForCheck();
-        });
-    }
 }
 MatSlideToggle.decorators = [
     { type: Component, args: [{
                 selector: 'mat-slide-toggle',
-                template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div class=\"mdc-switch\" #switch>\n    <div class=\"mdc-switch__track\"></div>\n    <div class=\"mdc-switch__thumb-underlay mat-mdc-focus-indicator\">\n      <div class=\"mat-mdc-slide-toggle-ripple\" mat-ripple\n        [matRippleTrigger]=\"switch\"\n        [matRippleDisabled]=\"disableRipple || disabled\"\n        [matRippleCentered]=\"true\"\n        [matRippleAnimation]=\"_rippleAnimation\"></div>\n      <div class=\"mdc-switch__thumb\">\n          <input #input class=\"mdc-switch__native-control\" type=\"checkbox\"\n            role=\"switch\"\n            [id]=\"inputId\"\n            [required]=\"required\"\n            [tabIndex]=\"tabIndex\"\n            [checked]=\"checked\"\n            [disabled]=\"disabled\"\n            [attr.name]=\"name\"\n            [attr.aria-checked]=\"checked.toString()\"\n            [attr.aria-label]=\"ariaLabel\"\n            [attr.aria-labelledby]=\"ariaLabelledby\"\n            (change)=\"_onChangeEvent($event)\"\n            (click)=\"_onInputClick($event)\"\n            (blur)=\"_onBlur()\"\n            (focus)=\"_focused = true\">\n      </div>\n    </div>\n  </div>\n\n  <label [for]=\"inputId\" (click)=\"$event.stopPropagation()\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
+                template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div class=\"mdc-switch\" #switch>\n    <div class=\"mdc-switch__track\"></div>\n    <div class=\"mdc-switch__thumb-underlay mat-mdc-focus-indicator\">\n      <div class=\"mat-mdc-slide-toggle-ripple\" mat-ripple\n        [matRippleTrigger]=\"switch\"\n        [matRippleDisabled]=\"disableRipple || disabled\"\n        [matRippleCentered]=\"true\"\n        [matRippleAnimation]=\"_rippleAnimation\"></div>\n      <div class=\"mdc-switch__thumb\">\n          <input #input class=\"mdc-switch__native-control\" type=\"checkbox\"\n            role=\"switch\"\n            [id]=\"inputId\"\n            [required]=\"required\"\n            [tabIndex]=\"tabIndex\"\n            [checked]=\"checked\"\n            [disabled]=\"disabled\"\n            [attr.name]=\"name\"\n            [attr.aria-checked]=\"checked.toString()\"\n            [attr.aria-label]=\"ariaLabel\"\n            [attr.aria-labelledby]=\"ariaLabelledby\"\n            (change)=\"_onChangeEvent($event)\"\n            (click)=\"_onInputClick($event)\">\n      </div>\n    </div>\n  </div>\n\n  <label [for]=\"inputId\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
                 host: {
                     'class': 'mat-mdc-slide-toggle',
                     '[id]': 'id',
-                    '[attr.tabindex]': 'null',
+                    // Needs to be `-1` so it can still receive programmatic focus.
+                    '[attr.tabindex]': 'disabled ? null : -1',
                     '[attr.aria-label]': 'null',
                     '[attr.aria-labelledby]': 'null',
                     '[class.mat-primary]': 'color === "primary"',
@@ -228,7 +244,6 @@ MatSlideToggle.decorators = [
                     '[class.mat-mdc-slide-toggle-focused]': '_focused',
                     '[class.mat-mdc-slide-toggle-checked]': 'checked',
                     '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
-                    '(focus)': '_inputElement.nativeElement.focus()',
                 },
                 exportAs: 'matSlideToggle',
                 encapsulation: ViewEncapsulation.None,
@@ -238,6 +253,8 @@ MatSlideToggle.decorators = [
             },] }
 ];
 MatSlideToggle.ctorParameters = () => [
+    { type: ElementRef },
+    { type: FocusMonitor },
     { type: ChangeDetectorRef },
     { type: String, decorators: [{ type: Attribute, args: ['tabindex',] }] },
     { type: undefined, decorators: [{ type: Inject, args: [MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS,] }] },

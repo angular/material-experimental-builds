@@ -9,6 +9,7 @@ import { AfterViewInit, OnDestroy, ElementRef, EventEmitter, ChangeDetectorRef }
 import { ControlValueAccessor } from '@angular/forms';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ThemePalette, RippleAnimationConfig } from '@angular/material/core';
+import { FocusMonitor } from '@angular/cdk/a11y';
 import { MatSlideToggleDefaultOptions } from './slide-toggle-config';
 /** @docs-private */
 export declare const MAT_SLIDE_TOGGLE_VALUE_ACCESSOR: any;
@@ -25,6 +26,8 @@ export declare class MatSlideToggleChange {
     checked: boolean);
 }
 export declare class MatSlideToggle implements ControlValueAccessor, AfterViewInit, OnDestroy {
+    private _elementRef;
+    private _focusMonitor;
     private _changeDetectorRef;
     defaults: MatSlideToggleDefaultOptions;
     _animationMode?: string | undefined;
@@ -79,7 +82,7 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     _inputElement: ElementRef<HTMLInputElement>;
     /** Reference to the MDC switch element. */
     _switchElement: ElementRef<HTMLElement>;
-    constructor(_changeDetectorRef: ChangeDetectorRef, tabIndex: string, defaults: MatSlideToggleDefaultOptions, _animationMode?: string | undefined);
+    constructor(_elementRef: ElementRef, _focusMonitor: FocusMonitor, _changeDetectorRef: ChangeDetectorRef, tabIndex: string, defaults: MatSlideToggleDefaultOptions, _animationMode?: string | undefined);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /** Method being called whenever the underlying input emits a change event. */
@@ -98,8 +101,6 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     focus(): void;
     /** Toggles the checked state of the slide-toggle. */
     toggle(): void;
-    /** Handles blur events on the native input. */
-    _onBlur(): void;
     static ngAcceptInputType_tabIndex: NumberInput;
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_checked: BooleanInput;
