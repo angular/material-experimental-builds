@@ -513,12 +513,13 @@
      */
     var MatChip = /** @class */ (function (_super) {
         __extends(MatChip, _super);
-        function MatChip(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode) {
+        function MatChip(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode, _globalRippleOptions) {
             var _this = _super.call(this, _elementRef) || this;
             _this._changeDetectorRef = _changeDetectorRef;
             _this._elementRef = _elementRef;
             _this._ngZone = _ngZone;
             _this._dir = _dir;
+            _this._globalRippleOptions = _globalRippleOptions;
             /** The ripple animation configuration to use for the chip. */
             _this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
             /** Whether the ripple is centered on the chip. */
@@ -783,7 +784,9 @@
         };
         /** Whether or not the ripple should be disabled. */
         MatChip.prototype._isRippleDisabled = function () {
-            return this.disabled || this.disableRipple || this._animationsDisabled || this._isBasicChip;
+            var _a;
+            return this.disabled || this.disableRipple || this._animationsDisabled ||
+                this._isBasicChip || !!((_a = this._globalRippleOptions) === null || _a === void 0 ? void 0 : _a.disabled);
         };
         MatChip.prototype._notifyInteraction = function () {
             this.interaction.emit(this.id);
@@ -826,7 +829,8 @@
         { type: core.ElementRef },
         { type: core.NgZone },
         { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
+        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
     ]; };
     MatChip.propDecorators = {
         _handleTransitionEnd: [{ type: core.HostListener, args: ['transitionend', ['$event'],] }],
@@ -1132,8 +1136,8 @@
      */
     var MatChipRow = /** @class */ (function (_super) {
         __extends(MatChipRow, _super);
-        function MatChipRow(_document, changeDetectorRef, elementRef, ngZone, dir, animationMode) {
-            var _this = _super.call(this, changeDetectorRef, elementRef, ngZone, dir, animationMode) || this;
+        function MatChipRow(_document, changeDetectorRef, elementRef, ngZone, dir, animationMode, globalRippleOptions) {
+            var _this = _super.call(this, changeDetectorRef, elementRef, ngZone, dir, animationMode, globalRippleOptions) || this;
             _this._document = _document;
             _this.basicChipAttrName = 'mat-basic-chip-row';
             _this.editable = false;
@@ -1292,7 +1296,8 @@
         { type: core.ElementRef },
         { type: core.NgZone },
         { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
+        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
     ]; };
     MatChipRow.propDecorators = {
         editable: [{ type: core.Input }],
