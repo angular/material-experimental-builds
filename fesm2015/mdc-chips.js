@@ -2,7 +2,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { InjectionToken, Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, NgZone, Optional, Inject, HostListener, Input, Output, ContentChild, ViewChild, ContentChildren, forwardRef, QueryList, Self, NgModule } from '@angular/core';
-import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
+import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MAT_RIPPLE_GLOBAL_OPTIONS, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
 import { numbers } from '@material/ripple';
 import { SPACE, ENTER, hasModifierKey, BACKSPACE, DELETE, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, END, HOME, TAB } from '@angular/cdk/keycodes';
@@ -224,12 +224,13 @@ const _MatChipMixinBase = mixinTabIndex(mixinColor(mixinDisableRipple(MatChipBas
  * Extended by MatChipOption and MatChipRow for different interaction patterns.
  */
 class MatChip extends _MatChipMixinBase {
-    constructor(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode) {
+    constructor(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode, _globalRippleOptions) {
         super(_elementRef);
         this._changeDetectorRef = _changeDetectorRef;
         this._elementRef = _elementRef;
         this._ngZone = _ngZone;
         this._dir = _dir;
+        this._globalRippleOptions = _globalRippleOptions;
         /** The ripple animation configuration to use for the chip. */
         this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
         /** Whether the ripple is centered on the chip. */
@@ -476,7 +477,9 @@ class MatChip extends _MatChipMixinBase {
     }
     /** Whether or not the ripple should be disabled. */
     _isRippleDisabled() {
-        return this.disabled || this.disableRipple || this._animationsDisabled || this._isBasicChip;
+        var _a;
+        return this.disabled || this.disableRipple || this._animationsDisabled ||
+            this._isBasicChip || !!((_a = this._globalRippleOptions) === null || _a === void 0 ? void 0 : _a.disabled);
     }
     _notifyInteraction() {
         this.interaction.emit(this.id);
@@ -518,7 +521,8 @@ MatChip.ctorParameters = () => [
     { type: ElementRef },
     { type: NgZone },
     { type: Directionality, decorators: [{ type: Optional }] },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
 ];
 MatChip.propDecorators = {
     _handleTransitionEnd: [{ type: HostListener, args: ['transitionend', ['$event'],] }],
@@ -816,8 +820,8 @@ MatChipEditInput.ctorParameters = () => [
  * the matChipInputFor directive.
  */
 class MatChipRow extends MatChip {
-    constructor(_document, changeDetectorRef, elementRef, ngZone, dir, animationMode) {
-        super(changeDetectorRef, elementRef, ngZone, dir, animationMode);
+    constructor(_document, changeDetectorRef, elementRef, ngZone, dir, animationMode, globalRippleOptions) {
+        super(changeDetectorRef, elementRef, ngZone, dir, animationMode, globalRippleOptions);
         this._document = _document;
         this.basicChipAttrName = 'mat-basic-chip-row';
         this.editable = false;
@@ -971,7 +975,8 @@ MatChipRow.ctorParameters = () => [
     { type: ElementRef },
     { type: NgZone },
     { type: Directionality, decorators: [{ type: Optional }] },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
 ];
 MatChipRow.propDecorators = {
     editable: [{ type: Input }],

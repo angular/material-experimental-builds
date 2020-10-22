@@ -8,6 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone } from '@angular/core';
+import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { MatChip, MatChipEvent } from './chip';
 import { MatChipEditInput } from './chip-edit-input';
 import { GridKeyManagerRow } from './grid-key-manager';
@@ -37,7 +38,7 @@ export declare class MatChipRow extends MatChip implements AfterContentInit, Aft
     contentEditInput?: MatChipEditInput;
     /** The focusable grid cells for this row. Implemented as part of GridKeyManagerRow. */
     cells: HTMLElement[];
-    constructor(_document: any, changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef, ngZone: NgZone, dir: Directionality, animationMode?: string);
+    constructor(_document: any, changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef, ngZone: NgZone, dir: Directionality, animationMode?: string, globalRippleOptions?: RippleGlobalOptions);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
     /**
