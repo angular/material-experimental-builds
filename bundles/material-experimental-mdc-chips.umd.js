@@ -1366,6 +1366,7 @@
              */
             _this._mdcClasses = {};
             _this._disabled = false;
+            _this._role = null;
             _this._chipSetFoundation = new chips.MDCChipSetFoundation(_this._chipSetAdapter);
             return _this;
         }
@@ -1387,7 +1388,17 @@
         });
         Object.defineProperty(MatChipSet.prototype, "role", {
             /** The ARIA role applied to the chip set. */
-            get: function () { return this.empty ? null : 'presentation'; },
+            get: function () {
+                if (this._role) {
+                    return this._role;
+                }
+                else {
+                    return this.empty ? null : 'presentation';
+                }
+            },
+            set: function (value) {
+                this._role = value;
+            },
             enumerable: false,
             configurable: true
         });
@@ -1583,6 +1594,7 @@
     ]; };
     MatChipSet.propDecorators = {
         disabled: [{ type: core.Input }],
+        role: [{ type: core.Input }],
         _chips: [{ type: core.ContentChildren, args: [MatChip, {
                         // We need to use `descendants: true`, because Ivy will no longer match
                         // indirect descendants if it's left as false.

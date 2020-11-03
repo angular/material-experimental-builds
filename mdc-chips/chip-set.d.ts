@@ -70,6 +70,8 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     get empty(): boolean;
     /** The ARIA role applied to the chip set. */
     get role(): string | null;
+    set role(value: string | null);
+    private _role;
     /** Whether any of the chips inside of this chip-set has focus. */
     get focused(): boolean;
     /** Combined stream of all of the child chips' remove events. */

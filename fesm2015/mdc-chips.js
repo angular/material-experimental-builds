@@ -1049,6 +1049,7 @@ class MatChipSet extends _MatChipSetMixinBase {
          */
         this._mdcClasses = {};
         this._disabled = false;
+        this._role = null;
         this._chipSetFoundation = new MDCChipSetFoundation(this._chipSetAdapter);
     }
     /** Whether the chip set is disabled. */
@@ -1060,7 +1061,17 @@ class MatChipSet extends _MatChipSetMixinBase {
     /** Whether the chip list contains chips or not. */
     get empty() { return this._chips.length === 0; }
     /** The ARIA role applied to the chip set. */
-    get role() { return this.empty ? null : 'presentation'; }
+    get role() {
+        if (this._role) {
+            return this._role;
+        }
+        else {
+            return this.empty ? null : 'presentation';
+        }
+    }
+    set role(value) {
+        this._role = value;
+    }
     /** Whether any of the chips inside of this chip-set has focus. */
     get focused() { return this._hasFocusedChip(); }
     /** Combined stream of all of the child chips' remove events. */
@@ -1231,6 +1242,7 @@ MatChipSet.ctorParameters = () => [
 ];
 MatChipSet.propDecorators = {
     disabled: [{ type: Input }],
+    role: [{ type: Input }],
     _chips: [{ type: ContentChildren, args: [MatChip, {
                     // We need to use `descendants: true`, because Ivy will no longer match
                     // indirect descendants if it's left as false.
