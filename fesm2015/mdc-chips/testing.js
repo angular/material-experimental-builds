@@ -1,5 +1,5 @@
 import { __awaiter } from 'tslib';
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
+import { ComponentHarness, HarnessPredicate, TestKey } from '@angular/cdk/testing';
 
 /**
  * @license
@@ -54,6 +54,14 @@ class MatChipHarness extends ComponentHarness {
             return (yield this.host()).text({
                 exclude: '.mat-mdc-chip-avatar, .mat-mdc-chip-trailing-icon, .mat-icon'
             });
+        });
+    }
+    /** Delete a chip from the set. */
+    remove() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const hostEl = yield this.host();
+            yield hostEl.sendKeys(TestKey.DELETE);
+            yield hostEl.dispatchEvent('transitionend', { propertyName: 'width' });
         });
     }
 }

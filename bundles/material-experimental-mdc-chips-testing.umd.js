@@ -373,6 +373,26 @@
                 });
             });
         };
+        /** Delete a chip from the set. */
+        MatChipHarness.prototype.remove = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var hostEl;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1:
+                            hostEl = _a.sent();
+                            return [4 /*yield*/, hostEl.sendKeys(testing.TestKey.DELETE)];
+                        case 2:
+                            _a.sent();
+                            return [4 /*yield*/, hostEl.dispatchEvent('transitionend', { propertyName: 'width' })];
+                        case 3:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
         return MatChipHarness;
     }(testing.ComponentHarness));
     MatChipHarness.hostSelector = '.mat-mdc-basic-chip, .mat-mdc-chip';

@@ -16,4 +16,6 @@ export declare class MatChipHarness extends ComponentHarness {
     static with<T extends typeof MatChipHarness>(this: T, options?: ChipHarnessFilters): HarnessPredicate<InstanceType<T>>;
     /** Gets a promise for the text content the option. */
     getText(): Promise<string>;
+    /** Delete a chip from the set. */
+    remove(): Promise<void>;
 }

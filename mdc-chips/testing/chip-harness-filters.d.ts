@@ -20,3 +20,5 @@ export interface ChipRowHarnessFilters extends ChipHarnessFilters {
 }
 export interface ChipSetHarnessFilters extends BaseHarnessFilters {
 }
+export interface ChipRemoveHarnessFilters extends BaseHarnessFilters {
+}
