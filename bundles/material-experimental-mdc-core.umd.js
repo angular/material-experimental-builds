@@ -305,6 +305,25 @@
         return value;
     }
 
+    // Notes on the accessibility pattern used for `mat-optgroup`.
+    // The option group has two different "modes": regular and inert. The regular mode uses the
+    // recommended a11y pattern which has `role="group"` on the group element with `aria-labelledby`
+    // pointing to the label. This works for `mat-select`, but it seems to hit a bug for autocomplete
+    // under VoiceOver where the group doesn't get read out at all. The bug appears to be that if
+    // there's __any__ a11y-related attribute on the group (e.g. `role` or `aria-labelledby`),
+    // VoiceOver on Safari won't read it out.
+    // We've introduced the `inert` mode as a workaround. Under this mode, all a11y attributes are
+    // removed from the group, and we get the screen reader to read out the group label by mirroring it
+    // inside an invisible element in the option. This is sub-optimal, because the screen reader will
+    // repeat the group label on each navigation, whereas the default pattern only reads the group when
+    // the user enters a new group. The following alternate approaches were considered:
+    // 1. Reading out the group label using the `LiveAnnouncer` solves the problem, but we can't control
+    //    when the text will be read out so sometimes it comes in too late or never if the user
+    //    navigates quickly.
+    // 2. `<mat-option aria-describedby="groupLabel"` - This works on Safari, but VoiceOver in Chrome
+    //    won't read out the description at all.
+    // 3. `<mat-option aria-labelledby="optionLabel groupLabel"` - This works on Chrome, but Safari
+    //     doesn't read out the text at all. Furthermore, on
     /**
      * Component that is used to group instances of `mat-option`.
      */
@@ -325,9 +344,9 @@
                     inputs: ['disabled'],
                     host: {
                         'class': 'mat-mdc-optgroup',
-                        'role': 'group',
-                        '[attr.aria-disabled]': 'disabled.toString()',
-                        '[attr.aria-labelledby]': '_labelId',
+                        '[attr.role]': '_inert ? null : "group"',
+                        '[attr.aria-disabled]': '_inert ? null : disabled.toString()',
+                        '[attr.aria-labelledby]': '_inert ? null : _labelId',
                     },
                     providers: [
                         { provide: core$1.MAT_OPTGROUP, useExisting: MatOptgroup }
@@ -364,7 +383,7 @@
                         '(keydown)': '_handleKeydown($event)',
                         'class': 'mat-mdc-option mat-mdc-focus-indicator',
                     },
-                    template: "<mat-pseudo-checkbox *ngIf=\"multiple\" class=\"mat-mdc-option-pseudo-checkbox\"\n    [state]=\"selected ? 'checked' : 'unchecked'\" [disabled]=\"disabled\"></mat-pseudo-checkbox>\n\n<span class=\"mdc-list-item__text\"><ng-content></ng-content></span>\n\n<div class=\"mat-mdc-option-ripple\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\"\n     [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n",
+                    template: "<mat-pseudo-checkbox *ngIf=\"multiple\" class=\"mat-mdc-option-pseudo-checkbox\"\n    [state]=\"selected ? 'checked' : 'unchecked'\" [disabled]=\"disabled\"></mat-pseudo-checkbox>\n\n<span class=\"mdc-list-item__text\"><ng-content></ng-content></span>\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n<span class=\"cdk-visually-hidden\" *ngIf=\"group && group._inert\">({{ group.label }})</span>\n\n<div class=\"mat-mdc-option-ripple\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\"\n     [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n",
                     encapsulation: core.ViewEncapsulation.None,
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     styles: [".mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option::after{display:inline-block;min-height:inherit;content:\"\"}.mat-mdc-option:not(.mdc-list-item--disabled){cursor:pointer}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-pseudo-checkbox{margin-right:16px}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox{margin-right:0;margin-left:16px}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.cdk-high-contrast-active .mat-mdc-option .mat-mdc-option-ripple{opacity:.5}.cdk-high-contrast-active .mat-mdc-option-active::before{content:\"\";position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;border:solid 1px currentColor}\n"]
