@@ -10,7 +10,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, DoCheck, ElementRef, EventEmitter, OnDestroy, QueryList } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { CanUpdateErrorState, CanUpdateErrorStateCtor, ErrorStateMatcher } from '@angular/material-experimental/mdc-core';
-import { MatFormFieldControl } from '@angular/material/form-field';
+import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
 import { MatChipTextControl } from './chip-text-control';
 import { Observable } from 'rxjs';
 import { MatChipEvent } from './chip';
