@@ -47,7 +47,7 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
     /** Gets the label for the list item. This is used for the typeahead. */
     _getItemLabel(): string;
     /** Whether the list item has icons or avatars. */
-    _hasIconOrAvatar(): number;
+    _hasIconOrAvatar(): boolean;
     private _initInteractiveListItem;
     /**
      * Subscribes to changes in `MatLine` content children and annotates them

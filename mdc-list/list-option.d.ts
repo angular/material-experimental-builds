@@ -11,6 +11,7 @@ import { Platform } from '@angular/cdk/platform';
 import { ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, OnInit, QueryList } from '@angular/core';
 import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
+import { ListOption, MatListOptionCheckboxPosition } from './list-option-types';
 /**
  * Injection token that can be used to reference instances of an `SelectionList`. It serves
  * as alternative token to an actual implementation which would result in circular references.
@@ -31,7 +32,7 @@ export interface SelectionList extends MatListBase {
     _reportValueChange: () => void;
     _onTouched: () => void;
 }
-export declare class MatListOption extends MatListItemBase implements OnInit, OnDestroy {
+export declare class MatListOption extends MatListItemBase implements ListOption, OnInit, OnDestroy {
     _selectionList: SelectionList;
     private _changeDetectorRef;
     /**
@@ -44,7 +45,7 @@ export declare class MatListOption extends MatListItemBase implements OnInit, On
     /** Unique id for the text. Used for describing the underlying checkbox input. */
     _optionTextId: string;
     /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
-    checkboxPosition: 'before' | 'after';
+    checkboxPosition: MatListOptionCheckboxPosition;
     /** Theme color of the list option. This sets the color of the checkbox. */
     get color(): ThemePalette;
     set color(newValue: ThemePalette);
@@ -64,10 +65,13 @@ export declare class MatListOption extends MatListItemBase implements OnInit, On
     toggle(): void;
     /** Allows for programmatic focusing of the option. */
     focus(): void;
-    _isReversed(): boolean;
-    /** Whether the list-option has a checkbox. */
-    _hasCheckbox(): boolean;
+    /** Whether the checkbox should be shown at the given position. */
+    _shouldShowCheckboxAt(position: MatListOptionCheckboxPosition): boolean;
+    /** Whether icons and avatars should be shown at the given position. */
+    _shouldShowIconsAndAvatarsAt(position: 'before' | 'after'): boolean;
     _handleBlur(): void;
+    /** Gets the current position of the checkbox. */
+    _getCheckboxPosition(): MatListOptionCheckboxPosition;
     /**
      * Sets the selected state of the option.
      * @returns Whether the value has changed.
