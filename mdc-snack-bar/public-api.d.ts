@@ -10,4 +10,4 @@ export * from './snack-bar-container';
 export * from './snack-bar-content';
 export * from './snack-bar';
 export * from './module';
-export { MatSnackBarConfig, MatSnackBarDismiss, MatSnackBarRef, SimpleSnackBar, MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, } from '@angular/material/snack-bar';
+export { MatSnackBarConfig, MatSnackBarDismiss, MatSnackBarRef, SimpleSnackBar, MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, TextOnlySnackBar, matSnackBarAnimations, } from '@angular/material/snack-bar';

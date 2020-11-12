@@ -7,3 +7,4 @@
  */
 export * from './progress-spinner';
 export * from './module';
+export { MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS, MatProgressSpinnerDefaultOptions, MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS_FACTORY, } from '@angular/material/progress-spinner';

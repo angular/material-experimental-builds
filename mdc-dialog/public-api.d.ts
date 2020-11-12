@@ -10,4 +10,4 @@ export * from './dialog-ref';
 export * from './dialog-content-directives';
 export * from './dialog-container';
 export * from './module';
-export { MatDialogState, MatDialogConfig, matDialogAnimations, throwMatDialogContentAlreadyAttachedError, DialogRole, DialogPosition, } from '@angular/material/dialog';
+export { MatDialogState, MatDialogConfig, matDialogAnimations, throwMatDialogContentAlreadyAttachedError, DialogRole, DialogPosition, MAT_DIALOG_SCROLL_STRATEGY_FACTORY } from '@angular/material/dialog';

@@ -613,5 +613,5 @@ MatTabsModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MatInkBar, MatTab, MatTabBodyPortal, MatTabContent, MatTabGroup, MatTabHeader, MatTabLabel, MatTabLabelWrapper, MatTabLink, MatTabNav, MatTabsModule, MatTabBody as ɵangular_material_src_material_experimental_mdc_tabs_mdc_tabs_a };
+export { MatInkBar, MatTab, MatTabBody, MatTabBodyPortal, MatTabContent, MatTabGroup, MatTabHeader, MatTabLabel, MatTabLabelWrapper, MatTabLink, MatTabNav, MatTabsModule };
 //# sourceMappingURL=mdc-tabs.js.map

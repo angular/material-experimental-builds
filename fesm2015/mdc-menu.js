@@ -1,7 +1,7 @@
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, NgModule } from '@angular/core';
 import { MAT_MENU_SCROLL_STRATEGY, _MatMenuBase, matMenuAnimations, MAT_MENU_PANEL, MAT_MENU_DEFAULT_OPTIONS, MatMenuItem as MatMenuItem$1, _MatMenuDirectivesModule } from '@angular/material/menu';
-export { MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
+export { MAT_MENU_CONTENT, MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
