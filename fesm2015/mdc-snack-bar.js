@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject, ElementRef, NgZone, ViewChild, Directive, NgModule, ɵɵdefineInjectable, ɵɵinject, INJECTOR, Injectable } from '@angular/core';
 import { MatSnackBarRef, MAT_SNACK_BAR_DATA, MatSnackBarConfig, MatSnackBar as MatSnackBar$1, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, MatSnackBarConfig, MatSnackBarRef, SimpleSnackBar, matSnackBarAnimations } from '@angular/material/snack-bar';
+export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { BasePortalOutlet, CdkPortalOutlet, PortalModule } from '@angular/cdk/portal';
 import { MDCSnackbarFoundation } from '@material/snackbar';
 import { Platform } from '@angular/cdk/platform';

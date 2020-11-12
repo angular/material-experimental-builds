@@ -9,7 +9,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MDCListFoundation } from '@material/list';
-export { MAT_LIST, MAT_NAV_LIST, MAT_SELECTION_LIST_VALUE_ACCESSOR } from '@angular/material/list';
 
 /**
  * @license

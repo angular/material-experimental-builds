@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/cdk/observers'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/material/form-field', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/cdk/observers', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.formField, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.cdk.observers, global.ng.common, global.ng.materialExperimental.mdcCore));
-}(this, (function (exports, core, bidi, platform, formField, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, observers, common, mdcCore) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/form-field'), require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/cdk/observers'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/material/form-field', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/cdk/observers', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.material.formField, global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.cdk.observers, global.ng.common, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, formField, core, bidi, platform, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, observers, common, mdcCore) { 'use strict';
 
     /**
      * @license
@@ -1258,18 +1258,6 @@
             return formField.MatFormFieldControl;
         }
     });
-    Object.defineProperty(exports, 'MatPlaceholder', {
-        enumerable: true,
-        get: function () {
-            return formField.MatPlaceholder;
-        }
-    });
-    Object.defineProperty(exports, '_MAT_HINT', {
-        enumerable: true,
-        get: function () {
-            return formField._MAT_HINT;
-        }
-    });
     Object.defineProperty(exports, 'getMatFormFieldDuplicatedHintError', {
         enumerable: true,
         get: function () {
@@ -1280,18 +1268,6 @@
         enumerable: true,
         get: function () {
             return formField.getMatFormFieldMissingControlError;
-        }
-    });
-    Object.defineProperty(exports, 'getMatFormFieldPlaceholderConflictError', {
-        enumerable: true,
-        get: function () {
-            return formField.getMatFormFieldPlaceholderConflictError;
-        }
-    });
-    Object.defineProperty(exports, 'matFormFieldAnimations', {
-        enumerable: true,
-        get: function () {
-            return formField.matFormFieldAnimations;
         }
     });
     exports.MAT_ERROR = MAT_ERROR;

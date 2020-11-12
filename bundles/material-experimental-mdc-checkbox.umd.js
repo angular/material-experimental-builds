@@ -671,18 +671,6 @@
      * Generated bundle index. Do not edit.
      */
 
-    Object.defineProperty(exports, 'MAT_CHECKBOX_DEFAULT_OPTIONS', {
-        enumerable: true,
-        get: function () {
-            return checkbox.MAT_CHECKBOX_DEFAULT_OPTIONS;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return checkbox.MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY;
-        }
-    });
     Object.defineProperty(exports, 'MAT_CHECKBOX_REQUIRED_VALIDATOR', {
         enumerable: true,
         get: function () {

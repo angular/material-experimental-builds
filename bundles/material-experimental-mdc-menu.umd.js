@@ -430,12 +430,6 @@
      * Generated bundle index. Do not edit.
      */
 
-    Object.defineProperty(exports, 'MAT_MENU_CONTENT', {
-        enumerable: true,
-        get: function () {
-            return menu.MAT_MENU_CONTENT;
-        }
-    });
     Object.defineProperty(exports, 'MAT_MENU_DEFAULT_OPTIONS', {
         enumerable: true,
         get: function () {

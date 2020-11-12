@@ -934,7 +934,6 @@
     });
     exports.MatInkBar = MatInkBar;
     exports.MatTab = MatTab;
-    exports.MatTabBody = MatTabBody;
     exports.MatTabBodyPortal = MatTabBodyPortal;
     exports.MatTabContent = MatTabContent;
     exports.MatTabGroup = MatTabGroup;
@@ -944,6 +943,7 @@
     exports.MatTabLink = MatTabLink;
     exports.MatTabNav = MatTabNav;
     exports.MatTabsModule = MatTabsModule;
+    exports.ɵangular_material_src_material_experimental_mdc_tabs_mdc_tabs_a = MatTabBody;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

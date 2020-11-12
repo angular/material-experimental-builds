@@ -8,7 +8,6 @@ import { FocusMonitor } from '@angular/cdk/a11y';
 import { CommonModule } from '@angular/common';
 import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { _MatSlideToggleRequiredValidatorModule } from '@angular/material/slide-toggle';
-export { MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR, MatSlideToggleRequiredValidator } from '@angular/material/slide-toggle';
 
 /**
  * @license

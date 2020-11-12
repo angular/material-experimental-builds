@@ -471,12 +471,6 @@
             return radio$1.MAT_RADIO_DEFAULT_OPTIONS;
         }
     });
-    Object.defineProperty(exports, 'MAT_RADIO_DEFAULT_OPTIONS_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return radio$1.MAT_RADIO_DEFAULT_OPTIONS_FACTORY;
-        }
-    });
     Object.defineProperty(exports, 'MatRadioChange', {
         enumerable: true,
         get: function () {

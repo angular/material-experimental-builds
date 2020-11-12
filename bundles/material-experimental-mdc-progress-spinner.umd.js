@@ -526,18 +526,6 @@
      * Generated bundle index. Do not edit.
      */
 
-    Object.defineProperty(exports, 'MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS', {
-        enumerable: true,
-        get: function () {
-            return progressSpinner.MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS;
-        }
-    });
-    Object.defineProperty(exports, 'MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return progressSpinner.MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS_FACTORY;
-        }
-    });
     exports.MatProgressSpinner = MatProgressSpinner;
     exports.MatProgressSpinnerModule = MatProgressSpinnerModule;
     exports.MatSpinner = MatSpinner;

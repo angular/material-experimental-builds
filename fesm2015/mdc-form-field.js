@@ -1,8 +1,8 @@
+import { getMatFormFieldMissingControlError, getMatFormFieldDuplicatedHintError, matFormFieldAnimations, MAT_FORM_FIELD, MatFormFieldControl } from '@angular/material/form-field';
+export { MAT_FORM_FIELD, MatFormFieldControl, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError } from '@angular/material/form-field';
 import { Directive, InjectionToken, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
-import { getMatFormFieldMissingControlError, getMatFormFieldDuplicatedHintError, matFormFieldAnimations, MAT_FORM_FIELD, MatFormFieldControl } from '@angular/material/form-field';
-export { MAT_FORM_FIELD, MatFormFieldControl, MatPlaceholder, _MAT_HINT, getMatFormFieldDuplicatedHintError, getMatFormFieldMissingControlError, getMatFormFieldPlaceholderConflictError, matFormFieldAnimations } from '@angular/material/form-field';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCTextFieldFoundation, numbers } from '@material/textfield';
 import { Subject, merge } from 'rxjs';

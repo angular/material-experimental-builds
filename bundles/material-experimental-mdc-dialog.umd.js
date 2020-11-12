@@ -734,12 +734,6 @@
      * Generated bundle index. Do not edit.
      */
 
-    Object.defineProperty(exports, 'MAT_DIALOG_SCROLL_STRATEGY_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return dialog.MAT_DIALOG_SCROLL_STRATEGY_FACTORY;
-        }
-    });
     Object.defineProperty(exports, 'MatDialogConfig', {
         enumerable: true,
         get: function () {

@@ -670,12 +670,6 @@
             return i4.MAT_SNACK_BAR_DEFAULT_OPTIONS;
         }
     });
-    Object.defineProperty(exports, 'MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY', {
-        enumerable: true,
-        get: function () {
-            return i4.MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY;
-        }
-    });
     Object.defineProperty(exports, 'MatSnackBarConfig', {
         enumerable: true,
         get: function () {
@@ -692,12 +686,6 @@
         enumerable: true,
         get: function () {
             return i4.SimpleSnackBar;
-        }
-    });
-    Object.defineProperty(exports, 'matSnackBarAnimations', {
-        enumerable: true,
-        get: function () {
-            return i4.matSnackBarAnimations;
         }
     });
     exports.MatSimpleSnackBar = MatSimpleSnackBar;
