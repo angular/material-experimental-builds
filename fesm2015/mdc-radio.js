@@ -1,7 +1,7 @@
 import { forwardRef, InjectionToken, Directive, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, ElementRef, ChangeDetectorRef, Attribute, NgModule } from '@angular/core';
 import { MDCRadioFoundation } from '@material/radio';
 import { _MatRadioGroupBase, _MatRadioButtonBase, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
-export { MAT_RADIO_DEFAULT_OPTIONS, MatRadioChange } from '@angular/material/radio';
+export { MAT_RADIO_DEFAULT_OPTIONS, MAT_RADIO_DEFAULT_OPTIONS_FACTORY, MatRadioChange } from '@angular/material/radio';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';

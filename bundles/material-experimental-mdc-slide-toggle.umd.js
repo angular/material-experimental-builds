@@ -342,6 +342,18 @@
      * Generated bundle index. Do not edit.
      */
 
+    Object.defineProperty(exports, 'MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR', {
+        enumerable: true,
+        get: function () {
+            return slideToggle.MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR;
+        }
+    });
+    Object.defineProperty(exports, 'MatSlideToggleRequiredValidator', {
+        enumerable: true,
+        get: function () {
+            return slideToggle.MatSlideToggleRequiredValidator;
+        }
+    });
     exports.MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS = MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS;
     exports.MAT_SLIDE_TOGGLE_VALUE_ACCESSOR = MAT_SLIDE_TOGGLE_VALUE_ACCESSOR;
     exports.MatSlideToggle = MatSlideToggle;

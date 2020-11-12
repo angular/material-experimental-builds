@@ -12,4 +12,4 @@ export { MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxClickAction, MatCheckboxReq
  * @deprecated
  * @breaking-change 9.0.0
  */
-TransitionCheckState, } from '@angular/material/checkbox';
+TransitionCheckState, MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY, MatCheckboxDefaultOptions, MAT_CHECKBOX_DEFAULT_OPTIONS, } from '@angular/material/checkbox';

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/input'), require('@angular/core'), require('@angular/material/form-field'), require('@angular/cdk/text-field'), require('@angular/material-experimental/mdc-core'), require('@angular/material-experimental/mdc-form-field')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-input', ['exports', '@angular/material/input', '@angular/core', '@angular/material/form-field', '@angular/cdk/text-field', '@angular/material-experimental/mdc-core', '@angular/material-experimental/mdc-form-field'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcInput = {}), global.ng.material.input, global.ng.core, global.ng.material.formField, global.ng.cdk.textField, global.ng.materialExperimental.mdcCore, global.ng.materialExperimental.mdcFormField));
-}(this, (function (exports, input, core, formField, textField, mdcCore, mdcFormField) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material/form-field'), require('@angular/material/input'), require('@angular/cdk/text-field'), require('@angular/material-experimental/mdc-core'), require('@angular/material-experimental/mdc-form-field')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-input', ['exports', '@angular/core', '@angular/material/form-field', '@angular/material/input', '@angular/cdk/text-field', '@angular/material-experimental/mdc-core', '@angular/material-experimental/mdc-form-field'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcInput = {}), global.ng.core, global.ng.material.formField, global.ng.material.input, global.ng.cdk.textField, global.ng.materialExperimental.mdcCore, global.ng.materialExperimental.mdcFormField));
+}(this, (function (exports, core, formField, input, textField, mdcCore, mdcFormField) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.

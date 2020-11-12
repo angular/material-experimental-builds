@@ -2,7 +2,7 @@ import { Overlay, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { DOCUMENT, Location } from '@angular/common';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, NgZone, InjectionToken, Injectable, Injector, SkipSelf, Directive, Input, NgModule } from '@angular/core';
 import { _MatDialogContainerBase, MatDialogConfig, MatDialogRef as MatDialogRef$1, _MatDialogBase, _closeDialogVia } from '@angular/material/dialog';
-export { MatDialogConfig, matDialogAnimations, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
+export { MAT_DIALOG_SCROLL_STRATEGY_FACTORY, MatDialogConfig, matDialogAnimations, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { FocusTrapFactory, FocusMonitor } from '@angular/cdk/a11y';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { numbers, cssClasses } from '@material/dialog';
