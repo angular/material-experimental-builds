@@ -1,7 +1,7 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef, ElementRef, Attribute, Optional, Inject, Input, Output, ViewChild, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
+import { MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY, MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 export { MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxRequiredValidator, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 import { mixinColor, mixinDisabled, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
@@ -17,6 +17,8 @@ import { CommonModule } from '@angular/common';
  * found in the LICENSE file at https://angular.io/license
  */
 let nextUniqueId = 0;
+// Default checkbox configuration.
+const defaults = MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY();
 const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => MatCheckbox),
@@ -51,8 +53,6 @@ class MatCheckbox extends _MatCheckboxMixinBase {
         this.ariaLabel = '';
         /** The `aria-labelledby` attribute to use for the input element. */
         this.ariaLabelledby = null;
-        /** The color palette  for this checkbox ('primary', 'accent', or 'warn'). */
-        this.color = 'accent';
         /** Whether the label should appear after or before the checkbox. Defaults to 'after'. */
         this.labelPosition = 'after';
         /** The `name` attribute to use for the input element. */
@@ -108,10 +108,8 @@ class MatCheckbox extends _MatCheckboxMixinBase {
         // ripple, which we do ourselves instead.
         this.tabIndex = parseInt(tabIndex) || 0;
         this._checkboxFoundation = new MDCCheckboxFoundation(this._checkboxAdapter);
-        this._options = this._options || {};
-        if (this._options.color) {
-            this.color = this.defaultColor = this._options.color;
-        }
+        this._options = this._options || defaults;
+        this.color = this.defaultColor = this._options.color || defaults.color;
     }
     /** Whether the checkbox is checked. */
     get checked() {

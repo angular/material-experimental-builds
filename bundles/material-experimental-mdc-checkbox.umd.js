@@ -306,6 +306,8 @@
     }
 
     var nextUniqueId = 0;
+    // Default checkbox configuration.
+    var defaults = checkbox.MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY();
     var MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
         useExisting: core.forwardRef(function () { return MatCheckbox; }),
@@ -345,8 +347,6 @@
             _this.ariaLabel = '';
             /** The `aria-labelledby` attribute to use for the input element. */
             _this.ariaLabelledby = null;
-            /** The color palette  for this checkbox ('primary', 'accent', or 'warn'). */
-            _this.color = 'accent';
             /** Whether the label should appear after or before the checkbox. Defaults to 'after'. */
             _this.labelPosition = 'after';
             /** The `name` attribute to use for the input element. */
@@ -402,10 +402,8 @@
             // ripple, which we do ourselves instead.
             _this.tabIndex = parseInt(tabIndex) || 0;
             _this._checkboxFoundation = new checkbox$1.MDCCheckboxFoundation(_this._checkboxAdapter);
-            _this._options = _this._options || {};
-            if (_this._options.color) {
-                _this.color = _this.defaultColor = _this._options.color;
-            }
+            _this._options = _this._options || defaults;
+            _this.color = _this.defaultColor = _this._options.color || defaults.color;
             return _this;
         }
         Object.defineProperty(MatCheckbox.prototype, "checked", {
