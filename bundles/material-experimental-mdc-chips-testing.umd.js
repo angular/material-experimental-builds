@@ -305,45 +305,36 @@
         return value;
     }
 
-    /** Harness for interacting with a grid's chip input in tests. */
-    var MatChipInputHarness = /** @class */ (function (_super) {
-        __extends(MatChipInputHarness, _super);
-        function MatChipInputHarness() {
+    /** Harness for interacting with a standard Material chip remove button in tests. */
+    var MatChipRemoveHarness = /** @class */ (function (_super) {
+        __extends(MatChipRemoveHarness, _super);
+        function MatChipRemoveHarness() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         /**
-         * Gets a `HarnessPredicate` that can be used to search for a chip input with specific attributes.
+         * Gets a `HarnessPredicate` that can be used to search for a `MatChipRemoveHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which input instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
          */
-        MatChipInputHarness.with = function (options) {
+        MatChipRemoveHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatChipInputHarness, options);
+            return new testing.HarnessPredicate(MatChipRemoveHarness, options);
         };
-        /** Gets a promise for the disabled state. */
-        MatChipInputHarness.prototype.isDisabled = function () {
+        /** Clicks the remove button. */
+        MatChipRemoveHarness.prototype.click = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [4 /*yield*/, ((_a.sent()).getAttribute('disabled'))];
-                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
+                        case 1: return [2 /*return*/, (_a.sent()).click()];
                     }
                 });
             });
         };
-        /** Gets a promise for the placeholder text. */
-        MatChipInputHarness.prototype.getPlaceholder = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).getAttribute('placeholder')];
-                    }
-                });
-            });
-        };
-        return MatChipInputHarness;
+        return MatChipRemoveHarness;
     }(testing.ComponentHarness));
-    MatChipInputHarness.hostSelector = '.mat-mdc-chip-input';
+    MatChipRemoveHarness.hostSelector = '.mat-mdc-chip-remove';
 
     /** Harness for interacting with a mat-chip in tests. */
     var MatChipHarness = /** @class */ (function (_super) {
@@ -358,7 +349,10 @@
         // methods. See https://github.com/microsoft/TypeScript/issues/5863
         MatChipHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatChipHarness, options);
+            return new testing.HarnessPredicate(MatChipHarness, options)
+                .addOption('text', options.text, function (harness, label) {
+                return testing.HarnessPredicate.stringMatches(harness.getText(), label);
+            });
         };
         /** Gets a promise for the text content the option. */
         MatChipHarness.prototype.getText = function () {
@@ -369,6 +363,17 @@
                         case 1: return [2 /*return*/, (_a.sent()).text({
                                 exclude: '.mat-mdc-chip-avatar, .mat-mdc-chip-trailing-icon, .mat-icon'
                             })];
+                    }
+                });
+            });
+        };
+        /** Whether the chip is disabled. */
+        MatChipHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mat-mdc-chip-disabled')];
                     }
                 });
             });
@@ -385,17 +390,384 @@
                             return [4 /*yield*/, hostEl.sendKeys(testing.TestKey.DELETE)];
                         case 2:
                             _a.sent();
+                            // @breaking-change 12.0.0 Remove non-null assertion from `dispatchEvent`.
                             return [4 /*yield*/, hostEl.dispatchEvent('transitionend', { propertyName: 'width' })];
                         case 3:
+                            // @breaking-change 12.0.0 Remove non-null assertion from `dispatchEvent`.
                             _a.sent();
                             return [2 /*return*/];
                     }
                 });
             });
         };
+        /**
+         * Gets the remove button inside of a chip.
+         * @param filter Optionally filters which chips are included.
+         */
+        MatChipHarness.prototype.getRemoveButton = function (filter) {
+            if (filter === void 0) { filter = {}; }
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, this.locatorFor(MatChipRemoveHarness.with(filter))()];
+                });
+            });
+        };
         return MatChipHarness;
     }(testing.ComponentHarness));
     MatChipHarness.hostSelector = '.mat-mdc-basic-chip, .mat-mdc-chip';
+
+    /** Harness for interacting with a grid's chip input in tests. */
+    var MatChipInputHarness = /** @class */ (function (_super) {
+        __extends(MatChipInputHarness, _super);
+        function MatChipInputHarness() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a `MatChipInputHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which input instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
+         */
+        MatChipInputHarness.with = function (options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatChipInputHarness, options)
+                .addOption('value', options.value, function (harness, value) { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, harness.getValue()];
+                        case 1: return [2 /*return*/, (_a.sent()) === value];
+                    }
+                });
+            }); })
+                .addOption('placeholder', options.placeholder, function (harness, placeholder) { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, harness.getPlaceholder()];
+                        case 1: return [2 /*return*/, (_a.sent()) === placeholder];
+                    }
+                });
+            }); });
+        };
+        /** Whether the input is disabled. */
+        MatChipInputHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).getProperty('disabled')];
+                    }
+                });
+            });
+        };
+        /** Whether the input is required. */
+        MatChipInputHarness.prototype.isRequired = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).getProperty('required')];
+                    }
+                });
+            });
+        };
+        /** Gets the value of the input. */
+        MatChipInputHarness.prototype.getValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getProperty('value')];
+                        case 2: 
+                        // The "value" property of the native input is never undefined.
+                        return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /** Gets the placeholder of the input. */
+        MatChipInputHarness.prototype.getPlaceholder = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getProperty('placeholder')];
+                        case 2: return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /**
+         * Focuses the input and returns a promise that indicates when the
+         * action is complete.
+         */
+        MatChipInputHarness.prototype.focus = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).focus()];
+                    }
+                });
+            });
+        };
+        /**
+         * Blurs the input and returns a promise that indicates when the
+         * action is complete.
+         */
+        MatChipInputHarness.prototype.blur = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).blur()];
+                    }
+                });
+            });
+        };
+        /** Whether the input is focused. */
+        MatChipInputHarness.prototype.isFocused = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
+                    }
+                });
+            });
+        };
+        /**
+         * Sets the value of the input. The value will be set by simulating
+         * keypresses that correspond to the given value.
+         */
+        MatChipInputHarness.prototype.setValue = function (newValue) {
+            return __awaiter(this, void 0, void 0, function () {
+                var inputEl;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1:
+                            inputEl = _a.sent();
+                            return [4 /*yield*/, inputEl.clear()];
+                        case 2:
+                            _a.sent();
+                            if (!newValue) return [3 /*break*/, 4];
+                            return [4 /*yield*/, inputEl.sendKeys(newValue)];
+                        case 3:
+                            _a.sent();
+                            _a.label = 4;
+                        case 4: return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        /** Sends a chip separator key to the input element. */
+        MatChipInputHarness.prototype.sendSeparatorKey = function (key) {
+            return __awaiter(this, void 0, void 0, function () {
+                var inputEl;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1:
+                            inputEl = _a.sent();
+                            return [2 /*return*/, inputEl.sendKeys(key)];
+                    }
+                });
+            });
+        };
+        return MatChipInputHarness;
+    }(testing.ComponentHarness));
+    MatChipInputHarness.hostSelector = '.mat-mdc-chip-input';
+
+    /** Harness for interacting with a mat-chip-option in tests. */
+    var MatChipOptionHarness = /** @class */ (function (_super) {
+        __extends(MatChipOptionHarness, _super);
+        function MatChipOptionHarness() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a chip option with specific
+         * attributes.
+         */
+        // Note(mmalerba): generics are used as a workaround for lack of polymorphic `this` in static
+        // methods. See https://github.com/microsoft/TypeScript/issues/5863
+        MatChipOptionHarness.with = function (options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatChipOptionHarness, options)
+                .addOption('text', options.text, function (harness, label) { return testing.HarnessPredicate.stringMatches(harness.getText(), label); })
+                .addOption('selected', options.selected, function (harness, selected) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, harness.isSelected()];
+                    case 1: return [2 /*return*/, (_a.sent()) === selected];
+                }
+            }); }); });
+        };
+        /** Whether the chip is selected. */
+        MatChipOptionHarness.prototype.isSelected = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mat-mdc-chip-selected')];
+                    }
+                });
+            });
+        };
+        /** Selects the given chip. Only applies if it's selectable. */
+        MatChipOptionHarness.prototype.select = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.isSelected()];
+                        case 1:
+                            if (!!(_a.sent())) return [3 /*break*/, 3];
+                            return [4 /*yield*/, this.toggle()];
+                        case 2:
+                            _a.sent();
+                            _a.label = 3;
+                        case 3: return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        /** Deselects the given chip. Only applies if it's selectable. */
+        MatChipOptionHarness.prototype.deselect = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.isSelected()];
+                        case 1:
+                            if (!_a.sent()) return [3 /*break*/, 3];
+                            return [4 /*yield*/, this.toggle()];
+                        case 2:
+                            _a.sent();
+                            _a.label = 3;
+                        case 3: return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        /** Toggles the selected state of the given chip. */
+        MatChipOptionHarness.prototype.toggle = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).sendKeys(' ')];
+                    }
+                });
+            });
+        };
+        return MatChipOptionHarness;
+    }(MatChipHarness));
+    MatChipOptionHarness.hostSelector = '.mat-mdc-chip-option';
+
+    /** Harness for interacting with a mat-chip-listbox in tests. */
+    var MatChipListboxHarness = /** @class */ (function (_super) {
+        __extends(MatChipListboxHarness, _super);
+        function MatChipListboxHarness() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a chip listbox with specific
+         * attributes.
+         */
+        MatChipListboxHarness.with = function (options) {
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatChipListboxHarness, options);
+        };
+        /** Gets whether the chip listbox is disabled. */
+        MatChipListboxHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-disabled')];
+                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
+                    }
+                });
+            });
+        };
+        /** Gets whether the chip listbox is required. */
+        MatChipListboxHarness.prototype.isRequired = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-required')];
+                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
+                    }
+                });
+            });
+        };
+        /** Gets whether the chip listbox is in multi selection mode. */
+        MatChipListboxHarness.prototype.isMultiple = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-multiselectable')];
+                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
+                    }
+                });
+            });
+        };
+        /** Gets whether the orientation of the chip list. */
+        MatChipListboxHarness.prototype.getOrientation = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var orientation;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-orientation')];
+                        case 2:
+                            orientation = _a.sent();
+                            return [2 /*return*/, orientation === 'vertical' ? 'vertical' : 'horizontal'];
+                    }
+                });
+            });
+        };
+        /**
+         * Gets the list of chips inside the chip list.
+         * @param filter Optionally filters which chips are included.
+         */
+        MatChipListboxHarness.prototype.getChips = function (filter) {
+            if (filter === void 0) { filter = {}; }
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, this.locatorForAll(MatChipOptionHarness.with(filter))()];
+                });
+            });
+        };
+        /**
+         * Selects a chip inside the chip list.
+         * @param filter An optional filter to apply to the child chips.
+         *    All the chips matching the filter will be selected.
+         */
+        MatChipListboxHarness.prototype.selectChips = function (filter) {
+            if (filter === void 0) { filter = {}; }
+            return __awaiter(this, void 0, void 0, function () {
+                var chips;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.getChips(filter)];
+                        case 1:
+                            chips = _a.sent();
+                            if (!chips.length) {
+                                throw Error("Cannot find chip matching filter " + JSON.stringify(filter));
+                            }
+                            return [4 /*yield*/, testing.parallel(function () { return chips.map(function (chip) { return chip.select(); }); })];
+                        case 2:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        return MatChipListboxHarness;
+    }(testing.ComponentHarness));
+    MatChipListboxHarness.hostSelector = '.mat-mdc-chip-listbox';
 
     /** Harness for interacting with a mat-chip-row in tests. */
     var MatChipRowHarness = /** @class */ (function (_super) {
@@ -420,10 +792,7 @@
     var MatChipGridHarness = /** @class */ (function (_super) {
         __extends(MatChipGridHarness, _super);
         function MatChipGridHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._rows = _this.locatorForAll(MatChipRowHarness);
-            _this._input = _this.locatorFor(MatChipInputHarness);
-            return _this;
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for a chip grid with specific attributes.
@@ -432,136 +801,61 @@
             if (options === void 0) { options = {}; }
             return new testing.HarnessPredicate(MatChipGridHarness, options);
         };
-        /** Gets promise of the harnesses for the chip rows. */
-        MatChipGridHarness.prototype.getRows = function () {
+        /** Gets whether the chip grid is disabled. */
+        MatChipGridHarness.prototype.isDisabled = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._rows()];
-                        case 1: return [2 /*return*/, _a.sent()];
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-disabled')];
+                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
                     }
                 });
             });
         };
-        /** Gets promise of the chip text input harness. */
-        MatChipGridHarness.prototype.getTextInput = function () {
+        /** Gets whether the chip grid is required. */
+        MatChipGridHarness.prototype.isRequired = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, _a.sent()];
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).hasClass('mat-mdc-chip-list-required')];
+                        case 2: return [2 /*return*/, _a.sent()];
                     }
                 });
             });
+        };
+        /** Gets whether the chip grid is invalid. */
+        MatChipGridHarness.prototype.isInvalid = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-invalid')];
+                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
+                    }
+                });
+            });
+        };
+        /** Gets promise of the harnesses for the chip rows. */
+        MatChipGridHarness.prototype.getRows = function (filter) {
+            if (filter === void 0) { filter = {}; }
+            return this.locatorForAll(MatChipRowHarness.with(filter))();
+        };
+        /** Gets promise of the chip text input harness. */
+        MatChipGridHarness.prototype.getInput = function (filter) {
+            if (filter === void 0) { filter = {}; }
+            return this.locatorFor(MatChipInputHarness.with(filter))();
         };
         return MatChipGridHarness;
     }(testing.ComponentHarness));
     MatChipGridHarness.hostSelector = '.mat-mdc-chip-grid';
 
-    /** Harness for interacting with a mat-chip-option in tests. */
-    var MatChipOptionHarness = /** @class */ (function (_super) {
-        __extends(MatChipOptionHarness, _super);
-        function MatChipOptionHarness() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        /**
-         * Gets a `HarnessPredicate` that can be used to search for a chip option with specific
-         * attributes.
-         */
-        // Note(mmalerba): generics are used as a workaround for lack of polymorphic `this` in static
-        // methods. See https://github.com/microsoft/TypeScript/issues/5863
-        MatChipOptionHarness.with = function (options) {
-            if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatChipOptionHarness, options);
-        };
-        /** Gets a promise for the selected state. */
-        MatChipOptionHarness.prototype.isSelected = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [4 /*yield*/, ((_a.sent()).getAttribute('aria-selected'))];
-                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
-                    }
-                });
-            });
-        };
-        /** Gets a promise for the disabled state. */
-        MatChipOptionHarness.prototype.isDisabled = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [4 /*yield*/, ((_a.sent()).getAttribute('aria-disabled'))];
-                        case 2: return [2 /*return*/, (_a.sent()) === 'true'];
-                    }
-                });
-            });
-        };
-        return MatChipOptionHarness;
-    }(MatChipHarness));
-    MatChipOptionHarness.hostSelector = '.mat-mdc-chip-option';
-
-    /** Harness for interacting with a mat-chip-listbox in tests. */
-    var MatChipListboxHarness = /** @class */ (function (_super) {
-        __extends(MatChipListboxHarness, _super);
-        function MatChipListboxHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._options = _this.locatorForAll(MatChipOptionHarness);
-            return _this;
-        }
-        /**
-         * Gets a `HarnessPredicate` that can be used to search for a chip listbox with specific
-         * attributes.
-         */
-        MatChipListboxHarness.with = function (options) {
-            if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatChipListboxHarness, options);
-        };
-        /** Gets promise of the harnesses for the chip options in the listbox. */
-        MatChipListboxHarness.prototype.getOptions = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._options()];
-                        case 1: return [2 /*return*/, _a.sent()];
-                    }
-                });
-            });
-        };
-        /** Gets promise of the selected options. */
-        MatChipListboxHarness.prototype.getSelected = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var options;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._options()];
-                        case 1:
-                            options = _a.sent();
-                            return [2 /*return*/, Promise.all(options.map(function (o) { return o.isSelected(); })).then(function (isSelectedStates) {
-                                    var selectedOptions = [];
-                                    isSelectedStates.forEach(function (isSelectedOption, index) {
-                                        if (isSelectedOption) {
-                                            selectedOptions.push(options[index]);
-                                        }
-                                    });
-                                    return selectedOptions;
-                                })];
-                    }
-                });
-            });
-        };
-        return MatChipListboxHarness;
-    }(testing.ComponentHarness));
-    MatChipListboxHarness.hostSelector = '.mat-mdc-chip-listbox';
-
     /** Harness for interacting with a mat-chip-set in tests. */
     var MatChipSetHarness = /** @class */ (function (_super) {
         __extends(MatChipSetHarness, _super);
         function MatChipSetHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._chips = _this.locatorForAll(MatChipHarness);
-            return _this;
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for a chip set with specific attributes.
@@ -571,11 +865,12 @@
             return new testing.HarnessPredicate(MatChipSetHarness, options);
         };
         /** Gets promise of the harnesses for the chips. */
-        MatChipSetHarness.prototype.getChips = function () {
+        MatChipSetHarness.prototype.getChips = function (filter) {
+            if (filter === void 0) { filter = {}; }
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._chips()];
+                        case 0: return [4 /*yield*/, this.locatorForAll(MatChipHarness.with(filter))()];
                         case 1: return [2 /*return*/, _a.sent()];
                     }
                 });
@@ -606,6 +901,7 @@
     exports.MatChipInputHarness = MatChipInputHarness;
     exports.MatChipListboxHarness = MatChipListboxHarness;
     exports.MatChipOptionHarness = MatChipOptionHarness;
+    exports.MatChipRemoveHarness = MatChipRemoveHarness;
     exports.MatChipRowHarness = MatChipRowHarness;
     exports.MatChipSetHarness = MatChipSetHarness;
 

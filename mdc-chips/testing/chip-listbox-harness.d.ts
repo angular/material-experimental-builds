@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
-import { ChipListboxHarnessFilters } from './chip-harness-filters';
+import { ChipListboxHarnessFilters, ChipOptionHarnessFilters } from './chip-harness-filters';
 import { MatChipOptionHarness } from './chip-option-harness';
 /** Harness for interacting with a mat-chip-listbox in tests. */
 export declare class MatChipListboxHarness extends ComponentHarness {
@@ -16,9 +16,23 @@ export declare class MatChipListboxHarness extends ComponentHarness {
      * attributes.
      */
     static with(options?: ChipListboxHarnessFilters): HarnessPredicate<MatChipListboxHarness>;
-    private _options;
-    /** Gets promise of the harnesses for the chip options in the listbox. */
-    getOptions(): Promise<MatChipOptionHarness[]>;
-    /** Gets promise of the selected options. */
-    getSelected(): Promise<MatChipOptionHarness[]>;
+    /** Gets whether the chip listbox is disabled. */
+    isDisabled(): Promise<boolean>;
+    /** Gets whether the chip listbox is required. */
+    isRequired(): Promise<boolean>;
+    /** Gets whether the chip listbox is in multi selection mode. */
+    isMultiple(): Promise<boolean>;
+    /** Gets whether the orientation of the chip list. */
+    getOrientation(): Promise<'horizontal' | 'vertical'>;
+    /**
+     * Gets the list of chips inside the chip list.
+     * @param filter Optionally filters which chips are included.
+     */
+    getChips(filter?: ChipOptionHarnessFilters): Promise<MatChipOptionHarness[]>;
+    /**
+     * Selects a chip inside the chip list.
+     * @param filter An optional filter to apply to the child chips.
+     *    All the chips matching the filter will be selected.
+     */
+    selectChips(filter?: ChipOptionHarnessFilters): Promise<void>;
 }

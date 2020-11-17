@@ -16,8 +16,12 @@ export declare class MatChipOptionHarness extends MatChipHarness {
      * attributes.
      */
     static with<T extends typeof MatChipHarness>(this: T, options?: ChipOptionHarnessFilters): HarnessPredicate<InstanceType<T>>;
-    /** Gets a promise for the selected state. */
+    /** Whether the chip is selected. */
     isSelected(): Promise<boolean>;
-    /** Gets a promise for the disabled state. */
-    isDisabled(): Promise<boolean>;
+    /** Selects the given chip. Only applies if it's selectable. */
+    select(): Promise<void>;
+    /** Deselects the given chip. Only applies if it's selectable. */
+    deselect(): Promise<void>;
+    /** Toggles the selected state of the given chip. */
+    toggle(): Promise<void>;
 }
