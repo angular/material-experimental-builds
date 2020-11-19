@@ -111,7 +111,12 @@ class MatSlider {
             removeTrackActiveStyleProperty: (_propertyName) => { },
             emitDragStartEvent: (_value, _thumb) => { },
             emitDragEndEvent: (_value, _thumb) => { },
-            getValueToAriaValueTextFn: () => null
+            getValueToAriaValueTextFn: () => null,
+            getInputValue: () => '',
+            setInputValue: (_value, _thumb) => { },
+            getInputAttribute: (_attribute, _thumb) => null,
+            setInputAttribute: (_attribute, _value) => { },
+            removeInputAttribute: (_attribute) => { }
         };
         /** Instance of the MDC slider foundation for this slider. */
         this._foundation = new MDCSliderFoundation(this._sliderAdapter);

@@ -110,7 +110,12 @@
                 removeTrackActiveStyleProperty: function (_propertyName) { },
                 emitDragStartEvent: function (_value, _thumb) { },
                 emitDragEndEvent: function (_value, _thumb) { },
-                getValueToAriaValueTextFn: function () { return null; }
+                getValueToAriaValueTextFn: function () { return null; },
+                getInputValue: function () { return ''; },
+                setInputValue: function (_value, _thumb) { },
+                getInputAttribute: function (_attribute, _thumb) { return null; },
+                setInputAttribute: function (_attribute, _value) { },
+                removeInputAttribute: function (_attribute) { }
             };
             /** Instance of the MDC slider foundation for this slider. */
             this._foundation = new slider.MDCSliderFoundation(this._sliderAdapter);
