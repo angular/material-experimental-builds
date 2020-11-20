@@ -460,6 +460,7 @@
         MatSliderHarness.prototype.setValue = function (value) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, sliderEl, trackContainer, percentage, width;
+                var _this = this;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0: 
@@ -474,7 +475,7 @@
                             // tick (in a timer outside of the NgZone). Since this method relies on the element
                             // dimensions to be updated, we wait for the delayed calculation task to complete.
                             _b.sent();
-                            return [4 /*yield*/, Promise.all([this.host(), this._trackContainer()])];
+                            return [4 /*yield*/, testing.parallel(function () { return [_this.host(), _this._trackContainer()]; })];
                         case 2:
                             _a = __read.apply(void 0, [_b.sent(), 2]), sliderEl = _a[0], trackContainer = _a[1];
                             return [4 /*yield*/, this._calculatePercentage(value)];
@@ -545,9 +546,10 @@
         MatSliderHarness.prototype._calculatePercentage = function (value) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, min, max;
+                var _this = this;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
-                        case 0: return [4 /*yield*/, Promise.all([this.getMinValue(), this.getMaxValue()])];
+                        case 0: return [4 /*yield*/, testing.parallel(function () { return [_this.getMinValue(), _this.getMaxValue()]; })];
                         case 1:
                             _a = __read.apply(void 0, [_b.sent(), 2]), min = _a[0], max = _a[1];
                             return [2 /*return*/, (value - min) / (max - min)];

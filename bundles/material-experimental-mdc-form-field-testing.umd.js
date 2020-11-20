@@ -377,10 +377,10 @@
                             return [4 /*yield*/, this.host()];
                         case 1:
                             hostEl = _b.sent();
-                            return [4 /*yield*/, Promise.all([
+                            return [4 /*yield*/, testing.parallel(function () { return [
                                     hostEl.hasClass('mat-mdc-form-field-type-mat-input'),
                                     hostEl.hasClass('mat-mdc-form-field-type-mat-select'),
-                                ])];
+                                ]; })];
                         case 2:
                             _a = __read.apply(void 0, [_b.sent(), 2]), isInput = _a[0], isSelect = _a[1];
                             if (isInput) {
@@ -483,7 +483,7 @@
                         case 0: return [4 /*yield*/, this.host()];
                         case 1:
                             hostEl = _b.sent();
-                            return [4 /*yield*/, Promise.all([hostEl.hasClass('mat-accent'), hostEl.hasClass('mat-warn')])];
+                            return [4 /*yield*/, testing.parallel(function () { return [hostEl.hasClass('mat-accent'), hostEl.hasClass('mat-warn')]; })];
                         case 2:
                             _a = __read.apply(void 0, [_b.sent(), 2]), isAccent = _a[0], isWarn = _a[1];
                             if (isAccent) {
@@ -500,13 +500,13 @@
         /** Gets error messages which are currently displayed in the form-field. */
         MatFormFieldHarness.prototype.getTextErrors = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var _a, _b;
-                return __generator(this, function (_c) {
-                    switch (_c.label) {
-                        case 0:
-                            _b = (_a = Promise).all;
-                            return [4 /*yield*/, this._errors()];
-                        case 1: return [2 /*return*/, _b.apply(_a, [(_c.sent()).map(function (e) { return e.text(); })])];
+                var errors;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this._errors()];
+                        case 1:
+                            errors = _a.sent();
+                            return [2 /*return*/, testing.parallel(function () { return errors.map(function (e) { return e.text(); }); })];
                     }
                 });
             });
@@ -514,13 +514,13 @@
         /** Gets hint messages which are currently displayed in the form-field. */
         MatFormFieldHarness.prototype.getTextHints = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var _a, _b;
-                return __generator(this, function (_c) {
-                    switch (_c.label) {
-                        case 0:
-                            _b = (_a = Promise).all;
-                            return [4 /*yield*/, this._hints()];
-                        case 1: return [2 /*return*/, _b.apply(_a, [(_c.sent()).map(function (e) { return e.text(); })])];
+                var hints;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this._hints()];
+                        case 1:
+                            hints = _a.sent();
+                            return [2 /*return*/, testing.parallel(function () { return hints.map(function (e) { return e.text(); }); })];
                     }
                 });
             });
@@ -664,7 +664,7 @@
                         case 0: return [4 /*yield*/, this.host()];
                         case 1:
                             hostEl = _b.sent();
-                            return [4 /*yield*/, Promise.all([hostEl.hasClass('ng-touched'), hostEl.hasClass('ng-untouched')])];
+                            return [4 /*yield*/, testing.parallel(function () { return [hostEl.hasClass('ng-touched'), hostEl.hasClass('ng-untouched')]; })];
                         case 2:
                             _a = __read.apply(void 0, [_b.sent(), 2]), isTouched = _a[0], isUntouched = _a[1];
                             return [2 /*return*/, isTouched || isUntouched];

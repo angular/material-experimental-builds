@@ -1,6 +1,6 @@
 import { __awaiter } from 'tslib';
 import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
+import { ComponentHarness, HarnessPredicate, parallel } from '@angular/cdk/testing';
 
 /**
  * @license
@@ -100,7 +100,7 @@ class MatSliderHarness extends ComponentHarness {
             // tick (in a timer outside of the NgZone). Since this method relies on the element
             // dimensions to be updated, we wait for the delayed calculation task to complete.
             yield this.waitForTasksOutsideAngular();
-            const [sliderEl, trackContainer] = yield Promise.all([this.host(), this._trackContainer()]);
+            const [sliderEl, trackContainer] = yield parallel(() => [this.host(), this._trackContainer()]);
             let percentage = yield this._calculatePercentage(value);
             const { width } = yield trackContainer.getDimensions();
             // In case the slider is displayed in RTL mode, we need to invert the
@@ -140,7 +140,7 @@ class MatSliderHarness extends ComponentHarness {
     /** Calculates the percentage of the given value. */
     _calculatePercentage(value) {
         return __awaiter(this, void 0, void 0, function* () {
-            const [min, max] = yield Promise.all([this.getMinValue(), this.getMaxValue()]);
+            const [min, max] = yield parallel(() => [this.getMinValue(), this.getMaxValue()]);
             return (value - min) / (max - min);
         });
     }

@@ -1,6 +1,6 @@
 export * from '@angular/material/form-field/testing/control';
 import { __awaiter } from 'tslib';
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
+import { ComponentHarness, HarnessPredicate, parallel } from '@angular/cdk/testing';
 import { MatInputHarness } from '@angular/material-experimental/mdc-input/testing';
 import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
 
@@ -52,7 +52,7 @@ class MatFormFieldHarness extends ComponentHarness {
                 return this.locatorForOptional(type)();
             }
             const hostEl = yield this.host();
-            const [isInput, isSelect] = yield Promise.all([
+            const [isInput, isSelect] = yield parallel(() => [
                 hostEl.hasClass('mat-mdc-form-field-type-mat-input'),
                 hostEl.hasClass('mat-mdc-form-field-type-mat-select'),
             ]);
@@ -107,7 +107,7 @@ class MatFormFieldHarness extends ComponentHarness {
     getThemeColor() {
         return __awaiter(this, void 0, void 0, function* () {
             const hostEl = yield this.host();
-            const [isAccent, isWarn] = yield Promise.all([hostEl.hasClass('mat-accent'), hostEl.hasClass('mat-warn')]);
+            const [isAccent, isWarn] = yield parallel(() => [hostEl.hasClass('mat-accent'), hostEl.hasClass('mat-warn')]);
             if (isAccent) {
                 return 'accent';
             }
@@ -120,13 +120,15 @@ class MatFormFieldHarness extends ComponentHarness {
     /** Gets error messages which are currently displayed in the form-field. */
     getTextErrors() {
         return __awaiter(this, void 0, void 0, function* () {
-            return Promise.all((yield this._errors()).map(e => e.text()));
+            const errors = yield this._errors();
+            return parallel(() => errors.map(e => e.text()));
         });
     }
     /** Gets hint messages which are currently displayed in the form-field. */
     getTextHints() {
         return __awaiter(this, void 0, void 0, function* () {
-            return Promise.all((yield this._hints()).map(e => e.text()));
+            const hints = yield this._hints();
+            return parallel(() => hints.map(e => e.text()));
         });
     }
     /**
@@ -220,7 +222,7 @@ class MatFormFieldHarness extends ComponentHarness {
             // If no form "NgControl" is bound to the form-field control, the form-field
             // is not able to forward any control status classes. Therefore if either the
             // "ng-touched" or "ng-untouched" class is set, we know that it has a form control
-            const [isTouched, isUntouched] = yield Promise.all([hostEl.hasClass('ng-touched'), hostEl.hasClass('ng-untouched')]);
+            const [isTouched, isUntouched] = yield parallel(() => [hostEl.hasClass('ng-touched'), hostEl.hasClass('ng-untouched')]);
             return isTouched || isUntouched;
         });
     }
