@@ -1,5 +1,6 @@
 import { Directive, NgModule } from '@angular/core';
 import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, _closest, _CELL_SELECTOR, CdkEditOpen, CdkPopoverEditModule, CdkEditable } from '@angular/cdk-experimental/popover-edit';
+import { MatCommonModule } from '@angular/material/core';
 
 /**
  * @license
@@ -174,6 +175,7 @@ MatPopoverEditModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     CdkPopoverEditModule,
+                    MatCommonModule,
                 ],
                 exports: [
                     ...EXPORTED_DECLARATIONS,

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk-experimental/column-resize'), require('@angular/common'), require('@angular/cdk/table'), require('@angular/cdk/overlay'), require('@angular/cdk/bidi')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/column-resize', ['exports', '@angular/core', '@angular/cdk-experimental/column-resize', '@angular/common', '@angular/cdk/table', '@angular/cdk/overlay', '@angular/cdk/bidi'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.columnResize = {}), global.ng.core, global.ng.cdkExperimental.columnResize, global.ng.common, global.ng.cdk.table, global.ng.cdk.overlay, global.ng.cdk.bidi));
-}(this, (function (exports, core, columnResize, common, table, overlay, bidi) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk-experimental/column-resize'), require('@angular/common'), require('@angular/cdk/table'), require('@angular/material/core'), require('@angular/cdk/overlay'), require('@angular/cdk/bidi')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/column-resize', ['exports', '@angular/core', '@angular/cdk-experimental/column-resize', '@angular/common', '@angular/cdk/table', '@angular/material/core', '@angular/cdk/overlay', '@angular/cdk/bidi'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.columnResize = {}), global.ng.core, global.ng.cdkExperimental.columnResize, global.ng.common, global.ng.cdk.table, global.ng.material.core, global.ng.cdk.overlay, global.ng.cdk.bidi));
+}(this, (function (exports, core, columnResize, common, table, core$1, overlay, bidi) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -690,6 +690,7 @@
                 },] }
     ];
     var IMPORTS = [
+        core$1.MatCommonModule,
         overlay.OverlayModule,
         MatColumnResizeCommonModule,
     ];

@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { Directive, ElementRef, NgZone, ContentChildren, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, Inject, HostListener, InjectionToken, ChangeDetectorRef, forwardRef, EventEmitter, Output, NgModule } from '@angular/core';
-import { RippleRenderer, setLines, MatLine, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
+import { RippleRenderer, setLines, MatLine, MatCommonModule, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Subscription, Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
@@ -986,6 +986,7 @@ MatListModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     CommonModule,
+                    MatCommonModule,
                     MatLineModule,
                     MatRippleModule,
                     MatPseudoCheckboxModule,

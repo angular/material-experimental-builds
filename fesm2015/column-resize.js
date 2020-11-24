@@ -3,6 +3,7 @@ import { CdkFlexTableResizeStrategy, ColumnResize, ResizeStrategy, ColumnResizeN
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { DOCUMENT } from '@angular/common';
 import { _CoalescedStyleScheduler, _COALESCED_STYLE_SCHEDULER, CdkTable, CdkColumnDef } from '@angular/cdk/table';
+import { MatCommonModule } from '@angular/material/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
 
@@ -432,6 +433,7 @@ MatColumnResizeCommonModule.decorators = [
             },] }
 ];
 const IMPORTS = [
+    MatCommonModule,
     OverlayModule,
     MatColumnResizeCommonModule,
 ];

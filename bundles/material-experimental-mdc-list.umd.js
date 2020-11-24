@@ -1355,6 +1355,7 @@
         { type: core.NgModule, args: [{
                     imports: [
                         common.CommonModule,
+                        mdcCore.MatCommonModule,
                         mdcCore.MatLineModule,
                         mdcCore.MatRippleModule,
                         mdcCore.MatPseudoCheckboxModule,
