@@ -84,11 +84,7 @@ class MatSlider {
             getAttribute: (_attribute) => null,
             addThumbClass: (_className, _thumb) => { },
             removeThumbClass: (_className, _thumb) => { },
-            getThumbAttribute: (_attribute, _thumb) => null,
-            setThumbAttribute: (_attribute, _value, _thumb) => { },
             getThumbKnobWidth: (_thumb) => 0,
-            isThumbFocused: (_thumb) => false,
-            focusThumb: (_thumb) => { },
             getThumbBoundingClientRect: (_thumb) => null,
             getBoundingClientRect: () => null,
             isRTL: () => false,
@@ -116,7 +112,11 @@ class MatSlider {
             setInputValue: (_value, _thumb) => { },
             getInputAttribute: (_attribute, _thumb) => null,
             setInputAttribute: (_attribute, _value) => { },
-            removeInputAttribute: (_attribute) => { }
+            removeInputAttribute: (_attribute) => { },
+            focusInput: () => { },
+            isInputFocused: (_thumb) => false,
+            registerInputEventHandler: (_thumb, _evtType, _handler) => { },
+            deregisterInputEventHandler: (_thumb, _evtType, _handler) => { },
         };
         /** Instance of the MDC slider foundation for this slider. */
         this._foundation = new MDCSliderFoundation(this._sliderAdapter);

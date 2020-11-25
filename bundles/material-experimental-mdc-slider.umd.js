@@ -83,11 +83,7 @@
                 getAttribute: function (_attribute) { return null; },
                 addThumbClass: function (_className, _thumb) { },
                 removeThumbClass: function (_className, _thumb) { },
-                getThumbAttribute: function (_attribute, _thumb) { return null; },
-                setThumbAttribute: function (_attribute, _value, _thumb) { },
                 getThumbKnobWidth: function (_thumb) { return 0; },
-                isThumbFocused: function (_thumb) { return false; },
-                focusThumb: function (_thumb) { },
                 getThumbBoundingClientRect: function (_thumb) { return null; },
                 getBoundingClientRect: function () { return null; },
                 isRTL: function () { return false; },
@@ -115,7 +111,11 @@
                 setInputValue: function (_value, _thumb) { },
                 getInputAttribute: function (_attribute, _thumb) { return null; },
                 setInputAttribute: function (_attribute, _value) { },
-                removeInputAttribute: function (_attribute) { }
+                removeInputAttribute: function (_attribute) { },
+                focusInput: function () { },
+                isInputFocused: function (_thumb) { return false; },
+                registerInputEventHandler: function (_thumb, _evtType, _handler) { },
+                deregisterInputEventHandler: function (_thumb, _evtType, _handler) { },
             };
             /** Instance of the MDC slider foundation for this slider. */
             this._foundation = new slider.MDCSliderFoundation(this._sliderAdapter);
