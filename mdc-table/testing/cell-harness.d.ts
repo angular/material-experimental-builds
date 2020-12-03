@@ -5,10 +5,10 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { HarnessPredicate, ContentContainerComponentHarness } from '@angular/cdk/testing';
+import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
 import { CellHarnessFilters } from './table-harness-filters';
 /** Harness for interacting with an MDC-based Angular Material table cell. */
-export declare class MatCellHarness extends ContentContainerComponentHarness {
+export declare class MatCellHarness extends ComponentHarness {
     /** The selector for the host element of a `MatCellHarness` instance. */
     static hostSelector: string;
     /**

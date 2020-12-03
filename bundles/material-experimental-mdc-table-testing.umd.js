@@ -356,7 +356,7 @@
             });
         };
         return MatCellHarness;
-    }(testing.ContentContainerComponentHarness));
+    }(testing.ComponentHarness));
     /** The selector for the host element of a `MatCellHarness` instance. */
     MatCellHarness.hostSelector = '.mat-mdc-cell';
     /** Harness for interacting with an MDC-based Angular Material table header cell. */

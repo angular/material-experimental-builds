@@ -1,5 +1,5 @@
 import { __awaiter } from 'tslib';
-import { ContentContainerComponentHarness, HarnessPredicate, ComponentHarness, parallel } from '@angular/cdk/testing';
+import { ComponentHarness, HarnessPredicate, parallel, ContentContainerComponentHarness } from '@angular/cdk/testing';
 
 /**
  * @license
@@ -9,7 +9,7 @@ import { ContentContainerComponentHarness, HarnessPredicate, ComponentHarness, p
  * found in the LICENSE file at https://angular.io/license
  */
 /** Harness for interacting with an MDC-based Angular Material table cell. */
-class MatCellHarness extends ContentContainerComponentHarness {
+class MatCellHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a table cell with specific attributes.
      * @param options Options for narrowing the search
