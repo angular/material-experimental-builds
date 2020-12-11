@@ -46,6 +46,7 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     private _platform;
     private _defaults?;
     _animationMode?: string | undefined;
+    private _document?;
     _textField: ElementRef<HTMLElement>;
     _prefixContainer: ElementRef<HTMLElement>;
     _floatingLabel: MatFormFieldFloatingLabel | undefined;
@@ -89,7 +90,7 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     private _foundation;
     private _needsOutlineLabelOffsetUpdateOnStable;
     private _adapter;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _dir: Directionality, _platform: Platform, _defaults?: MatFormFieldDefaultOptions | undefined, _animationMode?: string | undefined);
+    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _dir: Directionality, _platform: Platform, _defaults?: MatFormFieldDefaultOptions | undefined, _animationMode?: string | undefined, _document?: any);
     ngAfterViewInit(): void;
     ngAfterContentInit(): void;
     ngAfterContentChecked(): void;

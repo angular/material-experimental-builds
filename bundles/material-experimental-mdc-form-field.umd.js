@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/form-field'), require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/cdk/observers'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/material/form-field', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/cdk/observers', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.material.formField, global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.cdk.observers, global.ng.common, global.ng.materialExperimental.mdcCore));
-}(this, (function (exports, formField, core, bidi, platform, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, observers, common, mdcCore) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/form-field'), require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/common'), require('@angular/cdk/observers'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/material/form-field', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/common', '@angular/cdk/observers', '@angular/material-experimental/mdc-core'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.material.formField, global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.common, global.ng.cdk.observers, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, formField, core, bidi, platform, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, common, observers, mdcCore) { 'use strict';
 
     /**
      * @license
@@ -642,7 +642,7 @@
     var FLOATING_LABEL_DEFAULT_DOCKED_TRANSFORM = "translateY(-50%)";
     /** Container for form controls that applies Material Design styling and behavior. */
     var MatFormField = /** @class */ (function () {
-        function MatFormField(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode) {
+        function MatFormField(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode, _document) {
             var _this = this;
             this._elementRef = _elementRef;
             this._changeDetectorRef = _changeDetectorRef;
@@ -651,6 +651,7 @@
             this._platform = _platform;
             this._defaults = _defaults;
             this._animationMode = _animationMode;
+            this._document = _document;
             /** Whether the required marker should be hidden. */
             this.hideRequiredMarker = false;
             /** The color palette for the form-field. */
@@ -800,6 +801,7 @@
         });
         MatFormField.prototype.ngAfterViewInit = function () {
             var _this = this;
+            var _a, _b;
             this._foundation = new textfield.MDCTextFieldFoundation(this._adapter);
             // MDC uses the "shouldFloat" getter to know whether the label is currently floating. This
             // does not match our implementation of when the label floats because we support more cases.
@@ -821,6 +823,21 @@
             // Initial notch width update. This is needed in case the text-field label floats
             // on initialization, and renders inside of the notched outline.
             this._refreshOutlineNotchWidth();
+            // Make sure fonts are loaded before calculating the width.
+            // zone.js currently doesn't patch the FontFaceSet API so two calls to
+            // _refreshOutlineNotchWidth is needed for this to work properly in async tests.
+            // Furthermore if the font takes a long time to load we want the outline notch to be close
+            // to the correct width from the start then correct itself when the fonts load.
+            if ((_b = (_a = this._document) === null || _a === void 0 ? void 0 : _a.fonts) === null || _b === void 0 ? void 0 : _b.ready) {
+                this._document.fonts.ready.then(function () {
+                    _this._refreshOutlineNotchWidth();
+                    _this._changeDetectorRef.markForCheck();
+                });
+            }
+            else {
+                // FontFaceSet is not supported in IE
+                setTimeout(function () { return _this._refreshOutlineNotchWidth(); }, 100);
+            }
             // Enable animations now. This ensures we don't animate on initial render.
             this._subscriptAnimationState = 'enter';
             // Because the above changes a value used in the template after it was checked, we need
@@ -1170,7 +1187,8 @@
         { type: bidi.Directionality },
         { type: platform.Platform },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_FORM_FIELD_DEFAULT_OPTIONS,] }] },
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
+        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
+        { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
     ]; };
     MatFormField.propDecorators = {
         _textField: [{ type: core.ViewChild, args: ['textField',] }],

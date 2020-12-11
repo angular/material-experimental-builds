@@ -10,8 +10,8 @@ import { takeUntil } from 'rxjs/operators';
 import { ponyfill } from '@material/dom';
 import { MDCLineRipple } from '@material/line-ripple';
 import { MDCNotchedOutline } from '@material/notched-outline';
+import { DOCUMENT, CommonModule } from '@angular/common';
 import { ObserversModule } from '@angular/cdk/observers';
-import { CommonModule } from '@angular/common';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
 /**
@@ -346,7 +346,7 @@ const DEFAULT_FLOAT_LABEL = 'auto';
 const FLOATING_LABEL_DEFAULT_DOCKED_TRANSFORM = `translateY(-50%)`;
 /** Container for form controls that applies Material Design styling and behavior. */
 class MatFormField {
-    constructor(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode) {
+    constructor(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode, _document) {
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
         this._ngZone = _ngZone;
@@ -354,6 +354,7 @@ class MatFormField {
         this._platform = _platform;
         this._defaults = _defaults;
         this._animationMode = _animationMode;
+        this._document = _document;
         /** Whether the required marker should be hidden. */
         this.hideRequiredMarker = false;
         /** The color palette for the form-field. */
@@ -486,6 +487,7 @@ class MatFormField {
     }
     set _control(value) { this._explicitFormFieldControl = value; }
     ngAfterViewInit() {
+        var _a, _b;
         this._foundation = new MDCTextFieldFoundation(this._adapter);
         // MDC uses the "shouldFloat" getter to know whether the label is currently floating. This
         // does not match our implementation of when the label floats because we support more cases.
@@ -507,6 +509,21 @@ class MatFormField {
         // Initial notch width update. This is needed in case the text-field label floats
         // on initialization, and renders inside of the notched outline.
         this._refreshOutlineNotchWidth();
+        // Make sure fonts are loaded before calculating the width.
+        // zone.js currently doesn't patch the FontFaceSet API so two calls to
+        // _refreshOutlineNotchWidth is needed for this to work properly in async tests.
+        // Furthermore if the font takes a long time to load we want the outline notch to be close
+        // to the correct width from the start then correct itself when the fonts load.
+        if ((_b = (_a = this._document) === null || _a === void 0 ? void 0 : _a.fonts) === null || _b === void 0 ? void 0 : _b.ready) {
+            this._document.fonts.ready.then(() => {
+                this._refreshOutlineNotchWidth();
+                this._changeDetectorRef.markForCheck();
+            });
+        }
+        else {
+            // FontFaceSet is not supported in IE
+            setTimeout(() => this._refreshOutlineNotchWidth(), 100);
+        }
         // Enable animations now. This ensures we don't animate on initial render.
         this._subscriptAnimationState = 'enter';
         // Because the above changes a value used in the template after it was checked, we need
@@ -850,7 +867,8 @@ MatFormField.ctorParameters = () => [
     { type: Directionality },
     { type: Platform },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FORM_FIELD_DEFAULT_OPTIONS,] }] },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] }
 ];
 MatFormField.propDecorators = {
     _textField: [{ type: ViewChild, args: ['textField',] }],
