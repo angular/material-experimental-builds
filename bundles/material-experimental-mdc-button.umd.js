@@ -374,7 +374,9 @@
             _this._ngZone = _ngZone;
             _this._animationMode = _animationMode;
             /** The ripple animation configuration to use for the buttons. */
-            _this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
+            _this._rippleAnimation = _this._animationMode === 'NoopAnimations' ?
+                { enterDuration: 0, exitDuration: 0 } :
+                RIPPLE_ANIMATION_CONFIG;
             /** Whether the ripple is centered on the button. */
             _this._isRippleCentered = false;
             var classList = elementRef.nativeElement.classList;

@@ -77,7 +77,9 @@ class MatButtonBase extends _MatButtonBaseMixin {
         this._ngZone = _ngZone;
         this._animationMode = _animationMode;
         /** The ripple animation configuration to use for the buttons. */
-        this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
+        this._rippleAnimation = this._animationMode === 'NoopAnimations' ?
+            { enterDuration: 0, exitDuration: 0 } :
+            RIPPLE_ANIMATION_CONFIG;
         /** Whether the ripple is centered on the button. */
         this._isRippleCentered = false;
         const classList = elementRef.nativeElement.classList;
