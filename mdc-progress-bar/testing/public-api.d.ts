@@ -6,3 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export * from './progress-bar-harness';
+export { ProgressBarHarnessFilters } from '@angular/material/progress-bar/testing';

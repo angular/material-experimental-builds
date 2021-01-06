@@ -6,3 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export * from './checkbox-harness';
+export { CheckboxHarnessFilters } from '@angular/material/checkbox/testing';

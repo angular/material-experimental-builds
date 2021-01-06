@@ -6,3 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export * from './slide-toggle-harness';
+export { SlideToggleHarnessFilters } from '@angular/material/slide-toggle/testing';
