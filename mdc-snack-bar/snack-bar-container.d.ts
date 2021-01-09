@@ -21,6 +21,7 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
     snackBarConfig: MatSnackBarConfig;
     private _platform;
     private _ngZone;
+    _animationMode?: string | undefined;
     /** The number of milliseconds to wait before announcing the snack bar's content. */
     private readonly _announceDelay;
     /** The timeout for announcing the snack bar's content. */
@@ -47,7 +48,7 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
      * color is applied to the attached view.
      */
     _label: ElementRef;
-    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform, _ngZone: NgZone);
+    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform, _ngZone: NgZone, _animationMode?: string | undefined);
     ngAfterViewChecked(): void;
     /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
     ngOnDestroy(): void;

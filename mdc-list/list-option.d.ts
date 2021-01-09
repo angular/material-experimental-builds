@@ -41,8 +41,6 @@ export declare class MatListOption extends MatListItemBase implements OnInit, On
     private _inputsInitialized;
     _itemText: ElementRef<HTMLElement>;
     lines: QueryList<ElementRef<Element>>;
-    /** Unique id for the text. Used for describing the underlying checkbox input. */
-    _optionTextId: string;
     /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
     checkboxPosition: 'before' | 'after';
     /** Theme color of the list option. This sets the color of the checkbox. */
