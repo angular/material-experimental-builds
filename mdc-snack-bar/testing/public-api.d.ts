@@ -6,4 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export * from './snack-bar-harness';
-export * from './snack-bar-harness-filters';
+export { SnackBarHarnessFilters } from '@angular/material/snack-bar/testing';

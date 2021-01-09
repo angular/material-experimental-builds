@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-snack-bar/testing', ['exports', '@angular/cdk/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSnackBar = global.ng.materialExperimental.mdcSnackBar || {}, global.ng.materialExperimental.mdcSnackBar.testing = {}), global.ng.cdk.testing));
-}(this, (function (exports, testing) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material/snack-bar/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-snack-bar/testing', ['exports', '@angular/cdk/testing', '@angular/material/snack-bar/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSnackBar = global.ng.materialExperimental.mdcSnackBar || {}, global.ng.materialExperimental.mdcSnackBar.testing = {}), global.ng.cdk.testing, global.ng.material.snackBar.testing));
+}(this, (function (exports, testing, testing$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -310,10 +310,9 @@
         __extends(MatSnackBarHarness, _super);
         function MatSnackBarHarness() {
             var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._simpleSnackBar = _this.locatorForOptional('.mat-mdc-simple-snack-bar');
-            _this._simpleSnackBarLiveRegion = _this.locatorFor('[aria-live]');
-            _this._simpleSnackBarMessage = _this.locatorFor('.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-label');
-            _this._simpleSnackBarActionButton = _this.locatorForOptional('.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-action');
+            _this._messageSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-label';
+            _this._simpleSnackBarSelector = '.mat-mdc-simple-snack-bar';
+            _this._actionButtonSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-action';
             return _this;
         }
         /**
@@ -326,185 +325,13 @@
             if (options === void 0) { options = {}; }
             return new testing.HarnessPredicate(MatSnackBarHarness, options);
         };
-        /**
-         * Gets the role of the snack-bar. The role of a snack-bar is determined based
-         * on the ARIA politeness specified in the snack-bar config.
-         * @deprecated Use `getAriaLive` instead.
-         * @breaking-change 13.0.0
-         */
-        MatSnackBarHarness.prototype.getRole = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).getAttribute('role')];
-                    }
-                });
-            });
-        };
-        /**
-         * Gets the aria-live of the snack-bar's live region. The aria-live of a snack-bar is
-         * determined based on the ARIA politeness specified in the snack-bar config.
-         */
-        MatSnackBarHarness.prototype.getAriaLive = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._simpleSnackBarLiveRegion()];
-                        case 1: return [2 /*return*/, (_a.sent())
-                                .getAttribute('aria-live')];
-                    }
-                });
-            });
-        };
-        /**
-         * Whether the snack-bar has an action. Method cannot be used for snack-bar's with custom content.
-         */
-        MatSnackBarHarness.prototype.hasAction = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._assertSimpleSnackBar()];
-                        case 1:
-                            _a.sent();
-                            return [4 /*yield*/, this._simpleSnackBarActionButton()];
-                        case 2: return [2 /*return*/, (_a.sent()) !== null];
-                    }
-                });
-            });
-        };
-        /**
-         * Gets the description of the snack-bar. Method cannot be used for snack-bar's without action or
-         * with custom content.
-         */
-        MatSnackBarHarness.prototype.getActionDescription = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._assertSimpleSnackBarWithAction()];
-                        case 1:
-                            _a.sent();
-                            return [4 /*yield*/, this._simpleSnackBarActionButton()];
-                        case 2: return [2 /*return*/, (_a.sent()).text()];
-                    }
-                });
-            });
-        };
-        /**
-         * Dismisses the snack-bar by clicking the action button. Method cannot be used for snack-bar's
-         * without action or with custom content.
-         */
-        MatSnackBarHarness.prototype.dismissWithAction = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._assertSimpleSnackBarWithAction()];
-                        case 1:
-                            _a.sent();
-                            return [4 /*yield*/, this._simpleSnackBarActionButton()];
-                        case 2: return [4 /*yield*/, (_a.sent()).click()];
-                        case 3:
-                            _a.sent();
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        /**
-         * Gets the message of the snack-bar. Method cannot be used for snack-bar's with custom content.
-         */
-        MatSnackBarHarness.prototype.getMessage = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._assertSimpleSnackBar()];
-                        case 1:
-                            _a.sent();
-                            return [4 /*yield*/, this._simpleSnackBarMessage()];
-                        case 2: return [2 /*return*/, (_a.sent()).text()];
-                    }
-                });
-            });
-        };
-        /** Gets whether the snack-bar has been dismissed. */
-        MatSnackBarHarness.prototype.isDismissed = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var host, _a, exit, dimensions;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1:
-                            host = _b.sent();
-                            return [4 /*yield*/, testing.parallel(function () { return [
-                                    // The snackbar container is marked with the "exit" attribute after it has been dismissed
-                                    // but before the animation has finished (after which it's removed from the DOM).
-                                    host.getAttribute('mat-exit'),
-                                    host.getDimensions(),
-                                ]; })];
-                        case 2:
-                            _a = __read.apply(void 0, [_b.sent(), 2]), exit = _a[0], dimensions = _a[1];
-                            return [2 /*return*/, exit != null || (!!dimensions && dimensions.height === 0 && dimensions.width === 0)];
-                    }
-                });
-            });
-        };
-        /**
-         * Asserts that the current snack-bar does not use custom content. Promise rejects if
-         * custom content is used.
-         */
-        MatSnackBarHarness.prototype._assertSimpleSnackBar = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._isSimpleSnackBar()];
-                        case 1:
-                            if (!(_a.sent())) {
-                                throw Error('Method cannot be used for snack-bar with custom content.');
-                            }
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        /**
-         * Asserts that the current snack-bar does not use custom content and has
-         * an action defined. Otherwise the promise will reject.
-         */
-        MatSnackBarHarness.prototype._assertSimpleSnackBarWithAction = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._assertSimpleSnackBar()];
-                        case 1:
-                            _a.sent();
-                            return [4 /*yield*/, this.hasAction()];
-                        case 2:
-                            if (!(_a.sent())) {
-                                throw Error('Method cannot be used for standard snack-bar without action.');
-                            }
-                            return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        /** Whether the snack-bar is using the default content template. */
-        MatSnackBarHarness.prototype._isSimpleSnackBar = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._simpleSnackBar()];
-                        case 1: return [2 /*return*/, (_a.sent()) !== null];
-                    }
-                });
-            });
-        };
         return MatSnackBarHarness;
-    }(testing.ComponentHarness));
-    // Developers can provide a custom component or template for the
-    // snackbar. The canonical snack-bar parent is the "MatSnackBarContainer".
-    // We use `:not([mat-exit])` to exclude snack bars that are in the process of being dismissed,
-    // because the element only gets removed after the animation is finished and since it runs
-    // outside of Angular, we don't have a way of being notified when it's done.
+    }(testing$1.MatSnackBarHarness));
+    // Developers can provide a custom component or template for the snackbar. The canonical snack-bar
+    // parent is the "MatSnackBarContainer". We use `:not([mat-exit])` to exclude snack bars that
+    // are in the process of being dismissed, because the element only gets removed after the
+    // animation is finished and since it runs outside of Angular, we don't have a way of being
+    // notified when it's done.
     /** The selector for the host element of a `MatSnackBar` instance. */
     MatSnackBarHarness.hostSelector = '.mat-mdc-snack-bar-container:not([mat-exit])';
 
