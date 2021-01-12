@@ -315,15 +315,11 @@
             _this.needsPositionStickyOnElement = false;
             return _this;
         }
+        // After ngOnInit, the `CdkTable` has created and inserted the table sections (thead, tbody,
+        // tfoot). MDC requires the `mdc-data-table__content` class to be added to the body.
         MatTable.prototype.ngOnInit = function () {
             _super.prototype.ngOnInit.call(this);
-            // After ngOnInit, the `CdkTable` has created and inserted the table sections (thead, tbody,
-            // tfoot). MDC requires the `mdc-data-table__content` class to be added to the body. Note that
-            // this only applies to native tables, because we don't wrap the content of flexbox-based ones.
-            if (this._isNativeHtmlTable) {
-                var tbody = this._elementRef.nativeElement.querySelector('tbody');
-                tbody.classList.add('mdc-data-table__content');
-            }
+            this._elementRef.nativeElement.querySelector('tbody').classList.add('mdc-data-table__content');
         };
         return MatTable;
     }(table.CdkTable));
