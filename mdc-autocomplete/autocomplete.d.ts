@@ -6,8 +6,8 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { QueryList } from '@angular/core';
-import { _MatAutocompleteBase } from '@angular/material/autocomplete';
 import { MatOptgroup, MatOption } from '@angular/material-experimental/mdc-core';
+import { _MatAutocompleteBase } from '@angular/material/autocomplete';
 export declare class MatAutocomplete extends _MatAutocompleteBase {
     optionGroups: QueryList<MatOptgroup>;
     options: QueryList<MatOption>;

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('@angular/material/autocomplete'), require('@angular/forms')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete', ['exports', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/common', '@angular/cdk/scrolling', '@angular/cdk/overlay', '@angular/material/autocomplete', '@angular/forms'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.common, global.ng.cdk.scrolling, global.ng.cdk.overlay, global.ng.material.autocomplete, global.ng.forms));
-}(this, (function (exports, core, mdcCore, common, scrolling, overlay, autocomplete, forms) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('@angular/material/autocomplete'), require('@angular/animations'), require('@angular/forms')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete', ['exports', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/common', '@angular/cdk/scrolling', '@angular/cdk/overlay', '@angular/material/autocomplete', '@angular/animations', '@angular/forms'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.common, global.ng.cdk.scrolling, global.ng.cdk.overlay, global.ng.material.autocomplete, global.ng.animations, global.ng.forms));
+}(this, (function (exports, core, mdcCore, common, scrolling, overlay, autocomplete, animations, forms) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -313,6 +313,32 @@
         return value;
     }
 
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    // Animation values come from
+    // https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu-surface/_mixins.scss
+    // TODO(mmalerba): Ideally find a way to import the values from MDC's code.
+    var panelAnimation = animations.trigger('panelAnimation', [
+        animations.state('void, hidden', animations.style({
+            opacity: 0,
+            transform: 'scale(0.8)',
+        })),
+        animations.transition(':enter, hidden => visible', [
+            animations.group([
+                animations.animate('0.03s linear', animations.style({ opacity: 1 })),
+                animations.animate('0.12s cubic-bezier(0, 0, 0.2, 1)', animations.style({ transform: 'scale(1)' })),
+            ]),
+        ]),
+        animations.transition(':leave, visible => hidden', [
+            animations.animate('0.075s linear', animations.style({ opacity: 0 })),
+        ]),
+    ]);
+
     var MatAutocomplete = /** @class */ (function (_super) {
         __extends(MatAutocomplete, _super);
         function MatAutocomplete() {
@@ -326,7 +352,7 @@
     MatAutocomplete.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-autocomplete',
-                    template: "<ng-template let-formFieldId=\"id\">\n  <div\n    class=\"mat-mdc-autocomplete-panel mdc-menu-surface mdc-menu-surface--open\"\n    role=\"listbox\"\n    [id]=\"id\"\n    [ngClass]=\"_classList\"\n    [attr.aria-label]=\"ariaLabel || null\"\n    [attr.aria-labelledby]=\"_getPanelAriaLabelledby(formFieldId)\"\n    #panel>\n    <ng-content></ng-content>\n  </div>\n</ng-template>\n",
+                    template: "<ng-template let-formFieldId=\"id\">\n  <div\n    class=\"mat-mdc-autocomplete-panel mdc-menu-surface mdc-menu-surface--open\"\n    role=\"listbox\"\n    [id]=\"id\"\n    [ngClass]=\"_classList\"\n    [attr.aria-label]=\"ariaLabel || null\"\n    [attr.aria-labelledby]=\"_getPanelAriaLabelledby(formFieldId)\"\n    [@panelAnimation]=\"isOpen ? 'visible' : 'hidden'\"\n    #panel>\n    <ng-content></ng-content>\n  </div>\n</ng-template>\n",
                     encapsulation: core.ViewEncapsulation.None,
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     exportAs: 'matAutocomplete',
@@ -337,7 +363,8 @@
                     providers: [
                         { provide: mdcCore.MAT_OPTION_PARENT_COMPONENT, useExisting: MatAutocomplete }
                     ],
-                    styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mdc-menu-surface.mat-mdc-autocomplete-panel{width:100%;max-height:256px;position:static;visibility:hidden;margin:0;padding:8px 0;list-style-type:none}.mdc-menu-surface.mat-mdc-autocomplete-panel:focus{outline:none}.cdk-high-contrast-active .mdc-menu-surface.mat-mdc-autocomplete-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) .mdc-menu-surface.mat-mdc-autocomplete-panel{border-top-left-radius:0;border-top-right-radius:0}.mat-mdc-autocomplete-panel-above .mdc-menu-surface.mat-mdc-autocomplete-panel{border-bottom-left-radius:0;border-bottom-right-radius:0}.mdc-menu-surface.mat-mdc-autocomplete-panel.mat-mdc-autocomplete-visible{visibility:visible}.mdc-menu-surface.mat-mdc-autocomplete-panel.mat-mdc-autocomplete-hidden{visibility:hidden}\n"]
+                    animations: [panelAnimation],
+                    styles: [".mdc-menu-surface{display:none;position:absolute;box-sizing:border-box;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:0;padding:0;transform:scale(1);transform-origin:top left;opacity:0;overflow:auto;will-change:transform,opacity;z-index:8;border-radius:4px;border-radius:var(--mdc-shape-medium, 4px);transform-origin-left:top left;transform-origin-right:top right}.mdc-menu-surface:focus{outline:none}.mdc-menu-surface--open{display:inline-block;transform:scale(1);opacity:1}.mdc-menu-surface--animating-open{display:inline-block;transform:scale(0.8);opacity:0}.mdc-menu-surface--animating-closed{display:inline-block;opacity:0}[dir=rtl] .mdc-menu-surface,.mdc-menu-surface[dir=rtl]{transform-origin-left:top right;transform-origin-right:top left}.mdc-menu-surface--anchor{position:relative;overflow:visible}.mdc-menu-surface--fixed{position:fixed}.mdc-menu-surface--fullwidth{width:100%}.mdc-menu-surface.mat-mdc-autocomplete-panel{width:100%;max-height:256px;position:static;visibility:hidden;transform-origin:center top;margin:0;padding:8px 0;list-style-type:none}.mdc-menu-surface.mat-mdc-autocomplete-panel:focus{outline:none}.cdk-high-contrast-active .mdc-menu-surface.mat-mdc-autocomplete-panel{outline:solid 1px}.cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) .mdc-menu-surface.mat-mdc-autocomplete-panel{border-top-left-radius:0;border-top-right-radius:0}.mat-mdc-autocomplete-panel-above .mdc-menu-surface.mat-mdc-autocomplete-panel{border-bottom-left-radius:0;border-bottom-right-radius:0;transform-origin:center bottom}.mdc-menu-surface.mat-mdc-autocomplete-panel.mat-mdc-autocomplete-visible{visibility:visible}.mdc-menu-surface.mat-mdc-autocomplete-panel.mat-mdc-autocomplete-hidden{visibility:hidden}\n"]
                 },] }
     ];
     MatAutocomplete.propDecorators = {
@@ -509,6 +536,7 @@
     exports.MatAutocompleteModule = MatAutocompleteModule;
     exports.MatAutocompleteOrigin = MatAutocompleteOrigin;
     exports.MatAutocompleteTrigger = MatAutocompleteTrigger;
+    exports.ɵangular_material_src_material_experimental_mdc_autocomplete_mdc_autocomplete_a = panelAnimation;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
