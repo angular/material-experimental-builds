@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, Directive, Input
 import { CdkTable, CDK_TABLE_TEMPLATE, _COALESCED_STYLE_SCHEDULER, _CoalescedStyleScheduler, CdkCellDef, CdkHeaderCellDef, CdkFooterCellDef, CdkColumnDef, CdkHeaderCell, CdkFooterCell, CdkCell, CdkHeaderRowDef, CdkFooterRowDef, CdkRowDef, CdkHeaderRow, CDK_ROW_TEMPLATE, CdkFooterRow, CdkRow, CdkNoDataRow, CdkTextColumn, CdkTableModule } from '@angular/cdk/table';
 import { _VIEW_REPEATER_STRATEGY, _DisposeViewRepeaterStrategy } from '@angular/cdk/collections';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
-import { _MAT_TEXT_COLUMN_TEMPLATE, _MatTableDataSource } from '@angular/material/table';
+import { _MatTableDataSource } from '@angular/material/table';
 
 /**
  * @license
@@ -301,7 +301,16 @@ class MatTextColumn extends CdkTextColumn {
 MatTextColumn.decorators = [
     { type: Component, args: [{
                 selector: 'mat-text-column',
-                template: _MAT_TEXT_COLUMN_TEMPLATE,
+                template: `
+    <ng-container matColumnDef>
+      <th mat-header-cell *matHeaderCellDef [style.text-align]="justify">
+        {{headerText}}
+      </th>
+      <td mat-cell *matCellDef="let data" [style.text-align]="justify">
+        {{dataAccessor(data, name)}}
+      </td>
+    </ng-container>
+  `,
                 encapsulation: ViewEncapsulation.None,
                 // Change detection is intentionally not set to OnPush. This component's template will be provided
                 // to the table to be inserted into its view. This is problematic when change detection runs since

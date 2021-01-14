@@ -664,7 +664,7 @@
     MatTextColumn.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-text-column',
-                    template: table$1._MAT_TEXT_COLUMN_TEMPLATE,
+                    template: "\n    <ng-container matColumnDef>\n      <th mat-header-cell *matHeaderCellDef [style.text-align]=\"justify\">\n        {{headerText}}\n      </th>\n      <td mat-cell *matCellDef=\"let data\" [style.text-align]=\"justify\">\n        {{dataAccessor(data, name)}}\n      </td>\n    </ng-container>\n  ",
                     encapsulation: core.ViewEncapsulation.None,
                     // Change detection is intentionally not set to OnPush. This component's template will be provided
                     // to the table to be inserted into its view. This is problematic when change detection runs since
