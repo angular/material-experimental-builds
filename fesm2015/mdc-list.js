@@ -1,7 +1,7 @@
 import { InjectionToken, Directive, Optional, Inject, ElementRef, NgZone, ContentChildren, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, ChangeDetectorRef, HostListener, forwardRef, EventEmitter, Output, NgModule } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
-import { RippleRenderer, setLines, MatLine, MatCommonModule, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
+import { RippleRenderer, setLines, MAT_RIPPLE_GLOBAL_OPTIONS, MatLine, MatCommonModule, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
 import { Subscription, Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
 import { DOCUMENT, CommonModule } from '@angular/common';
@@ -119,7 +119,7 @@ function toggleClass(el, className, on) {
 }
 /** @docs-private */
 class MatListItemBase {
-    constructor(_elementRef, _ngZone, _listBase, _platform) {
+    constructor(_elementRef, _ngZone, _listBase, _platform, globalRippleOptions) {
         this._elementRef = _elementRef;
         this._ngZone = _ngZone;
         this._listBase = _listBase;
@@ -128,12 +128,8 @@ class MatListItemBase {
         this._disabled = false;
         this._subscriptions = new Subscription();
         this._rippleRenderer = null;
-        /**
-         * Implemented as part of `RippleTarget`.
-         * @docs-private
-         */
-        this.rippleConfig = {};
         this._hostElement = this._elementRef.nativeElement;
+        this.rippleConfig = globalRippleOptions || {};
         if (!this._listBase._isNonInteractive) {
             this._initInteractiveListItem();
         }
@@ -156,7 +152,7 @@ class MatListItemBase {
      * Implemented as part of `RippleTarget`.
      * @docs-private
      */
-    get rippleDisabled() { return this.disableRipple; }
+    get rippleDisabled() { return this.disableRipple || !!this.rippleConfig.disabled; }
     ngAfterContentInit() {
         this._monitorLines();
     }
@@ -205,7 +201,8 @@ MatListItemBase.ctorParameters = () => [
     { type: ElementRef },
     { type: NgZone },
     { type: MatListBase },
-    { type: Platform }
+    { type: Platform },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
 ];
 MatListItemBase.propDecorators = {
     _avatars: [{ type: ContentChildren, args: [MatListAvatarCssMatStyler, { descendants: false },] }],
@@ -297,8 +294,8 @@ MatList.decorators = [
             },] }
 ];
 class MatListItem extends MatListItemBase {
-    constructor(element, ngZone, listBase, platform) {
-        super(element, ngZone, listBase, platform);
+    constructor(element, ngZone, listBase, platform, globalRippleOptions) {
+        super(element, ngZone, listBase, platform, globalRippleOptions);
     }
 }
 MatListItem.decorators = [
@@ -318,7 +315,8 @@ MatListItem.ctorParameters = () => [
     { type: ElementRef },
     { type: NgZone },
     { type: MatListBase },
-    { type: Platform }
+    { type: Platform },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
 ];
 MatListItem.propDecorators = {
     lines: [{ type: ContentChildren, args: [MatLine, { read: ElementRef, descendants: true },] }],
@@ -339,8 +337,8 @@ MatListItem.propDecorators = {
  */
 const SELECTION_LIST = new InjectionToken('SelectionList');
 class MatListOption extends MatListItemBase {
-    constructor(element, ngZone, platform, _selectionList, _changeDetectorRef) {
-        super(element, ngZone, _selectionList, platform);
+    constructor(element, ngZone, platform, _selectionList, _changeDetectorRef, globalRippleOptions) {
+        super(element, ngZone, _selectionList, platform, globalRippleOptions);
         this._selectionList = _selectionList;
         this._changeDetectorRef = _changeDetectorRef;
         /**
@@ -485,7 +483,8 @@ MatListOption.ctorParameters = () => [
     { type: NgZone },
     { type: Platform },
     { type: undefined, decorators: [{ type: Inject, args: [SELECTION_LIST,] }] },
-    { type: ChangeDetectorRef }
+    { type: ChangeDetectorRef },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
 ];
 MatListOption.propDecorators = {
     _itemText: [{ type: ViewChild, args: ['text',] }],

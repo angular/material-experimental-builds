@@ -431,7 +431,7 @@
     }
     /** @docs-private */
     var MatListItemBase = /** @class */ (function () {
-        function MatListItemBase(_elementRef, _ngZone, _listBase, _platform) {
+        function MatListItemBase(_elementRef, _ngZone, _listBase, _platform, globalRippleOptions) {
             this._elementRef = _elementRef;
             this._ngZone = _ngZone;
             this._listBase = _listBase;
@@ -440,12 +440,8 @@
             this._disabled = false;
             this._subscriptions = new rxjs.Subscription();
             this._rippleRenderer = null;
-            /**
-             * Implemented as part of `RippleTarget`.
-             * @docs-private
-             */
-            this.rippleConfig = {};
             this._hostElement = this._elementRef.nativeElement;
+            this.rippleConfig = globalRippleOptions || {};
             if (!this._listBase._isNonInteractive) {
                 this._initInteractiveListItem();
             }
@@ -477,7 +473,7 @@
              * Implemented as part of `RippleTarget`.
              * @docs-private
              */
-            get: function () { return this.disableRipple; },
+            get: function () { return this.disableRipple || !!this.rippleConfig.disabled; },
             enumerable: false,
             configurable: true
         });
@@ -531,7 +527,8 @@
         { type: core.ElementRef },
         { type: core.NgZone },
         { type: MatListBase },
-        { type: platform.Platform }
+        { type: platform.Platform },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
     ]; };
     MatListItemBase.propDecorators = {
         _avatars: [{ type: core.ContentChildren, args: [MatListAvatarCssMatStyler, { descendants: false },] }],
@@ -627,8 +624,8 @@
     ];
     var MatListItem = /** @class */ (function (_super) {
         __extends(MatListItem, _super);
-        function MatListItem(element, ngZone, listBase, platform) {
-            return _super.call(this, element, ngZone, listBase, platform) || this;
+        function MatListItem(element, ngZone, listBase, platform, globalRippleOptions) {
+            return _super.call(this, element, ngZone, listBase, platform, globalRippleOptions) || this;
         }
         return MatListItem;
     }(MatListItemBase));
@@ -649,7 +646,8 @@
         { type: core.ElementRef },
         { type: core.NgZone },
         { type: MatListBase },
-        { type: platform.Platform }
+        { type: platform.Platform },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
     ]; };
     MatListItem.propDecorators = {
         lines: [{ type: core.ContentChildren, args: [mdcCore.MatLine, { read: core.ElementRef, descendants: true },] }],
@@ -664,8 +662,8 @@
     var SELECTION_LIST = new core.InjectionToken('SelectionList');
     var MatListOption = /** @class */ (function (_super) {
         __extends(MatListOption, _super);
-        function MatListOption(element, ngZone, platform, _selectionList, _changeDetectorRef) {
-            var _this = _super.call(this, element, ngZone, _selectionList, platform) || this;
+        function MatListOption(element, ngZone, platform, _selectionList, _changeDetectorRef, globalRippleOptions) {
+            var _this = _super.call(this, element, ngZone, _selectionList, platform, globalRippleOptions) || this;
             _this._selectionList = _selectionList;
             _this._changeDetectorRef = _changeDetectorRef;
             /**
@@ -826,7 +824,8 @@
         { type: core.NgZone },
         { type: platform.Platform },
         { type: undefined, decorators: [{ type: core.Inject, args: [SELECTION_LIST,] }] },
-        { type: core.ChangeDetectorRef }
+        { type: core.ChangeDetectorRef },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
     ]; };
     MatListOption.propDecorators = {
         _itemText: [{ type: core.ViewChild, args: ['text',] }],

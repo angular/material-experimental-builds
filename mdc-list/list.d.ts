@@ -7,11 +7,12 @@
  */
 import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone, QueryList } from '@angular/core';
+import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
 export declare class MatList extends MatListBase {
 }
 export declare class MatListItem extends MatListItemBase {
     lines: QueryList<ElementRef<Element>>;
     _itemText: ElementRef<HTMLElement>;
-    constructor(element: ElementRef, ngZone: NgZone, listBase: MatListBase, platform: Platform);
+    constructor(element: ElementRef, ngZone: NgZone, listBase: MatListBase, platform: Platform, globalRippleOptions?: RippleGlobalOptions);
 }
