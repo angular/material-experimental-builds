@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Platform } from '@angular/cdk/platform';
 import { ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, OnInit, QueryList } from '@angular/core';
-import { ThemePalette } from '@angular/material-experimental/mdc-core';
+import { RippleGlobalOptions, ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
 import { ListOption, MatListOptionCheckboxPosition } from './list-option-types';
 /**
@@ -56,7 +56,7 @@ export declare class MatListOption extends MatListItemBase implements ListOption
     get selected(): boolean;
     set selected(value: boolean);
     private _selected;
-    constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef);
+    constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions);
     ngOnInit(): void;
     ngOnDestroy(): void;
     /** Toggles the selection state of the option. */
