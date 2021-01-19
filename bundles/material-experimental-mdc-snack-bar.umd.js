@@ -409,6 +409,16 @@
             else {
                 _this._live = 'polite';
             }
+            // Only set role for Firefox. Set role based on aria-live because setting role="alert" implies
+            // aria-live="assertive" which may cause issues if aria-live is set to "polite" above.
+            if (_this._platform.FIREFOX) {
+                if (_this._live === 'polite') {
+                    _this._role = 'status';
+                }
+                if (_this._live === 'assertive') {
+                    _this._role = 'alert';
+                }
+            }
             // `MatSnackBar` will use the config's timeout to determine when the snack bar should be closed.
             // Set this to `-1` to mark it as indefinitely open so that MDC does not close itself.
             _this._mdcFoundation.setTimeoutMs(-1);
@@ -514,7 +524,7 @@
     MatSnackBarContainer.decorators = [
         { type: i0.Component, args: [{
                     selector: 'mat-mdc-snack-bar-container',
-                    template: "<div class=\"mdc-snackbar__surface\" #surface>\n  <!--\n    This outer label wrapper will have the class `mdc-snackbar__label` applied if\n    the attached template/component does not contain it.\n  -->\n  <div class=\"mat-mdc-snack-bar-label\" #label>\n    <!-- Initialy holds the snack bar content, will be empty after announcing to screen readers. -->\n    <div aria-hidden=\"true\">\n      <ng-template cdkPortalOutlet></ng-template>\n    </div>\n\n    <!-- Will receive the snack bar content from the non-live div, move will happen a short delay after opening -->\n    <div [attr.aria-live]=\"_live\"></div>\n  </div>\n</div>\n",
+                    template: "<div class=\"mdc-snackbar__surface\" #surface>\n  <!--\n    This outer label wrapper will have the class `mdc-snackbar__label` applied if\n    the attached template/component does not contain it.\n  -->\n  <div class=\"mat-mdc-snack-bar-label\" #label>\n    <!-- Initialy holds the snack bar content, will be empty after announcing to screen readers. -->\n    <div aria-hidden=\"true\">\n      <ng-template cdkPortalOutlet></ng-template>\n    </div>\n\n    <!-- Will receive the snack bar content from the non-live div, move will happen a short delay after opening -->\n    <div [attr.aria-live]=\"_live\" [attr.role]=\"_role\"></div>\n  </div>\n</div>\n",
                     // In Ivy embedded views will be change detected from their declaration place, rather than
                     // where they were stamped out. This means that we can't have the snack bar container be OnPush,
                     // because it might cause snack bars that were opened from a template not to be out of date.
