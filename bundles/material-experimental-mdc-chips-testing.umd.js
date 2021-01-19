@@ -398,11 +398,6 @@
                             return [4 /*yield*/, hostEl.sendKeys(testing.TestKey.DELETE)];
                         case 2:
                             _a.sent();
-                            // @breaking-change 12.0.0 Remove non-null assertion from `dispatchEvent`.
-                            return [4 /*yield*/, hostEl.dispatchEvent('transitionend', { propertyName: 'width' })];
-                        case 3:
-                            // @breaking-change 12.0.0 Remove non-null assertion from `dispatchEvent`.
-                            _a.sent();
                             return [2 /*return*/];
                     }
                 });

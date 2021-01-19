@@ -1,7 +1,7 @@
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { Directive, ComponentFactoryResolver, ViewContainerRef, Inject, forwardRef, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, Optional, ChangeDetectorRef, ViewChild, Input, ContentChild, TemplateRef, NgZone, ContentChildren, Attribute, NgModule } from '@angular/core';
 import { MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
-import { PortalHostDirective, PortalModule } from '@angular/cdk/portal';
+import { CdkPortalOutlet, PortalModule } from '@angular/cdk/portal';
 import { ObserversModule } from '@angular/cdk/observers';
 import { FocusMonitor, A11yModule } from '@angular/cdk/a11y';
 import { MatTabBodyPortal as MatTabBodyPortal$1, _MatTabBodyBase, matTabsAnimations, MatTabContent as MatTabContent$1, MatTabLabel as MatTabLabel$1, MatTabLabelWrapper as MatTabLabelWrapper$1, MatTab as MatTab$1, _MatTabHeaderBase, _MatTabGroupBase, MAT_TAB_GROUP, MAT_TABS_CONFIG, _MatTabNavBase, _MatTabLinkBase } from '@angular/material/tabs';
@@ -70,7 +70,7 @@ MatTabBody.ctorParameters = () => [
     { type: ChangeDetectorRef }
 ];
 MatTabBody.propDecorators = {
-    _portalHost: [{ type: ViewChild, args: [PortalHostDirective,] }]
+    _portalHost: [{ type: ViewChild, args: [CdkPortalOutlet,] }]
 };
 
 /**
