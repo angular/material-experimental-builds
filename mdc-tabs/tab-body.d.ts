@@ -7,7 +7,7 @@
  */
 import { ComponentFactoryResolver, ViewContainerRef, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { MatTabBodyPortal as BaseMatTabBodyPortal, _MatTabBodyBase } from '@angular/material/tabs';
-import { PortalHostDirective } from '@angular/cdk/portal';
+import { CdkPortalOutlet } from '@angular/cdk/portal';
 import { Directionality } from '@angular/cdk/bidi';
 /**
  * The portal host directive for the contents of the tab.
@@ -21,6 +21,6 @@ export declare class MatTabBodyPortal extends BaseMatTabBodyPortal {
  * @docs-private
  */
 export declare class MatTabBody extends _MatTabBodyBase {
-    _portalHost: PortalHostDirective;
+    _portalHost: CdkPortalOutlet;
     constructor(elementRef: ElementRef<HTMLElement>, dir: Directionality, changeDetectorRef: ChangeDetectorRef);
 }
