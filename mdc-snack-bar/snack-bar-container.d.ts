@@ -36,6 +36,11 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
     _live: AriaLivePoliteness;
     /** Whether the snack bar is currently exiting. */
     _exiting: boolean;
+    /**
+     * Role of the live region. This is only for Firefox as there is a known issue where Firefox +
+     * JAWS does not read out aria-live message.
+     */
+    _role?: 'status' | 'alert';
     private _mdcAdapter;
     _mdcFoundation: MDCSnackbarFoundation;
     /** The portal outlet inside of this container into which the snack bar content will be loaded. */

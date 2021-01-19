@@ -406,7 +406,8 @@
                         '[class.mat-primary]': 'color === "primary"',
                         '[class.mat-accent]': 'color === "accent"',
                         '[class.mat-warn]': 'color === "warn"',
-                        '[attr.tabindex]': 'disabled ? null : -1',
+                        // Needs to be removed since it causes some a11y issues (see #21266).
+                        '[attr.tabindex]': 'null',
                         '[attr.aria-label]': 'null',
                         '[attr.aria-labelledby]': 'null',
                         '[attr.aria-describedby]': 'null',
