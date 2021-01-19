@@ -357,7 +357,7 @@
         { type: core.ChangeDetectorRef }
     ]; };
     MatTabBody.propDecorators = {
-        _portalHost: [{ type: core.ViewChild, args: [portal.PortalHostDirective,] }]
+        _portalHost: [{ type: core.ViewChild, args: [portal.CdkPortalOutlet,] }]
     };
 
     /** Decorates the `ng-template` tags and reads out the template from it. */
