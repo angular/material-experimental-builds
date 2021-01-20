@@ -38,11 +38,6 @@ export declare class MatChipRow extends MatChip implements AfterContentInit, Aft
     contentEditInput?: MatChipEditInput;
     /** The focusable grid cells for this row. Implemented as part of GridKeyManagerRow. */
     cells: HTMLElement[];
-    /**
-     * Timeout used to give some time between `focusin` and `focusout`
-     * in order to determine whether focus has left the chip.
-     */
-    private _focusoutTimeout;
     constructor(_document: any, changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef, ngZone: NgZone, dir: Directionality, animationMode?: string, globalRippleOptions?: RippleGlobalOptions);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;

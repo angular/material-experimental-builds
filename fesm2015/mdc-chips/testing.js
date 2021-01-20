@@ -67,6 +67,8 @@ class MatChipHarness extends ComponentHarness {
         return __awaiter(this, void 0, void 0, function* () {
             const hostEl = yield this.host();
             yield hostEl.sendKeys(TestKey.DELETE);
+            // @breaking-change 12.0.0 Remove non-null assertion from `dispatchEvent`.
+            yield hostEl.dispatchEvent('transitionend', { propertyName: 'width' });
         });
     }
     /**
