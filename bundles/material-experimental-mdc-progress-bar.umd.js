@@ -349,10 +349,12 @@
                 },
                 getWidth: function () { return _this._rootElement.offsetWidth; },
                 attachResizeObserver: function (callback) {
-                    if ((typeof window !== 'undefined') && window.ResizeObserver) {
-                        var ro = new ResizeObserver(callback);
-                        ro.observe(_this._rootElement);
-                        return ro;
+                    var resizeObserverConstructor = (typeof window !== 'undefined') &&
+                        window.ResizeObserver;
+                    if (resizeObserverConstructor) {
+                        var observer = new resizeObserverConstructor(callback);
+                        observer.observe(_this._rootElement);
+                        return observer;
                     }
                     return null;
                 }

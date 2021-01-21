@@ -48,10 +48,12 @@ class MatProgressBar extends _MatProgressBarMixinBase {
             },
             getWidth: () => this._rootElement.offsetWidth,
             attachResizeObserver: (callback) => {
-                if ((typeof window !== 'undefined') && window.ResizeObserver) {
-                    const ro = new ResizeObserver(callback);
-                    ro.observe(this._rootElement);
-                    return ro;
+                const resizeObserverConstructor = (typeof window !== 'undefined') &&
+                    window.ResizeObserver;
+                if (resizeObserverConstructor) {
+                    const observer = new resizeObserverConstructor(callback);
+                    observer.observe(this._rootElement);
+                    return observer;
                 }
                 return null;
             }
