@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/cdk/coercion')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox/testing', ['exports', '@angular/cdk/testing', '@angular/cdk/coercion'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = global.ng.materialExperimental.mdcCheckbox || {}, global.ng.materialExperimental.mdcCheckbox.testing = {}), global.ng.cdk.testing, global.ng.cdk.coercion));
-}(this, (function (exports, testing, coercion) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material/checkbox/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox/testing', ['exports', '@angular/cdk/testing', '@angular/material/checkbox/testing'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = global.ng.materialExperimental.mdcCheckbox || {}, global.ng.materialExperimental.mdcCheckbox.testing = {}), global.ng.cdk.testing, global.ng.material.checkbox.testing));
+}(this, (function (exports, testing, testing$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -318,8 +318,8 @@
         __extends(MatCheckboxHarness, _super);
         function MatCheckboxHarness() {
             var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._label = _this.locatorFor('label');
             _this._input = _this.locatorFor('input');
+            _this._label = _this.locatorFor('label');
             _this._inputContainer = _this.locatorFor('.mdc-checkbox');
             return _this;
         }
@@ -346,181 +346,6 @@
                 }
             }); }); });
         };
-        /** Gets a boolean promise indicating if the checkbox is checked. */
-        MatCheckboxHarness.prototype.isChecked = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var checked, _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1:
-                            checked = (_b.sent()).getProperty('checked');
-                            _a = coercion.coerceBooleanProperty;
-                            return [4 /*yield*/, checked];
-                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
-                    }
-                });
-            });
-        };
-        /** Gets a boolean promise indicating if the checkbox is in an indeterminate state. */
-        MatCheckboxHarness.prototype.isIndeterminate = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var indeterminate, _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1:
-                            indeterminate = (_b.sent()).getProperty('indeterminate');
-                            _a = coercion.coerceBooleanProperty;
-                            return [4 /*yield*/, indeterminate];
-                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
-                    }
-                });
-            });
-        };
-        /** Gets a boolean promise indicating if the checkbox is disabled. */
-        MatCheckboxHarness.prototype.isDisabled = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var disabled, _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1:
-                            disabled = (_b.sent()).getAttribute('disabled');
-                            _a = coercion.coerceBooleanProperty;
-                            return [4 /*yield*/, disabled];
-                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
-                    }
-                });
-            });
-        };
-        /** Gets a boolean promise indicating if the checkbox is required. */
-        MatCheckboxHarness.prototype.isRequired = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var required, _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1:
-                            required = (_b.sent()).getAttribute('required');
-                            _a = coercion.coerceBooleanProperty;
-                            return [4 /*yield*/, required];
-                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
-                    }
-                });
-            });
-        };
-        /** Gets a boolean promise indicating if the checkbox is valid. */
-        MatCheckboxHarness.prototype.isValid = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var invalid;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1:
-                            invalid = (_a.sent()).hasClass('ng-invalid');
-                            return [4 /*yield*/, invalid];
-                        case 2: return [2 /*return*/, !(_a.sent())];
-                    }
-                });
-            });
-        };
-        /** Gets a promise for the checkbox's name. */
-        MatCheckboxHarness.prototype.getName = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).getAttribute('name')];
-                    }
-                });
-            });
-        };
-        /** Gets a promise for the checkbox's value. */
-        MatCheckboxHarness.prototype.getValue = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).getProperty('value')];
-                    }
-                });
-            });
-        };
-        /** Gets a promise for the checkbox's aria-label. */
-        MatCheckboxHarness.prototype.getAriaLabel = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).getAttribute('aria-label')];
-                    }
-                });
-            });
-        };
-        /** Gets a promise for the checkbox's aria-labelledby. */
-        MatCheckboxHarness.prototype.getAriaLabelledby = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).getAttribute('aria-labelledby')];
-                    }
-                });
-            });
-        };
-        /** Gets a promise for the checkbox's label text. */
-        MatCheckboxHarness.prototype.getLabelText = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._label()];
-                        case 1: return [2 /*return*/, (_a.sent()).text()];
-                    }
-                });
-            });
-        };
-        /** Focuses the checkbox and returns a void promise that indicates when the action is complete. */
-        MatCheckboxHarness.prototype.focus = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).focus()];
-                    }
-                });
-            });
-        };
-        /** Blurs the checkbox and returns a void promise that indicates when the action is complete. */
-        MatCheckboxHarness.prototype.blur = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).blur()];
-                    }
-                });
-            });
-        };
-        /** Whether the checkbox is focused. */
-        MatCheckboxHarness.prototype.isFocused = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this._input()];
-                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
-                    }
-                });
-            });
-        };
-        /**
-         * Toggle the checked state of the checkbox and returns a void promise that indicates when the
-         * action is complete.
-         *
-         * Note: This attempts to toggle the checkbox as a user would, by clicking it. Therefore if you
-         * are using `MAT_CHECKBOX_DEFAULT_OPTIONS` to change the behavior on click, calling this method
-         * might not have the expected result.
-         */
         MatCheckboxHarness.prototype.toggle = function () {
             return __awaiter(this, void 0, void 0, function () {
                 var elToClick;
@@ -535,58 +360,8 @@
                 });
             });
         };
-        /**
-         * Puts the checkbox in a checked state by toggling it if it is currently unchecked, or doing
-         * nothing if it is already checked. Returns a void promise that indicates when the action is
-         * complete.
-         *
-         * Note: This attempts to check the checkbox as a user would, by clicking it. Therefore if you
-         * are using `MAT_CHECKBOX_DEFAULT_OPTIONS` to change the behavior on click, calling this method
-         * might not have the expected result.
-         */
-        MatCheckboxHarness.prototype.check = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.isChecked()];
-                        case 1:
-                            if (!!(_a.sent())) return [3 /*break*/, 3];
-                            return [4 /*yield*/, this.toggle()];
-                        case 2:
-                            _a.sent();
-                            _a.label = 3;
-                        case 3: return [2 /*return*/];
-                    }
-                });
-            });
-        };
-        /**
-         * Puts the checkbox in an unchecked state by toggling it if it is currently checked, or doing
-         * nothing if it is already unchecked. Returns a void promise that indicates when the action is
-         * complete.
-         *
-         * Note: This attempts to uncheck the checkbox as a user would, by clicking it. Therefore if you
-         * are using `MAT_CHECKBOX_DEFAULT_OPTIONS` to change the behavior on click, calling this method
-         * might not have the expected result.
-         */
-        MatCheckboxHarness.prototype.uncheck = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.isChecked()];
-                        case 1:
-                            if (!_a.sent()) return [3 /*break*/, 3];
-                            return [4 /*yield*/, this.toggle()];
-                        case 2:
-                            _a.sent();
-                            _a.label = 3;
-                        case 3: return [2 /*return*/];
-                    }
-                });
-            });
-        };
         return MatCheckboxHarness;
-    }(testing.ComponentHarness));
+    }(testing$1._MatCheckboxHarnessBase));
     MatCheckboxHarness.hostSelector = '.mat-mdc-checkbox';
 
     /**
