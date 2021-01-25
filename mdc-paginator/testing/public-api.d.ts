@@ -6,4 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export * from './paginator-harness';
-export * from './paginator-harness-filters';
+export { PaginatorHarnessFilters } from '@angular/material/paginator/testing';

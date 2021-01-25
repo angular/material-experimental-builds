@@ -12,7 +12,7 @@
 	 * found in the LICENSE file at https://angular.io/license
 	 */
 	/** Current version of the Material experimental package. */
-	var VERSION = new core.Version('11.1.0-sha-9c99070be');
+	var VERSION = new core.Version('11.1.0-sha-cf30c4449');
 
 	/**
 	 * @license
