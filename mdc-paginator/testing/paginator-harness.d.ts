@@ -5,19 +5,20 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
-import { PaginatorHarnessFilters } from './paginator-harness-filters';
+import { HarnessPredicate } from '@angular/cdk/testing';
+import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
+import { PaginatorHarnessFilters, _MatPaginatorHarnessBase } from '@angular/material/paginator/testing';
 /** Harness for interacting with an MDC-based mat-paginator in tests. */
-export declare class MatPaginatorHarness extends ComponentHarness {
+export declare class MatPaginatorHarness extends _MatPaginatorHarnessBase {
     /** Selector used to find paginator instances. */
     static hostSelector: string;
-    private _nextButton;
-    private _previousButton;
-    private _firstPageButton;
-    private _lastPageButton;
-    private _select;
-    private _pageSizeFallback;
-    private _rangeLabel;
+    protected _nextButton: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement>;
+    protected _previousButton: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement>;
+    protected _firstPageButton: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement | null>;
+    protected _lastPageButton: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement | null>;
+    protected _select: import("@angular/cdk/testing").AsyncFactoryFn<MatSelectHarness | null>;
+    protected _pageSizeFallback: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement>;
+    protected _rangeLabel: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement>;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a `MatPaginatorHarness` that meets
      * certain criteria.
@@ -25,21 +26,4 @@ export declare class MatPaginatorHarness extends ComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options?: PaginatorHarnessFilters): HarnessPredicate<MatPaginatorHarness>;
-    /** Goes to the next page in the paginator. */
-    goToNextPage(): Promise<void>;
-    /** Goes to the previous page in the paginator. */
-    goToPreviousPage(): Promise<void>;
-    /** Goes to the first page in the paginator. */
-    goToFirstPage(): Promise<void>;
-    /** Goes to the last page in the paginator. */
-    goToLastPage(): Promise<void>;
-    /**
-     * Sets the page size of the paginator.
-     * @param size Page size that should be select.
-     */
-    setPageSize(size: number): Promise<void>;
-    /** Gets the page size of the paginator. */
-    getPageSize(): Promise<number>;
-    /** Gets the text of the range labe of the paginator. */
-    getRangeLabel(): Promise<string>;
 }
