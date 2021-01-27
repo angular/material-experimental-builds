@@ -85,8 +85,6 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     get highlighted(): boolean;
     set highlighted(value: boolean);
     protected _highlighted: boolean;
-    /** Emitted when the user interacts with the remove icon. */
-    removeIconInteraction: EventEmitter<string>;
     /** Emitted when the user interacts with the chip. */
     interaction: EventEmitter<string>;
     /** Emitted when the chip is destroyed. */
@@ -97,8 +95,6 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     _chipFoundation: MDCChipFoundation;
     /** The unstyled chip selector for this component. */
     protected basicChipAttrName: string;
-    /** Subject that emits when the component has been destroyed. */
-    protected _destroyed: Subject<void>;
     /** The chip's leading icon. */
     leadingIcon: MatChipAvatar;
     /** The chip's trailing icon. */
@@ -117,9 +113,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /** Sets up the remove icon chip foundation, and subscribes to remove icon events. */
-    _initRemoveIcon(): void;
-    /** Handles interaction with the remove icon. */
-    _listenToRemoveIconInteraction(): void;
+    private _initRemoveIcon;
     /**
      * Allows for programmatic removal of the chip.
      *
