@@ -319,9 +319,8 @@
      */
     var MatDialogContainer = /** @class */ (function (_super) {
         __extends(MatDialogContainer, _super);
-        function MatDialogContainer(elementRef, focusTrapFactory, changeDetectorRef, document, config, _ngZone, _animationMode, focusMonitor) {
+        function MatDialogContainer(elementRef, focusTrapFactory, changeDetectorRef, document, config, _animationMode, focusMonitor) {
             var _this = _super.call(this, elementRef, focusTrapFactory, changeDetectorRef, document, config, focusMonitor) || this;
-            _this._ngZone = _ngZone;
             _this._animationMode = _animationMode;
             /** Whether animations are enabled. */
             _this._animationsEnabled = _this._animationMode !== 'NoopAnimations';
@@ -432,11 +431,12 @@
             this._hostElement.classList.remove(dialog$1.cssClasses.CLOSING);
         };
         MatDialogContainer.prototype._waitForAnimationToComplete = function (duration, callback) {
-            var _this = this;
             if (this._animationTimer !== null) {
                 clearTimeout(this._animationTimer);
             }
-            this._ngZone.runOutsideAngular(function () { return _this._animationTimer = setTimeout(callback, duration); });
+            // Note that we want this timer to run inside the NgZone, because we want
+            // the related events like `afterClosed` to be inside the zone as well.
+            this._animationTimer = setTimeout(callback, duration);
         };
         return MatDialogContainer;
     }(dialog._MatDialogContainerBase));
@@ -466,7 +466,6 @@
         { type: core.ChangeDetectorRef },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [common.DOCUMENT,] }] },
         { type: dialog.MatDialogConfig },
-        { type: core.NgZone },
         { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
         { type: a11y.FocusMonitor }
     ]; };

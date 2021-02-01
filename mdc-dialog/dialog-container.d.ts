@@ -6,14 +6,13 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { FocusMonitor, FocusTrapFactory } from '@angular/cdk/a11y';
-import { ChangeDetectorRef, ElementRef, NgZone, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, OnDestroy } from '@angular/core';
 import { MatDialogConfig, _MatDialogContainerBase } from '@angular/material/dialog';
 /**
  * Internal component that wraps user-provided dialog content in a MDC dialog.
  * @docs-private
  */
 export declare class MatDialogContainer extends _MatDialogContainerBase implements OnDestroy {
-    private _ngZone;
     private _animationMode?;
     /** Whether animations are enabled. */
     _animationsEnabled: boolean;
@@ -25,7 +24,7 @@ export declare class MatDialogContainer extends _MatDialogContainerBase implemen
     private _closeAnimationDuration;
     /** Current timer for dialog animations. */
     private _animationTimer;
-    constructor(elementRef: ElementRef, focusTrapFactory: FocusTrapFactory, changeDetectorRef: ChangeDetectorRef, document: any, config: MatDialogConfig, _ngZone: NgZone, _animationMode?: string | undefined, focusMonitor?: FocusMonitor);
+    constructor(elementRef: ElementRef, focusTrapFactory: FocusTrapFactory, changeDetectorRef: ChangeDetectorRef, document: any, config: MatDialogConfig, _animationMode?: string | undefined, focusMonitor?: FocusMonitor);
     _initializeWithAttachedContent(): void;
     ngOnDestroy(): void;
     /** Starts the dialog open animation if enabled. */
