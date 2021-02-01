@@ -1,6 +1,6 @@
 import { Overlay, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { DOCUMENT, Location } from '@angular/common';
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, NgZone, InjectionToken, Injectable, Injector, SkipSelf, Directive, Input, NgModule } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, InjectionToken, Injectable, Injector, SkipSelf, Directive, Input, NgModule } from '@angular/core';
 import { _MatDialogContainerBase, MatDialogConfig, MatDialogRef as MatDialogRef$1, _MatDialogBase, _closeDialogVia } from '@angular/material/dialog';
 export { MAT_DIALOG_SCROLL_STRATEGY_FACTORY, MatDialogConfig, matDialogAnimations, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { FocusTrapFactory, FocusMonitor } from '@angular/cdk/a11y';
@@ -21,9 +21,8 @@ import { MatCommonModule } from '@angular/material-experimental/mdc-core';
  * @docs-private
  */
 class MatDialogContainer extends _MatDialogContainerBase {
-    constructor(elementRef, focusTrapFactory, changeDetectorRef, document, config, _ngZone, _animationMode, focusMonitor) {
+    constructor(elementRef, focusTrapFactory, changeDetectorRef, document, config, _animationMode, focusMonitor) {
         super(elementRef, focusTrapFactory, changeDetectorRef, document, config, focusMonitor);
-        this._ngZone = _ngZone;
         this._animationMode = _animationMode;
         /** Whether animations are enabled. */
         this._animationsEnabled = this._animationMode !== 'NoopAnimations';
@@ -134,7 +133,9 @@ class MatDialogContainer extends _MatDialogContainerBase {
         if (this._animationTimer !== null) {
             clearTimeout(this._animationTimer);
         }
-        this._ngZone.runOutsideAngular(() => this._animationTimer = setTimeout(callback, duration));
+        // Note that we want this timer to run inside the NgZone, because we want
+        // the related events like `afterClosed` to be inside the zone as well.
+        this._animationTimer = setTimeout(callback, duration);
     }
 }
 MatDialogContainer.decorators = [
@@ -163,7 +164,6 @@ MatDialogContainer.ctorParameters = () => [
     { type: ChangeDetectorRef },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [DOCUMENT,] }] },
     { type: MatDialogConfig },
-    { type: NgZone },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
     { type: FocusMonitor }
 ];
