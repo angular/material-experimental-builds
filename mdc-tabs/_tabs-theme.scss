@@ -36,7 +36,7 @@
       }
     }
 
-    .mat-mdc-tab-group {
+    .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
       &.mat-background-primary {
         @include _mat-mdc-tabs-background(primary, on-primary);
       }
@@ -80,7 +80,9 @@
       @include mdc-theme-prop(background-color, $foreground-color);
     }
 
-    .mdc-tab-indicator__content--underline, .mat-mdc-tab-header-pagination-chevron {
+    .mdc-tab-indicator__content--underline, .mat-mdc-tab-header-pagination-chevron,
+    .mat-mdc-focus-indicator::before,
+    .mat-mdc-focus-indicator::before {
       @include mdc-theme-prop(border-color, $foreground-color);
     }
   }
