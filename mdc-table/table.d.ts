@@ -7,6 +7,12 @@
  */
 import { OnInit } from '@angular/core';
 import { CdkTable } from '@angular/cdk/table';
+/**
+ * Enables the recycle view repeater strategy, which reduces rendering latency. Not compatible with
+ * tables that animate rows.
+ */
+export declare class MatRecycleRows {
+}
 export declare class MatTable<T> extends CdkTable<T> implements OnInit {
     /** Overrides the sticky CSS class set by the `CdkTable`. */
     protected stickyCssClass: string;
