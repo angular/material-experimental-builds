@@ -71,10 +71,10 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     ngOnDestroy(): void;
     /** Focuses the selection list. */
     focus(options?: FocusOptions): void;
-    /** Selects all of the options. */
-    selectAll(): void;
-    /** Deselects all of the options. */
-    deselectAll(): void;
+    /** Selects all of the options. Returns the options that changed as a result. */
+    selectAll(): MatListOption[];
+    /** Deselects all of the options. Returns the options that changed as a result. */
+    deselectAll(): MatListOption[];
     /** Reports a value change to the ControlValueAccessor */
     _reportValueChange(): void;
     /** Emits a change event if the selected state of an option changed. */

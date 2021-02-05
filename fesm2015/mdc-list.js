@@ -831,13 +831,13 @@ class MatSelectionList extends MatInteractiveListBase {
     focus(options) {
         this._element.nativeElement.focus(options);
     }
-    /** Selects all of the options. */
+    /** Selects all of the options. Returns the options that changed as a result. */
     selectAll() {
-        this._setAllOptionsSelected(true);
+        return this._setAllOptionsSelected(true);
     }
-    /** Deselects all of the options. */
+    /** Deselects all of the options. Returns the options that changed as a result. */
     deselectAll() {
-        this._setAllOptionsSelected(false);
+        return this._setAllOptionsSelected(false);
     }
     /** Reports a value change to the ControlValueAccessor */
     _reportValueChange() {
@@ -933,15 +933,16 @@ class MatSelectionList extends MatInteractiveListBase {
     _setAllOptionsSelected(isSelected, skipDisabled) {
         // Keep track of whether anything changed, because we only want to
         // emit the changed event when something actually changed.
-        let hasChanged = false;
+        const changedOptions = [];
         this.options.forEach(option => {
             if ((!skipDisabled || !option.disabled) && option._setSelected(isSelected)) {
-                hasChanged = true;
+                changedOptions.push(option);
             }
         });
-        if (hasChanged) {
+        if (changedOptions.length) {
             this._reportValueChange();
         }
+        return changedOptions;
     }
     // Note: This getter exists for backwards compatibility. The `_items` query list
     // cannot be named `options` as it will be picked up by the interactive list base.
