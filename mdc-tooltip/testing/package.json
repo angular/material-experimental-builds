@@ -1,0 +1,9 @@
+{
+  "name": "@angular/material-experimental/mdc-tooltip/testing",
+  "main": "../../bundles/material-experimental-mdc-tooltip-testing.umd.js",
+  "fesm2015": "../../fesm2015/mdc-tooltip/testing.js",
+  "esm2015": "../../esm2015/mdc-tooltip/testing/index.js",
+  "typings": "./index.d.ts",
+  "module": "../../fesm2015/mdc-tooltip/testing.js",
+  "es2015": "../../fesm2015/mdc-tooltip/testing.js"
+}

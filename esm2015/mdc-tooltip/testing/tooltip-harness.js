@@ -1,0 +1,27 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { HarnessPredicate } from '@angular/cdk/testing';
+import { _MatTooltipHarnessBase } from '@angular/material/tooltip/testing';
+/** Harness for interacting with a standard mat-tooltip in tests. */
+export class MatTooltipHarness extends _MatTooltipHarnessBase {
+    constructor() {
+        super(...arguments);
+        this._optionalPanel = this.documentRootLocatorFactory().locatorForOptional('.mat-mdc-tooltip');
+    }
+    /**
+     * Gets a `HarnessPredicate` that can be used to search
+     * for a tooltip trigger with specific attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return new HarnessPredicate(MatTooltipHarness, options);
+    }
+}
+MatTooltipHarness.hostSelector = '.mat-mdc-tooltip-trigger';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9vbHRpcC1oYXJuZXNzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vc3JjL21hdGVyaWFsLWV4cGVyaW1lbnRhbC9tZGMtdG9vbHRpcC90ZXN0aW5nL3Rvb2x0aXAtaGFybmVzcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxPQUFPLEVBQUMsZ0JBQWdCLEVBQUMsTUFBTSxzQkFBc0IsQ0FBQztBQUN0RCxPQUFPLEVBQUMsc0JBQXNCLEVBQXdCLE1BQU0sbUNBQW1DLENBQUM7QUFFaEcsb0VBQW9FO0FBQ3BFLE1BQU0sT0FBTyxpQkFBa0IsU0FBUSxzQkFBc0I7SUFBN0Q7O1FBQ1ksbUJBQWMsR0FDcEIsSUFBSSxDQUFDLDBCQUEwQixFQUFFLENBQUMsa0JBQWtCLENBQUMsa0JBQWtCLENBQUMsQ0FBQztJQVkvRSxDQUFDO0lBVEM7Ozs7O09BS0c7SUFDSCxNQUFNLENBQUMsSUFBSSxDQUFDLFVBQWlDLEVBQUU7UUFDN0MsT0FBTyxJQUFJLGdCQUFnQixDQUFDLGlCQUFpQixFQUFFLE9BQU8sQ0FBQyxDQUFDO0lBQzFELENBQUM7O0FBVk0sOEJBQVksR0FBRywwQkFBMEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge0hhcm5lc3NQcmVkaWNhdGV9IGZyb20gJ0Bhbmd1bGFyL2Nkay90ZXN0aW5nJztcbmltcG9ydCB7X01hdFRvb2x0aXBIYXJuZXNzQmFzZSwgVG9vbHRpcEhhcm5lc3NGaWx0ZXJzfSBmcm9tICdAYW5ndWxhci9tYXRlcmlhbC90b29sdGlwL3Rlc3RpbmcnO1xuXG4vKiogSGFybmVzcyBmb3IgaW50ZXJhY3Rpbmcgd2l0aCBhIHN0YW5kYXJkIG1hdC10b29sdGlwIGluIHRlc3RzLiAqL1xuZXhwb3J0IGNsYXNzIE1hdFRvb2x0aXBIYXJuZXNzIGV4dGVuZHMgX01hdFRvb2x0aXBIYXJuZXNzQmFzZSB7XG4gIHByb3RlY3RlZCBfb3B0aW9uYWxQYW5lbCA9XG4gICAgICB0aGlzLmRvY3VtZW50Um9vdExvY2F0b3JGYWN0b3J5KCkubG9jYXRvckZvck9wdGlvbmFsKCcubWF0LW1kYy10b29sdGlwJyk7XG4gIHN0YXRpYyBob3N0U2VsZWN0b3IgPSAnLm1hdC1tZGMtdG9vbHRpcC10cmlnZ2VyJztcblxuICAvKipcbiAgICogR2V0cyBhIGBIYXJuZXNzUHJlZGljYXRlYCB0aGF0IGNhbiBiZSB1c2VkIHRvIHNlYXJjaFxuICAgKiBmb3IgYSB0b29sdGlwIHRyaWdnZXIgd2l0aCBzcGVjaWZpYyBhdHRyaWJ1dGVzLlxuICAgKiBAcGFyYW0gb3B0aW9ucyBPcHRpb25zIGZvciBuYXJyb3dpbmcgdGhlIHNlYXJjaC5cbiAgICogQHJldHVybiBhIGBIYXJuZXNzUHJlZGljYXRlYCBjb25maWd1cmVkIHdpdGggdGhlIGdpdmVuIG9wdGlvbnMuXG4gICAqL1xuICBzdGF0aWMgd2l0aChvcHRpb25zOiBUb29sdGlwSGFybmVzc0ZpbHRlcnMgPSB7fSk6IEhhcm5lc3NQcmVkaWNhdGU8TWF0VG9vbHRpcEhhcm5lc3M+IHtcbiAgICByZXR1cm4gbmV3IEhhcm5lc3NQcmVkaWNhdGUoTWF0VG9vbHRpcEhhcm5lc3MsIG9wdGlvbnMpO1xuICB9XG59XG4iXX0=
