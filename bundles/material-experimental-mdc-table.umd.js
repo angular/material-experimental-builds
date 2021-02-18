@@ -363,13 +363,10 @@
                     },
                     providers: [
                         { provide: table.CdkTable, useExisting: MatTable },
-                        { provide: table.CDK_TABLE, useExisting: MatTable },
                         { provide: table._COALESCED_STYLE_SCHEDULER, useClass: table._CoalescedStyleScheduler },
                         // TODO(michaeljamesparsons) Abstract the view repeater strategy to a directive API so this code
                         //  is only included in the build if used.
                         { provide: collections._VIEW_REPEATER_STRATEGY, useClass: collections._DisposeViewRepeaterStrategy },
-                        // Prevent nested tables from seeing this table's StickyPositioningListener.
-                        { provide: table.STICKY_POSITIONING_LISTENER, useValue: null },
                     ],
                     encapsulation: core.ViewEncapsulation.None,
                     // See note on CdkTable for explanation on why this uses the default change detection strategy.
