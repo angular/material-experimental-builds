@@ -38,7 +38,7 @@ MatOptgroup.decorators = [
     { type: Component, args: [{
                 selector: 'mat-optgroup',
                 exportAs: 'matOptgroup',
-                template: "<label\n  class=\"mat-mdc-optgroup-label\"\n  [class.mdc-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-list-item__text\">{{ label }} <ng-content></ng-content></span>\n</label>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n",
+                template: "<span\n  class=\"mat-mdc-optgroup-label\"\n  aria-hidden=\"true\"\n  [class.mdc-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-list-item__text\">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n",
                 encapsulation: ViewEncapsulation.None,
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 inputs: ['disabled'],
