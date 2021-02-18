@@ -48,9 +48,7 @@ const matTooltipAnimations = {
  * https://material.io/design/components/tooltips.html
  */
 class MatTooltip extends _MatTooltipBase {
-    constructor(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, 
-    /** @breaking-change 11.0.0 _document argument to become required. */
-    _document) {
+    constructor(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document) {
         super(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document);
         this._tooltipComponent = TooltipComponent;
         this._transformOriginSelector = '.mat-mdc-tooltip';

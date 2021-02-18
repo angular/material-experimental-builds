@@ -344,9 +344,7 @@
      */
     var MatTooltip = /** @class */ (function (_super) {
         __extends(MatTooltip, _super);
-        function MatTooltip(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, 
-        /** @breaking-change 11.0.0 _document argument to become required. */
-        _document) {
+        function MatTooltip(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document) {
             var _this = _super.call(this, overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document) || this;
             _this._tooltipComponent = TooltipComponent;
             _this._transformOriginSelector = '.mat-mdc-tooltip';

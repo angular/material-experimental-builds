@@ -20,9 +20,7 @@ import { MatTooltipDefaultOptions, _MatTooltipBase, _TooltipComponentBase } from
 export declare class MatTooltip extends _MatTooltipBase<TooltipComponent> {
     protected readonly _tooltipComponent: typeof TooltipComponent;
     protected readonly _transformOriginSelector = ".mat-mdc-tooltip";
-    constructor(overlay: Overlay, elementRef: ElementRef<HTMLElement>, scrollDispatcher: ScrollDispatcher, viewContainerRef: ViewContainerRef, ngZone: NgZone, platform: Platform, ariaDescriber: AriaDescriber, focusMonitor: FocusMonitor, scrollStrategy: any, dir: Directionality, defaultOptions: MatTooltipDefaultOptions, 
-    /** @breaking-change 11.0.0 _document argument to become required. */
-    _document: any);
+    constructor(overlay: Overlay, elementRef: ElementRef<HTMLElement>, scrollDispatcher: ScrollDispatcher, viewContainerRef: ViewContainerRef, ngZone: NgZone, platform: Platform, ariaDescriber: AriaDescriber, focusMonitor: FocusMonitor, scrollStrategy: any, dir: Directionality, defaultOptions: MatTooltipDefaultOptions, _document: any);
     protected _addOffset(position: ConnectedPosition): ConnectedPosition;
 }
 /**
