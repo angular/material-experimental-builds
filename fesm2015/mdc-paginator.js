@@ -4,7 +4,7 @@ import { _MatPaginatorBase, MatPaginatorIntl, MAT_PAGINATOR_INTL_PROVIDER } from
 export { MAT_PAGINATOR_INTL_PROVIDER, MAT_PAGINATOR_INTL_PROVIDER_FACTORY, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material-experimental/mdc-button';
 import { MatSelectModule } from '@angular/material-experimental/mdc-select';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material-experimental/mdc-tooltip';
 
 /**
  * @license
