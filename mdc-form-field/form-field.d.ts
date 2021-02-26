@@ -48,7 +48,8 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     _animationMode?: string | undefined;
     private _document?;
     _textField: ElementRef<HTMLElement>;
-    _prefixContainer: ElementRef<HTMLElement>;
+    _iconPrefixContainer: ElementRef<HTMLElement>;
+    _textPrefixContainer: ElementRef<HTMLElement>;
     _floatingLabel: MatFormFieldFloatingLabel | undefined;
     _notchedOutline: MatFormFieldNotchedOutline | undefined;
     _lineRipple: MatFormFieldLineRipple | undefined;

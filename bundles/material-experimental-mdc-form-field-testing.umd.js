@@ -318,8 +318,8 @@
         __extends(MatFormFieldHarness, _super);
         function MatFormFieldHarness() {
             var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._prefixContainer = _this.locatorForOptional('.mat-mdc-form-field-prefix');
-            _this._suffixContainer = _this.locatorForOptional('.mat-mdc-form-field-suffix');
+            _this._prefixContainer = _this.locatorForOptional('.mat-mdc-form-field-text-prefix');
+            _this._suffixContainer = _this.locatorForOptional('.mat-mdc-form-field-text-suffix');
             _this._label = _this.locatorForOptional('.mdc-floating-label');
             _this._errors = _this.locatorForAll('.mat-mdc-form-field-error');
             _this._hints = _this.locatorForAll('.mat-mdc-form-field-hint');

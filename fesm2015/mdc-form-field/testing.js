@@ -16,8 +16,8 @@ import { MatSelectHarness } from '@angular/material-experimental/mdc-select/test
 class MatFormFieldHarness extends _MatFormFieldHarnessBase {
     constructor() {
         super(...arguments);
-        this._prefixContainer = this.locatorForOptional('.mat-mdc-form-field-prefix');
-        this._suffixContainer = this.locatorForOptional('.mat-mdc-form-field-suffix');
+        this._prefixContainer = this.locatorForOptional('.mat-mdc-form-field-text-prefix');
+        this._suffixContainer = this.locatorForOptional('.mat-mdc-form-field-text-suffix');
         this._label = this.locatorForOptional('.mdc-floating-label');
         this._errors = this.locatorForAll('.mat-mdc-form-field-error');
         this._hints = this.locatorForAll('.mat-mdc-form-field-hint');
