@@ -20,6 +20,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
  */
 export declare class MatFabButton extends MatButtonBase {
     color: ThemePalette;
+    _isFab: boolean;
     private _extended;
     get extended(): boolean;
     set extended(value: boolean);
@@ -33,6 +34,7 @@ export declare class MatFabButton extends MatButtonBase {
  */
 export declare class MatMiniFabButton extends MatButtonBase {
     color: ThemePalette;
+    _isFab: boolean;
     constructor(elementRef: ElementRef, platform: Platform, ngZone: NgZone, animationMode?: string);
 }
 /**
