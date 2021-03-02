@@ -5,6 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+export declare type MatCardAppearance = 'outlined' | 'raised';
 /**
  * Material Design card component. Cards contain content and actions about a single subject.
  * See https://material.io/design/components/cards.html
@@ -12,6 +13,7 @@
  * MatCard provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCard {
+    appearance: MatCardAppearance;
 }
 /**
  * Title of a card, intended for use within `<mat-card>`. This component is an optional
