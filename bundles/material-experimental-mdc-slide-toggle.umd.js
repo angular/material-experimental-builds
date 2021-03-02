@@ -14,7 +14,7 @@
     /** Injection token to be used to override the default options for `mat-slide-toggle`. */
     var MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS = new core.InjectionToken('mat-slide-toggle-default-options', {
         providedIn: 'root',
-        factory: function () { return ({ disableToggleValue: false, disableDragValue: false }); }
+        factory: function () { return ({ disableToggleValue: false }); }
     });
 
     /**
@@ -73,8 +73,6 @@
             };
             /** Configuration for the underlying ripple. */
             this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
-            /** The color palette  for this slide toggle. */
-            this.color = 'accent';
             /** Name value will be applied to the input element if present. */
             this.name = null;
             /** A unique id for the slide-toggle input. If none is supplied, it will be auto-generated. */
@@ -92,6 +90,7 @@
             /** Event will be dispatched each time the slide-toggle input is toggled. */
             this.toggleChange = new core.EventEmitter();
             this.tabIndex = parseInt(tabIndex) || 0;
+            this.color = defaults.color || 'accent';
         }
         Object.defineProperty(MatSlideToggle.prototype, "tabIndex", {
             /** Tabindex for the input element. */
