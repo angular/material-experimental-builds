@@ -443,7 +443,7 @@ class MatFormField {
         if (_defaults && _defaults.appearance) {
             this.appearance = _defaults.appearance;
         }
-        else if (_defaults && _defaults.hideRequiredMarker) {
+        if (_defaults && _defaults.hideRequiredMarker) {
             this.hideRequiredMarker = true;
         }
     }
