@@ -46,6 +46,7 @@ export declare class MatMiniFabButton extends MatButtonBase {
  */
 export declare class MatFabAnchor extends MatAnchor {
     color: ThemePalette;
+    _isFab: boolean;
     private _extended;
     get extended(): boolean;
     set extended(value: boolean);
@@ -59,5 +60,6 @@ export declare class MatFabAnchor extends MatAnchor {
  */
 export declare class MatMiniFabAnchor extends MatAnchor {
     color: ThemePalette;
+    _isFab: boolean;
     constructor(elementRef: ElementRef, platform: Platform, ngZone: NgZone, animationMode?: string);
 }
