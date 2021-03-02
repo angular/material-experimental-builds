@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { _MatAutocompleteBase, _MatAutocompleteTriggerBase, _MatAutocompleteOriginBase, MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/autocomplete';
-export { AUTOCOMPLETE_OPTION_HEIGHT, AUTOCOMPLETE_PANEL_HEIGHT, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY, MAT_AUTOCOMPLETE_SCROLL_STRATEGY, MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY, MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER, MatAutocompleteSelectedEvent, getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
+export { MAT_AUTOCOMPLETE_DEFAULT_OPTIONS, MAT_AUTOCOMPLETE_DEFAULT_OPTIONS_FACTORY, MAT_AUTOCOMPLETE_SCROLL_STRATEGY, MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY, MAT_AUTOCOMPLETE_SCROLL_STRATEGY_FACTORY_PROVIDER, MatAutocompleteSelectedEvent, getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
 import { trigger, state, style, transition, group, animate } from '@angular/animations';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 

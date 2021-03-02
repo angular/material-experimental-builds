@@ -477,18 +477,6 @@
      * Generated bundle index. Do not edit.
      */
 
-    Object.defineProperty(exports, 'AUTOCOMPLETE_OPTION_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.AUTOCOMPLETE_OPTION_HEIGHT;
-        }
-    });
-    Object.defineProperty(exports, 'AUTOCOMPLETE_PANEL_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return autocomplete.AUTOCOMPLETE_PANEL_HEIGHT;
-        }
-    });
     Object.defineProperty(exports, 'MAT_AUTOCOMPLETE_DEFAULT_OPTIONS', {
         enumerable: true,
         get: function () {
