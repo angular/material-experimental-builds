@@ -5,7 +5,7 @@ import { AriaDescriber, FocusMonitor, A11yModule } from '@angular/cdk/a11y';
 import { Directionality } from '@angular/cdk/bidi';
 import { Overlay, ScrollDispatcher, OverlayModule } from '@angular/cdk/overlay';
 import { _MatTooltipBase, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_DEFAULT_OPTIONS, _TooltipComponentBase, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/tooltip';
-export { MAT_TOOLTIP_DEFAULT_OPTIONS, MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER, SCROLL_THROTTLE_MS, TOOLTIP_PANEL_CLASS, getMatTooltipInvalidPositionError } from '@angular/material/tooltip';
+export { MAT_TOOLTIP_DEFAULT_OPTIONS, MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER, SCROLL_THROTTLE_MS, getMatTooltipInvalidPositionError } from '@angular/material/tooltip';
 import { numbers } from '@material/tooltip';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
@@ -42,6 +42,12 @@ const matTooltipAnimations = {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
+ * CSS class that will be attached to the overlay panel.
+ * @deprecated
+ * @breaking-change 13.0.0 remove this variable
+ */
+const TOOLTIP_PANEL_CLASS = 'mat-mdc-tooltip-panel';
+/**
  * Directive that attaches a material design tooltip to the host element. Animates the showing and
  * hiding of a tooltip provided position (defaults to below the element).
  *
@@ -51,7 +57,7 @@ class MatTooltip extends _MatTooltipBase {
     constructor(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document) {
         super(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document);
         this._tooltipComponent = TooltipComponent;
-        this._transformOriginSelector = '.mat-mdc-tooltip';
+        this._cssClassPrefix = 'mat-mdc';
         this._viewportMargin = numbers.MIN_VIEWPORT_TOOLTIP_THRESHOLD;
     }
     _addOffset(position) {
@@ -162,5 +168,5 @@ MatTooltipModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MatTooltip, MatTooltipModule, TooltipComponent, matTooltipAnimations };
+export { MatTooltip, MatTooltipModule, TOOLTIP_PANEL_CLASS, TooltipComponent, matTooltipAnimations };
 //# sourceMappingURL=mdc-tooltip.js.map

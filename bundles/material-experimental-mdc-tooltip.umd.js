@@ -337,6 +337,12 @@
     };
 
     /**
+     * CSS class that will be attached to the overlay panel.
+     * @deprecated
+     * @breaking-change 13.0.0 remove this variable
+     */
+    var TOOLTIP_PANEL_CLASS = 'mat-mdc-tooltip-panel';
+    /**
      * Directive that attaches a material design tooltip to the host element. Animates the showing and
      * hiding of a tooltip provided position (defaults to below the element).
      *
@@ -347,7 +353,7 @@
         function MatTooltip(overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document) {
             var _this = _super.call(this, overlay, elementRef, scrollDispatcher, viewContainerRef, ngZone, platform, ariaDescriber, focusMonitor, scrollStrategy, dir, defaultOptions, _document) || this;
             _this._tooltipComponent = TooltipComponent;
-            _this._transformOriginSelector = '.mat-mdc-tooltip';
+            _this._cssClassPrefix = 'mat-mdc';
             _this._viewportMargin = tooltip$1.numbers.MIN_VIEWPORT_TOOLTIP_THRESHOLD;
             return _this;
         }
@@ -501,12 +507,6 @@
             return tooltip.SCROLL_THROTTLE_MS;
         }
     });
-    Object.defineProperty(exports, 'TOOLTIP_PANEL_CLASS', {
-        enumerable: true,
-        get: function () {
-            return tooltip.TOOLTIP_PANEL_CLASS;
-        }
-    });
     Object.defineProperty(exports, 'getMatTooltipInvalidPositionError', {
         enumerable: true,
         get: function () {
@@ -515,6 +515,7 @@
     });
     exports.MatTooltip = MatTooltip;
     exports.MatTooltipModule = MatTooltipModule;
+    exports.TOOLTIP_PANEL_CLASS = TOOLTIP_PANEL_CLASS;
     exports.TooltipComponent = TooltipComponent;
     exports.matTooltipAnimations = matTooltipAnimations;
 
