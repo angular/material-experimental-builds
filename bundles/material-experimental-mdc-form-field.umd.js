@@ -39,8 +39,13 @@
     var MAT_ERROR = new core.InjectionToken('MatError');
     /** Single error message to be shown underneath the form-field. */
     var MatError = /** @class */ (function () {
-        function MatError() {
+        function MatError(ariaLive, elementRef) {
             this.id = "mat-mdc-error-" + nextUniqueId++;
+            // If no aria-live value is set add 'polite' as a default. This is preferred over setting
+            // role='alert' so that screen readers do not interrupt the current task to read this aloud.
+            if (!ariaLive) {
+                elementRef.nativeElement.setAttribute('aria-live', 'polite');
+            }
         }
         return MatError;
     }());
@@ -49,12 +54,16 @@
                     selector: 'mat-error',
                     host: {
                         'class': 'mat-mdc-form-field-error mat-mdc-form-field-bottom-align',
-                        'role': 'alert',
+                        'aria-atomic': 'true',
                         '[id]': 'id',
                     },
                     providers: [{ provide: MAT_ERROR, useExisting: MatError }],
                 },] }
     ];
+    MatError.ctorParameters = function () { return [
+        { type: String, decorators: [{ type: core.Attribute, args: ['aria-live',] }] },
+        { type: core.ElementRef }
+    ]; };
     MatError.propDecorators = {
         id: [{ type: core.Input }]
     };

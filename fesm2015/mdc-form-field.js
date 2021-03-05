@@ -1,4 +1,4 @@
-import { Directive, InjectionToken, Input, ElementRef, Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
+import { Directive, InjectionToken, Attribute, ElementRef, Input, Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, NgZone, Optional, Inject, ViewChild, ContentChild, ContentChildren, NgModule } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { getMatFormFieldMissingControlError, getMatFormFieldDuplicatedHintError, matFormFieldAnimations, MAT_FORM_FIELD, MatFormFieldControl } from '@angular/material/form-field';
@@ -46,8 +46,13 @@ let nextUniqueId = 0;
 const MAT_ERROR = new InjectionToken('MatError');
 /** Single error message to be shown underneath the form-field. */
 class MatError {
-    constructor() {
+    constructor(ariaLive, elementRef) {
         this.id = `mat-mdc-error-${nextUniqueId++}`;
+        // If no aria-live value is set add 'polite' as a default. This is preferred over setting
+        // role='alert' so that screen readers do not interrupt the current task to read this aloud.
+        if (!ariaLive) {
+            elementRef.nativeElement.setAttribute('aria-live', 'polite');
+        }
     }
 }
 MatError.decorators = [
@@ -55,11 +60,15 @@ MatError.decorators = [
                 selector: 'mat-error',
                 host: {
                     'class': 'mat-mdc-form-field-error mat-mdc-form-field-bottom-align',
-                    'role': 'alert',
+                    'aria-atomic': 'true',
                     '[id]': 'id',
                 },
                 providers: [{ provide: MAT_ERROR, useExisting: MatError }],
             },] }
+];
+MatError.ctorParameters = () => [
+    { type: String, decorators: [{ type: Attribute, args: ['aria-live',] }] },
+    { type: ElementRef }
 ];
 MatError.propDecorators = {
     id: [{ type: Input }]
