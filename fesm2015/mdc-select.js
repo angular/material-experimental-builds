@@ -5,7 +5,7 @@ import { _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MatOption, MAT_O
 import { MatFormFieldModule } from '@angular/material-experimental/mdc-form-field';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { MAT_SELECT_TRIGGER, _MatSelectBase, MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
-export { MAT_SELECT_CONFIG, MAT_SELECT_SCROLL_STRATEGY, MAT_SELECT_SCROLL_STRATEGY_PROVIDER, MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY, MAT_SELECT_TRIGGER, SELECT_ITEM_HEIGHT_EM, SELECT_MULTIPLE_PANEL_PADDING_X, SELECT_PANEL_INDENT_PADDING_X, SELECT_PANEL_MAX_HEIGHT, SELECT_PANEL_PADDING_X, SELECT_PANEL_VIEWPORT_PADDING } from '@angular/material/select';
+export { MAT_SELECT_CONFIG, MAT_SELECT_SCROLL_STRATEGY, MAT_SELECT_SCROLL_STRATEGY_PROVIDER, MAT_SELECT_SCROLL_STRATEGY_PROVIDER_FACTORY, MAT_SELECT_TRIGGER } from '@angular/material/select';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { takeUntil } from 'rxjs/operators';
 import { trigger, transition, query, animateChild, state, style, animate } from '@angular/animations';

@@ -583,42 +583,6 @@
             return select.MAT_SELECT_TRIGGER;
         }
     });
-    Object.defineProperty(exports, 'SELECT_ITEM_HEIGHT_EM', {
-        enumerable: true,
-        get: function () {
-            return select.SELECT_ITEM_HEIGHT_EM;
-        }
-    });
-    Object.defineProperty(exports, 'SELECT_MULTIPLE_PANEL_PADDING_X', {
-        enumerable: true,
-        get: function () {
-            return select.SELECT_MULTIPLE_PANEL_PADDING_X;
-        }
-    });
-    Object.defineProperty(exports, 'SELECT_PANEL_INDENT_PADDING_X', {
-        enumerable: true,
-        get: function () {
-            return select.SELECT_PANEL_INDENT_PADDING_X;
-        }
-    });
-    Object.defineProperty(exports, 'SELECT_PANEL_MAX_HEIGHT', {
-        enumerable: true,
-        get: function () {
-            return select.SELECT_PANEL_MAX_HEIGHT;
-        }
-    });
-    Object.defineProperty(exports, 'SELECT_PANEL_PADDING_X', {
-        enumerable: true,
-        get: function () {
-            return select.SELECT_PANEL_PADDING_X;
-        }
-    });
-    Object.defineProperty(exports, 'SELECT_PANEL_VIEWPORT_PADDING', {
-        enumerable: true,
-        get: function () {
-            return select.SELECT_PANEL_VIEWPORT_PADDING;
-        }
-    });
     exports.MatSelect = MatSelect;
     exports.MatSelectChange = MatSelectChange;
     exports.MatSelectModule = MatSelectModule;
