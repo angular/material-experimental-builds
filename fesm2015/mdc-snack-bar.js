@@ -8,7 +8,7 @@ import { Platform } from '@angular/cdk/platform';
 import { Subject } from 'rxjs';
 import { OverlayModule, Overlay } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material-experimental/mdc-button';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { BreakpointObserver } from '@angular/cdk/layout';
