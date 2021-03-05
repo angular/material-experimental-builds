@@ -352,14 +352,17 @@
                     var resizeObserverConstructor = (typeof window !== 'undefined') &&
                         window.ResizeObserver;
                     if (resizeObserverConstructor) {
-                        var observer = new resizeObserverConstructor(callback);
-                        // Internal client users found production errors where `observe` was not a function
-                        // on the constructed `observer`. This should not happen, but adding this check for this
-                        // edge case.
-                        if (typeof observer.observe === 'function') {
-                            observer.observe(_this._rootElement);
-                            return observer;
-                        }
+                        return _this._ngZone.runOutsideAngular(function () {
+                            var observer = new resizeObserverConstructor(callback);
+                            // Internal client users found production errors where `observe` was not a function
+                            // on the constructed `observer`. This should not happen, but adding this check for this
+                            // edge case.
+                            if (typeof observer.observe === 'function') {
+                                observer.observe(_this._rootElement);
+                                return observer;
+                            }
+                            return null;
+                        });
                     }
                     return null;
                 }
