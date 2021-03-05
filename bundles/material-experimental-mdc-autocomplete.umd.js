@@ -326,12 +326,12 @@
     var panelAnimation = animations.trigger('panelAnimation', [
         animations.state('void, hidden', animations.style({
             opacity: 0,
-            transform: 'scale(0.8)',
+            transform: 'scaleY(0.8)',
         })),
         animations.transition(':enter, hidden => visible', [
             animations.group([
                 animations.animate('0.03s linear', animations.style({ opacity: 1 })),
-                animations.animate('0.12s cubic-bezier(0, 0, 0.2, 1)', animations.style({ transform: 'scale(1)' })),
+                animations.animate('0.12s cubic-bezier(0, 0, 0.2, 1)', animations.style({ transform: 'scaleY(1)' })),
             ]),
         ]),
         animations.transition(':leave, visible => hidden', [

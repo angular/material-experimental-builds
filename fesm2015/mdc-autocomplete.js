@@ -21,12 +21,12 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 const panelAnimation = trigger('panelAnimation', [
     state('void, hidden', style({
         opacity: 0,
-        transform: 'scale(0.8)',
+        transform: 'scaleY(0.8)',
     })),
     transition(':enter, hidden => visible', [
         group([
             animate('0.03s linear', style({ opacity: 1 })),
-            animate('0.12s cubic-bezier(0, 0, 0.2, 1)', style({ transform: 'scale(1)' })),
+            animate('0.12s cubic-bezier(0, 0, 0.2, 1)', style({ transform: 'scaleY(1)' })),
         ]),
     ]),
     transition(':leave, visible => hidden', [
