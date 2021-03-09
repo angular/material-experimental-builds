@@ -160,6 +160,11 @@ class MatChipRemove extends _MatChipRemoveMixinBase {
             elementRef.nativeElement.setAttribute('type', 'button');
         }
     }
+    /** Emits a MouseEvent when the user clicks on the remove icon. */
+    _handleClick(event) {
+        this.interaction.next(event);
+        event.stopPropagation();
+    }
 }
 MatChipRemove.decorators = [
     { type: Directive, args: [{
@@ -170,7 +175,7 @@ MatChipRemove.decorators = [
         mdc-chip__icon mdc-chip__icon--trailing`,
                     '[tabIndex]': 'tabIndex',
                     'role': 'button',
-                    '(click)': 'interaction.next($event)',
+                    '(click)': '_handleClick($event)',
                     '(keydown)': 'interaction.next($event)',
                     // We need to remove this explicitly, because it gets inherited from MatChipTrailingIcon.
                     '[attr.aria-hidden]': 'null',
