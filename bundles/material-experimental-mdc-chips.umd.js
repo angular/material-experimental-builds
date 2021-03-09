@@ -460,6 +460,11 @@
             }
             return _this;
         }
+        /** Emits a MouseEvent when the user clicks on the remove icon. */
+        MatChipRemove.prototype._handleClick = function (event) {
+            this.interaction.next(event);
+            event.stopPropagation();
+        };
         return MatChipRemove;
     }(_MatChipRemoveMixinBase));
     MatChipRemove.decorators = [
@@ -470,7 +475,7 @@
                         'class': "mat-mdc-chip-remove mat-mdc-chip-trailing-icon mat-mdc-focus-indicator\n        mdc-chip__icon mdc-chip__icon--trailing",
                         '[tabIndex]': 'tabIndex',
                         'role': 'button',
-                        '(click)': 'interaction.next($event)',
+                        '(click)': '_handleClick($event)',
                         '(keydown)': 'interaction.next($event)',
                         // We need to remove this explicitly, because it gets inherited from MatChipTrailingIcon.
                         '[attr.aria-hidden]': 'null',
