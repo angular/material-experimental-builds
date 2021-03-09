@@ -76,6 +76,10 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     get hintLabel(): string;
     set hintLabel(value: string);
     private _hintLabel;
+    _hasIconPrefix: boolean;
+    _hasTextPrefix: boolean;
+    _hasIconSuffix: boolean;
+    _hasTextSuffix: boolean;
     readonly _labelId: string;
     readonly _hintLabelId: string;
     /** State of the mat-hint and mat-error animations. */
@@ -109,6 +113,7 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     _animateAndLockLabel(): void;
     /** Initializes the registered form-field control. */
     private _initializeControl;
+    private _checkPrefixAndSuffixTypes;
     /** Initializes the prefix and suffix containers. */
     private _initializePrefixAndSuffix;
     /**
