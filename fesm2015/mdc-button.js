@@ -1,5 +1,5 @@
 import { Platform } from '@angular/cdk/platform';
-import { Directive, ElementRef, NgZone, ViewChild, HostListener, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, NgModule } from '@angular/core';
+import { Directive, ElementRef, NgZone, ViewChild, HostListener, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, InjectionToken, NgModule } from '@angular/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { numbers } from '@material/ripple';
@@ -255,6 +255,20 @@ MatAnchor.ctorParameters = () => [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/** Injection token to be used to override the default options for FAB. */
+const MAT_FAB_DEFAULT_OPTIONS = new InjectionToken('mat-mdc-fab-default-options', {
+    providedIn: 'root',
+    factory: MAT_FAB_DEFAULT_OPTIONS_FACTORY
+});
+/** @docs-private */
+function MAT_FAB_DEFAULT_OPTIONS_FACTORY() {
+    return {
+        // The FAB by default has its color set to accent.
+        color: 'accent',
+    };
+}
+// Default FAB configuration.
+const defaults = MAT_FAB_DEFAULT_OPTIONS_FACTORY();
 /**
  * Material Design floating action button (FAB) component. These buttons represent the primary
  * or most common action for users to interact with.
@@ -263,11 +277,12 @@ MatAnchor.ctorParameters = () => [
  * The `MatFabButton` class has two appearances: normal and extended.
  */
 class MatFabButton extends MatButtonBase {
-    constructor(elementRef, platform, ngZone, animationMode) {
+    constructor(elementRef, platform, ngZone, animationMode, _options) {
         super(elementRef, platform, ngZone, animationMode);
-        // The FAB by default has its color set to accent.
-        this.color = 'accent';
+        this._options = _options;
         this._isFab = true;
+        this._options = this._options || defaults;
+        this.color = this.defaultColor = this._options.color || defaults.color;
     }
     get extended() { return this._extended; }
     set extended(value) { this._extended = coerceBooleanProperty(value); }
@@ -301,7 +316,8 @@ MatFabButton.ctorParameters = () => [
     { type: ElementRef },
     { type: Platform },
     { type: NgZone },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FAB_DEFAULT_OPTIONS,] }] }
 ];
 /**
  * Material Design mini floating action button (FAB) component. These buttons represent the primary
@@ -309,11 +325,12 @@ MatFabButton.ctorParameters = () => [
  * See https://material.io/components/buttons-floating-action-button/
  */
 class MatMiniFabButton extends MatButtonBase {
-    constructor(elementRef, platform, ngZone, animationMode) {
+    constructor(elementRef, platform, ngZone, animationMode, _options) {
         super(elementRef, platform, ngZone, animationMode);
-        // The FAB by default has its color set to accent.
-        this.color = 'accent';
+        this._options = _options;
         this._isFab = true;
+        this._options = this._options || defaults;
+        this.color = this.defaultColor = this._options.color || defaults.color;
     }
 }
 MatMiniFabButton.decorators = [
@@ -332,7 +349,8 @@ MatMiniFabButton.ctorParameters = () => [
     { type: ElementRef },
     { type: Platform },
     { type: NgZone },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FAB_DEFAULT_OPTIONS,] }] }
 ];
 /**
  * Material Design floating action button (FAB) component for anchor elements. Anchor elements
@@ -342,11 +360,12 @@ MatMiniFabButton.ctorParameters = () => [
  * The `MatFabAnchor` class has two appearances: normal and extended.
  */
 class MatFabAnchor extends MatAnchor {
-    constructor(elementRef, platform, ngZone, animationMode) {
+    constructor(elementRef, platform, ngZone, animationMode, _options) {
         super(elementRef, platform, ngZone, animationMode);
-        // The FAB by default has its color set to accent.
-        this.color = 'accent';
+        this._options = _options;
         this._isFab = true;
+        this._options = this._options || defaults;
+        this.color = this.defaultColor = this._options.color || defaults.color;
     }
     get extended() { return this._extended; }
     set extended(value) { this._extended = coerceBooleanProperty(value); }
@@ -385,7 +404,8 @@ MatFabAnchor.ctorParameters = () => [
     { type: ElementRef },
     { type: Platform },
     { type: NgZone },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FAB_DEFAULT_OPTIONS,] }] }
 ];
 /**
  * Material Design mini floating action button (FAB) component for anchor elements. Anchor elements
@@ -393,11 +413,12 @@ MatFabAnchor.ctorParameters = () => [
  * See https://material.io/components/buttons-floating-action-button/
  */
 class MatMiniFabAnchor extends MatAnchor {
-    constructor(elementRef, platform, ngZone, animationMode) {
+    constructor(elementRef, platform, ngZone, animationMode, _options) {
         super(elementRef, platform, ngZone, animationMode);
-        // The FAB by default has its color set to accent.
-        this.color = 'accent';
+        this._options = _options;
         this._isFab = true;
+        this._options = this._options || defaults;
+        this.color = this.defaultColor = this._options.color || defaults.color;
     }
 }
 MatMiniFabAnchor.decorators = [
@@ -416,7 +437,8 @@ MatMiniFabAnchor.ctorParameters = () => [
     { type: ElementRef },
     { type: Platform },
     { type: NgZone },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FAB_DEFAULT_OPTIONS,] }] }
 ];
 
 /**
@@ -535,5 +557,5 @@ MatButtonModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MatAnchor, MatButton, MatButtonModule, MatFabAnchor, MatFabButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MAT_BUTTON_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_a, MAT_BUTTON_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_b, MatButtonMixinCore as ɵangular_material_src_material_experimental_mdc_button_mdc_button_c, _MatButtonBaseMixin as ɵangular_material_src_material_experimental_mdc_button_mdc_button_d, MatButtonBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_e, MAT_ANCHOR_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_f, MAT_ANCHOR_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_g, MatAnchorBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_h };
+export { MAT_FAB_DEFAULT_OPTIONS, MAT_FAB_DEFAULT_OPTIONS_FACTORY, MatAnchor, MatButton, MatButtonModule, MatFabAnchor, MatFabButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MAT_BUTTON_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_a, MAT_BUTTON_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_b, MatButtonMixinCore as ɵangular_material_src_material_experimental_mdc_button_mdc_button_c, _MatButtonBaseMixin as ɵangular_material_src_material_experimental_mdc_button_mdc_button_d, MatButtonBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_e, MAT_ANCHOR_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_f, MAT_ANCHOR_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_g, MatAnchorBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_h };
 //# sourceMappingURL=mdc-button.js.map
