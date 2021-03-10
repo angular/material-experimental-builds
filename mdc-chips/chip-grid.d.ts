@@ -56,10 +56,10 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     readonly controlType: string;
-    /** Subscription to blur changes in the chips. */
-    private _chipBlurSubscription;
     /** Subscription to focus changes in the chips. */
     private _chipFocusSubscription;
+    /** Subscription to blur changes in the chips. */
+    private _chipBlurSubscription;
     /** The chip input to add more chips */
     protected _chipInput: MatChipTextControl;
     /**
@@ -209,8 +209,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     private _updateFocusForDestroyedChips;
     /** Focus input element. */
     private _focusInput;
-    /** Returns true if element is an input with no value. */
-    private _isEmptyInput;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_required: BooleanInput;
 }

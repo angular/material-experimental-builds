@@ -2214,13 +2214,6 @@ class MatChipGrid extends _MatChipGridMixinBase {
         else if (this._originatesFromEditingChip(event)) {
             // No-op, let the editing chip handle all keyboard events except for Tab.
         }
-        else if (keyCode === BACKSPACE && this._isEmptyInput(target)) {
-            // If they are on an empty input and hit backspace, focus the last chip
-            if (this._chips.length) {
-                manager.setLastCellActive();
-            }
-            event.preventDefault();
-        }
         else if (this._originatesFromChip(event)) {
             manager.onKeydown(event);
         }
@@ -2308,13 +2301,6 @@ class MatChipGrid extends _MatChipGridMixinBase {
     /** Focus input element. */
     _focusInput() {
         this._chipInput.focus();
-    }
-    /** Returns true if element is an input with no value. */
-    _isEmptyInput(element) {
-        if (element && element.id === this._chipInput.id) {
-            return this._chipInput.empty;
-        }
-        return false;
     }
 }
 MatChipGrid.decorators = [
@@ -2411,7 +2397,7 @@ class MatChipInput {
         /** Unique id for the input. */
         this.id = `mat-mdc-chip-list-input-${nextUniqueId++}`;
         this._disabled = false;
-        this._inputElement = this._elementRef.nativeElement;
+        this.inputElement = this._elementRef.nativeElement;
     }
     /** Register input for chip list */
     set chipGrid(value) {
@@ -2429,18 +2415,47 @@ class MatChipInput {
     get disabled() { return this._disabled || (this._chipGrid && this._chipGrid.disabled); }
     set disabled(value) { this._disabled = coerceBooleanProperty(value); }
     /** Whether the input is empty. */
-    get empty() { return !this._inputElement.value; }
+    get empty() { return !this.inputElement.value; }
     ngOnChanges() {
         this._chipGrid.stateChanges.next();
     }
+    ngOnDestroy() {
+        this.chipEnd.complete();
+    }
+    ngAfterContentInit() {
+        this._focusLastChipOnBackspace = this.empty;
+    }
     /** Utility method to make host definition/tests more clear. */
     _keydown(event) {
-        // Allow the user's focus to escape when they're tabbing forward. Note that we don't
-        // want to do this when going backwards, because focus should go back to the first chip.
-        if (event && event.keyCode === TAB && !hasModifierKey(event, 'shiftKey')) {
-            this._chipGrid._allowFocusEscape();
+        if (event) {
+            // Allow the user's focus to escape when they're tabbing forward. Note that we don't
+            // want to do this when going backwards, because focus should go back to the first chip.
+            if (event.keyCode === TAB && !hasModifierKey(event, 'shiftKey')) {
+                this._chipGrid._allowFocusEscape();
+            }
+            // To prevent the user from accidentally deleting chips when pressing BACKSPACE continuously,
+            // We focus the last chip on backspace only after the user has released the backspace button,
+            // And the input is empty (see behaviour in _keyup)
+            if (event.keyCode === BACKSPACE && this._focusLastChipOnBackspace) {
+                this._chipGrid._keyManager.setLastCellActive();
+                event.preventDefault();
+                return;
+            }
+            else {
+                this._focusLastChipOnBackspace = false;
+            }
         }
         this._emitChipEnd(event);
+    }
+    /**
+     * Pass events to the keyboard manager. Available here for tests.
+     */
+    _keyup(event) {
+        // Allow user to move focus to chips next time he presses backspace
+        if (!this._focusLastChipOnBackspace && event.keyCode === BACKSPACE && this.empty) {
+            this._focusLastChipOnBackspace = true;
+            event.preventDefault();
+        }
     }
     /** Checks to see if the blur should emit the (chipEnd) event. */
     _blur() {
@@ -2460,14 +2475,16 @@ class MatChipInput {
     }
     /** Checks to see if the (chipEnd) event needs to be emitted. */
     _emitChipEnd(event) {
-        if (!this._inputElement.value && !!event) {
+        if (!this.inputElement.value && !!event) {
             this._chipGrid._keydown(event);
         }
         if (!event || this._isSeparatorKey(event)) {
-            this.chipEnd.emit({ input: this._inputElement, value: this._inputElement.value });
-            if (event) {
-                event.preventDefault();
-            }
+            this.chipEnd.emit({
+                input: this.inputElement,
+                value: this.inputElement.value,
+                chipInput: this,
+            });
+            event === null || event === void 0 ? void 0 : event.preventDefault();
         }
     }
     _onInput() {
@@ -2476,7 +2493,12 @@ class MatChipInput {
     }
     /** Focuses the input. */
     focus() {
-        this._inputElement.focus();
+        this.inputElement.focus();
+    }
+    /** Clears the input */
+    clear() {
+        this.inputElement.value = '';
+        this._focusLastChipOnBackspace = true;
     }
     /** Checks whether a keycode is one of the configured separators. */
     _isSeparatorKey(event) {
@@ -2493,6 +2515,7 @@ MatChipInput.decorators = [
                     // the MDC chips were landed initially with it.
                     'class': 'mat-mdc-chip-input mat-mdc-input-element mdc-text-field__input mat-input-element',
                     '(keydown)': '_keydown($event)',
+                    '(keyup)': '_keyup($event)',
                     '(blur)': '_blur()',
                     '(focus)': '_focus()',
                     '(input)': '_onInput()',
