@@ -416,7 +416,7 @@ MatSelectionListHarness.hostSelector = '.mat-mdc-selection-list';
 class MatListOptionHarness extends MatListItemHarnessBase {
     constructor() {
         super(...arguments);
-        this._beforeCheckbox = this.locatorForOptional('.mdc-list-item__graphic .mdc-checkbox');
+        this._beforeCheckbox = this.locatorForOptional('.mdc-deprecated-list-item__graphic .mdc-checkbox');
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a `MatListOptionHarness` that

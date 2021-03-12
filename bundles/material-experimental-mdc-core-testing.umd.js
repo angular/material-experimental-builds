@@ -319,7 +319,7 @@
         function MatOptionHarness() {
             var _this = _super.apply(this, __spread(arguments)) || this;
             /** Element containing the option's text. */
-            _this._text = _this.locatorFor('.mdc-list-item__text');
+            _this._text = _this.locatorFor('.mdc-deprecated-list-item__text');
             return _this;
         }
         /**
@@ -375,7 +375,7 @@
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mdc-list-item--disabled')];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mdc-deprecated-list-item--disabled')];
                     }
                 });
             });
@@ -386,7 +386,7 @@
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mdc-list-item--selected')];
+                        case 1: return [2 /*return*/, (_a.sent()).hasClass('mdc-deprecated-list-item--selected')];
                     }
                 });
             });

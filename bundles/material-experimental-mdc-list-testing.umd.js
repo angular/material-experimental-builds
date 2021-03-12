@@ -896,7 +896,7 @@
         __extends(MatListOptionHarness, _super);
         function MatListOptionHarness() {
             var _this = _super.apply(this, __spread(arguments)) || this;
-            _this._beforeCheckbox = _this.locatorForOptional('.mdc-list-item__graphic .mdc-checkbox');
+            _this._beforeCheckbox = _this.locatorForOptional('.mdc-deprecated-list-item__graphic .mdc-checkbox');
             return _this;
         }
         /**
