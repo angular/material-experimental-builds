@@ -3,7 +3,7 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { InjectionToken, Directive, ChangeDetectorRef, ElementRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, NgZone, Optional, Inject, HostListener, Input, Output, ContentChild, ViewChild, ContentChildren, forwardRef, QueryList, Self, NgModule } from '@angular/core';
 import { mixinTabIndex, mixinDisabled, mixinColor, mixinDisableRipple, MAT_RIPPLE_GLOBAL_OPTIONS, MatRipple, mixinErrorState, ErrorStateMatcher, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
-import { MDCChipTrailingActionFoundation, MDCChipFoundation, chipCssClasses, MDCChipSetFoundation } from '@material/chips';
+import { deprecated } from '@material/chips';
 import { numbers } from '@material/ripple';
 import { SPACE, ENTER, hasModifierKey, BACKSPACE, DELETE, DOWN_ARROW, UP_ARROW, RIGHT_ARROW, LEFT_ARROW, END, HOME, TAB } from '@angular/cdk/keycodes';
 import { Subject, merge } from 'rxjs';
@@ -87,7 +87,7 @@ class MatChipTrailingIcon {
                 // dependency on `MatChip`. this._chip._notifyNavigation();
             }
         };
-        this._foundation = new MDCChipTrailingActionFoundation(this._adapter);
+        this._foundation = new deprecated.MDCChipTrailingActionFoundation(this._adapter);
     }
     ngOnDestroy() {
         this._foundation.destroy();
@@ -345,7 +345,7 @@ class MatChip extends _MatChipMixinBase {
             getCheckmarkBoundingClientRect: () => null,
             getAttribute: (attr) => this._elementRef.nativeElement.getAttribute(attr),
         };
-        this._chipFoundation = new MDCChipFoundation(this._chipAdapter);
+        this._chipFoundation = new deprecated.MDCChipFoundation(this._chipAdapter);
         this._animationsDisabled = animationMode === 'NoopAnimations';
         this._isBasicChip = _elementRef.nativeElement.hasAttribute(this.basicChipAttrName) ||
             _elementRef.nativeElement.tagName.toLowerCase() === this.basicChipAttrName;
@@ -607,7 +607,7 @@ class MatChipOption extends MatChip {
     ngAfterContentInit() {
         super.ngAfterContentInit();
         if (this.selected && this.leadingIcon) {
-            this.leadingIcon.setClass(chipCssClasses.HIDDEN_LEADING_ICON, true);
+            this.leadingIcon.setClass(deprecated.chipCssClasses.HIDDEN_LEADING_ICON, true);
         }
     }
     /** Selects the chip. */
@@ -1045,7 +1045,7 @@ class MatChipSet extends _MatChipSetMixinBase {
         this._mdcClasses = {};
         this._disabled = false;
         this._role = null;
-        this._chipSetFoundation = new MDCChipSetFoundation(this._chipSetAdapter);
+        this._chipSetFoundation = new deprecated.MDCChipSetFoundation(this._chipSetAdapter);
     }
     /** Whether the chip set is disabled. */
     get disabled() { return this._disabled; }
@@ -1303,7 +1303,7 @@ class MatChipListbox extends MatChipSet {
             this._setSelected(index, selected);
         };
         // Reinitialize the foundation with our overridden adapter
-        this._chipSetFoundation = new MDCChipSetFoundation(this._chipSetAdapter);
+        this._chipSetFoundation = new deprecated.MDCChipSetFoundation(this._chipSetAdapter);
         this._updateMdcSelectionClasses();
     }
     /** The ARIA role applied to the chip listbox. */

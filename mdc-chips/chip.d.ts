@@ -9,7 +9,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
 import { CanColor, CanColorCtor, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
-import { MDCChipAdapter, MDCChipFoundation } from '@material/chips';
+import { deprecated } from '@material/chips';
 import { Subject } from 'rxjs';
 import { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';
 /** Represents an event fired on an individual `mat-chip`. */
@@ -92,7 +92,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     /** Emitted when a chip is to be removed. */
     readonly removed: EventEmitter<MatChipEvent>;
     /** The MDC foundation containing business logic for MDC chip. */
-    _chipFoundation: MDCChipFoundation;
+    _chipFoundation: deprecated.MDCChipFoundation;
     /** The unstyled chip selector for this component. */
     protected basicChipAttrName: string;
     /** The chip's leading icon. */
@@ -107,7 +107,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
      * Implementation of the MDC chip adapter interface.
      * These methods are called by the chip foundation.
      */
-    protected _chipAdapter: MDCChipAdapter;
+    protected _chipAdapter: deprecated.MDCChipAdapter;
     constructor(_changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef, _ngZone: NgZone, _dir: Directionality, animationMode?: string, _globalRippleOptions?: RippleGlobalOptions | undefined);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;

@@ -382,7 +382,7 @@
                     // dependency on `MatChip`. this._chip._notifyNavigation();
                 }
             };
-            this._foundation = new chips.MDCChipTrailingActionFoundation(this._adapter);
+            this._foundation = new chips.deprecated.MDCChipTrailingActionFoundation(this._adapter);
         }
         MatChipTrailingIcon.prototype.ngOnDestroy = function () {
             this._foundation.destroy();
@@ -642,7 +642,7 @@
                 getCheckmarkBoundingClientRect: function () { return null; },
                 getAttribute: function (attr) { return _this._elementRef.nativeElement.getAttribute(attr); },
             };
-            _this._chipFoundation = new chips.MDCChipFoundation(_this._chipAdapter);
+            _this._chipFoundation = new chips.deprecated.MDCChipFoundation(_this._chipAdapter);
             _this._animationsDisabled = animationMode === 'NoopAnimations';
             _this._isBasicChip = _elementRef.nativeElement.hasAttribute(_this.basicChipAttrName) ||
                 _elementRef.nativeElement.tagName.toLowerCase() === _this.basicChipAttrName;
@@ -932,7 +932,7 @@
         MatChipOption.prototype.ngAfterContentInit = function () {
             _super.prototype.ngAfterContentInit.call(this);
             if (this.selected && this.leadingIcon) {
-                this.leadingIcon.setClass(chips.chipCssClasses.HIDDEN_LEADING_ICON, true);
+                this.leadingIcon.setClass(chips.deprecated.chipCssClasses.HIDDEN_LEADING_ICON, true);
             }
         };
         /** Selects the chip. */
@@ -1370,7 +1370,7 @@
             _this._mdcClasses = {};
             _this._disabled = false;
             _this._role = null;
-            _this._chipSetFoundation = new chips.MDCChipSetFoundation(_this._chipSetAdapter);
+            _this._chipSetFoundation = new chips.deprecated.MDCChipSetFoundation(_this._chipSetAdapter);
             return _this;
         }
         Object.defineProperty(MatChipSet.prototype, "disabled", {
@@ -1658,7 +1658,7 @@
                 _this._setSelected(index, selected);
             };
             // Reinitialize the foundation with our overridden adapter
-            _this._chipSetFoundation = new chips.MDCChipSetFoundation(_this._chipSetAdapter);
+            _this._chipSetFoundation = new chips.deprecated.MDCChipSetFoundation(_this._chipSetAdapter);
             _this._updateMdcSelectionClasses();
             return _this;
         }

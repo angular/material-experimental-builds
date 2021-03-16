@@ -9,7 +9,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
 import { HasTabIndex, HasTabIndexCtor } from '@angular/material-experimental/mdc-core';
-import { MDCChipSetAdapter, MDCChipSetFoundation } from '@material/chips';
+import { deprecated } from '@material/chips';
 import { Observable, Subject } from 'rxjs';
 import { MatChip, MatChipEvent } from './chip';
 /**
@@ -43,14 +43,14 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
      */
     protected _lastDestroyedChipIndex: number | null;
     /** The MDC foundation containing business logic for MDC chip-set. */
-    protected _chipSetFoundation: MDCChipSetFoundation;
+    protected _chipSetFoundation: deprecated.MDCChipSetFoundation;
     /** Subject that emits when the component has been destroyed. */
     protected _destroyed: Subject<void>;
     /**
      * Implementation of the MDC chip-set adapter interface.
      * These methods are called by the chip set foundation.
      */
-    protected _chipSetAdapter: MDCChipSetAdapter;
+    protected _chipSetAdapter: deprecated.MDCChipSetAdapter;
     /** The aria-describedby attribute on the chip list for improved a11y. */
     _ariaDescribedby: string;
     /** Uid of the chip set */
