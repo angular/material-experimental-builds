@@ -85,6 +85,7 @@ export declare class MatChipRemove extends _MatChipRemoveMixinBase implements Ca
     constructor(elementRef: ElementRef);
     /** Emits a MouseEvent when the user clicks on the remove icon. */
     _handleClick(event: MouseEvent): void;
+    focus(): void;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_tabIndex: NumberInput;
 }
