@@ -342,7 +342,7 @@
     var MatAutocomplete = /** @class */ (function (_super) {
         __extends(MatAutocomplete, _super);
         function MatAutocomplete() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._visibleClass = 'mat-mdc-autocomplete-visible';
             _this._hiddenClass = 'mat-mdc-autocomplete-hidden';
             return _this;
@@ -384,7 +384,7 @@
     var MatAutocompleteTrigger = /** @class */ (function (_super) {
         __extends(MatAutocompleteTrigger, _super);
         function MatAutocompleteTrigger() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._aboveClass = 'mat-mdc-autocomplete-panel-above';
             return _this;
         }

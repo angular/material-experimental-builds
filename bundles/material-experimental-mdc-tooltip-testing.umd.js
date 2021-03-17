@@ -317,7 +317,7 @@
     var MatTooltipHarness = /** @class */ (function (_super) {
         __extends(MatTooltipHarness, _super);
         function MatTooltipHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._optionalPanel = _this.documentRootLocatorFactory().locatorForOptional('.mat-mdc-tooltip');
             return _this;
         }

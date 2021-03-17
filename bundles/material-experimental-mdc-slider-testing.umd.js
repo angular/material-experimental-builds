@@ -317,7 +317,7 @@
     var MatSliderHarness = /** @class */ (function (_super) {
         __extends(MatSliderHarness, _super);
         function MatSliderHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._textLabel = _this.locatorForOptional('.mdc-slider__pin-value-marker');
             _this._trackContainer = _this.locatorFor('.mdc-slider__track-container');
             return _this;

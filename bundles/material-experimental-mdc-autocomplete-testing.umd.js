@@ -317,7 +317,7 @@
     var MatAutocompleteHarness = /** @class */ (function (_super) {
         __extends(MatAutocompleteHarness, _super);
         function MatAutocompleteHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._prefix = 'mat-mdc';
             _this._optionClass = testing$1.MatOptionHarness;
             _this._optionGroupClass = testing$1.MatOptgroupHarness;

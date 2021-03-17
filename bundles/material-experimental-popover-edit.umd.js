@@ -353,7 +353,7 @@
         { type: core.Directive, args: [{
                     selector: 'button[matEditRevert]',
                     host: {
-                        'type': 'button',
+                        'type': 'button', // Prevents accidental form submits.
                     }
                 },] }
     ];
@@ -505,7 +505,7 @@
                         popoverEdit.CdkPopoverEditModule,
                         core$1.MatCommonModule,
                     ],
-                    exports: __spread(EXPORTED_DECLARATIONS, [
+                    exports: __spreadArray(__spreadArray([], __read(EXPORTED_DECLARATIONS)), [
                         popoverEdit.CdkEditable,
                     ]),
                     declarations: EXPORTED_DECLARATIONS,

@@ -39,7 +39,7 @@ MatEditRevert.decorators = [
     { type: Directive, args: [{
                 selector: 'button[matEditRevert]',
                 host: {
-                    'type': 'button',
+                    'type': 'button', // Prevents accidental form submits.
                 }
             },] }
 ];

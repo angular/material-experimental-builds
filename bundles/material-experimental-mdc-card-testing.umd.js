@@ -317,7 +317,7 @@
     var MatCardHarness = /** @class */ (function (_super) {
         __extends(MatCardHarness, _super);
         function MatCardHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._title = _this.locatorForOptional('.mat-mdc-card-title');
             _this._subtitle = _this.locatorForOptional('.mat-mdc-card-subtitle');
             return _this;

@@ -323,7 +323,7 @@
     var MatSelection = /** @class */ (function (_super) {
         __extends(MatSelection, _super);
         function MatSelection() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             /** Emits when selection changes. */
             _this.change = new core.EventEmitter();
             return _this;

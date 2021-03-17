@@ -317,7 +317,7 @@
     var MatSelectHarness = /** @class */ (function (_super) {
         __extends(MatSelectHarness, _super);
         function MatSelectHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._prefix = 'mat-mdc';
             _this._optionClass = testing$2.MatOptionHarness;
             _this._optionGroupClass = testing$2.MatOptgroupHarness;

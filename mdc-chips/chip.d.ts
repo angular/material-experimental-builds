@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
-import { CanColor, CanColorCtor, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
+import { CanColor, CanColorCtor, CanDisable, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
 import { Subject } from 'rxjs';
 import { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';
@@ -27,9 +27,8 @@ export declare class MatChipCssInternalOnly {
  * Boilerplate for applying mixins to MatChip.
  * @docs-private
  */
-declare abstract class MatChipBase {
+declare class MatChipBase {
     _elementRef: ElementRef;
-    abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
 declare const _MatChipMixinBase: CanColorCtor & CanDisableRippleCtor & HasTabIndexCtor & typeof MatChipBase;
@@ -38,7 +37,7 @@ declare const _MatChipMixinBase: CanColorCtor & CanDisableRippleCtor & HasTabInd
  *
  * Extended by MatChipOption and MatChipRow for different interaction patterns.
  */
-export declare class MatChip extends _MatChipMixinBase implements AfterContentInit, AfterViewInit, CanColor, CanDisableRipple, HasTabIndex, OnDestroy {
+export declare class MatChip extends _MatChipMixinBase implements AfterContentInit, AfterViewInit, CanColor, CanDisableRipple, CanDisable, HasTabIndex, OnDestroy {
     _changeDetectorRef: ChangeDetectorRef;
     readonly _elementRef: ElementRef;
     protected _ngZone: NgZone;

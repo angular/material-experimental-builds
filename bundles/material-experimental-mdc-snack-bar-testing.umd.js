@@ -317,7 +317,7 @@
     var MatSnackBarHarness = /** @class */ (function (_super) {
         __extends(MatSnackBarHarness, _super);
         function MatSnackBarHarness() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._messageSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-label';
             _this._simpleSnackBarSelector = '.mat-mdc-simple-snack-bar';
             _this._actionButtonSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-action';

@@ -654,7 +654,7 @@
     var MatSnackBar = /** @class */ (function (_super) {
         __extends(MatSnackBar, _super);
         function MatSnackBar() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this.simpleSnackBarComponent = MatSimpleSnackBar;
             _this.snackBarContainerComponent = MatSnackBarContainer;
             _this.handsetCssClass = 'mat-mdc-snack-bar-handset';

@@ -871,7 +871,7 @@
     var MatChipOption = /** @class */ (function (_super) {
         __extends(MatChipOption, _super);
         function MatChipOption() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             /** Whether the chip list is selectable. */
             _this.chipListSelectable = true;
             /** Whether the chip list is in multi-selection mode. */
@@ -1414,7 +1414,7 @@
         Object.defineProperty(MatChipSet.prototype, "chipRemoveChanges", {
             /** Combined stream of all of the child chips' remove events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.removed; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip.removed; }))));
             },
             enumerable: false,
             configurable: true
@@ -1422,7 +1422,7 @@
         Object.defineProperty(MatChipSet.prototype, "chipDestroyedChanges", {
             /** Combined stream of all of the child chips' remove events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.destroyed; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip.destroyed; }))));
             },
             enumerable: false,
             configurable: true
@@ -1430,7 +1430,7 @@
         Object.defineProperty(MatChipSet.prototype, "chipInteractionChanges", {
             /** Combined stream of all of the child chips' interaction events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.interaction; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip.interaction; }))));
             },
             enumerable: false,
             configurable: true
@@ -1730,7 +1730,7 @@
         Object.defineProperty(MatChipListbox.prototype, "chipSelectionChanges", {
             /** Combined stream of all of the child chips' selection change events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip.selectionChange; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip.selectionChange; }))));
             },
             enumerable: false,
             configurable: true
@@ -1738,7 +1738,7 @@
         Object.defineProperty(MatChipListbox.prototype, "chipFocusChanges", {
             /** Combined stream of all of the child chips' focus events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onFocus; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip._onFocus; }))));
             },
             enumerable: false,
             configurable: true
@@ -1746,7 +1746,7 @@
         Object.defineProperty(MatChipListbox.prototype, "chipBlurChanges", {
             /** Combined stream of all of the child chips' blur events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onBlur; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip._onBlur; }))));
             },
             enumerable: false,
             configurable: true
@@ -2533,7 +2533,7 @@
         Object.defineProperty(MatChipGrid.prototype, "chipBlurChanges", {
             /** Combined stream of all of the child chips' blur events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onBlur; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip._onBlur; }))));
             },
             enumerable: false,
             configurable: true
@@ -2541,7 +2541,7 @@
         Object.defineProperty(MatChipGrid.prototype, "chipFocusChanges", {
             /** Combined stream of all of the child chips' focus events. */
             get: function () {
-                return rxjs.merge.apply(void 0, __spread(this._chips.map(function (chip) { return chip._onFocus; })));
+                return rxjs.merge.apply(void 0, __spreadArray([], __read(this._chips.map(function (chip) { return chip._onFocus; }))));
             },
             enumerable: false,
             configurable: true

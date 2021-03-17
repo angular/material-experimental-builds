@@ -379,7 +379,7 @@
     var MatSelect = /** @class */ (function (_super) {
         __extends(MatSelect, _super);
         function MatSelect() {
-            var _this = _super.apply(this, __spread(arguments)) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._positions = [
                 {
                     originX: 'start',
