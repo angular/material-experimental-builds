@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/table'), require('@angular/cdk/collections'), require('@angular/material-experimental/mdc-core'), require('@angular/material/table')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table', ['exports', '@angular/core', '@angular/cdk/table', '@angular/cdk/collections', '@angular/material-experimental/mdc-core', '@angular/material/table'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = {}), global.ng.core, global.ng.cdk.table, global.ng.cdk.collections, global.ng.materialExperimental.mdcCore, global.ng.material.table));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = {}), global.ng.core, global.ng.cdk.table, global.ng.cdk.collections, global.ng.materialExperimental.mdcCore, global.ng.material.table));
 }(this, (function (exports, core, table, collections, mdcCore, table$1) { 'use strict';
 
     /*! *****************************************************************************

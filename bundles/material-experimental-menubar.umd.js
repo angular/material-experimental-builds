@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk-experimental/menu')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/menubar', ['exports', '@angular/core', '@angular/cdk-experimental/menu'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.menubar = {}), global.ng.core, global.ng.cdkExperimental.menu));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.menubar = {}), global.ng.core, global.ng.cdkExperimental.menu));
 }(this, (function (exports, core, menu) { 'use strict';
 
     /*! *****************************************************************************

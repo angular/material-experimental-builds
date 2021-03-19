@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/cdk/platform'), require('@angular/material-experimental/mdc-core'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/material/divider'), require('@angular/cdk/collections'), require('@angular/forms'), require('@material/list'), require('@angular/material/list')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/core', '@angular/cdk/coercion', '@angular/cdk/platform', '@angular/material-experimental/mdc-core', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/material/divider', '@angular/cdk/collections', '@angular/forms', '@material/list', '@angular/material/list'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.core, global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.materialExperimental.mdcCore, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.material.divider, global.ng.cdk.collections, global.ng.forms, global.mdc.list, global.ng.material.list));
-}(this, (function (exports, core, coercion, platform, mdcCore, rxjs, operators, common, divider, collections, forms, list, list$1) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.core, global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.materialExperimental.mdcCore, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.material.divider, global.ng.cdk.collections, global.ng.forms, global.mdc.list, global.ng.material.list));
+}(this, (function (exports, core, coercion, platform, mdcCore, rxjs, operators, common, divider, collections, forms, list$1, list) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -912,7 +912,7 @@
         };
         MatInteractiveListBase.prototype._initWithAdapter = function (adapter) {
             this._adapter = adapter;
-            this._foundation = new list.MDCListFoundation(adapter);
+            this._foundation = new list$1.MDCListFoundation(adapter);
         };
         MatInteractiveListBase.prototype.ngAfterViewInit = function () {
             if ((typeof ngDevMode === 'undefined' || ngDevMode) && !this._foundation) {
@@ -1460,19 +1460,19 @@
     Object.defineProperty(exports, 'MAT_LIST', {
         enumerable: true,
         get: function () {
-            return list$1.MAT_LIST;
+            return list.MAT_LIST;
         }
     });
     Object.defineProperty(exports, 'MAT_NAV_LIST', {
         enumerable: true,
         get: function () {
-            return list$1.MAT_NAV_LIST;
+            return list.MAT_NAV_LIST;
         }
     });
     Object.defineProperty(exports, 'MAT_SELECTION_LIST_VALUE_ACCESSOR', {
         enumerable: true,
         get: function () {
-            return list$1.MAT_SELECTION_LIST_VALUE_ACCESSOR;
+            return list.MAT_SELECTION_LIST_VALUE_ACCESSOR;
         }
     });
     exports.MatActionList = MatActionList;

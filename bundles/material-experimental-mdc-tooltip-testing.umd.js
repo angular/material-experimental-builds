@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material/tooltip/testing')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-tooltip/testing', ['exports', '@angular/cdk/testing', '@angular/material/tooltip/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTooltip = global.ng.materialExperimental.mdcTooltip || {}, global.ng.materialExperimental.mdcTooltip.testing = {}), global.ng.cdk.testing, global.ng.material.tooltip.testing));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTooltip = global.ng.materialExperimental.mdcTooltip || {}, global.ng.materialExperimental.mdcTooltip.testing = {}), global.ng.cdk.testing, global.ng.material.tooltip.testing));
 }(this, (function (exports, testing, testing$1) { 'use strict';
 
     /*! *****************************************************************************

@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/radio'), require('@angular/material/radio'), require('@angular/cdk/a11y'), require('@angular/cdk/collections'), require('@angular/platform-browser/animations'), require('@angular/forms'), require('@material/ripple'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-radio', ['exports', '@angular/core', '@material/radio', '@angular/material/radio', '@angular/cdk/a11y', '@angular/cdk/collections', '@angular/platform-browser/animations', '@angular/forms', '@material/ripple', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcRadio = {}), global.ng.core, global.mdc.radio, global.ng.material.radio, global.ng.cdk.a11y, global.ng.cdk.collections, global.ng.platformBrowser.animations, global.ng.forms, global.mdc.ripple, global.ng.common, global.ng.materialExperimental.mdcCore));
-}(this, (function (exports, core, radio, radio$1, a11y, collections, animations, forms, ripple, common, mdcCore) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcRadio = {}), global.ng.core, global.mdc.radio, global.ng.material.radio, global.ng.cdk.a11y, global.ng.cdk.collections, global.ng.platformBrowser.animations, global.ng.forms, global.mdc.ripple, global.ng.common, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, core, radio$1, radio, a11y, collections, animations, forms, ripple, common, mdcCore) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -343,7 +343,7 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return MatRadioGroup;
-    }(radio$1._MatRadioGroupBase));
+    }(radio._MatRadioGroupBase));
     MatRadioGroup.decorators = [
         { type: core.Directive, args: [{
                     selector: 'mat-radio-group',
@@ -377,7 +377,7 @@
             };
             /** Configuration for the underlying ripple. */
             _this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
-            _this._radioFoundation = new radio.MDCRadioFoundation(_this._radioAdapter);
+            _this._radioFoundation = new radio$1.MDCRadioFoundation(_this._radioAdapter);
             _this._classes = {};
             return _this;
         }
@@ -403,7 +403,7 @@
             this._radioFoundation.setDisabled(this.disabled);
         };
         return MatRadioButton;
-    }(radio$1._MatRadioButtonBase));
+    }(radio._MatRadioButtonBase));
     MatRadioButton.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-radio-button',
@@ -438,7 +438,7 @@
         { type: a11y.FocusMonitor },
         { type: collections.UniqueSelectionDispatcher },
         { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [radio$1.MAT_RADIO_DEFAULT_OPTIONS,] }] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [radio.MAT_RADIO_DEFAULT_OPTIONS,] }] },
         { type: String, decorators: [{ type: core.Attribute, args: ['tabindex',] }] }
     ]; };
 
@@ -477,19 +477,19 @@
     Object.defineProperty(exports, 'MAT_RADIO_DEFAULT_OPTIONS', {
         enumerable: true,
         get: function () {
-            return radio$1.MAT_RADIO_DEFAULT_OPTIONS;
+            return radio.MAT_RADIO_DEFAULT_OPTIONS;
         }
     });
     Object.defineProperty(exports, 'MAT_RADIO_DEFAULT_OPTIONS_FACTORY', {
         enumerable: true,
         get: function () {
-            return radio$1.MAT_RADIO_DEFAULT_OPTIONS_FACTORY;
+            return radio.MAT_RADIO_DEFAULT_OPTIONS_FACTORY;
         }
     });
     Object.defineProperty(exports, 'MatRadioChange', {
         enumerable: true,
         get: function () {
-            return radio$1.MatRadioChange;
+            return radio.MatRadioChange;
         }
     });
     exports.MAT_RADIO_GROUP = MAT_RADIO_GROUP;

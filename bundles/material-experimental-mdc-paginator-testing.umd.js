@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material-experimental/mdc-select/testing'), require('@angular/material/paginator/testing')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-paginator/testing', ['exports', '@angular/cdk/testing', '@angular/material-experimental/mdc-select/testing', '@angular/material/paginator/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcPaginator = global.ng.materialExperimental.mdcPaginator || {}, global.ng.materialExperimental.mdcPaginator.testing = {}), global.ng.cdk.testing, global.ng.materialExperimental.mdcSelect.testing, global.ng.material.paginator.testing));
-}(this, (function (exports, testing, testing$1, testing$2) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcPaginator = global.ng.materialExperimental.mdcPaginator || {}, global.ng.materialExperimental.mdcPaginator.testing = {}), global.ng.cdk.testing, global.ng.materialExperimental.mdcSelect.testing, global.ng.material.paginator.testing));
+}(this, (function (exports, testing$1, testing, testing$2) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -322,7 +322,7 @@
             _this._previousButton = _this.locatorFor('.mat-mdc-paginator-navigation-previous');
             _this._firstPageButton = _this.locatorForOptional('.mat-mdc-paginator-navigation-first');
             _this._lastPageButton = _this.locatorForOptional('.mat-mdc-paginator-navigation-last');
-            _this._select = _this.locatorForOptional(testing$1.MatSelectHarness.with({
+            _this._select = _this.locatorForOptional(testing.MatSelectHarness.with({
                 ancestor: '.mat-mdc-paginator-page-size'
             }));
             _this._pageSizeFallback = _this.locatorFor('.mat-mdc-paginator-page-size-value');
@@ -337,7 +337,7 @@
          */
         MatPaginatorHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatPaginatorHarness, options);
+            return new testing$1.HarnessPredicate(MatPaginatorHarness, options);
         };
         return MatPaginatorHarness;
     }(testing$2._MatPaginatorHarnessBase));

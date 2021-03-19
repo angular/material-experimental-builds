@@ -1,17 +1,20 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject, ElementRef, NgZone, Optional, ViewChild, Directive, NgModule, ɵɵdefineInjectable, ɵɵinject, INJECTOR, Injectable } from '@angular/core';
-import { MatSnackBarRef, MAT_SNACK_BAR_DATA, MatSnackBarConfig, MatSnackBar as MatSnackBar$1, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import * as i0 from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Inject, ElementRef, NgZone, Optional, ViewChild, Directive, NgModule, Injectable } from '@angular/core';
+import * as i4 from '@angular/material/snack-bar';
+import { MatSnackBarRef, MAT_SNACK_BAR_DATA, MatSnackBarConfig, MatSnackBar as MatSnackBar$1 } from '@angular/material/snack-bar';
 export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, MatSnackBarConfig, MatSnackBarRef, SimpleSnackBar, matSnackBarAnimations } from '@angular/material/snack-bar';
 import { BasePortalOutlet, CdkPortalOutlet, PortalModule } from '@angular/cdk/portal';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCSnackbarFoundation } from '@material/snackbar';
 import { Platform } from '@angular/cdk/platform';
 import { Subject } from 'rxjs';
-import { OverlayModule, Overlay } from '@angular/cdk/overlay';
+import * as i1 from '@angular/cdk/overlay';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material-experimental/mdc-button';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import * as i2 from '@angular/cdk/a11y';
+import * as i3 from '@angular/cdk/layout';
 
 /**
  * @license
@@ -351,7 +354,7 @@ class MatSnackBar extends MatSnackBar$1 {
         this.handsetCssClass = 'mat-mdc-snack-bar-handset';
     }
 }
-MatSnackBar.ɵprov = ɵɵdefineInjectable({ factory: function MatSnackBar_Factory() { return new MatSnackBar(ɵɵinject(Overlay), ɵɵinject(LiveAnnouncer), ɵɵinject(INJECTOR), ɵɵinject(BreakpointObserver), ɵɵinject(MatSnackBar$1, 12), ɵɵinject(MAT_SNACK_BAR_DEFAULT_OPTIONS)); }, token: MatSnackBar, providedIn: MatSnackBarModule });
+MatSnackBar.ɵprov = i0.ɵɵdefineInjectable({ factory: function MatSnackBar_Factory() { return new MatSnackBar(i0.ɵɵinject(i1.Overlay), i0.ɵɵinject(i2.LiveAnnouncer), i0.ɵɵinject(i0.INJECTOR), i0.ɵɵinject(i3.BreakpointObserver), i0.ɵɵinject(i4.MatSnackBar, 12), i0.ɵɵinject(i4.MAT_SNACK_BAR_DEFAULT_OPTIONS)); }, token: MatSnackBar, providedIn: MatSnackBarModule });
 MatSnackBar.decorators = [
     { type: Injectable, args: [{ providedIn: MatSnackBarModule },] }
 ];

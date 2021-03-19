@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk-experimental/popover-edit'), require('@angular/material/core')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/popover-edit', ['exports', '@angular/core', '@angular/cdk-experimental/popover-edit', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.popoverEdit = {}), global.ng.core, global.ng.cdkExperimental.popoverEdit, global.ng.material.core));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.popoverEdit = {}), global.ng.core, global.ng.cdkExperimental.popoverEdit, global.ng.material.core));
 }(this, (function (exports, core, popoverEdit, core$1) { 'use strict';
 
     /*! *****************************************************************************

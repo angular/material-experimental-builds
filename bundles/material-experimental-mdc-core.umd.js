@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material/core')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-core', ['exports', '@angular/core', '@angular/common', '@angular/material/core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCore = {}), global.ng.core, global.ng.common, global.ng.material.core));
-}(this, (function (exports, core, common, core$1) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCore = {}), global.ng.core, global.ng.common, global.ng.material.core));
+}(this, (function (exports, core$1, common, core) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -341,14 +341,14 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return MatOptgroup;
-    }(core$1._MatOptgroupBase));
+    }(core._MatOptgroupBase));
     MatOptgroup.decorators = [
-        { type: core.Component, args: [{
+        { type: core$1.Component, args: [{
                     selector: 'mat-optgroup',
                     exportAs: 'matOptgroup',
                     template: "<span\n  class=\"mat-mdc-optgroup-label\"\n  aria-hidden=\"true\"\n  [class.mdc-deprecated-list-item--disabled]=\"disabled\"\n  [id]=\"_labelId\">\n  <span class=\"mdc-deprecated-list-item__text\">{{ label }} <ng-content></ng-content></span>\n</span>\n\n<ng-content select=\"mat-option, ng-container\"></ng-content>\n",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    encapsulation: core$1.ViewEncapsulation.None,
+                    changeDetection: core$1.ChangeDetectionStrategy.OnPush,
                     inputs: ['disabled'],
                     host: {
                         'class': 'mat-mdc-optgroup',
@@ -357,7 +357,7 @@
                         '[attr.aria-labelledby]': '_inert ? null : _labelId',
                     },
                     providers: [
-                        { provide: core$1.MAT_OPTGROUP, useExisting: MatOptgroup }
+                        { provide: core.MAT_OPTGROUP, useExisting: MatOptgroup }
                     ],
                     styles: [".mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}\n"]
                 },] }
@@ -372,9 +372,9 @@
             return _super.call(this, element, changeDetectorRef, parent, group) || this;
         }
         return MatOption;
-    }(core$1._MatOptionBase));
+    }(core._MatOptionBase));
     MatOption.decorators = [
-        { type: core.Component, args: [{
+        { type: core$1.Component, args: [{
                     selector: 'mat-option',
                     exportAs: 'matOption',
                     host: {
@@ -392,16 +392,16 @@
                         'class': 'mat-mdc-option mat-mdc-focus-indicator',
                     },
                     template: "<mat-pseudo-checkbox *ngIf=\"multiple\" class=\"mat-mdc-option-pseudo-checkbox\"\n    [state]=\"selected ? 'checked' : 'unchecked'\" [disabled]=\"disabled\"></mat-pseudo-checkbox>\n\n<span class=\"mdc-deprecated-list-item__text\"><ng-content></ng-content></span>\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n<span class=\"cdk-visually-hidden\" *ngIf=\"group && group._inert\">({{ group.label }})</span>\n\n<div class=\"mat-mdc-option-ripple\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\"\n     [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    encapsulation: core$1.ViewEncapsulation.None,
+                    changeDetection: core$1.ChangeDetectionStrategy.OnPush,
                     styles: [".mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option::after{display:inline-block;min-height:inherit;content:\"\"}.mat-mdc-option:not(.mdc-deprecated-list-item--disabled){cursor:pointer}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-pseudo-checkbox{margin-right:16px}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox{margin-right:0;margin-left:16px}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.cdk-high-contrast-active .mat-mdc-option-active::before{content:\"\";position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;border:solid 1px currentColor}\n"]
                 },] }
     ];
     MatOption.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_OPTION_PARENT_COMPONENT,] }] },
-        { type: MatOptgroup, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core$1.MAT_OPTGROUP,] }] }
+        { type: core$1.ElementRef },
+        { type: core$1.ChangeDetectorRef },
+        { type: undefined, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core.MAT_OPTION_PARENT_COMPONENT,] }] },
+        { type: MatOptgroup, decorators: [{ type: core$1.Optional }, { type: core$1.Inject, args: [core.MAT_OPTGROUP,] }] }
     ]; };
 
     /**
@@ -417,8 +417,8 @@
         return MatOptionModule;
     }());
     MatOptionModule.decorators = [
-        { type: core.NgModule, args: [{
-                    imports: [core$1.MatRippleModule, common.CommonModule, core$1.MatPseudoCheckboxModule],
+        { type: core$1.NgModule, args: [{
+                    imports: [core.MatRippleModule, common.CommonModule, core.MatPseudoCheckboxModule],
                     exports: [MatOption, MatOptgroup],
                     declarations: [MatOption, MatOptgroup]
                 },] }
@@ -439,223 +439,223 @@
     Object.defineProperty(exports, 'AnimationCurves', {
         enumerable: true,
         get: function () {
-            return core$1.AnimationCurves;
+            return core.AnimationCurves;
         }
     });
     Object.defineProperty(exports, 'AnimationDurations', {
         enumerable: true,
         get: function () {
-            return core$1.AnimationDurations;
+            return core.AnimationDurations;
         }
     });
     Object.defineProperty(exports, 'DateAdapter', {
         enumerable: true,
         get: function () {
-            return core$1.DateAdapter;
+            return core.DateAdapter;
         }
     });
     Object.defineProperty(exports, 'ErrorStateMatcher', {
         enumerable: true,
         get: function () {
-            return core$1.ErrorStateMatcher;
+            return core.ErrorStateMatcher;
         }
     });
     Object.defineProperty(exports, 'MATERIAL_SANITY_CHECKS', {
         enumerable: true,
         get: function () {
-            return core$1.MATERIAL_SANITY_CHECKS;
+            return core.MATERIAL_SANITY_CHECKS;
         }
     });
     Object.defineProperty(exports, 'MAT_DATE_FORMATS', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_DATE_FORMATS;
+            return core.MAT_DATE_FORMATS;
         }
     });
     Object.defineProperty(exports, 'MAT_DATE_LOCALE', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_DATE_LOCALE;
+            return core.MAT_DATE_LOCALE;
         }
     });
     Object.defineProperty(exports, 'MAT_DATE_LOCALE_FACTORY', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_DATE_LOCALE_FACTORY;
+            return core.MAT_DATE_LOCALE_FACTORY;
         }
     });
     Object.defineProperty(exports, 'MAT_NATIVE_DATE_FORMATS', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_NATIVE_DATE_FORMATS;
+            return core.MAT_NATIVE_DATE_FORMATS;
         }
     });
     Object.defineProperty(exports, 'MAT_OPTGROUP', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_OPTGROUP;
+            return core.MAT_OPTGROUP;
         }
     });
     Object.defineProperty(exports, 'MAT_OPTION_PARENT_COMPONENT', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_OPTION_PARENT_COMPONENT;
+            return core.MAT_OPTION_PARENT_COMPONENT;
         }
     });
     Object.defineProperty(exports, 'MAT_RIPPLE_GLOBAL_OPTIONS', {
         enumerable: true,
         get: function () {
-            return core$1.MAT_RIPPLE_GLOBAL_OPTIONS;
+            return core.MAT_RIPPLE_GLOBAL_OPTIONS;
         }
     });
     Object.defineProperty(exports, 'MatCommonModule', {
         enumerable: true,
         get: function () {
-            return core$1.MatCommonModule;
+            return core.MatCommonModule;
         }
     });
     Object.defineProperty(exports, 'MatLine', {
         enumerable: true,
         get: function () {
-            return core$1.MatLine;
+            return core.MatLine;
         }
     });
     Object.defineProperty(exports, 'MatLineModule', {
         enumerable: true,
         get: function () {
-            return core$1.MatLineModule;
+            return core.MatLineModule;
         }
     });
     Object.defineProperty(exports, 'MatNativeDateModule', {
         enumerable: true,
         get: function () {
-            return core$1.MatNativeDateModule;
+            return core.MatNativeDateModule;
         }
     });
     Object.defineProperty(exports, 'MatOptionSelectionChange', {
         enumerable: true,
         get: function () {
-            return core$1.MatOptionSelectionChange;
+            return core.MatOptionSelectionChange;
         }
     });
     Object.defineProperty(exports, 'MatPseudoCheckbox', {
         enumerable: true,
         get: function () {
-            return core$1.MatPseudoCheckbox;
+            return core.MatPseudoCheckbox;
         }
     });
     Object.defineProperty(exports, 'MatPseudoCheckboxModule', {
         enumerable: true,
         get: function () {
-            return core$1.MatPseudoCheckboxModule;
+            return core.MatPseudoCheckboxModule;
         }
     });
     Object.defineProperty(exports, 'MatRipple', {
         enumerable: true,
         get: function () {
-            return core$1.MatRipple;
+            return core.MatRipple;
         }
     });
     Object.defineProperty(exports, 'MatRippleModule', {
         enumerable: true,
         get: function () {
-            return core$1.MatRippleModule;
+            return core.MatRippleModule;
         }
     });
     Object.defineProperty(exports, 'NativeDateAdapter', {
         enumerable: true,
         get: function () {
-            return core$1.NativeDateAdapter;
+            return core.NativeDateAdapter;
         }
     });
     Object.defineProperty(exports, 'NativeDateModule', {
         enumerable: true,
         get: function () {
-            return core$1.NativeDateModule;
+            return core.NativeDateModule;
         }
     });
     Object.defineProperty(exports, 'RippleRef', {
         enumerable: true,
         get: function () {
-            return core$1.RippleRef;
+            return core.RippleRef;
         }
     });
     Object.defineProperty(exports, 'RippleRenderer', {
         enumerable: true,
         get: function () {
-            return core$1.RippleRenderer;
+            return core.RippleRenderer;
         }
     });
     Object.defineProperty(exports, 'ShowOnDirtyErrorStateMatcher', {
         enumerable: true,
         get: function () {
-            return core$1.ShowOnDirtyErrorStateMatcher;
+            return core.ShowOnDirtyErrorStateMatcher;
         }
     });
     Object.defineProperty(exports, 'VERSION', {
         enumerable: true,
         get: function () {
-            return core$1.VERSION;
+            return core.VERSION;
         }
     });
     Object.defineProperty(exports, '_countGroupLabelsBeforeOption', {
         enumerable: true,
         get: function () {
-            return core$1._countGroupLabelsBeforeOption;
+            return core._countGroupLabelsBeforeOption;
         }
     });
     Object.defineProperty(exports, '_getOptionScrollPosition', {
         enumerable: true,
         get: function () {
-            return core$1._getOptionScrollPosition;
+            return core._getOptionScrollPosition;
         }
     });
     Object.defineProperty(exports, 'defaultRippleAnimationConfig', {
         enumerable: true,
         get: function () {
-            return core$1.defaultRippleAnimationConfig;
+            return core.defaultRippleAnimationConfig;
         }
     });
     Object.defineProperty(exports, 'mixinColor', {
         enumerable: true,
         get: function () {
-            return core$1.mixinColor;
+            return core.mixinColor;
         }
     });
     Object.defineProperty(exports, 'mixinDisableRipple', {
         enumerable: true,
         get: function () {
-            return core$1.mixinDisableRipple;
+            return core.mixinDisableRipple;
         }
     });
     Object.defineProperty(exports, 'mixinDisabled', {
         enumerable: true,
         get: function () {
-            return core$1.mixinDisabled;
+            return core.mixinDisabled;
         }
     });
     Object.defineProperty(exports, 'mixinErrorState', {
         enumerable: true,
         get: function () {
-            return core$1.mixinErrorState;
+            return core.mixinErrorState;
         }
     });
     Object.defineProperty(exports, 'mixinInitialized', {
         enumerable: true,
         get: function () {
-            return core$1.mixinInitialized;
+            return core.mixinInitialized;
         }
     });
     Object.defineProperty(exports, 'mixinTabIndex', {
         enumerable: true,
         get: function () {
-            return core$1.mixinTabIndex;
+            return core.mixinTabIndex;
         }
     });
     Object.defineProperty(exports, 'setLines', {
         enumerable: true,
         get: function () {
-            return core$1.setLines;
+            return core.setLines;
         }
     });
     exports.MatOptgroup = MatOptgroup;

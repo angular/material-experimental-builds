@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-card', ['exports', '@angular/core', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCard = {}), global.ng.core, global.ng.common, global.ng.materialExperimental.mdcCore));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCard = {}), global.ng.core, global.ng.common, global.ng.materialExperimental.mdcCore));
 }(this, (function (exports, core, common, mdcCore) { 'use strict';
 
     /**

@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@material/chips'), require('@material/ripple'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/cdk/a11y'), require('@angular/forms'), require('@angular/material-experimental/mdc-form-field')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-chips', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@angular/core', '@angular/material-experimental/mdc-core', '@material/chips', '@material/ripple', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/cdk/a11y', '@angular/forms', '@angular/material-experimental/mdc-form-field'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcChips = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.core, global.ng.materialExperimental.mdcCore, global.mdc.chips, global.mdc.ripple, global.ng.cdk.keycodes, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.cdk.a11y, global.ng.forms, global.ng.materialExperimental.mdcFormField));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcChips = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.core, global.ng.materialExperimental.mdcCore, global.mdc.chips, global.mdc.ripple, global.ng.cdk.keycodes, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.cdk.a11y, global.ng.forms, global.ng.materialExperimental.mdcFormField));
 }(this, (function (exports, bidi, coercion, animations, core, mdcCore, chips, ripple, keycodes, rxjs, operators, common, a11y, forms, mdcFormField) { 'use strict';
 
     /*! *****************************************************************************
@@ -490,7 +490,7 @@
         { type: core.ElementRef }
     ]; };
 
-    var uid = 0;
+    var uid$1 = 0;
     /** Configuration for the ripple animation. */
     var RIPPLE_ANIMATION_CONFIG = {
         enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
@@ -548,7 +548,7 @@
             /** Whether the chip has focus. */
             _this._hasFocusInternal = false;
             /** Default unique id for the chip. */
-            _this._uniqueId = "mat-mdc-chip-" + uid++;
+            _this._uniqueId = "mat-mdc-chip-" + uid$1++;
             /** A unique id for the chip. If none is supplied, it will be auto-generated. */
             _this.id = _this._uniqueId;
             _this._disabled = false;
@@ -1310,7 +1310,7 @@
         contentEditInput: [{ type: core.ContentChild, args: [MatChipEditInput,] }]
     };
 
-    var uid$1 = 0;
+    var uid = 0;
     /**
      * Boilerplate for applying mixins to MatChipSet.
      * @docs-private
@@ -1362,7 +1362,7 @@
                 announceMessage: function () { },
             };
             /** Uid of the chip set */
-            _this._uid = "mat-mdc-chip-set-" + uid$1++;
+            _this._uid = "mat-mdc-chip-set-" + uid++;
             /**
              * Map from class to whether the class is enabled.
              * Enabled classes are set on the MDC chip-set div.

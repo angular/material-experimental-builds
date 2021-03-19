@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/cdk-experimental/selection'), require('@angular/core'), require('@angular/material/table'), require('@angular/common'), require('@angular/material/checkbox')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/selection', ['exports', '@angular/cdk/coercion', '@angular/cdk-experimental/selection', '@angular/core', '@angular/material/table', '@angular/common', '@angular/material/checkbox'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.selection = {}), global.ng.cdk.coercion, global.ng.cdkExperimental.selection, global.ng.core, global.ng.material.table, global.ng.common, global.ng.material.checkbox));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.selection = {}), global.ng.cdk.coercion, global.ng.cdkExperimental.selection, global.ng.core, global.ng.material.table, global.ng.common, global.ng.material.checkbox));
 }(this, (function (exports, coercion, selection, core, table, common, checkbox) { 'use strict';
 
     /*! *****************************************************************************

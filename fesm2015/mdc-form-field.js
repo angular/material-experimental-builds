@@ -37,7 +37,7 @@ MatLabel.decorators = [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-let nextUniqueId = 0;
+let nextUniqueId$2 = 0;
 /**
  * Injection token that can be used to reference instances of `MatError`. It serves as
  * alternative token to the actual `MatError` class which could cause unnecessary
@@ -47,7 +47,7 @@ const MAT_ERROR = new InjectionToken('MatError');
 /** Single error message to be shown underneath the form-field. */
 class MatError {
     constructor(ariaLive, elementRef) {
-        this.id = `mat-mdc-error-${nextUniqueId++}`;
+        this.id = `mat-mdc-error-${nextUniqueId$2++}`;
         // If no aria-live value is set add 'polite' as a default. This is preferred over setting
         // role='alert' so that screen readers do not interrupt the current task to read this aloud.
         if (!ariaLive) {
@@ -356,7 +356,7 @@ MatFormFieldNotchedOutline.propDecorators = {
  * default options for all form field within an app.
  */
 const MAT_FORM_FIELD_DEFAULT_OPTIONS = new InjectionToken('MAT_FORM_FIELD_DEFAULT_OPTIONS');
-let nextUniqueId$2 = 0;
+let nextUniqueId = 0;
 /** Default appearance used by the form-field. */
 const DEFAULT_APPEARANCE = 'fill';
 /** Default appearance used by the form-field. */
@@ -389,9 +389,9 @@ class MatFormField {
         this._hasIconSuffix = false;
         this._hasTextSuffix = false;
         // Unique id for the internal form field label.
-        this._labelId = `mat-mdc-form-field-label-${nextUniqueId$2++}`;
+        this._labelId = `mat-mdc-form-field-label-${nextUniqueId++}`;
         // Unique id for the hint label.
-        this._hintLabelId = `mat-mdc-hint-${nextUniqueId$2++}`;
+        this._hintLabelId = `mat-mdc-hint-${nextUniqueId++}`;
         /** State of the mat-hint and mat-error animations. */
         this._subscriptAnimationState = '';
         this._destroyed = new Subject();

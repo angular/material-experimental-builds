@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@angular/material/paginator'), require('@angular/material-experimental/mdc-button'), require('@angular/material-experimental/mdc-select'), require('@angular/material-experimental/mdc-tooltip')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-paginator', ['exports', '@angular/common', '@angular/core', '@angular/material/paginator', '@angular/material-experimental/mdc-button', '@angular/material-experimental/mdc-select', '@angular/material-experimental/mdc-tooltip'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcPaginator = {}), global.ng.common, global.ng.core, global.ng.material.paginator, global.ng.materialExperimental.mdcButton, global.ng.materialExperimental.mdcSelect, global.ng.materialExperimental.mdcTooltip));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcPaginator = {}), global.ng.common, global.ng.core, global.ng.material.paginator, global.ng.materialExperimental.mdcButton, global.ng.materialExperimental.mdcSelect, global.ng.materialExperimental.mdcTooltip));
 }(this, (function (exports, common, core, paginator, mdcButton, mdcSelect, mdcTooltip) { 'use strict';
 
     /*! *****************************************************************************

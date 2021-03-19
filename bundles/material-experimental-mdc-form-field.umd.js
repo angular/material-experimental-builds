@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/common'), require('@angular/cdk/observers'), require('@angular/material-experimental/mdc-core')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/material/form-field', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/common', '@angular/cdk/observers', '@angular/material-experimental/mdc-core'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.formField, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.common, global.ng.cdk.observers, global.ng.materialExperimental.mdcCore));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.formField, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.common, global.ng.cdk.observers, global.ng.materialExperimental.mdcCore));
 }(this, (function (exports, core, bidi, platform, formField, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, common, observers, mdcCore) { 'use strict';
 
     /**
@@ -30,7 +30,7 @@
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var nextUniqueId = 0;
+    var nextUniqueId$2 = 0;
     /**
      * Injection token that can be used to reference instances of `MatError`. It serves as
      * alternative token to the actual `MatError` class which could cause unnecessary
@@ -40,7 +40,7 @@
     /** Single error message to be shown underneath the form-field. */
     var MatError = /** @class */ (function () {
         function MatError(ariaLive, elementRef) {
-            this.id = "mat-mdc-error-" + nextUniqueId++;
+            this.id = "mat-mdc-error-" + nextUniqueId$2++;
             // If no aria-live value is set add 'polite' as a default. This is preferred over setting
             // role='alert' so that screen readers do not interrupt the current task to read this aloud.
             if (!ariaLive) {
@@ -656,7 +656,7 @@
      * default options for all form field within an app.
      */
     var MAT_FORM_FIELD_DEFAULT_OPTIONS = new core.InjectionToken('MAT_FORM_FIELD_DEFAULT_OPTIONS');
-    var nextUniqueId$2 = 0;
+    var nextUniqueId = 0;
     /** Default appearance used by the form-field. */
     var DEFAULT_APPEARANCE = 'fill';
     /** Default appearance used by the form-field. */
@@ -690,9 +690,9 @@
             this._hasIconSuffix = false;
             this._hasTextSuffix = false;
             // Unique id for the internal form field label.
-            this._labelId = "mat-mdc-form-field-label-" + nextUniqueId$2++;
+            this._labelId = "mat-mdc-form-field-label-" + nextUniqueId++;
             // Unique id for the hint label.
-            this._hintLabelId = "mat-mdc-hint-" + nextUniqueId$2++;
+            this._hintLabelId = "mat-mdc-hint-" + nextUniqueId++;
             /** State of the mat-hint and mat-error animations. */
             this._subscriptAnimationState = '';
             this._destroyed = new rxjs.Subject();

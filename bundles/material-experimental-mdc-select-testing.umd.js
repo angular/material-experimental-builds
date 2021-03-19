@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material/select/testing'), require('@angular/material-experimental/mdc-core/testing')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-select/testing', ['exports', '@angular/cdk/testing', '@angular/material/select/testing', '@angular/material-experimental/mdc-core/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSelect = global.ng.materialExperimental.mdcSelect || {}, global.ng.materialExperimental.mdcSelect.testing = {}), global.ng.cdk.testing, global.ng.material.select.testing, global.ng.materialExperimental.mdcCore.testing));
-}(this, (function (exports, testing, testing$1, testing$2) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSelect = global.ng.materialExperimental.mdcSelect || {}, global.ng.materialExperimental.mdcSelect.testing = {}), global.ng.cdk.testing, global.ng.material.select.testing, global.ng.materialExperimental.mdcCore.testing));
+}(this, (function (exports, testing$1, testing$2, testing) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -319,8 +319,8 @@
         function MatSelectHarness() {
             var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._prefix = 'mat-mdc';
-            _this._optionClass = testing$2.MatOptionHarness;
-            _this._optionGroupClass = testing$2.MatOptgroupHarness;
+            _this._optionClass = testing.MatOptionHarness;
+            _this._optionGroupClass = testing.MatOptgroupHarness;
             return _this;
         }
         /**
@@ -331,10 +331,10 @@
          */
         MatSelectHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatSelectHarness, options);
+            return new testing$1.HarnessPredicate(MatSelectHarness, options);
         };
         return MatSelectHarness;
-    }(testing$1._MatSelectHarnessBase));
+    }(testing$2._MatSelectHarnessBase));
     MatSelectHarness.hostSelector = '.mat-mdc-select';
 
     /**

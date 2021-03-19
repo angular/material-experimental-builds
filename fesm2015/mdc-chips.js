@@ -197,7 +197,7 @@ MatChipRemove.ctorParameters = () => [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-let uid = 0;
+let uid$1 = 0;
 /** Configuration for the ripple animation. */
 const RIPPLE_ANIMATION_CONFIG = {
     enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
@@ -251,7 +251,7 @@ class MatChip extends _MatChipMixinBase {
         /** Whether the chip has focus. */
         this._hasFocusInternal = false;
         /** Default unique id for the chip. */
-        this._uniqueId = `mat-mdc-chip-${uid++}`;
+        this._uniqueId = `mat-mdc-chip-${uid$1++}`;
         /** A unique id for the chip. If none is supplied, it will be auto-generated. */
         this.id = this._uniqueId;
         this._disabled = false;
@@ -988,7 +988,7 @@ MatChipRow.propDecorators = {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-let uid$1 = 0;
+let uid = 0;
 /**
  * Boilerplate for applying mixins to MatChipSet.
  * @docs-private
@@ -1037,7 +1037,7 @@ class MatChipSet extends _MatChipSetMixinBase {
             announceMessage: () => { },
         };
         /** Uid of the chip set */
-        this._uid = `mat-mdc-chip-set-${uid$1++}`;
+        this._uid = `mat-mdc-chip-set-${uid++}`;
         /**
          * Map from class to whether the class is enabled.
          * Enabled classes are set on the MDC chip-set div.

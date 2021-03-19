@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/common'), require('@angular/cdk/scrolling'), require('@angular/cdk/overlay'), require('@angular/material/autocomplete'), require('@angular/animations'), require('@angular/forms')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete', ['exports', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/common', '@angular/cdk/scrolling', '@angular/cdk/overlay', '@angular/material/autocomplete', '@angular/animations', '@angular/forms'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.common, global.ng.cdk.scrolling, global.ng.cdk.overlay, global.ng.material.autocomplete, global.ng.animations, global.ng.forms));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.common, global.ng.cdk.scrolling, global.ng.cdk.overlay, global.ng.material.autocomplete, global.ng.animations, global.ng.forms));
 }(this, (function (exports, core, mdcCore, common, scrolling, overlay, autocomplete, animations, forms) { 'use strict';
 
     /*! *****************************************************************************

@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/platform'), require('@angular/core'), require('@angular/platform-browser/animations'), require('@angular/material-experimental/mdc-core'), require('@material/ripple'), require('@angular/cdk/coercion')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-button', ['exports', '@angular/cdk/platform', '@angular/core', '@angular/platform-browser/animations', '@angular/material-experimental/mdc-core', '@material/ripple', '@angular/cdk/coercion'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcButton = {}), global.ng.cdk.platform, global.ng.core, global.ng.platformBrowser.animations, global.ng.materialExperimental.mdcCore, global.mdc.ripple, global.ng.cdk.coercion));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcButton = {}), global.ng.cdk.platform, global.ng.core, global.ng.platformBrowser.animations, global.ng.materialExperimental.mdcCore, global.mdc.ripple, global.ng.cdk.coercion));
 }(this, (function (exports, platform, core, animations, mdcCore, ripple, coercion) { 'use strict';
 
     /*! *****************************************************************************

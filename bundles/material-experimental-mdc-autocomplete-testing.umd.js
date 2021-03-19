@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material-experimental/mdc-core/testing'), require('@angular/material/autocomplete/testing')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-autocomplete/testing', ['exports', '@angular/cdk/testing', '@angular/material-experimental/mdc-core/testing', '@angular/material/autocomplete/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = global.ng.materialExperimental.mdcAutocomplete || {}, global.ng.materialExperimental.mdcAutocomplete.testing = {}), global.ng.cdk.testing, global.ng.materialExperimental.mdcCore.testing, global.ng.material.autocomplete.testing));
-}(this, (function (exports, testing, testing$1, testing$2) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcAutocomplete = global.ng.materialExperimental.mdcAutocomplete || {}, global.ng.materialExperimental.mdcAutocomplete.testing = {}), global.ng.cdk.testing, global.ng.materialExperimental.mdcCore.testing, global.ng.material.autocomplete.testing));
+}(this, (function (exports, testing$1, testing, testing$2) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -319,8 +319,8 @@
         function MatAutocompleteHarness() {
             var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
             _this._prefix = 'mat-mdc';
-            _this._optionClass = testing$1.MatOptionHarness;
-            _this._optionGroupClass = testing$1.MatOptgroupHarness;
+            _this._optionClass = testing.MatOptionHarness;
+            _this._optionGroupClass = testing.MatOptgroupHarness;
             return _this;
         }
         /**
@@ -331,8 +331,8 @@
          */
         MatAutocompleteHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatAutocompleteHarness, options)
-                .addOption('value', options.value, function (harness, value) { return testing.HarnessPredicate.stringMatches(harness.getValue(), value); });
+            return new testing$1.HarnessPredicate(MatAutocompleteHarness, options)
+                .addOption('value', options.value, function (harness, value) { return testing$1.HarnessPredicate.stringMatches(harness.getValue(), value); });
         };
         return MatAutocompleteHarness;
     }(testing$2._MatAutocompleteHarnessBase));

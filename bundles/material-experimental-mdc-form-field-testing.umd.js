@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/material/form-field/testing/control'), require('@angular/cdk/testing'), require('@angular/material/form-field/testing'), require('@angular/material-experimental/mdc-input/testing'), require('@angular/material-experimental/mdc-select/testing')) :
     typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field/testing', ['exports', '@angular/material/form-field/testing/control', '@angular/cdk/testing', '@angular/material/form-field/testing', '@angular/material-experimental/mdc-input/testing', '@angular/material-experimental/mdc-select/testing'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = global.ng.materialExperimental.mdcFormField || {}, global.ng.materialExperimental.mdcFormField.testing = {}), global.ng.material.formField.testing.control, global.ng.cdk.testing, global.ng.material.formField.testing, global.ng.materialExperimental.mdcInput.testing, global.ng.materialExperimental.mdcSelect.testing));
-}(this, (function (exports, control, testing, testing$1, testing$2, testing$3) { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = global.ng.materialExperimental.mdcFormField || {}, global.ng.materialExperimental.mdcFormField.testing = {}), global.ng.material.formField.testing.control, global.ng.cdk.testing, global.ng.material.formField.testing, global.ng.materialExperimental.mdcInput.testing, global.ng.materialExperimental.mdcSelect.testing));
+}(this, (function (exports, control, testing$2, testing$3, testing, testing$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -323,8 +323,8 @@
             _this._label = _this.locatorForOptional('.mdc-floating-label');
             _this._errors = _this.locatorForAll('.mat-mdc-form-field-error');
             _this._hints = _this.locatorForAll('.mat-mdc-form-field-hint');
-            _this._inputControl = _this.locatorForOptional(testing$2.MatInputHarness);
-            _this._selectControl = _this.locatorForOptional(testing$3.MatSelectHarness);
+            _this._inputControl = _this.locatorForOptional(testing.MatInputHarness);
+            _this._selectControl = _this.locatorForOptional(testing$1.MatSelectHarness);
             _this._mdcTextField = _this.locatorFor('.mat-mdc-text-field-wrapper');
             return _this;
         }
@@ -337,11 +337,11 @@
         MatFormFieldHarness.with = function (options) {
             var _this = this;
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatFormFieldHarness, options)
+            return new testing$2.HarnessPredicate(MatFormFieldHarness, options)
                 .addOption('floatingLabelText', options.floatingLabelText, function (harness, text) { return __awaiter(_this, void 0, void 0, function () { var _a, _b; return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _b = (_a = testing.HarnessPredicate).stringMatches;
+                        _b = (_a = testing$2.HarnessPredicate).stringMatches;
                         return [4 /*yield*/, harness.getLabel()];
                     case 1: return [2 /*return*/, _b.apply(_a, [_c.sent(), text])];
                 }
@@ -406,7 +406,7 @@
             });
         };
         return MatFormFieldHarness;
-    }(testing$1._MatFormFieldHarnessBase));
+    }(testing$3._MatFormFieldHarnessBase));
     MatFormFieldHarness.hostSelector = '.mat-mdc-form-field';
 
     /**
@@ -425,15 +425,15 @@
      * found in the LICENSE file at https://angular.io/license
      */
 
+    exports.MatFormFieldHarness = MatFormFieldHarness;
     Object.keys(control).forEach(function (k) {
-        if (k !== 'default') Object.defineProperty(exports, k, {
+        if (k !== 'default' && !exports.hasOwnProperty(k)) Object.defineProperty(exports, k, {
             enumerable: true,
             get: function () {
                 return control[k];
             }
         });
     });
-    exports.MatFormFieldHarness = MatFormFieldHarness;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
