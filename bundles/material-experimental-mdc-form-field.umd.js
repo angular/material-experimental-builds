@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/common'), require('@angular/cdk/observers'), require('@angular/material-experimental/mdc-core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/material/form-field', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/common', '@angular/cdk/observers', '@angular/material-experimental/mdc-core'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.formField, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.common, global.ng.cdk.observers, global.ng.materialExperimental.mdcCore));
-}(this, (function (exports, core, bidi, platform, formField, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, common, observers, mdcCore) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/bidi'), require('@angular/cdk/platform'), require('@angular/material/form-field'), require('@angular/platform-browser/animations'), require('@material/textfield'), require('rxjs'), require('rxjs/operators'), require('@material/dom'), require('@material/line-ripple'), require('@material/notched-outline'), require('@angular/common'), require('@angular/cdk/coercion'), require('@angular/cdk/observers'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-form-field', ['exports', '@angular/core', '@angular/cdk/bidi', '@angular/cdk/platform', '@angular/material/form-field', '@angular/platform-browser/animations', '@material/textfield', 'rxjs', 'rxjs/operators', '@material/dom', '@material/line-ripple', '@material/notched-outline', '@angular/common', '@angular/cdk/coercion', '@angular/cdk/observers', '@angular/material-experimental/mdc-core'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcFormField = {}), global.ng.core, global.ng.cdk.bidi, global.ng.cdk.platform, global.ng.material.formField, global.ng.platformBrowser.animations, global.mdc.textfield, global.rxjs, global.rxjs.operators, global.mdc.dom, global.mdc.lineRipple, global.mdc.notchedOutline, global.ng.common, global.ng.cdk.coercion, global.ng.cdk.observers, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, core, bidi, platform, formField, animations, textfield, rxjs, operators, dom, lineRipple, notchedOutline, common, coercion, observers, mdcCore) { 'use strict';
 
     /**
      * @license
@@ -671,6 +671,7 @@
     var MatFormField = /** @class */ (function () {
         function MatFormField(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode, _document) {
             var _this = this;
+            var _a;
             this._elementRef = _elementRef;
             this._changeDetectorRef = _changeDetectorRef;
             this._ngZone = _ngZone;
@@ -679,8 +680,6 @@
             this._defaults = _defaults;
             this._animationMode = _animationMode;
             this._document = _document;
-            /** Whether the required marker should be hidden. */
-            this.hideRequiredMarker = false;
             /** The color palette for the form-field. */
             this.color = 'primary';
             this._appearance = DEFAULT_APPEARANCE;
@@ -771,10 +770,17 @@
             if (_defaults && _defaults.appearance) {
                 this.appearance = _defaults.appearance;
             }
-            if (_defaults && _defaults.hideRequiredMarker) {
-                this.hideRequiredMarker = true;
-            }
+            this._hideRequiredMarker = (_a = _defaults === null || _defaults === void 0 ? void 0 : _defaults.hideRequiredMarker) !== null && _a !== void 0 ? _a : false;
         }
+        Object.defineProperty(MatFormField.prototype, "hideRequiredMarker", {
+            /** Whether the required marker should be hidden. */
+            get: function () { return this._hideRequiredMarker; },
+            set: function (value) {
+                this._hideRequiredMarker = coercion.coerceBooleanProperty(value);
+            },
+            enumerable: false,
+            configurable: true
+        });
         Object.defineProperty(MatFormField.prototype, "floatLabel", {
             /** Whether the label should always float or float as the user types. */
             get: function () {

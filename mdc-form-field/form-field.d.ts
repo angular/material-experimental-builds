@@ -19,6 +19,7 @@ import { MatFormFieldLineRipple } from './directives/line-ripple';
 import { MatFormFieldNotchedOutline } from './directives/notched-outline';
 import { MatPrefix } from './directives/prefix';
 import { MatSuffix } from './directives/suffix';
+import { BooleanInput } from '@angular/cdk/coercion';
 /** Type for the available floatLabel values. */
 export declare type FloatLabelType = 'always' | 'auto';
 /** Possible appearance styles for the form field. */
@@ -61,7 +62,9 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     _errorChildren: QueryList<MatError>;
     _hintChildren: QueryList<MatHint>;
     /** Whether the required marker should be hidden. */
-    hideRequiredMarker: boolean;
+    get hideRequiredMarker(): boolean;
+    set hideRequiredMarker(value: boolean);
+    private _hideRequiredMarker;
     /** The color palette for the form-field. */
     color: ThemePalette;
     /** Whether the label should always float or float as the user types. */
@@ -180,4 +183,5 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     private _updateOutlineLabelOffset;
     /** Checks whether the form field is attached to the DOM. */
     private _isAttachedToDom;
+    static ngAcceptInputType_hideRequiredMarker: BooleanInput;
 }

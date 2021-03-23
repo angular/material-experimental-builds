@@ -11,6 +11,7 @@ import { ponyfill } from '@material/dom';
 import { MDCLineRipple } from '@material/line-ripple';
 import { MDCNotchedOutline } from '@material/notched-outline';
 import { DOCUMENT, CommonModule } from '@angular/common';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ObserversModule } from '@angular/cdk/observers';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
@@ -370,6 +371,7 @@ const FLOATING_LABEL_DEFAULT_DOCKED_TRANSFORM = `translateY(-50%)`;
 /** Container for form controls that applies Material Design styling and behavior. */
 class MatFormField {
     constructor(_elementRef, _changeDetectorRef, _ngZone, _dir, _platform, _defaults, _animationMode, _document) {
+        var _a;
         this._elementRef = _elementRef;
         this._changeDetectorRef = _changeDetectorRef;
         this._ngZone = _ngZone;
@@ -378,8 +380,6 @@ class MatFormField {
         this._defaults = _defaults;
         this._animationMode = _animationMode;
         this._document = _document;
-        /** Whether the required marker should be hidden. */
-        this.hideRequiredMarker = false;
         /** The color palette for the form-field. */
         this.color = 'primary';
         this._appearance = DEFAULT_APPEARANCE;
@@ -470,9 +470,12 @@ class MatFormField {
         if (_defaults && _defaults.appearance) {
             this.appearance = _defaults.appearance;
         }
-        if (_defaults && _defaults.hideRequiredMarker) {
-            this.hideRequiredMarker = true;
-        }
+        this._hideRequiredMarker = (_a = _defaults === null || _defaults === void 0 ? void 0 : _defaults.hideRequiredMarker) !== null && _a !== void 0 ? _a : false;
+    }
+    /** Whether the required marker should be hidden. */
+    get hideRequiredMarker() { return this._hideRequiredMarker; }
+    set hideRequiredMarker(value) {
+        this._hideRequiredMarker = coerceBooleanProperty(value);
     }
     /** Whether the label should always float or float as the user types. */
     get floatLabel() {
