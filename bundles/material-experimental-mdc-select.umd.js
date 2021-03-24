@@ -401,7 +401,7 @@
             get: function () {
                 // Since the panel doesn't overlap the trigger, we
                 // want the label to only float when there's a value.
-                return !this.empty;
+                return this.panelOpen || !this.empty;
             },
             enumerable: false,
             configurable: true
@@ -433,6 +433,8 @@
         MatSelect.prototype.open = function () {
             this._overlayWidth = this._getOverlayWidth();
             _super.prototype.open.call(this);
+            // Required for the MDC form field to pick up when the overlay has been opened.
+            this.stateChanges.next();
         };
         MatSelect.prototype.close = function () {
             _super.prototype.close.call(this);
