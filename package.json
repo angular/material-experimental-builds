@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-experimental",
-  "version": "12.0.0-next.5-sha-92af5f117",
+  "version": "12.0.0-next.5-sha-5384550ae",
   "description": "Experimental components for Angular Material",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/angular/components#readme",
   "peerDependencies": {
     "@angular/core": "^12.0.0-0 || ^13.0.0-0",
-    "@angular/material": "12.0.0-next.5-sha-92af5f117",
+    "@angular/material": "12.0.0-next.5-sha-5384550ae",
     "material-components-web": "^11.0.0-canary.0cde52f5a.0"
   },
   "dependencies": {
