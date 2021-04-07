@@ -18,7 +18,7 @@ export declare class MatSelection<T> extends CdkSelection<T> {
     get multiple(): boolean;
     set multiple(multiple: boolean);
     /** Emits when selection changes. */
-    change: EventEmitter<SelectionChange<T>>;
+    readonly change: EventEmitter<SelectionChange<T>>;
 }
 /**
  * Represents the change in the selection set.

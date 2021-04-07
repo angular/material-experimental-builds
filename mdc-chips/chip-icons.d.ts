@@ -81,7 +81,7 @@ export declare class MatChipRemove extends _MatChipRemoveMixinBase implements Ca
      * Emits when the user interacts with the icon.
      * @docs-private
      */
-    interaction: Subject<MouseEvent | KeyboardEvent>;
+    readonly interaction: Subject<MouseEvent | KeyboardEvent>;
     constructor(elementRef: ElementRef);
     /** Emits a MouseEvent when the user clicks on the remove icon. */
     _handleClick(event: MouseEvent): void;

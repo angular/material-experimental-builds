@@ -85,7 +85,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     set highlighted(value: boolean);
     protected _highlighted: boolean;
     /** Emitted when the user interacts with the chip. */
-    interaction: EventEmitter<string>;
+    readonly interaction: EventEmitter<string>;
     /** Emitted when the chip is destroyed. */
     readonly destroyed: EventEmitter<MatChipEvent>;
     /** Emitted when a chip is to be removed. */
