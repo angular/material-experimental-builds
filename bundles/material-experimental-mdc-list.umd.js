@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/cdk/platform'), require('@angular/material-experimental/mdc-core'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/material/divider'), require('@angular/cdk/collections'), require('@angular/forms'), require('@material/list'), require('@angular/material/list')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/core', '@angular/cdk/coercion', '@angular/cdk/platform', '@angular/material-experimental/mdc-core', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/material/divider', '@angular/cdk/collections', '@angular/forms', '@material/list', '@angular/material/list'], factory) :
-    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.core, global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.materialExperimental.mdcCore, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.material.divider, global.ng.cdk.collections, global.ng.forms, global.mdc.list, global.ng.material.list));
-}(this, (function (exports, core, coercion, platform, mdcCore, rxjs, operators, common, divider, collections, forms, list, list$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/coercion'), require('@angular/cdk/platform'), require('@angular/material-experimental/mdc-core'), require('@material/ripple'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/material/divider'), require('@angular/cdk/collections'), require('@angular/forms'), require('@material/list'), require('@angular/material/list')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-list', ['exports', '@angular/core', '@angular/cdk/coercion', '@angular/cdk/platform', '@angular/material-experimental/mdc-core', '@material/ripple', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/material/divider', '@angular/cdk/collections', '@angular/forms', '@material/list', '@angular/material/list'], factory) :
+    (global = global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcList = {}), global.ng.core, global.ng.cdk.coercion, global.ng.cdk.platform, global.ng.materialExperimental.mdcCore, global.mdc.ripple, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.material.divider, global.ng.cdk.collections, global.ng.forms, global.mdc.list, global.ng.material.list));
+}(this, (function (exports, core, coercion, platform, mdcCore, ripple, rxjs, operators, common, divider, collections, forms, list, list$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -440,8 +440,17 @@
             this._disabled = false;
             this._subscriptions = new rxjs.Subscription();
             this._rippleRenderer = null;
+            // We have to clone the object, because we don't want to mutate a global value when we assign
+            // the `animation` further down. The downside of doing this is that the ripple renderer won't
+            // pick up dynamic changes to `disabled`, but it's not something we officially support.
+            this.rippleConfig = Object.assign({}, (globalRippleOptions || {}));
             this._hostElement = this._elementRef.nativeElement;
-            this.rippleConfig = globalRippleOptions || {};
+            if (!this.rippleConfig.animation) {
+                this.rippleConfig.animation = {
+                    enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
+                    exitDuration: ripple.numbers.FG_DEACTIVATION_MS
+                };
+            }
             if (!this._listBase._isNonInteractive) {
                 this._initInteractiveListItem();
             }
