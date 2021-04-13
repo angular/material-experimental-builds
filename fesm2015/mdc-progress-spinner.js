@@ -41,7 +41,14 @@ class MatProgressSpinner extends _MatProgressSpinnerMixinBase {
             hasClass: (className) => this._elementRef.nativeElement.classList.contains(className),
             removeClass: (className) => this._elementRef.nativeElement.classList.remove(className),
             removeAttribute: (name) => this._elementRef.nativeElement.removeAttribute(name),
-            setAttribute: (name, value) => this._elementRef.nativeElement.setAttribute(name, value),
+            setAttribute: (name, value) => {
+                if (name !== 'aria-valuenow') {
+                    // MDC deals with values between 0 and 1 but Angular Material deals with values between
+                    // 0 and 100 so the aria-valuenow should be set through the attr binding in the host
+                    // instead of by the MDC adapter
+                    this._elementRef.nativeElement.setAttribute(name, value);
+                }
+            },
             getDeterminateCircleAttribute: (attributeName) => this._determinateCircle.nativeElement.getAttribute(attributeName),
             setDeterminateCircleAttribute: (attributeName, value) => this._determinateCircle.nativeElement.setAttribute(attributeName, value),
         };

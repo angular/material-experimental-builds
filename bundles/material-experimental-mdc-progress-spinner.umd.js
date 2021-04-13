@@ -342,7 +342,14 @@
                 hasClass: function (className) { return _this._elementRef.nativeElement.classList.contains(className); },
                 removeClass: function (className) { return _this._elementRef.nativeElement.classList.remove(className); },
                 removeAttribute: function (name) { return _this._elementRef.nativeElement.removeAttribute(name); },
-                setAttribute: function (name, value) { return _this._elementRef.nativeElement.setAttribute(name, value); },
+                setAttribute: function (name, value) {
+                    if (name !== 'aria-valuenow') {
+                        // MDC deals with values between 0 and 1 but Angular Material deals with values between
+                        // 0 and 100 so the aria-valuenow should be set through the attr binding in the host
+                        // instead of by the MDC adapter
+                        _this._elementRef.nativeElement.setAttribute(name, value);
+                    }
+                },
                 getDeterminateCircleAttribute: function (attributeName) { return _this._determinateCircle.nativeElement.getAttribute(attributeName); },
                 setDeterminateCircleAttribute: function (attributeName, value) { return _this._determinateCircle.nativeElement.setAttribute(attributeName, value); },
             };
