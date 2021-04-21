@@ -153,7 +153,7 @@
         });
         MatSlideToggle.prototype.ngAfterViewInit = function () {
             var _this = this;
-            var foundation = this._foundation = new _switch.MDCSwitchFoundation(this._adapter);
+            var foundation = this._foundation = new _switch.deprecated.MDCSwitchFoundation(this._adapter);
             foundation.setDisabled(this.disabled);
             foundation.setChecked(this.checked);
             this._focusMonitor

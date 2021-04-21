@@ -1,5 +1,5 @@
 import { InjectionToken, forwardRef, EventEmitter, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Attribute, Inject, Optional, Input, Output, ViewChild, NgModule } from '@angular/core';
-import { MDCSwitchFoundation } from '@material/switch';
+import { deprecated } from '@material/switch';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
@@ -132,7 +132,7 @@ class MatSlideToggle {
     /** Returns the unique id for the visual hidden input. */
     get inputId() { return `${this.id || this._uniqueId}-input`; }
     ngAfterViewInit() {
-        const foundation = this._foundation = new MDCSwitchFoundation(this._adapter);
+        const foundation = this._foundation = new deprecated.MDCSwitchFoundation(this._adapter);
         foundation.setDisabled(this.disabled);
         foundation.setChecked(this.checked);
         this._focusMonitor
