@@ -36,7 +36,6 @@ export declare class MatProgressBar extends _MatProgressBarMixinBase implements 
     get bufferValue(): number;
     set bufferValue(v: number);
     private _bufferValue;
-    private _rootElement;
     private _primaryBar;
     private _bufferBar;
     /**
