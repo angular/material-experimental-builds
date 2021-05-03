@@ -26,21 +26,14 @@ const MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER = {
 class MatMenu extends _MatMenuBase {
     constructor(_elementRef, _ngZone, _defaultOptions) {
         super(_elementRef, _ngZone, _defaultOptions);
-    }
-    setElevation(_depth) {
-        // TODO(crisbeto): MDC's styles come with elevation already and we haven't mapped our mixins
-        // to theirs. Disable the elevation stacking for now until everything has been mapped.
-        // The following unit tests should be re-enabled:
-        // - should not remove mat-elevation class from overlay when panelClass is changed
-        // - should increase the sub-menu elevation based on its depth
-        // - should update the elevation when the same menu is opened at a different depth
-        // - should not increase the elevation if the user specified a custom one
+        this._elevationPrefix = 'mat-mdc-elevation-z';
+        this._baseElevation = 8;
     }
 }
 MatMenu.decorators = [
     { type: Component, args: [{
                 selector: 'mat-menu',
-                template: "<ng-template>\n  <div\n    class=\"mat-mdc-menu-panel mdc-menu-surface mdc-menu-surface--open\"\n    [id]=\"panelId\"\n    [ngClass]=\"_classList\"\n    (keydown)=\"_handleKeydown($event)\"\n    (click)=\"closed.emit('click')\"\n    [@transformMenu]=\"_panelAnimationState\"\n    (@transformMenu.start)=\"_onAnimationStart($event)\"\n    (@transformMenu.done)=\"_onAnimationDone($event)\"\n    tabindex=\"-1\"\n    role=\"menu\"\n    [attr.aria-label]=\"ariaLabel || null\"\n    [attr.aria-labelledby]=\"ariaLabelledby || null\"\n    [attr.aria-describedby]=\"ariaDescribedby || null\">\n    <div class=\"mat-mdc-menu-content mdc-deprecated-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</ng-template>\n",
+                template: "<ng-template>\n  <div\n    class=\"mat-mdc-menu-panel mdc-menu-surface mdc-menu-surface--open mat-mdc-elevation-specific\"\n    [id]=\"panelId\"\n    [ngClass]=\"_classList\"\n    (keydown)=\"_handleKeydown($event)\"\n    (click)=\"closed.emit('click')\"\n    [@transformMenu]=\"_panelAnimationState\"\n    (@transformMenu.start)=\"_onAnimationStart($event)\"\n    (@transformMenu.done)=\"_onAnimationDone($event)\"\n    tabindex=\"-1\"\n    role=\"menu\"\n    [attr.aria-label]=\"ariaLabel || null\"\n    [attr.aria-labelledby]=\"ariaLabelledby || null\"\n    [attr.aria-describedby]=\"ariaDescribedby || null\">\n    <div class=\"mat-mdc-menu-content mdc-deprecated-list\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</ng-template>\n",
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 encapsulation: ViewEncapsulation.None,
                 exportAs: 'matMenu',

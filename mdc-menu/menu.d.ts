@@ -13,6 +13,7 @@ export declare function MAT_MENU_SCROLL_STRATEGY_FACTORY(overlay: Overlay): () =
 /** @docs-private */
 export declare const MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER: Provider;
 export declare class MatMenu extends _MatMenuBase {
+    protected _elevationPrefix: string;
+    protected _baseElevation: number;
     constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _defaultOptions: MatMenuDefaultOptions);
-    setElevation(_depth: number): void;
 }
