@@ -4,6 +4,7 @@ import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatFormFieldHarnessBase } from '@angular/material/form-field/testing';
 import { MatInputHarness } from '@angular/material-experimental/mdc-input/testing';
 import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
+import { MatDatepickerInputHarness, MatDateRangeInputHarness } from '@angular/material/datepicker/testing';
 
 /**
  * @license
@@ -23,6 +24,8 @@ class MatFormFieldHarness extends _MatFormFieldHarnessBase {
         this._hints = this.locatorForAll('.mat-mdc-form-field-hint');
         this._inputControl = this.locatorForOptional(MatInputHarness);
         this._selectControl = this.locatorForOptional(MatSelectHarness);
+        this._datepickerInputControl = this.locatorForOptional(MatDatepickerInputHarness);
+        this._dateRangeInputControl = this.locatorForOptional(MatDateRangeInputHarness);
         this._mdcTextField = this.locatorFor('.mat-mdc-text-field-wrapper');
     }
     /**

@@ -9,8 +9,9 @@ import { HarnessPredicate } from '@angular/cdk/testing';
 import { FormFieldHarnessFilters, _MatFormFieldHarnessBase } from '@angular/material/form-field/testing';
 import { MatInputHarness } from '@angular/material-experimental/mdc-input/testing';
 import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
+import { MatDatepickerInputHarness, MatDateRangeInputHarness } from '@angular/material/datepicker/testing';
 /** Possible harnesses of controls which can be bound to a form-field. */
-export declare type FormFieldControlHarness = MatInputHarness | MatSelectHarness;
+export declare type FormFieldControlHarness = MatInputHarness | MatSelectHarness | MatDatepickerInputHarness | MatDateRangeInputHarness;
 /** Harness for interacting with a MDC-based form-field's in tests. */
 export declare class MatFormFieldHarness extends _MatFormFieldHarnessBase<FormFieldControlHarness> {
     static hostSelector: string;
@@ -28,6 +29,8 @@ export declare class MatFormFieldHarness extends _MatFormFieldHarnessBase<FormFi
     protected _hints: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement[]>;
     protected _inputControl: import("@angular/cdk/testing").AsyncFactoryFn<MatInputHarness | null>;
     protected _selectControl: import("@angular/cdk/testing").AsyncFactoryFn<MatSelectHarness | null>;
+    protected _datepickerInputControl: import("@angular/cdk/testing").AsyncFactoryFn<MatDatepickerInputHarness | null>;
+    protected _dateRangeInputControl: import("@angular/cdk/testing").AsyncFactoryFn<MatDateRangeInputHarness | null>;
     private _mdcTextField;
     /** Gets the appearance of the form-field. */
     getAppearance(): Promise<'fill' | 'outline'>;
