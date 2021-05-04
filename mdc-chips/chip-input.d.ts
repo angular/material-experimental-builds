@@ -7,6 +7,7 @@
  */
 import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, ElementRef, EventEmitter, OnChanges, OnDestroy } from '@angular/core';
+import { MatFormField } from '@angular/material-experimental/mdc-form-field';
 import { MatChipsDefaultOptions } from './chip-default-options';
 import { MatChipGrid } from './chip-grid';
 import { MatChipTextControl } from './chip-text-control';
@@ -66,7 +67,7 @@ export declare class MatChipInput implements MatChipTextControl, AfterContentIni
     get empty(): boolean;
     /** The native input element to which this directive is attached. */
     readonly inputElement: HTMLInputElement;
-    constructor(_elementRef: ElementRef<HTMLInputElement>, _defaultOptions: MatChipsDefaultOptions);
+    constructor(_elementRef: ElementRef<HTMLInputElement>, _defaultOptions: MatChipsDefaultOptions, formField?: MatFormField);
     ngOnChanges(): void;
     ngOnDestroy(): void;
     ngAfterContentInit(): void;

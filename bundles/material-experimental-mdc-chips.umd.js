@@ -2855,7 +2855,7 @@
      * May be placed inside or outside of a `<mat-chip-grid>`.
      */
     var MatChipInput = /** @class */ (function () {
-        function MatChipInput(_elementRef, _defaultOptions) {
+        function MatChipInput(_elementRef, _defaultOptions, formField) {
             this._elementRef = _elementRef;
             this._defaultOptions = _defaultOptions;
             /** Whether the control is focused. */
@@ -2875,6 +2875,9 @@
             this.id = "mat-mdc-chip-list-input-" + nextUniqueId++;
             this._disabled = false;
             this.inputElement = this._elementRef.nativeElement;
+            if (formField) {
+                this.inputElement.classList.add('mat-mdc-form-field-control');
+            }
         }
         Object.defineProperty(MatChipInput.prototype, "chipGrid", {
             /** Register input for chip list */
@@ -3025,7 +3028,8 @@
     ];
     MatChipInput.ctorParameters = function () { return [
         { type: core.ElementRef },
-        { type: undefined, decorators: [{ type: core.Inject, args: [MAT_CHIPS_DEFAULT_OPTIONS,] }] }
+        { type: undefined, decorators: [{ type: core.Inject, args: [MAT_CHIPS_DEFAULT_OPTIONS,] }] },
+        { type: mdcFormField.MatFormField, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcFormField.MAT_FORM_FIELD,] }] }
     ]; };
     MatChipInput.propDecorators = {
         chipGrid: [{ type: core.Input, args: ['matChipInputFor',] }],

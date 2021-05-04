@@ -11,7 +11,7 @@ import { takeUntil, take, startWith } from 'rxjs/operators';
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { FocusKeyManager } from '@angular/cdk/a11y';
 import { NG_VALUE_ACCESSOR, NgForm, FormGroupDirective, NgControl } from '@angular/forms';
-import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
+import { MatFormFieldControl, MatFormField, MAT_FORM_FIELD } from '@angular/material-experimental/mdc-form-field';
 
 /**
  * @license
@@ -2381,7 +2381,7 @@ let nextUniqueId = 0;
  * May be placed inside or outside of a `<mat-chip-grid>`.
  */
 class MatChipInput {
-    constructor(_elementRef, _defaultOptions) {
+    constructor(_elementRef, _defaultOptions, formField) {
         this._elementRef = _elementRef;
         this._defaultOptions = _defaultOptions;
         /** Whether the control is focused. */
@@ -2401,6 +2401,9 @@ class MatChipInput {
         this.id = `mat-mdc-chip-list-input-${nextUniqueId++}`;
         this._disabled = false;
         this.inputElement = this._elementRef.nativeElement;
+        if (formField) {
+            this.inputElement.classList.add('mat-mdc-form-field-control');
+        }
     }
     /** Register input for chip list */
     set chipGrid(value) {
@@ -2534,7 +2537,8 @@ MatChipInput.decorators = [
 ];
 MatChipInput.ctorParameters = () => [
     { type: ElementRef },
-    { type: undefined, decorators: [{ type: Inject, args: [MAT_CHIPS_DEFAULT_OPTIONS,] }] }
+    { type: undefined, decorators: [{ type: Inject, args: [MAT_CHIPS_DEFAULT_OPTIONS,] }] },
+    { type: MatFormField, decorators: [{ type: Optional }, { type: Inject, args: [MAT_FORM_FIELD,] }] }
 ];
 MatChipInput.propDecorators = {
     chipGrid: [{ type: Input, args: ['matChipInputFor',] }],
