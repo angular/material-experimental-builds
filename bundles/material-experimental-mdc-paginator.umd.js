@@ -337,6 +337,7 @@
                     inputs: ['disabled'],
                     host: {
                         'class': 'mat-mdc-paginator',
+                        'role': 'group',
                     },
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     encapsulation: core.ViewEncapsulation.None,
