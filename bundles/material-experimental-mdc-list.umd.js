@@ -916,10 +916,10 @@
             if (tabIndex === undefined || tabIndex === -1) {
                 this._clearTabindexForAllItems();
             }
-            this._foundation.handleFocusIn(event, itemIndex);
+            this._foundation.handleFocusIn(itemIndex);
         };
         MatInteractiveListBase.prototype._handleFocusout = function (event) {
-            this._foundation.handleFocusOut(event, this._indexForElement(event.target));
+            this._foundation.handleFocusOut(this._indexForElement(event.target));
         };
         MatInteractiveListBase.prototype._initWithAdapter = function (adapter) {
             this._adapter = adapter;

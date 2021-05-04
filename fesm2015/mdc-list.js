@@ -585,10 +585,10 @@ class MatInteractiveListBase extends MatListBase {
         if (tabIndex === undefined || tabIndex === -1) {
             this._clearTabindexForAllItems();
         }
-        this._foundation.handleFocusIn(event, itemIndex);
+        this._foundation.handleFocusIn(itemIndex);
     }
     _handleFocusout(event) {
-        this._foundation.handleFocusOut(event, this._indexForElement(event.target));
+        this._foundation.handleFocusOut(this._indexForElement(event.target));
     }
     _initWithAdapter(adapter) {
         this._adapter = adapter;
