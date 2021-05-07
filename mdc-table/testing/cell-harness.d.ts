@@ -5,10 +5,10 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { HarnessPredicate, ContentContainerComponentHarness } from '@angular/cdk/testing';
-import { CellHarnessFilters } from './table-harness-filters';
+import { HarnessPredicate } from '@angular/cdk/testing';
+import { MatCellHarness as BaseMatCellHarness, MatHeaderCellHarness as BaseMatHeaderCellHarness, MatFooterCellHarness as BaseMatFooterCellHarness, CellHarnessFilters } from '@angular/material/table/testing';
 /** Harness for interacting with an MDC-based Angular Material table cell. */
-export declare class MatCellHarness extends ContentContainerComponentHarness {
+export declare class MatCellHarness extends BaseMatCellHarness {
     /** The selector for the host element of a `MatCellHarness` instance. */
     static hostSelector: string;
     /**
@@ -17,13 +17,9 @@ export declare class MatCellHarness extends ContentContainerComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options?: CellHarnessFilters): HarnessPredicate<MatCellHarness>;
-    /** Gets the cell's text. */
-    getText(): Promise<string>;
-    /** Gets the name of the column that the cell belongs to. */
-    getColumnName(): Promise<string>;
 }
 /** Harness for interacting with an MDC-based Angular Material table header cell. */
-export declare class MatHeaderCellHarness extends MatCellHarness {
+export declare class MatHeaderCellHarness extends BaseMatHeaderCellHarness {
     /** The selector for the host element of a `MatHeaderCellHarness` instance. */
     static hostSelector: string;
     /**
@@ -35,7 +31,7 @@ export declare class MatHeaderCellHarness extends MatCellHarness {
     static with(options?: CellHarnessFilters): HarnessPredicate<MatHeaderCellHarness>;
 }
 /** Harness for interacting with an MDC-based Angular Material table footer cell. */
-export declare class MatFooterCellHarness extends MatCellHarness {
+export declare class MatFooterCellHarness extends BaseMatFooterCellHarness {
     /** The selector for the host element of a `MatFooterCellHarness` instance. */
     static hostSelector: string;
     /**
