@@ -97,6 +97,7 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
      * tabindex to the first selected option automatically once the current item is blurred.
      */
     private _resetTabindexForItemsIfBlurred;
+    private _watchForSelectionChange;
     private _syncSelectedOptionsWithFoundation;
     /** Sets the selected options based on the specified values. */
     private _setOptionsFromValues;

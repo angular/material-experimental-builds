@@ -1142,55 +1142,28 @@
             configurable: true
         });
         MatSelectionList.prototype.ngAfterViewInit = function () {
-            var _this = this;
             // Mark the selection list as initialized so that the `multiple`
             // binding can no longer be changed.
             this._initialized = true;
-            // Update the options if a control value has been set initially.
+            // Update the options if a control value has been set initially. Note that this should happen
+            // before watching for selection changes as otherwise we would sync options with MDC multiple
+            // times as part of view initialization (also the foundation would not be initialized yet).
             if (this._value) {
                 this._setOptionsFromValues(this._value);
             }
-            // Sync external changes to the model back to the options.
-            this.selectedOptions.changed.pipe(operators.takeUntil(this._destroyed)).subscribe(function (event) {
-                var e_1, _a, e_2, _b;
-                if (event.added) {
-                    try {
-                        for (var _c = __values(event.added), _d = _c.next(); !_d.done; _d = _c.next()) {
-                            var item = _d.value;
-                            item.selected = true;
-                        }
-                    }
-                    catch (e_1_1) { e_1 = { error: e_1_1 }; }
-                    finally {
-                        try {
-                            if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
-                        }
-                        finally { if (e_1) throw e_1.error; }
-                    }
-                }
-                if (event.removed) {
-                    try {
-                        for (var _e = __values(event.removed), _f = _e.next(); !_f.done; _f = _e.next()) {
-                            var item = _f.value;
-                            item.selected = false;
-                        }
-                    }
-                    catch (e_2_1) { e_2 = { error: e_2_1 }; }
-                    finally {
-                        try {
-                            if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
-                        }
-                        finally { if (e_2) throw e_2.error; }
-                    }
-                }
-                // Sync the newly selected options with the foundation. Also reset tabindex for all
-                // items if the list is currently not focused. We do this so that always the first
-                // selected list item is focused when users tab into the selection list.
-                _this._syncSelectedOptionsWithFoundation();
-                _this._resetTabindexForItemsIfBlurred();
-            });
-            // Complete the list foundation initialization.
+            // Start monitoring the selected options so that the list foundation can be
+            // updated accordingly.
+            this._watchForSelectionChange();
+            // Initialize the list foundation, including the initial `layout()` invocation.
             _super.prototype.ngAfterViewInit.call(this);
+            // List options can be pre-selected using the `selected` input. We need to sync the selected
+            // options after view initialization with the foundation so that focus can be managed
+            // accordingly. Note that this needs to happen after the initial `layout()` call because the
+            // list wouldn't know about multi-selection and throw.
+            if (this._items.length !== 0) {
+                this._syncSelectedOptionsWithFoundation();
+                this._resetTabindexForItemsIfBlurred();
+            }
         };
         MatSelectionList.prototype.ngOnChanges = function (changes) {
             var disabledChanges = changes['disabled'];
@@ -1269,6 +1242,48 @@
                 this._resetTabindexToFirstSelectedOrFocusedItem();
             }
         };
+        MatSelectionList.prototype._watchForSelectionChange = function () {
+            var _this = this;
+            // Sync external changes to the model back to the options.
+            this.selectedOptions.changed.pipe(operators.takeUntil(this._destroyed)).subscribe(function (event) {
+                var e_1, _a, e_2, _b;
+                if (event.added) {
+                    try {
+                        for (var _c = __values(event.added), _d = _c.next(); !_d.done; _d = _c.next()) {
+                            var item = _d.value;
+                            item.selected = true;
+                        }
+                    }
+                    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                    finally {
+                        try {
+                            if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                        }
+                        finally { if (e_1) throw e_1.error; }
+                    }
+                }
+                if (event.removed) {
+                    try {
+                        for (var _e = __values(event.removed), _f = _e.next(); !_f.done; _f = _e.next()) {
+                            var item = _f.value;
+                            item.selected = false;
+                        }
+                    }
+                    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+                    finally {
+                        try {
+                            if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
+                        }
+                        finally { if (e_2) throw e_2.error; }
+                    }
+                }
+                // Sync the newly selected options with the foundation. Also reset tabindex for all
+                // items if the list is currently not focused. We do this so that always the first
+                // selected list item is focused when users tab into the selection list.
+                _this._syncSelectedOptionsWithFoundation();
+                _this._resetTabindexForItemsIfBlurred();
+            });
+        };
         MatSelectionList.prototype._syncSelectedOptionsWithFoundation = function () {
             var _this = this;
             if (this._multiple) {
@@ -1277,7 +1292,8 @@
             }
             else {
                 var selected = this.selectedOptions.selected[0];
-                var index = selected === undefined ? -1 : this._itemsArr.indexOf(selected);
+                var index = selected === undefined ?
+                    list$1.numbers.UNSET_INDEX : this._itemsArr.indexOf(selected);
                 this._foundation.setSelectedIndex(index);
             }
         };
