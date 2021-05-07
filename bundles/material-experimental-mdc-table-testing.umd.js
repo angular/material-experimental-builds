@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table/testing', ['exports', '@angular/cdk/testing'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = global.ng.materialExperimental.mdcTable || {}, global.ng.materialExperimental.mdcTable.testing = {}), global.ng.cdk.testing));
-}(this, (function (exports, testing) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material/table/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-table/testing', ['exports', '@angular/cdk/testing', '@angular/material/table/testing'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcTable = global.ng.materialExperimental.mdcTable || {}, global.ng.materialExperimental.mdcTable.testing = {}), global.ng.cdk.testing, global.ng.material.table.testing));
+}(this, (function (exports, testing$1, testing) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -326,45 +326,10 @@
          */
         MatCellHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return getCellPredicate(MatCellHarness, options);
-        };
-        /** Gets the cell's text. */
-        MatCellHarness.prototype.getText = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).text()];
-                    }
-                });
-            });
-        };
-        /** Gets the name of the column that the cell belongs to. */
-        MatCellHarness.prototype.getColumnName = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var host, classAttribute, prefix_1, name;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1:
-                            host = _a.sent();
-                            return [4 /*yield*/, host.getAttribute('class')];
-                        case 2:
-                            classAttribute = _a.sent();
-                            if (classAttribute) {
-                                prefix_1 = 'mat-column-';
-                                name = classAttribute.split(' ').map(function (c) { return c.trim(); }).find(function (c) { return c.startsWith(prefix_1); });
-                                if (name) {
-                                    return [2 /*return*/, name.split(prefix_1)[1]];
-                                }
-                            }
-                            throw Error('Could not determine column name of cell.');
-                    }
-                });
-            });
+            return testing.MatCellHarness._getCellPredicate(MatCellHarness, options);
         };
         return MatCellHarness;
-    }(testing.ContentContainerComponentHarness));
+    }(testing.MatCellHarness));
     /** The selector for the host element of a `MatCellHarness` instance. */
     MatCellHarness.hostSelector = '.mat-mdc-cell';
     /** Harness for interacting with an MDC-based Angular Material table header cell. */
@@ -381,10 +346,10 @@
          */
         MatHeaderCellHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return getCellPredicate(MatHeaderCellHarness, options);
+            return testing.MatHeaderCellHarness._getCellPredicate(MatHeaderCellHarness, options);
         };
         return MatHeaderCellHarness;
-    }(MatCellHarness));
+    }(testing.MatHeaderCellHarness));
     /** The selector for the host element of a `MatHeaderCellHarness` instance. */
     MatHeaderCellHarness.hostSelector = '.mat-mdc-header-cell';
     /** Harness for interacting with an MDC-based Angular Material table footer cell. */
@@ -401,23 +366,20 @@
          */
         MatFooterCellHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return getCellPredicate(MatFooterCellHarness, options);
+            return testing.MatFooterCellHarness._getCellPredicate(MatFooterCellHarness, options);
         };
         return MatFooterCellHarness;
-    }(MatCellHarness));
+    }(testing.MatFooterCellHarness));
     /** The selector for the host element of a `MatFooterCellHarness` instance. */
     MatFooterCellHarness.hostSelector = '.mat-mdc-footer-cell';
-    function getCellPredicate(type, options) {
-        return new testing.HarnessPredicate(type, options)
-            .addOption('text', options.text, function (harness, text) { return testing.HarnessPredicate.stringMatches(harness.getText(), text); })
-            .addOption('columnName', options.columnName, function (harness, name) { return testing.HarnessPredicate.stringMatches(harness.getColumnName(), name); });
-    }
 
     /** Harness for interacting with an MDC-based Angular Material table row. */
     var MatRowHarness = /** @class */ (function (_super) {
         __extends(MatRowHarness, _super);
         function MatRowHarness() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            _this._cellHarness = MatCellHarness;
+            return _this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for a table row with specific attributes.
@@ -426,43 +388,19 @@
          */
         MatRowHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatRowHarness, options);
-        };
-        /** Gets a list of `MatCellHarness` for all cells in the row. */
-        MatRowHarness.prototype.getCells = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorForAll(MatCellHarness.with(filter))()];
-                });
-            });
-        };
-        /** Gets the text of the cells in the row. */
-        MatRowHarness.prototype.getCellTextByIndex = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, getCellTextByIndex(this, filter)];
-                });
-            });
-        };
-        /** Gets the text inside the row organized by columns. */
-        MatRowHarness.prototype.getCellTextByColumnName = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, getCellTextByColumnName(this)];
-                });
-            });
+            return new testing$1.HarnessPredicate(MatRowHarness, options);
         };
         return MatRowHarness;
-    }(testing.ComponentHarness));
+    }(testing._MatRowHarnessBase));
     /** The selector for the host element of a `MatRowHarness` instance. */
     MatRowHarness.hostSelector = '.mat-mdc-row';
     /** Harness for interacting with an MDC-based Angular Material table header row. */
     var MatHeaderRowHarness = /** @class */ (function (_super) {
         __extends(MatHeaderRowHarness, _super);
         function MatHeaderRowHarness() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            _this._cellHarness = MatHeaderCellHarness;
+            return _this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for
@@ -472,43 +410,19 @@
          */
         MatHeaderRowHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatHeaderRowHarness, options);
-        };
-        /** Gets a list of `MatHeaderCellHarness` for all cells in the row. */
-        MatHeaderRowHarness.prototype.getCells = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorForAll(MatHeaderCellHarness.with(filter))()];
-                });
-            });
-        };
-        /** Gets the text of the cells in the header row. */
-        MatHeaderRowHarness.prototype.getCellTextByIndex = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, getCellTextByIndex(this, filter)];
-                });
-            });
-        };
-        /** Gets the text inside the header row organized by columns. */
-        MatHeaderRowHarness.prototype.getCellTextByColumnName = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, getCellTextByColumnName(this)];
-                });
-            });
+            return new testing$1.HarnessPredicate(MatHeaderRowHarness, options);
         };
         return MatHeaderRowHarness;
-    }(testing.ComponentHarness));
+    }(testing._MatRowHarnessBase));
     /** The selector for the host element of a `MatHeaderRowHarness` instance. */
     MatHeaderRowHarness.hostSelector = '.mat-mdc-header-row';
     /** Harness for interacting with an MDC-based Angular Material table footer row. */
     var MatFooterRowHarness = /** @class */ (function (_super) {
         __extends(MatFooterRowHarness, _super);
         function MatFooterRowHarness() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            _this._cellHarness = MatFooterCellHarness;
+            return _this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for
@@ -518,81 +432,22 @@
          */
         MatFooterRowHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatFooterRowHarness, options);
-        };
-        /** Gets a list of `MatFooterCellHarness` for all cells in the row. */
-        MatFooterRowHarness.prototype.getCells = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorForAll(MatFooterCellHarness.with(filter))()];
-                });
-            });
-        };
-        /** Gets the text of the cells in the footer row. */
-        MatFooterRowHarness.prototype.getCellTextByIndex = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, getCellTextByIndex(this, filter)];
-                });
-            });
-        };
-        /** Gets the text inside the footer row organized by columns. */
-        MatFooterRowHarness.prototype.getCellTextByColumnName = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, getCellTextByColumnName(this)];
-                });
-            });
+            return new testing$1.HarnessPredicate(MatFooterRowHarness, options);
         };
         return MatFooterRowHarness;
-    }(testing.ComponentHarness));
+    }(testing._MatRowHarnessBase));
     /** The selector for the host element of a `MatFooterRowHarness` instance. */
     MatFooterRowHarness.hostSelector = '.mat-mdc-footer-row';
-    function getCellTextByIndex(harness, filter) {
-        return __awaiter(this, void 0, void 0, function () {
-            var cells;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, harness.getCells(filter)];
-                    case 1:
-                        cells = _a.sent();
-                        return [2 /*return*/, testing.parallel(function () { return cells.map(function (cell) { return cell.getText(); }); })];
-                }
-            });
-        });
-    }
-    function getCellTextByColumnName(harness) {
-        return __awaiter(this, void 0, void 0, function () {
-            var output, cells, cellsData;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        output = {};
-                        return [4 /*yield*/, harness.getCells()];
-                    case 1:
-                        cells = _a.sent();
-                        return [4 /*yield*/, testing.parallel(function () { return cells.map(function (cell) {
-                                return testing.parallel(function () { return [cell.getColumnName(), cell.getText()]; });
-                            }); })];
-                    case 2:
-                        cellsData = _a.sent();
-                        cellsData.forEach(function (_a) {
-                            var _b = __read(_a, 2), columnName = _b[0], text = _b[1];
-                            return output[columnName] = text;
-                        });
-                        return [2 /*return*/, output];
-                }
-            });
-        });
-    }
 
     /** Harness for interacting with an MDC-based mat-table in tests. */
     var MatTableHarness = /** @class */ (function (_super) {
         __extends(MatTableHarness, _super);
         function MatTableHarness() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            _this._headerRowHarness = MatHeaderRowHarness;
+            _this._rowHarness = MatRowHarness;
+            _this._footerRowHarness = MatFooterRowHarness;
+            return _this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for a table with specific attributes.
@@ -601,105 +456,12 @@
          */
         MatTableHarness.with = function (options) {
             if (options === void 0) { options = {}; }
-            return new testing.HarnessPredicate(MatTableHarness, options);
-        };
-        /** Gets all of the header rows in a table. */
-        MatTableHarness.prototype.getHeaderRows = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorForAll(MatHeaderRowHarness.with(filter))()];
-                });
-            });
-        };
-        /** Gets all of the regular data rows in a table. */
-        MatTableHarness.prototype.getRows = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorForAll(MatRowHarness.with(filter))()];
-                });
-            });
-        };
-        /** Gets all of the footer rows in a table. */
-        MatTableHarness.prototype.getFooterRows = function (filter) {
-            if (filter === void 0) { filter = {}; }
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorForAll(MatFooterRowHarness.with(filter))()];
-                });
-            });
-        };
-        /** Gets the text inside the entire table organized by rows. */
-        MatTableHarness.prototype.getCellTextByIndex = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var rows;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.getRows()];
-                        case 1:
-                            rows = _a.sent();
-                            return [2 /*return*/, testing.parallel(function () { return rows.map(function (row) { return row.getCellTextByIndex(); }); })];
-                    }
-                });
-            });
-        };
-        /** Gets the text inside the entire table organized by columns. */
-        MatTableHarness.prototype.getCellTextByColumnName = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var _a, headerRows, footerRows, dataRows, text, _b, headerData, footerData, rowsData;
-                var _this = this;
-                return __generator(this, function (_c) {
-                    switch (_c.label) {
-                        case 0: return [4 /*yield*/, testing.parallel(function () { return [
-                                _this.getHeaderRows(),
-                                _this.getFooterRows(),
-                                _this.getRows()
-                            ]; })];
-                        case 1:
-                            _a = __read.apply(void 0, [_c.sent(), 3]), headerRows = _a[0], footerRows = _a[1], dataRows = _a[2];
-                            text = {};
-                            return [4 /*yield*/, testing.parallel(function () { return [
-                                    testing.parallel(function () { return headerRows.map(function (row) { return row.getCellTextByColumnName(); }); }),
-                                    testing.parallel(function () { return footerRows.map(function (row) { return row.getCellTextByColumnName(); }); }),
-                                    testing.parallel(function () { return dataRows.map(function (row) { return row.getCellTextByColumnName(); }); }),
-                                ]; })];
-                        case 2:
-                            _b = __read.apply(void 0, [_c.sent(), 3]), headerData = _b[0], footerData = _b[1], rowsData = _b[2];
-                            rowsData.forEach(function (data) {
-                                Object.keys(data).forEach(function (columnName) {
-                                    var cellText = data[columnName];
-                                    if (!text[columnName]) {
-                                        text[columnName] = {
-                                            headerText: getCellTextsByColumn(headerData, columnName),
-                                            footerText: getCellTextsByColumn(footerData, columnName),
-                                            text: []
-                                        };
-                                    }
-                                    text[columnName].text.push(cellText);
-                                });
-                            });
-                            return [2 /*return*/, text];
-                    }
-                });
-            });
+            return new testing$1.HarnessPredicate(MatTableHarness, options);
         };
         return MatTableHarness;
-    }(testing.ContentContainerComponentHarness));
+    }(testing._MatTableHarnessBase));
     /** The selector for the host element of a `MatTableHarness` instance. */
     MatTableHarness.hostSelector = '.mat-mdc-table';
-    /** Extracts the text of cells only under a particular column. */
-    function getCellTextsByColumn(rowsData, column) {
-        var columnTexts = [];
-        rowsData.forEach(function (data) {
-            Object.keys(data).forEach(function (columnName) {
-                if (columnName === column) {
-                    columnTexts.push(data[columnName]);
-                }
-            });
-        });
-        return columnTexts;
-    }
 
     /**
      * @license
