@@ -798,8 +798,6 @@ class SliderAdapter {
             return this._delegate._getInput(thumbPosition)._isFocused();
         };
         this.getThumbKnobWidth = (thumbPosition) => {
-            // TODO(wagnermaciel): Check if this causes issues for SSR
-            // once the mdc-slider is added back to the kitchen sink SSR app.
             return this._delegate._getKnobElement(thumbPosition).getBoundingClientRect().width;
         };
         this.getThumbBoundingClientRect = (thumbPosition) => {
