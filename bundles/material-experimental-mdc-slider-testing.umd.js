@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slider/testing', ['exports', '@angular/cdk/testing'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlider = global.ng.materialExperimental.mdcSlider || {}, global.ng.materialExperimental.mdcSlider.testing = {}), global.ng.cdk.testing));
-}(this, (function (exports, testing) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/cdk/coercion')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slider/testing', ['exports', '@angular/cdk/testing', '@angular/cdk/coercion'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlider = global.ng.materialExperimental.mdcSlider || {}, global.ng.materialExperimental.mdcSlider.testing = {}), global.ng.cdk.testing, global.ng.cdk.coercion));
+}(this, (function (exports, testing, coercion) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -313,14 +313,355 @@
         return value;
     }
 
+    /** Harness for interacting with a thumb inside of a Material slider in tests. */
+    var MatSliderThumbHarness = /** @class */ (function (_super) {
+        __extends(MatSliderThumbHarness, _super);
+        function MatSliderThumbHarness() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a `MatSliderThumbHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which thumb instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
+         */
+        MatSliderThumbHarness.with = function (options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatSliderThumbHarness, options)
+                .addOption('position', options.position, function (harness, value) { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, harness.getPosition()];
+                        case 1: return [2 /*return*/, (_a.sent()) === value];
+                    }
+                });
+            }); });
+        };
+        /** Gets the position of the thumb inside the slider. */
+        MatSliderThumbHarness.prototype.getPosition = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var isEnd;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('matSliderEndThumb')];
+                        case 2:
+                            isEnd = (_a.sent()) != null;
+                            return [2 /*return*/, isEnd ? 1 /* END */ : 0 /* START */];
+                    }
+                });
+            });
+        };
+        /** Gets the value of the thumb. */
+        MatSliderThumbHarness.prototype.getValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getProperty('valueAsNumber')];
+                        case 2: return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /** Sets the value of the thumb. */
+        MatSliderThumbHarness.prototype.setValue = function (newValue) {
+            return __awaiter(this, void 0, void 0, function () {
+                var input;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1:
+                            input = _a.sent();
+                            // Since this is a range input, we can't simulate the user interacting with it so we set the
+                            // value directly and dispatch a couple of fake events to ensure that everything fires.
+                            return [4 /*yield*/, input.setInputValue(newValue + '')];
+                        case 2:
+                            // Since this is a range input, we can't simulate the user interacting with it so we set the
+                            // value directly and dispatch a couple of fake events to ensure that everything fires.
+                            _a.sent();
+                            return [4 /*yield*/, input.dispatchEvent('input')];
+                        case 3:
+                            _a.sent();
+                            return [4 /*yield*/, input.dispatchEvent('change')];
+                        case 4:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        };
+        /** Gets the current percentage value of the slider. */
+        MatSliderThumbHarness.prototype.getPercentage = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, value, min, max;
+                var _this = this;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, testing.parallel(function () { return [
+                                _this.getValue(),
+                                _this.getMinValue(),
+                                _this.getMaxValue()
+                            ]; })];
+                        case 1:
+                            _a = __read.apply(void 0, [_b.sent(), 3]), value = _a[0], min = _a[1], max = _a[2];
+                            return [2 /*return*/, (value - min) / (max - min)];
+                    }
+                });
+            });
+        };
+        /** Gets the maximum value of the thumb. */
+        MatSliderThumbHarness.prototype.getMaxValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            _a = coercion.coerceNumberProperty;
+                            return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_b.sent()).getProperty('max')];
+                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    }
+                });
+            });
+        };
+        /** Gets the minimum value of the thumb. */
+        MatSliderThumbHarness.prototype.getMinValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            _a = coercion.coerceNumberProperty;
+                            return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_b.sent()).getProperty('min')];
+                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    }
+                });
+            });
+        };
+        /** Gets the text representation of the slider's value. */
+        MatSliderThumbHarness.prototype.getDisplayValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-valuetext')];
+                        case 2: return [2 /*return*/, (_a.sent()) || ''];
+                    }
+                });
+            });
+        };
+        /** Whether the thumb is disabled. */
+        MatSliderThumbHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).getProperty('disabled')];
+                    }
+                });
+            });
+        };
+        /** Whether the thumb is required. */
+        MatSliderThumbHarness.prototype.isRequired = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).getProperty('required')];
+                    }
+                });
+            });
+        };
+        /** Gets the name of the thumb. */
+        MatSliderThumbHarness.prototype.getName = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getProperty('name')];
+                        case 2: return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /** Gets the id of the thumb. */
+        MatSliderThumbHarness.prototype.getId = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getProperty('id')];
+                        case 2: return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /**
+         * Focuses the thumb and returns a promise that indicates when the
+         * action is complete.
+         */
+        MatSliderThumbHarness.prototype.focus = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).focus()];
+                    }
+                });
+            });
+        };
+        /**
+         * Blurs the thumb and returns a promise that indicates when the
+         * action is complete.
+         */
+        MatSliderThumbHarness.prototype.blur = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).blur()];
+                    }
+                });
+            });
+        };
+        /** Whether the thumb is focused. */
+        MatSliderThumbHarness.prototype.isFocused = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [2 /*return*/, (_a.sent()).isFocused()];
+                    }
+                });
+            });
+        };
+        return MatSliderThumbHarness;
+    }(testing.ComponentHarness));
+    MatSliderThumbHarness.hostSelector = 'input[matSliderThumb], input[matSliderStartThumb], input[matSliderEndThumb]';
+
     /** Harness for interacting with a MDC mat-slider in tests. */
     var MatSliderHarness = /** @class */ (function (_super) {
         __extends(MatSliderHarness, _super);
         function MatSliderHarness() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        /**
+         * Gets a `HarnessPredicate` that can be used to search for a `MatSliderHarness` that meets
+         * certain criteria.
+         * @param options Options for filtering which input instances are considered a match.
+         * @return a `HarnessPredicate` configured with the given options.
+         */
+        MatSliderHarness.with = function (options) {
+            var _this = this;
+            if (options === void 0) { options = {}; }
+            return new testing.HarnessPredicate(MatSliderHarness, options)
+                .addOption('isRange', options.isRange, function (harness, value) { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, harness.isRange()];
+                        case 1: return [2 /*return*/, (_a.sent()) === value];
+                    }
+                });
+            }); });
+        };
+        /** Gets the start/primary thumb of the slider. */
+        MatSliderHarness.prototype.getStartThumb = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* START */ }))()];
+                });
+            });
+        };
+        /** Gets the end thumb of the slider. Will throw an error for a non-range slider. */
+        MatSliderHarness.prototype.getEndThumb = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, this.locatorFor(MatSliderThumbHarness.with({ position: 1 /* END */ }))()];
+                });
+            });
+        };
+        /** Gets whether the slider is a range slider. */
+        MatSliderHarness.prototype.isRange = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).hasClass('mdc-slider--range')];
+                        case 2: return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /** Gets whether the slider is disabled. */
+        MatSliderHarness.prototype.isDisabled = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.host()];
+                        case 1: return [4 /*yield*/, (_a.sent()).hasClass('mdc-slider--disabled')];
+                        case 2: return [2 /*return*/, (_a.sent())];
+                    }
+                });
+            });
+        };
+        /** Gets the value step increments of the slider. */
+        MatSliderHarness.prototype.getStep = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var startHost, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, this.getStartThumb()];
+                        case 1: return [4 /*yield*/, (_b.sent()).host()];
+                        case 2:
+                            startHost = _b.sent();
+                            _a = coercion.coerceNumberProperty;
+                            return [4 /*yield*/, startHost.getProperty('step')];
+                        case 3: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    }
+                });
+            });
+        };
+        /** Gets the maximum value of the slider. */
+        MatSliderHarness.prototype.getMaxValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var endThumb, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, this.isRange()];
+                        case 1:
+                            if (!(_b.sent())) return [3 /*break*/, 3];
+                            return [4 /*yield*/, this.getEndThumb()];
+                        case 2:
+                            _a = _b.sent();
+                            return [3 /*break*/, 5];
+                        case 3: return [4 /*yield*/, this.getStartThumb()];
+                        case 4:
+                            _a = _b.sent();
+                            _b.label = 5;
+                        case 5:
+                            endThumb = _a;
+                            return [2 /*return*/, endThumb.getMaxValue()];
+                    }
+                });
+            });
+        };
+        /** Gets the minimum value of the slider. */
+        MatSliderHarness.prototype.getMinValue = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.getStartThumb()];
+                        case 1: return [2 /*return*/, (_a.sent()).getMinValue()];
+                    }
+                });
+            });
+        };
         return MatSliderHarness;
     }(testing.ComponentHarness));
+    MatSliderHarness.hostSelector = '.mat-mdc-slider';
 
     /**
      * @license
@@ -339,6 +680,7 @@
      */
 
     exports.MatSliderHarness = MatSliderHarness;
+    exports.MatSliderThumbHarness = MatSliderThumbHarness;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
