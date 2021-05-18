@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { NgZone, OnDestroy } from '@angular/core';
-import { SpecificEventListener } from '@material/base';
+import { SpecificEventListener } from '@material/base/types';
 import { Subscription } from 'rxjs';
 /**
  * Handles listening for all change and input events that occur on the document.

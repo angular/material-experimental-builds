@@ -786,7 +786,32 @@ class SliderAdapter {
             return this._delegate._getInputElement(thumbPosition).getAttribute(attribute);
         };
         this.setInputAttribute = (attribute, value, thumbPosition) => {
-            this._delegate._getInputElement(thumbPosition).setAttribute(attribute, value);
+            const input = this._delegate._getInputElement(thumbPosition);
+            // TODO(wagnermaciel): remove this check once this component is
+            // added to the internal allowlist for calling setAttribute.
+            // Explicitly check the attribute we are setting to prevent xss.
+            switch (attribute) {
+                case 'aria-valuetext':
+                    input.setAttribute('aria-valuetext', value);
+                    break;
+                case 'disabled':
+                    input.setAttribute('disabled', value);
+                    break;
+                case 'min':
+                    input.setAttribute('min', value);
+                    break;
+                case 'max':
+                    input.setAttribute('max', value);
+                    break;
+                case 'value':
+                    input.setAttribute('value', value);
+                    break;
+                case 'step':
+                    input.setAttribute('step', value);
+                    break;
+                default:
+                    throw Error(`Tried to set invalid attribute ${attribute} on the mdc-slider.`);
+            }
         };
         this.removeInputAttribute = (attribute, thumbPosition) => {
             this._delegate._getInputElement(thumbPosition).removeAttribute(attribute);
