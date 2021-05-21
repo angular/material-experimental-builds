@@ -30,7 +30,6 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     private _focusMonitor;
     private _changeDetectorRef;
     defaults: MatSlideToggleDefaultOptions;
-    _animationMode?: string | undefined;
     private _onChange;
     private _onTouched;
     private _uniqueId;
@@ -42,6 +41,8 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     _focused: boolean;
     /** Configuration for the underlying ripple. */
     _rippleAnimation: RippleAnimationConfig;
+    /** Whether noop animations are enabled. */
+    _noopAnimations: boolean;
     /** The color palette  for this slide toggle. */
     color: ThemePalette;
     /** Name value will be applied to the input element if present. */
@@ -82,7 +83,7 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     _inputElement: ElementRef<HTMLInputElement>;
     /** Reference to the MDC switch element. */
     _switchElement: ElementRef<HTMLElement>;
-    constructor(_elementRef: ElementRef, _focusMonitor: FocusMonitor, _changeDetectorRef: ChangeDetectorRef, tabIndex: string, defaults: MatSlideToggleDefaultOptions, _animationMode?: string | undefined);
+    constructor(_elementRef: ElementRef, _focusMonitor: FocusMonitor, _changeDetectorRef: ChangeDetectorRef, tabIndex: string, defaults: MatSlideToggleDefaultOptions, animationMode?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /** Method being called whenever the underlying input emits a change event. */
