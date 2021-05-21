@@ -31,6 +31,11 @@
         enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
         exitDuration: ripple.numbers.FG_DEACTIVATION_MS,
     };
+    /** Configuration for ripples when animations are disabled. */
+    var NOOP_RIPPLE_ANIMATION_CONFIG = {
+        enterDuration: 0,
+        exitDuration: 0
+    };
     /** @docs-private */
     var MAT_SLIDE_TOGGLE_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
@@ -50,13 +55,12 @@
         return MatSlideToggleChange;
     }());
     var MatSlideToggle = /** @class */ (function () {
-        function MatSlideToggle(_elementRef, _focusMonitor, _changeDetectorRef, tabIndex, defaults, _animationMode) {
+        function MatSlideToggle(_elementRef, _focusMonitor, _changeDetectorRef, tabIndex, defaults, animationMode) {
             var _this = this;
             this._elementRef = _elementRef;
             this._focusMonitor = _focusMonitor;
             this._changeDetectorRef = _changeDetectorRef;
             this.defaults = defaults;
-            this._animationMode = _animationMode;
             this._onChange = function (_) { };
             this._onTouched = function () { };
             this._uniqueId = "mat-mdc-slide-toggle-" + ++nextUniqueId;
@@ -71,8 +75,6 @@
                     _this._inputElement.nativeElement.setAttribute(name, value);
                 }
             };
-            /** Configuration for the underlying ripple. */
-            this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
             /** Name value will be applied to the input element if present. */
             this.name = null;
             /** A unique id for the slide-toggle input. If none is supplied, it will be auto-generated. */
@@ -91,6 +93,9 @@
             this.toggleChange = new core.EventEmitter();
             this.tabIndex = parseInt(tabIndex) || 0;
             this.color = defaults.color || 'accent';
+            this._noopAnimations = animationMode === 'NoopAnimations';
+            this._rippleAnimation = this._noopAnimations ?
+                NOOP_RIPPLE_ANIMATION_CONFIG : RIPPLE_ANIMATION_CONFIG;
         }
         Object.defineProperty(MatSlideToggle.prototype, "tabIndex", {
             /** Tabindex for the input element. */
@@ -265,7 +270,7 @@
                         '[class.mat-warn]': 'color === "warn"',
                         '[class.mat-mdc-slide-toggle-focused]': '_focused',
                         '[class.mat-mdc-slide-toggle-checked]': 'checked',
-                        '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
+                        '[class._mat-animation-noopable]': '_noopAnimations',
                     },
                     exportAs: 'matSlideToggle',
                     encapsulation: core.ViewEncapsulation.None,
