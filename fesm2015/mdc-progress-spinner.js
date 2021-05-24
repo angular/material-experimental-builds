@@ -15,12 +15,11 @@ import { CommonModule } from '@angular/common';
  * found in the LICENSE file at https://angular.io/license
  */
 // Boilerplate for applying mixins to MatProgressBar.
-class MatProgressSpinnerBase {
+const _MatProgressSpinnerBase = mixinColor(class {
     constructor(_elementRef) {
         this._elementRef = _elementRef;
     }
-}
-const _MatProgressSpinnerMixinBase = mixinColor(MatProgressSpinnerBase, 'primary');
+}, 'primary');
 /**
  * Base reference size of the spinner.
  */
@@ -29,7 +28,7 @@ const BASE_SIZE = 100;
  * Base reference stroke width of the spinner.
  */
 const BASE_STROKE_WIDTH = 10;
-class MatProgressSpinner extends _MatProgressSpinnerMixinBase {
+class MatProgressSpinner extends _MatProgressSpinnerBase {
     constructor(_elementRef, animationMode, defaults) {
         super(_elementRef);
         this._elementRef = _elementRef;

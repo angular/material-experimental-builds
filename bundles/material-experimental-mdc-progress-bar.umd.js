@@ -315,13 +315,12 @@
 
     // Boilerplate for applying mixins to MatProgressBar.
     /** @docs-private */
-    var MatProgressBarBase = /** @class */ (function () {
-        function MatProgressBarBase(_elementRef) {
+    var _MatProgressBarBase = mdcCore.mixinColor(/** @class */ (function () {
+        function class_1(_elementRef) {
             this._elementRef = _elementRef;
         }
-        return MatProgressBarBase;
-    }());
-    var _MatProgressBarMixinBase = mdcCore.mixinColor(MatProgressBarBase, 'primary');
+        return class_1;
+    }()), 'primary');
     var MatProgressBar = /** @class */ (function (_super) {
         __extends(MatProgressBar, _super);
         function MatProgressBar(_elementRef, _ngZone, dir, _animationMode) {
@@ -475,7 +474,7 @@
             }
         };
         return MatProgressBar;
-    }(_MatProgressBarMixinBase));
+    }(_MatProgressBarBase));
     MatProgressBar.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-progress-bar',

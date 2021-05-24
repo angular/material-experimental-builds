@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
-import { CanColor, CanColorCtor, CanDisable, CanDisableRipple, CanDisableRippleCtor, HasTabIndex, HasTabIndexCtor, MatRipple, RippleAnimationConfig, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
+import { CanColor, CanDisable, CanDisableRipple, HasTabIndex, MatRipple, RippleAnimationConfig, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
 import { Subject } from 'rxjs';
 import { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';
@@ -32,7 +32,7 @@ declare abstract class MatChipBase {
     abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
-declare const _MatChipMixinBase: CanColorCtor & CanDisableRippleCtor & HasTabIndexCtor & typeof MatChipBase;
+declare const _MatChipMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisableRipple> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisableRipple> & typeof MatChipBase;
 /**
  * Material design styled Chip base component. Used inside the MatChipSet component.
  *

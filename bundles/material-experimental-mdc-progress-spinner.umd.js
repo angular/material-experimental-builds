@@ -314,13 +314,12 @@
     }
 
     // Boilerplate for applying mixins to MatProgressBar.
-    var MatProgressSpinnerBase = /** @class */ (function () {
-        function MatProgressSpinnerBase(_elementRef) {
+    var _MatProgressSpinnerBase = mdcCore.mixinColor(/** @class */ (function () {
+        function class_1(_elementRef) {
             this._elementRef = _elementRef;
         }
-        return MatProgressSpinnerBase;
-    }());
-    var _MatProgressSpinnerMixinBase = mdcCore.mixinColor(MatProgressSpinnerBase, 'primary');
+        return class_1;
+    }()), 'primary');
     /**
      * Base reference size of the spinner.
      */
@@ -465,7 +464,7 @@
             }
         };
         return MatProgressSpinner;
-    }(_MatProgressSpinnerMixinBase));
+    }(_MatProgressSpinnerBase));
     MatProgressSpinner.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-progress-spinner, mat-spinner',

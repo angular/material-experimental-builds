@@ -64,14 +64,13 @@ const HOST_SELECTOR_MDC_CLASS_PAIR = [
 ];
 // Boilerplate for applying mixins to MatButton.
 /** @docs-private */
-class MatButtonMixinCore {
+const _MatButtonMixin = mixinColor(mixinDisabled(mixinDisableRipple(class {
     constructor(_elementRef) {
         this._elementRef = _elementRef;
     }
-}
-const _MatButtonBaseMixin = mixinColor(mixinDisabled(mixinDisableRipple(MatButtonMixinCore)));
+})));
 /** Base class for all buttons.  */
-class MatButtonBase extends _MatButtonBaseMixin {
+class MatButtonBase extends _MatButtonMixin {
     constructor(elementRef, _platform, _ngZone, _animationMode) {
         super(elementRef);
         this._platform = _platform;
@@ -557,5 +556,5 @@ MatButtonModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MAT_FAB_DEFAULT_OPTIONS, MAT_FAB_DEFAULT_OPTIONS_FACTORY, MatAnchor, MatButton, MatButtonModule, MatFabAnchor, MatFabButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MAT_BUTTON_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_a, MAT_BUTTON_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_b, MatButtonMixinCore as ɵangular_material_src_material_experimental_mdc_button_mdc_button_c, _MatButtonBaseMixin as ɵangular_material_src_material_experimental_mdc_button_mdc_button_d, MatButtonBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_e, MAT_ANCHOR_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_f, MAT_ANCHOR_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_g, MatAnchorBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_h };
+export { MAT_FAB_DEFAULT_OPTIONS, MAT_FAB_DEFAULT_OPTIONS_FACTORY, MatAnchor, MatButton, MatButtonModule, MatFabAnchor, MatFabButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MAT_BUTTON_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_a, MAT_BUTTON_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_b, _MatButtonMixin as ɵangular_material_src_material_experimental_mdc_button_mdc_button_c, MatButtonBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_d, MAT_ANCHOR_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_e, MAT_ANCHOR_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_f, MatAnchorBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_g };
 //# sourceMappingURL=mdc-button.js.map

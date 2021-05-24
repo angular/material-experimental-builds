@@ -16,13 +16,12 @@ export { MAT_PROGRESS_BAR_LOCATION, MAT_PROGRESS_BAR_LOCATION_FACTORY } from '@a
  */
 // Boilerplate for applying mixins to MatProgressBar.
 /** @docs-private */
-class MatProgressBarBase {
+const _MatProgressBarBase = mixinColor(class {
     constructor(_elementRef) {
         this._elementRef = _elementRef;
     }
-}
-const _MatProgressBarMixinBase = mixinColor(MatProgressBarBase, 'primary');
-class MatProgressBar extends _MatProgressBarMixinBase {
+}, 'primary');
+class MatProgressBar extends _MatProgressBarBase {
     constructor(_elementRef, _ngZone, dir, _animationMode) {
         super(_elementRef);
         this._elementRef = _elementRef;

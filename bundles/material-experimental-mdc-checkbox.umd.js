@@ -329,13 +329,12 @@
     }());
     // Boilerplate for applying mixins to MatCheckbox.
     /** @docs-private */
-    var MatCheckboxBase = /** @class */ (function () {
-        function MatCheckboxBase(_elementRef) {
+    var _MatCheckboxBase = mdcCore.mixinColor(mdcCore.mixinDisabled(/** @class */ (function () {
+        function class_1(_elementRef) {
             this._elementRef = _elementRef;
         }
-        return MatCheckboxBase;
-    }());
-    var _MatCheckboxMixinBase = mdcCore.mixinColor(mdcCore.mixinDisabled(MatCheckboxBase));
+        return class_1;
+    }())));
     /** Configuration for the ripple animation. */
     var RIPPLE_ANIMATION_CONFIG = {
         enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
@@ -601,7 +600,7 @@
             }
         };
         return MatCheckbox;
-    }(_MatCheckboxMixinBase));
+    }(_MatCheckboxBase));
     MatCheckbox.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-checkbox',

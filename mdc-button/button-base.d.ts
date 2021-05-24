@@ -8,7 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
-import { CanColor, CanColorCtor, CanDisable, CanDisableCtor, CanDisableRipple, CanDisableRippleCtor, MatRipple, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
+import { CanColor, CanDisable, CanDisableRipple, MatRipple, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
 import { FocusOrigin } from '@angular/cdk/a11y';
 /** Inputs common to all buttons. */
 export declare const MAT_BUTTON_INPUTS: string[];
@@ -20,13 +20,13 @@ export declare const MAT_BUTTON_HOST: {
     '[class.mat-mdc-button-base]': string;
 };
 /** @docs-private */
-export declare class MatButtonMixinCore {
-    _elementRef: ElementRef;
-    constructor(_elementRef: ElementRef);
-}
-export declare const _MatButtonBaseMixin: CanDisableRippleCtor & CanDisableCtor & CanColorCtor & typeof MatButtonMixinCore;
+export declare const _MatButtonMixin: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisableRipple> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisableRipple> & {
+    new (_elementRef: ElementRef): {
+        _elementRef: ElementRef;
+    };
+};
 /** Base class for all buttons.  */
-export declare class MatButtonBase extends _MatButtonBaseMixin implements CanDisable, CanColor, CanDisableRipple {
+export declare class MatButtonBase extends _MatButtonMixin implements CanDisable, CanColor, CanDisableRipple {
     _platform: Platform;
     _ngZone: NgZone;
     _animationMode?: string | undefined;

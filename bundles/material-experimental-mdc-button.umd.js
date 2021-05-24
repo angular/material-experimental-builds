@@ -365,13 +365,12 @@
     ];
     // Boilerplate for applying mixins to MatButton.
     /** @docs-private */
-    var MatButtonMixinCore = /** @class */ (function () {
-        function MatButtonMixinCore(_elementRef) {
+    var _MatButtonMixin = mdcCore.mixinColor(mdcCore.mixinDisabled(mdcCore.mixinDisableRipple(/** @class */ (function () {
+        function class_1(_elementRef) {
             this._elementRef = _elementRef;
         }
-        return MatButtonMixinCore;
-    }());
-    var _MatButtonBaseMixin = mdcCore.mixinColor(mdcCore.mixinDisabled(mdcCore.mixinDisableRipple(MatButtonMixinCore)));
+        return class_1;
+    }()))));
     /** Base class for all buttons.  */
     var MatButtonBase = /** @class */ (function (_super) {
         __extends(MatButtonBase, _super);
@@ -429,7 +428,7 @@
             return this.disableRipple || this.disabled;
         };
         return MatButtonBase;
-    }(_MatButtonBaseMixin));
+    }(_MatButtonMixin));
     MatButtonBase.decorators = [
         { type: core.Directive }
     ];
@@ -903,12 +902,11 @@
     exports.MatMiniFabButton = MatMiniFabButton;
     exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_a = MAT_BUTTON_INPUTS;
     exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_b = MAT_BUTTON_HOST;
-    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_c = MatButtonMixinCore;
-    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_d = _MatButtonBaseMixin;
-    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_e = MatButtonBase;
-    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_f = MAT_ANCHOR_INPUTS;
-    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_g = MAT_ANCHOR_HOST;
-    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_h = MatAnchorBase;
+    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_c = _MatButtonMixin;
+    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_d = MatButtonBase;
+    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_e = MAT_ANCHOR_INPUTS;
+    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_f = MAT_ANCHOR_HOST;
+    exports.ɵangular_material_src_material_experimental_mdc_button_mdc_button_g = MatAnchorBase;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

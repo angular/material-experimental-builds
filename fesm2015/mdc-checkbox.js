@@ -29,18 +29,17 @@ class MatCheckboxChange {
 }
 // Boilerplate for applying mixins to MatCheckbox.
 /** @docs-private */
-class MatCheckboxBase {
+const _MatCheckboxBase = mixinColor(mixinDisabled(class {
     constructor(_elementRef) {
         this._elementRef = _elementRef;
     }
-}
-const _MatCheckboxMixinBase = mixinColor(mixinDisabled(MatCheckboxBase));
+}));
 /** Configuration for the ripple animation. */
 const RIPPLE_ANIMATION_CONFIG = {
     enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
     exitDuration: numbers.FG_DEACTIVATION_MS,
 };
-class MatCheckbox extends _MatCheckboxMixinBase {
+class MatCheckbox extends _MatCheckboxBase {
     constructor(_changeDetectorRef, elementRef, tabIndex, _animationMode, _options) {
         super(elementRef);
         this._changeDetectorRef = _changeDetectorRef;

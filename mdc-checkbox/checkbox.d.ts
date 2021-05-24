@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
-import { ThemePalette, RippleAnimationConfig, CanColorCtor, CanDisableCtor, CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
+import { ThemePalette, RippleAnimationConfig, CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */
@@ -20,12 +20,12 @@ export declare class MatCheckboxChange {
     checked: boolean;
 }
 /** @docs-private */
-declare class MatCheckboxBase {
-    _elementRef: ElementRef;
-    constructor(_elementRef: ElementRef);
-}
-declare const _MatCheckboxMixinBase: CanColorCtor & CanDisableCtor & typeof MatCheckboxBase;
-export declare class MatCheckbox extends _MatCheckboxMixinBase implements AfterViewInit, OnDestroy, ControlValueAccessor, CanColor, CanDisable {
+declare const _MatCheckboxBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisable> & {
+    new (_elementRef: ElementRef): {
+        _elementRef: ElementRef;
+    };
+};
+export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewInit, OnDestroy, ControlValueAccessor, CanColor, CanDisable {
     private _changeDetectorRef;
     _animationMode?: string | undefined;
     private _options?;

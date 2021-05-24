@@ -7,17 +7,17 @@
  */
 import { AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { MDCCircularProgressFoundation } from '@material/circular-progress';
-import { CanColor, CanColorCtor } from '@angular/material-experimental/mdc-core';
+import { CanColor } from '@angular/material-experimental/mdc-core';
 import { MatProgressSpinnerDefaultOptions } from '@angular/material/progress-spinner';
 import { NumberInput } from '@angular/cdk/coercion';
-declare class MatProgressSpinnerBase {
-    _elementRef: ElementRef;
-    constructor(_elementRef: ElementRef);
-}
-declare const _MatProgressSpinnerMixinBase: CanColorCtor & typeof MatProgressSpinnerBase;
+declare const _MatProgressSpinnerBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & {
+    new (_elementRef: ElementRef): {
+        _elementRef: ElementRef;
+    };
+};
 /** Possible mode for a progress spinner. */
 export declare type ProgressSpinnerMode = 'determinate' | 'indeterminate';
-export declare class MatProgressSpinner extends _MatProgressSpinnerMixinBase implements AfterViewInit, OnDestroy, CanColor {
+export declare class MatProgressSpinner extends _MatProgressSpinnerBase implements AfterViewInit, OnDestroy, CanColor {
     _elementRef: ElementRef<HTMLElement>;
     /** Whether the _mat-animation-noopable class should be applied, disabling animations.  */
     _noopAnimations: boolean;
