@@ -270,6 +270,8 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     _startValueIndicatorText: string;
     /** The display value of the end thumb. */
     _endValueIndicatorText: string;
+    /** Whether animations have been disabled. */
+    _noopAnimations: boolean;
     /**
      * Whether the browser supports pointer events.
      *
@@ -279,7 +281,7 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     private _SUPPORTS_POINTER_EVENTS;
     /** Subscription to changes to the directionality (LTR / RTL) context for the application. */
     private _dirChangeSubscription;
-    constructor(_ngZone: NgZone, _cdr: ChangeDetectorRef, _elementRef: ElementRef<HTMLElement>, _platform: Platform, _globalChangeAndInputListener: GlobalChangeAndInputListener<'input' | 'change'>, document: any, _dir: Directionality, _globalRippleOptions?: RippleGlobalOptions | undefined);
+    constructor(_ngZone: NgZone, _cdr: ChangeDetectorRef, _elementRef: ElementRef<HTMLElement>, _platform: Platform, _globalChangeAndInputListener: GlobalChangeAndInputListener<'input' | 'change'>, document: any, _dir: Directionality, _globalRippleOptions?: RippleGlobalOptions | undefined, animationMode?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /** Returns true if the language direction for this slider element is right to left. */
