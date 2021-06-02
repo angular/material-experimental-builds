@@ -363,8 +363,8 @@
     };
     var MatRadioButton = /** @class */ (function (_super) {
         __extends(MatRadioButton, _super);
-        function MatRadioButton(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex) {
-            var _this = _super.call(this, radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex) || this;
+        function MatRadioButton(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, animationMode, _providerOverride, tabIndex) {
+            var _this = _super.call(this, radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, animationMode, _providerOverride, tabIndex) || this;
             _this._radioAdapter = {
                 addClass: function (className) { return _this._setClass(className, true); },
                 removeClass: function (className) { return _this._setClass(className, false); },
@@ -377,7 +377,6 @@
             };
             _this._radioFoundation = new radio$1.MDCRadioFoundation(_this._radioAdapter);
             _this._classes = {};
-            _this._noopAnimations = _animationMode === 'NoopAnimations';
             _this._rippleAnimation =
                 _this._noopAnimations ? { enterDuration: 0, exitDuration: 0 } : RIPPLE_ANIMATION_CONFIG;
             return _this;
