@@ -61,8 +61,8 @@ MatRadioGroup.propDecorators = {
     _radios: [{ type: ContentChildren, args: [forwardRef(() => MatRadioButton), { descendants: true },] }]
 };
 class MatRadioButton extends _MatRadioButtonBase {
-    constructor(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex) {
-        super(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, _animationMode, _providerOverride, tabIndex);
+    constructor(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, animationMode, _providerOverride, tabIndex) {
+        super(radioGroup, elementRef, _changeDetector, _focusMonitor, _radioDispatcher, animationMode, _providerOverride, tabIndex);
         this._radioAdapter = {
             addClass: (className) => this._setClass(className, true),
             removeClass: (className) => this._setClass(className, false),
@@ -75,7 +75,6 @@ class MatRadioButton extends _MatRadioButtonBase {
         };
         this._radioFoundation = new MDCRadioFoundation(this._radioAdapter);
         this._classes = {};
-        this._noopAnimations = _animationMode === 'NoopAnimations';
         this._rippleAnimation =
             this._noopAnimations ? { enterDuration: 0, exitDuration: 0 } : RIPPLE_ANIMATION_CONFIG;
     }
