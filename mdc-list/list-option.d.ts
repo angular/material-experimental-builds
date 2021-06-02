@@ -63,10 +63,12 @@ export declare class MatListOption extends MatListItemBase implements ListOption
     toggle(): void;
     /** Allows for programmatic focusing of the option. */
     focus(): void;
-    /** Whether the checkbox should be shown at the given position. */
-    _shouldShowCheckboxAt(position: MatListOptionCheckboxPosition): boolean;
-    /** Whether icons and avatars should be shown at the given position. */
-    _shouldShowIconsAndAvatarsAt(position: 'before' | 'after'): boolean;
+    /** Whether a checkbox is shown at the given position. */
+    _hasCheckboxAt(position: MatListOptionCheckboxPosition): boolean;
+    /** Whether icons or avatars are shown at the given position. */
+    _hasIconsOrAvatarsAt(position: 'before' | 'after'): boolean;
+    /** Gets whether the given type of element is projected at the specified position. */
+    _hasProjected(type: 'icons' | 'avatars', position: 'before' | 'after'): boolean;
     _handleBlur(): void;
     /** Gets the current position of the checkbox. */
     _getCheckboxPosition(): MatListOptionCheckboxPosition;
