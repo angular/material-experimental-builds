@@ -33,8 +33,6 @@ export declare class MatSliderThumbHarness extends ComponentHarness {
     getDisplayValue(): Promise<string>;
     /** Whether the thumb is disabled. */
     isDisabled(): Promise<boolean>;
-    /** Whether the thumb is required. */
-    isRequired(): Promise<boolean>;
     /** Gets the name of the thumb. */
     getName(): Promise<string>;
     /** Gets the id of the thumb. */

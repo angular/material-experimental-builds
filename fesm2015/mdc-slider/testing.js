@@ -82,12 +82,6 @@ class MatSliderThumbHarness extends ComponentHarness {
             return (yield this.host()).getProperty('disabled');
         });
     }
-    /** Whether the thumb is required. */
-    isRequired() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.host()).getProperty('required');
-        });
-    }
     /** Gets the name of the thumb. */
     getName() {
         return __awaiter(this, void 0, void 0, function* () {

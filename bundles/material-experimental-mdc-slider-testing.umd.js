@@ -467,17 +467,6 @@
                 });
             });
         };
-        /** Whether the thumb is required. */
-        MatSliderThumbHarness.prototype.isRequired = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [2 /*return*/, (_a.sent()).getProperty('required')];
-                    }
-                });
-            });
-        };
         /** Gets the name of the thumb. */
         MatSliderThumbHarness.prototype.getName = function () {
             return __awaiter(this, void 0, void 0, function () {
