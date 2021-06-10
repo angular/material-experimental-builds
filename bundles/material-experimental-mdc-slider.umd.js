@@ -580,10 +580,6 @@
             this._blur = new i0.EventEmitter();
             /** Event emitted every time the MatSliderThumb is focused. */
             this._focus = new i0.EventEmitter();
-            /** Event emitted on pointer up or after left or right arrow key presses. */
-            this.change = new i0.EventEmitter();
-            /** Event emitted on each value change that happens to the slider. */
-            this.input = new i0.EventEmitter();
             /**
              * Used to determine the disabled state of the MatSlider (ControlValueAccessor).
              * For ranged sliders, the disabled state of the MatSlider depends on the combined state of the
@@ -790,9 +786,7 @@
         dragStart: [{ type: i0.Output }],
         dragEnd: [{ type: i0.Output }],
         _blur: [{ type: i0.Output }],
-        _focus: [{ type: i0.Output }],
-        change: [{ type: i0.Output }],
-        input: [{ type: i0.Output }]
+        _focus: [{ type: i0.Output }]
     };
     // Boilerplate for applying mixins to MatSlider.
     /** @docs-private */
