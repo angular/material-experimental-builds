@@ -197,6 +197,13 @@ export declare class MatSliderThumb implements AfterViewInit, ControlValueAccess
      * slider thumb input depends on the value of its sibling slider thumb inputs value.
      */
     private _initializeInputValueAttribute;
+    /**
+     * Initializes the aria-valuetext attribute.
+     *
+     * Must be called AFTER the value attribute is set. This is because the slider's parent
+     * `displayWith` function is used to set the `aria-valuetext` attribute.
+     */
+    private _initializeAriaValueText;
     static ngAcceptInputType_value: NumberInput;
 }
 /** @docs-private */

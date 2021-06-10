@@ -641,6 +641,7 @@
             // By calling this in ngOnInit() we guarantee that the sibling sliders initial value by
             // has already been set by the time we reach ngAfterViewInit().
             this._initializeInputValueAttribute();
+            this._initializeAriaValueText();
         };
         MatSliderThumb.prototype.ngAfterViewInit = function () {
             this._initializeInputState();
@@ -749,6 +750,15 @@
                     ? this._slider.max
                     : this._slider.min;
             }
+        };
+        /**
+         * Initializes the aria-valuetext attribute.
+         *
+         * Must be called AFTER the value attribute is set. This is because the slider's parent
+         * `displayWith` function is used to set the `aria-valuetext` attribute.
+         */
+        MatSliderThumb.prototype._initializeAriaValueText = function () {
+            this._hostElement.setAttribute('aria-valuetext', this._slider.displayWith(this.value));
         };
         return MatSliderThumb;
     }());
