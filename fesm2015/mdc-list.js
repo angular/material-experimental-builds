@@ -1048,11 +1048,13 @@ function getSelectionListAdapter(list) {
             // mode is similar to what we want but with support for change notification
             // (i.e. `setCheckedCheckboxOrRadioAtIndex`) while maintaining single selection.
             return !list.multiple;
-        }, hasCheckboxAtIndex() {
+        },
+        hasCheckboxAtIndex() {
             // If multi selection is used, we treat the list as a checkbox list so that
             // the MDC foundation can keep track of multiple selected list options.
             return list.multiple;
-        }, isCheckboxCheckedAtIndex(index) {
+        },
+        isCheckboxCheckedAtIndex(index) {
             return list._itemsArr[index].selected;
         },
         setCheckedCheckboxOrRadioAtIndex(index, checked) {
