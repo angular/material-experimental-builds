@@ -344,14 +344,14 @@
         /** Gets the position of the thumb inside the slider. */
         MatSliderThumbHarness.prototype.getPosition = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var isEnd;
+                var isStart;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.host()];
-                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('matSliderEndThumb')];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('matSliderStartThumb')];
                         case 2:
-                            isEnd = (_a.sent()) != null;
-                            return [2 /*return*/, isEnd ? 1 /* END */ : 0 /* START */];
+                            isStart = (_a.sent()) != null;
+                            return [2 /*return*/, isStart ? 0 /* START */ : 1 /* END */];
                     }
                 });
             });
@@ -605,7 +605,7 @@
                 var startHost, _a;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
-                        case 0: return [4 /*yield*/, this.getStartThumb()];
+                        case 0: return [4 /*yield*/, this.getEndThumb()];
                         case 1: return [4 /*yield*/, (_b.sent()).host()];
                         case 2:
                             startHost = _b.sent();
@@ -619,23 +619,10 @@
         /** Gets the maximum value of the slider. */
         MatSliderHarness.prototype.getMaxValue = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var endThumb, _a;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
-                        case 0: return [4 /*yield*/, this.isRange()];
-                        case 1:
-                            if (!(_b.sent())) return [3 /*break*/, 3];
-                            return [4 /*yield*/, this.getEndThumb()];
-                        case 2:
-                            _a = _b.sent();
-                            return [3 /*break*/, 5];
-                        case 3: return [4 /*yield*/, this.getStartThumb()];
-                        case 4:
-                            _a = _b.sent();
-                            _b.label = 5;
-                        case 5:
-                            endThumb = _a;
-                            return [2 /*return*/, endThumb.getMaxValue()];
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.getEndThumb()];
+                        case 1: return [2 /*return*/, (_a.sent()).getMaxValue()];
                     }
                 });
             });
@@ -643,10 +630,23 @@
         /** Gets the minimum value of the slider. */
         MatSliderHarness.prototype.getMinValue = function () {
             return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.getStartThumb()];
-                        case 1: return [2 /*return*/, (_a.sent()).getMinValue()];
+                var startThumb, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, this.isRange()];
+                        case 1:
+                            if (!(_b.sent())) return [3 /*break*/, 3];
+                            return [4 /*yield*/, this.getStartThumb()];
+                        case 2:
+                            _a = _b.sent();
+                            return [3 /*break*/, 5];
+                        case 3: return [4 /*yield*/, this.getEndThumb()];
+                        case 4:
+                            _a = _b.sent();
+                            _b.label = 5;
+                        case 5:
+                            startThumb = _a;
+                            return [2 /*return*/, startThumb.getMinValue()];
                     }
                 });
             });

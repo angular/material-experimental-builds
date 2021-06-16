@@ -26,8 +26,9 @@ class MatSliderThumbHarness extends ComponentHarness {
     /** Gets the position of the thumb inside the slider. */
     getPosition() {
         return __awaiter(this, void 0, void 0, function* () {
-            const isEnd = (yield (yield this.host()).getAttribute('matSliderEndThumb')) != null;
-            return isEnd ? 1 /* END */ : 0 /* START */;
+            // Meant to mimic MDC's logic where `matSliderThumb` is treated as END.
+            const isStart = (yield (yield this.host()).getAttribute('matSliderStartThumb')) != null;
+            return isStart ? 0 /* START */ : 1 /* END */;
         });
     }
     /** Gets the value of the thumb. */
@@ -170,21 +171,21 @@ class MatSliderHarness extends ComponentHarness {
     getStep() {
         return __awaiter(this, void 0, void 0, function* () {
             // The same step value is forwarded to both thumbs.
-            const startHost = yield (yield this.getStartThumb()).host();
+            const startHost = yield (yield this.getEndThumb()).host();
             return coerceNumberProperty(yield startHost.getProperty('step'));
         });
     }
     /** Gets the maximum value of the slider. */
     getMaxValue() {
         return __awaiter(this, void 0, void 0, function* () {
-            const endThumb = (yield this.isRange()) ? yield this.getEndThumb() : yield this.getStartThumb();
-            return endThumb.getMaxValue();
+            return (yield this.getEndThumb()).getMaxValue();
         });
     }
     /** Gets the minimum value of the slider. */
     getMinValue() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.getStartThumb()).getMinValue();
+            const startThumb = (yield this.isRange()) ? yield this.getStartThumb() : yield this.getEndThumb();
+            return startThumb.getMinValue();
         });
     }
 }
