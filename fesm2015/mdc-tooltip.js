@@ -106,14 +106,26 @@ MatTooltip.ctorParameters = () => [
  * @docs-private
  */
 class TooltipComponent extends _TooltipComponentBase {
-    constructor(changeDetectorRef) {
+    constructor(changeDetectorRef, _elementRef) {
         super(changeDetectorRef);
+        this._elementRef = _elementRef;
+        /* Whether the tooltip text overflows to multiple lines */
+        this._isMultiline = false;
+    }
+    /** @override */
+    _onShow() {
+        this._isMultiline = this._isTooltipMultiline();
+    }
+    /** Whether the tooltip text has overflown to the next line */
+    _isTooltipMultiline() {
+        const rect = this._elementRef.nativeElement.getBoundingClientRect();
+        return rect.height > numbers.MIN_HEIGHT && rect.width >= numbers.MAX_WIDTH;
     }
 }
 TooltipComponent.decorators = [
     { type: Component, args: [{
                 selector: 'mat-tooltip-component',
-                template: "<div\n  class=\"mdc-tooltip mdc-tooltip--shown mat-mdc-tooltip\"\n  [ngClass]=\"tooltipClass\"\n  [@state]=\"_visibility\"\n  (@state.start)=\"_animationStart()\"\n  (@state.done)=\"_animationDone($event)\">\n  <div class=\"mdc-tooltip__surface mdc-tooltip__surface-animation\">{{message}}</div>\n</div>\n",
+                template: "<div\n  class=\"mdc-tooltip mdc-tooltip--shown mat-mdc-tooltip\"\n  [ngClass]=\"tooltipClass\"\n  [class.mdc-tooltip--multiline]=\"_isMultiline\"\n  [@state]=\"_visibility\"\n  (@state.start)=\"_animationStart()\"\n  (@state.done)=\"_animationDone($event)\">\n  <div class=\"mdc-tooltip__surface mdc-tooltip__surface-animation\">{{message}}</div>\n</div>\n",
                 encapsulation: ViewEncapsulation.None,
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 animations: [matTooltipAnimations.tooltipState],
@@ -129,7 +141,8 @@ TooltipComponent.decorators = [
             },] }
 ];
 TooltipComponent.ctorParameters = () => [
-    { type: ChangeDetectorRef }
+    { type: ChangeDetectorRef },
+    { type: ElementRef }
 ];
 
 /**
