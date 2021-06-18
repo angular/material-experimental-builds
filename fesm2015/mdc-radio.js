@@ -91,8 +91,8 @@ class MatRadioButton extends _MatRadioButtonBase {
         this._changeDetector.markForCheck();
     }
     /**
-     * Overrides the parent function so that the foundation can be set with the current disabled
-     * state.
+     * Overrides the parent function so that the foundation can be set with the current
+     * disabled state.
      */
     _setDisabled(value) {
         super._setDisabled(value);

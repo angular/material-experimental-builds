@@ -112,7 +112,6 @@ class TooltipComponent extends _TooltipComponentBase {
         /* Whether the tooltip text overflows to multiple lines */
         this._isMultiline = false;
     }
-    /** @override */
     _onShow() {
         this._isMultiline = this._isTooltipMultiline();
     }

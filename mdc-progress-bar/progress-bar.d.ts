@@ -17,10 +17,9 @@ declare const _MatProgressBarBase: import("@angular/material/core/common-behavio
 };
 export declare type ProgressBarMode = 'determinate' | 'indeterminate' | 'buffer' | 'query';
 export declare class MatProgressBar extends _MatProgressBarBase implements AfterViewInit, OnDestroy, CanColor {
-    _elementRef: ElementRef<HTMLElement>;
     private _ngZone;
     _animationMode?: string | undefined;
-    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, dir?: Directionality, _animationMode?: string | undefined);
+    constructor(elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, dir?: Directionality, _animationMode?: string | undefined);
     /** Implements all of the logic of the MDC progress bar. */
     private _foundation;
     /** Adapter used by MDC to interact with the DOM. */

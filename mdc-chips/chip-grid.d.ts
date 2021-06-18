@@ -49,8 +49,6 @@ declare const _MatChipGridMixinBase: CanUpdateErrorStateCtor & typeof MatChipGri
  * the matChipInputFor directive.
  */
 export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterContentInit, AfterViewInit, CanUpdateErrorState, ControlValueAccessor, DoCheck, MatFormFieldControl<any>, OnDestroy {
-    /** @docs-private */
-    ngControl: NgControl;
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
@@ -135,9 +133,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      */
     readonly valueChange: EventEmitter<any>;
     _chips: QueryList<MatChipRow>;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _dir: Directionality, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, _defaultErrorStateMatcher: ErrorStateMatcher, 
-    /** @docs-private */
-    ngControl: NgControl);
+    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _dir: Directionality, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, _defaultErrorStateMatcher: ErrorStateMatcher, ngControl: NgControl);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;

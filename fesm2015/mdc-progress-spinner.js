@@ -29,9 +29,8 @@ const BASE_SIZE = 100;
  */
 const BASE_STROKE_WIDTH = 10;
 class MatProgressSpinner extends _MatProgressSpinnerBase {
-    constructor(_elementRef, animationMode, defaults) {
-        super(_elementRef);
-        this._elementRef = _elementRef;
+    constructor(elementRef, animationMode, defaults) {
+        super(elementRef);
         /** Adapter used by MDC to interact with the DOM. */
         // TODO: switch to class when MDC removes object spread in foundation
         // https://github.com/material-components/material-components-web/pull/6256

@@ -305,7 +305,6 @@ MatCheckbox.propDecorators = {
     ariaLabel: [{ type: Input, args: ['aria-label',] }],
     ariaLabelledby: [{ type: Input, args: ['aria-labelledby',] }],
     ariaDescribedby: [{ type: Input, args: ['aria-describedby',] }],
-    color: [{ type: Input }],
     labelPosition: [{ type: Input }],
     name: [{ type: Input }],
     tabIndex: [{ type: Input }],

@@ -398,8 +398,8 @@
             this._changeDetector.markForCheck();
         };
         /**
-         * Overrides the parent function so that the foundation can be set with the current disabled
-         * state.
+         * Overrides the parent function so that the foundation can be set with the current
+         * disabled state.
          */
         MatRadioButton.prototype._setDisabled = function (value) {
             _super.prototype._setDisabled.call(this, value);

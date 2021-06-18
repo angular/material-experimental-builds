@@ -37,7 +37,6 @@ export declare const MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR: any;
  * Used with MatChipOption chips.
  */
 export declare class MatChipListbox extends MatChipSet implements AfterContentInit, ControlValueAccessor {
-    protected _elementRef: ElementRef;
     /** Subscription to selection changes in the chips. */
     private _chipSelectionSubscription;
     /** Subscription to blur changes in the chips. */
@@ -100,7 +99,7 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
     /** Event emitted when the selected chip listbox value has been changed by the user. */
     readonly change: EventEmitter<MatChipListboxChange>;
     _chips: QueryList<MatChipOption>;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _dir: Directionality);
+    constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, _dir: Directionality);
     ngAfterContentInit(): void;
     /**
      * Focuses the first selected chip in this chip listbox, or the first non-disabled chip when there

@@ -326,9 +326,8 @@
     }()), 'primary');
     var MatProgressBar = /** @class */ (function (_super) {
         __extends(MatProgressBar, _super);
-        function MatProgressBar(_elementRef, _ngZone, dir, _animationMode) {
-            var _this = _super.call(this, _elementRef) || this;
-            _this._elementRef = _elementRef;
+        function MatProgressBar(elementRef, _ngZone, dir, _animationMode) {
+            var _this = _super.call(this, elementRef) || this;
             _this._ngZone = _ngZone;
             _this._animationMode = _animationMode;
             /** Adapter used by MDC to interact with the DOM. */

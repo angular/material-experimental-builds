@@ -333,9 +333,8 @@
     var BASE_STROKE_WIDTH = 10;
     var MatProgressSpinner = /** @class */ (function (_super) {
         __extends(MatProgressSpinner, _super);
-        function MatProgressSpinner(_elementRef, animationMode, defaults) {
-            var _this = _super.call(this, _elementRef) || this;
-            _this._elementRef = _elementRef;
+        function MatProgressSpinner(elementRef, animationMode, defaults) {
+            var _this = _super.call(this, elementRef) || this;
             /** Adapter used by MDC to interact with the DOM. */
             // TODO: switch to class when MDC removes object spread in foundation
             // https://github.com/material-components/material-components-web/pull/6256

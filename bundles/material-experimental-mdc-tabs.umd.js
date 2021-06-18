@@ -546,9 +546,8 @@
         __extends(MatTabLabelWrapper, _super);
         function MatTabLabelWrapper(elementRef, _document) {
             var _this = _super.call(this, elementRef) || this;
-            _this.elementRef = elementRef;
             _this._document = _document;
-            _this._foundation = new MatInkBarFoundation(_this.elementRef.nativeElement, _this._document);
+            _this._foundation = new MatInkBarFoundation(elementRef.nativeElement, _this._document);
             return _this;
         }
         Object.defineProperty(MatTabLabelWrapper.prototype, "fitInkBarToContent", {
@@ -563,10 +562,6 @@
         };
         MatTabLabelWrapper.prototype.ngOnDestroy = function () {
             this._foundation.destroy();
-        };
-        /** Sets focus on the wrapper element */
-        MatTabLabelWrapper.prototype.focus = function () {
-            this.elementRef.nativeElement.focus();
         };
         return MatTabLabelWrapper;
     }(tabs.MatTabLabelWrapper));
