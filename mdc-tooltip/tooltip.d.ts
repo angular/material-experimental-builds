@@ -34,5 +34,11 @@ export declare class MatTooltip extends _MatTooltipBase<TooltipComponent> {
  * @docs-private
  */
 export declare class TooltipComponent extends _TooltipComponentBase {
-    constructor(changeDetectorRef: ChangeDetectorRef);
+    private _elementRef;
+    _isMultiline: boolean;
+    constructor(changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef);
+    /** @override */
+    protected _onShow(): void;
+    /** Whether the tooltip text has overflown to the next line */
+    private _isTooltipMultiline;
 }

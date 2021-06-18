@@ -405,15 +405,28 @@
      */
     var TooltipComponent = /** @class */ (function (_super) {
         __extends(TooltipComponent, _super);
-        function TooltipComponent(changeDetectorRef) {
-            return _super.call(this, changeDetectorRef) || this;
+        function TooltipComponent(changeDetectorRef, _elementRef) {
+            var _this = _super.call(this, changeDetectorRef) || this;
+            _this._elementRef = _elementRef;
+            /* Whether the tooltip text overflows to multiple lines */
+            _this._isMultiline = false;
+            return _this;
         }
+        /** @override */
+        TooltipComponent.prototype._onShow = function () {
+            this._isMultiline = this._isTooltipMultiline();
+        };
+        /** Whether the tooltip text has overflown to the next line */
+        TooltipComponent.prototype._isTooltipMultiline = function () {
+            var rect = this._elementRef.nativeElement.getBoundingClientRect();
+            return rect.height > tooltip$1.numbers.MIN_HEIGHT && rect.width >= tooltip$1.numbers.MAX_WIDTH;
+        };
         return TooltipComponent;
     }(tooltip._TooltipComponentBase));
     TooltipComponent.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-tooltip-component',
-                    template: "<div\n  class=\"mdc-tooltip mdc-tooltip--shown mat-mdc-tooltip\"\n  [ngClass]=\"tooltipClass\"\n  [@state]=\"_visibility\"\n  (@state.start)=\"_animationStart()\"\n  (@state.done)=\"_animationDone($event)\">\n  <div class=\"mdc-tooltip__surface mdc-tooltip__surface-animation\">{{message}}</div>\n</div>\n",
+                    template: "<div\n  class=\"mdc-tooltip mdc-tooltip--shown mat-mdc-tooltip\"\n  [ngClass]=\"tooltipClass\"\n  [class.mdc-tooltip--multiline]=\"_isMultiline\"\n  [@state]=\"_visibility\"\n  (@state.start)=\"_animationStart()\"\n  (@state.done)=\"_animationDone($event)\">\n  <div class=\"mdc-tooltip__surface mdc-tooltip__surface-animation\">{{message}}</div>\n</div>\n",
                     encapsulation: core.ViewEncapsulation.None,
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     animations: [matTooltipAnimations.tooltipState],
@@ -429,7 +442,8 @@
                 },] }
     ];
     TooltipComponent.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef }
+        { type: core.ChangeDetectorRef },
+        { type: core.ElementRef }
     ]; };
 
     /**
