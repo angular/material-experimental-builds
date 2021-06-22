@@ -13,7 +13,7 @@ class MatOptionHarness extends ComponentHarness {
     constructor() {
         super(...arguments);
         /** Element containing the option's text. */
-        this._text = this.locatorFor('.mdc-deprecated-list-item__text');
+        this._text = this.locatorFor('.mdc-list-item__primary-text');
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a `MatOptionsHarness` that meets
@@ -41,13 +41,13 @@ class MatOptionHarness extends ComponentHarness {
     /** Gets whether the option is disabled. */
     isDisabled() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.host()).hasClass('mdc-deprecated-list-item--disabled');
+            return (yield this.host()).hasClass('mdc-list-item--disabled');
         });
     }
     /** Gets whether the option is selected. */
     isSelected() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.host()).hasClass('mdc-deprecated-list-item--selected');
+            return (yield this.host()).hasClass('mdc-list-item--selected');
         });
     }
     /** Gets whether the option is active. */
