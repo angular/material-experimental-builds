@@ -10,7 +10,7 @@ import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy, OnInit, QueryList } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { CanColorCtor, CanDisableRipple, CanDisableRippleCtor, RippleGlobalOptions } from '@angular/material/core';
+import { CanDisableRipple, RippleGlobalOptions } from '@angular/material/core';
 import { Thumb, TickMark } from '@material/slider';
 import { GlobalChangeAndInputListener } from './global-change-and-input-listener';
 /** Represents a drag event emitted by the MatSlider component. */
@@ -89,7 +89,7 @@ export declare class MatSliderVisualThumb implements AfterViewInit, OnDestroy {
  * slider. If two are used, the selectors `matSliderStartThumb` and `matSliderEndThumb` must be
  * used, and the outcome will be a range slider with two slider thumbs.
  */
-export declare class MatSliderThumb implements AfterViewInit, ControlValueAccessor, OnInit {
+export declare class MatSliderThumb implements AfterViewInit, ControlValueAccessor, OnInit, OnDestroy {
     private readonly _slider;
     private readonly _elementRef;
     /** The current value of this slider input. */
@@ -134,6 +134,7 @@ export declare class MatSliderThumb implements AfterViewInit, ControlValueAccess
     constructor(document: any, _slider: MatSlider, _elementRef: ElementRef<HTMLInputElement>);
     ngOnInit(): void;
     ngAfterViewInit(): void;
+    ngOnDestroy(): void;
     _onBlur(): void;
     _emitFakeEvent(type: 'change' | 'input'): void;
     /**
@@ -202,12 +203,11 @@ export declare class MatSliderThumb implements AfterViewInit, ControlValueAccess
     private _initializeAriaValueText;
     static ngAcceptInputType_value: NumberInput;
 }
-/** @docs-private */
-declare class MatSliderBase {
-    _elementRef: ElementRef<HTMLElement>;
-    constructor(_elementRef: ElementRef<HTMLElement>);
-}
-declare const _MatSliderMixinBase: CanColorCtor & CanDisableRippleCtor & typeof MatSliderBase;
+declare const _MatSliderMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<import("@angular/material/core").CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<import("@angular/material/core").CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisableRipple> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisableRipple> & {
+    new (_elementRef: ElementRef<HTMLElement>): {
+        _elementRef: ElementRef<HTMLElement>;
+    };
+};
 /**
  * Allows users to select from a range of values by moving the slider thumb. It is similar in
  * behavior to the native `<input type="range">` element.
