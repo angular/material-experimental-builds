@@ -402,6 +402,7 @@
      */
     var MatSliderVisualThumb = /** @class */ (function () {
         function MatSliderVisualThumb(_ngZone, _slider, _elementRef) {
+            var _this = this;
             this._ngZone = _ngZone;
             this._slider = _slider;
             this._elementRef = _elementRef;
@@ -411,42 +412,39 @@
             this._isActive = false;
             /** Whether the slider thumb is currently being hovered. */
             this._isHovered = false;
+            this._onMouseEnter = function () {
+                _this._isHovered = true;
+                // We don't want to show the hover ripple on top of the focus ripple.
+                // This can happen if the user tabs to a thumb and then the user moves their cursor over it.
+                if (!_this._isShowingRipple(_this._focusRippleRef)) {
+                    _this._showHoverRipple();
+                }
+            };
+            this._onMouseLeave = function () {
+                var _a;
+                _this._isHovered = false;
+                (_a = _this._hoverRippleRef) === null || _a === void 0 ? void 0 : _a.fadeOut();
+            };
         }
         MatSliderVisualThumb.prototype.ngAfterViewInit = function () {
             var _this = this;
             this._ripple.radius = 24;
             this._sliderInput = this._slider._getInput(this.thumbPosition);
-            this._sliderInput.dragStart.subscribe(function (e) { return _this._onDragStart(e); });
-            this._sliderInput.dragEnd.subscribe(function (e) { return _this._onDragEnd(e); });
+            // Note that we don't unsubscribe from these, because they're complete on destroy.
+            this._sliderInput.dragStart.subscribe(function (event) { return _this._onDragStart(event); });
+            this._sliderInput.dragEnd.subscribe(function (event) { return _this._onDragEnd(event); });
             this._sliderInput._focus.subscribe(function () { return _this._onFocus(); });
             this._sliderInput._blur.subscribe(function () { return _this._onBlur(); });
             // These two listeners don't update any data bindings so we bind them
-            // outside of the NgZone to pervent angular from needlessly running change detection.
+            // outside of the NgZone to prevent Angular from needlessly running change detection.
             this._ngZone.runOutsideAngular(function () {
-                _this._elementRef.nativeElement.addEventListener('mouseenter', _this._onMouseEnter.bind(_this));
-                _this._elementRef.nativeElement.addEventListener('mouseleave', _this._onMouseLeave.bind(_this));
+                _this._elementRef.nativeElement.addEventListener('mouseenter', _this._onMouseEnter);
+                _this._elementRef.nativeElement.addEventListener('mouseleave', _this._onMouseLeave);
             });
         };
         MatSliderVisualThumb.prototype.ngOnDestroy = function () {
-            this._sliderInput.dragStart.unsubscribe();
-            this._sliderInput.dragEnd.unsubscribe();
-            this._sliderInput._focus.unsubscribe();
-            this._sliderInput._blur.unsubscribe();
             this._elementRef.nativeElement.removeEventListener('mouseenter', this._onMouseEnter);
             this._elementRef.nativeElement.removeEventListener('mouseleave', this._onMouseLeave);
-        };
-        MatSliderVisualThumb.prototype._onMouseEnter = function () {
-            this._isHovered = true;
-            // We don't want to show the hover ripple on top of the focus ripple.
-            // This can happen if the user tabs to a thumb and then the user moves their cursor over it.
-            if (!this._isShowingRipple(this._focusRippleRef)) {
-                this._showHoverRipple();
-            }
-        };
-        MatSliderVisualThumb.prototype._onMouseLeave = function () {
-            var _a;
-            this._isHovered = false;
-            (_a = this._hoverRippleRef) === null || _a === void 0 ? void 0 : _a.fadeOut();
         };
         MatSliderVisualThumb.prototype._onFocus = function () {
             var _a;
@@ -647,6 +645,13 @@
                 this._hostElement.disabled = true;
             }
         };
+        MatSliderThumb.prototype.ngOnDestroy = function () {
+            this.dragStart.complete();
+            this.dragEnd.complete();
+            this._focus.complete();
+            this._blur.complete();
+            this.valueChange.complete();
+        };
         MatSliderThumb.prototype._onBlur = function () {
             this._onTouched();
             this._blur.emit();
@@ -789,14 +794,12 @@
         _focus: [{ type: i0.Output }]
     };
     // Boilerplate for applying mixins to MatSlider.
-    /** @docs-private */
-    var MatSliderBase = /** @class */ (function () {
-        function MatSliderBase(_elementRef) {
+    var _MatSliderMixinBase = core.mixinColor(core.mixinDisableRipple(/** @class */ (function () {
+        function class_1(_elementRef) {
             this._elementRef = _elementRef;
         }
-        return MatSliderBase;
-    }());
-    var _MatSliderMixinBase = core.mixinColor(core.mixinDisableRipple(MatSliderBase), 'primary');
+        return class_1;
+    }())), 'primary');
     /**
      * Allows users to select from a range of values by moving the slider thumb. It is similar in
      * behavior to the native `<input type="range">` element.

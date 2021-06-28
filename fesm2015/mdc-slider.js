@@ -89,41 +89,38 @@ class MatSliderVisualThumb {
         this._isActive = false;
         /** Whether the slider thumb is currently being hovered. */
         this._isHovered = false;
+        this._onMouseEnter = () => {
+            this._isHovered = true;
+            // We don't want to show the hover ripple on top of the focus ripple.
+            // This can happen if the user tabs to a thumb and then the user moves their cursor over it.
+            if (!this._isShowingRipple(this._focusRippleRef)) {
+                this._showHoverRipple();
+            }
+        };
+        this._onMouseLeave = () => {
+            var _a;
+            this._isHovered = false;
+            (_a = this._hoverRippleRef) === null || _a === void 0 ? void 0 : _a.fadeOut();
+        };
     }
     ngAfterViewInit() {
         this._ripple.radius = 24;
         this._sliderInput = this._slider._getInput(this.thumbPosition);
-        this._sliderInput.dragStart.subscribe((e) => this._onDragStart(e));
-        this._sliderInput.dragEnd.subscribe((e) => this._onDragEnd(e));
+        // Note that we don't unsubscribe from these, because they're complete on destroy.
+        this._sliderInput.dragStart.subscribe(event => this._onDragStart(event));
+        this._sliderInput.dragEnd.subscribe(event => this._onDragEnd(event));
         this._sliderInput._focus.subscribe(() => this._onFocus());
         this._sliderInput._blur.subscribe(() => this._onBlur());
         // These two listeners don't update any data bindings so we bind them
-        // outside of the NgZone to pervent angular from needlessly running change detection.
+        // outside of the NgZone to prevent Angular from needlessly running change detection.
         this._ngZone.runOutsideAngular(() => {
-            this._elementRef.nativeElement.addEventListener('mouseenter', this._onMouseEnter.bind(this));
-            this._elementRef.nativeElement.addEventListener('mouseleave', this._onMouseLeave.bind(this));
+            this._elementRef.nativeElement.addEventListener('mouseenter', this._onMouseEnter);
+            this._elementRef.nativeElement.addEventListener('mouseleave', this._onMouseLeave);
         });
     }
     ngOnDestroy() {
-        this._sliderInput.dragStart.unsubscribe();
-        this._sliderInput.dragEnd.unsubscribe();
-        this._sliderInput._focus.unsubscribe();
-        this._sliderInput._blur.unsubscribe();
         this._elementRef.nativeElement.removeEventListener('mouseenter', this._onMouseEnter);
         this._elementRef.nativeElement.removeEventListener('mouseleave', this._onMouseLeave);
-    }
-    _onMouseEnter() {
-        this._isHovered = true;
-        // We don't want to show the hover ripple on top of the focus ripple.
-        // This can happen if the user tabs to a thumb and then the user moves their cursor over it.
-        if (!this._isShowingRipple(this._focusRippleRef)) {
-            this._showHoverRipple();
-        }
-    }
-    _onMouseLeave() {
-        var _a;
-        this._isHovered = false;
-        (_a = this._hoverRippleRef) === null || _a === void 0 ? void 0 : _a.fadeOut();
     }
     _onFocus() {
         var _a;
@@ -319,6 +316,13 @@ class MatSliderThumb {
             this._hostElement.disabled = true;
         }
     }
+    ngOnDestroy() {
+        this.dragStart.complete();
+        this.dragEnd.complete();
+        this._focus.complete();
+        this._blur.complete();
+        this.valueChange.complete();
+    }
     _onBlur() {
         this._onTouched();
         this._blur.emit();
@@ -460,13 +464,11 @@ MatSliderThumb.propDecorators = {
     _focus: [{ type: Output }]
 };
 // Boilerplate for applying mixins to MatSlider.
-/** @docs-private */
-class MatSliderBase {
+const _MatSliderMixinBase = mixinColor(mixinDisableRipple(class {
     constructor(_elementRef) {
         this._elementRef = _elementRef;
     }
-}
-const _MatSliderMixinBase = mixinColor(mixinDisableRipple(MatSliderBase), 'primary');
+}), 'primary');
 /**
  * Allows users to select from a range of values by moving the slider thumb. It is similar in
  * behavior to the native `<input type="range">` element.
