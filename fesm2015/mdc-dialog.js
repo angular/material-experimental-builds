@@ -140,7 +140,7 @@ class MatDialogContainer extends _MatDialogContainerBase {
 }
 MatDialogContainer.decorators = [
     { type: Component, args: [{
-                selector: 'mat-mdc-dialog-container',
+                selector: 'mat-dialog-container',
                 template: "<div class=\"mdc-dialog__container\">\n  <div class=\"mat-mdc-dialog-surface mdc-dialog__surface\">\n    <ng-template cdkPortalOutlet></ng-template>\n  </div>\n</div>\n",
                 encapsulation: ViewEncapsulation.None,
                 changeDetection: ChangeDetectionStrategy.OnPush,
