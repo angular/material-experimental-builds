@@ -532,10 +532,9 @@
      */
     var MatChip = /** @class */ (function (_super) {
         __extends(MatChip, _super);
-        function MatChip(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode, _globalRippleOptions) {
-            var _this = _super.call(this, _elementRef) || this;
+        function MatChip(_changeDetectorRef, elementRef, _ngZone, _dir, animationMode, _globalRippleOptions) {
+            var _this = _super.call(this, elementRef) || this;
             _this._changeDetectorRef = _changeDetectorRef;
-            _this._elementRef = _elementRef;
             _this._ngZone = _ngZone;
             _this._dir = _dir;
             _this._globalRippleOptions = _globalRippleOptions;
@@ -647,8 +646,8 @@
             };
             _this._chipFoundation = new chips.deprecated.MDCChipFoundation(_this._chipAdapter);
             _this._animationsDisabled = animationMode === 'NoopAnimations';
-            _this._isBasicChip = _elementRef.nativeElement.hasAttribute(_this.basicChipAttrName) ||
-                _elementRef.nativeElement.tagName.toLowerCase() === _this.basicChipAttrName;
+            _this._isBasicChip = elementRef.nativeElement.hasAttribute(_this.basicChipAttrName) ||
+                elementRef.nativeElement.tagName.toLowerCase() === _this.basicChipAttrName;
             return _this;
         }
         // We have to use a `HostListener` here in order to support both Ivy and ViewEngine.
@@ -1636,9 +1635,8 @@
      */
     var MatChipListbox = /** @class */ (function (_super) {
         __extends(MatChipListbox, _super);
-        function MatChipListbox(_elementRef, _changeDetectorRef, _dir) {
-            var _this = _super.call(this, _elementRef, _changeDetectorRef, _dir) || this;
-            _this._elementRef = _elementRef;
+        function MatChipListbox(elementRef, changeDetectorRef, _dir) {
+            var _this = _super.call(this, elementRef, changeDetectorRef, _dir) || this;
             /**
              * Function when touched. Set as part of ControlValueAccessor implementation.
              * @docs-private
@@ -2403,11 +2401,8 @@
      */
     var MatChipGrid = /** @class */ (function (_super) {
         __extends(MatChipGrid, _super);
-        function MatChipGrid(_elementRef, _changeDetectorRef, _dir, _parentForm, _parentFormGroup, _defaultErrorStateMatcher, 
-        /** @docs-private */
-        ngControl) {
+        function MatChipGrid(_elementRef, _changeDetectorRef, _dir, _parentForm, _parentFormGroup, _defaultErrorStateMatcher, ngControl) {
             var _this = _super.call(this, _elementRef, _changeDetectorRef, _dir, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl) || this;
-            _this.ngControl = ngControl;
             /**
              * Implemented as part of MatFormFieldControl.
              * @docs-private
@@ -2443,7 +2438,9 @@
              * Implemented as part of MatFormFieldControl.
              * @docs-private
              */
-            get: function () { return this.ngControl ? !!this.ngControl.disabled : this._disabled; },
+            get: function () {
+                return this.ngControl ? !!this.ngControl.disabled : this._disabled;
+            },
             set: function (value) {
                 this._disabled = coercion.coerceBooleanProperty(value);
                 this._syncChipsState();

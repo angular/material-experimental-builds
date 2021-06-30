@@ -22,9 +22,8 @@ const _MatProgressBarBase = mixinColor(class {
     }
 }, 'primary');
 class MatProgressBar extends _MatProgressBarBase {
-    constructor(_elementRef, _ngZone, dir, _animationMode) {
-        super(_elementRef);
-        this._elementRef = _elementRef;
+    constructor(elementRef, _ngZone, dir, _animationMode) {
+        super(elementRef);
         this._ngZone = _ngZone;
         this._animationMode = _animationMode;
         /** Adapter used by MDC to interact with the DOM. */

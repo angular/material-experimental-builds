@@ -14,7 +14,6 @@ import { BooleanInput } from '@angular/cdk/coercion';
  * @docs-private
  */
 export declare class MatTabLabelWrapper extends BaseMatTabLabelWrapper implements MatInkBarItem, OnInit, OnDestroy {
-    elementRef: ElementRef;
     private _document;
     _foundation: MatInkBarFoundation;
     /** Whether the ink bar should fit its width to the size of the tab label content. */
@@ -23,7 +22,5 @@ export declare class MatTabLabelWrapper extends BaseMatTabLabelWrapper implement
     constructor(elementRef: ElementRef, _document: any);
     ngOnInit(): void;
     ngOnDestroy(): void;
-    /** Sets focus on the wrapper element */
-    focus(): void;
     static ngAcceptInputType_fitInkBarToContent: BooleanInput;
 }

@@ -634,7 +634,6 @@
         ariaLabel: [{ type: core.Input, args: ['aria-label',] }],
         ariaLabelledby: [{ type: core.Input, args: ['aria-labelledby',] }],
         ariaDescribedby: [{ type: core.Input, args: ['aria-describedby',] }],
-        color: [{ type: core.Input }],
         labelPosition: [{ type: core.Input }],
         name: [{ type: core.Input }],
         tabIndex: [{ type: core.Input }],

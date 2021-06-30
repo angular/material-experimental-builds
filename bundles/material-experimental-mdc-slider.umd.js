@@ -806,11 +806,10 @@
      */
     var MatSlider = /** @class */ (function (_super) {
         __extends(MatSlider, _super);
-        function MatSlider(_ngZone, _cdr, _elementRef, _platform, _globalChangeAndInputListener, document, _dir, _globalRippleOptions, animationMode) {
-            var _this = _super.call(this, _elementRef) || this;
+        function MatSlider(_ngZone, _cdr, elementRef, _platform, _globalChangeAndInputListener, document, _dir, _globalRippleOptions, animationMode) {
+            var _this = _super.call(this, elementRef) || this;
             _this._ngZone = _ngZone;
             _this._cdr = _cdr;
-            _this._elementRef = _elementRef;
             _this._platform = _platform;
             _this._globalChangeAndInputListener = _globalChangeAndInputListener;
             _this._dir = _dir;

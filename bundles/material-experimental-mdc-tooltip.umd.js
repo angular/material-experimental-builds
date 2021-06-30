@@ -415,7 +415,6 @@
             _this._isMultiline = false;
             return _this;
         }
-        /** @override */
         TooltipComponent.prototype._onShow = function () {
             this._isMultiline = this._isTooltipMultiline();
         };

@@ -255,9 +255,8 @@ class MatInkBarFoundation {
 class MatTabLabelWrapper extends MatTabLabelWrapper$1 {
     constructor(elementRef, _document) {
         super(elementRef);
-        this.elementRef = elementRef;
         this._document = _document;
-        this._foundation = new MatInkBarFoundation(this.elementRef.nativeElement, this._document);
+        this._foundation = new MatInkBarFoundation(elementRef.nativeElement, this._document);
     }
     /** Whether the ink bar should fit its width to the size of the tab label content. */
     get fitInkBarToContent() { return this._foundation.getFitToContent(); }
@@ -267,10 +266,6 @@ class MatTabLabelWrapper extends MatTabLabelWrapper$1 {
     }
     ngOnDestroy() {
         this._foundation.destroy();
-    }
-    /** Sets focus on the wrapper element */
-    focus() {
-        this.elementRef.nativeElement.focus();
     }
 }
 MatTabLabelWrapper.decorators = [

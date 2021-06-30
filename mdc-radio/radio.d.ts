@@ -44,8 +44,8 @@ export declare class MatRadioButton extends _MatRadioButtonBase implements After
     ngOnDestroy(): void;
     private _setClass;
     /**
-     * Overrides the parent function so that the foundation can be set with the current disabled
-     * state.
+     * Overrides the parent function so that the foundation can be set with the current
+     * disabled state.
      */
     protected _setDisabled(value: boolean): void;
 }

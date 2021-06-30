@@ -18,7 +18,6 @@ declare const _MatProgressSpinnerBase: import("@angular/material/core/common-beh
 /** Possible mode for a progress spinner. */
 export declare type ProgressSpinnerMode = 'determinate' | 'indeterminate';
 export declare class MatProgressSpinner extends _MatProgressSpinnerBase implements AfterViewInit, OnDestroy, CanColor {
-    _elementRef: ElementRef<HTMLElement>;
     /** Whether the _mat-animation-noopable class should be applied, disabling animations.  */
     _noopAnimations: boolean;
     /** Implements all of the logic of the MDC circular progress. */
@@ -27,7 +26,7 @@ export declare class MatProgressSpinner extends _MatProgressSpinnerBase implemen
     _determinateCircle: ElementRef<HTMLElement>;
     /** Adapter used by MDC to interact with the DOM. */
     private _adapter;
-    constructor(_elementRef: ElementRef<HTMLElement>, animationMode: string, defaults?: MatProgressSpinnerDefaultOptions);
+    constructor(elementRef: ElementRef<HTMLElement>, animationMode: string, defaults?: MatProgressSpinnerDefaultOptions);
     private _mode;
     /**
      * Mode of the progress bar.

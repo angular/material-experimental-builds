@@ -9,7 +9,7 @@ import { ChangeDetectorRef, ElementRef, QueryList } from '@angular/core';
 import { _MatTabGroupBase, MatTabsConfig } from '@angular/material/tabs';
 import { MatTab } from './tab';
 import { MatTabHeader } from './tab-header';
-import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
+import { BooleanInput } from '@angular/cdk/coercion';
 /**
  * Material design tab-group component. Supports basic tab pairs (label + content) and includes
  * animated ink-bar, keyboard navigation, and screen reader.
@@ -25,5 +25,4 @@ export declare class MatTabGroup extends _MatTabGroupBase {
     private _fitInkBarToContent;
     constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, defaultConfig?: MatTabsConfig, animationMode?: string);
     static ngAcceptInputType_fitInkBarToContent: BooleanInput;
-    static ngAcceptInputType_animationDuration: NumberInput;
 }

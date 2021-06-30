@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
-import { ThemePalette, RippleAnimationConfig, CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
+import { RippleAnimationConfig, CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */
@@ -38,8 +38,6 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
     ariaLabelledby: string | null;
     /** The 'aria-describedby' attribute is read after the element's label and field type. */
     ariaDescribedby: string;
-    /** The color palette  for this checkbox ('primary', 'accent', or 'warn'). */
-    color: ThemePalette;
     /** Whether the label should appear after or before the checkbox. Defaults to 'after'. */
     labelPosition: 'before' | 'after';
     /** The `name` attribute to use for the input element. */

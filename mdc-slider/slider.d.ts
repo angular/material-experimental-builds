@@ -215,7 +215,6 @@ declare const _MatSliderMixinBase: import("@angular/material/core/common-behavio
 export declare class MatSlider extends _MatSliderMixinBase implements AfterViewInit, CanDisableRipple, OnDestroy {
     readonly _ngZone: NgZone;
     readonly _cdr: ChangeDetectorRef;
-    readonly _elementRef: ElementRef<HTMLElement>;
     private readonly _platform;
     readonly _globalChangeAndInputListener: GlobalChangeAndInputListener<'input' | 'change'>;
     private _dir;
@@ -284,7 +283,7 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     private _SUPPORTS_POINTER_EVENTS;
     /** Subscription to changes to the directionality (LTR / RTL) context for the application. */
     private _dirChangeSubscription;
-    constructor(_ngZone: NgZone, _cdr: ChangeDetectorRef, _elementRef: ElementRef<HTMLElement>, _platform: Platform, _globalChangeAndInputListener: GlobalChangeAndInputListener<'input' | 'change'>, document: any, _dir: Directionality, _globalRippleOptions?: RippleGlobalOptions | undefined, animationMode?: string);
+    constructor(_ngZone: NgZone, _cdr: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, _platform: Platform, _globalChangeAndInputListener: GlobalChangeAndInputListener<'input' | 'change'>, document: any, _dir: Directionality, _globalRippleOptions?: RippleGlobalOptions | undefined, animationMode?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /** Returns true if the language direction for this slider element is right to left. */

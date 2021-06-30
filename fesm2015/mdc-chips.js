@@ -232,10 +232,9 @@ const _MatChipMixinBase = mixinTabIndex(mixinColor(mixinDisableRipple(MatChipBas
  * Extended by MatChipOption and MatChipRow for different interaction patterns.
  */
 class MatChip extends _MatChipMixinBase {
-    constructor(_changeDetectorRef, _elementRef, _ngZone, _dir, animationMode, _globalRippleOptions) {
-        super(_elementRef);
+    constructor(_changeDetectorRef, elementRef, _ngZone, _dir, animationMode, _globalRippleOptions) {
+        super(elementRef);
         this._changeDetectorRef = _changeDetectorRef;
-        this._elementRef = _elementRef;
         this._ngZone = _ngZone;
         this._dir = _dir;
         this._globalRippleOptions = _globalRippleOptions;
@@ -347,8 +346,8 @@ class MatChip extends _MatChipMixinBase {
         };
         this._chipFoundation = new deprecated.MDCChipFoundation(this._chipAdapter);
         this._animationsDisabled = animationMode === 'NoopAnimations';
-        this._isBasicChip = _elementRef.nativeElement.hasAttribute(this.basicChipAttrName) ||
-            _elementRef.nativeElement.tagName.toLowerCase() === this.basicChipAttrName;
+        this._isBasicChip = elementRef.nativeElement.hasAttribute(this.basicChipAttrName) ||
+            elementRef.nativeElement.tagName.toLowerCase() === this.basicChipAttrName;
     }
     // We have to use a `HostListener` here in order to support both Ivy and ViewEngine.
     // In Ivy the `host` bindings will be merged when this class is extended, whereas in
@@ -1278,9 +1277,8 @@ const MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR = {
  * Used with MatChipOption chips.
  */
 class MatChipListbox extends MatChipSet {
-    constructor(_elementRef, _changeDetectorRef, _dir) {
-        super(_elementRef, _changeDetectorRef, _dir);
-        this._elementRef = _elementRef;
+    constructor(elementRef, changeDetectorRef, _dir) {
+        super(elementRef, changeDetectorRef, _dir);
         /**
          * Function when touched. Set as part of ControlValueAccessor implementation.
          * @docs-private
@@ -1978,11 +1976,8 @@ const _MatChipGridMixinBase = mixinErrorState(MatChipGridBase);
  * the matChipInputFor directive.
  */
 class MatChipGrid extends _MatChipGridMixinBase {
-    constructor(_elementRef, _changeDetectorRef, _dir, _parentForm, _parentFormGroup, _defaultErrorStateMatcher, 
-    /** @docs-private */
-    ngControl) {
+    constructor(_elementRef, _changeDetectorRef, _dir, _parentForm, _parentFormGroup, _defaultErrorStateMatcher, ngControl) {
         super(_elementRef, _changeDetectorRef, _dir, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
-        this.ngControl = ngControl;
         /**
          * Implemented as part of MatFormFieldControl.
          * @docs-private
@@ -2016,7 +2011,9 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    get disabled() { return this.ngControl ? !!this.ngControl.disabled : this._disabled; }
+    get disabled() {
+        return this.ngControl ? !!this.ngControl.disabled : this._disabled;
+    }
     set disabled(value) {
         this._disabled = coerceBooleanProperty(value);
         this._syncChipsState();

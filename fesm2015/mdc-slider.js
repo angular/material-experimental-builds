@@ -474,11 +474,10 @@ const _MatSliderMixinBase = mixinColor(mixinDisableRipple(class {
  * behavior to the native `<input type="range">` element.
  */
 class MatSlider extends _MatSliderMixinBase {
-    constructor(_ngZone, _cdr, _elementRef, _platform, _globalChangeAndInputListener, document, _dir, _globalRippleOptions, animationMode) {
-        super(_elementRef);
+    constructor(_ngZone, _cdr, elementRef, _platform, _globalChangeAndInputListener, document, _dir, _globalRippleOptions, animationMode) {
+        super(elementRef);
         this._ngZone = _ngZone;
         this._cdr = _cdr;
-        this._elementRef = _elementRef;
         this._platform = _platform;
         this._globalChangeAndInputListener = _globalChangeAndInputListener;
         this._dir = _dir;

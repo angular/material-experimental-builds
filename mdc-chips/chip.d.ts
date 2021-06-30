@@ -40,7 +40,6 @@ declare const _MatChipMixinBase: import("@angular/material/core/common-behaviors
  */
 export declare class MatChip extends _MatChipMixinBase implements AfterContentInit, AfterViewInit, CanColor, CanDisableRipple, CanDisable, HasTabIndex, OnDestroy {
     _changeDetectorRef: ChangeDetectorRef;
-    readonly _elementRef: ElementRef;
     protected _ngZone: NgZone;
     private _dir;
     private _globalRippleOptions?;
@@ -108,7 +107,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
      * These methods are called by the chip foundation.
      */
     protected _chipAdapter: deprecated.MDCChipAdapter;
-    constructor(_changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef, _ngZone: NgZone, _dir: Directionality, animationMode?: string, _globalRippleOptions?: RippleGlobalOptions | undefined);
+    constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef, _ngZone: NgZone, _dir: Directionality, animationMode?: string, _globalRippleOptions?: RippleGlobalOptions | undefined);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
