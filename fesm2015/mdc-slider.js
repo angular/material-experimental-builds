@@ -160,7 +160,7 @@ class MatSliderVisualThumb {
     /** Handles displaying the hover ripple. */
     _showHoverRipple() {
         var _a;
-        if (!this._slider._noopAnimations && !this._isShowingRipple(this._hoverRippleRef)) {
+        if (!this._isShowingRipple(this._hoverRippleRef)) {
             this._hoverRippleRef = this._showRipple({ enterDuration: 0, exitDuration: 0 });
             (_a = this._hoverRippleRef) === null || _a === void 0 ? void 0 : _a.element.classList.add('mat-mdc-slider-hover-ripple');
         }
@@ -177,7 +177,7 @@ class MatSliderVisualThumb {
     /** Handles displaying the active ripple. */
     _showActiveRipple() {
         var _a;
-        if (!this._slider._noopAnimations && !this._isShowingRipple(this._activeRippleRef)) {
+        if (!this._isShowingRipple(this._activeRippleRef)) {
             this._activeRippleRef = this._showRipple({ enterDuration: 225, exitDuration: 400 });
             (_a = this._activeRippleRef) === null || _a === void 0 ? void 0 : _a.element.classList.add('mat-mdc-slider-active-ripple');
         }
@@ -191,7 +191,11 @@ class MatSliderVisualThumb {
         if (this.disableRipple) {
             return;
         }
-        return this._ripple.launch({ animation, centered: true, persistent: true });
+        return this._ripple.launch({
+            animation: this._slider._noopAnimations ? { enterDuration: 0, exitDuration: 0 } : animation,
+            centered: true,
+            persistent: true
+        });
     }
     /** Gets the hosts native HTML element. */
     _getHostElement() {
