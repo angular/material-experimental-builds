@@ -20,6 +20,8 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
     abstract _itemText: ElementRef<HTMLElement>;
     /** Host element for the list item. */
     _hostElement: HTMLElement;
+    /** Whether animations are disabled. */
+    _noopAnimations: boolean;
     _avatars: QueryList<never>;
     _icons: QueryList<never>;
     get disableRipple(): boolean;
@@ -41,7 +43,7 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
      * @docs-private
      */
     get rippleDisabled(): boolean;
-    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _listBase: MatListBase, _platform: Platform, globalRippleOptions?: RippleGlobalOptions);
+    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _listBase: MatListBase, _platform: Platform, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
     /** Gets the label for the list item. This is used for the typeahead. */
