@@ -59,6 +59,8 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     ariaLabel: string | null;
     /** Used to set the aria-labelledby attribute on the underlying input element. */
     ariaLabelledby: string | null;
+    /** Used to set the aria-describedby attribute on the underlying input element. */
+    ariaDescribedby: string;
     /** Whether the slide-toggle is required. */
     get required(): boolean;
     set required(value: boolean);
