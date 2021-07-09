@@ -1,4 +1,4 @@
-import { InjectionToken, Directive, Optional, Inject, ElementRef, NgZone, ContentChildren, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, ChangeDetectorRef, HostListener, forwardRef, EventEmitter, Output, NgModule } from '@angular/core';
+import { InjectionToken, Directive, Optional, Inject, ElementRef, NgZone, ContentChildren, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, EventEmitter, ChangeDetectorRef, Output, HostListener, forwardRef, NgModule } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { RippleRenderer, setLines, MAT_RIPPLE_GLOBAL_OPTIONS, MatLine, MatCommonModule, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
@@ -365,6 +365,12 @@ class MatListOption extends MatListItemBase {
          * clear the value of `selected` in the first cycle.
          */
         this._inputsInitialized = false;
+        /**
+         * Emits when the selected state of the option has changed.
+         * Use to facilitate two-data binding to the `selected` property.
+         * @docs-private
+         */
+        this.selectedChange = new EventEmitter();
         /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
         this.checkboxPosition = 'after';
         this._selected = false;
@@ -469,6 +475,7 @@ class MatListOption extends MatListItemBase {
         else {
             this._selectionList.selectedOptions.deselect(this);
         }
+        this.selectedChange.emit(selected);
         this._changeDetectorRef.markForCheck();
         return true;
     }
@@ -524,6 +531,7 @@ MatListOption.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
 ];
 MatListOption.propDecorators = {
+    selectedChange: [{ type: Output }],
     _itemText: [{ type: ViewChild, args: ['text',] }],
     lines: [{ type: ContentChildren, args: [MatLine, { read: ElementRef, descendants: true },] }],
     checkboxPosition: [{ type: Input }],

@@ -692,6 +692,12 @@
              * clear the value of `selected` in the first cycle.
              */
             _this._inputsInitialized = false;
+            /**
+             * Emits when the selected state of the option has changed.
+             * Use to facilitate two-data binding to the `selected` property.
+             * @docs-private
+             */
+            _this.selectedChange = new core.EventEmitter();
             /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
             _this.checkboxPosition = 'after';
             _this._selected = false;
@@ -811,6 +817,7 @@
             else {
                 this._selectionList.selectedOptions.deselect(this);
             }
+            this.selectedChange.emit(selected);
             this._changeDetectorRef.markForCheck();
             return true;
         };
@@ -867,6 +874,7 @@
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] }
     ]; };
     MatListOption.propDecorators = {
+        selectedChange: [{ type: core.Output }],
         _itemText: [{ type: core.ViewChild, args: ['text',] }],
         lines: [{ type: core.ContentChildren, args: [mdcCore.MatLine, { read: core.ElementRef, descendants: true },] }],
         checkboxPosition: [{ type: core.Input }],

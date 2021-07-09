@@ -8,7 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Platform } from '@angular/cdk/platform';
-import { ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, OnInit, QueryList } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, InjectionToken, NgZone, OnDestroy, OnInit, QueryList } from '@angular/core';
 import { RippleGlobalOptions, ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
 import { ListOption, MatListOptionCheckboxPosition } from './list-option-types';
@@ -40,6 +40,12 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      * clear the value of `selected` in the first cycle.
      */
     private _inputsInitialized;
+    /**
+     * Emits when the selected state of the option has changed.
+     * Use to facilitate two-data binding to the `selected` property.
+     * @docs-private
+     */
+    readonly selectedChange: EventEmitter<boolean>;
     _itemText: ElementRef<HTMLElement>;
     lines: QueryList<ElementRef<Element>>;
     /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
