@@ -62,7 +62,7 @@ export declare class MatListOption extends MatListItemBase implements ListOption
     get selected(): boolean;
     set selected(value: boolean);
     private _selected;
-    constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions);
+    constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     ngOnInit(): void;
     ngOnDestroy(): void;
     /** Toggles the selection state of the option. */
