@@ -5,11 +5,12 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
-import { ChipHarnessFilters, ChipRemoveHarnessFilters } from './chip-harness-filters';
+import { ContentContainerComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
+import { MatChipAvatarHarness } from './chip-avatar-harness';
+import { ChipAvatarHarnessFilters, ChipHarnessFilters, ChipRemoveHarnessFilters } from './chip-harness-filters';
 import { MatChipRemoveHarness } from './chip-remove-harness';
 /** Harness for interacting with a mat-chip in tests. */
-export declare class MatChipHarness extends ComponentHarness {
+export declare class MatChipHarness extends ContentContainerComponentHarness {
     static hostSelector: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip with specific attributes.
@@ -26,4 +27,9 @@ export declare class MatChipHarness extends ComponentHarness {
      * @param filter Optionally filters which chips are included.
      */
     getRemoveButton(filter?: ChipRemoveHarnessFilters): Promise<MatChipRemoveHarness>;
+    /**
+     * Gets the avatar inside a chip.
+     * @param filter Optionally filters which avatars are included.
+     */
+    getAvatar(filter?: ChipAvatarHarnessFilters): Promise<MatChipAvatarHarness | null>;
 }
