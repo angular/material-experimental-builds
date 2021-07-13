@@ -2476,6 +2476,7 @@ class MatChipInput {
     }
     _focus() {
         this.focused = true;
+        this._focusLastChipOnBackspace = this.empty;
         this._chipGrid.stateChanges.next();
     }
     /** Checks to see if the (chipEnd) event needs to be emitted. */
