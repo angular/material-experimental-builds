@@ -1,7 +1,7 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { Directive, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, ContentChild, NgModule } from '@angular/core';
-import { _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MatOption, MAT_OPTGROUP, MatOptionModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
+import { _countGroupLabelsBeforeOption, _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MatOption, MAT_OPTGROUP, MatOptionModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldModule } from '@angular/material-experimental/mdc-form-field';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { MAT_SELECT_TRIGGER, _MatSelectBase, MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
@@ -139,8 +139,17 @@ class MatSelect extends _MatSelectBase {
         const option = this.options.toArray()[index];
         if (option) {
             const panel = this.panel.nativeElement;
+            const labelCount = _countGroupLabelsBeforeOption(index, this.options, this.optionGroups);
             const element = option._getHostElement();
-            panel.scrollTop = _getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
+            if (index === 0 && labelCount === 1) {
+                // If we've got one group label before the option and we're at the top option,
+                // scroll the list to the top. This is better UX than scrolling the list to the
+                // top of the option, because it allows the user to read the top group's label.
+                panel.scrollTop = 0;
+            }
+            else {
+                panel.scrollTop = _getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
+            }
         }
     }
     _positioningSettled() {

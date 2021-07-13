@@ -449,8 +449,17 @@
             var option = this.options.toArray()[index];
             if (option) {
                 var panel = this.panel.nativeElement;
+                var labelCount = mdcCore._countGroupLabelsBeforeOption(index, this.options, this.optionGroups);
                 var element = option._getHostElement();
-                panel.scrollTop = mdcCore._getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
+                if (index === 0 && labelCount === 1) {
+                    // If we've got one group label before the option and we're at the top option,
+                    // scroll the list to the top. This is better UX than scrolling the list to the
+                    // top of the option, because it allows the user to read the top group's label.
+                    panel.scrollTop = 0;
+                }
+                else {
+                    panel.scrollTop = mdcCore._getOptionScrollPosition(element.offsetTop, element.offsetHeight, panel.scrollTop, panel.offsetHeight);
+                }
             }
         };
         MatSelect.prototype._positioningSettled = function () {
