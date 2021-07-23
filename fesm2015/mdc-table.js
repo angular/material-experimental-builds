@@ -166,7 +166,6 @@ MatFooterCell.decorators = [
                 selector: 'mat-footer-cell, td[mat-footer-cell]',
                 host: {
                     'class': 'mat-mdc-footer-cell mdc-data-table__cell',
-                    'role': 'gridcell',
                 },
             },] }
 ];
@@ -178,7 +177,6 @@ MatCell.decorators = [
                 selector: 'mat-cell, td[mat-cell]',
                 host: {
                     'class': 'mat-mdc-cell mdc-data-table__cell',
-                    'role': 'gridcell',
                 },
             },] }
 ];
