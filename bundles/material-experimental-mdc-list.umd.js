@@ -230,10 +230,16 @@
                 r[k] = a[j];
         return r;
     }
-    function __spreadArray(to, from) {
-        for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-            to[j] = from[i];
-        return to;
+    function __spreadArray(to, from, pack) {
+        if (pack || arguments.length === 2)
+            for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                    if (!ar)
+                        ar = Array.prototype.slice.call(from, 0, i);
+                    ar[i] = from[i];
+                }
+            }
+        return to.concat(ar || from);
     }
     function __await(v) {
         return this instanceof __await ? (this.v = v, this) : new __await(v);
@@ -1439,19 +1445,15 @@
                 // mode is similar to what we want but with support for change notification
                 // (i.e. `setCheckedCheckboxOrRadioAtIndex`) while maintaining single selection.
                 return !list.multiple;
-            },
-            hasCheckboxAtIndex: function () {
+            }, hasCheckboxAtIndex: function () {
                 // If multi selection is used, we treat the list as a checkbox list so that
                 // the MDC foundation can keep track of multiple selected list options.
                 return list.multiple;
-            },
-            isCheckboxCheckedAtIndex: function (index) {
+            }, isCheckboxCheckedAtIndex: function (index) {
                 return list._itemsArr[index].selected;
-            },
-            setCheckedCheckboxOrRadioAtIndex: function (index, checked) {
+            }, setCheckedCheckboxOrRadioAtIndex: function (index, checked) {
                 list._itemsArr[index].selected = checked;
-            },
-            setAttributeForElementIndex: function (index, attribute, value) {
+            }, setAttributeForElementIndex: function (index, attribute, value) {
                 // MDC list by default sets `aria-checked` for multi selection lists. We do not want to
                 // use this as that signifies a bad accessibility experience. Instead, we change the
                 // attribute update to `aria-selected` as that works best with list-options. See:
@@ -1461,8 +1463,7 @@
                     attribute = 'aria-selected';
                 }
                 baseAdapter.setAttributeForElementIndex(index, attribute, value);
-            },
-            notifyAction: function (index) {
+            }, notifyAction: function (index) {
                 list._emitChangeEvent([list._itemsArr[index]]);
             } });
     }
