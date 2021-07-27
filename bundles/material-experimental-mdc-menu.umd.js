@@ -369,8 +369,8 @@
      */
     var MatMenuItem = /** @class */ (function (_super) {
         __extends(MatMenuItem, _super);
-        function MatMenuItem(elementRef, document, focusMonitor, parentMenu, globalRippleOptions, animationMode) {
-            var _this = _super.call(this, elementRef, document, focusMonitor, parentMenu) || this;
+        function MatMenuItem(elementRef, document, focusMonitor, parentMenu, globalRippleOptions, animationMode, changeDetectorRef) {
+            var _this = _super.call(this, elementRef, document, focusMonitor, parentMenu, changeDetectorRef) || this;
             _this._noopAnimations = animationMode === 'NoopAnimations';
             _this._rippleAnimation = (globalRippleOptions === null || globalRippleOptions === void 0 ? void 0 : globalRippleOptions.animation) || {
                 enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
@@ -412,7 +412,8 @@
         { type: a11y.FocusMonitor },
         { type: undefined, decorators: [{ type: core.Inject, args: [menu.MAT_MENU_PANEL,] }, { type: core.Optional }] },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] },
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
+        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
+        { type: core.ChangeDetectorRef }
     ]; };
 
     /**

@@ -1,5 +1,5 @@
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, Optional, NgModule } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, Optional, ChangeDetectorRef, NgModule } from '@angular/core';
 import { MAT_MENU_SCROLL_STRATEGY, _MatMenuBase, matMenuAnimations, MAT_MENU_PANEL, MAT_MENU_DEFAULT_OPTIONS, MatMenuItem as MatMenuItem$1, _MatMenuDirectivesModule } from '@angular/material/menu';
 export { MAT_MENU_CONTENT, MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
 import { MAT_RIPPLE_GLOBAL_OPTIONS, MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
@@ -72,8 +72,8 @@ MatMenu.ctorParameters = () => [
  * Single item inside of a `mat-menu`. Provides the menu item styling and accessibility treatment.
  */
 class MatMenuItem extends MatMenuItem$1 {
-    constructor(elementRef, document, focusMonitor, parentMenu, globalRippleOptions, animationMode) {
-        super(elementRef, document, focusMonitor, parentMenu);
+    constructor(elementRef, document, focusMonitor, parentMenu, globalRippleOptions, animationMode, changeDetectorRef) {
+        super(elementRef, document, focusMonitor, parentMenu, changeDetectorRef);
         this._noopAnimations = animationMode === 'NoopAnimations';
         this._rippleAnimation = (globalRippleOptions === null || globalRippleOptions === void 0 ? void 0 : globalRippleOptions.animation) || {
             enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
@@ -113,7 +113,8 @@ MatMenuItem.ctorParameters = () => [
     { type: FocusMonitor },
     { type: undefined, decorators: [{ type: Inject, args: [MAT_MENU_PANEL,] }, { type: Optional }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: ChangeDetectorRef }
 ];
 
 /**
