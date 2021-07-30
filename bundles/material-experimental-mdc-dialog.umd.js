@@ -328,8 +328,8 @@
      */
     var MatDialogContainer = /** @class */ (function (_super) {
         __extends(MatDialogContainer, _super);
-        function MatDialogContainer(elementRef, focusTrapFactory, changeDetectorRef, document, config, _animationMode, focusMonitor) {
-            var _this = _super.call(this, elementRef, focusTrapFactory, changeDetectorRef, document, config, focusMonitor) || this;
+        function MatDialogContainer(elementRef, focusTrapFactory, changeDetectorRef, document, config, checker, ngZone, _animationMode, focusMonitor) {
+            var _this = _super.call(this, elementRef, focusTrapFactory, changeDetectorRef, document, config, checker, ngZone, focusMonitor) || this;
             _this._animationMode = _animationMode;
             /** Whether animations are enabled. */
             _this._animationsEnabled = _this._animationMode !== 'NoopAnimations';
@@ -475,6 +475,8 @@
         { type: core.ChangeDetectorRef },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [common.DOCUMENT,] }] },
         { type: dialog.MatDialogConfig },
+        { type: a11y.InteractivityChecker },
+        { type: core.NgZone },
         { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
         { type: a11y.FocusMonitor }
     ]; };

@@ -1,9 +1,9 @@
 import { Overlay, OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { DOCUMENT, Location } from '@angular/common';
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, InjectionToken, Injectable, Injector, SkipSelf, Directive, Input, NgModule } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef, Optional, Inject, NgZone, InjectionToken, Injectable, Injector, SkipSelf, Directive, Input, NgModule } from '@angular/core';
 import { _MatDialogContainerBase, MatDialogConfig, MatDialogRef as MatDialogRef$1, _MatDialogBase, _closeDialogVia } from '@angular/material/dialog';
 export { MAT_DIALOG_SCROLL_STRATEGY_FACTORY, MatDialogConfig, matDialogAnimations, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
-import { FocusTrapFactory, FocusMonitor } from '@angular/cdk/a11y';
+import { FocusTrapFactory, InteractivityChecker, FocusMonitor } from '@angular/cdk/a11y';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { numbers, cssClasses } from '@material/dialog';
 import { PortalModule } from '@angular/cdk/portal';
@@ -21,8 +21,8 @@ import { MatCommonModule } from '@angular/material-experimental/mdc-core';
  * @docs-private
  */
 class MatDialogContainer extends _MatDialogContainerBase {
-    constructor(elementRef, focusTrapFactory, changeDetectorRef, document, config, _animationMode, focusMonitor) {
-        super(elementRef, focusTrapFactory, changeDetectorRef, document, config, focusMonitor);
+    constructor(elementRef, focusTrapFactory, changeDetectorRef, document, config, checker, ngZone, _animationMode, focusMonitor) {
+        super(elementRef, focusTrapFactory, changeDetectorRef, document, config, checker, ngZone, focusMonitor);
         this._animationMode = _animationMode;
         /** Whether animations are enabled. */
         this._animationsEnabled = this._animationMode !== 'NoopAnimations';
@@ -164,6 +164,8 @@ MatDialogContainer.ctorParameters = () => [
     { type: ChangeDetectorRef },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [DOCUMENT,] }] },
     { type: MatDialogConfig },
+    { type: InteractivityChecker },
+    { type: NgZone },
     { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
     { type: FocusMonitor }
 ];
