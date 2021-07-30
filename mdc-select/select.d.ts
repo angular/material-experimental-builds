@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { AfterViewInit, OnInit, QueryList } from '@angular/core';
+import { AfterViewInit, ElementRef, OnInit, QueryList } from '@angular/core';
 import { _MatSelectBase } from '@angular/material/select';
 import { MatOptgroup, MatOption } from '@angular/material-experimental/mdc-core';
 import { CdkOverlayOrigin, ConnectedPosition } from '@angular/cdk/overlay';
@@ -32,7 +32,7 @@ export declare class MatSelect extends _MatSelectBase<MatSelectChange> implement
     customTrigger: MatSelectTrigger;
     _positions: ConnectedPosition[];
     /** Ideal origin for the overlay panel. */
-    _preferredOverlayOrigin: CdkOverlayOrigin | undefined;
+    _preferredOverlayOrigin: CdkOverlayOrigin | ElementRef | undefined;
     /** Width of the overlay panel. */
     _overlayWidth: number;
     get shouldLabelFloat(): boolean;
