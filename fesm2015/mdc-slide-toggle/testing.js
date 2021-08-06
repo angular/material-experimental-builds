@@ -1,5 +1,6 @@
 import { __awaiter } from 'tslib';
 import { HarnessPredicate } from '@angular/cdk/testing';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { _MatSlideToggleHarnessBase } from '@angular/material/slide-toggle/testing';
 
 /**
@@ -13,7 +14,7 @@ import { _MatSlideToggleHarnessBase } from '@angular/material/slide-toggle/testi
 class MatSlideToggleHarness extends _MatSlideToggleHarnessBase {
     constructor() {
         super(...arguments);
-        this._inputContainer = this.locatorFor('.mdc-switch');
+        this._nativeElement = this.locatorFor('button');
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a slide-toggle w/ specific attributes.
@@ -32,8 +33,19 @@ class MatSlideToggleHarness extends _MatSlideToggleHarnessBase {
     }
     toggle() {
         return __awaiter(this, void 0, void 0, function* () {
-            const elToClick = (yield this.isDisabled()) ? this._inputContainer() : this._input();
-            return (yield elToClick).click();
+            return (yield this._nativeElement()).click();
+        });
+    }
+    isRequired() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const ariaRequired = yield (yield this._nativeElement()).getAttribute('aria-required');
+            return ariaRequired === 'true';
+        });
+    }
+    isChecked() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const checked = (yield this._nativeElement()).getAttribute('aria-checked');
+            return coerceBooleanProperty(yield checked);
         });
     }
 }

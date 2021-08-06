@@ -43,11 +43,13 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     _rippleAnimation: RippleAnimationConfig;
     /** Whether noop animations are enabled. */
     _noopAnimations: boolean;
+    /** Unique ID for the label element. */
+    _labelId: string;
     /** The color palette  for this slide toggle. */
     color: ThemePalette;
-    /** Name value will be applied to the input element if present. */
+    /** Name value will be applied to the button element if present. */
     name: string | null;
-    /** A unique id for the slide-toggle input. If none is supplied, it will be auto-generated. */
+    /** A unique id for the slide-toggle button. If none is supplied, it will be auto-generated. */
     id: string;
     /** Tabindex for the input element. */
     get tabIndex(): number;
@@ -55,11 +57,11 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     private _tabIndex;
     /** Whether the label should appear after or before the slide-toggle. Defaults to 'after'. */
     labelPosition: 'before' | 'after';
-    /** Used to set the aria-label attribute on the underlying input element. */
+    /** Used to set the aria-label attribute on the underlying button element. */
     ariaLabel: string | null;
-    /** Used to set the aria-labelledby attribute on the underlying input element. */
+    /** Used to set the aria-labelledby attribute on the underlying button element. */
     ariaLabelledby: string | null;
-    /** Used to set the aria-describedby attribute on the underlying input element. */
+    /** Used to set the aria-describedby attribute on the underlying button element. */
     ariaDescribedby: string;
     /** Whether the slide-toggle is required. */
     get required(): boolean;
@@ -79,19 +81,15 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     readonly change: EventEmitter<MatSlideToggleChange>;
     /** Event will be dispatched each time the slide-toggle input is toggled. */
     readonly toggleChange: EventEmitter<void>;
-    /** Returns the unique id for the visual hidden input. */
-    get inputId(): string;
-    /** Reference to the underlying input element. */
-    _inputElement: ElementRef<HTMLInputElement>;
+    /** Returns the unique id for the visual hidden button. */
+    get buttonId(): string;
     /** Reference to the MDC switch element. */
     _switchElement: ElementRef<HTMLElement>;
     constructor(_elementRef: ElementRef, _focusMonitor: FocusMonitor, _changeDetectorRef: ChangeDetectorRef, tabIndex: string, defaults: MatSlideToggleDefaultOptions, animationMode?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    /** Method being called whenever the underlying input emits a change event. */
-    _onChangeEvent(event: Event): void;
-    /** Method being called whenever the slide-toggle has been clicked. */
-    _onInputClick(event: Event): void;
+    /** Method being called whenever the underlying button is clicked. */
+    _handleClick(event: Event): void;
     /** Implemented as part of ControlValueAccessor. */
     writeValue(value: any): void;
     /** Implemented as part of ControlValueAccessor. */
@@ -104,6 +102,7 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     focus(): void;
     /** Toggles the checked state of the slide-toggle. */
     toggle(): void;
+    _getAriaLabelledBy(): string | null;
     static ngAcceptInputType_tabIndex: NumberInput;
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_checked: BooleanInput;

@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/material/slide-toggle/testing')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slide-toggle/testing', ['exports', '@angular/cdk/testing', '@angular/material/slide-toggle/testing'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlideToggle = global.ng.materialExperimental.mdcSlideToggle || {}, global.ng.materialExperimental.mdcSlideToggle.testing = {}), global.ng.cdk.testing, global.ng.material.slideToggle.testing));
-}(this, (function (exports, testing, testing$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/testing'), require('@angular/cdk/coercion'), require('@angular/material/slide-toggle/testing')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slide-toggle/testing', ['exports', '@angular/cdk/testing', '@angular/cdk/coercion', '@angular/material/slide-toggle/testing'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlideToggle = global.ng.materialExperimental.mdcSlideToggle || {}, global.ng.materialExperimental.mdcSlideToggle.testing = {}), global.ng.cdk.testing, global.ng.cdk.coercion, global.ng.material.slideToggle.testing));
+}(this, (function (exports, testing, coercion, testing$1) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -327,7 +327,7 @@
         __extends(MatSlideToggleHarness, _super);
         function MatSlideToggleHarness() {
             var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
-            _this._inputContainer = _this.locatorFor('.mdc-switch');
+            _this._nativeElement = _this.locatorFor('button');
             return _this;
         }
         /**
@@ -354,14 +354,39 @@
         };
         MatSlideToggleHarness.prototype.toggle = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var elToClick;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.isDisabled()];
+                        case 0: return [4 /*yield*/, this._nativeElement()];
+                        case 1: return [2 /*return*/, (_a.sent()).click()];
+                    }
+                });
+            });
+        };
+        MatSlideToggleHarness.prototype.isRequired = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var ariaRequired;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this._nativeElement()];
+                        case 1: return [4 /*yield*/, (_a.sent()).getAttribute('aria-required')];
+                        case 2:
+                            ariaRequired = _a.sent();
+                            return [2 /*return*/, ariaRequired === 'true'];
+                    }
+                });
+            });
+        };
+        MatSlideToggleHarness.prototype.isChecked = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var checked, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0: return [4 /*yield*/, this._nativeElement()];
                         case 1:
-                            elToClick = (_a.sent()) ? this._inputContainer() : this._input();
-                            return [4 /*yield*/, elToClick];
-                        case 2: return [2 /*return*/, (_a.sent()).click()];
+                            checked = (_b.sent()).getAttribute('aria-checked');
+                            _a = coercion.coerceBooleanProperty;
+                            return [4 /*yield*/, checked];
+                        case 2: return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
                     }
                 });
             });
