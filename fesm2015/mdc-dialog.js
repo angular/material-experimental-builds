@@ -220,8 +220,8 @@ class MatDialog extends _MatDialogBase {
      * @deprecated `_location` parameter to be removed.
      * @breaking-change 10.0.0
      */
-    location, defaultOptions, scrollStrategy, parentDialog, overlayContainer) {
-        super(overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA);
+    location, defaultOptions, scrollStrategy, parentDialog, overlayContainer, animationMode) {
+        super(overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA, animationMode);
     }
 }
 MatDialog.decorators = [
@@ -234,7 +234,8 @@ MatDialog.ctorParameters = () => [
     { type: MatDialogConfig, decorators: [{ type: Optional }, { type: Inject, args: [MAT_DIALOG_DEFAULT_OPTIONS,] }] },
     { type: undefined, decorators: [{ type: Inject, args: [MAT_DIALOG_SCROLL_STRATEGY,] }] },
     { type: MatDialog, decorators: [{ type: Optional }, { type: SkipSelf }] },
-    { type: OverlayContainer }
+    { type: OverlayContainer },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
 ];
 
 /**

@@ -521,8 +521,8 @@
          * @deprecated `_location` parameter to be removed.
          * @breaking-change 10.0.0
          */
-        location, defaultOptions, scrollStrategy, parentDialog, overlayContainer) {
-            return _super.call(this, overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA) || this;
+        location, defaultOptions, scrollStrategy, parentDialog, overlayContainer, animationMode) {
+            return _super.call(this, overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA, animationMode) || this;
         }
         return MatDialog;
     }(dialog._MatDialogBase));
@@ -536,7 +536,8 @@
         { type: dialog.MatDialogConfig, decorators: [{ type: core.Optional }, { type: core.Inject, args: [MAT_DIALOG_DEFAULT_OPTIONS,] }] },
         { type: undefined, decorators: [{ type: core.Inject, args: [MAT_DIALOG_SCROLL_STRATEGY,] }] },
         { type: MatDialog, decorators: [{ type: core.Optional }, { type: core.SkipSelf }] },
-        { type: overlay.OverlayContainer }
+        { type: overlay.OverlayContainer },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
     ]; };
 
     /**
