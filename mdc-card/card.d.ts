@@ -5,7 +5,15 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+import { InjectionToken } from '@angular/core';
 export declare type MatCardAppearance = 'outlined' | 'raised';
+/** Object that can be used to configure the default options for the card module. */
+export interface MatCardConfig {
+    /** Default appearance for cards. */
+    appearance?: MatCardAppearance;
+}
+/** Injection token that can be used to provide the default options the card module. */
+export declare const MAT_CARD_CONFIG: InjectionToken<MatCardConfig>;
 /**
  * Material Design card component. Cards contain content and actions about a single subject.
  * See https://material.io/design/components/cards.html
@@ -14,6 +22,7 @@ export declare type MatCardAppearance = 'outlined' | 'raised';
  */
 export declare class MatCard {
     appearance: MatCardAppearance;
+    constructor(config?: MatCardConfig);
 }
 /**
  * Title of a card, intended for use within `<mat-card>`. This component is an optional
