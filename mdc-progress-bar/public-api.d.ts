@@ -7,4 +7,4 @@
  */
 export * from './progress-bar';
 export * from './module';
-export { ProgressAnimationEnd, MAT_PROGRESS_BAR_LOCATION, MatProgressBarLocation, MAT_PROGRESS_BAR_LOCATION_FACTORY, } from '@angular/material/progress-bar';
+export { ProgressAnimationEnd, MAT_PROGRESS_BAR_LOCATION, MatProgressBarLocation, MAT_PROGRESS_BAR_LOCATION_FACTORY, MAT_PROGRESS_BAR_DEFAULT_OPTIONS, MatProgressBarDefaultOptions, } from '@angular/material/progress-bar';

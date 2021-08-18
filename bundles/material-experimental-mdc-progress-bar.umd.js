@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@material/linear-progress'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi'), require('@angular/material/progress-bar')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-bar', ['exports', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@material/linear-progress', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi', '@angular/material/progress-bar'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressBar = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.mdc.linearProgress, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi, global.ng.material.progressBar));
-}(this, (function (exports, core, mdcCore, animations, linearProgress, rxjs, operators, bidi, progressBar) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@angular/material/progress-bar'), require('@material/linear-progress'), require('rxjs'), require('rxjs/operators'), require('@angular/cdk/bidi')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-progress-bar', ['exports', '@angular/core', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@angular/material/progress-bar', '@material/linear-progress', 'rxjs', 'rxjs/operators', '@angular/cdk/bidi'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcProgressBar = {}), global.ng.core, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.ng.material.progressBar, global.mdc.linearProgress, global.rxjs, global.rxjs.operators, global.ng.cdk.bidi));
+}(this, (function (exports, core, mdcCore, animations, progressBar, linearProgress, rxjs, operators, bidi) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -332,7 +332,7 @@
     }()), 'primary');
     var MatProgressBar = /** @class */ (function (_super) {
         __extends(MatProgressBar, _super);
-        function MatProgressBar(elementRef, _ngZone, dir, _animationMode) {
+        function MatProgressBar(elementRef, _ngZone, dir, _animationMode, defaults) {
             var _this = _super.call(this, elementRef) || this;
             _this._ngZone = _ngZone;
             _this._animationMode = _animationMode;
@@ -399,6 +399,12 @@
                     _this._syncFoundation();
                     (_a = _this._foundation) === null || _a === void 0 ? void 0 : _a.restartAnimation();
                 });
+            }
+            if (defaults) {
+                if (defaults.color) {
+                    _this.color = _this.defaultColor = defaults.color;
+                }
+                _this.mode = defaults.mode || _this.mode;
             }
             return _this;
         }
@@ -510,7 +516,8 @@
         { type: core.ElementRef },
         { type: core.NgZone },
         { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] }
+        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [progressBar.MAT_PROGRESS_BAR_DEFAULT_OPTIONS,] }] }
     ]; };
     MatProgressBar.propDecorators = {
         value: [{ type: core.Input }],
@@ -556,6 +563,12 @@
      * Generated bundle index. Do not edit.
      */
 
+    Object.defineProperty(exports, 'MAT_PROGRESS_BAR_DEFAULT_OPTIONS', {
+        enumerable: true,
+        get: function () {
+            return progressBar.MAT_PROGRESS_BAR_DEFAULT_OPTIONS;
+        }
+    });
     Object.defineProperty(exports, 'MAT_PROGRESS_BAR_LOCATION', {
         enumerable: true,
         get: function () {

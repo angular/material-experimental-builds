@@ -1,11 +1,12 @@
 import { EventEmitter, Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Optional, Inject, Input, Output, NgModule } from '@angular/core';
 import { mixinColor, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
+import { MAT_PROGRESS_BAR_DEFAULT_OPTIONS } from '@angular/material/progress-bar';
+export { MAT_PROGRESS_BAR_DEFAULT_OPTIONS, MAT_PROGRESS_BAR_LOCATION, MAT_PROGRESS_BAR_LOCATION_FACTORY } from '@angular/material/progress-bar';
 import { MDCLinearProgressFoundation } from '@material/linear-progress';
 import { Subscription, fromEvent } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Directionality } from '@angular/cdk/bidi';
-export { MAT_PROGRESS_BAR_LOCATION, MAT_PROGRESS_BAR_LOCATION_FACTORY } from '@angular/material/progress-bar';
 
 /**
  * @license
@@ -22,7 +23,7 @@ const _MatProgressBarBase = mixinColor(class {
     }
 }, 'primary');
 class MatProgressBar extends _MatProgressBarBase {
-    constructor(elementRef, _ngZone, dir, _animationMode) {
+    constructor(elementRef, _ngZone, dir, _animationMode, defaults) {
         super(elementRef);
         this._ngZone = _ngZone;
         this._animationMode = _animationMode;
@@ -89,6 +90,12 @@ class MatProgressBar extends _MatProgressBarBase {
                 this._syncFoundation();
                 (_a = this._foundation) === null || _a === void 0 ? void 0 : _a.restartAnimation();
             });
+        }
+        if (defaults) {
+            if (defaults.color) {
+                this.color = this.defaultColor = defaults.color;
+            }
+            this.mode = defaults.mode || this.mode;
         }
     }
     /** Value of the progress bar. Defaults to zero. Mirrored to aria-valuenow. */
@@ -185,7 +192,8 @@ MatProgressBar.ctorParameters = () => [
     { type: ElementRef },
     { type: NgZone },
     { type: Directionality, decorators: [{ type: Optional }] },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] }
+    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_PROGRESS_BAR_DEFAULT_OPTIONS,] }] }
 ];
 MatProgressBar.propDecorators = {
     value: [{ type: Input }],
