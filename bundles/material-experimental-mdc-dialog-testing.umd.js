@@ -326,7 +326,11 @@
     var MatDialogHarness = /** @class */ (function (_super) {
         __extends(MatDialogHarness, _super);
         function MatDialogHarness() {
-            return _super !== null && _super.apply(this, arguments) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            _this._title = _this.locatorForOptional(".mat-mdc-dialog-title" /* TITLE */);
+            _this._content = _this.locatorForOptional(".mat-mdc-dialog-content" /* CONTENT */);
+            _this._actions = _this.locatorForOptional(".mat-mdc-dialog-actions" /* ACTIONS */);
+            return _this;
         }
         /**
          * Gets a `HarnessPredicate` that can be used to search for a `MatDialogHarness` that meets

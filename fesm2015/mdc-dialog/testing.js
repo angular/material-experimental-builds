@@ -10,6 +10,12 @@ import { MatDialogHarness as MatDialogHarness$1 } from '@angular/material/dialog
  */
 /** Harness for interacting with a standard `MatDialog` in tests. */
 class MatDialogHarness extends MatDialogHarness$1 {
+    constructor() {
+        super(...arguments);
+        this._title = this.locatorForOptional(".mat-mdc-dialog-title" /* TITLE */);
+        this._content = this.locatorForOptional(".mat-mdc-dialog-content" /* CONTENT */);
+        this._actions = this.locatorForOptional(".mat-mdc-dialog-actions" /* ACTIONS */);
+    }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a `MatDialogHarness` that meets
      * certain criteria.

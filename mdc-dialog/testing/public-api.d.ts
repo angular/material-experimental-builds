@@ -6,4 +6,4 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export { DialogHarnessFilters } from '@angular/material/dialog/testing';
-export { MatDialogHarness } from './dialog-harness';
+export { MatDialogHarness, MatDialogSection } from './dialog-harness';
