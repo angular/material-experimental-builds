@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/radio'), require('@angular/material/radio'), require('@angular/cdk/a11y'), require('@angular/cdk/collections'), require('@angular/platform-browser/animations'), require('@angular/forms'), require('@material/ripple'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-radio', ['exports', '@angular/core', '@material/radio', '@angular/material/radio', '@angular/cdk/a11y', '@angular/cdk/collections', '@angular/platform-browser/animations', '@angular/forms', '@material/ripple', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcRadio = {}), global.ng.core, global.mdc.radio, global.ng.material.radio, global.ng.cdk.a11y, global.ng.cdk.collections, global.ng.platformBrowser.animations, global.ng.forms, global.mdc.ripple, global.ng.common, global.ng.materialExperimental.mdcCore));
-}(this, (function (exports, core, radio$1, radio, a11y, collections, animations, forms, ripple, common, mdcCore) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/radio'), require('@angular/material/radio'), require('@angular/cdk/a11y'), require('@angular/cdk/collections'), require('@angular/platform-browser/animations'), require('@angular/forms'), require('@angular/common'), require('@angular/material-experimental/mdc-core')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-radio', ['exports', '@angular/core', '@material/radio', '@angular/material/radio', '@angular/cdk/a11y', '@angular/cdk/collections', '@angular/platform-browser/animations', '@angular/forms', '@angular/common', '@angular/material-experimental/mdc-core'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcRadio = {}), global.ng.core, global.mdc.radio, global.ng.material.radio, global.ng.cdk.a11y, global.ng.cdk.collections, global.ng.platformBrowser.animations, global.ng.forms, global.ng.common, global.ng.materialExperimental.mdcCore));
+}(this, (function (exports, core, radio$1, radio, a11y, collections, animations, forms, common, mdcCore) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -338,11 +338,6 @@
      * retention of the class and its component metadata.
      */
     var MAT_RADIO_GROUP = new core.InjectionToken('MatRadioGroup');
-    /** Configuration for the ripple animation. */
-    var RIPPLE_ANIMATION_CONFIG = {
-        enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
-        exitDuration: ripple.numbers.FG_DEACTIVATION_MS
-    };
     /**
      * A group of radio buttons. May contain one or more `<mat-radio-button>` elements.
      */
@@ -386,8 +381,6 @@
             };
             _this._radioFoundation = new radio$1.MDCRadioFoundation(_this._radioAdapter);
             _this._classes = {};
-            _this._rippleAnimation =
-                _this._noopAnimations ? { enterDuration: 0, exitDuration: 0 } : RIPPLE_ANIMATION_CONFIG;
             return _this;
         }
         MatRadioButton.prototype.ngAfterViewInit = function () {
@@ -416,7 +409,7 @@
     MatRadioButton.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-radio-button',
-                    template: "<div class=\"mdc-form-field\" #formField\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div class=\"mdc-radio\" [ngClass]=\"_classes\">\n    <!-- Render this element first so the input is on top. -->\n    <div class=\"mat-mdc-radio-touch-target\" (click)=\"_onInputInteraction($event)\"></div>\n    <input #input class=\"mdc-radio__native-control\" type=\"radio\"\n           [id]=\"inputId\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [tabIndex]=\"tabIndex\"\n           [attr.name]=\"name\"\n           [attr.value]=\"value\"\n           [required]=\"required\"\n           [attr.aria-label]=\"ariaLabel\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           [attr.aria-describedby]=\"ariaDescribedby\"\n           (change)=\"_onInputInteraction($event)\">\n    <div class=\"mdc-radio__background\">\n      <div class=\"mdc-radio__outer-circle\"></div>\n      <div class=\"mdc-radio__inner-circle\"></div>\n    </div>\n    <div class=\"mdc-radio__ripple\"></div>\n    <div mat-ripple class=\"mat-radio-ripple mat-mdc-focus-indicator\"\n         [matRippleTrigger]=\"formField\"\n         [matRippleDisabled]=\"_isRippleDisabled()\"\n         [matRippleCentered]=\"true\"\n         [matRippleAnimation]=\"_rippleAnimation\">\n      <div class=\"mat-ripple-element mat-radio-persistent-ripple\"></div>\n    </div>\n  </div>\n  <label [for]=\"inputId\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
+                    template: "<div class=\"mdc-form-field\" #formField\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div class=\"mdc-radio\" [ngClass]=\"_classes\">\n    <!-- Render this element first so the input is on top. -->\n    <div class=\"mat-mdc-radio-touch-target\" (click)=\"_onInputInteraction($event)\"></div>\n    <input #input class=\"mdc-radio__native-control\" type=\"radio\"\n           [id]=\"inputId\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [tabIndex]=\"tabIndex\"\n           [attr.name]=\"name\"\n           [attr.value]=\"value\"\n           [required]=\"required\"\n           [attr.aria-label]=\"ariaLabel\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           [attr.aria-describedby]=\"ariaDescribedby\"\n           (change)=\"_onInputInteraction($event)\">\n    <div class=\"mdc-radio__background\">\n      <div class=\"mdc-radio__outer-circle\"></div>\n      <div class=\"mdc-radio__inner-circle\"></div>\n    </div>\n    <div class=\"mdc-radio__ripple\"></div>\n    <div mat-ripple class=\"mat-radio-ripple mat-mdc-focus-indicator\"\n         [matRippleTrigger]=\"formField\"\n         [matRippleDisabled]=\"_isRippleDisabled()\"\n         [matRippleCentered]=\"true\">\n      <div class=\"mat-ripple-element mat-radio-persistent-ripple\"></div>\n    </div>\n  </div>\n  <label [for]=\"inputId\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
                     host: {
                         'class': 'mat-mdc-radio-button',
                         '[attr.id]': 'id',

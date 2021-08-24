@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/forms'), require('@angular/material/checkbox'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@material/checkbox'), require('@material/ripple'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox', ['exports', '@angular/cdk/coercion', '@angular/core', '@angular/forms', '@angular/material/checkbox', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@material/checkbox', '@material/ripple', '@angular/common'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = {}), global.ng.cdk.coercion, global.ng.core, global.ng.forms, global.ng.material.checkbox, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.mdc.checkbox, global.mdc.ripple, global.ng.common));
-}(this, (function (exports, coercion, core, forms, checkbox, mdcCore, animations, checkbox$1, ripple, common) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/coercion'), require('@angular/core'), require('@angular/forms'), require('@angular/material/checkbox'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@material/checkbox'), require('@angular/common')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-checkbox', ['exports', '@angular/cdk/coercion', '@angular/core', '@angular/forms', '@angular/material/checkbox', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@material/checkbox', '@angular/common'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcCheckbox = {}), global.ng.cdk.coercion, global.ng.core, global.ng.forms, global.ng.material.checkbox, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.mdc.checkbox, global.ng.common));
+}(this, (function (exports, coercion, core, forms, checkbox, mdcCore, animations, checkbox$1, common) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -344,11 +344,6 @@
         }
         return class_1;
     }())));
-    /** Configuration for the ripple animation. */
-    var RIPPLE_ANIMATION_CONFIG = {
-        enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
-        exitDuration: ripple.numbers.FG_DEACTIVATION_MS,
-    };
     var MatCheckbox = /** @class */ (function (_super) {
         __extends(MatCheckbox, _super);
         function MatCheckbox(_changeDetectorRef, elementRef, tabIndex, _animationMode, _options) {
@@ -380,8 +375,6 @@
             _this.indeterminateChange = new core.EventEmitter();
             /** The set of classes that should be applied to the native input. */
             _this._classes = { 'mdc-checkbox__native-control': true };
-            /** Animation config for the ripple. */
-            _this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
             /** ControlValueAccessor onChange */
             _this._cvaOnChange = function (_) { };
             /** ControlValueAccessor onTouch */
@@ -613,7 +606,7 @@
     MatCheckbox.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-checkbox',
-                    template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div #checkbox class=\"mdc-checkbox\">\n    <!-- Render this element first so the input is on top. -->\n    <div class=\"mat-mdc-checkbox-touch-target\" (click)=\"_onClick()\"></div>\n    <input #nativeCheckbox\n           type=\"checkbox\"\n           [ngClass]=\"_classes\"\n           [attr.aria-checked]=\"_getAriaChecked()\"\n           [attr.aria-label]=\"ariaLabel || null\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           [attr.aria-describedby]=\"ariaDescribedby\"\n           [attr.name]=\"name\"\n           [attr.value]=\"value\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [id]=\"inputId\"\n           [required]=\"required\"\n           [tabIndex]=\"tabIndex\"\n           (blur)=\"_onBlur()\"\n           (click)=\"_onClick()\"\n           (change)=\"$event.stopPropagation()\"/>\n    <div class=\"mdc-checkbox__ripple\"></div>\n    <div class=\"mdc-checkbox__background\">\n      <svg class=\"mdc-checkbox__checkmark\"\n           focusable=\"false\"\n           viewBox=\"0 0 24 24\"\n           aria-hidden=\"true\">\n        <path class=\"mdc-checkbox__checkmark-path\"\n              fill=\"none\"\n              d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n      </svg>\n      <div class=\"mdc-checkbox__mixedmark\"></div>\n    </div>\n    <div class=\"mat-mdc-checkbox-ripple mat-mdc-focus-indicator\" mat-ripple\n      [matRippleTrigger]=\"checkbox\"\n      [matRippleDisabled]=\"disableRipple || disabled\"\n      [matRippleCentered]=\"true\"\n      [matRippleAnimation]=\"_rippleAnimation\"></div>\n  </div>\n  <label #label\n         [for]=\"inputId\"\n         (click)=\"$event.stopPropagation()\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
+                    template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <div #checkbox class=\"mdc-checkbox\">\n    <!-- Render this element first so the input is on top. -->\n    <div class=\"mat-mdc-checkbox-touch-target\" (click)=\"_onClick()\"></div>\n    <input #nativeCheckbox\n           type=\"checkbox\"\n           [ngClass]=\"_classes\"\n           [attr.aria-checked]=\"_getAriaChecked()\"\n           [attr.aria-label]=\"ariaLabel || null\"\n           [attr.aria-labelledby]=\"ariaLabelledby\"\n           [attr.aria-describedby]=\"ariaDescribedby\"\n           [attr.name]=\"name\"\n           [attr.value]=\"value\"\n           [checked]=\"checked\"\n           [disabled]=\"disabled\"\n           [id]=\"inputId\"\n           [required]=\"required\"\n           [tabIndex]=\"tabIndex\"\n           (blur)=\"_onBlur()\"\n           (click)=\"_onClick()\"\n           (change)=\"$event.stopPropagation()\"/>\n    <div class=\"mdc-checkbox__ripple\"></div>\n    <div class=\"mdc-checkbox__background\">\n      <svg class=\"mdc-checkbox__checkmark\"\n           focusable=\"false\"\n           viewBox=\"0 0 24 24\"\n           aria-hidden=\"true\">\n        <path class=\"mdc-checkbox__checkmark-path\"\n              fill=\"none\"\n              d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n      </svg>\n      <div class=\"mdc-checkbox__mixedmark\"></div>\n    </div>\n    <div class=\"mat-mdc-checkbox-ripple mat-mdc-focus-indicator\" mat-ripple\n      [matRippleTrigger]=\"checkbox\"\n      [matRippleDisabled]=\"disableRipple || disabled\"\n      [matRippleCentered]=\"true\"></div>\n  </div>\n  <label #label\n         [for]=\"inputId\"\n         (click)=\"$event.stopPropagation()\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
                     inputs: ['color', 'disabled'],
                     host: {
                         'class': 'mat-mdc-checkbox',

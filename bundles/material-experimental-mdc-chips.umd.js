@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@material/chips'), require('@material/ripple'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/cdk/a11y'), require('@angular/forms'), require('@angular/material-experimental/mdc-form-field')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-chips', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@angular/core', '@angular/material-experimental/mdc-core', '@material/chips', '@material/ripple', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/cdk/a11y', '@angular/forms', '@angular/material-experimental/mdc-form-field'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcChips = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.core, global.ng.materialExperimental.mdcCore, global.mdc.chips, global.mdc.ripple, global.ng.cdk.keycodes, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.cdk.a11y, global.ng.forms, global.ng.materialExperimental.mdcFormField));
-}(this, (function (exports, bidi, coercion, animations, core, mdcCore, chips, ripple, keycodes, rxjs, operators, common, a11y, forms, mdcFormField) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/bidi'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@angular/core'), require('@angular/material-experimental/mdc-core'), require('@material/chips'), require('@angular/cdk/keycodes'), require('rxjs'), require('rxjs/operators'), require('@angular/common'), require('@angular/cdk/a11y'), require('@angular/forms'), require('@angular/material-experimental/mdc-form-field')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-chips', ['exports', '@angular/cdk/bidi', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@angular/core', '@angular/material-experimental/mdc-core', '@material/chips', '@angular/cdk/keycodes', 'rxjs', 'rxjs/operators', '@angular/common', '@angular/cdk/a11y', '@angular/forms', '@angular/material-experimental/mdc-form-field'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcChips = {}), global.ng.cdk.bidi, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.core, global.ng.materialExperimental.mdcCore, global.mdc.chips, global.ng.cdk.keycodes, global.rxjs, global.rxjs.operators, global.ng.common, global.ng.cdk.a11y, global.ng.forms, global.ng.materialExperimental.mdcFormField));
+}(this, (function (exports, bidi, coercion, animations, core, mdcCore, chips, keycodes, rxjs, operators, common, a11y, forms, mdcFormField) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -500,11 +500,6 @@
     ]; };
 
     var uid$1 = 0;
-    /** Configuration for the ripple animation. */
-    var RIPPLE_ANIMATION_CONFIG = {
-        enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
-        exitDuration: ripple.numbers.FG_DEACTIVATION_MS
-    };
     /**
      * Directive to add MDC CSS to non-basic chips.
      * @docs-private
@@ -544,8 +539,6 @@
             _this._ngZone = _ngZone;
             _this._dir = _dir;
             _this._globalRippleOptions = _globalRippleOptions;
-            /** The ripple animation configuration to use for the chip. */
-            _this._rippleAnimation = RIPPLE_ANIMATION_CONFIG;
             /** Whether the ripple is centered on the chip. */
             _this._isRippleCentered = false;
             /** Emits when the chip is focused. */
@@ -814,7 +807,7 @@
                     selector: 'mat-basic-chip, mat-chip',
                     inputs: ['color', 'disableRipple'],
                     exportAs: 'matChip',
-                    template: "<span class=\"mdc-chip__ripple\"></span>\n\n<span matRipple class=\"mat-mdc-chip-ripple\"\n     [matRippleAnimation]=\"_rippleAnimation\"\n     [matRippleDisabled]=\"_isRippleDisabled()\"\n     [matRippleCentered]=\"_isRippleCentered\"\n     [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n\n<ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n<div class=\"mdc-chip__primary-action\">\n  <div class=\"mdc-chip__text\"><ng-content></ng-content></div>\n</div>\n<ng-content select=\"mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]\"></ng-content>\n",
+                    template: "<span class=\"mdc-chip__ripple\"></span>\n\n<span matRipple class=\"mat-mdc-chip-ripple\"\n     [matRippleDisabled]=\"_isRippleDisabled()\"\n     [matRippleCentered]=\"_isRippleCentered\"\n     [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n\n<ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n<div class=\"mdc-chip__primary-action\">\n  <div class=\"mdc-chip__text\"><ng-content></ng-content></div>\n</div>\n<ng-content select=\"mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]\"></ng-content>\n",
                     host: {
                         '[class.mat-mdc-chip-disabled]': 'disabled',
                         '[class.mat-mdc-chip-highlighted]': 'highlighted',
@@ -1049,7 +1042,7 @@
     MatChipOption.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-basic-chip-option, mat-chip-option',
-                    template: "<span class=\"mdc-chip__ripple\"></span>\n\n<span matRipple class=\"mat-mdc-chip-ripple\"\n     [matRippleAnimation]=\"_rippleAnimation\"\n     [matRippleDisabled]=\"_isRippleDisabled()\"\n     [matRippleCentered]=\"_isRippleCentered\"\n     [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n\n<ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n<div class=\"mdc-chip__checkmark\" *ngIf=\"_chipListMultiple\">\n  <svg class=\"mdc-chip__checkmark-svg\" viewBox=\"-2 -3 30 30\" focusable=\"false\">\n    <path class=\"mdc-chip__checkmark-path\" fill=\"none\" stroke=\"black\"\n          d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n  </svg>\n</div>\n<div class=\"mdc-chip__text\"><ng-content></ng-content></div>\n<ng-content select=\"mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]\"></ng-content>\n",
+                    template: "<span class=\"mdc-chip__ripple\"></span>\n\n<span matRipple class=\"mat-mdc-chip-ripple\"\n     [matRippleDisabled]=\"_isRippleDisabled()\"\n     [matRippleCentered]=\"_isRippleCentered\"\n     [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n\n<ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n<div class=\"mdc-chip__checkmark\" *ngIf=\"_chipListMultiple\">\n  <svg class=\"mdc-chip__checkmark-svg\" viewBox=\"-2 -3 30 30\" focusable=\"false\">\n    <path class=\"mdc-chip__checkmark-path\" fill=\"none\" stroke=\"black\"\n          d=\"M1.73,12.91 8.1,19.28 22.79,4.59\"/>\n  </svg>\n</div>\n<div class=\"mdc-chip__text\"><ng-content></ng-content></div>\n<ng-content select=\"mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]\"></ng-content>\n",
                     inputs: ['color', 'disableRipple', 'tabIndex'],
                     host: {
                         'role': 'option',
@@ -1275,7 +1268,7 @@
     MatChipRow.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-chip-row, mat-basic-chip-row',
-                    template: "<ng-container *ngIf=\"!_isEditing()\">\n  <span class=\"mdc-chip__ripple\"></span>\n\n  <span matRipple class=\"mat-mdc-chip-ripple\"\n       [matRippleAnimation]=\"_rippleAnimation\"\n       [matRippleDisabled]=\"_isRippleDisabled()\"\n       [matRippleCentered]=\"_isRippleCentered\"\n       [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n</ng-container>\n\n<div class=\"mat-mdc-chip-content\">\n  <div role=\"gridcell\">\n    <div #chipContent tabindex=\"-1\"\n         class=\"mat-mdc-chip-row-focusable-text-content mat-mdc-focus-indicator mdc-chip__primary-action\"\n         [attr.role]=\"editable ? 'button' : null\">\n      <ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n      <span class=\"mdc-chip__text\"><ng-content></ng-content></span>\n      <ng-content select=\"mat-chip-trailing-icon,[matChipTrailingIcon]\"></ng-content>\n    </div>\n  </div>\n  <div role=\"gridcell\" *ngIf=\"removeIcon\" class=\"mat-mdc-chip-remove-icon\">\n    <ng-content select=\"[matChipRemove]\"></ng-content>\n  </div>\n</div>\n\n<div *ngIf=\"_isEditing()\" role=\"gridcell\" class=\"mat-mdc-chip-edit-input-container\">\n  <ng-content *ngIf=\"contentEditInput; else defaultMatChipEditInput\"\n              select=\"[matChipEditInput]\"></ng-content>\n  <ng-template #defaultMatChipEditInput>\n    <span matChipEditInput></span>\n  </ng-template>\n</div>",
+                    template: "<ng-container *ngIf=\"!_isEditing()\">\n  <span class=\"mdc-chip__ripple\"></span>\n\n  <span matRipple class=\"mat-mdc-chip-ripple\"\n       [matRippleDisabled]=\"_isRippleDisabled()\"\n       [matRippleCentered]=\"_isRippleCentered\"\n       [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n</ng-container>\n\n<div class=\"mat-mdc-chip-content\">\n  <div role=\"gridcell\">\n    <div #chipContent tabindex=\"-1\"\n         class=\"mat-mdc-chip-row-focusable-text-content mat-mdc-focus-indicator mdc-chip__primary-action\"\n         [attr.role]=\"editable ? 'button' : null\">\n      <ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n      <span class=\"mdc-chip__text\"><ng-content></ng-content></span>\n      <ng-content select=\"mat-chip-trailing-icon,[matChipTrailingIcon]\"></ng-content>\n    </div>\n  </div>\n  <div role=\"gridcell\" *ngIf=\"removeIcon\" class=\"mat-mdc-chip-remove-icon\">\n    <ng-content select=\"[matChipRemove]\"></ng-content>\n  </div>\n</div>\n\n<div *ngIf=\"_isEditing()\" role=\"gridcell\" class=\"mat-mdc-chip-edit-input-container\">\n  <ng-content *ngIf=\"contentEditInput; else defaultMatChipEditInput\"\n              select=\"[matChipEditInput]\"></ng-content>\n  <ng-template #defaultMatChipEditInput>\n    <span matChipEditInput></span>\n  </ng-template>\n</div>\n",
                     inputs: ['color', 'disableRipple', 'tabIndex'],
                     host: {
                         'role': 'row',

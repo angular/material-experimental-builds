@@ -3,14 +3,13 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { RippleRenderer, setLines, MAT_RIPPLE_GLOBAL_OPTIONS, MatLine, MatCommonModule, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import { numbers } from '@material/ripple';
 import { Subscription, Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MDCListFoundation, numbers as numbers$1 } from '@material/list';
+import { MDCListFoundation, numbers } from '@material/list';
 export { MAT_LIST, MAT_NAV_LIST, MAT_SELECTION_LIST_VALUE_ACCESSOR } from '@angular/material/list';
 
 /**
@@ -130,18 +129,9 @@ class MatListItemBase {
         this._disabled = false;
         this._subscriptions = new Subscription();
         this._rippleRenderer = null;
-        // We have to clone the object, because we don't want to mutate a global value when we assign
-        // the `animation` further down. The downside of doing this is that the ripple renderer won't
-        // pick up dynamic changes to `disabled`, but it's not something we officially support.
-        this.rippleConfig = Object.assign({}, (globalRippleOptions || {}));
+        this.rippleConfig = globalRippleOptions || {};
         this._hostElement = this._elementRef.nativeElement;
         this._noopAnimations = animationMode === 'NoopAnimations';
-        if (!this.rippleConfig.animation) {
-            this.rippleConfig.animation = {
-                enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
-                exitDuration: numbers.FG_DEACTIVATION_MS
-            };
-        }
         if (!this._listBase._isNonInteractive) {
             this._initInteractiveListItem();
         }
@@ -967,7 +957,7 @@ class MatSelectionList extends MatInteractiveListBase {
         else {
             const selected = this.selectedOptions.selected[0];
             const index = selected === undefined ?
-                numbers$1.UNSET_INDEX : this._itemsArr.indexOf(selected);
+                numbers.UNSET_INDEX : this._itemsArr.indexOf(selected);
             this._foundation.setSelectedIndex(index);
         }
     }

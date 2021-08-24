@@ -8,7 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
-import { CanColor, CanDisable, CanDisableRipple, MatRipple, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
+import { CanColor, CanDisable, CanDisableRipple, MatRipple } from '@angular/material-experimental/mdc-core';
 import { FocusOrigin } from '@angular/cdk/a11y';
 /** Inputs common to all buttons. */
 export declare const MAT_BUTTON_INPUTS: string[];
@@ -30,8 +30,6 @@ export declare class MatButtonBase extends _MatButtonMixin implements CanDisable
     _platform: Platform;
     _ngZone: NgZone;
     _animationMode?: string | undefined;
-    /** The ripple animation configuration to use for the buttons. */
-    _rippleAnimation: RippleAnimationConfig;
     /** Whether the ripple is centered on the button. */
     _isRippleCentered: boolean;
     /** Whether this button is a FAB. Used to apply the correct class on the ripple. */

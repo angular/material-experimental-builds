@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/core'), require('@angular/material/menu'), require('@angular/material-experimental/mdc-core'), require('@angular/platform-browser/animations'), require('@angular/cdk/a11y'), require('@angular/common'), require('@material/ripple'), require('@angular/cdk/scrolling')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-menu', ['exports', '@angular/cdk/overlay', '@angular/core', '@angular/material/menu', '@angular/material-experimental/mdc-core', '@angular/platform-browser/animations', '@angular/cdk/a11y', '@angular/common', '@material/ripple', '@angular/cdk/scrolling'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcMenu = {}), global.ng.cdk.overlay, global.ng.core, global.ng.material.menu, global.ng.materialExperimental.mdcCore, global.ng.platformBrowser.animations, global.ng.cdk.a11y, global.ng.common, global.mdc.ripple, global.ng.cdk.scrolling));
-}(this, (function (exports, overlay, core, menu, mdcCore, animations, a11y, common, ripple, scrolling) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/cdk/overlay'), require('@angular/core'), require('@angular/material/menu'), require('@angular/common'), require('@angular/material-experimental/mdc-core'), require('@angular/cdk/scrolling')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-menu', ['exports', '@angular/cdk/overlay', '@angular/core', '@angular/material/menu', '@angular/common', '@angular/material-experimental/mdc-core', '@angular/cdk/scrolling'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcMenu = {}), global.ng.cdk.overlay, global.ng.core, global.ng.material.menu, global.ng.common, global.ng.materialExperimental.mdcCore, global.ng.cdk.scrolling));
+}(this, (function (exports, overlay, core, menu, common, mdcCore, scrolling) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -375,14 +375,8 @@
      */
     var MatMenuItem = /** @class */ (function (_super) {
         __extends(MatMenuItem, _super);
-        function MatMenuItem(elementRef, document, focusMonitor, parentMenu, globalRippleOptions, animationMode, changeDetectorRef) {
-            var _this = _super.call(this, elementRef, document, focusMonitor, parentMenu, changeDetectorRef) || this;
-            _this._noopAnimations = animationMode === 'NoopAnimations';
-            _this._rippleAnimation = (globalRippleOptions === null || globalRippleOptions === void 0 ? void 0 : globalRippleOptions.animation) || {
-                enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
-                exitDuration: ripple.numbers.FG_DEACTIVATION_MS
-            };
-            return _this;
+        function MatMenuItem() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         return MatMenuItem;
     }(menu.MatMenuItem));
@@ -406,21 +400,12 @@
                     },
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     encapsulation: core.ViewEncapsulation.None,
-                    template: "<ng-content select=\"mat-icon\"></ng-content>\n<span class=\"mdc-list-item__primary-text\"><ng-content></ng-content></span>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\"\n     [matRippleAnimation]=\"(disableRipple || disabled || _noopAnimations) ? {} : _rippleAnimation\">\n</div>\n<svg\n  *ngIf=\"_triggersSubmenu\"\n  class=\"mat-mdc-menu-submenu-icon\"\n  viewBox=\"0 0 5 10\"\n  focusable=\"false\"><polygon points=\"0,0 5,5 0,10\"/></svg>\n",
+                    template: "<ng-content select=\"mat-icon\"></ng-content>\n<span class=\"mdc-list-item__primary-text\"><ng-content></ng-content></span>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\">\n</div>\n<svg\n  *ngIf=\"_triggersSubmenu\"\n  class=\"mat-mdc-menu-submenu-icon\"\n  viewBox=\"0 0 5 10\"\n  focusable=\"false\"><polygon points=\"0,0 5,5 0,10\"/></svg>\n",
                     providers: [
                         { provide: menu.MatMenuItem, useExisting: MatMenuItem },
                     ]
                 },] }
     ];
-    MatMenuItem.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] },
-        { type: a11y.FocusMonitor },
-        { type: undefined, decorators: [{ type: core.Inject, args: [menu.MAT_MENU_PANEL,] }, { type: core.Optional }] },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [mdcCore.MAT_RIPPLE_GLOBAL_OPTIONS,] }] },
-        { type: String, decorators: [{ type: core.Optional }, { type: core.Inject, args: [animations.ANIMATION_MODULE_TYPE,] }] },
-        { type: core.ChangeDetectorRef }
-    ]; };
 
     /**
      * @license

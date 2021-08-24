@@ -8,7 +8,7 @@
 import { AfterViewInit, OnDestroy, ElementRef, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
-import { ThemePalette, RippleAnimationConfig } from '@angular/material-experimental/mdc-core';
+import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { MatSlideToggleDefaultOptions } from './slide-toggle-config';
 /** @docs-private */
@@ -39,8 +39,6 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     private _adapter;
     /** Whether the slide toggle is currently focused. */
     _focused: boolean;
-    /** Configuration for the underlying ripple. */
-    _rippleAnimation: RippleAnimationConfig;
     /** Whether noop animations are enabled. */
     _noopAnimations: boolean;
     /** Unique ID for the label element. */

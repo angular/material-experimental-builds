@@ -1,12 +1,9 @@
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, Optional, ChangeDetectorRef, NgModule } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, NgModule } from '@angular/core';
 import { MAT_MENU_SCROLL_STRATEGY, _MatMenuBase, matMenuAnimations, MAT_MENU_PANEL, MAT_MENU_DEFAULT_OPTIONS, MatMenuItem as MatMenuItem$1, _MatMenuDirectivesModule } from '@angular/material/menu';
 export { MAT_MENU_CONTENT, MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
-import { MAT_RIPPLE_GLOBAL_OPTIONS, MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
-import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import { FocusMonitor } from '@angular/cdk/a11y';
-import { DOCUMENT, CommonModule } from '@angular/common';
-import { numbers } from '@material/ripple';
+import { CommonModule } from '@angular/common';
+import { MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 
 /**
@@ -72,14 +69,6 @@ MatMenu.ctorParameters = () => [
  * Single item inside of a `mat-menu`. Provides the menu item styling and accessibility treatment.
  */
 class MatMenuItem extends MatMenuItem$1 {
-    constructor(elementRef, document, focusMonitor, parentMenu, globalRippleOptions, animationMode, changeDetectorRef) {
-        super(elementRef, document, focusMonitor, parentMenu, changeDetectorRef);
-        this._noopAnimations = animationMode === 'NoopAnimations';
-        this._rippleAnimation = (globalRippleOptions === null || globalRippleOptions === void 0 ? void 0 : globalRippleOptions.animation) || {
-            enterDuration: numbers.DEACTIVATION_TIMEOUT_MS,
-            exitDuration: numbers.FG_DEACTIVATION_MS
-        };
-    }
 }
 MatMenuItem.decorators = [
     { type: Component, args: [{
@@ -101,20 +90,11 @@ MatMenuItem.decorators = [
                 },
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 encapsulation: ViewEncapsulation.None,
-                template: "<ng-content select=\"mat-icon\"></ng-content>\n<span class=\"mdc-list-item__primary-text\"><ng-content></ng-content></span>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\"\n     [matRippleAnimation]=\"(disableRipple || disabled || _noopAnimations) ? {} : _rippleAnimation\">\n</div>\n<svg\n  *ngIf=\"_triggersSubmenu\"\n  class=\"mat-mdc-menu-submenu-icon\"\n  viewBox=\"0 0 5 10\"\n  focusable=\"false\"><polygon points=\"0,0 5,5 0,10\"/></svg>\n",
+                template: "<ng-content select=\"mat-icon\"></ng-content>\n<span class=\"mdc-list-item__primary-text\"><ng-content></ng-content></span>\n<div class=\"mat-mdc-menu-ripple\" matRipple\n     [matRippleDisabled]=\"disableRipple || disabled\"\n     [matRippleTrigger]=\"_getHostElement()\">\n</div>\n<svg\n  *ngIf=\"_triggersSubmenu\"\n  class=\"mat-mdc-menu-submenu-icon\"\n  viewBox=\"0 0 5 10\"\n  focusable=\"false\"><polygon points=\"0,0 5,5 0,10\"/></svg>\n",
                 providers: [
                     { provide: MatMenuItem$1, useExisting: MatMenuItem },
                 ]
             },] }
-];
-MatMenuItem.ctorParameters = () => [
-    { type: ElementRef },
-    { type: undefined, decorators: [{ type: Inject, args: [DOCUMENT,] }] },
-    { type: FocusMonitor },
-    { type: undefined, decorators: [{ type: Inject, args: [MAT_MENU_PANEL,] }, { type: Optional }] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [MAT_RIPPLE_GLOBAL_OPTIONS,] }] },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ANIMATION_MODULE_TYPE,] }] },
-    { type: ChangeDetectorRef }
 ];
 
 /**

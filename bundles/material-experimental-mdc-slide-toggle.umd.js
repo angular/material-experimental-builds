@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/switch'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@material/ripple'), require('@angular/cdk/a11y'), require('@angular/common'), require('@angular/material-experimental/mdc-core'), require('@angular/material/slide-toggle')) :
-    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slide-toggle', ['exports', '@angular/core', '@material/switch', '@angular/forms', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@material/ripple', '@angular/cdk/a11y', '@angular/common', '@angular/material-experimental/mdc-core', '@angular/material/slide-toggle'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlideToggle = {}), global.ng.core, global.mdc.switch, global.ng.forms, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.mdc.ripple, global.ng.cdk.a11y, global.ng.common, global.ng.materialExperimental.mdcCore, global.ng.material.slideToggle));
-}(this, (function (exports, core, _switch, forms, coercion, animations, ripple, a11y, common, mdcCore, slideToggle) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@material/switch'), require('@angular/forms'), require('@angular/cdk/coercion'), require('@angular/platform-browser/animations'), require('@angular/cdk/a11y'), require('@angular/common'), require('@angular/material-experimental/mdc-core'), require('@angular/material/slide-toggle')) :
+    typeof define === 'function' && define.amd ? define('@angular/material-experimental/mdc-slide-toggle', ['exports', '@angular/core', '@material/switch', '@angular/forms', '@angular/cdk/coercion', '@angular/platform-browser/animations', '@angular/cdk/a11y', '@angular/common', '@angular/material-experimental/mdc-core', '@angular/material/slide-toggle'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.ng = global.ng || {}, global.ng.materialExperimental = global.ng.materialExperimental || {}, global.ng.materialExperimental.mdcSlideToggle = {}), global.ng.core, global.mdc.switch, global.ng.forms, global.ng.cdk.coercion, global.ng.platformBrowser.animations, global.ng.cdk.a11y, global.ng.common, global.ng.materialExperimental.mdcCore, global.ng.material.slideToggle));
+}(this, (function (exports, core, _switch, forms, coercion, animations, a11y, common, mdcCore, slideToggle) { 'use strict';
 
     /**
      * @license
@@ -26,16 +26,6 @@
      */
     // Increasing integer for generating unique ids for slide-toggle components.
     var nextUniqueId = 0;
-    /** Configuration for the ripple animation. */
-    var RIPPLE_ANIMATION_CONFIG = {
-        enterDuration: ripple.numbers.DEACTIVATION_TIMEOUT_MS,
-        exitDuration: ripple.numbers.FG_DEACTIVATION_MS,
-    };
-    /** Configuration for ripples when animations are disabled. */
-    var NOOP_RIPPLE_ANIMATION_CONFIG = {
-        enterDuration: 0,
-        exitDuration: 0
-    };
     /** @docs-private */
     var MAT_SLIDE_TOGGLE_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
@@ -96,8 +86,6 @@
             this.tabIndex = parseInt(tabIndex) || 0;
             this.color = defaults.color || 'accent';
             this._noopAnimations = animationMode === 'NoopAnimations';
-            this._rippleAnimation = this._noopAnimations ?
-                NOOP_RIPPLE_ANIMATION_CONFIG : RIPPLE_ANIMATION_CONFIG;
         }
         Object.defineProperty(MatSlideToggle.prototype, "tabIndex", {
             /** Tabindex for the input element. */
@@ -243,7 +231,7 @@
     MatSlideToggle.decorators = [
         { type: core.Component, args: [{
                     selector: 'mat-slide-toggle',
-                    template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <button\n    class=\"mdc-switch\"\n    role=\"switch\"\n    type=\"button\"\n    [class.mdc-switch--selected]=\"checked\"\n    [class.mdc-switch--unselected]=\"!checked\"\n    [tabIndex]=\"tabIndex\"\n    [disabled]=\"disabled\"\n    [attr.id]=\"buttonId\"\n    [attr.name]=\"name\"\n    [attr.aria-label]=\"ariaLabel\"\n    [attr.aria-labelledby]=\"_getAriaLabelledBy()\"\n    [attr.aria-describedby]=\"ariaDescribedby\"\n    [attr.aria-required]=\"required\"\n    (click)=\"_handleClick($event)\"\n    #switch>\n    <div class=\"mdc-switch__track\"></div>\n    <div class=\"mdc-switch__handle-track\">\n      <div class=\"mdc-switch__handle\">\n        <div class=\"mdc-switch__shadow\">\n          <div class=\"mdc-elevation-overlay\"></div>\n        </div>\n        <div class=\"mdc-switch__ripple\">\n          <div class=\"mat-mdc-slide-toggle-ripple mat-mdc-focus-indicator\" mat-ripple\n            [matRippleTrigger]=\"switch\"\n            [matRippleDisabled]=\"disableRipple || disabled\"\n            [matRippleCentered]=\"true\"\n            [matRippleAnimation]=\"_rippleAnimation\"></div>\n        </div>\n        <div class=\"mdc-switch__icons\">\n          <svg class=\"mdc-switch__icon mdc-switch__icon--on\" viewBox=\"0 0 24 24\">\n            <path d=\"M19.69,5.23L8.96,15.96l-4.23-4.23L2.96,13.5l6,6L21.46,7L19.69,5.23z\" />\n          </svg>\n          <svg class=\"mdc-switch__icon mdc-switch__icon--off\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 13H4v-2h16v2z\" />\n          </svg>\n        </div>\n      </div>\n    </div>\n  </button>\n\n  <!--\n    Clicking on the label will trigger another click event from the button.\n    Stop propagation here so other listeners further up in the DOM don't execute twice.\n  -->\n  <label [for]=\"buttonId\" [attr.id]=\"_labelId\" (click)=\"$event.stopPropagation()\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
+                    template: "<div class=\"mdc-form-field\"\n     [class.mdc-form-field--align-end]=\"labelPosition == 'before'\">\n  <button\n    class=\"mdc-switch\"\n    role=\"switch\"\n    type=\"button\"\n    [class.mdc-switch--selected]=\"checked\"\n    [class.mdc-switch--unselected]=\"!checked\"\n    [tabIndex]=\"tabIndex\"\n    [disabled]=\"disabled\"\n    [attr.id]=\"buttonId\"\n    [attr.name]=\"name\"\n    [attr.aria-label]=\"ariaLabel\"\n    [attr.aria-labelledby]=\"_getAriaLabelledBy()\"\n    [attr.aria-describedby]=\"ariaDescribedby\"\n    [attr.aria-required]=\"required\"\n    (click)=\"_handleClick($event)\"\n    #switch>\n    <div class=\"mdc-switch__track\"></div>\n    <div class=\"mdc-switch__handle-track\">\n      <div class=\"mdc-switch__handle\">\n        <div class=\"mdc-switch__shadow\">\n          <div class=\"mdc-elevation-overlay\"></div>\n        </div>\n        <div class=\"mdc-switch__ripple\">\n          <div class=\"mat-mdc-slide-toggle-ripple mat-mdc-focus-indicator\" mat-ripple\n            [matRippleTrigger]=\"switch\"\n            [matRippleDisabled]=\"disableRipple || disabled\"\n            [matRippleCentered]=\"true\"></div>\n        </div>\n        <div class=\"mdc-switch__icons\">\n          <svg class=\"mdc-switch__icon mdc-switch__icon--on\" viewBox=\"0 0 24 24\">\n            <path d=\"M19.69,5.23L8.96,15.96l-4.23-4.23L2.96,13.5l6,6L21.46,7L19.69,5.23z\" />\n          </svg>\n          <svg class=\"mdc-switch__icon mdc-switch__icon--off\" viewBox=\"0 0 24 24\">\n            <path d=\"M20 13H4v-2h16v2z\" />\n          </svg>\n        </div>\n      </div>\n    </div>\n  </button>\n\n  <!--\n    Clicking on the label will trigger another click event from the button.\n    Stop propagation here so other listeners further up in the DOM don't execute twice.\n  -->\n  <label [for]=\"buttonId\" [attr.id]=\"_labelId\" (click)=\"$event.stopPropagation()\">\n    <ng-content></ng-content>\n  </label>\n</div>\n",
                     host: {
                         'class': 'mat-mdc-slide-toggle',
                         '[id]': 'id',

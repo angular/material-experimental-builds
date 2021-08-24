@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
-import { CanColor, CanDisable, CanDisableRipple, HasTabIndex, MatRipple, RippleAnimationConfig, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
+import { CanColor, CanDisable, CanDisableRipple, HasTabIndex, MatRipple, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
 import { Subject } from 'rxjs';
 import { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';
@@ -43,8 +43,6 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     protected _ngZone: NgZone;
     private _dir;
     private _globalRippleOptions?;
-    /** The ripple animation configuration to use for the chip. */
-    readonly _rippleAnimation: RippleAnimationConfig;
     /** Whether the ripple is centered on the chip. */
     readonly _isRippleCentered = false;
     /** Emits when the chip is focused. */

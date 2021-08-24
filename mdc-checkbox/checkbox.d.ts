@@ -9,7 +9,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
-import { RippleAnimationConfig, CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
+import { CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */
@@ -90,8 +90,6 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
     _classes: {
         [key: string]: boolean;
     };
-    /** Animation config for the ripple. */
-    _rippleAnimation: RippleAnimationConfig;
     /** ControlValueAccessor onChange */
     private _cvaOnChange;
     /** ControlValueAccessor onTouch */
