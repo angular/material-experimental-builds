@@ -18,9 +18,9 @@ export declare class MatSliderHarness extends ComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options?: SliderHarnessFilters): HarnessPredicate<MatSliderHarness>;
-    /** Gets the start/primary thumb of the slider. */
+    /** Gets the start thumb of the slider (only applicable for range sliders). */
     getStartThumb(): Promise<MatSliderThumbHarness>;
-    /** Gets the end thumb of the slider. Will throw an error for a non-range slider. */
+    /** Gets the thumb (for single point sliders), or the end thumb (for range sliders). */
     getEndThumb(): Promise<MatSliderThumbHarness>;
     /** Gets whether the slider is a range slider. */
     isRange(): Promise<boolean>;

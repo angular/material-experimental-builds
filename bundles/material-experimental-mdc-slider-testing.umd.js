@@ -565,15 +565,23 @@
                 });
             }); });
         };
-        /** Gets the start/primary thumb of the slider. */
+        /** Gets the start thumb of the slider (only applicable for range sliders). */
         MatSliderHarness.prototype.getStartThumb = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* START */ }))()];
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, this.isRange()];
+                        case 1:
+                            if (!(_a.sent())) {
+                                throw Error('`getStartThumb` is only applicable for range sliders. '
+                                    + 'Did you mean to use `getEndThumb`?');
+                            }
+                            return [2 /*return*/, this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* START */ }))()];
+                    }
                 });
             });
         };
-        /** Gets the end thumb of the slider. Will throw an error for a non-range slider. */
+        /** Gets the thumb (for single point sliders), or the end thumb (for range sliders). */
         MatSliderHarness.prototype.getEndThumb = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
