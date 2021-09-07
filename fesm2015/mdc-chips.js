@@ -9,7 +9,7 @@ import { Subject, merge } from 'rxjs';
 import { takeUntil, take, startWith } from 'rxjs/operators';
 import { DOCUMENT, CommonModule } from '@angular/common';
 import { FocusKeyManager } from '@angular/cdk/a11y';
-import { NG_VALUE_ACCESSOR, NgForm, FormGroupDirective, NgControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, Validators, NgForm, FormGroupDirective, NgControl } from '@angular/forms';
 import { MatFormFieldControl, MatFormField, MAT_FORM_FIELD } from '@angular/material-experimental/mdc-form-field';
 
 /**
@@ -1985,7 +1985,6 @@ class MatChipGrid extends _MatChipGridMixinBase {
          * @docs-private
          */
         this._onChange = () => { };
-        this._required = false;
         this._value = [];
         /** Emits when the chip grid value has been changed by the user. */
         this.change = new EventEmitter();
@@ -2042,7 +2041,10 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    get required() { return this._required; }
+    get required() {
+        var _a, _b, _c, _d;
+        return (_d = (_a = this._required) !== null && _a !== void 0 ? _a : (_c = (_b = this.ngControl) === null || _b === void 0 ? void 0 : _b.control) === null || _c === void 0 ? void 0 : _c.hasValidator(Validators.required)) !== null && _d !== void 0 ? _d : false;
+    }
     set required(value) {
         this._required = coerceBooleanProperty(value);
         this.stateChanges.next();

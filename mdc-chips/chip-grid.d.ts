@@ -105,7 +105,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      */
     get required(): boolean;
     set required(value: boolean);
-    protected _required: boolean;
+    protected _required: boolean | undefined;
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
