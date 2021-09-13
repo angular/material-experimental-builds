@@ -365,32 +365,6 @@
     ];
 
     /**
-     * Directive to automatically resize a textarea to fit its content.
-     * @deprecated Use `cdkTextareaAutosize` from `@angular/cdk/text-field` instead.
-     * @breaking-change 8.0.0
-     */
-    var MatTextareaAutosize = /** @class */ (function (_super) {
-        __extends(MatTextareaAutosize, _super);
-        function MatTextareaAutosize() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return MatTextareaAutosize;
-    }(input.MatTextareaAutosize));
-    MatTextareaAutosize.decorators = [
-        { type: core.Directive, args: [{
-                    selector: 'textarea[mat-autosize], textarea[matTextareaAutosize]',
-                    exportAs: 'matTextareaAutosize',
-                    inputs: ['cdkAutosizeMinRows', 'cdkAutosizeMaxRows'],
-                    host: {
-                        'class': 'cdk-textarea-autosize mat-mdc-autosize',
-                        // Textarea elements that have the directive applied should have a single row by default.
-                        // Browsers normally show two rows by default and therefore this limits the minRows binding.
-                        'rows': '1',
-                    },
-                },] }
-    ];
-
-    /**
      * @license
      * Copyright Google LLC All Rights Reserved.
      *
@@ -405,8 +379,8 @@
     MatInputModule.decorators = [
         { type: core.NgModule, args: [{
                     imports: [mdcCore.MatCommonModule, mdcFormField.MatFormFieldModule],
-                    exports: [MatInput, MatTextareaAutosize, mdcFormField.MatFormFieldModule, textField.TextFieldModule, mdcCore.MatCommonModule],
-                    declarations: [MatInput, MatTextareaAutosize],
+                    exports: [MatInput, mdcFormField.MatFormFieldModule, textField.TextFieldModule, mdcCore.MatCommonModule],
+                    declarations: [MatInput],
                 },] }
     ];
 
@@ -436,7 +410,6 @@
     });
     exports.MatInput = MatInput;
     exports.MatInputModule = MatInputModule;
-    exports.MatTextareaAutosize = MatTextareaAutosize;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

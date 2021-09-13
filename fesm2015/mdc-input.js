@@ -1,6 +1,6 @@
 import { Directive, NgModule } from '@angular/core';
 import { MatFormFieldControl } from '@angular/material/form-field';
-import { MatInput as MatInput$1, MatTextareaAutosize as MatTextareaAutosize$1 } from '@angular/material/input';
+import { MatInput as MatInput$1 } from '@angular/material/input';
 export { MAT_INPUT_VALUE_ACCESSOR, getMatInputUnsupportedTypeError } from '@angular/material/input';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
@@ -58,41 +58,13 @@ MatInput.decorators = [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/**
- * Directive to automatically resize a textarea to fit its content.
- * @deprecated Use `cdkTextareaAutosize` from `@angular/cdk/text-field` instead.
- * @breaking-change 8.0.0
- */
-class MatTextareaAutosize extends MatTextareaAutosize$1 {
-}
-MatTextareaAutosize.decorators = [
-    { type: Directive, args: [{
-                selector: 'textarea[mat-autosize], textarea[matTextareaAutosize]',
-                exportAs: 'matTextareaAutosize',
-                inputs: ['cdkAutosizeMinRows', 'cdkAutosizeMaxRows'],
-                host: {
-                    'class': 'cdk-textarea-autosize mat-mdc-autosize',
-                    // Textarea elements that have the directive applied should have a single row by default.
-                    // Browsers normally show two rows by default and therefore this limits the minRows binding.
-                    'rows': '1',
-                },
-            },] }
-];
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 class MatInputModule {
 }
 MatInputModule.decorators = [
     { type: NgModule, args: [{
                 imports: [MatCommonModule, MatFormFieldModule],
-                exports: [MatInput, MatTextareaAutosize, MatFormFieldModule, TextFieldModule, MatCommonModule],
-                declarations: [MatInput, MatTextareaAutosize],
+                exports: [MatInput, MatFormFieldModule, TextFieldModule, MatCommonModule],
+                declarations: [MatInput],
             },] }
 ];
 
@@ -108,5 +80,5 @@ MatInputModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MatInput, MatInputModule, MatTextareaAutosize };
+export { MatInput, MatInputModule };
 //# sourceMappingURL=mdc-input.js.map
