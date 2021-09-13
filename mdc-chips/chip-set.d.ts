@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
-import { HasTabIndex, HasTabIndexCtor } from '@angular/material-experimental/mdc-core';
+import { HasTabIndex } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
 import { Observable, Subject } from 'rxjs';
 import { MatChip, MatChipEvent } from './chip';
@@ -20,7 +20,7 @@ declare abstract class MatChipSetBase {
     abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
-declare const _MatChipSetMixinBase: HasTabIndexCtor & typeof MatChipSetBase;
+declare const _MatChipSetMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<HasTabIndex> & typeof MatChipSetBase;
 /**
  * Basic container component for the MatChip component.
  *

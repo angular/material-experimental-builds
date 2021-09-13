@@ -9,7 +9,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, DoCheck, ElementRef, EventEmitter, OnDestroy, QueryList } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
-import { CanUpdateErrorState, CanUpdateErrorStateCtor, ErrorStateMatcher } from '@angular/material-experimental/mdc-core';
+import { CanUpdateErrorState, ErrorStateMatcher } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
 import { MatChipTextControl } from './chip-text-control';
 import { Observable } from 'rxjs';
@@ -43,7 +43,7 @@ declare class MatChipGridBase extends MatChipSet {
     /** @docs-private */
     ngControl: NgControl);
 }
-declare const _MatChipGridMixinBase: CanUpdateErrorStateCtor & typeof MatChipGridBase;
+declare const _MatChipGridMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanUpdateErrorState> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanUpdateErrorState> & typeof MatChipGridBase;
 /**
  * An extension of the MatChipSet component used with MatChipRow chips and
  * the matChipInputFor directive.

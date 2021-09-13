@@ -7,7 +7,7 @@
  */
 import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy } from '@angular/core';
-import { CanDisable, CanDisableCtor, HasTabIndex, HasTabIndexCtor } from '@angular/material-experimental/mdc-core';
+import { CanDisable, HasTabIndex } from '@angular/material-experimental/mdc-core';
 import { Subject } from 'rxjs';
 /**
  * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
@@ -60,7 +60,7 @@ export declare const MAT_CHIP_REMOVE: InjectionToken<MatChipRemove>;
 declare class MatChipRemoveBase extends MatChipTrailingIcon {
     constructor(elementRef: ElementRef);
 }
-declare const _MatChipRemoveMixinBase: CanDisableCtor & HasTabIndexCtor & typeof MatChipRemoveBase;
+declare const _MatChipRemoveMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisable> & typeof MatChipRemoveBase;
 /**
  * Directive to remove the parent chip when the trailing icon is clicked or
  * when the ENTER key is pressed on it.
