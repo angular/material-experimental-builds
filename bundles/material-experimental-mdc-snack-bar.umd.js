@@ -502,8 +502,7 @@
             return this._portalOutlet.attachTemplatePortal(portal);
         };
         MatSnackBarContainer.prototype._setClass = function (cssClass, active) {
-            var classList = this._elementRef.nativeElement.classList;
-            active ? classList.add(cssClass) : classList.remove(cssClass);
+            this._elementRef.nativeElement.classList.toggle(cssClass, active);
         };
         /** Applies the user-configured CSS classes to the snack bar. */
         MatSnackBarContainer.prototype._applySnackBarClasses = function () {

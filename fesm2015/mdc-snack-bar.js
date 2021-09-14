@@ -170,8 +170,7 @@ class MatSnackBarContainer extends BasePortalOutlet {
         return this._portalOutlet.attachTemplatePortal(portal);
     }
     _setClass(cssClass, active) {
-        const classList = this._elementRef.nativeElement.classList;
-        active ? classList.add(cssClass) : classList.remove(cssClass);
+        this._elementRef.nativeElement.classList.toggle(cssClass, active);
     }
     /** Applies the user-configured CSS classes to the snack bar. */
     _applySnackBarClasses() {
