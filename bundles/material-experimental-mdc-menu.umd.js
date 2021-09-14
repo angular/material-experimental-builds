@@ -422,6 +422,38 @@
         { type: core.ChangeDetectorRef }
     ]; };
 
+    /** Directive applied to an element that should trigger a `mat-menu`. */
+    var MatMenuTrigger = /** @class */ (function (_super) {
+        __extends(MatMenuTrigger, _super);
+        function MatMenuTrigger() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return MatMenuTrigger;
+    }(menu._MatMenuTriggerBase));
+    MatMenuTrigger.decorators = [
+        { type: core.Directive, args: [{
+                    selector: "[mat-menu-trigger-for], [matMenuTriggerFor]",
+                    host: {
+                        'class': 'mat-mdc-menu-trigger',
+                    },
+                    exportAs: 'matMenuTrigger'
+                },] }
+    ];
+    /** Menu content that will be rendered lazily once the menu is opened. */
+    var MatMenuContent = /** @class */ (function (_super) {
+        __extends(MatMenuContent, _super);
+        function MatMenuContent() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return MatMenuContent;
+    }(menu._MatMenuContentBase));
+    MatMenuContent.decorators = [
+        { type: core.Directive, args: [{
+                    selector: 'ng-template[matMenuContent]',
+                    providers: [{ provide: menu.MAT_MENU_CONTENT, useExisting: MatMenuContent }],
+                },] }
+    ];
+
     /**
      * @license
      * Copyright Google LLC All Rights Reserved.
@@ -441,10 +473,16 @@
                         mdcCore.MatRippleModule,
                         mdcCore.MatCommonModule,
                         overlay.OverlayModule,
-                        menu._MatMenuDirectivesModule
                     ],
-                    exports: [scrolling.CdkScrollableModule, MatMenu, mdcCore.MatCommonModule, MatMenuItem, menu._MatMenuDirectivesModule],
-                    declarations: [MatMenu, MatMenuItem],
+                    exports: [
+                        scrolling.CdkScrollableModule,
+                        MatMenu,
+                        mdcCore.MatCommonModule,
+                        MatMenuItem,
+                        MatMenuContent,
+                        MatMenuTrigger
+                    ],
+                    declarations: [MatMenu, MatMenuItem, MatMenuContent, MatMenuTrigger],
                     providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
                 },] }
     ];
@@ -485,24 +523,6 @@
             return menu.MAT_MENU_SCROLL_STRATEGY;
         }
     });
-    Object.defineProperty(exports, 'MatMenuContent', {
-        enumerable: true,
-        get: function () {
-            return menu.MatMenuContent;
-        }
-    });
-    Object.defineProperty(exports, 'MatMenuTrigger', {
-        enumerable: true,
-        get: function () {
-            return menu.MatMenuTrigger;
-        }
-    });
-    Object.defineProperty(exports, '_MatMenuDirectivesModule', {
-        enumerable: true,
-        get: function () {
-            return menu._MatMenuDirectivesModule;
-        }
-    });
     Object.defineProperty(exports, 'fadeInItems', {
         enumerable: true,
         get: function () {
@@ -522,8 +542,10 @@
         }
     });
     exports.MatMenu = MatMenu;
+    exports.MatMenuContent = MatMenuContent;
     exports.MatMenuItem = MatMenuItem;
     exports.MatMenuModule = MatMenuModule;
+    exports.MatMenuTrigger = MatMenuTrigger;
     exports.ɵangular_material_src_material_experimental_mdc_menu_mdc_menu_a = MAT_MENU_SCROLL_STRATEGY_FACTORY;
     exports.ɵangular_material_src_material_experimental_mdc_menu_mdc_menu_b = MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER;
 

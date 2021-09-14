@@ -2399,7 +2399,7 @@ class MatChipInput {
         this._disabled = false;
         this.inputElement = this._elementRef.nativeElement;
         if (formField) {
-            this.inputElement.classList.add('mat-mdc-form-field-control');
+            this.inputElement.classList.add('mat-mdc-form-field-input-control');
         }
     }
     /** Register input for chip list */

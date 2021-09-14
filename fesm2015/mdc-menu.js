@@ -1,7 +1,7 @@
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, Optional, ChangeDetectorRef, NgModule } from '@angular/core';
-import { MAT_MENU_SCROLL_STRATEGY, _MatMenuBase, matMenuAnimations, MAT_MENU_PANEL, MAT_MENU_DEFAULT_OPTIONS, MatMenuItem as MatMenuItem$1, _MatMenuDirectivesModule } from '@angular/material/menu';
-export { MAT_MENU_CONTENT, MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, MatMenuContent, MatMenuTrigger, _MatMenuDirectivesModule, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ElementRef, NgZone, Inject, Optional, ChangeDetectorRef, Directive, NgModule } from '@angular/core';
+import { MAT_MENU_SCROLL_STRATEGY, _MatMenuBase, matMenuAnimations, MAT_MENU_PANEL, MAT_MENU_DEFAULT_OPTIONS, MatMenuItem as MatMenuItem$1, _MatMenuTriggerBase, _MatMenuContentBase, MAT_MENU_CONTENT } from '@angular/material/menu';
+export { MAT_MENU_CONTENT, MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
 import { MAT_RIPPLE_GLOBAL_OPTIONS, MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { FocusMonitor } from '@angular/cdk/a11y';
@@ -124,6 +124,35 @@ MatMenuItem.ctorParameters = () => [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/** Directive applied to an element that should trigger a `mat-menu`. */
+class MatMenuTrigger extends _MatMenuTriggerBase {
+}
+MatMenuTrigger.decorators = [
+    { type: Directive, args: [{
+                selector: `[mat-menu-trigger-for], [matMenuTriggerFor]`,
+                host: {
+                    'class': 'mat-mdc-menu-trigger',
+                },
+                exportAs: 'matMenuTrigger'
+            },] }
+];
+/** Menu content that will be rendered lazily once the menu is opened. */
+class MatMenuContent extends _MatMenuContentBase {
+}
+MatMenuContent.decorators = [
+    { type: Directive, args: [{
+                selector: 'ng-template[matMenuContent]',
+                providers: [{ provide: MAT_MENU_CONTENT, useExisting: MatMenuContent }],
+            },] }
+];
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 class MatMenuModule {
 }
 MatMenuModule.decorators = [
@@ -133,10 +162,16 @@ MatMenuModule.decorators = [
                     MatRippleModule,
                     MatCommonModule,
                     OverlayModule,
-                    _MatMenuDirectivesModule
                 ],
-                exports: [CdkScrollableModule, MatMenu, MatCommonModule, MatMenuItem, _MatMenuDirectivesModule],
-                declarations: [MatMenu, MatMenuItem],
+                exports: [
+                    CdkScrollableModule,
+                    MatMenu,
+                    MatCommonModule,
+                    MatMenuItem,
+                    MatMenuContent,
+                    MatMenuTrigger
+                ],
+                declarations: [MatMenu, MatMenuItem, MatMenuContent, MatMenuTrigger],
                 providers: [MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER]
             },] }
 ];
@@ -153,5 +188,5 @@ MatMenuModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { MatMenu, MatMenuItem, MatMenuModule, MAT_MENU_SCROLL_STRATEGY_FACTORY as ɵangular_material_src_material_experimental_mdc_menu_mdc_menu_a, MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER as ɵangular_material_src_material_experimental_mdc_menu_mdc_menu_b };
+export { MatMenu, MatMenuContent, MatMenuItem, MatMenuModule, MatMenuTrigger, MAT_MENU_SCROLL_STRATEGY_FACTORY as ɵangular_material_src_material_experimental_mdc_menu_mdc_menu_a, MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER as ɵangular_material_src_material_experimental_mdc_menu_mdc_menu_b };
 //# sourceMappingURL=mdc-menu.js.map
