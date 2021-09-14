@@ -27,7 +27,7 @@ class MatMenuHarness extends _MatMenuHarnessBase {
     }
 }
 /** The selector for the host element of a `MatMenu` instance. */
-MatMenuHarness.hostSelector = '.mat-menu-trigger';
+MatMenuHarness.hostSelector = '.mat-mdc-menu-trigger';
 /** Harness for interacting with an MDC-based mat-menu-item in tests. */
 class MatMenuItemHarness extends _MatMenuItemHarnessBase {
     constructor() {

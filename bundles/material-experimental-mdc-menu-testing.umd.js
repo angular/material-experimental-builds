@@ -344,7 +344,7 @@
         return MatMenuHarness;
     }(testing$1._MatMenuHarnessBase));
     /** The selector for the host element of a `MatMenu` instance. */
-    MatMenuHarness.hostSelector = '.mat-menu-trigger';
+    MatMenuHarness.hostSelector = '.mat-mdc-menu-trigger';
     /** Harness for interacting with an MDC-based mat-menu-item in tests. */
     var MatMenuItemHarness = /** @class */ (function (_super) {
         __extends(MatMenuItemHarness, _super);
