@@ -327,9 +327,8 @@
         __extends(MatSnackBarHarness, _super);
         function MatSnackBarHarness() {
             var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
-            _this._messageSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-label';
-            _this._simpleSnackBarSelector = '.mat-mdc-simple-snack-bar';
-            _this._actionButtonSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-action';
+            _this._messageSelector = '.mdc-snackbar__label';
+            _this._actionButtonSelector = '.mat-mdc-snack-bar-action';
             return _this;
         }
         /**
@@ -341,6 +340,11 @@
         MatSnackBarHarness.with = function (options) {
             if (options === void 0) { options = {}; }
             return new testing.HarnessPredicate(MatSnackBarHarness, options);
+        };
+        MatSnackBarHarness.prototype._assertContentAnnotated = function () {
+            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
+                return [2 /*return*/];
+            }); });
         };
         return MatSnackBarHarness;
     }(testing$1.MatSnackBarHarness));
