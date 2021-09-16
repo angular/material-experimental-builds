@@ -452,6 +452,11 @@
             this._elementRef.nativeElement.removeEventListener('mouseenter', this._onMouseEnter);
             this._elementRef.nativeElement.removeEventListener('mouseleave', this._onMouseLeave);
         };
+        /** Used to append a class to indicate when the value indicator text is short. */
+        MatSliderVisualThumb.prototype._isShortValue = function () {
+            var _a;
+            return ((_a = this.valueIndicatorText) === null || _a === void 0 ? void 0 : _a.length) <= 2;
+        };
         MatSliderVisualThumb.prototype._onFocus = function () {
             var _a;
             // We don't want to show the hover ripple on top of the focus ripple.
@@ -543,6 +548,9 @@
                     template: "<div class=\"mdc-slider__value-indicator-container\" *ngIf=\"discrete\">\n  <div class=\"mdc-slider__value-indicator\">\n    <span class=\"mdc-slider__value-indicator-text\">{{valueIndicatorText}}</span>\n  </div>\n</div>\n<div class=\"mdc-slider__thumb-knob\" #knob></div>\n<div\n  matRipple\n  class=\"mat-mdc-focus-indicator\"\n  [matRippleDisabled]=\"true\"></div>\n",
                     host: {
                         'class': 'mdc-slider__thumb mat-mdc-slider-visual-thumb',
+                        // NOTE: This class is used internally.
+                        // TODO(wagnermaciel): Remove this once it is handled by the mdc foundation (cl/388828896).
+                        '[class.mdc-slider__thumb--short-value]': '_isShortValue()',
                     },
                     changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     encapsulation: i0.ViewEncapsulation.None,
