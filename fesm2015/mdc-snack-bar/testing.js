@@ -1,3 +1,4 @@
+import { __awaiter } from 'tslib';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { MatSnackBarHarness as MatSnackBarHarness$1 } from '@angular/material/snack-bar/testing';
 
@@ -12,9 +13,8 @@ import { MatSnackBarHarness as MatSnackBarHarness$1 } from '@angular/material/sn
 class MatSnackBarHarness extends MatSnackBarHarness$1 {
     constructor() {
         super(...arguments);
-        this._messageSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-label';
-        this._simpleSnackBarSelector = '.mat-mdc-simple-snack-bar';
-        this._actionButtonSelector = '.mat-mdc-simple-snack-bar .mat-mdc-snack-bar-action';
+        this._messageSelector = '.mdc-snackbar__label';
+        this._actionButtonSelector = '.mat-mdc-snack-bar-action';
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a `MatSnackBarHarness` that meets
@@ -24,6 +24,9 @@ class MatSnackBarHarness extends MatSnackBarHarness$1 {
      */
     static with(options = {}) {
         return new HarnessPredicate(MatSnackBarHarness, options);
+    }
+    _assertContentAnnotated() {
+        return __awaiter(this, void 0, void 0, function* () { });
     }
 }
 // Developers can provide a custom component or template for the snackbar. The canonical snack-bar

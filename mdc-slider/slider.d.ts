@@ -60,6 +60,8 @@ export declare class MatSliderVisualThumb implements AfterViewInit, OnDestroy {
     constructor(_ngZone: NgZone, _slider: MatSlider, _elementRef: ElementRef<HTMLElement>);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
+    /** Used to append a class to indicate when the value indicator text is short. */
+    _isShortValue(): boolean;
     private _onMouseEnter;
     private _onMouseLeave;
     private _onFocus;
