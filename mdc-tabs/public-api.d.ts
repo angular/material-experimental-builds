@@ -15,4 +15,4 @@ export { MatInkBar } from './ink-bar';
 export { MatTabHeader } from './tab-header';
 export { MatTabGroup } from './tab-group';
 export { MatTabNav, MatTabLink } from './tab-nav-bar/tab-nav-bar';
-export { MatTabBodyPositionState, MatTabBodyOriginState, matTabsAnimations, _MatInkBarPositioner, _MAT_INK_BAR_POSITIONER, MatTabChangeEvent, MatTabHeaderPosition, MatTabsConfig, MAT_TABS_CONFIG, MAT_TAB_GROUP, ScrollDirection, } from '@angular/material/tabs';
+export { MatTabBodyPositionState, MatTabBodyOriginState, matTabsAnimations, _MatInkBarPositioner, _MAT_INK_BAR_POSITIONER, MatTabChangeEvent, MatTabHeaderPosition, MatTabsConfig, MAT_TABS_CONFIG, MAT_TAB_GROUP, MAT_TAB, ScrollDirection, } from '@angular/material/tabs';

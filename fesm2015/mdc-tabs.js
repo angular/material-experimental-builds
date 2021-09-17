@@ -4,8 +4,8 @@ import { MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule } from '@an
 import { CdkPortalOutlet, PortalModule } from '@angular/cdk/portal';
 import { ObserversModule } from '@angular/cdk/observers';
 import { FocusMonitor, A11yModule } from '@angular/cdk/a11y';
-import { MatTabBodyPortal as MatTabBodyPortal$1, _MatTabBodyBase, matTabsAnimations, MatTabContent as MatTabContent$1, MatTabLabel as MatTabLabel$1, MatTabLabelWrapper as MatTabLabelWrapper$1, MatTab as MatTab$1, _MatTabHeaderBase, _MatTabGroupBase, MAT_TAB_GROUP, MAT_TABS_CONFIG, _MatTabNavBase, _MatTabLinkBase } from '@angular/material/tabs';
-export { MAT_TABS_CONFIG, MAT_TAB_GROUP, MatTabChangeEvent, _MAT_INK_BAR_POSITIONER, matTabsAnimations } from '@angular/material/tabs';
+import { MatTabBodyPortal as MatTabBodyPortal$1, _MatTabBodyBase, matTabsAnimations, MatTabContent as MatTabContent$1, MatTabLabel as MatTabLabel$1, MatTabLabelWrapper as MatTabLabelWrapper$1, MatTab as MatTab$1, MAT_TAB, _MatTabHeaderBase, _MatTabGroupBase, MAT_TAB_GROUP, MAT_TABS_CONFIG, _MatTabNavBase, _MatTabLinkBase } from '@angular/material/tabs';
+export { MAT_TAB, MAT_TABS_CONFIG, MAT_TAB_GROUP, MatTabChangeEvent, _MAT_INK_BAR_POSITIONER, matTabsAnimations } from '@angular/material/tabs';
 import { Directionality } from '@angular/cdk/bidi';
 import { MDCSlidingTabIndicatorFoundation } from '@material/tab-indicator';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -308,7 +308,8 @@ MatTab.decorators = [
                 inputs: ['disabled'],
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 encapsulation: ViewEncapsulation.None,
-                exportAs: 'matTab'
+                exportAs: 'matTab',
+                providers: [{ provide: MAT_TAB, useExisting: MatTab }]
             },] }
 ];
 MatTab.propDecorators = {
