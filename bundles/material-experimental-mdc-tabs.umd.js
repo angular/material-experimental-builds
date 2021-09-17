@@ -613,7 +613,8 @@
                     inputs: ['disabled'],
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     encapsulation: core.ViewEncapsulation.None,
-                    exportAs: 'matTab'
+                    exportAs: 'matTab',
+                    providers: [{ provide: tabs.MAT_TAB, useExisting: MatTab }]
                 },] }
     ];
     MatTab.propDecorators = {
@@ -915,6 +916,12 @@
      * Generated bundle index. Do not edit.
      */
 
+    Object.defineProperty(exports, 'MAT_TAB', {
+        enumerable: true,
+        get: function () {
+            return tabs.MAT_TAB;
+        }
+    });
     Object.defineProperty(exports, 'MAT_TABS_CONFIG', {
         enumerable: true,
         get: function () {
