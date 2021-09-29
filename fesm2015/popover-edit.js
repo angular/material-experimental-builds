@@ -160,15 +160,6 @@ MatEditOpen.decorators = [
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const EXPORTED_DECLARATIONS = [
-    MatPopoverEdit,
-    MatPopoverEditTabOut,
-    MatRowHoverContent,
-    MatEditLens,
-    MatEditRevert,
-    MatEditClose,
-    MatEditOpen
-];
 class MatPopoverEditModule {
 }
 MatPopoverEditModule.decorators = [
@@ -178,10 +169,24 @@ MatPopoverEditModule.decorators = [
                     MatCommonModule,
                 ],
                 exports: [
-                    ...EXPORTED_DECLARATIONS,
+                    MatPopoverEdit,
+                    MatPopoverEditTabOut,
+                    MatRowHoverContent,
+                    MatEditLens,
+                    MatEditRevert,
+                    MatEditClose,
+                    MatEditOpen,
                     CdkEditable,
                 ],
-                declarations: EXPORTED_DECLARATIONS,
+                declarations: [
+                    MatPopoverEdit,
+                    MatPopoverEditTabOut,
+                    MatRowHoverContent,
+                    MatEditLens,
+                    MatEditRevert,
+                    MatEditClose,
+                    MatEditOpen
+                ],
             },] }
 ];
 

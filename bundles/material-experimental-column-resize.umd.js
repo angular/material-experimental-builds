@@ -354,10 +354,10 @@
         columnResize.HeaderRowEventDispatcher,
         columnResize.ColumnResizeNotifierSource,
     ];
-    var TABLE_PROVIDERS = __spreadArray(__spreadArray([], __read(PROVIDERS)), [
+    var TABLE_PROVIDERS = __spreadArray(__spreadArray([], __read(PROVIDERS), false), [
         columnResize.TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER,
-    ]);
-    var FLEX_PROVIDERS = __spreadArray(__spreadArray([], __read(PROVIDERS)), [FLEX_RESIZE_STRATEGY_PROVIDER]);
+    ], false);
+    var FLEX_PROVIDERS = __spreadArray(__spreadArray([], __read(PROVIDERS), false), [FLEX_RESIZE_STRATEGY_PROVIDER], false);
     var TABLE_HOST_BINDINGS = {
         'class': 'mat-column-resize-table',
     };
@@ -396,9 +396,9 @@
         { type: core.Directive, args: [{
                     selector: 'table[mat-table][columnResize]',
                     host: TABLE_HOST_BINDINGS,
-                    providers: __spreadArray(__spreadArray([], __read(TABLE_PROVIDERS)), [
+                    providers: __spreadArray(__spreadArray([], __read(TABLE_PROVIDERS), false), [
                         { provide: columnResize.ColumnResize, useExisting: MatColumnResize },
-                    ]),
+                    ], false),
                 },] }
     ];
     MatColumnResize.ctorParameters = function () { return [
@@ -430,9 +430,9 @@
         { type: core.Directive, args: [{
                     selector: 'mat-table[columnResize]',
                     host: FLEX_HOST_BINDINGS,
-                    providers: __spreadArray(__spreadArray([], __read(FLEX_PROVIDERS)), [
+                    providers: __spreadArray(__spreadArray([], __read(FLEX_PROVIDERS), false), [
                         { provide: columnResize.ColumnResize, useExisting: MatColumnResizeFlex },
-                    ]),
+                    ], false),
                 },] }
     ];
     MatColumnResizeFlex.ctorParameters = function () { return [
@@ -464,9 +464,9 @@
         { type: core.Directive, args: [{
                     selector: 'table[mat-table]',
                     host: TABLE_HOST_BINDINGS,
-                    providers: __spreadArray(__spreadArray([], __read(TABLE_PROVIDERS)), [
+                    providers: __spreadArray(__spreadArray([], __read(TABLE_PROVIDERS), false), [
                         { provide: columnResize.ColumnResize, useExisting: MatDefaultEnabledColumnResize },
-                    ]),
+                    ], false),
                 },] }
     ];
     MatDefaultEnabledColumnResize.ctorParameters = function () { return [
@@ -498,9 +498,9 @@
         { type: core.Directive, args: [{
                     selector: 'mat-table',
                     host: FLEX_HOST_BINDINGS,
-                    providers: __spreadArray(__spreadArray([], __read(FLEX_PROVIDERS)), [
+                    providers: __spreadArray(__spreadArray([], __read(FLEX_PROVIDERS), false), [
                         { provide: columnResize.ColumnResize, useExisting: MatDefaultEnabledColumnResizeFlex },
-                    ]),
+                    ], false),
                 },] }
     ];
     MatDefaultEnabledColumnResizeFlex.ctorParameters = function () { return [
@@ -565,7 +565,7 @@
     var AbstractMatResizable = /** @class */ (function (_super) {
         __extends(AbstractMatResizable, _super);
         function AbstractMatResizable() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             _this.minWidthPxInternal = 32;
             return _this;
         }

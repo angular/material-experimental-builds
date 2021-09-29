@@ -586,7 +586,7 @@
     var MatActionList = /** @class */ (function (_super) {
         __extends(MatActionList, _super);
         function MatActionList() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             // An navigation list is considered interactive, but does not extend the interactive list
             // base class. We do this because as per MDC, items of interactive lists are only reachable
             // through keyboard shortcuts. We want all items for the navigation list to be reachable
@@ -890,7 +890,7 @@
     var MatNavList = /** @class */ (function (_super) {
         __extends(MatNavList, _super);
         function MatNavList() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             // An navigation list is considered interactive, but does not extend the interactive list
             // base class. We do this because as per MDC, items of interactive lists are only reachable
             // through keyboard shortcuts. We want all items for the navigation list to be reachable

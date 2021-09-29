@@ -326,7 +326,7 @@
     var MatOptionHarness = /** @class */ (function (_super) {
         __extends(MatOptionHarness, _super);
         function MatOptionHarness() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             /** Element containing the option's text. */
             _this._text = _this.locatorFor('.mdc-list-item__primary-text');
             return _this;
@@ -431,7 +431,7 @@
     var MatOptgroupHarness = /** @class */ (function (_super) {
         __extends(MatOptgroupHarness, _super);
         function MatOptgroupHarness() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             _this._label = _this.locatorFor('.mat-mdc-optgroup-label');
             return _this;
         }

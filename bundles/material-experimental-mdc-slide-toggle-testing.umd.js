@@ -326,7 +326,7 @@
     var MatSlideToggleHarness = /** @class */ (function (_super) {
         __extends(MatSlideToggleHarness, _super);
         function MatSlideToggleHarness() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             _this._nativeElement = _this.locatorFor('button');
             return _this;
         }

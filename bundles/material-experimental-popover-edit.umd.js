@@ -494,15 +494,13 @@
                 },] }
     ];
 
-    var EXPORTED_DECLARATIONS = [
-        MatPopoverEdit,
-        MatPopoverEditTabOut,
-        MatRowHoverContent,
-        MatEditLens,
-        MatEditRevert,
-        MatEditClose,
-        MatEditOpen
-    ];
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
     var MatPopoverEditModule = /** @class */ (function () {
         function MatPopoverEditModule() {
         }
@@ -514,10 +512,25 @@
                         popoverEdit.CdkPopoverEditModule,
                         core$1.MatCommonModule,
                     ],
-                    exports: __spreadArray(__spreadArray([], __read(EXPORTED_DECLARATIONS)), [
+                    exports: [
+                        MatPopoverEdit,
+                        MatPopoverEditTabOut,
+                        MatRowHoverContent,
+                        MatEditLens,
+                        MatEditRevert,
+                        MatEditClose,
+                        MatEditOpen,
                         popoverEdit.CdkEditable,
-                    ]),
-                    declarations: EXPORTED_DECLARATIONS,
+                    ],
+                    declarations: [
+                        MatPopoverEdit,
+                        MatPopoverEditTabOut,
+                        MatRowHoverContent,
+                        MatEditLens,
+                        MatEditRevert,
+                        MatEditClose,
+                        MatEditOpen
+                    ],
                 },] }
     ];
 

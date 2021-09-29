@@ -326,7 +326,7 @@
     var MatFormFieldHarness = /** @class */ (function (_super) {
         __extends(MatFormFieldHarness, _super);
         function MatFormFieldHarness() {
-            var _this = _super.apply(this, __spreadArray([], __read(arguments))) || this;
+            var _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this;
             _this._prefixContainer = _this.locatorForOptional('.mat-mdc-form-field-text-prefix');
             _this._suffixContainer = _this.locatorForOptional('.mat-mdc-form-field-text-suffix');
             _this._label = _this.locatorForOptional('.mdc-floating-label');
