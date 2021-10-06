@@ -189,9 +189,7 @@ class MatInkBarFoundation {
     }
     /** Destroys the foundation. */
     destroy() {
-        if (this._inkBarElement.parentNode) {
-            this._inkBarElement.parentNode.removeChild(this._inkBarElement);
-        }
+        this._inkBarElement.remove();
         this._hostElement = this._inkBarElement = this._inkBarContentElement = null;
         this._foundation.destroy();
         this._destroyed = true;
