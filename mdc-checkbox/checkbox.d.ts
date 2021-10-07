@@ -11,6 +11,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { MatCheckboxDefaultOptions } from '@angular/material/checkbox';
 import { CanColor, CanDisable, MatRipple } from '@angular/material-experimental/mdc-core';
 import { MDCCheckboxFoundation } from '@material/checkbox';
+import * as i0 from "@angular/core";
 export declare const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR: any;
 /** Change event object emitted by MatCheckbox. */
 export declare class MatCheckboxChange {
@@ -20,7 +21,7 @@ export declare class MatCheckboxChange {
     checked: boolean;
 }
 /** @docs-private */
-declare const _MatCheckboxBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisable> & {
+declare const _MatCheckboxBase: import("@angular/material-experimental/mdc-core")._Constructor<CanColor> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanColor> & import("@angular/material-experimental/mdc-core")._Constructor<CanDisable> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanDisable> & {
     new (_elementRef: ElementRef): {
         _elementRef: ElementRef;
     };
@@ -159,5 +160,7 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCheckbox, [null, null, { attribute: "tabindex"; }, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatCheckbox, "mat-checkbox", ["matCheckbox"], { "color": "color"; "disabled": "disabled"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "labelPosition": "labelPosition"; "name": "name"; "tabIndex": "tabIndex"; "value": "value"; "id": "id"; "checked": "checked"; "indeterminate": "indeterminate"; "required": "required"; "disableRipple": "disableRipple"; }, { "change": "change"; "indeterminateChange": "indeterminateChange"; }, never, ["*"]>;
 }
 export {};

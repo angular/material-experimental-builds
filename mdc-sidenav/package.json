@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-sidenav",
-  "main": "../bundles/material-experimental-mdc-sidenav.umd.js",
-  "fesm2015": "../fesm2015/mdc-sidenav.js",
-  "esm2015": "../esm2015/mdc-sidenav/index.js",
+  "fesm2020": "../fesm2020/mdc-sidenav.mjs",
+  "fesm2015": "../fesm2015/mdc-sidenav.mjs",
+  "esm2020": "../esm2020/mdc-sidenav/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-sidenav.js",
-  "es2015": "../fesm2015/mdc-sidenav.js"
+  "module": "../fesm2015/mdc-sidenav.mjs",
+  "es2020": "../fesm2020/mdc-sidenav.mjs"
 }

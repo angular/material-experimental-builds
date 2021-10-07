@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { CdkSelectAll } from '@angular/cdk-experimental/selection';
+import * as i0 from "@angular/core";
 /**
  * Makes the element a select-all toggle.
  *
@@ -17,4 +18,6 @@ import { CdkSelectAll } from '@angular/cdk-experimental/selection';
  * and `toggle()` to change the selection state.
  */
 export declare class MatSelectAll<T> extends CdkSelectAll<T> {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectAll<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectAll<any>, "[matSelectAll]", ["matSelectAll"], {}, {}, never>;
 }

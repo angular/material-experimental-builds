@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-select",
-  "main": "../bundles/material-experimental-mdc-select.umd.js",
-  "fesm2015": "../fesm2015/mdc-select.js",
-  "esm2015": "../esm2015/mdc-select/index.js",
+  "fesm2020": "../fesm2020/mdc-select.mjs",
+  "fesm2015": "../fesm2015/mdc-select.mjs",
+  "esm2020": "../esm2020/mdc-select/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-select.js",
-  "es2015": "../fesm2015/mdc-select.js"
+  "module": "../fesm2015/mdc-select.mjs",
+  "es2020": "../fesm2020/mdc-select.mjs"
 }

@@ -12,6 +12,7 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, InjectionToken, NgZone, On
 import { RippleGlobalOptions, ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
 import { ListOption, MatListOptionCheckboxPosition } from './list-option-types';
+import * as i0 from "@angular/core";
 /**
  * Injection token that can be used to reference instances of an `SelectionList`. It serves
  * as alternative token to an actual implementation which would result in circular references.
@@ -90,4 +91,6 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      */
     _markForCheck(): void;
     static ngAcceptInputType_selected: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatListOption, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatListOption, "mat-list-option", ["matListOption"], { "checkboxPosition": "checkboxPosition"; "color": "color"; "value": "value"; "selected": "selected"; }, { "selectedChange": "selectedChange"; }, ["lines"], ["[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]", "*", "mat-divider"]>;
 }

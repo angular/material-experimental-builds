@@ -10,6 +10,7 @@ import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
 import { CanColor, CanDisable, CanDisableRipple, MatRipple } from '@angular/material-experimental/mdc-core';
 import { FocusOrigin } from '@angular/cdk/a11y';
+import * as i0 from "@angular/core";
 /** Inputs common to all buttons. */
 export declare const MAT_BUTTON_INPUTS: string[];
 /** Shared host configuration for all buttons */
@@ -20,7 +21,7 @@ export declare const MAT_BUTTON_HOST: {
     '[class.mat-mdc-button-base]': string;
 };
 /** @docs-private */
-export declare const _MatButtonMixin: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisableRipple> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisableRipple> & {
+export declare const _MatButtonMixin: import("@angular/material-experimental/mdc-core")._Constructor<CanColor> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanColor> & import("@angular/material-experimental/mdc-core")._Constructor<CanDisable> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanDisable> & import("@angular/material-experimental/mdc-core")._Constructor<CanDisableRipple> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanDisableRipple> & {
     new (_elementRef: ElementRef): {
         _elementRef: ElementRef;
     };
@@ -44,6 +45,8 @@ export declare class MatButtonBase extends _MatButtonMixin implements CanDisable
     _isRippleDisabled(): boolean;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatButtonBase, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatButtonBase, never, never, {}, {}, never>;
 }
 /** Shared inputs by buttons using the `<a>` tag */
 export declare const MAT_ANCHOR_INPUTS: string[];
@@ -63,4 +66,6 @@ export declare class MatAnchorBase extends MatButtonBase {
     tabIndex: number;
     constructor(elementRef: ElementRef, platform: Platform, ngZone: NgZone, animationMode?: string);
     _haltDisabledEvents(event: Event): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatAnchorBase, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAnchorBase, never, never, {}, {}, never>;
 }

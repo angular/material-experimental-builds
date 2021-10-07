@@ -11,6 +11,7 @@ import { MatFormField } from '@angular/material-experimental/mdc-form-field';
 import { MatChipsDefaultOptions } from './chip-default-options';
 import { MatChipGrid } from './chip-grid';
 import { MatChipTextControl } from './chip-text-control';
+import * as i0 from "@angular/core";
 /** Represents an input event on a `matChipInput`. */
 export interface MatChipInputEvent {
     /**
@@ -91,4 +92,6 @@ export declare class MatChipInput implements MatChipTextControl, AfterContentIni
     private _isSeparatorKey;
     static ngAcceptInputType_addOnBlur: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipInput, [null, null, { optional: true; }]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipInput, "input[matChipInputFor]", ["matChipInput", "matChipInputFor"], { "chipGrid": "matChipInputFor"; "addOnBlur": "matChipInputAddOnBlur"; "separatorKeyCodes": "matChipInputSeparatorKeyCodes"; "placeholder": "placeholder"; "id": "id"; "disabled": "disabled"; }, { "chipEnd": "matChipInputTokenEnd"; }, never>;
 }

@@ -8,6 +8,7 @@
 import { FocusMonitor, FocusTrapFactory, InteractivityChecker } from '@angular/cdk/a11y';
 import { ChangeDetectorRef, ElementRef, OnDestroy, NgZone } from '@angular/core';
 import { MatDialogConfig, _MatDialogContainerBase } from '@angular/material/dialog';
+import * as i0 from "@angular/core";
 /**
  * Internal component that wraps user-provided dialog content in a MDC dialog.
  * @docs-private
@@ -47,4 +48,6 @@ export declare class MatDialogContainer extends _MatDialogContainerBase implemen
     /** Clears all dialog animation classes. */
     private _clearAnimationClasses;
     private _waitForAnimationToComplete;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatDialogContainer, [null, null, null, { optional: true; }, null, null, null, { optional: true; }, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatDialogContainer, "mat-dialog-container", never, {}, {}, never, never>;
 }

@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/selection",
-  "main": "../bundles/material-experimental-selection.umd.js",
-  "fesm2015": "../fesm2015/selection.js",
-  "esm2015": "../esm2015/selection/index.js",
+  "fesm2020": "../fesm2020/selection.mjs",
+  "fesm2015": "../fesm2015/selection.mjs",
+  "esm2020": "../esm2020/selection/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/selection.js",
-  "es2015": "../fesm2015/selection.js"
+  "module": "../fesm2015/selection.mjs",
+  "es2020": "../fesm2020/selection.mjs"
 }

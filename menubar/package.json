@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/menubar",
-  "main": "../bundles/material-experimental-menubar.umd.js",
-  "fesm2015": "../fesm2015/menubar.js",
-  "esm2015": "../esm2015/menubar/index.js",
+  "fesm2020": "../fesm2020/menubar.mjs",
+  "fesm2015": "../fesm2015/menubar.mjs",
+  "esm2020": "../esm2020/menubar/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/menubar.js",
-  "es2015": "../fesm2015/menubar.js"
+  "module": "../fesm2015/menubar.mjs",
+  "es2020": "../fesm2020/menubar.mjs"
 }

@@ -7,6 +7,7 @@
  */
 import { Platform } from '@angular/cdk/platform';
 import { AfterViewInit, ElementRef, OnChanges, OnDestroy } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * Internal component that creates an instance of the MDC notched-outline component. Using
  * a directive allows us to conditionally render a notched-outline in the template without
@@ -31,4 +32,6 @@ export declare class MatFormFieldNotchedOutline implements AfterViewInit, OnChan
     ngOnDestroy(): void;
     /** Synchronizes the notched outline state to be based on the `width` and `open` inputs. */
     private _syncNotchedOutlineState;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldNotchedOutline, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatFormFieldNotchedOutline, "div[matFormFieldNotchedOutline]", never, { "width": "matFormFieldNotchedOutlineWidth"; "open": "matFormFieldNotchedOutlineOpen"; }, {}, never, ["*"]>;
 }

@@ -9,6 +9,7 @@ import { AfterViewInit, ElementRef, OnInit, QueryList } from '@angular/core';
 import { _MatSelectBase } from '@angular/material/select';
 import { MatOptgroup, MatOption } from '@angular/material-experimental/mdc-core';
 import { CdkOverlayOrigin, ConnectedPosition } from '@angular/cdk/overlay';
+import * as i0 from "@angular/core";
 /** Change event object that is emitted when the select value has changed. */
 export declare class MatSelectChange {
     /** Reference to the select that emitted the change event. */
@@ -25,6 +26,8 @@ export declare class MatSelectChange {
  * Allows the user to customize the trigger that is displayed when the select has a value.
  */
 export declare class MatSelectTrigger {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectTrigger, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectTrigger, "mat-select-trigger", never, {}, {}, never>;
 }
 export declare class MatSelect extends _MatSelectBase<MatSelectChange> implements OnInit, AfterViewInit {
     options: QueryList<MatOption>;
@@ -46,4 +49,6 @@ export declare class MatSelect extends _MatSelectBase<MatSelectChange> implement
     protected _getChangeEvent(value: any): MatSelectChange;
     /** Gets how wide the overlay panel should be. */
     private _getOverlayWidth;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelect, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelect, "mat-select", ["matSelect"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, ["customTrigger", "options", "optionGroups"], ["mat-select-trigger", "*"]>;
 }

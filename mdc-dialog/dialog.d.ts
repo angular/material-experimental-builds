@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
 import { InjectionToken, Injector } from '@angular/core';
 import { _MatDialogBase, MatDialogConfig } from '@angular/material/dialog';
 import { MatDialogContainer } from './dialog-container';
+import * as i0 from "@angular/core";
 /** Injection token that can be used to access the data that was passed in to a dialog. */
 export declare const MAT_DIALOG_DATA: InjectionToken<any>;
 /** Injection token that can be used to specify default dialog options. */
@@ -34,4 +35,6 @@ export declare class MatDialog extends _MatDialogBase<MatDialogContainer> {
      * @breaking-change 10.0.0
      */
     location: Location, defaultOptions: MatDialogConfig, scrollStrategy: any, parentDialog: MatDialog, overlayContainer: OverlayContainer, animationMode?: 'NoopAnimations' | 'BrowserAnimations');
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatDialog, [null, null, { optional: true; }, { optional: true; }, null, { optional: true; skipSelf: true; }, null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<MatDialog>;
 }

@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-snack-bar",
-  "main": "../bundles/material-experimental-mdc-snack-bar.umd.js",
-  "fesm2015": "../fesm2015/mdc-snack-bar.js",
-  "esm2015": "../esm2015/mdc-snack-bar/index.js",
+  "fesm2020": "../fesm2020/mdc-snack-bar.mjs",
+  "fesm2015": "../fesm2015/mdc-snack-bar.mjs",
+  "esm2020": "../esm2020/mdc-snack-bar/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-snack-bar.js",
-  "es2015": "../fesm2015/mdc-snack-bar.js"
+  "module": "../fesm2015/mdc-snack-bar.mjs",
+  "es2020": "../fesm2020/mdc-snack-bar.mjs"
 }

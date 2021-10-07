@@ -12,6 +12,7 @@ import { CanColor, CanDisable, CanDisableRipple, HasTabIndex, MatRipple, RippleG
 import { deprecated } from '@material/chips';
 import { Subject } from 'rxjs';
 import { MatChipAvatar, MatChipTrailingIcon, MatChipRemove } from './chip-icons';
+import * as i0 from "@angular/core";
 /** Represents an event fired on an individual `mat-chip`. */
 export interface MatChipEvent {
     /** The chip the event was fired on. */
@@ -22,6 +23,8 @@ export interface MatChipEvent {
  * @docs-private
  */
 export declare class MatChipCssInternalOnly {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipCssInternalOnly, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipCssInternalOnly, "mat-chip, mat-chip-option, mat-chip-row, [mat-chip], [mat-chip-option],    [mat-chip-row]", never, {}, {}, never>;
 }
 /**
  * Boilerplate for applying mixins to MatChip.
@@ -32,7 +35,7 @@ declare abstract class MatChipBase {
     abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
-declare const _MatChipMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisableRipple> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisableRipple> & typeof MatChipBase;
+declare const _MatChipMixinBase: import("@angular/material-experimental/mdc-core")._Constructor<HasTabIndex> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<HasTabIndex> & import("@angular/material-experimental/mdc-core")._Constructor<CanColor> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanColor> & import("@angular/material-experimental/mdc-core")._Constructor<CanDisableRipple> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanDisableRipple> & typeof MatChipBase;
 /**
  * Material design styled Chip base component. Used inside the MatChipSet component.
  *
@@ -134,5 +137,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     static ngAcceptInputType_highlighted: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
     static ngAcceptInputType_tabIndex: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChip, [null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChip, "mat-basic-chip, mat-chip", ["matChip"], { "color": "color"; "disableRipple": "disableRipple"; "id": "id"; "disabled": "disabled"; "value": "value"; "removable": "removable"; "highlighted": "highlighted"; }, { "interaction": "interaction"; "destroyed": "destroyed"; "removed": "removed"; }, ["leadingIcon", "trailingIcon", "removeIcon"], ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"]>;
 }
 export {};

@@ -2,4 +2,3 @@
  * Generated bundle index. Do not edit.
  */
 export * from './public-api';
-export { MAT_ANCHOR_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_f, MAT_ANCHOR_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_e, MAT_BUTTON_HOST as ɵangular_material_src_material_experimental_mdc_button_mdc_button_b, MAT_BUTTON_INPUTS as ɵangular_material_src_material_experimental_mdc_button_mdc_button_a, MatAnchorBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_g, MatButtonBase as ɵangular_material_src_material_experimental_mdc_button_mdc_button_d, _MatButtonMixin as ɵangular_material_src_material_experimental_mdc_button_mdc_button_c } from './button-base';

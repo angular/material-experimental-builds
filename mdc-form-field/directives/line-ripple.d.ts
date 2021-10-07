@@ -7,6 +7,7 @@
  */
 import { ElementRef, OnDestroy } from '@angular/core';
 import { MDCLineRipple } from '@material/line-ripple';
+import * as i0 from "@angular/core";
 /**
  * Internal directive that creates an instance of the MDC line-ripple component. Using a
  * directive allows us to conditionally render a line-ripple in the template without having
@@ -18,4 +19,6 @@ import { MDCLineRipple } from '@material/line-ripple';
 export declare class MatFormFieldLineRipple extends MDCLineRipple implements OnDestroy {
     constructor(elementRef: ElementRef);
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldLineRipple, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldLineRipple, "div[matFormFieldLineRipple]", never, {}, {}, never>;
 }

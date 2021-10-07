@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-autocomplete/testing",
-  "main": "../../bundles/material-experimental-mdc-autocomplete-testing.umd.js",
-  "fesm2015": "../../fesm2015/mdc-autocomplete/testing.js",
-  "esm2015": "../../esm2015/mdc-autocomplete/testing/index.js",
+  "fesm2020": "../../fesm2020/mdc-autocomplete/testing.mjs",
+  "fesm2015": "../../fesm2015/mdc-autocomplete/testing.mjs",
+  "esm2020": "../../esm2020/mdc-autocomplete/testing/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../../fesm2015/mdc-autocomplete/testing.js",
-  "es2015": "../../fesm2015/mdc-autocomplete/testing.js"
+  "module": "../../fesm2015/mdc-autocomplete/testing.mjs",
+  "es2020": "../../fesm2020/mdc-autocomplete/testing.mjs"
 }

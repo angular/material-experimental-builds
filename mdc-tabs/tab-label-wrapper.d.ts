@@ -9,6 +9,7 @@ import { ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { MatTabLabelWrapper as BaseMatTabLabelWrapper } from '@angular/material/tabs';
 import { MatInkBarFoundation, MatInkBarItem } from './ink-bar';
 import { BooleanInput } from '@angular/cdk/coercion';
+import * as i0 from "@angular/core";
 /**
  * Used in the `mat-tab-group` view to display tab labels.
  * @docs-private
@@ -23,4 +24,6 @@ export declare class MatTabLabelWrapper extends BaseMatTabLabelWrapper implement
     ngOnInit(): void;
     ngOnDestroy(): void;
     static ngAcceptInputType_fitInkBarToContent: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLabelWrapper, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatTabLabelWrapper, "[matTabLabelWrapper]", never, { "disabled": "disabled"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, never>;
 }

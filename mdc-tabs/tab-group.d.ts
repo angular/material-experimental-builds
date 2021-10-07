@@ -10,6 +10,7 @@ import { _MatTabGroupBase, MatTabsConfig } from '@angular/material/tabs';
 import { MatTab } from './tab';
 import { MatTabHeader } from './tab-header';
 import { BooleanInput } from '@angular/cdk/coercion';
+import * as i0 from "@angular/core";
 /**
  * Material design tab-group component. Supports basic tab pairs (label + content) and includes
  * animated ink-bar, keyboard navigation, and screen reader.
@@ -25,4 +26,6 @@ export declare class MatTabGroup extends _MatTabGroupBase {
     private _fitInkBarToContent;
     constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, defaultConfig?: MatTabsConfig, animationMode?: string);
     static ngAcceptInputType_fitInkBarToContent: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabGroup, [null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabGroup, "mat-tab-group", ["matTabGroup"], { "color": "color"; "disableRipple": "disableRipple"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, ["_allTabs"], never>;
 }

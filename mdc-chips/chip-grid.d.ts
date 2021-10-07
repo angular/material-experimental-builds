@@ -17,6 +17,7 @@ import { MatChipEvent } from './chip';
 import { MatChipRow } from './chip-row';
 import { MatChipSet } from './chip-set';
 import { GridFocusKeyManager } from './grid-focus-key-manager';
+import * as i0 from "@angular/core";
 /** Change event object that is emitted when the chip grid value has changed. */
 export declare class MatChipGridChange {
     /** Chip grid that emitted the event. */
@@ -43,7 +44,7 @@ declare class MatChipGridBase extends MatChipSet {
     /** @docs-private */
     ngControl: NgControl);
 }
-declare const _MatChipGridMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanUpdateErrorState> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanUpdateErrorState> & typeof MatChipGridBase;
+declare const _MatChipGridMixinBase: import("@angular/material-experimental/mdc-core")._Constructor<CanUpdateErrorState> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanUpdateErrorState> & typeof MatChipGridBase;
 /**
  * An extension of the MatChipSet component used with MatChipRow chips and
  * the matChipInputFor directive.
@@ -207,5 +208,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     private _focusInput;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_required: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipGrid, "mat-chip-grid", never, { "tabIndex": "tabIndex"; "disabled": "disabled"; "placeholder": "placeholder"; "required": "required"; "value": "value"; "errorStateMatcher": "errorStateMatcher"; }, { "change": "change"; "valueChange": "valueChange"; }, ["_chips"], ["*"]>;
 }
 export {};

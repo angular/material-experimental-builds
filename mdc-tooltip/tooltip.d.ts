@@ -11,6 +11,7 @@ import { AriaDescriber, FocusMonitor } from '@angular/cdk/a11y';
 import { Directionality } from '@angular/cdk/bidi';
 import { ConnectedPosition, Overlay, ScrollDispatcher } from '@angular/cdk/overlay';
 import { MatTooltipDefaultOptions, _MatTooltipBase, _TooltipComponentBase } from '@angular/material/tooltip';
+import * as i0 from "@angular/core";
 /**
  * CSS class that will be attached to the overlay panel.
  * @deprecated
@@ -28,6 +29,8 @@ export declare class MatTooltip extends _MatTooltipBase<TooltipComponent> {
     protected readonly _cssClassPrefix = "mat-mdc";
     constructor(overlay: Overlay, elementRef: ElementRef<HTMLElement>, scrollDispatcher: ScrollDispatcher, viewContainerRef: ViewContainerRef, ngZone: NgZone, platform: Platform, ariaDescriber: AriaDescriber, focusMonitor: FocusMonitor, scrollStrategy: any, dir: Directionality, defaultOptions: MatTooltipDefaultOptions, _document: any);
     protected _addOffset(position: ConnectedPosition): ConnectedPosition;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTooltip, [null, null, null, null, null, null, null, null, null, { optional: true; }, { optional: true; }, null]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatTooltip, "[matTooltip]", ["matTooltip"], {}, {}, never>;
 }
 /**
  * Internal component that wraps the tooltip's content.
@@ -40,4 +43,6 @@ export declare class TooltipComponent extends _TooltipComponentBase {
     protected _onShow(): void;
     /** Whether the tooltip text has overflown to the next line */
     private _isTooltipMultiline;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<TooltipComponent, "mat-tooltip-component", never, {}, {}, never, never>;
 }

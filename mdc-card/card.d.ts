@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { InjectionToken } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare type MatCardAppearance = 'outlined' | 'raised';
 /** Object that can be used to configure the default options for the card module. */
 export interface MatCardConfig {
@@ -23,6 +24,8 @@ export declare const MAT_CARD_CONFIG: InjectionToken<MatCardConfig>;
 export declare class MatCard {
     appearance: MatCardAppearance;
     constructor(config?: MatCardConfig);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCard, [{ optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatCard, "mat-card", ["matCard"], { "appearance": "appearance"; }, {}, never, ["*"]>;
 }
 /**
  * Title of a card, intended for use within `<mat-card>`. This component is an optional
@@ -31,6 +34,8 @@ export declare class MatCard {
  * MatCardTitle provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardTitle {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardTitle, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardTitle, "mat-card-title, [mat-card-title], [matCardTitle]", never, {}, {}, never>;
 }
 /**
  * Container intended to be used within the `<mat-card>` component. Can contain exactly one
@@ -38,6 +43,8 @@ export declare class MatCardTitle {
  * (e.g. `<img matCardLgImage>`).
  */
 export declare class MatCardTitleGroup {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardTitleGroup, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatCardTitleGroup, "mat-card-title-group", never, {}, {}, never, ["mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "[mat-card-image], [matCardImage],\n                    [mat-card-sm-image], [matCardImageSmall],\n                    [mat-card-md-image], [matCardImageMedium],\n                    [mat-card-lg-image], [matCardImageLarge],\n                    [mat-card-xl-image], [matCardImageXLarge]", "*"]>;
 }
 /**
  * Content of a card, intended for use within `<mat-card>`. This component is an optional
@@ -47,6 +54,8 @@ export declare class MatCardTitleGroup {
  * MatCardContent provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardContent {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardContent, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardContent, "mat-card-content", never, {}, {}, never>;
 }
 /**
  * Sub-title of a card, intended for use within `<mat-card>` beneath a `<mat-card-title>`. This
@@ -56,6 +65,8 @@ export declare class MatCardContent {
  * MatCardSubtitle provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardSubtitle {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardSubtitle, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardSubtitle, "mat-card-subtitle, [mat-card-subtitle], [matCardSubtitle]", never, {}, {}, never>;
 }
 /**
  * Bottom area of a card that contains action buttons, intended for use within `<mat-card>`.
@@ -67,6 +78,8 @@ export declare class MatCardSubtitle {
 export declare class MatCardActions {
     /** Position of the actions inside the card. */
     align: 'start' | 'end';
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardActions, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardActions, "mat-card-actions", ["matCardActions"], { "align": "align"; }, {}, never>;
 }
 /**
  * Header region of a card, intended for use within `<mat-card>`. This header captures
@@ -77,6 +90,8 @@ export declare class MatCardActions {
  * MatCardHeader provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardHeader {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardHeader, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatCardHeader, "mat-card-header", never, {}, {}, never, ["[mat-card-avatar], [matCardAvatar]", "mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "*"]>;
 }
 /**
  * Footer area a card, intended for use within `<mat-card>`.
@@ -86,6 +101,8 @@ export declare class MatCardHeader {
  * MatCardFooter provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardFooter {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardFooter, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardFooter, "mat-card-footer", never, {}, {}, never>;
 }
 /**
  * Primary image content for a card, intended for use within `<mat-card>`. Can be applied to
@@ -97,18 +114,28 @@ export declare class MatCardFooter {
  * MatCardImage provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardImage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardImage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardImage, "[mat-card-image], [matCardImage]", never, {}, {}, never>;
 }
 /** Same as `MatCardImage`, but small. */
 export declare class MatCardSmImage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardSmImage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardSmImage, "[mat-card-sm-image], [matCardImageSmall]", never, {}, {}, never>;
 }
 /** Same as `MatCardImage`, but medium. */
 export declare class MatCardMdImage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardMdImage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardMdImage, "[mat-card-md-image], [matCardImageMedium]", never, {}, {}, never>;
 }
 /** Same as `MatCardImage`, but large. */
 export declare class MatCardLgImage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardLgImage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardLgImage, "[mat-card-lg-image], [matCardImageLarge]", never, {}, {}, never>;
 }
 /** Same as `MatCardImage`, but extra-large. */
 export declare class MatCardXlImage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardXlImage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardXlImage, "[mat-card-xl-image], [matCardImageXLarge]", never, {}, {}, never>;
 }
 /**
  * Avatar image content for a card, intended for use within `<mat-card>`. Can be applied to
@@ -120,4 +147,6 @@ export declare class MatCardXlImage {
  * MatCardAvatar provides no behaviors, instead serving as a purely visual treatment.
  */
 export declare class MatCardAvatar {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatCardAvatar, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatCardAvatar, "[mat-card-avatar], [matCardAvatar]", never, {}, {}, never>;
 }

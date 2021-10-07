@@ -1,11 +1,7 @@
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 import { MatListBase } from './list-base';
+import * as i0 from "@angular/core";
 export declare class MatNavList extends MatListBase {
     _isNonInteractive: boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatNavList, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatNavList, "mat-nav-list", ["matNavList"], {}, {}, never, ["*"]>;
 }

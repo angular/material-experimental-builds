@@ -9,6 +9,7 @@ import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy } from '@angular/core';
 import { CanDisable, HasTabIndex } from '@angular/material-experimental/mdc-core';
 import { Subject } from 'rxjs';
+import * as i0 from "@angular/core";
 /**
  * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
  * alternative token to the actual `MatChipAvatar` class which could cause unnecessary
@@ -25,6 +26,8 @@ export declare class MatChipAvatar {
     constructor(_changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef<HTMLElement>);
     /** Sets whether the given CSS class should be applied to the leading icon. */
     setClass(cssClass: string, active: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipAvatar, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipAvatar, "mat-chip-avatar, [matChipAvatar]", never, {}, {}, never>;
 }
 /**
  * Injection token that can be used to reference instances of `MatChipTrailingIcon`. It serves as
@@ -46,6 +49,8 @@ export declare class MatChipTrailingIcon implements OnDestroy {
     /** Sets an attribute on the icon. */
     setAttribute(name: string, value: string): void;
     isNavigable(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipTrailingIcon, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipTrailingIcon, "mat-chip-trailing-icon, [matChipTrailingIcon]", never, {}, {}, never>;
 }
 /**
  * Injection token that can be used to reference instances of `MatChipRemove`. It serves as
@@ -60,7 +65,7 @@ export declare const MAT_CHIP_REMOVE: InjectionToken<MatChipRemove>;
 declare class MatChipRemoveBase extends MatChipTrailingIcon {
     constructor(elementRef: ElementRef);
 }
-declare const _MatChipRemoveMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").Constructor<CanDisable> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanDisable> & typeof MatChipRemoveBase;
+declare const _MatChipRemoveMixinBase: import("@angular/material-experimental/mdc-core")._Constructor<HasTabIndex> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<HasTabIndex> & import("@angular/material-experimental/mdc-core")._Constructor<CanDisable> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanDisable> & typeof MatChipRemoveBase;
 /**
  * Directive to remove the parent chip when the trailing icon is clicked or
  * when the ENTER key is pressed on it.
@@ -88,5 +93,7 @@ export declare class MatChipRemove extends _MatChipRemoveMixinBase implements Ca
     focus(): void;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_tabIndex: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRemove, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipRemove, "[matChipRemove]", never, { "disabled": "disabled"; "tabIndex": "tabIndex"; }, {}, never>;
 }
 export {};

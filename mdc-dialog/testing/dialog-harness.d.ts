@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { HarnessPredicate } from '@angular/cdk/testing';
-import { DialogHarnessFilters, MatDialogHarness as NonMdcDialogHarness } from '@angular/material/dialog/testing';
+import { DialogHarnessFilters, _MatDialogHarnessBase } from '@angular/material/dialog/testing';
 /** Selectors for different sections of the mat-dialog that can contain user content. */
 export declare const enum MatDialogSection {
     TITLE = ".mat-mdc-dialog-title",
@@ -14,7 +14,7 @@ export declare const enum MatDialogSection {
     ACTIONS = ".mat-mdc-dialog-actions"
 }
 /** Harness for interacting with a standard `MatDialog` in tests. */
-export declare class MatDialogHarness extends NonMdcDialogHarness {
+export declare class MatDialogHarness extends _MatDialogHarnessBase {
     /** The selector for the host element of a `MatDialog` instance. */
     static hostSelector: string;
     /**

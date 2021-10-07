@@ -1,12 +1,6 @@
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 import { CdkSelection, SelectionChange } from '@angular/cdk-experimental/selection';
 import { EventEmitter } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * Manages the selection states of the items and provides methods to check and update the selection
  * states.
@@ -19,6 +13,8 @@ export declare class MatSelection<T> extends CdkSelection<T> {
     set multiple(multiple: boolean);
     /** Emits when selection changes. */
     readonly change: EventEmitter<SelectionChange<T>>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelection<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": "matSelectionMultiple"; }, { "change": "matSelectionChange"; }, never>;
 }
 /**
  * Represents the change in the selection set.

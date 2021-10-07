@@ -20,6 +20,7 @@ import { MatFormFieldNotchedOutline } from './directives/notched-outline';
 import { MatPrefix } from './directives/prefix';
 import { MatSuffix } from './directives/suffix';
 import { BooleanInput } from '@angular/cdk/coercion';
+import * as i0 from "@angular/core";
 /** Type for the available floatLabel values. */
 export declare type FloatLabelType = 'always' | 'auto';
 /** Possible appearance styles for the form field. */
@@ -184,4 +185,6 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     /** Checks whether the form field is attached to the DOM. */
     private _isAttachedToDom;
     static ngAcceptInputType_hideRequiredMarker: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatFormField, [null, null, null, null, null, { optional: true; }, { optional: true; }, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatFormField, "mat-form-field", ["matFormField"], { "hideRequiredMarker": "hideRequiredMarker"; "color": "color"; "floatLabel": "floatLabel"; "appearance": "appearance"; "hintLabel": "hintLabel"; }, {}, ["_labelChildNonStatic", "_labelChildStatic", "_formFieldControl", "_prefixChildren", "_suffixChildren", "_errorChildren", "_hintChildren"], ["mat-label", "[matPrefix], [matIconPrefix]", "[matTextPrefix]", "*", "[matTextSuffix]", "[matSuffix], [matIconSuffix]", "mat-error", "mat-hint:not([align='end'])", "mat-hint[align='end']"]>;
 }

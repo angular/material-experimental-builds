@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ElementRef, InjectionToken } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * Injection token that can be used to reference instances of `MatSuffix`. It serves as
  * alternative token to the actual `MatSuffix` class which could cause unnecessary
@@ -16,4 +17,6 @@ export declare const MAT_SUFFIX: InjectionToken<MatSuffix>;
 export declare class MatSuffix {
     _isText: boolean;
     constructor(elementRef: ElementRef);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSuffix, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSuffix, "[matSuffix], [matIconSuffix], [matTextSuffix]", never, {}, {}, never>;
 }

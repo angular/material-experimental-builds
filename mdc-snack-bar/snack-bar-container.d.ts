@@ -12,6 +12,7 @@ import { MatSnackBarConfig, _SnackBarContainer } from '@angular/material/snack-b
 import { MDCSnackbarFoundation } from '@material/snackbar';
 import { Platform } from '@angular/cdk/platform';
 import { Observable, Subject } from 'rxjs';
+import * as i0 from "@angular/core";
 /**
  * Internal component that wraps user-provided snack bar content.
  * @docs-private
@@ -73,4 +74,6 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
      * announce it.
      */
     private _screenReaderAnnounce;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSnackBarContainer, [null, null, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSnackBarContainer, "mat-snack-bar-container", never, {}, {}, never, never>;
 }

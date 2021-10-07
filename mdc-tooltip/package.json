@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-tooltip",
-  "main": "../bundles/material-experimental-mdc-tooltip.umd.js",
-  "fesm2015": "../fesm2015/mdc-tooltip.js",
-  "esm2015": "../esm2015/mdc-tooltip/index.js",
+  "fesm2020": "../fesm2020/mdc-tooltip.mjs",
+  "fesm2015": "../fesm2015/mdc-tooltip.mjs",
+  "esm2020": "../esm2020/mdc-tooltip/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-tooltip.js",
-  "es2015": "../fesm2015/mdc-tooltip.js"
+  "module": "../fesm2015/mdc-tooltip.mjs",
+  "es2020": "../fesm2020/mdc-tooltip.mjs"
 }

@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-checkbox",
-  "main": "../bundles/material-experimental-mdc-checkbox.umd.js",
-  "fesm2015": "../fesm2015/mdc-checkbox.js",
-  "esm2015": "../esm2015/mdc-checkbox/index.js",
+  "fesm2020": "../fesm2020/mdc-checkbox.mjs",
+  "fesm2015": "../fesm2015/mdc-checkbox.mjs",
+  "esm2020": "../esm2020/mdc-checkbox/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-checkbox.js",
-  "es2015": "../fesm2015/mdc-checkbox.js"
+  "module": "../fesm2015/mdc-checkbox.mjs",
+  "es2020": "../fesm2020/mdc-checkbox.mjs"
 }

@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-tabs",
-  "main": "../bundles/material-experimental-mdc-tabs.umd.js",
-  "fesm2015": "../fesm2015/mdc-tabs.js",
-  "esm2015": "../esm2015/mdc-tabs/index.js",
+  "fesm2020": "../fesm2020/mdc-tabs.mjs",
+  "fesm2015": "../fesm2015/mdc-tabs.mjs",
+  "esm2020": "../esm2020/mdc-tabs/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-tabs.js",
-  "es2015": "../fesm2015/mdc-tabs.js"
+  "module": "../fesm2015/mdc-tabs.mjs",
+  "es2020": "../fesm2020/mdc-tabs.mjs"
 }

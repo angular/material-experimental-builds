@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-progress-bar",
-  "main": "../bundles/material-experimental-mdc-progress-bar.umd.js",
-  "fesm2015": "../fesm2015/mdc-progress-bar.js",
-  "esm2015": "../esm2015/mdc-progress-bar/index.js",
+  "fesm2020": "../fesm2020/mdc-progress-bar.mjs",
+  "fesm2015": "../fesm2015/mdc-progress-bar.mjs",
+  "esm2020": "../esm2020/mdc-progress-bar/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-progress-bar.js",
-  "es2015": "../fesm2015/mdc-progress-bar.js"
+  "module": "../fesm2015/mdc-progress-bar.mjs",
+  "es2020": "../fesm2020/mdc-progress-bar.mjs"
 }

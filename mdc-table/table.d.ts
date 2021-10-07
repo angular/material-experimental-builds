@@ -7,11 +7,14 @@
  */
 import { OnInit } from '@angular/core';
 import { CdkTable } from '@angular/cdk/table';
+import * as i0 from "@angular/core";
 /**
  * Enables the recycle view repeater strategy, which reduces rendering latency. Not compatible with
  * tables that animate rows.
  */
 export declare class MatRecycleRows {
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatRecycleRows, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRecycleRows, "mat-table[recycleRows], table[mat-table][recycleRows]", never, {}, {}, never>;
 }
 export declare class MatTable<T> extends CdkTable<T> implements OnInit {
     /** Overrides the sticky CSS class set by the `CdkTable`. */
@@ -19,4 +22,6 @@ export declare class MatTable<T> extends CdkTable<T> implements OnInit {
     /** Overrides the need to add position: sticky on every sticky cell element in `CdkTable`. */
     protected needsPositionStickyOnElement: boolean;
     ngOnInit(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTable<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTable<any>, "mat-table, table[mat-table]", ["matTable"], {}, {}, never, ["caption", "colgroup, col"]>;
 }

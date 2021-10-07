@@ -8,6 +8,7 @@
 import { MatTable } from '@angular/material/table';
 import { OnDestroy, OnInit } from '@angular/core';
 import { MatSelection } from './selection';
+import * as i0 from "@angular/core";
 /**
  * Column that adds row selecting checkboxes and a select-all checkbox if `matSelectionMultiple` is
  * `true`.
@@ -28,4 +29,6 @@ export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
     ngOnInit(): void;
     ngOnDestroy(): void;
     private _syncColumnDefName;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionColumn<any>, [{ optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": "name"; }, {}, never, never>;
 }

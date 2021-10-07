@@ -6,6 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { ElementRef } from '@angular/core';
+import * as i0 from "@angular/core";
 /**
  * Internal directive that maintains a MDC floating label. This directive does not
  * use the `MDCFloatingLabelFoundation` class, as it is not worth the size cost of
@@ -30,4 +31,6 @@ export declare class MatFormFieldFloatingLabel {
     getWidth(): number;
     /** Gets the HTML element for the floating label. */
     get element(): HTMLElement;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldFloatingLabel, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldFloatingLabel, "label[matFormFieldFloatingLabel]", never, { "floating": "floating"; "required": "required"; }, {}, never>;
 }
