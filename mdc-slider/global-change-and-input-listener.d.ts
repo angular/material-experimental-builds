@@ -1,13 +1,7 @@
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 import { NgZone, OnDestroy } from '@angular/core';
 import { SpecificEventListener } from '@material/base';
 import { Subscription } from 'rxjs';
+import * as i0 from "@angular/core";
 /**
  * Handles listening for all change and input events that occur on the document.
  *
@@ -30,4 +24,6 @@ export declare class GlobalChangeAndInputListener<K extends 'change' | 'input'> 
     listen(type: K, callback: SpecificEventListener<K>): Subscription;
     /** Creates an observable that emits all events of the given type. */
     private _createGlobalEventObservable;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GlobalChangeAndInputListener<any>, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<GlobalChangeAndInputListener<any>>;
 }

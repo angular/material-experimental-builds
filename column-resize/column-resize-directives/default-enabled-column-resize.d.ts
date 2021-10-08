@@ -8,6 +8,7 @@
 import { ElementRef, NgZone } from '@angular/core';
 import { ColumnResizeNotifier, ColumnResizeNotifierSource, HeaderRowEventDispatcher } from '@angular/cdk-experimental/column-resize';
 import { AbstractMatColumnResize } from './common';
+import * as i0 from "@angular/core";
 /**
  * Implicitly enables column resizing for a table-based mat-table.
  * Individual columns will be resizable unless opted out.
@@ -19,4 +20,6 @@ export declare class MatDefaultEnabledColumnResize extends AbstractMatColumnResi
     protected readonly ngZone: NgZone;
     protected readonly notifier: ColumnResizeNotifierSource;
     constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatDefaultEnabledColumnResize, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultEnabledColumnResize, "table[mat-table]", never, {}, {}, never>;
 }

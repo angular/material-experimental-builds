@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 import { MatChip, MatChipEvent } from './chip';
 import { MatChipOption, MatChipSelectionChange } from './chip-option';
 import { MatChipSet } from './chip-set';
+import * as i0 from "@angular/core";
 /** Change event object that is emitted when the chip listbox value has changed. */
 export declare class MatChipListboxChange {
     /** Chip listbox that emitted the event. */
@@ -186,4 +187,6 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
     static ngAcceptInputType_multiple: BooleanInput;
     static ngAcceptInputType_selectable: BooleanInput;
     static ngAcceptInputType_required: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipListbox, [null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipListbox, "mat-chip-listbox", never, { "tabIndex": "tabIndex"; "multiple": "multiple"; "ariaOrientation": "aria-orientation"; "selectable": "selectable"; "compareWith": "compareWith"; "required": "required"; "value": "value"; }, { "change": "change"; }, ["_chips"], ["*"]>;
 }

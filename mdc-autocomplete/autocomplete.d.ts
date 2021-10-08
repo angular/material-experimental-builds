@@ -8,6 +8,7 @@
 import { QueryList } from '@angular/core';
 import { MatOptgroup, MatOption } from '@angular/material-experimental/mdc-core';
 import { _MatAutocompleteBase } from '@angular/material/autocomplete';
+import * as i0 from "@angular/core";
 export declare class MatAutocomplete extends _MatAutocompleteBase {
     /** Reference to all option groups within the autocomplete. */
     optionGroups: QueryList<MatOptgroup>;
@@ -15,4 +16,6 @@ export declare class MatAutocomplete extends _MatAutocompleteBase {
     options: QueryList<MatOption>;
     protected _visibleClass: string;
     protected _hiddenClass: string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatAutocomplete, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatAutocomplete, "mat-autocomplete", ["matAutocomplete"], { "disableRipple": "disableRipple"; }, {}, ["optionGroups", "options"], ["*"]>;
 }

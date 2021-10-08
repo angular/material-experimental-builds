@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-radio",
-  "main": "../bundles/material-experimental-mdc-radio.umd.js",
-  "fesm2015": "../fesm2015/mdc-radio.js",
-  "esm2015": "../esm2015/mdc-radio/index.js",
+  "fesm2020": "../fesm2020/mdc-radio.mjs",
+  "fesm2015": "../fesm2015/mdc-radio.mjs",
+  "esm2020": "../esm2020/mdc-radio/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-radio.js",
-  "es2015": "../fesm2015/mdc-radio.js"
+  "module": "../fesm2015/mdc-radio.mjs",
+  "es2020": "../fesm2020/mdc-radio.mjs"
 }

@@ -15,6 +15,7 @@ import { Platform } from '@angular/cdk/platform';
 import { MatInkBar, MatInkBarItem, MatInkBarFoundation } from '../ink-bar';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { BehaviorSubject } from 'rxjs';
+import * as i0 from "@angular/core";
 /**
  * Navigation component matching the styles of the tab group header.
  * Provides anchored navigation with animated ink bar.
@@ -34,6 +35,8 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     ngAfterContentInit(): void;
     static ngAcceptInputType_fitInkBarToContent: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabNav, [null, { optional: true; }, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabNav, "[mat-tab-nav-bar]", ["matTabNavBar", "matTabNav"], { "color": "color"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, ["_items"], ["*"]>;
 }
 /**
  * Link inside of a `mat-tab-nav-bar`.
@@ -45,4 +48,6 @@ export declare class MatTabLink extends _MatTabLinkBase implements MatInkBarItem
     constructor(tabNavBar: MatTabNav, elementRef: ElementRef, globalRippleOptions: RippleGlobalOptions | null, tabIndex: string, focusMonitor: FocusMonitor, _document: any, animationMode?: string);
     ngOnInit(): void;
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLink, [null, null, { optional: true; }, { attribute: "tabindex"; }, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabLink, "[mat-tab-link], [matTabLink]", ["matTabLink"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, never, ["*"]>;
 }

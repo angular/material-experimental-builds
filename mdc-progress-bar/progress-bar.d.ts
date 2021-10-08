@@ -9,8 +9,9 @@ import { ElementRef, NgZone, EventEmitter, AfterViewInit, OnDestroy } from '@ang
 import { CanColor } from '@angular/material-experimental/mdc-core';
 import { MatProgressBarDefaultOptions, ProgressAnimationEnd } from '@angular/material/progress-bar';
 import { Directionality } from '@angular/cdk/bidi';
+import * as i0 from "@angular/core";
 /** @docs-private */
-declare const _MatProgressBarBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & {
+declare const _MatProgressBarBase: import("@angular/material-experimental/mdc-core")._Constructor<CanColor> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanColor> & {
     new (_elementRef: ElementRef): {
         _elementRef: ElementRef;
     };
@@ -60,5 +61,7 @@ export declare class MatProgressBar extends _MatProgressBarBase implements After
     ngOnDestroy(): void;
     /** Syncs the state of the progress bar with the MDC foundation. */
     private _syncFoundation;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatProgressBar, [null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatProgressBar, "mat-progress-bar", ["matProgressBar"], { "color": "color"; "value": "value"; "bufferValue": "bufferValue"; "mode": "mode"; }, { "animationEnd": "animationEnd"; }, never, never>;
 }
 export {};

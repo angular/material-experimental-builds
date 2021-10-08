@@ -12,6 +12,7 @@ import { HasTabIndex } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
 import { Observable, Subject } from 'rxjs';
 import { MatChip, MatChipEvent } from './chip';
+import * as i0 from "@angular/core";
 /**
  * Boilerplate for applying mixins to MatChipSet.
  * @docs-private
@@ -20,7 +21,7 @@ declare abstract class MatChipSetBase {
     abstract disabled: boolean;
     constructor(_elementRef: ElementRef);
 }
-declare const _MatChipSetMixinBase: import("@angular/material/core/common-behaviors/constructor").Constructor<HasTabIndex> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<HasTabIndex> & typeof MatChipSetBase;
+declare const _MatChipSetMixinBase: import("@angular/material-experimental/mdc-core")._Constructor<HasTabIndex> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<HasTabIndex> & typeof MatChipSetBase;
 /**
  * Basic container component for the MatChip component.
  *
@@ -125,5 +126,7 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     private _checkForClassInHierarchy;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_tabIndex: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipSet, [null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipSet, "mat-chip-set", never, { "disabled": "disabled"; "role": "role"; }, {}, ["_chips"], ["*"]>;
 }
 export {};

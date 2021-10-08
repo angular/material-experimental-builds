@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-dialog",
-  "main": "../bundles/material-experimental-mdc-dialog.umd.js",
-  "fesm2015": "../fesm2015/mdc-dialog.js",
-  "esm2015": "../esm2015/mdc-dialog/index.js",
+  "fesm2020": "../fesm2020/mdc-dialog.mjs",
+  "fesm2015": "../fesm2015/mdc-dialog.mjs",
+  "esm2020": "../esm2020/mdc-dialog/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-dialog.js",
-  "es2015": "../fesm2015/mdc-dialog.js"
+  "module": "../fesm2015/mdc-dialog.mjs",
+  "es2020": "../fesm2020/mdc-dialog.mjs"
 }

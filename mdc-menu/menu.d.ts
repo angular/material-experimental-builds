@@ -8,6 +8,7 @@
 import { Overlay, ScrollStrategy } from '@angular/cdk/overlay';
 import { ElementRef, NgZone, Provider } from '@angular/core';
 import { _MatMenuBase, MatMenuDefaultOptions } from '@angular/material/menu';
+import * as i0 from "@angular/core";
 /** @docs-private */
 export declare function MAT_MENU_SCROLL_STRATEGY_FACTORY(overlay: Overlay): () => ScrollStrategy;
 /** @docs-private */
@@ -16,4 +17,6 @@ export declare class MatMenu extends _MatMenuBase {
     protected _elevationPrefix: string;
     protected _baseElevation: number;
     constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _defaultOptions: MatMenuDefaultOptions);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatMenu, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenu, "mat-menu", ["matMenu"], {}, {}, never, ["*"]>;
 }

@@ -8,6 +8,7 @@
 import { ChangeDetectorRef, InjectionToken } from '@angular/core';
 import { MatPaginatorIntl, _MatPaginatorBase } from '@angular/material/paginator';
 import { MatFormFieldAppearance } from '@angular/material-experimental/mdc-form-field';
+import * as i0 from "@angular/core";
 /** Object that can be used to configure the default options for the paginator module. */
 export interface MatPaginatorDefaultOptions {
     /** Number of items to display on a page. By default set to 50. */
@@ -34,4 +35,6 @@ export declare class MatPaginator extends _MatPaginatorBase<MatPaginatorDefaultO
     /** ID for the DOM node containing the pagiators's items per page label. */
     readonly _pageSizeLabelId: string;
     constructor(intl: MatPaginatorIntl, changeDetectorRef: ChangeDetectorRef, defaults?: MatPaginatorDefaultOptions);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatPaginator, [null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatPaginator, "mat-paginator", ["matPaginator"], { "disabled": "disabled"; }, {}, never, never>;
 }

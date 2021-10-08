@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-menu",
-  "main": "../bundles/material-experimental-mdc-menu.umd.js",
-  "fesm2015": "../fesm2015/mdc-menu.js",
-  "esm2015": "../esm2015/mdc-menu/index.js",
+  "fesm2020": "../fesm2020/mdc-menu.mjs",
+  "fesm2015": "../fesm2015/mdc-menu.mjs",
+  "esm2020": "../esm2020/mdc-menu/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-menu.js",
-  "es2015": "../fesm2015/mdc-menu.js"
+  "module": "../fesm2015/mdc-menu.mjs",
+  "es2020": "../fesm2020/mdc-menu.mjs"
 }

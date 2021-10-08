@@ -1,13 +1,7 @@
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 import { AfterViewInit, ElementRef, OnDestroy, QueryList } from '@angular/core';
 import { MDCListAdapter, MDCListFoundation } from '@material/list';
 import { MatListBase, MatListItemBase } from './list-base';
+import * as i0 from "@angular/core";
 export declare abstract class MatInteractiveListBase<T extends MatListItemBase> extends MatListBase implements AfterViewInit, OnDestroy {
     _element: ElementRef<HTMLElement>;
     _handleKeydown(event: KeyboardEvent): void;
@@ -40,6 +34,8 @@ export declare abstract class MatInteractiveListBase<T extends MatListItemBase> 
     protected _resetTabindexToFirstSelectedOrFocusedItem(): void;
     _elementAtIndex(index: number): HTMLElement | undefined;
     _indexForElement(element: Element | null): number;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatInteractiveListBase<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatInteractiveListBase<any>, never, never, {}, {}, never>;
 }
 /** Gets an instance of `MDcListAdapter` for the given interactive list. */
 export declare function getInteractiveListAdapter(list: MatInteractiveListBase<MatListItemBase>): MDCListAdapter;

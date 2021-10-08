@@ -8,6 +8,7 @@
 import { TemplateRef } from '@angular/core';
 import { MatTab as BaseMatTab } from '@angular/material/tabs';
 import { MatTabLabel } from './tab-label';
+import * as i0 from "@angular/core";
 export declare class MatTab extends BaseMatTab {
     /**
      * Template provided in the tab content that will be used if present, used to enable lazy-loading
@@ -16,4 +17,6 @@ export declare class MatTab extends BaseMatTab {
     /** Content for the tab label given by `<ng-template mat-tab-label>`. */
     get templateLabel(): MatTabLabel;
     set templateLabel(value: MatTabLabel);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTab, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTab, "mat-tab", ["matTab"], { "disabled": "disabled"; }, {}, ["_explicitContent", "templateLabel"], ["*"]>;
 }

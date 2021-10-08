@@ -11,6 +11,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { CdkColumnDef, _CoalescedStyleScheduler } from '@angular/cdk/table';
 import { ColumnResize, ColumnResizeNotifierSource, HeaderRowEventDispatcher, ResizeStrategy } from '@angular/cdk-experimental/column-resize';
 import { AbstractMatResizable } from './common';
+import * as i0 from "@angular/core";
 /**
  * Implicitly enables column resizing for a mat-header-cell unless the disableResize attribute
  * is present.
@@ -31,4 +32,6 @@ export declare class MatDefaultResizable extends AbstractMatResizable {
     protected readonly changeDetectorRef: ChangeDetectorRef;
     protected readonly document: Document;
     constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, document: any, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, injector: Injector, ngZone: NgZone, overlay: Overlay, resizeNotifier: ColumnResizeNotifierSource, resizeStrategy: ResizeStrategy, styleScheduler: _CoalescedStyleScheduler, viewContainerRef: ViewContainerRef, changeDetectorRef: ChangeDetectorRef);
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatDefaultResizable, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultResizable, "mat-header-cell:not([disableResize]), th[mat-header-cell]:not([disableResize])", never, { "minWidthPx": "matResizableMinWidthPx"; "maxWidthPx": "matResizableMaxWidthPx"; }, {}, never>;
 }

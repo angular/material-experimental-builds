@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-input/testing",
-  "main": "../../bundles/material-experimental-mdc-input-testing.umd.js",
-  "fesm2015": "../../fesm2015/mdc-input/testing.js",
-  "esm2015": "../../esm2015/mdc-input/testing/index.js",
+  "fesm2020": "../../fesm2020/mdc-input/testing.mjs",
+  "fesm2015": "../../fesm2015/mdc-input/testing.mjs",
+  "esm2020": "../../esm2020/mdc-input/testing/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../../fesm2015/mdc-input/testing.js",
-  "es2015": "../../fesm2015/mdc-input/testing.js"
+  "module": "../../fesm2015/mdc-input/testing.mjs",
+  "es2020": "../../fesm2020/mdc-input/testing.mjs"
 }

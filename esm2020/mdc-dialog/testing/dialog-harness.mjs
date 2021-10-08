@@ -1,0 +1,30 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { HarnessPredicate } from '@angular/cdk/testing';
+import { _MatDialogHarnessBase, } from '@angular/material/dialog/testing';
+/** Harness for interacting with a standard `MatDialog` in tests. */
+export class MatDialogHarness extends _MatDialogHarnessBase {
+    constructor() {
+        super(...arguments);
+        this._title = this.locatorForOptional(".mat-mdc-dialog-title" /* TITLE */);
+        this._content = this.locatorForOptional(".mat-mdc-dialog-content" /* CONTENT */);
+        this._actions = this.locatorForOptional(".mat-mdc-dialog-actions" /* ACTIONS */);
+    }
+    /**
+     * Gets a `HarnessPredicate` that can be used to search for a `MatDialogHarness` that meets
+     * certain criteria.
+     * @param options Options for filtering which dialog instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
+     */
+    static with(options = {}) {
+        return new HarnessPredicate(MatDialogHarness, options);
+    }
+}
+/** The selector for the host element of a `MatDialog` instance. */
+MatDialogHarness.hostSelector = '.mat-mdc-dialog-container';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlhbG9nLWhhcm5lc3MuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvbWF0ZXJpYWwtZXhwZXJpbWVudGFsL21kYy1kaWFsb2cvdGVzdGluZy9kaWFsb2ctaGFybmVzcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0dBTUc7QUFFSCxPQUFPLEVBQUMsZ0JBQWdCLEVBQUMsTUFBTSxzQkFBc0IsQ0FBQztBQUN0RCxPQUFPLEVBRUwscUJBQXFCLEdBQ3RCLE1BQU0sa0NBQWtDLENBQUM7QUFTMUMsb0VBQW9FO0FBQ3BFLE1BQU0sT0FBTyxnQkFBaUIsU0FBUSxxQkFBcUI7SUFBM0Q7O1FBY3FCLFdBQU0sR0FBRyxJQUFJLENBQUMsa0JBQWtCLHFDQUF3QixDQUFDO1FBQ3pELGFBQVEsR0FBRyxJQUFJLENBQUMsa0JBQWtCLHlDQUEwQixDQUFDO1FBQzdELGFBQVEsR0FBRyxJQUFJLENBQUMsa0JBQWtCLHlDQUEwQixDQUFDO0lBQ2xGLENBQUM7SUFiQzs7Ozs7T0FLRztJQUNILE1BQU0sQ0FBQyxJQUFJLENBQUMsVUFBZ0MsRUFBRTtRQUM1QyxPQUFPLElBQUksZ0JBQWdCLENBQUMsZ0JBQWdCLEVBQUUsT0FBTyxDQUFDLENBQUM7SUFDekQsQ0FBQzs7QUFYRCxtRUFBbUU7QUFDNUQsNkJBQVksR0FBRywyQkFBMkIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge0hhcm5lc3NQcmVkaWNhdGV9IGZyb20gJ0Bhbmd1bGFyL2Nkay90ZXN0aW5nJztcbmltcG9ydCB7XG4gIERpYWxvZ0hhcm5lc3NGaWx0ZXJzLFxuICBfTWF0RGlhbG9nSGFybmVzc0Jhc2UsXG59IGZyb20gJ0Bhbmd1bGFyL21hdGVyaWFsL2RpYWxvZy90ZXN0aW5nJztcblxuLyoqIFNlbGVjdG9ycyBmb3IgZGlmZmVyZW50IHNlY3Rpb25zIG9mIHRoZSBtYXQtZGlhbG9nIHRoYXQgY2FuIGNvbnRhaW4gdXNlciBjb250ZW50LiAqL1xuZXhwb3J0IGNvbnN0IGVudW0gTWF0RGlhbG9nU2VjdGlvbiB7XG4gIFRJVExFID0gJy5tYXQtbWRjLWRpYWxvZy10aXRsZScsXG4gIENPTlRFTlQgPSAnLm1hdC1tZGMtZGlhbG9nLWNvbnRlbnQnLFxuICBBQ1RJT05TID0gJy5tYXQtbWRjLWRpYWxvZy1hY3Rpb25zJ1xufVxuXG4vKiogSGFybmVzcyBmb3IgaW50ZXJhY3Rpbmcgd2l0aCBhIHN0YW5kYXJkIGBNYXREaWFsb2dgIGluIHRlc3RzLiAqL1xuZXhwb3J0IGNsYXNzIE1hdERpYWxvZ0hhcm5lc3MgZXh0ZW5kcyBfTWF0RGlhbG9nSGFybmVzc0Jhc2Uge1xuICAvKiogVGhlIHNlbGVjdG9yIGZvciB0aGUgaG9zdCBlbGVtZW50IG9mIGEgYE1hdERpYWxvZ2AgaW5zdGFuY2UuICovXG4gIHN0YXRpYyBob3N0U2VsZWN0b3IgPSAnLm1hdC1tZGMtZGlhbG9nLWNvbnRhaW5lcic7XG5cbiAgLyoqXG4gICAqIEdldHMgYSBgSGFybmVzc1ByZWRpY2F0ZWAgdGhhdCBjYW4gYmUgdXNlZCB0byBzZWFyY2ggZm9yIGEgYE1hdERpYWxvZ0hhcm5lc3NgIHRoYXQgbWVldHNcbiAgICogY2VydGFpbiBjcml0ZXJpYS5cbiAgICogQHBhcmFtIG9wdGlvbnMgT3B0aW9ucyBmb3IgZmlsdGVyaW5nIHdoaWNoIGRpYWxvZyBpbnN0YW5jZXMgYXJlIGNvbnNpZGVyZWQgYSBtYXRjaC5cbiAgICogQHJldHVybiBhIGBIYXJuZXNzUHJlZGljYXRlYCBjb25maWd1cmVkIHdpdGggdGhlIGdpdmVuIG9wdGlvbnMuXG4gICAqL1xuICBzdGF0aWMgd2l0aChvcHRpb25zOiBEaWFsb2dIYXJuZXNzRmlsdGVycyA9IHt9KTogSGFybmVzc1ByZWRpY2F0ZTxNYXREaWFsb2dIYXJuZXNzPiB7XG4gICAgcmV0dXJuIG5ldyBIYXJuZXNzUHJlZGljYXRlKE1hdERpYWxvZ0hhcm5lc3MsIG9wdGlvbnMpO1xuICB9XG5cbiAgcHJvdGVjdGVkIG92ZXJyaWRlIF90aXRsZSA9IHRoaXMubG9jYXRvckZvck9wdGlvbmFsKE1hdERpYWxvZ1NlY3Rpb24uVElUTEUpO1xuICBwcm90ZWN0ZWQgb3ZlcnJpZGUgX2NvbnRlbnQgPSB0aGlzLmxvY2F0b3JGb3JPcHRpb25hbChNYXREaWFsb2dTZWN0aW9uLkNPTlRFTlQpO1xuICBwcm90ZWN0ZWQgb3ZlcnJpZGUgX2FjdGlvbnMgPSB0aGlzLmxvY2F0b3JGb3JPcHRpb25hbChNYXREaWFsb2dTZWN0aW9uLkFDVElPTlMpO1xufVxuIl19

@@ -11,6 +11,7 @@ import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { MatSlideToggleDefaultOptions } from './slide-toggle-config';
+import * as i0 from "@angular/core";
 /** @docs-private */
 export declare const MAT_SLIDE_TOGGLE_VALUE_ACCESSOR: any;
 /** Change event object emitted by a MatSlideToggle. */
@@ -106,4 +107,6 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     static ngAcceptInputType_checked: BooleanInput;
     static ngAcceptInputType_disableRipple: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSlideToggle, [null, null, null, { attribute: "tabindex"; }, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSlideToggle, "mat-slide-toggle", ["matSlideToggle"], { "color": "color"; "name": "name"; "id": "id"; "tabIndex": "tabIndex"; "labelPosition": "labelPosition"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "required": "required"; "checked": "checked"; "disableRipple": "disableRipple"; "disabled": "disabled"; }, { "change": "change"; "toggleChange": "toggleChange"; }, never, ["*"]>;
 }

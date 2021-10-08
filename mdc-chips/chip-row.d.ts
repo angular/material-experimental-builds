@@ -12,6 +12,7 @@ import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { MatChip, MatChipEvent } from './chip';
 import { MatChipEditInput } from './chip-edit-input';
 import { GridKeyManagerRow } from './grid-key-manager';
+import * as i0 from "@angular/core";
 /** Represents an event fired on an individual `mat-chip` when it is edited. */
 export interface MatChipEditedEvent extends MatChipEvent {
     /** The final edit value. */
@@ -73,4 +74,6 @@ export declare class MatChipRow extends MatChip implements AfterContentInit, Aft
      */
     private _getEditInput;
     static ngAcceptInputType_editable: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRow, [null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipRow, "mat-chip-row, mat-basic-chip-row", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "editable": "editable"; }, { "edited": "edited"; }, ["contentEditInput"], ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipTrailingIcon]", "[matChipRemove]", "[matChipEditInput]"]>;
 }

@@ -1,9 +1,9 @@
 {
   "name": "@angular/material-experimental/mdc-chips",
-  "main": "../bundles/material-experimental-mdc-chips.umd.js",
-  "fesm2015": "../fesm2015/mdc-chips.js",
-  "esm2015": "../esm2015/mdc-chips/index.js",
+  "fesm2020": "../fesm2020/mdc-chips.mjs",
+  "fesm2015": "../fesm2015/mdc-chips.mjs",
+  "esm2020": "../esm2020/mdc-chips/index.mjs",
   "typings": "./index.d.ts",
-  "module": "../fesm2015/mdc-chips.js",
-  "es2015": "../fesm2015/mdc-chips.js"
+  "module": "../fesm2015/mdc-chips.mjs",
+  "es2020": "../fesm2020/mdc-chips.mjs"
 }

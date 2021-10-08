@@ -12,6 +12,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatInteractiveListBase } from './interactive-list-base';
 import { MatListOption, SelectionList } from './list-option';
+import * as i0 from "@angular/core";
 /** Change event that is being fired whenever the selected state of an option changes. */
 export declare class MatSelectionListChange {
     /** Reference to the selection list that emitted the event. */
@@ -113,4 +114,6 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     /** The option components contained within this selection-list. */
     get options(): QueryList<MatListOption>;
     static ngAcceptInputType_multiple: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionList, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionList, "mat-selection-list", ["matSelectionList"], { "color": "color"; "compareWith": "compareWith"; "multiple": "multiple"; }, { "selectionChange": "selectionChange"; }, ["_items"], ["*"]>;
 }

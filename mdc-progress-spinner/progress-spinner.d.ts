@@ -10,7 +10,8 @@ import { MDCCircularProgressFoundation } from '@material/circular-progress';
 import { CanColor } from '@angular/material-experimental/mdc-core';
 import { MatProgressSpinnerDefaultOptions } from '@angular/material/progress-spinner';
 import { NumberInput } from '@angular/cdk/coercion';
-declare const _MatProgressSpinnerBase: import("@angular/material/core/common-behaviors/constructor").Constructor<CanColor> & import("@angular/material/core/common-behaviors/constructor").AbstractConstructor<CanColor> & {
+import * as i0 from "@angular/core";
+declare const _MatProgressSpinnerBase: import("@angular/material-experimental/mdc-core")._Constructor<CanColor> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanColor> & {
     new (_elementRef: ElementRef): {
         _elementRef: ElementRef;
     };
@@ -66,6 +67,8 @@ export declare class MatProgressSpinner extends _MatProgressSpinnerBase implemen
     static ngAcceptInputType_diameter: NumberInput;
     static ngAcceptInputType_strokeWidth: NumberInput;
     static ngAcceptInputType_value: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatProgressSpinner, [null, { optional: true; }, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatProgressSpinner, "mat-progress-spinner, mat-spinner", ["matProgressSpinner"], { "color": "color"; "mode": "mode"; "value": "value"; "diameter": "diameter"; "strokeWidth": "strokeWidth"; }, {}, never, never>;
 }
 /**
  * `<mat-spinner>` component.

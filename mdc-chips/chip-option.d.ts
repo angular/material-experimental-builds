@@ -8,6 +8,7 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { EventEmitter, AfterContentInit } from '@angular/core';
 import { MatChip } from './chip';
+import * as i0 from "@angular/core";
 /** Event object emitted by MatChipOption when selected or deselected. */
 export declare class MatChipSelectionChange {
     /** Reference to the chip that emitted the event. */
@@ -73,4 +74,6 @@ export declare class MatChipOption extends MatChip implements AfterContentInit {
     _keydown(event: KeyboardEvent): void;
     static ngAcceptInputType_selectable: BooleanInput;
     static ngAcceptInputType_selected: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipOption, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipOption, "mat-basic-chip-option, mat-chip-option", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "selectable": "selectable"; "selected": "selected"; }, { "selectionChange": "selectionChange"; }, never, ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"]>;
 }
