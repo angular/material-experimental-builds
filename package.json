@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-experimental",
-  "version": "13.0.0-next.8",
+  "version": "13.0.0-rc.0",
   "description": "Experimental components for Angular Material",
   "repository": {
     "type": "git",
@@ -425,7 +425,7 @@
   },
   "peerDependencies": {
     "@angular/core": "^13.0.0-0 || ^14.0.0-0",
-    "@angular/material": "13.0.0-next.8",
+    "@angular/material": "13.0.0-rc.0",
     "material-components-web": "13.0.0-canary.860ad06a1.0"
   },
   "dependencies": {
