@@ -52,12 +52,13 @@ class MatProgressSpinner extends _MatProgressSpinnerBase {
             getDeterminateCircleAttribute: (attributeName) => this._determinateCircle.nativeElement.getAttribute(attributeName),
             setDeterminateCircleAttribute: (attributeName, value) => this._determinateCircle.nativeElement.setAttribute(attributeName, value),
         };
-        this._mode = this._elementRef.nativeElement.nodeName.toLowerCase() ===
-            'mat-spinner' ? 'indeterminate' : 'determinate';
+        this._mode = this._elementRef.nativeElement.nodeName.toLowerCase() === 'mat-spinner'
+            ? 'indeterminate'
+            : 'determinate';
         this._value = 0;
         this._diameter = BASE_SIZE;
-        this._noopAnimations = animationMode === 'NoopAnimations' &&
-            (!!defaults && !defaults._forceAnimations);
+        this._noopAnimations =
+            animationMode === 'NoopAnimations' && !!defaults && !defaults._forceAnimations;
         if (defaults) {
             if (defaults.diameter) {
                 this.diameter = defaults.diameter;
@@ -74,7 +75,9 @@ class MatProgressSpinner extends _MatProgressSpinnerBase {
      * 'determinate'.
      * Mirrored to mode attribute.
      */
-    get mode() { return this._mode; }
+    get mode() {
+        return this._mode;
+    }
     set mode(value) {
         this._mode = value;
         this._syncFoundation();
@@ -118,13 +121,13 @@ class MatProgressSpinner extends _MatProgressSpinnerBase {
     /** The dash offset of the svg circle. */
     _strokeDashOffset() {
         if (this.mode === 'determinate') {
-            return this._strokeCircumference() * (100 - this._value) / 100;
+            return (this._strokeCircumference() * (100 - this._value)) / 100;
         }
         return null;
     }
     /** Stroke width of the circle in percent. */
     _circleStrokeWidth() {
-        return this.strokeWidth / this.diameter * 100;
+        return (this.strokeWidth / this.diameter) * 100;
     }
     ngAfterViewInit() {
         this._foundation = new MDCCircularProgressFoundation(this._adapter);

@@ -47,7 +47,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     selector: 'button[matEditRevert]',
                     host: {
                         'type': 'button', // Prevents accidental form submits.
-                    }
+                    },
                 }]
         }] });
 /** Closes the lens on click. */
@@ -136,8 +136,7 @@ class MatRowHoverContent extends CdkRowHoverContent {
         element.classList.remove(MAT_ROW_HOVER_ANIMATE_CLASS);
     }
     makeElementVisible(element) {
-        _closest(this.elementRef.nativeElement, _CELL_SELECTOR)
-            .classList.add(MAT_ROW_HOVER_CELL_CLASS);
+        _closest(this.elementRef.nativeElement, _CELL_SELECTOR).classList.add(MAT_ROW_HOVER_CELL_CLASS);
         if (this.services.directionality.value === 'rtl') {
             element.classList.add(MAT_ROW_HOVER_RTL_CLASS);
         }
@@ -191,8 +190,7 @@ MatPopoverEditModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", ve
         MatEditLens,
         MatEditRevert,
         MatEditClose,
-        MatEditOpen], imports: [CdkPopoverEditModule,
-        MatCommonModule], exports: [MatPopoverEdit,
+        MatEditOpen], imports: [CdkPopoverEditModule, MatCommonModule], exports: [MatPopoverEdit,
         MatPopoverEditTabOut,
         MatRowHoverContent,
         MatEditLens,
@@ -200,17 +198,11 @@ MatPopoverEditModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", ve
         MatEditClose,
         MatEditOpen,
         CdkEditable] });
-MatPopoverEditModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPopoverEditModule, imports: [[
-            CdkPopoverEditModule,
-            MatCommonModule,
-        ]] });
+MatPopoverEditModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPopoverEditModule, imports: [[CdkPopoverEditModule, MatCommonModule]] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPopoverEditModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [
-                        CdkPopoverEditModule,
-                        MatCommonModule,
-                    ],
+                    imports: [CdkPopoverEditModule, MatCommonModule],
                     exports: [
                         MatPopoverEdit,
                         MatPopoverEditTabOut,
@@ -228,7 +220,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         MatEditLens,
                         MatEditRevert,
                         MatEditClose,
-                        MatEditOpen
+                        MatEditOpen,
                     ],
                 }]
         }] });

@@ -16,9 +16,7 @@ import { MatDefaultResizable } from './resizable-directives/default-enabled-resi
 import { MatResizable } from './resizable-directives/resizable';
 import { MatColumnResizeOverlayHandle } from './overlay-handle';
 import * as i0 from "@angular/core";
-const ENTRY_COMMON_COMPONENTS = [
-    MatColumnResizeOverlayHandle,
-];
+const ENTRY_COMMON_COMPONENTS = [MatColumnResizeOverlayHandle];
 export class MatColumnResizeCommonModule {
 }
 MatColumnResizeCommonModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeCommonModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
@@ -32,20 +30,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     entryComponents: ENTRY_COMMON_COMPONENTS,
                 }]
         }] });
-const IMPORTS = [
-    MatCommonModule,
-    OverlayModule,
-    MatColumnResizeCommonModule,
-];
+const IMPORTS = [MatCommonModule, OverlayModule, MatColumnResizeCommonModule];
 export class MatDefaultEnabledColumnResizeModule {
 }
 MatDefaultEnabledColumnResizeModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 MatDefaultEnabledColumnResizeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, declarations: [MatDefaultEnabledColumnResize,
         MatDefaultEnabledColumnResizeFlex,
-        MatDefaultResizable], imports: [MatCommonModule,
-        OverlayModule, MatColumnResizeCommonModule], exports: [MatDefaultEnabledColumnResize,
-        MatDefaultEnabledColumnResizeFlex,
-        MatDefaultResizable] });
+        MatDefaultResizable], imports: [MatCommonModule, OverlayModule, MatColumnResizeCommonModule], exports: [MatDefaultEnabledColumnResize, MatDefaultEnabledColumnResizeFlex, MatDefaultResizable] });
 MatDefaultEnabledColumnResizeModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, imports: [IMPORTS] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, decorators: [{
             type: NgModule,
@@ -56,37 +47,20 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         MatDefaultEnabledColumnResizeFlex,
                         MatDefaultResizable,
                     ],
-                    exports: [
-                        MatDefaultEnabledColumnResize,
-                        MatDefaultEnabledColumnResizeFlex,
-                        MatDefaultResizable,
-                    ],
+                    exports: [MatDefaultEnabledColumnResize, MatDefaultEnabledColumnResizeFlex, MatDefaultResizable],
                 }]
         }] });
 export class MatColumnResizeModule {
 }
 MatColumnResizeModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatColumnResizeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, declarations: [MatColumnResize,
-        MatColumnResizeFlex,
-        MatResizable], imports: [MatCommonModule,
-        OverlayModule, MatColumnResizeCommonModule], exports: [MatColumnResize,
-        MatColumnResizeFlex,
-        MatResizable] });
+MatColumnResizeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, declarations: [MatColumnResize, MatColumnResizeFlex, MatResizable], imports: [MatCommonModule, OverlayModule, MatColumnResizeCommonModule], exports: [MatColumnResize, MatColumnResizeFlex, MatResizable] });
 MatColumnResizeModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, imports: [IMPORTS] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: IMPORTS,
-                    declarations: [
-                        MatColumnResize,
-                        MatColumnResizeFlex,
-                        MatResizable,
-                    ],
-                    exports: [
-                        MatColumnResize,
-                        MatColumnResizeFlex,
-                        MatResizable,
-                    ],
+                    declarations: [MatColumnResize, MatColumnResizeFlex, MatResizable],
+                    exports: [MatColumnResize, MatColumnResizeFlex, MatResizable],
                 }]
         }] });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29sdW1uLXJlc2l6ZS1tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvbWF0ZXJpYWwtZXhwZXJpbWVudGFsL2NvbHVtbi1yZXNpemUvY29sdW1uLXJlc2l6ZS1tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLGVBQWUsQ0FBQztBQUN2QyxPQUFPLEVBQUMsZUFBZSxFQUFDLE1BQU0sd0JBQXdCLENBQUM7QUFDdkQsT0FBTyxFQUFDLGFBQWEsRUFBQyxNQUFNLHNCQUFzQixDQUFDO0FBRW5ELE9BQU8sRUFBQyxlQUFlLEVBQUMsTUFBTSwwQ0FBMEMsQ0FBQztBQUN6RSxPQUFPLEVBQUMsbUJBQW1CLEVBQUMsTUFBTSwrQ0FBK0MsQ0FBQztBQUNsRixPQUFPLEVBQ0wsNkJBQTZCLEVBQzlCLE1BQU0sMERBQTBELENBQUM7QUFDbEUsT0FBTyxFQUNMLGlDQUFpQyxFQUNsQyxNQUFNLCtEQUErRCxDQUFDO0FBQ3ZFLE9BQU8sRUFBQyxtQkFBbUIsRUFBQyxNQUFNLGtEQUFrRCxDQUFDO0FBQ3JGLE9BQU8sRUFBQyxZQUFZLEVBQUMsTUFBTSxrQ0FBa0MsQ0FBQztBQUM5RCxPQUFPLEVBQUMsNEJBQTRCLEVBQUMsTUFBTSxrQkFBa0IsQ0FBQzs7QUFFOUQsTUFBTSx1QkFBdUIsR0FBRztJQUM5Qiw0QkFBNEI7Q0FDN0IsQ0FBQztBQU9GLE1BQU0sT0FBTywyQkFBMkI7O2dJQUEzQiwyQkFBMkI7aUlBQTNCLDJCQUEyQixpQkFSdEMsNEJBQTRCLGFBQTVCLDRCQUE0QjtpSUFRakIsMkJBQTJCO21HQUEzQiwyQkFBMkI7a0JBTHZDLFFBQVE7bUJBQUM7b0JBQ1IsWUFBWSxFQUFFLHVCQUF1QjtvQkFDckMsT0FBTyxFQUFFLHVCQUF1QjtvQkFDaEMsZUFBZSxFQUFFLHVCQUF1QjtpQkFDekM7O0FBR0QsTUFBTSxPQUFPLEdBQUc7SUFDZCxlQUFlO0lBQ2YsYUFBYTtJQUNiLDJCQUEyQjtDQUM1QixDQUFDO0FBZUYsTUFBTSxPQUFPLG1DQUFtQzs7d0lBQW5DLG1DQUFtQzt5SUFBbkMsbUNBQW1DLGlCQVY1Qyw2QkFBNkI7UUFDN0IsaUNBQWlDO1FBQ2pDLG1CQUFtQixhQVZyQixlQUFlO1FBQ2YsYUFBYSxFQUpGLDJCQUEyQixhQWdCcEMsNkJBQTZCO1FBQzdCLGlDQUFpQztRQUNqQyxtQkFBbUI7eUlBR1YsbUNBQW1DLFlBWnJDLE9BQU87bUdBWUwsbUNBQW1DO2tCQWIvQyxRQUFRO21CQUFDO29CQUNSLE9BQU8sRUFBRSxPQUFPO29CQUNoQixZQUFZLEVBQUU7d0JBQ1osNkJBQTZCO3dCQUM3QixpQ0FBaUM7d0JBQ2pDLG1CQUFtQjtxQkFDcEI7b0JBQ0QsT0FBTyxFQUFFO3dCQUNQLDZCQUE2Qjt3QkFDN0IsaUNBQWlDO3dCQUNqQyxtQkFBbUI7cUJBQ3BCO2lCQUNGOztBQWdCRCxNQUFNLE9BQU8scUJBQXFCOzswSEFBckIscUJBQXFCOzJIQUFyQixxQkFBcUIsaUJBVjlCLGVBQWU7UUFDZixtQkFBbUI7UUFDbkIsWUFBWSxhQXpCZCxlQUFlO1FBQ2YsYUFBYSxFQUpGLDJCQUEyQixhQStCcEMsZUFBZTtRQUNmLG1CQUFtQjtRQUNuQixZQUFZOzJIQUdILHFCQUFxQixZQVp2QixPQUFPO21HQVlMLHFCQUFxQjtrQkFiakMsUUFBUTttQkFBQztvQkFDUixPQUFPLEVBQUUsT0FBTztvQkFDaEIsWUFBWSxFQUFFO3dCQUNaLGVBQWU7d0JBQ2YsbUJBQW1CO3dCQUNuQixZQUFZO3FCQUNiO29CQUNELE9BQU8sRUFBRTt3QkFDUCxlQUFlO3dCQUNmLG1CQUFtQjt3QkFDbkIsWUFBWTtxQkFDYjtpQkFDRiIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge05nTW9kdWxlfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7TWF0Q29tbW9uTW9kdWxlfSBmcm9tICdAYW5ndWxhci9tYXRlcmlhbC9jb3JlJztcbmltcG9ydCB7T3ZlcmxheU1vZHVsZX0gZnJvbSAnQGFuZ3VsYXIvY2RrL292ZXJsYXknO1xuXG5pbXBvcnQge01hdENvbHVtblJlc2l6ZX0gZnJvbSAnLi9jb2x1bW4tcmVzaXplLWRpcmVjdGl2ZXMvY29sdW1uLXJlc2l6ZSc7XG5pbXBvcnQge01hdENvbHVtblJlc2l6ZUZsZXh9IGZyb20gJy4vY29sdW1uLXJlc2l6ZS1kaXJlY3RpdmVzL2NvbHVtbi1yZXNpemUtZmxleCc7XG5pbXBvcnQge1xuICBNYXREZWZhdWx0RW5hYmxlZENvbHVtblJlc2l6ZVxufSBmcm9tICcuL2NvbHVtbi1yZXNpemUtZGlyZWN0aXZlcy9kZWZhdWx0LWVuYWJsZWQtY29sdW1uLXJlc2l6ZSc7XG5pbXBvcnQge1xuICBNYXREZWZhdWx0RW5hYmxlZENvbHVtblJlc2l6ZUZsZXhcbn0gZnJvbSAnLi9jb2x1bW4tcmVzaXplLWRpcmVjdGl2ZXMvZGVmYXVsdC1lbmFibGVkLWNvbHVtbi1yZXNpemUtZmxleCc7XG5pbXBvcnQge01hdERlZmF1bHRSZXNpemFibGV9IGZyb20gJy4vcmVzaXphYmxlLWRpcmVjdGl2ZXMvZGVmYXVsdC1lbmFibGVkLXJlc2l6YWJsZSc7XG5pbXBvcnQge01hdFJlc2l6YWJsZX0gZnJvbSAnLi9yZXNpemFibGUtZGlyZWN0aXZlcy9yZXNpemFibGUnO1xuaW1wb3J0IHtNYXRDb2x1bW5SZXNpemVPdmVybGF5SGFuZGxlfSBmcm9tICcuL292ZXJsYXktaGFuZGxlJztcblxuY29uc3QgRU5UUllfQ09NTU9OX0NPTVBPTkVOVFMgPSBbXG4gIE1hdENvbHVtblJlc2l6ZU92ZXJsYXlIYW5kbGUsXG5dO1xuXG5ATmdNb2R1bGUoe1xuICBkZWNsYXJhdGlvbnM6IEVOVFJZX0NPTU1PTl9DT01QT05FTlRTLFxuICBleHBvcnRzOiBFTlRSWV9DT01NT05fQ09NUE9ORU5UUyxcbiAgZW50cnlDb21wb25lbnRzOiBFTlRSWV9DT01NT05fQ09NUE9ORU5UUyxcbn0pXG5leHBvcnQgY2xhc3MgTWF0Q29sdW1uUmVzaXplQ29tbW9uTW9kdWxlIHt9XG5cbmNvbnN0IElNUE9SVFMgPSBbXG4gIE1hdENvbW1vbk1vZHVsZSxcbiAgT3ZlcmxheU1vZHVsZSxcbiAgTWF0Q29sdW1uUmVzaXplQ29tbW9uTW9kdWxlLFxuXTtcblxuQE5nTW9kdWxlKHtcbiAgaW1wb3J0czogSU1QT1JUUyxcbiAgZGVjbGFyYXRpb25zOiBbXG4gICAgTWF0RGVmYXVsdEVuYWJsZWRDb2x1bW5SZXNpemUsXG4gICAgTWF0RGVmYXVsdEVuYWJsZWRDb2x1bW5SZXNpemVGbGV4LFxuICAgIE1hdERlZmF1bHRSZXNpemFibGUsXG4gIF0sXG4gIGV4cG9ydHM6IFtcbiAgICBNYXREZWZhdWx0RW5hYmxlZENvbHVtblJlc2l6ZSxcbiAgICBNYXREZWZhdWx0RW5hYmxlZENvbHVtblJlc2l6ZUZsZXgsXG4gICAgTWF0RGVmYXVsdFJlc2l6YWJsZSxcbiAgXSxcbn0pXG5leHBvcnQgY2xhc3MgTWF0RGVmYXVsdEVuYWJsZWRDb2x1bW5SZXNpemVNb2R1bGUge31cblxuQE5nTW9kdWxlKHtcbiAgaW1wb3J0czogSU1QT1JUUyxcbiAgZGVjbGFyYXRpb25zOiBbXG4gICAgTWF0Q29sdW1uUmVzaXplLFxuICAgIE1hdENvbHVtblJlc2l6ZUZsZXgsXG4gICAgTWF0UmVzaXphYmxlLFxuICBdLFxuICBleHBvcnRzOiBbXG4gICAgTWF0Q29sdW1uUmVzaXplLFxuICAgIE1hdENvbHVtblJlc2l6ZUZsZXgsXG4gICAgTWF0UmVzaXphYmxlLFxuICBdLFxufSlcbmV4cG9ydCBjbGFzcyBNYXRDb2x1bW5SZXNpemVNb2R1bGUge31cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29sdW1uLXJlc2l6ZS1tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9zcmMvbWF0ZXJpYWwtZXhwZXJpbWVudGFsL2NvbHVtbi1yZXNpemUvY29sdW1uLXJlc2l6ZS1tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztHQU1HO0FBRUgsT0FBTyxFQUFDLFFBQVEsRUFBQyxNQUFNLGVBQWUsQ0FBQztBQUN2QyxPQUFPLEVBQUMsZUFBZSxFQUFDLE1BQU0sd0JBQXdCLENBQUM7QUFDdkQsT0FBTyxFQUFDLGFBQWEsRUFBQyxNQUFNLHNCQUFzQixDQUFDO0FBRW5ELE9BQU8sRUFBQyxlQUFlLEVBQUMsTUFBTSwwQ0FBMEMsQ0FBQztBQUN6RSxPQUFPLEVBQUMsbUJBQW1CLEVBQUMsTUFBTSwrQ0FBK0MsQ0FBQztBQUNsRixPQUFPLEVBQUMsNkJBQTZCLEVBQUMsTUFBTSwwREFBMEQsQ0FBQztBQUN2RyxPQUFPLEVBQUMsaUNBQWlDLEVBQUMsTUFBTSwrREFBK0QsQ0FBQztBQUNoSCxPQUFPLEVBQUMsbUJBQW1CLEVBQUMsTUFBTSxrREFBa0QsQ0FBQztBQUNyRixPQUFPLEVBQUMsWUFBWSxFQUFDLE1BQU0sa0NBQWtDLENBQUM7QUFDOUQsT0FBTyxFQUFDLDRCQUE0QixFQUFDLE1BQU0sa0JBQWtCLENBQUM7O0FBRTlELE1BQU0sdUJBQXVCLEdBQUcsQ0FBQyw0QkFBNEIsQ0FBQyxDQUFDO0FBTy9ELE1BQU0sT0FBTywyQkFBMkI7O2dJQUEzQiwyQkFBMkI7aUlBQTNCLDJCQUEyQixpQkFQUCw0QkFBNEIsYUFBNUIsNEJBQTRCO2lJQU9oRCwyQkFBMkI7bUdBQTNCLDJCQUEyQjtrQkFMdkMsUUFBUTttQkFBQztvQkFDUixZQUFZLEVBQUUsdUJBQXVCO29CQUNyQyxPQUFPLEVBQUUsdUJBQXVCO29CQUNoQyxlQUFlLEVBQUUsdUJBQXVCO2lCQUN6Qzs7QUFHRCxNQUFNLE9BQU8sR0FBRyxDQUFDLGVBQWUsRUFBRSxhQUFhLEVBQUUsMkJBQTJCLENBQUMsQ0FBQztBQVc5RSxNQUFNLE9BQU8sbUNBQW1DOzt3SUFBbkMsbUNBQW1DO3lJQUFuQyxtQ0FBbUMsaUJBTjVDLDZCQUE2QjtRQUM3QixpQ0FBaUM7UUFDakMsbUJBQW1CLGFBUE4sZUFBZSxFQUFFLGFBQWEsRUFGbEMsMkJBQTJCLGFBVzVCLDZCQUE2QixFQUFFLGlDQUFpQyxFQUFFLG1CQUFtQjt5SUFFcEYsbUNBQW1DLFlBUnJDLE9BQU87bUdBUUwsbUNBQW1DO2tCQVQvQyxRQUFRO21CQUFDO29CQUNSLE9BQU8sRUFBRSxPQUFPO29CQUNoQixZQUFZLEVBQUU7d0JBQ1osNkJBQTZCO3dCQUM3QixpQ0FBaUM7d0JBQ2pDLG1CQUFtQjtxQkFDcEI7b0JBQ0QsT0FBTyxFQUFFLENBQUMsNkJBQTZCLEVBQUUsaUNBQWlDLEVBQUUsbUJBQW1CLENBQUM7aUJBQ2pHOztBQVFELE1BQU0sT0FBTyxxQkFBcUI7OzBIQUFyQixxQkFBcUI7MkhBQXJCLHFCQUFxQixpQkFIakIsZUFBZSxFQUFFLG1CQUFtQixFQUFFLFlBQVksYUFmbEQsZUFBZSxFQUFFLGFBQWEsRUFGbEMsMkJBQTJCLGFBa0I1QixlQUFlLEVBQUUsbUJBQW1CLEVBQUUsWUFBWTsySEFFakQscUJBQXFCLFlBSnZCLE9BQU87bUdBSUwscUJBQXFCO2tCQUxqQyxRQUFRO21CQUFDO29CQUNSLE9BQU8sRUFBRSxPQUFPO29CQUNoQixZQUFZLEVBQUUsQ0FBQyxlQUFlLEVBQUUsbUJBQW1CLEVBQUUsWUFBWSxDQUFDO29CQUNsRSxPQUFPLEVBQUUsQ0FBQyxlQUFlLEVBQUUsbUJBQW1CLEVBQUUsWUFBWSxDQUFDO2lCQUM5RCIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQGxpY2Vuc2VcbiAqIENvcHlyaWdodCBHb29nbGUgTExDIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuXG5pbXBvcnQge05nTW9kdWxlfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7TWF0Q29tbW9uTW9kdWxlfSBmcm9tICdAYW5ndWxhci9tYXRlcmlhbC9jb3JlJztcbmltcG9ydCB7T3ZlcmxheU1vZHVsZX0gZnJvbSAnQGFuZ3VsYXIvY2RrL292ZXJsYXknO1xuXG5pbXBvcnQge01hdENvbHVtblJlc2l6ZX0gZnJvbSAnLi9jb2x1bW4tcmVzaXplLWRpcmVjdGl2ZXMvY29sdW1uLXJlc2l6ZSc7XG5pbXBvcnQge01hdENvbHVtblJlc2l6ZUZsZXh9IGZyb20gJy4vY29sdW1uLXJlc2l6ZS1kaXJlY3RpdmVzL2NvbHVtbi1yZXNpemUtZmxleCc7XG5pbXBvcnQge01hdERlZmF1bHRFbmFibGVkQ29sdW1uUmVzaXplfSBmcm9tICcuL2NvbHVtbi1yZXNpemUtZGlyZWN0aXZlcy9kZWZhdWx0LWVuYWJsZWQtY29sdW1uLXJlc2l6ZSc7XG5pbXBvcnQge01hdERlZmF1bHRFbmFibGVkQ29sdW1uUmVzaXplRmxleH0gZnJvbSAnLi9jb2x1bW4tcmVzaXplLWRpcmVjdGl2ZXMvZGVmYXVsdC1lbmFibGVkLWNvbHVtbi1yZXNpemUtZmxleCc7XG5pbXBvcnQge01hdERlZmF1bHRSZXNpemFibGV9IGZyb20gJy4vcmVzaXphYmxlLWRpcmVjdGl2ZXMvZGVmYXVsdC1lbmFibGVkLXJlc2l6YWJsZSc7XG5pbXBvcnQge01hdFJlc2l6YWJsZX0gZnJvbSAnLi9yZXNpemFibGUtZGlyZWN0aXZlcy9yZXNpemFibGUnO1xuaW1wb3J0IHtNYXRDb2x1bW5SZXNpemVPdmVybGF5SGFuZGxlfSBmcm9tICcuL292ZXJsYXktaGFuZGxlJztcblxuY29uc3QgRU5UUllfQ09NTU9OX0NPTVBPTkVOVFMgPSBbTWF0Q29sdW1uUmVzaXplT3ZlcmxheUhhbmRsZV07XG5cbkBOZ01vZHVsZSh7XG4gIGRlY2xhcmF0aW9uczogRU5UUllfQ09NTU9OX0NPTVBPTkVOVFMsXG4gIGV4cG9ydHM6IEVOVFJZX0NPTU1PTl9DT01QT05FTlRTLFxuICBlbnRyeUNvbXBvbmVudHM6IEVOVFJZX0NPTU1PTl9DT01QT05FTlRTLFxufSlcbmV4cG9ydCBjbGFzcyBNYXRDb2x1bW5SZXNpemVDb21tb25Nb2R1bGUge31cblxuY29uc3QgSU1QT1JUUyA9IFtNYXRDb21tb25Nb2R1bGUsIE92ZXJsYXlNb2R1bGUsIE1hdENvbHVtblJlc2l6ZUNvbW1vbk1vZHVsZV07XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IElNUE9SVFMsXG4gIGRlY2xhcmF0aW9uczogW1xuICAgIE1hdERlZmF1bHRFbmFibGVkQ29sdW1uUmVzaXplLFxuICAgIE1hdERlZmF1bHRFbmFibGVkQ29sdW1uUmVzaXplRmxleCxcbiAgICBNYXREZWZhdWx0UmVzaXphYmxlLFxuICBdLFxuICBleHBvcnRzOiBbTWF0RGVmYXVsdEVuYWJsZWRDb2x1bW5SZXNpemUsIE1hdERlZmF1bHRFbmFibGVkQ29sdW1uUmVzaXplRmxleCwgTWF0RGVmYXVsdFJlc2l6YWJsZV0sXG59KVxuZXhwb3J0IGNsYXNzIE1hdERlZmF1bHRFbmFibGVkQ29sdW1uUmVzaXplTW9kdWxlIHt9XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IElNUE9SVFMsXG4gIGRlY2xhcmF0aW9uczogW01hdENvbHVtblJlc2l6ZSwgTWF0Q29sdW1uUmVzaXplRmxleCwgTWF0UmVzaXphYmxlXSxcbiAgZXhwb3J0czogW01hdENvbHVtblJlc2l6ZSwgTWF0Q29sdW1uUmVzaXplRmxleCwgTWF0UmVzaXphYmxlXSxcbn0pXG5leHBvcnQgY2xhc3MgTWF0Q29sdW1uUmVzaXplTW9kdWxlIHt9XG4iXX0=

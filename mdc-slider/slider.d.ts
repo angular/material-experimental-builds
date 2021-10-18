@@ -261,7 +261,7 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
      * in the thumb label. Can be used to format very large number in order
      * for them to fit into the slider thumb.
      */
-    displayWith: ((value: number) => string);
+    displayWith: (value: number) => string;
     /** Instance of the MDC slider foundation for this slider. */
     private _foundation;
     /** Whether the foundation has been initialized. */

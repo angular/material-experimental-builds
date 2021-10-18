@@ -98,19 +98,13 @@ class MatColumnResize extends AbstractMatColumnResize {
     }
 }
 MatColumnResize.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResize, deps: [{ token: i1.ColumnResizeNotifier }, { token: i0.ElementRef }, { token: i1.HeaderRowEventDispatcher }, { token: i0.NgZone }, { token: i1.ColumnResizeNotifierSource }], target: i0.ɵɵFactoryTarget.Directive });
-MatColumnResize.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatColumnResize, selector: "table[mat-table][columnResize]", host: { classAttribute: "mat-column-resize-table" }, providers: [
-        ...TABLE_PROVIDERS,
-        { provide: ColumnResize, useExisting: MatColumnResize },
-    ], usesInheritance: true, ngImport: i0 });
+MatColumnResize.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatColumnResize, selector: "table[mat-table][columnResize]", host: { classAttribute: "mat-column-resize-table" }, providers: [...TABLE_PROVIDERS, { provide: ColumnResize, useExisting: MatColumnResize }], usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResize, decorators: [{
             type: Directive,
             args: [{
                     selector: 'table[mat-table][columnResize]',
                     host: TABLE_HOST_BINDINGS,
-                    providers: [
-                        ...TABLE_PROVIDERS,
-                        { provide: ColumnResize, useExisting: MatColumnResize },
-                    ],
+                    providers: [...TABLE_PROVIDERS, { provide: ColumnResize, useExisting: MatColumnResize }],
                 }]
         }], ctorParameters: function () { return [{ type: i1.ColumnResizeNotifier }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }]; } });
 
@@ -136,19 +130,13 @@ class MatColumnResizeFlex extends AbstractMatColumnResize {
     }
 }
 MatColumnResizeFlex.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeFlex, deps: [{ token: i1.ColumnResizeNotifier }, { token: i0.ElementRef }, { token: i1.HeaderRowEventDispatcher }, { token: i0.NgZone }, { token: i1.ColumnResizeNotifierSource }], target: i0.ɵɵFactoryTarget.Directive });
-MatColumnResizeFlex.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatColumnResizeFlex, selector: "mat-table[columnResize]", host: { classAttribute: "mat-column-resize-flex" }, providers: [
-        ...FLEX_PROVIDERS,
-        { provide: ColumnResize, useExisting: MatColumnResizeFlex },
-    ], usesInheritance: true, ngImport: i0 });
+MatColumnResizeFlex.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatColumnResizeFlex, selector: "mat-table[columnResize]", host: { classAttribute: "mat-column-resize-flex" }, providers: [...FLEX_PROVIDERS, { provide: ColumnResize, useExisting: MatColumnResizeFlex }], usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeFlex, decorators: [{
             type: Directive,
             args: [{
                     selector: 'mat-table[columnResize]',
                     host: FLEX_HOST_BINDINGS,
-                    providers: [
-                        ...FLEX_PROVIDERS,
-                        { provide: ColumnResize, useExisting: MatColumnResizeFlex },
-                    ],
+                    providers: [...FLEX_PROVIDERS, { provide: ColumnResize, useExisting: MatColumnResizeFlex }],
                 }]
         }], ctorParameters: function () { return [{ type: i1.ColumnResizeNotifier }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }]; } });
 
@@ -256,9 +244,9 @@ class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
     updateResizeActive(active) {
         super.updateResizeActive(active);
         this.resizeRef.overlayRef.updateSize({
-            height: active ?
-                this.columnResize.getTableHeight() :
-                this.resizeRef.origin.nativeElement.offsetHeight
+            height: active
+                ? this.columnResize.getTableHeight()
+                : this.resizeRef.origin.nativeElement.offsetHeight,
         });
     }
 }
@@ -413,9 +401,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const ENTRY_COMMON_COMPONENTS = [
-    MatColumnResizeOverlayHandle,
-];
+const ENTRY_COMMON_COMPONENTS = [MatColumnResizeOverlayHandle];
 class MatColumnResizeCommonModule {
 }
 MatColumnResizeCommonModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeCommonModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
@@ -429,20 +415,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     entryComponents: ENTRY_COMMON_COMPONENTS,
                 }]
         }] });
-const IMPORTS = [
-    MatCommonModule,
-    OverlayModule,
-    MatColumnResizeCommonModule,
-];
+const IMPORTS = [MatCommonModule, OverlayModule, MatColumnResizeCommonModule];
 class MatDefaultEnabledColumnResizeModule {
 }
 MatDefaultEnabledColumnResizeModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
 MatDefaultEnabledColumnResizeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, declarations: [MatDefaultEnabledColumnResize,
         MatDefaultEnabledColumnResizeFlex,
-        MatDefaultResizable], imports: [MatCommonModule,
-        OverlayModule, MatColumnResizeCommonModule], exports: [MatDefaultEnabledColumnResize,
-        MatDefaultEnabledColumnResizeFlex,
-        MatDefaultResizable] });
+        MatDefaultResizable], imports: [MatCommonModule, OverlayModule, MatColumnResizeCommonModule], exports: [MatDefaultEnabledColumnResize, MatDefaultEnabledColumnResizeFlex, MatDefaultResizable] });
 MatDefaultEnabledColumnResizeModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, imports: [IMPORTS] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, decorators: [{
             type: NgModule,
@@ -453,37 +432,20 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         MatDefaultEnabledColumnResizeFlex,
                         MatDefaultResizable,
                     ],
-                    exports: [
-                        MatDefaultEnabledColumnResize,
-                        MatDefaultEnabledColumnResizeFlex,
-                        MatDefaultResizable,
-                    ],
+                    exports: [MatDefaultEnabledColumnResize, MatDefaultEnabledColumnResizeFlex, MatDefaultResizable],
                 }]
         }] });
 class MatColumnResizeModule {
 }
 MatColumnResizeModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatColumnResizeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, declarations: [MatColumnResize,
-        MatColumnResizeFlex,
-        MatResizable], imports: [MatCommonModule,
-        OverlayModule, MatColumnResizeCommonModule], exports: [MatColumnResize,
-        MatColumnResizeFlex,
-        MatResizable] });
+MatColumnResizeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, declarations: [MatColumnResize, MatColumnResizeFlex, MatResizable], imports: [MatCommonModule, OverlayModule, MatColumnResizeCommonModule], exports: [MatColumnResize, MatColumnResizeFlex, MatResizable] });
 MatColumnResizeModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, imports: [IMPORTS] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnResizeModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: IMPORTS,
-                    declarations: [
-                        MatColumnResize,
-                        MatColumnResizeFlex,
-                        MatResizable,
-                    ],
-                    exports: [
-                        MatColumnResize,
-                        MatColumnResizeFlex,
-                        MatResizable,
-                    ],
+                    declarations: [MatColumnResize, MatColumnResizeFlex, MatResizable],
+                    exports: [MatColumnResize, MatColumnResizeFlex, MatResizable],
                 }]
         }] });
 

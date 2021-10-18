@@ -34,7 +34,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     selector: `[matSnackBarLabel]`,
                     host: {
                         'class': 'mat-mdc-snack-bar-label mdc-snackbar__label',
-                    }
+                    },
                 }]
         }] });
 /** Directive that should be applied to the element containing the snack bar's action buttons. */
@@ -48,7 +48,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     selector: `[matSnackBarActions]`,
                     host: {
                         'class': 'mat-mdc-snack-bar-actions mdc-snackbar__actions',
-                    }
+                    },
                 }]
         }] });
 /** Directive that should be applied to each of the snack bar's action buttons. */
@@ -62,7 +62,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     selector: `[matSnackBarAction]`,
                     host: {
                         'class': 'mat-mdc-snack-bar-action mdc-snackbar__action',
-                    }
+                    },
                 }]
         }] });
 
@@ -304,32 +304,16 @@ MatSnackBarModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", versi
         MatSnackBarContainer,
         MatSnackBarLabel,
         MatSnackBarActions,
-        MatSnackBarAction], imports: [OverlayModule,
-        PortalModule,
-        CommonModule,
-        MatButtonModule,
-        MatCommonModule], exports: [MatCommonModule,
+        MatSnackBarAction], imports: [OverlayModule, PortalModule, CommonModule, MatButtonModule, MatCommonModule], exports: [MatCommonModule,
         MatSnackBarContainer,
         MatSnackBarLabel,
         MatSnackBarActions,
         MatSnackBarAction] });
-MatSnackBarModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSnackBarModule, imports: [[
-            OverlayModule,
-            PortalModule,
-            CommonModule,
-            MatButtonModule,
-            MatCommonModule,
-        ], MatCommonModule] });
+MatSnackBarModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSnackBarModule, imports: [[OverlayModule, PortalModule, CommonModule, MatButtonModule, MatCommonModule], MatCommonModule] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSnackBarModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [
-                        OverlayModule,
-                        PortalModule,
-                        CommonModule,
-                        MatButtonModule,
-                        MatCommonModule,
-                    ],
+                    imports: [OverlayModule, PortalModule, CommonModule, MatButtonModule, MatCommonModule],
                     exports: [
                         MatCommonModule,
                         MatSnackBarContainer,
@@ -344,10 +328,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         MatSnackBarActions,
                         MatSnackBarAction,
                     ],
-                    entryComponents: [
-                        MatSimpleSnackBar,
-                        MatSnackBarContainer,
-                    ],
+                    entryComponents: [MatSimpleSnackBar, MatSnackBarContainer],
                 }]
         }] });
 

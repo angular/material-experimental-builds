@@ -18,7 +18,7 @@ class MatPaginatorHarness extends _MatPaginatorHarnessBase {
         this._firstPageButton = this.locatorForOptional('.mat-mdc-paginator-navigation-first');
         this._lastPageButton = this.locatorForOptional('.mat-mdc-paginator-navigation-last');
         this._select = this.locatorForOptional(MatSelectHarness.with({
-            ancestor: '.mat-mdc-paginator-page-size'
+            ancestor: '.mat-mdc-paginator-page-size',
         }));
         this._pageSizeFallback = this.locatorFor('.mat-mdc-paginator-page-size-value');
         this._rangeLabel = this.locatorFor('.mat-mdc-paginator-range-label');

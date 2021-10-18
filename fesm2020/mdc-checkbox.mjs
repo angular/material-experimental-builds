@@ -24,7 +24,7 @@ const defaults = MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY();
 const MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => MatCheckbox),
-    multi: true
+    multi: true,
 };
 /** Change event object emitted by MatCheckbox. */
 class MatCheckboxChange {
@@ -79,14 +79,14 @@ class MatCheckbox extends _MatCheckboxBase {
         this._mdcFoundationIgnoredAttrs = new Set(['aria-checked']);
         /** The `MDCCheckboxAdapter` instance for this checkbox. */
         this._checkboxAdapter = {
-            addClass: (className) => this._setClass(className, true),
-            removeClass: (className) => this._setClass(className, false),
+            addClass: className => this._setClass(className, true),
+            removeClass: className => this._setClass(className, false),
             forceLayout: () => this._checkbox.nativeElement.offsetWidth,
             hasNativeControl: () => !!this._nativeCheckbox,
             isAttachedToDOM: () => !!this._checkbox.nativeElement.parentNode,
             isChecked: () => this.checked,
             isIndeterminate: () => this.indeterminate,
-            removeNativeControlAttr: (attr) => {
+            removeNativeControlAttr: attr => {
                 if (!this._mdcFoundationIgnoredAttrs.has(attr)) {
                     this._nativeCheckbox.nativeElement.removeAttribute(attr);
                 }
@@ -96,7 +96,7 @@ class MatCheckbox extends _MatCheckboxBase {
                     this._nativeCheckbox.nativeElement.setAttribute(attr, value);
                 }
             },
-            setNativeControlDisabled: (disabled) => this.disabled = disabled,
+            setNativeControlDisabled: disabled => (this.disabled = disabled),
         };
         // Note: We don't need to set up the MDCFormFieldFoundation. Its only purpose is to manage the
         // ripple, which we do ourselves instead.

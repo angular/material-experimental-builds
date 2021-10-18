@@ -34,9 +34,13 @@ class MatDialogContainer extends _MatDialogContainerBase {
         /** Host element of the dialog container component. */
         this._hostElement = this._elementRef.nativeElement;
         /** Duration of the dialog open animation. */
-        this._openAnimationDuration = this._animationsEnabled ? numbers.DIALOG_ANIMATION_OPEN_TIME_MS : 0;
+        this._openAnimationDuration = this._animationsEnabled
+            ? numbers.DIALOG_ANIMATION_OPEN_TIME_MS
+            : 0;
         /** Duration of the dialog close animation. */
-        this._closeAnimationDuration = this._animationsEnabled ? numbers.DIALOG_ANIMATION_CLOSE_TIME_MS : 0;
+        this._closeAnimationDuration = this._animationsEnabled
+            ? numbers.DIALOG_ANIMATION_CLOSE_TIME_MS
+            : 0;
         /** Current timer for dialog animations. */
         this._animationTimer = null;
         /**
@@ -307,7 +311,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         '(click)': '_onButtonClick($event)',
                         '[attr.aria-label]': 'ariaLabel || null',
                         '[attr.type]': 'type',
-                    }
+                    },
                 }]
         }], ctorParameters: function () { return [{ type: MatDialogRef, decorators: [{
                     type: Optional
@@ -378,7 +382,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             type: Directive,
             args: [{
                     selector: `[mat-dialog-content], mat-dialog-content, [matDialogContent]`,
-                    host: { 'class': 'mat-mdc-dialog-content mdc-dialog__content' }
+                    host: { 'class': 'mat-mdc-dialog-content mdc-dialog__content' },
                 }]
         }] });
 /**
@@ -393,7 +397,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             type: Directive,
             args: [{
                     selector: `[mat-dialog-actions], mat-dialog-actions, [matDialogActions]`,
-                    host: { 'class': 'mat-mdc-dialog-actions mdc-dialog__actions' }
+                    host: { 'class': 'mat-mdc-dialog-actions mdc-dialog__actions' },
                 }]
         }] });
 /**
@@ -423,30 +427,17 @@ MatDialogModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version
         MatDialogClose,
         MatDialogTitle,
         MatDialogActions,
-        MatDialogContent], imports: [OverlayModule,
-        PortalModule,
-        MatCommonModule], exports: [MatDialogContainer,
+        MatDialogContent], imports: [OverlayModule, PortalModule, MatCommonModule], exports: [MatDialogContainer,
         MatDialogClose,
         MatDialogTitle,
         MatDialogContent,
         MatDialogActions,
         MatCommonModule] });
-MatDialogModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDialogModule, providers: [
-        MatDialog,
-        MAT_DIALOG_SCROLL_STRATEGY_PROVIDER,
-    ], imports: [[
-            OverlayModule,
-            PortalModule,
-            MatCommonModule,
-        ], MatCommonModule] });
+MatDialogModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDialogModule, providers: [MatDialog, MAT_DIALOG_SCROLL_STRATEGY_PROVIDER], imports: [[OverlayModule, PortalModule, MatCommonModule], MatCommonModule] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatDialogModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [
-                        OverlayModule,
-                        PortalModule,
-                        MatCommonModule,
-                    ],
+                    imports: [OverlayModule, PortalModule, MatCommonModule],
                     exports: [
                         MatDialogContainer,
                         MatDialogClose,
@@ -462,10 +453,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         MatDialogActions,
                         MatDialogContent,
                     ],
-                    providers: [
-                        MatDialog,
-                        MAT_DIALOG_SCROLL_STRATEGY_PROVIDER,
-                    ],
+                    providers: [MatDialog, MAT_DIALOG_SCROLL_STRATEGY_PROVIDER],
                     entryComponents: [MatDialogContainer],
                 }]
         }] });

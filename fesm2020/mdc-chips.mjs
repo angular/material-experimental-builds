@@ -46,7 +46,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     selector: 'mat-chip-avatar, [matChipAvatar]',
                     host: {
                         'class': 'mat-mdc-chip-avatar mdc-chip__icon mdc-chip__icon--leading',
-                        'role': 'img'
+                        'role': 'img',
                     },
                     providers: [{ provide: MAT_CHIP_AVATAR, useExisting: MatChipAvatar }],
                 }]
@@ -62,7 +62,12 @@ const MAT_CHIP_TRAILING_ICON = new InjectionToken('MatChipTrailingIcon');
  * @docs-private
  */
 class MatChipTrailingIcon {
-    constructor(_elementRef) {
+    constructor(
+    // TODO(crisbeto): currently the chip needs a reference to the trailing
+    // icon for the deprecated `setTrailingActionAttr` method. Until the
+    // method is removed, we can't use the chip here, because it causes a
+    // circular import. private _chip: MatChip
+    _elementRef) {
         this._elementRef = _elementRef;
         this._adapter = {
             focus: () => this._elementRef.nativeElement.focus(),
@@ -81,7 +86,7 @@ class MatChipTrailingIcon {
             notifyNavigation: () => {
                 // TODO(crisbeto): uncomment this code once we've inverted the
                 // dependency on `MatChip`. this._chip._notifyNavigation();
-            }
+            },
         };
         this._foundation = new deprecated.MDCChipTrailingActionFoundation(this._adapter);
     }
@@ -207,7 +212,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             args: [{
                     selector: `mat-chip, mat-chip-option, mat-chip-row, [mat-chip], [mat-chip-option],
     [mat-chip-row]`,
-                    host: { 'class': 'mat-mdc-chip mdc-chip' }
+                    host: { 'class': 'mat-mdc-chip mdc-chip' },
                 }]
         }] });
 /**
@@ -261,18 +266,18 @@ class MatChip extends _MatChipMixinBase {
          * These methods are called by the chip foundation.
          */
         this._chipAdapter = {
-            addClass: (className) => this._setMdcClass(className, true),
-            removeClass: (className) => this._setMdcClass(className, false),
-            hasClass: (className) => this._elementRef.nativeElement.classList.contains(className),
-            addClassToLeadingIcon: (className) => this.leadingIcon.setClass(className, true),
-            removeClassFromLeadingIcon: (className) => this.leadingIcon.setClass(className, false),
+            addClass: className => this._setMdcClass(className, true),
+            removeClass: className => this._setMdcClass(className, false),
+            hasClass: className => this._elementRef.nativeElement.classList.contains(className),
+            addClassToLeadingIcon: className => this.leadingIcon.setClass(className, true),
+            removeClassFromLeadingIcon: className => this.leadingIcon.setClass(className, false),
             eventTargetHasClass: (target, className) => {
                 // We need to null check the `classList`, because IE and Edge don't
                 // support it on SVG elements and Edge seems to throw for ripple
                 // elements, because they're outside the DOM.
-                return (target && target.classList) ?
-                    target.classList.contains(className) :
-                    false;
+                return target && target.classList
+                    ? target.classList.contains(className)
+                    : false;
             },
             notifyInteraction: () => this._notifyInteraction(),
             notifySelection: () => {
@@ -334,12 +339,13 @@ class MatChip extends _MatChipMixinBase {
             // so they will never be called
             getRootBoundingClientRect: () => this._elementRef.nativeElement.getBoundingClientRect(),
             getCheckmarkBoundingClientRect: () => null,
-            getAttribute: (attr) => this._elementRef.nativeElement.getAttribute(attr),
+            getAttribute: attr => this._elementRef.nativeElement.getAttribute(attr),
         };
         this._chipFoundation = new deprecated.MDCChipFoundation(this._chipAdapter);
         this._animationsDisabled = animationMode === 'NoopAnimations';
-        this._isBasicChip = elementRef.nativeElement.hasAttribute(this.basicChipAttrName) ||
-            elementRef.nativeElement.tagName.toLowerCase() === this.basicChipAttrName;
+        this._isBasicChip =
+            elementRef.nativeElement.hasAttribute(this.basicChipAttrName) ||
+                elementRef.nativeElement.tagName.toLowerCase() === this.basicChipAttrName;
     }
     // We have to use a `HostListener` here in order to support both Ivy and ViewEngine.
     // In Ivy the `host` bindings will be merged when this class is extended, whereas in
@@ -352,7 +358,9 @@ class MatChip extends _MatChipMixinBase {
     _hasFocus() {
         return this._hasFocusInternal;
     }
-    get disabled() { return this._disabled; }
+    get disabled() {
+        return this._disabled;
+    }
     set disabled(value) {
         this._disabled = coerceBooleanProperty(value);
         if (this.removeIcon) {
@@ -361,22 +369,26 @@ class MatChip extends _MatChipMixinBase {
     }
     /** The value of the chip. Defaults to the content inside the mdc-chip__text element. */
     get value() {
-        return this._value !== undefined
-            ? this._value
-            : this._textElement.textContent.trim();
+        return this._value !== undefined ? this._value : this._textElement.textContent.trim();
     }
-    set value(value) { this._value = value; }
+    set value(value) {
+        this._value = value;
+    }
     /**
      * Determines whether or not the chip displays the remove styling and emits (removed) events.
      */
-    get removable() { return this._removable; }
+    get removable() {
+        return this._removable;
+    }
     set removable(value) {
         this._removable = coerceBooleanProperty(value);
     }
     /**
      * Colors the chip for emphasis as if it were selected.
      */
-    get highlighted() { return this._highlighted; }
+    get highlighted() {
+        return this._highlighted;
+    }
     set highlighted(value) {
         this._highlighted = coerceBooleanProperty(value);
     }
@@ -396,16 +408,14 @@ class MatChip extends _MatChipMixinBase {
         if (this.removeIcon) {
             this._chipFoundation.setShouldRemoveOnTrailingIconClick(true);
             this.removeIcon.disabled = this.disabled;
-            this.removeIcon.interaction
-                .pipe(takeUntil(this.destroyed))
-                .subscribe(event => {
+            this.removeIcon.interaction.pipe(takeUntil(this.destroyed)).subscribe(event => {
                 // The MDC chip foundation calls stopPropagation() for any trailing icon interaction
                 // event, even ones it doesn't handle, so we want to avoid passing it keyboard events
                 // for which we have a custom handler. Note that we assert the type of the event using
                 // the `type`, because `instanceof KeyboardEvent` can throw during server-side rendering.
                 const isKeyboardEvent = event.type.startsWith('key');
-                if (this.disabled || (isKeyboardEvent &&
-                    !this.REMOVE_ICON_HANDLED_KEYS.has(event.keyCode))) {
+                if (this.disabled ||
+                    (isKeyboardEvent && !this.REMOVE_ICON_HANDLED_KEYS.has(event.keyCode))) {
                     return;
                 }
                 this.remove();
@@ -460,8 +470,11 @@ class MatChip extends _MatChipMixinBase {
     }
     /** Whether or not the ripple should be disabled. */
     _isRippleDisabled() {
-        return this.disabled || this.disableRipple || this._animationsDisabled ||
-            this._isBasicChip || !!this._globalRippleOptions?.disabled;
+        return (this.disabled ||
+            this.disableRipple ||
+            this._animationsDisabled ||
+            this._isBasicChip ||
+            !!this._globalRippleOptions?.disabled);
     }
     _notifyInteraction() {
         this.interaction.emit(this.id);
@@ -605,8 +618,9 @@ class MatChipOption extends MatChip {
     get ariaSelected() {
         // Remove the `aria-selected` when the chip is deselected in single-selection mode, because
         // it adds noise to NVDA users where "not selected" will be read out for each chip.
-        return this.selectable && (this._chipListMultiple || this.selected) ?
-            this.selected.toString() : null;
+        return this.selectable && (this._chipListMultiple || this.selected)
+            ? this.selected.toString()
+            : null;
     }
     ngAfterContentInit() {
         super.ngAfterContentInit();
@@ -658,7 +672,7 @@ class MatChipOption extends MatChip {
         this.selectionChange.emit({
             source: this,
             isUserInput,
-            selected: this.selected
+            selected: this.selected,
         });
     }
     /** Allows for programmatic focusing of the chip. */
@@ -678,9 +692,7 @@ class MatChipOption extends MatChip {
         // earlier than usual, causing it to be blurred and throwing off the logic in the chip list
         // that moves focus not the next item. To work around the issue, we defer marking the chip
         // as not focused until the next time the zone stabilizes.
-        this._ngZone.onStable
-            .pipe(take(1))
-            .subscribe(() => {
+        this._ngZone.onStable.pipe(take(1)).subscribe(() => {
             this._ngZone.run(() => {
                 this._hasFocusInternal = false;
                 this._onBlur.next({ chip: this });
@@ -834,9 +846,9 @@ class MatChipRow extends MatChip {
     }
     ngAfterViewInit() {
         super.ngAfterViewInit();
-        this.cells = this.removeIcon ?
-            [this.chipContent.nativeElement, this.removeIcon._elementRef.nativeElement] :
-            [this.chipContent.nativeElement];
+        this.cells = this.removeIcon
+            ? [this.chipContent.nativeElement, this.removeIcon._elementRef.nativeElement]
+            : [this.chipContent.nativeElement];
     }
     /**
      * Allows for programmatic focusing of the chip.
@@ -956,7 +968,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         '(dblclick)': '_dblclick($event)',
                         '(keydown)': '_keydown($event)',
                         '(focusin)': '_focusin($event)',
-                        '(focusout)': '_focusout($event)'
+                        '(focusout)': '_focusout($event)',
                     }, providers: [{ provide: MatChip, useExisting: MatChipRow }], encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-container *ngIf=\"!_isEditing()\">\n  <span class=\"mdc-chip__ripple\"></span>\n\n  <span matRipple class=\"mat-mdc-chip-ripple\"\n       [matRippleDisabled]=\"_isRippleDisabled()\"\n       [matRippleCentered]=\"_isRippleCentered\"\n       [matRippleTrigger]=\"_elementRef.nativeElement\"></span>\n</ng-container>\n\n<div class=\"mat-mdc-chip-content\">\n  <div role=\"gridcell\">\n    <div #chipContent tabindex=\"-1\"\n         class=\"mat-mdc-chip-row-focusable-text-content mat-mdc-focus-indicator mdc-chip__primary-action\"\n         [attr.role]=\"editable ? 'button' : null\">\n      <ng-content select=\"mat-chip-avatar, [matChipAvatar]\"></ng-content>\n      <span class=\"mdc-chip__text\"><ng-content></ng-content></span>\n      <ng-content select=\"mat-chip-trailing-icon,[matChipTrailingIcon]\"></ng-content>\n    </div>\n  </div>\n  <div role=\"gridcell\" *ngIf=\"removeIcon\" class=\"mat-mdc-chip-remove-icon\">\n    <ng-content select=\"[matChipRemove]\"></ng-content>\n  </div>\n</div>\n\n<div *ngIf=\"_isEditing()\" role=\"gridcell\" class=\"mat-mdc-chip-edit-input-container\">\n  <ng-content *ngIf=\"contentEditInput; else defaultMatChipEditInput\"\n              select=\"[matChipEditInput]\"></ng-content>\n  <ng-template #defaultMatChipEditInput>\n    <span matChipEditInput></span>\n  </ng-template>\n</div>\n", styles: [".mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){width:20px;height:20px;font-size:20px}.mdc-deprecated-chip-trailing-action__icon{height:18px;width:18px;font-size:18px}.mdc-chip__icon.mdc-chip__icon--trailing{width:18px;height:18px;font-size:18px}.mdc-deprecated-chip-trailing-action{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-deprecated-chip-trailing-action,.mdc-deprecated-chip-trailing-action[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-chip__icon--trailing{margin-left:4px;margin-right:-4px}[dir=rtl] .mdc-chip__icon--trailing,.mdc-chip__icon--trailing[dir=rtl]{margin-left:-4px;margin-right:4px}.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:0;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip{border-radius:16px;height:32px;position:relative;display:inline-flex;align-items:center;box-sizing:border-box;padding:0 12px;border-width:0;outline:none;cursor:pointer;-webkit-appearance:none}.mdc-chip .mdc-chip__ripple{border-radius:16px}.mdc-chip.mdc-chip--selected .mdc-chip__checkmark,.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden){margin-left:-4px;margin-right:4px}[dir=rtl] .mdc-chip.mdc-chip--selected .mdc-chip__checkmark,[dir=rtl] .mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden),.mdc-chip.mdc-chip--selected .mdc-chip__checkmark[dir=rtl],.mdc-chip .mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden)[dir=rtl]{margin-left:4px;margin-right:-4px}.mdc-chip .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-chip::-moz-focus-inner{padding:0;border:0}.mdc-chip .mdc-chip__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-chip--exit{opacity:0}.mdc-chip__overflow{text-overflow:ellipsis;overflow:hidden}.mdc-chip__text{white-space:nowrap}.mdc-chip__icon{border-radius:50%;outline:none;vertical-align:middle}.mdc-chip__checkmark{height:20px}.mdc-chip__checkmark-path{transition:stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);stroke-width:2px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-chip__primary-action:focus{outline:none}.mdc-chip--selected .mdc-chip__checkmark-path{stroke-dashoffset:0}.mdc-chip__icon--leading,.mdc-chip__icon--trailing{position:relative}.mdc-chip__checkmark-svg{width:0;height:20px;transition:width 150ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-chip--selected .mdc-chip__checkmark-svg{width:20px}.mdc-chip-set--filter .mdc-chip__icon--leading{transition:opacity 75ms linear;transition-delay:-50ms;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark{transition:opacity 75ms linear;transition-delay:80ms;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading+.mdc-chip__checkmark .mdc-chip__checkmark-svg{transition:width 0ms}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading{opacity:0}.mdc-chip-set--filter .mdc-chip--selected .mdc-chip__icon--leading+.mdc-chip__checkmark{width:0;opacity:1}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading{width:0;opacity:0}.mdc-chip-set--filter .mdc-chip__icon--leading-hidden.mdc-chip__icon--leading+.mdc-chip__checkmark{width:20px}@keyframes mdc-chip-entry{from{transform:scale(0.8);opacity:.4}to{transform:scale(1);opacity:1}}.mdc-chip-set{padding:4px;display:flex;flex-wrap:wrap;box-sizing:border-box}.mdc-chip-set .mdc-chip{margin:4px}.mdc-chip-set .mdc-chip--touch{margin-top:8px;margin-bottom:8px}.mdc-chip-set--input .mdc-chip{animation:mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1)}.mat-mdc-chip{cursor:default}.mat-mdc-chip._mat-animation-noopable{animation:none;transition:none}.mat-mdc-chip._mat-animation-noopable .mdc-chip__checkmark-svg{transition:none}.cdk-high-contrast-active .mat-mdc-chip{outline:solid 1px}.cdk-high-contrast-active .mat-mdc-chip:focus{outline:dotted 2px}.mat-mdc-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mdc-chip__ripple{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.mdc-chip__ripple::after,.mdc-chip__ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;content:\"\";pointer-events:none;opacity:0;border-radius:inherit}._mat-animation-noopable .mdc-chip__ripple::after,._mat-animation-noopable .mdc-chip__ripple::before{transition:none}.mat-mdc-chip-disabled.mat-mdc-chip{opacity:.4}.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-trailing-icon,.mat-mdc-chip-disabled.mat-mdc-chip .mat-mdc-chip-row-focusable-text-content{pointer-events:none}.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::after,.mat-mdc-chip-disabled.mat-mdc-chip .mdc-chip__ripple::before{display:none}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px}.mat-mdc-chip-grid{margin:-4px}.mat-mdc-chip-grid input.mat-mdc-chip-input{margin:4px}._mat-animation-noopable .mdc-chip__checkmark-path{transition:none}.cdk-high-contrast-black-on-white .mdc-chip__checkmark-path{stroke:#000 !important}.mat-mdc-chip-row-focusable-text-content{position:relative}.mat-mdc-chip-remove{border:none;-webkit-appearance:none;-moz-appearance:none;padding:0;background:none}.mat-mdc-chip-remove .mat-icon{width:inherit;height:inherit;font-size:inherit}.mat-mdc-chip-row-focusable-text-content,.mat-mdc-chip-remove-icon{display:flex;align-items:center}.mat-mdc-chip-content{display:inline-flex}.mdc-chip--editing{background-color:transparent;display:flex;flex-direction:column}.mdc-chip--editing .mat-mdc-chip-content{pointer-events:none;height:0;overflow:hidden}.mat-chip-edit-input{cursor:text;display:inline-block}.mat-mdc-chip-edit-input-container{width:100%;height:100%;display:flex;align-items:center}\n"] }]
         }], ctorParameters: function () { return [{ type: undefined, decorators: [{
                     type: Inject,
@@ -1028,7 +1040,7 @@ class MatChipSet extends _MatChipSetMixinBase {
          * These methods are called by the chip set foundation.
          */
         this._chipSetAdapter = {
-            hasClass: (className) => this._hasMdcClass(className),
+            hasClass: className => this._hasMdcClass(className),
             // No-op. We keep track of chips via ContentChildren, which will be updated when a chip is
             // removed.
             removeChipAtIndex: () => { },
@@ -1055,13 +1067,17 @@ class MatChipSet extends _MatChipSetMixinBase {
         this._chipSetFoundation = new deprecated.MDCChipSetFoundation(this._chipSetAdapter);
     }
     /** Whether the chip set is disabled. */
-    get disabled() { return this._disabled; }
+    get disabled() {
+        return this._disabled;
+    }
     set disabled(value) {
         this._disabled = coerceBooleanProperty(value);
         this._syncChipsState();
     }
     /** Whether the chip list contains chips or not. */
-    get empty() { return this._chips.length === 0; }
+    get empty() {
+        return this._chips.length === 0;
+    }
     /** The ARIA role applied to the chip set. */
     get role() {
         if (this._role) {
@@ -1075,7 +1091,9 @@ class MatChipSet extends _MatChipSetMixinBase {
         this._role = value;
     }
     /** Whether any of the chips inside of this chip-set has focus. */
-    get focused() { return this._hasFocusedChip(); }
+    get focused() {
+        return this._hasFocusedChip();
+    }
     /** Combined stream of all of the child chips' remove events. */
     get chipRemoveChanges() {
         return merge(...this._chips.map(chip => chip.removed));
@@ -1243,7 +1261,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                 args: [MatChip, {
                         // We need to use `descendants: true`, because Ivy will no longer match
                         // indirect descendants if it's left as false.
-                        descendants: true
+                        descendants: true,
                     }]
             }] } });
 
@@ -1273,7 +1291,7 @@ class MatChipListboxChange {
 const MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => MatChipListbox),
-    multi: true
+    multi: true,
 };
 /**
  * An extension of the MatChipSet component that supports chip selection.
@@ -1308,9 +1326,13 @@ class MatChipListbox extends MatChipSet {
         this._updateMdcSelectionClasses();
     }
     /** The ARIA role applied to the chip listbox. */
-    get role() { return this.empty ? null : 'listbox'; }
+    get role() {
+        return this.empty ? null : 'listbox';
+    }
     /** Whether the user should be allowed to select multiple chips. */
-    get multiple() { return this._multiple; }
+    get multiple() {
+        return this._multiple;
+    }
     set multiple(value) {
         this._multiple = coerceBooleanProperty(value);
         this._updateMdcSelectionClasses();
@@ -1327,7 +1349,9 @@ class MatChipListbox extends MatChipSet {
      * When a chip listbox is not selectable, the selected states for all
      * the chips inside the chip listbox are always ignored.
      */
-    get selectable() { return this._selectable; }
+    get selectable() {
+        return this._selectable;
+    }
     set selectable(value) {
         this._selectable = coerceBooleanProperty(value);
         this._updateMdcSelectionClasses();
@@ -1338,13 +1362,17 @@ class MatChipListbox extends MatChipSet {
      * is a value from an option. The second is a value from the selection. A boolean
      * should be returned.
      */
-    get compareWith() { return this._compareWith; }
+    get compareWith() {
+        return this._compareWith;
+    }
     set compareWith(fn) {
         this._compareWith = fn;
         this._initializeSelection();
     }
     /** Whether this chip listbox is required. */
-    get required() { return this._required; }
+    get required() {
+        return this._required;
+    }
     set required(value) {
         this._required = coerceBooleanProperty(value);
     }
@@ -1361,7 +1389,9 @@ class MatChipListbox extends MatChipSet {
         return merge(...this._chips.map(chip => chip._onBlur));
     }
     /** The value of the listbox, which is the combined value of the selected chips. */
-    get value() { return this._value; }
+    get value() {
+        return this._value;
+    }
     set value(value) {
         this.writeValue(value);
         this._value = value;
@@ -1633,7 +1663,7 @@ class MatChipListbox extends MatChipSet {
             this._chipSetFoundation.handleChipSelection({
                 chipId: chipSelectionChange.source.id,
                 selected: chipSelectionChange.selected,
-                shouldIgnore: false
+                shouldIgnore: false,
             });
             if (chipSelectionChange.isUserInput) {
                 this._propagateChanges();
@@ -1701,7 +1731,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                 args: [MatChipOption, {
                         // We need to use `descendants: true`, because Ivy will no longer match
                         // indirect descendants if it's left as false.
-                        descendants: true
+                        descendants: true,
                     }]
             }] } });
 
@@ -1862,7 +1892,8 @@ class GridKeyManager {
     }
     updateActiveCell(cell) {
         const rowArray = this._getRowsArray();
-        if (typeof cell === 'object' && typeof cell.row === 'number' &&
+        if (typeof cell === 'object' &&
+            typeof cell.row === 'number' &&
             typeof cell.column === 'number') {
             this._activeRowIndex = cell.row;
             this._activeColumnIndex = cell.column;
@@ -2023,17 +2054,20 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    get id() { return this._chipInput.id; }
+    get id() {
+        return this._chipInput.id;
+    }
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
     get empty() {
-        return (!this._chipInput || this._chipInput.empty) &&
-            (!this._chips || this._chips.length === 0);
+        return ((!this._chipInput || this._chipInput.empty) && (!this._chips || this._chips.length === 0));
     }
     /** The ARIA role applied to the chip grid. */
-    get role() { return this.empty ? null : 'grid'; }
+    get role() {
+        return this.empty ? null : 'grid';
+    }
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
@@ -2046,7 +2080,9 @@ class MatChipGrid extends _MatChipGridMixinBase {
         this.stateChanges.next();
     }
     /** Whether any chips or the matChipInput inside of this chip-grid has focus. */
-    get focused() { return this._chipInput.focused || this._hasFocusedChip(); }
+    get focused() {
+        return this._chipInput.focused || this._hasFocusedChip();
+    }
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
@@ -2062,12 +2098,16 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    get shouldLabelFloat() { return !this.empty || this.focused; }
+    get shouldLabelFloat() {
+        return !this.empty || this.focused;
+    }
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    get value() { return this._value; }
+    get value() {
+        return this._value;
+    }
     set value(value) {
         this._value = value;
     }
@@ -2140,7 +2180,9 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * Implemented as part of MatFormFieldControl.
      * @docs-private
      */
-    setDescribedByIds(ids) { this._ariaDescribedby = ids.join(' '); }
+    setDescribedByIds(ids) {
+        this._ariaDescribedby = ids.join(' ');
+    }
     /**
      * Implemented as part of ControlValueAccessor.
      * @docs-private
@@ -2292,7 +2334,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
                 const newChipIndex = Math.min(this._lastDestroyedChipIndex, this._chips.length - 1);
                 this._keyManager.setActiveCell({
                     row: newChipIndex,
-                    column: Math.max(this._keyManager.activeColumnIndex, 0)
+                    column: Math.max(this._keyManager.activeColumnIndex, 0),
                 });
             }
             else {
@@ -2357,7 +2399,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                 args: [MatChipRow, {
                         // We need to use `descendants: true`, because Ivy will no longer match
                         // indirect descendants if it's left as false.
-                        descendants: true
+                        descendants: true,
                     }]
             }] } });
 
@@ -2419,13 +2461,23 @@ class MatChipInput {
     /**
      * Whether or not the chipEnd event will be emitted when the input is blurred.
      */
-    get addOnBlur() { return this._addOnBlur; }
-    set addOnBlur(value) { this._addOnBlur = coerceBooleanProperty(value); }
+    get addOnBlur() {
+        return this._addOnBlur;
+    }
+    set addOnBlur(value) {
+        this._addOnBlur = coerceBooleanProperty(value);
+    }
     /** Whether the input is disabled. */
-    get disabled() { return this._disabled || (this._chipGrid && this._chipGrid.disabled); }
-    set disabled(value) { this._disabled = coerceBooleanProperty(value); }
+    get disabled() {
+        return this._disabled || (this._chipGrid && this._chipGrid.disabled);
+    }
+    set disabled(value) {
+        this._disabled = coerceBooleanProperty(value);
+    }
     /** Whether the input is empty. */
-    get empty() { return !this.inputElement.value; }
+    get empty() {
+        return !this.inputElement.value;
+    }
     ngOnChanges() {
         this._chipGrid.stateChanges.next();
     }
@@ -2541,7 +2593,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         '[attr.aria-invalid]': '_chipGrid && _chipGrid.ngControl ? _chipGrid.ngControl.invalid : null',
                         '[attr.aria-required]': '_chipGrid && _chipGrid.required || null',
                         '[attr.required]': '_chipGrid && _chipGrid.required || null',
-                    }
+                    },
                 }]
         }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: undefined, decorators: [{
                     type: Inject,
@@ -2623,9 +2675,9 @@ MatChipsModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version:
         {
             provide: MAT_CHIPS_DEFAULT_OPTIONS,
             useValue: {
-                separatorKeyCodes: [ENTER]
-            }
-        }
+                separatorKeyCodes: [ENTER],
+            },
+        },
     ], imports: [[MatCommonModule, CommonModule, MatRippleModule], MatCommonModule] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatChipsModule, decorators: [{
             type: NgModule,
@@ -2638,10 +2690,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         {
                             provide: MAT_CHIPS_DEFAULT_OPTIONS,
                             useValue: {
-                                separatorKeyCodes: [ENTER]
-                            }
-                        }
-                    ]
+                                separatorKeyCodes: [ENTER],
+                            },
+                        },
+                    ],
                 }]
         }] });
 

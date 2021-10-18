@@ -50,8 +50,7 @@ class MatChipHarness extends ContentContainerComponentHarness {
     // Note(mmalerba): generics are used as a workaround for lack of polymorphic `this` in static
     // methods. See https://github.com/microsoft/TypeScript/issues/5863
     static with(options = {}) {
-        return new HarnessPredicate(MatChipHarness, options)
-            .addOption('text', options.text, (harness, label) => {
+        return new HarnessPredicate(MatChipHarness, options).addOption('text', options.text, (harness, label) => {
             return HarnessPredicate.stringMatches(harness.getText(), label);
         });
     }
@@ -59,7 +58,7 @@ class MatChipHarness extends ContentContainerComponentHarness {
     getText() {
         return __awaiter(this, void 0, void 0, function* () {
             return (yield this.host()).text({
-                exclude: '.mat-mdc-chip-avatar, .mat-mdc-chip-trailing-icon, .mat-icon'
+                exclude: '.mat-mdc-chip-avatar, .mat-mdc-chip-trailing-icon, .mat-icon',
             });
         });
     }
@@ -130,13 +129,13 @@ class MatChipInputHarness extends ComponentHarness {
     getValue() {
         return __awaiter(this, void 0, void 0, function* () {
             // The "value" property of the native input is never undefined.
-            return (yield (yield this.host()).getProperty('value'));
+            return yield (yield this.host()).getProperty('value');
         });
     }
     /** Gets the placeholder of the input. */
     getPlaceholder() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).getProperty('placeholder'));
+            return yield (yield this.host()).getProperty('placeholder');
         });
     }
     /**

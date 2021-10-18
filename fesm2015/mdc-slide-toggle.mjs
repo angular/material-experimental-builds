@@ -21,7 +21,7 @@ export { MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR, MatSlideToggleRequiredValidator } 
 /** Injection token to be used to override the default options for `mat-slide-toggle`. */
 const MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS = new InjectionToken('mat-slide-toggle-default-options', {
     providedIn: 'root',
-    factory: () => ({ disableToggleValue: false })
+    factory: () => ({ disableToggleValue: false }),
 });
 
 /**
@@ -37,7 +37,7 @@ let nextUniqueId = 0;
 const MAT_SLIDE_TOGGLE_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => MatSlideToggle),
-    multi: true
+    multi: true,
 };
 /** Change event object emitted by a MatSlideToggle. */
 class MatSlideToggleChange {
@@ -64,11 +64,11 @@ class MatSlideToggle {
         this._adapter = {
             addClass: className => this._switchElement.nativeElement.classList.add(className),
             removeClass: className => this._switchElement.nativeElement.classList.remove(className),
-            setNativeControlChecked: checked => this._checked = checked,
-            setNativeControlDisabled: disabled => this._disabled = disabled,
+            setNativeControlChecked: checked => (this._checked = checked),
+            setNativeControlDisabled: disabled => (this._disabled = disabled),
             setNativeControlAttr: (name, value) => {
                 this._switchElement.nativeElement.setAttribute(name, value);
-            }
+            },
         };
         /** Unique ID for the label element. */
         this._labelId = `mat-mdc-slide-toggle-label-${++nextUniqueId}`;
@@ -93,15 +93,23 @@ class MatSlideToggle {
         this._noopAnimations = animationMode === 'NoopAnimations';
     }
     /** Tabindex for the input element. */
-    get tabIndex() { return this._tabIndex; }
+    get tabIndex() {
+        return this._tabIndex;
+    }
     set tabIndex(value) {
         this._tabIndex = coerceNumberProperty(value);
     }
     /** Whether the slide-toggle is required. */
-    get required() { return this._required; }
-    set required(value) { this._required = coerceBooleanProperty(value); }
+    get required() {
+        return this._required;
+    }
+    set required(value) {
+        this._required = coerceBooleanProperty(value);
+    }
     /** Whether the slide-toggle element is checked or not. */
-    get checked() { return this._checked; }
+    get checked() {
+        return this._checked;
+    }
     set checked(value) {
         this._checked = coerceBooleanProperty(value);
         if (this._foundation) {
@@ -126,14 +134,14 @@ class MatSlideToggle {
         }
     }
     /** Returns the unique id for the visual hidden button. */
-    get buttonId() { return `${this.id || this._uniqueId}-button`; }
+    get buttonId() {
+        return `${this.id || this._uniqueId}-button`;
+    }
     ngAfterViewInit() {
-        const foundation = this._foundation = new deprecated.MDCSwitchFoundation(this._adapter);
+        const foundation = (this._foundation = new deprecated.MDCSwitchFoundation(this._adapter));
         foundation.setDisabled(this.disabled);
         foundation.setChecked(this.checked);
-        this._focusMonitor
-            .monitor(this._elementRef, true)
-            .subscribe(focusOrigin => {
+        this._focusMonitor.monitor(this._elementRef, true).subscribe(focusOrigin => {
             // Only forward focus manually when it was received programmatically or through the
             // keyboard. We should not do this for mouse/touch focus for two reasons:
             // 1. It can prevent clicks from landing in Chrome (see #18269).
@@ -284,33 +292,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
 class MatSlideToggleModule {
 }
 MatSlideToggleModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSlideToggleModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatSlideToggleModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSlideToggleModule, declarations: [MatSlideToggle], imports: [_MatSlideToggleRequiredValidatorModule,
-        MatCommonModule,
-        MatRippleModule,
-        CommonModule], exports: [_MatSlideToggleRequiredValidatorModule,
-        MatSlideToggle,
-        MatCommonModule] });
-MatSlideToggleModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSlideToggleModule, imports: [[
-            _MatSlideToggleRequiredValidatorModule,
-            MatCommonModule,
-            MatRippleModule,
-            CommonModule
-        ], _MatSlideToggleRequiredValidatorModule,
-        MatCommonModule] });
+MatSlideToggleModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSlideToggleModule, declarations: [MatSlideToggle], imports: [_MatSlideToggleRequiredValidatorModule, MatCommonModule, MatRippleModule, CommonModule], exports: [_MatSlideToggleRequiredValidatorModule, MatSlideToggle, MatCommonModule] });
+MatSlideToggleModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSlideToggleModule, imports: [[_MatSlideToggleRequiredValidatorModule, MatCommonModule, MatRippleModule, CommonModule], _MatSlideToggleRequiredValidatorModule, MatCommonModule] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSlideToggleModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [
-                        _MatSlideToggleRequiredValidatorModule,
-                        MatCommonModule,
-                        MatRippleModule,
-                        CommonModule
-                    ],
-                    exports: [
-                        _MatSlideToggleRequiredValidatorModule,
-                        MatSlideToggle,
-                        MatCommonModule
-                    ],
+                    imports: [_MatSlideToggleRequiredValidatorModule, MatCommonModule, MatRippleModule, CommonModule],
+                    exports: [_MatSlideToggleRequiredValidatorModule, MatSlideToggle, MatCommonModule],
                     declarations: [MatSlideToggle],
                 }]
         }] });
