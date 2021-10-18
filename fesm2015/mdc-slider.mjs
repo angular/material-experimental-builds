@@ -49,7 +49,9 @@ class GlobalChangeAndInputListener {
         if (!this._observables.has(type)) {
             this._observables.set(type, this._createGlobalEventObservable(type));
         }
-        return this._ngZone.runOutsideAngular(() => this._observables.get(type).subscribe((event) => this._ngZone.run(() => callback(event))));
+        return this._ngZone.runOutsideAngular(() => this._observables
+            .get(type)
+            .subscribe((event) => this._ngZone.run(() => callback(event))));
     }
     /** Creates an observable that emits all events of the given type. */
     _createGlobalEventObservable(type) {
@@ -196,7 +198,7 @@ class MatSliderVisualThumb {
         return this._ripple.launch({
             animation: this._slider._noopAnimations ? { enterDuration: 0, exitDuration: 0 } : animation,
             centered: true,
-            persistent: true
+            persistent: true,
         });
     }
     /** Gets the hosts native HTML element. */
@@ -445,11 +447,13 @@ class MatSliderThumb {
     }
 }
 MatSliderThumb.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderThumb, deps: [{ token: DOCUMENT }, { token: forwardRef(() => MatSlider) }, { token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
-MatSliderThumb.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatSliderThumb, selector: "input[matSliderThumb], input[matSliderStartThumb], input[matSliderEndThumb]", inputs: { value: "value" }, outputs: { valueChange: "valueChange", dragStart: "dragStart", dragEnd: "dragEnd", _blur: "_blur", _focus: "_focus" }, host: { attributes: { "type": "range" }, listeners: { "blur": "_onBlur()", "focus": "_focus.emit()" }, classAttribute: "mdc-slider__input" }, providers: [{
+MatSliderThumb.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatSliderThumb, selector: "input[matSliderThumb], input[matSliderStartThumb], input[matSliderEndThumb]", inputs: { value: "value" }, outputs: { valueChange: "valueChange", dragStart: "dragStart", dragEnd: "dragEnd", _blur: "_blur", _focus: "_focus" }, host: { attributes: { "type": "range" }, listeners: { "blur": "_onBlur()", "focus": "_focus.emit()" }, classAttribute: "mdc-slider__input" }, providers: [
+        {
             provide: NG_VALUE_ACCESSOR,
             useExisting: MatSliderThumb,
-            multi: true
-        }], exportAs: ["matSliderThumb"], ngImport: i0 });
+            multi: true,
+        },
+    ], exportAs: ["matSliderThumb"], ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderThumb, decorators: [{
             type: Directive,
             args: [{
@@ -461,11 +465,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         '(blur)': '_onBlur()',
                         '(focus)': '_focus.emit()',
                     },
-                    providers: [{
+                    providers: [
+                        {
                             provide: NG_VALUE_ACCESSOR,
                             useExisting: MatSliderThumb,
-                            multi: true
-                        }],
+                            multi: true,
+                        },
+                    ],
                 }]
         }], ctorParameters: function () {
         return [{ type: undefined, decorators: [{
@@ -529,9 +535,7 @@ class MatSlider extends _MatSliderMixinBase {
          * We exclude iOS to mirror the MDC Foundation. The MDC Foundation cannot use pointer events on
          * iOS because of this open bug - https://bugs.webkit.org/show_bug.cgi?id=220196.
          */
-        this._SUPPORTS_POINTER_EVENTS = typeof PointerEvent !== 'undefined'
-            && !!PointerEvent
-            && !this._platform.IOS;
+        this._SUPPORTS_POINTER_EVENTS = typeof PointerEvent !== 'undefined' && !!PointerEvent && !this._platform.IOS;
         /** Wrapper function for calling layout (needed for adding & removing an event listener). */
         this._layout = () => this._foundation.layout();
         this._document = document;
@@ -541,31 +545,47 @@ class MatSlider extends _MatSliderMixinBase {
         this._attachUISyncEventListener();
     }
     /** Whether the slider is disabled. */
-    get disabled() { return this._disabled; }
+    get disabled() {
+        return this._disabled;
+    }
     set disabled(v) {
         this._setDisabled(coerceBooleanProperty(v));
         this._updateInputsDisabledState();
     }
     /** Whether the slider displays a numeric value label upon pressing the thumb. */
-    get discrete() { return this._discrete; }
-    set discrete(v) { this._discrete = coerceBooleanProperty(v); }
+    get discrete() {
+        return this._discrete;
+    }
+    set discrete(v) {
+        this._discrete = coerceBooleanProperty(v);
+    }
     /** Whether the slider displays tick marks along the slider track. */
-    get showTickMarks() { return this._showTickMarks; }
-    set showTickMarks(v) { this._showTickMarks = coerceBooleanProperty(v); }
+    get showTickMarks() {
+        return this._showTickMarks;
+    }
+    set showTickMarks(v) {
+        this._showTickMarks = coerceBooleanProperty(v);
+    }
     /** The minimum value that the slider can have. */
-    get min() { return this._min; }
+    get min() {
+        return this._min;
+    }
     set min(v) {
         this._min = coerceNumberProperty(v, this._min);
         this._reinitialize();
     }
     /** The maximum value that the slider can have. */
-    get max() { return this._max; }
+    get max() {
+        return this._max;
+    }
     set max(v) {
         this._max = coerceNumberProperty(v, this._max);
         this._reinitialize();
     }
     /** The values at which the thumb will snap. */
-    get step() { return this._step; }
+    get step() {
+        return this._step;
+    }
     set step(v) {
         this._step = coerceNumberProperty(v, this._step);
         this._reinitialize();
@@ -720,8 +740,8 @@ class MatSlider extends _MatSliderMixinBase {
      */
     _setValueIndicatorText(value, thumbPosition) {
         thumbPosition === Thumb.START
-            ? this._startValueIndicatorText = this.displayWith(value)
-            : this._endValueIndicatorText = this.displayWith(value);
+            ? (this._startValueIndicatorText = this.displayWith(value))
+            : (this._endValueIndicatorText = this.displayWith(value));
         this._cdr.markForCheck();
     }
     /** Gets the value indicator text for the given thumb position. */
@@ -1084,20 +1104,14 @@ function _throwInvalidInputConfigurationError() {
 class MatSliderModule {
 }
 MatSliderModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatSliderModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderModule, declarations: [MatSlider,
-        MatSliderThumb,
-        MatSliderVisualThumb], imports: [MatCommonModule, CommonModule, MatRippleModule], exports: [MatSlider, MatSliderThumb] });
+MatSliderModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderModule, declarations: [MatSlider, MatSliderThumb, MatSliderVisualThumb], imports: [MatCommonModule, CommonModule, MatRippleModule], exports: [MatSlider, MatSliderThumb] });
 MatSliderModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderModule, imports: [[MatCommonModule, CommonModule, MatRippleModule]] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSliderModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [MatCommonModule, CommonModule, MatRippleModule],
                     exports: [MatSlider, MatSliderThumb],
-                    declarations: [
-                        MatSlider,
-                        MatSliderThumb,
-                        MatSliderVisualThumb,
-                    ],
+                    declarations: [MatSlider, MatSliderThumb, MatSliderVisualThumb],
                 }]
         }] });
 

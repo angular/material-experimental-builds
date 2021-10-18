@@ -17,8 +17,7 @@ class MatSliderThumbHarness extends ComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSliderThumbHarness, options)
-            .addOption('position', options.position, async (harness, value) => {
+        return new HarnessPredicate(MatSliderThumbHarness, options).addOption('position', options.position, async (harness, value) => {
             return (await harness.getPosition()) === value;
         });
     }
@@ -30,7 +29,7 @@ class MatSliderThumbHarness extends ComponentHarness {
     }
     /** Gets the value of the thumb. */
     async getValue() {
-        return (await (await this.host()).getProperty('valueAsNumber'));
+        return await (await this.host()).getProperty('valueAsNumber');
     }
     /** Sets the value of the thumb. */
     async setValue(newValue) {
@@ -46,7 +45,7 @@ class MatSliderThumbHarness extends ComponentHarness {
         const [value, min, max] = await parallel(() => [
             this.getValue(),
             this.getMinValue(),
-            this.getMaxValue()
+            this.getMaxValue(),
         ]);
         return (value - min) / (max - min);
     }
@@ -68,11 +67,11 @@ class MatSliderThumbHarness extends ComponentHarness {
     }
     /** Gets the name of the thumb. */
     async getName() {
-        return (await (await this.host()).getProperty('name'));
+        return await (await this.host()).getProperty('name');
     }
     /** Gets the id of the thumb. */
     async getId() {
-        return (await (await this.host()).getProperty('id'));
+        return await (await this.host()).getProperty('id');
     }
     /**
      * Focuses the thumb and returns a promise that indicates when the
@@ -111,16 +110,15 @@ class MatSliderHarness extends ComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSliderHarness, options)
-            .addOption('isRange', options.isRange, async (harness, value) => {
+        return new HarnessPredicate(MatSliderHarness, options).addOption('isRange', options.isRange, async (harness, value) => {
             return (await harness.isRange()) === value;
         });
     }
     /** Gets the start thumb of the slider (only applicable for range sliders). */
     async getStartThumb() {
-        if (!await this.isRange()) {
-            throw Error('`getStartThumb` is only applicable for range sliders. '
-                + 'Did you mean to use `getEndThumb`?');
+        if (!(await this.isRange())) {
+            throw Error('`getStartThumb` is only applicable for range sliders. ' +
+                'Did you mean to use `getEndThumb`?');
         }
         return this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* START */ }))();
     }
@@ -130,11 +128,11 @@ class MatSliderHarness extends ComponentHarness {
     }
     /** Gets whether the slider is a range slider. */
     async isRange() {
-        return (await (await this.host()).hasClass('mdc-slider--range'));
+        return await (await this.host()).hasClass('mdc-slider--range');
     }
     /** Gets whether the slider is disabled. */
     async isDisabled() {
-        return (await (await this.host()).hasClass('mdc-slider--disabled'));
+        return await (await this.host()).hasClass('mdc-slider--disabled');
     }
     /** Gets the value step increments of the slider. */
     async getStep() {
@@ -148,7 +146,9 @@ class MatSliderHarness extends ComponentHarness {
     }
     /** Gets the minimum value of the slider. */
     async getMinValue() {
-        const startThumb = await this.isRange() ? await this.getStartThumb() : await this.getEndThumb();
+        const startThumb = (await this.isRange())
+            ? await this.getStartThumb()
+            : await this.getEndThumb();
         return startThumb.getMinValue();
     }
 }

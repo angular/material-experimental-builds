@@ -10,4 +10,4 @@ export declare class MatOptionModule {
 }
 export * from './option';
 export * from './optgroup';
-export { MatOptionSelectionChange, MatOptionParentComponent, MAT_OPTION_PARENT_COMPONENT, _countGroupLabelsBeforeOption, _getOptionScrollPosition } from '@angular/material/core';
+export { MatOptionSelectionChange, MatOptionParentComponent, MAT_OPTION_PARENT_COMPONENT, _countGroupLabelsBeforeOption, _getOptionScrollPosition, } from '@angular/material/core';

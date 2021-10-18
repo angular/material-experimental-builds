@@ -50,8 +50,8 @@ class MatProgressBar extends _MatProgressBarBase {
                 this._elementRef.nativeElement.style[styleProperty] = value;
             },
             getWidth: () => this._elementRef.nativeElement.offsetWidth,
-            attachResizeObserver: (callback) => {
-                const resizeObserverConstructor = (typeof window !== 'undefined') &&
+            attachResizeObserver: callback => {
+                const resizeObserverConstructor = typeof window !== 'undefined' &&
                     window.ResizeObserver;
                 if (resizeObserverConstructor) {
                     return this._ngZone.runOutsideAngular(() => {
@@ -67,7 +67,7 @@ class MatProgressBar extends _MatProgressBarBase {
                     });
                 }
                 return null;
-            }
+            },
         };
         /** Flag that indicates whether NoopAnimations mode is set to true. */
         this._isNoopAnimation = false;
@@ -100,13 +100,17 @@ class MatProgressBar extends _MatProgressBarBase {
         }
     }
     /** Value of the progress bar. Defaults to zero. Mirrored to aria-valuenow. */
-    get value() { return this._value; }
+    get value() {
+        return this._value;
+    }
     set value(v) {
         this._value = clamp(v || 0);
         this._syncFoundation();
     }
     /** Buffer value of the progress bar. Defaults to zero. */
-    get bufferValue() { return this._bufferValue || 0; }
+    get bufferValue() {
+        return this._bufferValue || 0;
+    }
     set bufferValue(v) {
         this._bufferValue = clamp(v || 0);
         this._syncFoundation();
@@ -118,7 +122,9 @@ class MatProgressBar extends _MatProgressBarBase {
      * 'determinate'.
      * Mirrored to mode attribute.
      */
-    get mode() { return this._mode; }
+    get mode() {
+        return this._mode;
+    }
     set mode(value) {
         // Note that we don't technically need a getter and a setter here,
         // but we use it to match the behavior of the existing mat-progress-bar.
@@ -134,16 +140,15 @@ class MatProgressBar extends _MatProgressBarBase {
         this._syncFoundation();
         // Run outside angular so change detection didn't get triggered on every transition end
         // instead only on the animation that we care about (primary value bar's transitionend)
-        this._ngZone.runOutsideAngular((() => {
-            this._animationEndSubscription =
-                fromEvent(this._primaryBar, 'transitionend')
-                    .pipe(filter(((e) => e.target === this._primaryBar)))
-                    .subscribe(() => {
-                    if (this.mode === 'determinate' || this.mode === 'buffer') {
-                        this._ngZone.run(() => this.animationEnd.next({ value: this.value }));
-                    }
-                });
-        }));
+        this._ngZone.runOutsideAngular(() => {
+            this._animationEndSubscription = fromEvent(this._primaryBar, 'transitionend')
+                .pipe(filter((e) => e.target === this._primaryBar))
+                .subscribe(() => {
+                if (this.mode === 'determinate' || this.mode === 'buffer') {
+                    this._ngZone.run(() => this.animationEnd.next({ value: this.value }));
+                }
+            });
+        });
     }
     ngOnDestroy() {
         if (this._foundation) {

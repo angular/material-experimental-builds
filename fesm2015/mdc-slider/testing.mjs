@@ -11,8 +11,7 @@ class MatSliderThumbHarness extends ComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSliderThumbHarness, options)
-            .addOption('position', options.position, (harness, value) => __awaiter(this, void 0, void 0, function* () {
+        return new HarnessPredicate(MatSliderThumbHarness, options).addOption('position', options.position, (harness, value) => __awaiter(this, void 0, void 0, function* () {
             return (yield harness.getPosition()) === value;
         }));
     }
@@ -27,7 +26,7 @@ class MatSliderThumbHarness extends ComponentHarness {
     /** Gets the value of the thumb. */
     getValue() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).getProperty('valueAsNumber'));
+            return yield (yield this.host()).getProperty('valueAsNumber');
         });
     }
     /** Sets the value of the thumb. */
@@ -47,7 +46,7 @@ class MatSliderThumbHarness extends ComponentHarness {
             const [value, min, max] = yield parallel(() => [
                 this.getValue(),
                 this.getMinValue(),
-                this.getMaxValue()
+                this.getMaxValue(),
             ]);
             return (value - min) / (max - min);
         });
@@ -79,13 +78,13 @@ class MatSliderThumbHarness extends ComponentHarness {
     /** Gets the name of the thumb. */
     getName() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).getProperty('name'));
+            return yield (yield this.host()).getProperty('name');
         });
     }
     /** Gets the id of the thumb. */
     getId() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).getProperty('id'));
+            return yield (yield this.host()).getProperty('id');
         });
     }
     /**
@@ -124,8 +123,7 @@ class MatSliderHarness extends ComponentHarness {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSliderHarness, options)
-            .addOption('isRange', options.isRange, (harness, value) => __awaiter(this, void 0, void 0, function* () {
+        return new HarnessPredicate(MatSliderHarness, options).addOption('isRange', options.isRange, (harness, value) => __awaiter(this, void 0, void 0, function* () {
             return (yield harness.isRange()) === value;
         }));
     }
@@ -133,8 +131,8 @@ class MatSliderHarness extends ComponentHarness {
     getStartThumb() {
         return __awaiter(this, void 0, void 0, function* () {
             if (!(yield this.isRange())) {
-                throw Error('`getStartThumb` is only applicable for range sliders. '
-                    + 'Did you mean to use `getEndThumb`?');
+                throw Error('`getStartThumb` is only applicable for range sliders. ' +
+                    'Did you mean to use `getEndThumb`?');
             }
             return this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* START */ }))();
         });
@@ -148,13 +146,13 @@ class MatSliderHarness extends ComponentHarness {
     /** Gets whether the slider is a range slider. */
     isRange() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).hasClass('mdc-slider--range'));
+            return yield (yield this.host()).hasClass('mdc-slider--range');
         });
     }
     /** Gets whether the slider is disabled. */
     isDisabled() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).hasClass('mdc-slider--disabled'));
+            return yield (yield this.host()).hasClass('mdc-slider--disabled');
         });
     }
     /** Gets the value step increments of the slider. */
@@ -174,7 +172,9 @@ class MatSliderHarness extends ComponentHarness {
     /** Gets the minimum value of the slider. */
     getMinValue() {
         return __awaiter(this, void 0, void 0, function* () {
-            const startThumb = (yield this.isRange()) ? yield this.getStartThumb() : yield this.getEndThumb();
+            const startThumb = (yield this.isRange())
+                ? yield this.getStartThumb()
+                : yield this.getEndThumb();
             return startThumb.getMinValue();
         });
     }

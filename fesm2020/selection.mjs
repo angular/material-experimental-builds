@@ -30,8 +30,12 @@ class MatSelection extends CdkSelection {
         this.change = new EventEmitter();
     }
     /** Whether to support multiple selection */
-    get multiple() { return this._multiple; }
-    set multiple(multiple) { this._multiple = coerceBooleanProperty(multiple); }
+    get multiple() {
+        return this._multiple;
+    }
+    set multiple(multiple) {
+        this._multiple = coerceBooleanProperty(multiple);
+    }
 }
 MatSelection.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSelection, deps: null, target: i0.ɵɵFactoryTarget.Directive });
 MatSelection.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatSelection, selector: "[matSelection]", inputs: { multiple: ["matSelectionMultiple", "multiple"] }, outputs: { change: "matSelectionChange" }, providers: [{ provide: CdkSelection, useExisting: MatSelection }], exportAs: ["matSelection"], usesInheritance: true, ngImport: i0 });
@@ -40,7 +44,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             args: [{
                     selector: '[matSelection]',
                     exportAs: 'matSelection',
-                    providers: [{ provide: CdkSelection, useExisting: MatSelection }]
+                    providers: [{ provide: CdkSelection, useExisting: MatSelection }],
                 }]
         }], propDecorators: { multiple: [{
                 type: Input,
@@ -76,7 +80,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             args: [{
                     selector: '[matSelectAll]',
                     exportAs: 'matSelectAll',
-                    providers: [{ provide: CdkSelectAll, useExisting: MatSelectAll }]
+                    providers: [{ provide: CdkSelectAll, useExisting: MatSelectAll }],
                 }]
         }] });
 
@@ -100,7 +104,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
 // tslint:disable-next-line: coercion-types
 class MatSelectionToggle extends CdkSelectionToggle {
     /** The index of the value in the list. Required when used with `trackBy` */
-    get index() { return this._index; }
+    get index() {
+        return this._index;
+    }
     set index(index) {
         // TODO: when we remove support for ViewEngine, change this setter to an input
         // alias in the decorator metadata.
@@ -114,7 +120,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             args: [{
                     selector: '[matSelectionToggle]',
                     exportAs: 'matSelectionToggle',
-                    providers: [{ provide: CdkSelectionToggle, useExisting: MatSelectionToggle }]
+                    providers: [{ provide: CdkSelectionToggle, useExisting: MatSelectionToggle }],
                 }]
         }], propDecorators: { value: [{
                 type: Input,
@@ -250,7 +256,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
 // tslint:disable-next-line: coercion-types
 class MatRowSelection extends CdkRowSelection {
     /** The index of the value in the list. Required when used with `trackBy` */
-    get index() { return this._index; }
+    get index() {
+        return this._index;
+    }
     set index(index) {
         // TODO: when we remove support for ViewEngine, change this setter to an input
         // alias in the decorator metadata.
@@ -267,7 +275,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                         '[class.mat-selected]': '_selection.isSelected(this.value, this.index)',
                         '[attr.aria-selected]': '_selection.isSelected(this.value, this.index)',
                     },
-                    providers: [{ provide: CdkRowSelection, useExisting: MatRowSelection }]
+                    providers: [{ provide: CdkRowSelection, useExisting: MatRowSelection }],
                 }]
         }], propDecorators: { value: [{
                 type: Input,
@@ -291,33 +299,13 @@ MatSelectionModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", vers
         MatSelection,
         MatSelectionToggle,
         MatSelectionColumn,
-        MatRowSelection], imports: [CommonModule,
-        MatTableModule,
-        MatCheckboxModule], exports: [MatSelectAll,
-        MatSelection,
-        MatSelectionToggle,
-        MatSelectionColumn,
-        MatRowSelection] });
-MatSelectionModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSelectionModule, imports: [[
-            CommonModule,
-            MatTableModule,
-            MatCheckboxModule,
-        ]] });
+        MatRowSelection], imports: [CommonModule, MatTableModule, MatCheckboxModule], exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection] });
+MatSelectionModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSelectionModule, imports: [[CommonModule, MatTableModule, MatCheckboxModule]] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatSelectionModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [
-                        CommonModule,
-                        MatTableModule,
-                        MatCheckboxModule,
-                    ],
-                    exports: [
-                        MatSelectAll,
-                        MatSelection,
-                        MatSelectionToggle,
-                        MatSelectionColumn,
-                        MatRowSelection,
-                    ],
+                    imports: [CommonModule, MatTableModule, MatCheckboxModule],
+                    exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection],
                     declarations: [
                         MatSelectAll,
                         MatSelection,

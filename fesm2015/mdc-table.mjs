@@ -20,16 +20,12 @@ import { _MatTableDataSource } from '@angular/material/table';
 class MatRecycleRows {
 }
 MatRecycleRows.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatRecycleRows, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-MatRecycleRows.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatRecycleRows, selector: "mat-table[recycleRows], table[mat-table][recycleRows]", providers: [
-        { provide: _VIEW_REPEATER_STRATEGY, useClass: _RecycleViewRepeaterStrategy },
-    ], ngImport: i0 });
+MatRecycleRows.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatRecycleRows, selector: "mat-table[recycleRows], table[mat-table][recycleRows]", providers: [{ provide: _VIEW_REPEATER_STRATEGY, useClass: _RecycleViewRepeaterStrategy }], ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatRecycleRows, decorators: [{
             type: Directive,
             args: [{
                     selector: 'mat-table[recycleRows], table[mat-table][recycleRows]',
-                    providers: [
-                        { provide: _VIEW_REPEATER_STRATEGY, useClass: _RecycleViewRepeaterStrategy },
-                    ],
+                    providers: [{ provide: _VIEW_REPEATER_STRATEGY, useClass: _RecycleViewRepeaterStrategy }],
                 }]
         }] });
 class MatTable extends CdkTable {
@@ -98,7 +94,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             type: Directive,
             args: [{
                     selector: '[matCellDef]',
-                    providers: [{ provide: CdkCellDef, useExisting: MatCellDef }]
+                    providers: [{ provide: CdkCellDef, useExisting: MatCellDef }],
                 }]
         }] });
 /**
@@ -113,7 +109,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             type: Directive,
             args: [{
                     selector: '[matHeaderCellDef]',
-                    providers: [{ provide: CdkHeaderCellDef, useExisting: MatHeaderCellDef }]
+                    providers: [{ provide: CdkHeaderCellDef, useExisting: MatHeaderCellDef }],
                 }]
         }] });
 /**
@@ -128,7 +124,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
             type: Directive,
             args: [{
                     selector: '[matFooterCellDef]',
-                    providers: [{ provide: CdkFooterCellDef, useExisting: MatFooterCellDef }]
+                    providers: [{ provide: CdkFooterCellDef, useExisting: MatFooterCellDef }],
                 }]
         }] });
 /**
@@ -137,8 +133,12 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
  */
 class MatColumnDef extends CdkColumnDef {
     /** Unique name for this column. */
-    get name() { return this._name; }
-    set name(name) { this._setNameInput(name); }
+    get name() {
+        return this._name;
+    }
+    set name(name) {
+        this._setNameInput(name);
+    }
     /**
      * Add "mat-column-" prefix in addition to "cdk-column-" prefix.
      * In the future, this will only add "mat-column-" and columnCssClassName
@@ -153,7 +153,7 @@ class MatColumnDef extends CdkColumnDef {
 MatColumnDef.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnDef, deps: null, target: i0.ɵɵFactoryTarget.Directive });
 MatColumnDef.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0-next.15", type: MatColumnDef, selector: "[matColumnDef]", inputs: { sticky: "sticky", name: ["matColumnDef", "name"] }, providers: [
         { provide: CdkColumnDef, useExisting: MatColumnDef },
-        { provide: 'MAT_SORT_HEADER_COLUMN_DEF', useExisting: MatColumnDef }
+        { provide: 'MAT_SORT_HEADER_COLUMN_DEF', useExisting: MatColumnDef },
     ], usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatColumnDef, decorators: [{
             type: Directive,
@@ -162,7 +162,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
                     inputs: ['sticky'],
                     providers: [
                         { provide: CdkColumnDef, useExisting: MatColumnDef },
-                        { provide: 'MAT_SORT_HEADER_COLUMN_DEF', useExisting: MatColumnDef }
+                        { provide: 'MAT_SORT_HEADER_COLUMN_DEF', useExisting: MatColumnDef },
                     ],
                 }]
         }], propDecorators: { name: [{

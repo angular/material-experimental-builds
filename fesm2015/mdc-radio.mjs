@@ -27,7 +27,7 @@ import { MatCommonModule, MatRippleModule } from '@angular/material-experimental
 const MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => MatRadioGroup),
-    multi: true
+    multi: true,
 };
 /**
  * Injection token that can be used to inject instances of `MatRadioGroup`. It serves as

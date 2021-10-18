@@ -64,25 +64,12 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15",
 class MatPaginatorModule {
 }
 MatPaginatorModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPaginatorModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatPaginatorModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPaginatorModule, declarations: [MatPaginator], imports: [CommonModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatTooltipModule], exports: [MatPaginator] });
-MatPaginatorModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPaginatorModule, providers: [MAT_PAGINATOR_INTL_PROVIDER], imports: [[
-            CommonModule,
-            MatButtonModule,
-            MatSelectModule,
-            MatTooltipModule,
-        ]] });
+MatPaginatorModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPaginatorModule, declarations: [MatPaginator], imports: [CommonModule, MatButtonModule, MatSelectModule, MatTooltipModule], exports: [MatPaginator] });
+MatPaginatorModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPaginatorModule, providers: [MAT_PAGINATOR_INTL_PROVIDER], imports: [[CommonModule, MatButtonModule, MatSelectModule, MatTooltipModule]] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0-next.15", ngImport: i0, type: MatPaginatorModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [
-                        CommonModule,
-                        MatButtonModule,
-                        MatSelectModule,
-                        MatTooltipModule,
-                    ],
+                    imports: [CommonModule, MatButtonModule, MatSelectModule, MatTooltipModule],
                     exports: [MatPaginator],
                     declarations: [MatPaginator],
                     providers: [MAT_PAGINATOR_INTL_PROVIDER],
