@@ -398,7 +398,7 @@
                         '[attr.aria-disabled]': 'disabled.toString()',
                         '(click)': '_selectViaInteraction()',
                         '(keydown)': '_handleKeydown($event)',
-                        'class': 'mat-mdc-option mat-mdc-focus-indicator',
+                        'class': 'mat-mdc-option mat-mdc-focus-indicator mdc-list-item',
                     },
                     template: "<mat-pseudo-checkbox *ngIf=\"multiple\" class=\"mat-mdc-option-pseudo-checkbox\"\n    [state]=\"selected ? 'checked' : 'unchecked'\" [disabled]=\"disabled\"></mat-pseudo-checkbox>\n\n<span class=\"mdc-list-item__primary-text\"><ng-content></ng-content></span>\n\n<!-- See a11y notes inside optgroup.ts for context behind this element. -->\n<span class=\"cdk-visually-hidden\" *ngIf=\"group && group._inert\">({{ group.label }})</span>\n\n<div class=\"mat-mdc-option-ripple\" mat-ripple\n     [matRippleTrigger]=\"_getHostElement()\"\n     [matRippleDisabled]=\"disabled || disableRipple\">\n</div>\n",
                     encapsulation: core$1.ViewEncapsulation.None,
