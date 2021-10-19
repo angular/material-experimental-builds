@@ -426,7 +426,7 @@
   "peerDependencies": {
     "@angular/core": "^13.0.0-0 || ^14.0.0-0",
     "@angular/material": "13.0.0-rc.0",
-    "material-components-web": "13.0.0-canary.860ad06a1.0"
+    "material-components-web": "14.0.0-canary.c78ff0429.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
