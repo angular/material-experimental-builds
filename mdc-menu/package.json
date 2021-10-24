@@ -2,8 +2,8 @@
   "name": "@angular/material-experimental/mdc-menu",
   "fesm2020": "../fesm2020/mdc-menu.mjs",
   "fesm2015": "../fesm2015/mdc-menu.mjs",
-  "esm2020": "../esm2020/mdc-menu/index.mjs",
-  "typings": "./index.d.ts",
+  "esm2020": "../esm2020/mdc-menu/mdc-menu_public_index.mjs",
+  "typings": "./mdc-menu_public_index.d.ts",
   "module": "../fesm2015/mdc-menu.mjs",
   "es2020": "../fesm2020/mdc-menu.mjs"
 }

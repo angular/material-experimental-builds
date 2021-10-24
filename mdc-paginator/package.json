@@ -2,8 +2,8 @@
   "name": "@angular/material-experimental/mdc-paginator",
   "fesm2020": "../fesm2020/mdc-paginator.mjs",
   "fesm2015": "../fesm2015/mdc-paginator.mjs",
-  "esm2020": "../esm2020/mdc-paginator/index.mjs",
-  "typings": "./index.d.ts",
+  "esm2020": "../esm2020/mdc-paginator/mdc-paginator_public_index.mjs",
+  "typings": "./mdc-paginator_public_index.d.ts",
   "module": "../fesm2015/mdc-paginator.mjs",
   "es2020": "../fesm2020/mdc-paginator.mjs"
 }

@@ -2,8 +2,8 @@
   "name": "@angular/material-experimental/mdc-button",
   "fesm2020": "../fesm2020/mdc-button.mjs",
   "fesm2015": "../fesm2015/mdc-button.mjs",
-  "esm2020": "../esm2020/mdc-button/index.mjs",
-  "typings": "./index.d.ts",
+  "esm2020": "../esm2020/mdc-button/mdc-button_public_index.mjs",
+  "typings": "./mdc-button_public_index.d.ts",
   "module": "../fesm2015/mdc-button.mjs",
   "es2020": "../fesm2020/mdc-button.mjs"
 }

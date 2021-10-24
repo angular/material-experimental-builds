@@ -2,8 +2,8 @@
   "name": "@angular/material-experimental/mdc-tooltip",
   "fesm2020": "../fesm2020/mdc-tooltip.mjs",
   "fesm2015": "../fesm2015/mdc-tooltip.mjs",
-  "esm2020": "../esm2020/mdc-tooltip/index.mjs",
-  "typings": "./index.d.ts",
+  "esm2020": "../esm2020/mdc-tooltip/mdc-tooltip_public_index.mjs",
+  "typings": "./mdc-tooltip_public_index.d.ts",
   "module": "../fesm2015/mdc-tooltip.mjs",
   "es2020": "../fesm2020/mdc-tooltip.mjs"
 }
