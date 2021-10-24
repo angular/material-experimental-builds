@@ -2,8 +2,8 @@
   "name": "@angular/material-experimental/selection",
   "fesm2020": "../fesm2020/selection.mjs",
   "fesm2015": "../fesm2015/selection.mjs",
-  "esm2020": "../esm2020/selection/index.mjs",
-  "typings": "./index.d.ts",
+  "esm2020": "../esm2020/selection/selection_public_index.mjs",
+  "typings": "./selection_public_index.d.ts",
   "module": "../fesm2015/selection.mjs",
   "es2020": "../fesm2020/selection.mjs"
 }

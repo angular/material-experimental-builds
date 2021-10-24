@@ -2,8 +2,8 @@
   "name": "@angular/material-experimental/mdc-chips",
   "fesm2020": "../fesm2020/mdc-chips.mjs",
   "fesm2015": "../fesm2015/mdc-chips.mjs",
-  "esm2020": "../esm2020/mdc-chips/index.mjs",
-  "typings": "./index.d.ts",
+  "esm2020": "../esm2020/mdc-chips/mdc-chips_public_index.mjs",
+  "typings": "./mdc-chips_public_index.d.ts",
   "module": "../fesm2015/mdc-chips.mjs",
   "es2020": "../fesm2020/mdc-chips.mjs"
 }
