@@ -424,7 +424,7 @@
     }
   },
   "peerDependencies": {
-    "@angular/core": "^13.0.0-0 || ^14.0.0-0",
+    "@angular/core": "^13.0.0 || ^14.0.0-0",
     "@angular/material": "13.0.0-rc.3",
     "material-components-web": "14.0.0-canary.1af7c1c4a.0"
   },
