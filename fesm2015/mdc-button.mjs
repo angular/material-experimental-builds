@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Directive, ViewChild, HostListener, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, InjectionToken, NgModule } from '@angular/core';
+import { Directive, ViewChild, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, InjectionToken, NgModule } from '@angular/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import * as i2 from '@angular/material-experimental/mdc-core';
 import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
@@ -126,11 +126,6 @@ class MatAnchorBase extends MatButtonBase {
     constructor(elementRef, platform, ngZone, animationMode) {
         super(elementRef, platform, ngZone, animationMode);
     }
-    // We have to use a `HostListener` here in order to support both Ivy and ViewEngine.
-    // In Ivy the `host` bindings will be merged when this class is extended, whereas in
-    // ViewEngine they're overwritten.
-    // TODO(mmalerba): we move this back into `host` once Ivy is turned on by default.
-    // tslint:disable-next-line:no-host-decorator-in-concrete
     _haltDisabledEvents(event) {
         // A disabled button shouldn't apply any actions
         if (this.disabled) {
@@ -142,11 +137,13 @@ class MatAnchorBase extends MatButtonBase {
 MatAnchorBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatAnchorBase, deps: "invalid", target: i0.ɵɵFactoryTarget.Directive });
 MatAnchorBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatAnchorBase, host: { listeners: { "click": "_haltDisabledEvents($event)" } }, usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatAnchorBase, decorators: [{
-            type: Directive
-        }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: i1.Platform }, { type: i0.NgZone }, { type: undefined }]; }, propDecorators: { _haltDisabledEvents: [{
-                type: HostListener,
-                args: ['click', ['$event']]
-            }] } });
+            type: Directive,
+            args: [{
+                    host: {
+                        '(click)': '_haltDisabledEvents($event)',
+                    },
+                }]
+        }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: i1.Platform }, { type: i0.NgZone }, { type: undefined }]; } });
 
 /**
  * Material Design button component. Users interact with a button to perform an action.
