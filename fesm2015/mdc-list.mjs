@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { InjectionToken, Directive, Optional, Inject, ContentChildren, Input, HostBinding, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ViewChild, EventEmitter, Output, HostListener, forwardRef, NgModule } from '@angular/core';
+import { InjectionToken, Directive, Optional, Inject, ContentChildren, Input, Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, ViewChild, EventEmitter, Output, forwardRef, NgModule } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { RippleRenderer, setLines, MAT_RIPPLE_GLOBAL_OPTIONS, MatLine, MatCommonModule, MatLineModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
@@ -226,9 +226,15 @@ class MatListItemBase {
     }
 }
 MatListItemBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListItemBase, deps: [{ token: i0.ElementRef }, { token: i0.NgZone }, { token: MatListBase }, { token: i1.Platform }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
-MatListItemBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListItemBase, inputs: { disableRipple: "disableRipple", disabled: "disabled" }, host: { properties: { "class.mdc-list-item--disabled": "this.disabled", "attr.aria-disabled": "this.disabled" } }, queries: [{ propertyName: "_avatars", predicate: MatListAvatarCssMatStyler }, { propertyName: "_icons", predicate: MatListIconCssMatStyler }], ngImport: i0 });
+MatListItemBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListItemBase, inputs: { disableRipple: "disableRipple", disabled: "disabled" }, host: { properties: { "class.mdc-list-item--disabled": "disabled", "attr.aria-disabled": "disabled" } }, queries: [{ propertyName: "_avatars", predicate: MatListAvatarCssMatStyler }, { propertyName: "_icons", predicate: MatListIconCssMatStyler }], ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListItemBase, decorators: [{
-            type: Directive
+            type: Directive,
+            args: [{
+                    host: {
+                        '[class.mdc-list-item--disabled]': 'disabled',
+                        '[attr.aria-disabled]': 'disabled',
+                    },
+                }]
         }], ctorParameters: function () {
         return [{ type: i0.ElementRef }, { type: i0.NgZone }, { type: MatListBase }, { type: i1.Platform }, { type: undefined, decorators: [{
                         type: Optional
@@ -250,12 +256,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImpor
             }], disableRipple: [{
                 type: Input
             }], disabled: [{
-                type: HostBinding,
-                args: ['class.mdc-list-item--disabled']
-            }, {
-                type: HostBinding,
-                args: ['attr.aria-disabled']
-            }, {
                 type: Input
             }] } });
 /** @docs-private */
@@ -281,18 +281,18 @@ class MatListBase {
     }
 }
 MatListBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListBase, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-MatListBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListBase, inputs: { disableRipple: "disableRipple", disabled: "disabled" }, host: { properties: { "class.mat-mdc-list-non-interactive": "this._isNonInteractive", "attr.aria-disabled": "this.disabled" } }, ngImport: i0 });
+MatListBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListBase, inputs: { disableRipple: "disableRipple", disabled: "disabled" }, host: { properties: { "class.mat-mdc-list-non-interactive": "_isNonInteractive", "attr.aria-disabled": "disabled" } }, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListBase, decorators: [{
-            type: Directive
-        }], propDecorators: { _isNonInteractive: [{
-                type: HostBinding,
-                args: ['class.mat-mdc-list-non-interactive']
-            }], disableRipple: [{
+            type: Directive,
+            args: [{
+                    host: {
+                        '[class.mat-mdc-list-non-interactive]': '_isNonInteractive',
+                        '[attr.aria-disabled]': 'disabled',
+                    },
+                }]
+        }], propDecorators: { disableRipple: [{
                 type: Input
             }], disabled: [{
-                type: HostBinding,
-                args: ['attr.aria-disabled']
-            }, {
                 type: Input
             }] } });
 
@@ -729,25 +729,21 @@ class MatInteractiveListBase extends MatListBase {
 MatInteractiveListBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatInteractiveListBase, deps: [{ token: i0.ElementRef }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
 MatInteractiveListBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatInteractiveListBase, host: { listeners: { "keydown": "_handleKeydown($event)", "click": "_handleClick($event)", "focusin": "_handleFocusin($event)", "focusout": "_handleFocusout($event)" } }, usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatInteractiveListBase, decorators: [{
-            type: Directive
+            type: Directive,
+            args: [{
+                    host: {
+                        '(keydown)': '_handleKeydown($event)',
+                        '(click)': '_handleClick($event)',
+                        '(focusin)': '_handleFocusin($event)',
+                        '(focusout)': '_handleFocusout($event)',
+                    },
+                }]
         }], ctorParameters: function () {
         return [{ type: i0.ElementRef }, { type: undefined, decorators: [{
                         type: Inject,
                         args: [DOCUMENT]
                     }] }];
-    }, propDecorators: { _handleKeydown: [{
-                type: HostListener,
-                args: ['keydown', ['$event']]
-            }], _handleClick: [{
-                type: HostListener,
-                args: ['click', ['$event']]
-            }], _handleFocusin: [{
-                type: HostListener,
-                args: ['focusin', ['$event']]
-            }], _handleFocusout: [{
-                type: HostListener,
-                args: ['focusout', ['$event']]
-            }] } });
+    } });
 // TODO: replace with class once material-components-web/pull/6256 is available.
 /** Gets an instance of `MDcListAdapter` for the given interactive list. */
 function getInteractiveListAdapter(list) {
