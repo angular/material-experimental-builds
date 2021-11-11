@@ -22,9 +22,9 @@ export class MatSnackBar extends BaseMatSnackBar {
         this.handsetCssClass = 'mat-mdc-snack-bar-handset';
     }
 }
-MatSnackBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatSnackBar, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-MatSnackBar.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatSnackBar, providedIn: MatSnackBarModule });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatSnackBar, decorators: [{
+MatSnackBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatSnackBar, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+MatSnackBar.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatSnackBar, providedIn: MatSnackBarModule });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatSnackBar, decorators: [{
             type: Injectable,
             args: [{ providedIn: MatSnackBarModule }]
         }] });

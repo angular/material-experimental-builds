@@ -20,9 +20,9 @@ export class MatPrefix {
         this._isText = elementRef.nativeElement.hasAttribute('matTextPrefix');
     }
 }
-MatPrefix.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatPrefix, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
-MatPrefix.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatPrefix, selector: "[matPrefix], [matIconPrefix], [matTextPrefix]", providers: [{ provide: MAT_PREFIX, useExisting: MatPrefix }], ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatPrefix, decorators: [{
+MatPrefix.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatPrefix, deps: [{ token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
+MatPrefix.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.1", type: MatPrefix, selector: "[matPrefix], [matIconPrefix], [matTextPrefix]", providers: [{ provide: MAT_PREFIX, useExisting: MatPrefix }], ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatPrefix, decorators: [{
             type: Directive,
             args: [{
                     selector: '[matPrefix], [matIconPrefix], [matTextPrefix]',
