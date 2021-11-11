@@ -24,12 +24,12 @@ export class MatDefaultEnabledColumnResize extends AbstractMatColumnResize {
         this.notifier = notifier;
     }
 }
-MatDefaultEnabledColumnResize.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatDefaultEnabledColumnResize, deps: [{ token: i1.ColumnResizeNotifier }, { token: i0.ElementRef }, { token: i1.HeaderRowEventDispatcher }, { token: i0.NgZone }, { token: i1.ColumnResizeNotifierSource }], target: i0.ɵɵFactoryTarget.Directive });
-MatDefaultEnabledColumnResize.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatDefaultEnabledColumnResize, selector: "table[mat-table]", host: { classAttribute: "mat-column-resize-table" }, providers: [
+MatDefaultEnabledColumnResize.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatDefaultEnabledColumnResize, deps: [{ token: i1.ColumnResizeNotifier }, { token: i0.ElementRef }, { token: i1.HeaderRowEventDispatcher }, { token: i0.NgZone }, { token: i1.ColumnResizeNotifierSource }], target: i0.ɵɵFactoryTarget.Directive });
+MatDefaultEnabledColumnResize.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.1", type: MatDefaultEnabledColumnResize, selector: "table[mat-table]", host: { classAttribute: "mat-column-resize-table" }, providers: [
         ...TABLE_PROVIDERS,
         { provide: ColumnResize, useExisting: MatDefaultEnabledColumnResize },
     ], usesInheritance: true, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatDefaultEnabledColumnResize, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatDefaultEnabledColumnResize, decorators: [{
             type: Directive,
             args: [{
                     selector: 'table[mat-table]',

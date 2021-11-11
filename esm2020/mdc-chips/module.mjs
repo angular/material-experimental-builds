@@ -36,8 +36,8 @@ const CHIP_DECLARATIONS = [
 ];
 export class MatChipsModule {
 }
-MatChipsModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatChipsModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatChipsModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatChipsModule, declarations: [MatChip,
+MatChipsModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatChipsModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+MatChipsModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatChipsModule, declarations: [MatChip,
         MatChipAvatar,
         MatChipCssInternalOnly,
         MatChipEditInput,
@@ -60,7 +60,7 @@ MatChipsModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version:
         MatChipRow,
         MatChipSet,
         MatChipTrailingIcon] });
-MatChipsModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatChipsModule, providers: [
+MatChipsModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatChipsModule, providers: [
         ErrorStateMatcher,
         {
             provide: MAT_CHIPS_DEFAULT_OPTIONS,
@@ -69,7 +69,7 @@ MatChipsModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version:
             },
         },
     ], imports: [[MatCommonModule, CommonModule, MatRippleModule], MatCommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatChipsModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatChipsModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [MatCommonModule, CommonModule, MatRippleModule],

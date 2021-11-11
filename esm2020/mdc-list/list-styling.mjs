@@ -25,9 +25,9 @@ export class MatListGraphicAlignmentStyler {
         return !this._listOption || this._listOption?._getCheckboxPosition() === 'after';
     }
 }
-MatListGraphicAlignmentStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListGraphicAlignmentStyler, deps: [{ token: LIST_OPTION, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
-MatListGraphicAlignmentStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListGraphicAlignmentStyler, selector: "[mat-list-avatar], [matListAvatar], [mat-list-icon], [matListIcon]", host: { properties: { "class.mdc-list-item__start": "_isAlignedAtStart()", "class.mdc-list-item__end": "!_isAlignedAtStart()" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListGraphicAlignmentStyler, decorators: [{
+MatListGraphicAlignmentStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListGraphicAlignmentStyler, deps: [{ token: LIST_OPTION, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
+MatListGraphicAlignmentStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.1", type: MatListGraphicAlignmentStyler, selector: "[mat-list-avatar], [matListAvatar], [mat-list-icon], [matListIcon]", host: { properties: { "class.mdc-list-item__start": "_isAlignedAtStart()", "class.mdc-list-item__end": "!_isAlignedAtStart()" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListGraphicAlignmentStyler, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-list-avatar], [matListAvatar], [mat-list-icon], [matListIcon]',
@@ -48,9 +48,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImpor
  */
 export class MatListAvatarCssMatStyler {
 }
-MatListAvatarCssMatStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListAvatarCssMatStyler, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-MatListAvatarCssMatStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListAvatarCssMatStyler, selector: "[mat-list-avatar], [matListAvatar]", host: { classAttribute: "mat-mdc-list-avatar" }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListAvatarCssMatStyler, decorators: [{
+MatListAvatarCssMatStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListAvatarCssMatStyler, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+MatListAvatarCssMatStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.1", type: MatListAvatarCssMatStyler, selector: "[mat-list-avatar], [matListAvatar]", host: { classAttribute: "mat-mdc-list-avatar" }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListAvatarCssMatStyler, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-list-avatar], [matListAvatar]',
@@ -63,9 +63,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImpor
  */
 export class MatListIconCssMatStyler {
 }
-MatListIconCssMatStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListIconCssMatStyler, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-MatListIconCssMatStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListIconCssMatStyler, selector: "[mat-list-icon], [matListIcon]", host: { classAttribute: "mat-mdc-list-icon" }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListIconCssMatStyler, decorators: [{
+MatListIconCssMatStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListIconCssMatStyler, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+MatListIconCssMatStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.1", type: MatListIconCssMatStyler, selector: "[mat-list-icon], [matListIcon]", host: { classAttribute: "mat-mdc-list-icon" }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListIconCssMatStyler, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-list-icon], [matListIcon]',
@@ -78,9 +78,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImpor
  */
 export class MatListSubheaderCssMatStyler {
 }
-MatListSubheaderCssMatStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListSubheaderCssMatStyler, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-MatListSubheaderCssMatStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.0", type: MatListSubheaderCssMatStyler, selector: "[mat-subheader], [matSubheader]", host: { classAttribute: "mat-mdc-subheader mdc-list-group__subheader" }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.0", ngImport: i0, type: MatListSubheaderCssMatStyler, decorators: [{
+MatListSubheaderCssMatStyler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListSubheaderCssMatStyler, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+MatListSubheaderCssMatStyler.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.0.1", type: MatListSubheaderCssMatStyler, selector: "[mat-subheader], [matSubheader]", host: { classAttribute: "mat-mdc-subheader mdc-list-group__subheader" }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatListSubheaderCssMatStyler, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-subheader], [matSubheader]',
