@@ -1,3 +1,10 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 import { CdkSelectionToggle } from '@angular/cdk-experimental/selection';
 import * as i0 from "@angular/core";
 /**
@@ -13,9 +20,6 @@ import * as i0 from "@angular/core";
 export declare class MatSelectionToggle<T> extends CdkSelectionToggle<T> {
     /** The value that is associated with the toggle */
     value: T;
-    /** The index of the value in the list. Required when used with `trackBy` */
-    get index(): number | undefined;
-    set index(index: number | undefined);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionToggle<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "value": "matSelectionToggleValue"; "index": "matSelectionToggleIndex"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": "matSelectionToggleIndex"; "value": "matSelectionToggleValue"; }, {}, never>;
 }
