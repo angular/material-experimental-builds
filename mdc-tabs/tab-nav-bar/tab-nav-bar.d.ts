@@ -28,6 +28,7 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     _items: QueryList<MatTabLink>;
     _tabListContainer: ElementRef;
     _tabList: ElementRef;
+    _tabListInner: ElementRef;
     _nextPaginator: ElementRef<HTMLElement>;
     _previousPaginator: ElementRef<HTMLElement>;
     _inkBar: MatInkBar;

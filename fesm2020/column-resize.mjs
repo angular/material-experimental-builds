@@ -404,7 +404,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImpor
             args: [{
                     declarations: ENTRY_COMMON_COMPONENTS,
                     exports: ENTRY_COMMON_COMPONENTS,
-                    entryComponents: ENTRY_COMMON_COMPONENTS,
                 }]
         }] });
 const IMPORTS = [MatCommonModule, OverlayModule, MatColumnResizeCommonModule];
