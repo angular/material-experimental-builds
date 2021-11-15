@@ -25,6 +25,7 @@ export declare class MatTabHeader extends _MatTabHeaderBase implements AfterCont
     _items: QueryList<MatTabLabelWrapper>;
     _tabListContainer: ElementRef;
     _tabList: ElementRef;
+    _tabListInner: ElementRef;
     _nextPaginator: ElementRef<HTMLElement>;
     _previousPaginator: ElementRef<HTMLElement>;
     _inkBar: MatInkBar;
