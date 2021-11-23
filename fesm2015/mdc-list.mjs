@@ -461,6 +461,7 @@ class MatListOption extends MatListItemBase {
         this._inputsInitialized = true;
     }
     ngOnDestroy() {
+        super.ngOnDestroy();
         if (this.selected) {
             // We have to delay this until the next tick in order
             // to avoid changed after checked errors.
@@ -918,6 +919,7 @@ class MatSelectionList extends MatInteractiveListBase {
         }
     }
     ngOnDestroy() {
+        super.ngOnDestroy();
         this._destroyed.next();
         this._destroyed.complete();
         this._isDestroyed = true;

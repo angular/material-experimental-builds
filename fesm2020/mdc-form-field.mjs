@@ -588,6 +588,7 @@ class MatFormField {
         this._assertFormFieldControl();
     }
     ngOnDestroy() {
+        this._foundation?.destroy();
         this._destroyed.next();
         this._destroyed.complete();
     }
