@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Injectable, Inject, Directive, Component, ChangeDetectionStrategy, ViewEncapsulation, NgModule } from '@angular/core';
+import { Injectable, Inject, Directive, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
 import * as i1 from '@angular/cdk-experimental/column-resize';
 import { CdkFlexTableResizeStrategy, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ResizeOverlayHandle, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
@@ -243,22 +243,24 @@ class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
     }
     updateResizeActive(active) {
         super.updateResizeActive(active);
+        const originHeight = this.resizeRef.origin.nativeElement.offsetHeight;
+        this.topElement.nativeElement.style.height = `${originHeight}px`;
         this.resizeRef.overlayRef.updateSize({
             height: active
                 ? this.columnResize.getTableHeight()
-                : this.resizeRef.origin.nativeElement.offsetHeight,
+                : originHeight,
         });
     }
 }
 MatColumnResizeOverlayHandle.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatColumnResizeOverlayHandle, deps: [{ token: i1$1.CdkColumnDef }, { token: i1.ColumnResize }, { token: i3.Directionality }, { token: i0.ElementRef }, { token: i1.HeaderRowEventDispatcher }, { token: i0.NgZone }, { token: i1.ColumnResizeNotifierSource }, { token: i1.ResizeRef }, { token: _COALESCED_STYLE_SCHEDULER }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Component });
-MatColumnResizeOverlayHandle.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.0.1", type: MatColumnResizeOverlayHandle, selector: "ng-component", host: { classAttribute: "mat-column-resize-overlay-thumb" }, usesInheritance: true, ngImport: i0, template: '', isInline: true, changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+MatColumnResizeOverlayHandle.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.0.1", type: MatColumnResizeOverlayHandle, selector: "ng-component", host: { classAttribute: "mat-column-resize-overlay-thumb" }, viewQueries: [{ propertyName: "topElement", first: true, predicate: ["top"], descendants: true, static: true }], usesInheritance: true, ngImport: i0, template: '<div #top class="mat-column-resize-overlay-thumb-top"></div>', isInline: true, changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImport: i0, type: MatColumnResizeOverlayHandle, decorators: [{
             type: Component,
             args: [{
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     encapsulation: ViewEncapsulation.None,
                     host: { 'class': 'mat-column-resize-overlay-thumb' },
-                    template: '',
+                    template: '<div #top class="mat-column-resize-overlay-thumb-top"></div>',
                 }]
         }], ctorParameters: function () {
         return [{ type: i1$1.CdkColumnDef }, { type: i1.ColumnResize }, { type: i3.Directionality }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }, { type: i1.ResizeRef }, { type: i1$1._CoalescedStyleScheduler, decorators: [{
@@ -268,7 +270,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.1", ngImpor
                         type: Inject,
                         args: [DOCUMENT]
                     }] }];
-    } });
+    }, propDecorators: { topElement: [{
+                type: ViewChild,
+                args: ['top', { static: true }]
+            }] } });
 
 /**
  * @license
