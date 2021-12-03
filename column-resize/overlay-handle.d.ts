@@ -25,6 +25,7 @@ export declare class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
     protected readonly resizeRef: ResizeRef;
     protected readonly styleScheduler: _CoalescedStyleScheduler;
     protected readonly document: Document;
+    topElement: ElementRef<HTMLElement>;
     constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, resizeNotifier: ColumnResizeNotifierSource, resizeRef: ResizeRef, styleScheduler: _CoalescedStyleScheduler, document: any);
     protected updateResizeActive(active: boolean): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatColumnResizeOverlayHandle, never>;
