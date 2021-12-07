@@ -585,6 +585,7 @@ class MatSlider extends _MatSliderMixinBase {
     }
     ngAfterViewInit() {
         if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            _validateThumbs(this._isRange(), this._getThumb(Thumb.START), this._getThumb(Thumb.END));
             _validateInputs(this._isRange(), this._getInputElement(Thumb.START), this._getInputElement(Thumb.END));
         }
         if (this._platform.isBrowser) {
@@ -1048,22 +1049,18 @@ class SliderAdapter {
         return null;
     }
 }
-/**
- * Ensures that there is not an invalid configuration for the slider thumb inputs.
- */
+/** Ensures that there is not an invalid configuration for the slider thumb inputs. */
 function _validateInputs(isRange, startInputElement, endInputElement) {
-    if (isRange) {
-        if (!startInputElement.hasAttribute('matSliderStartThumb')) {
-            _throwInvalidInputConfigurationError();
-        }
-        if (!endInputElement.hasAttribute('matSliderEndThumb')) {
-            _throwInvalidInputConfigurationError();
-        }
+    const startValid = !isRange || startInputElement.hasAttribute('matSliderStartThumb');
+    const endValid = endInputElement.hasAttribute(isRange ? 'matSliderEndThumb' : 'matSliderThumb');
+    if (!startValid || !endValid) {
+        _throwInvalidInputConfigurationError();
     }
-    else {
-        if (!endInputElement.hasAttribute('matSliderThumb')) {
-            _throwInvalidInputConfigurationError();
-        }
+}
+/** Validates that the slider has the correct set of thumbs. */
+function _validateThumbs(isRange, start, end) {
+    if (!end && (!isRange || !start)) {
+        _throwInvalidInputConfigurationError();
     }
 }
 function _throwInvalidInputConfigurationError() {
