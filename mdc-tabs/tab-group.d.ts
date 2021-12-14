@@ -22,10 +22,9 @@ export declare class MatTabGroup extends _MatTabGroupBase {
     _tabHeader: MatTabHeader;
     /** Whether the ink bar should fit its width to the size of the tab label content. */
     get fitInkBarToContent(): boolean;
-    set fitInkBarToContent(v: boolean);
+    set fitInkBarToContent(v: BooleanInput);
     private _fitInkBarToContent;
     constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, defaultConfig?: MatTabsConfig, animationMode?: string);
-    static ngAcceptInputType_fitInkBarToContent: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabGroup, [null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatTabGroup, "mat-tab-group", ["matTabGroup"], { "color": "color"; "disableRipple": "disableRipple"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, ["_allTabs"], never>;
 }

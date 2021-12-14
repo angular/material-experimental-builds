@@ -19,11 +19,10 @@ export declare class MatTabLabelWrapper extends BaseMatTabLabelWrapper implement
     _foundation: MatInkBarFoundation;
     /** Whether the ink bar should fit its width to the size of the tab label content. */
     get fitInkBarToContent(): boolean;
-    set fitInkBarToContent(v: boolean);
+    set fitInkBarToContent(v: BooleanInput);
     constructor(elementRef: ElementRef, _document: any);
     ngOnInit(): void;
     ngOnDestroy(): void;
-    static ngAcceptInputType_fitInkBarToContent: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLabelWrapper, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatTabLabelWrapper, "[matTabLabelWrapper]", never, { "disabled": "disabled"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, never>;
 }

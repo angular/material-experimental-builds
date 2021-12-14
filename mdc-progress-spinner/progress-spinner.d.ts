@@ -41,15 +41,15 @@ export declare class MatProgressSpinner extends _MatProgressSpinnerBase implemen
     private _value;
     /** Value of the progress bar. Defaults to zero. Mirrored to aria-valuenow. */
     get value(): number;
-    set value(v: number);
+    set value(v: NumberInput);
     private _diameter;
     /** The diameter of the progress spinner (will set width and height of svg). */
     get diameter(): number;
-    set diameter(size: number);
+    set diameter(size: NumberInput);
     private _strokeWidth;
     /** Stroke width of the progress spinner. */
     get strokeWidth(): number;
-    set strokeWidth(value: number);
+    set strokeWidth(value: NumberInput);
     /** The radius of the spinner, adjusted for stroke width. */
     _circleRadius(): number;
     /** The view box of the spinner's svg element. */
@@ -64,9 +64,6 @@ export declare class MatProgressSpinner extends _MatProgressSpinnerBase implemen
     ngOnDestroy(): void;
     /** Syncs the state of the progress spinner with the MDC foundation. */
     private _syncFoundation;
-    static ngAcceptInputType_diameter: NumberInput;
-    static ngAcceptInputType_strokeWidth: NumberInput;
-    static ngAcceptInputType_value: NumberInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatProgressSpinner, [null, { optional: true; }, null]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatProgressSpinner, "mat-progress-spinner, mat-spinner", ["matProgressSpinner"], { "color": "color"; "mode": "mode"; "value": "value"; "diameter": "diameter"; "strokeWidth": "strokeWidth"; }, {}, never, never>;
 }

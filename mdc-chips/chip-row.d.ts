@@ -6,7 +6,6 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directionality } from '@angular/cdk/bidi';
-import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { MatChip, MatChipEvent } from './chip';
@@ -73,7 +72,6 @@ export declare class MatChipRow extends MatChip implements AfterContentInit, Aft
      * two values is guaranteed to be defined.
      */
     private _getEditInput;
-    static ngAcceptInputType_editable: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRow, [null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipRow, "mat-chip-row, mat-basic-chip-row", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "editable": "editable"; }, { "edited": "edited"; }, ["contentEditInput"], ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipTrailingIcon]", "[matChipRemove]", "[matChipEditInput]"]>;
 }

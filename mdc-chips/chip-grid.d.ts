@@ -78,7 +78,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     get disabled(): boolean;
-    set disabled(value: boolean);
+    set disabled(value: BooleanInput);
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
@@ -105,7 +105,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     get required(): boolean;
-    set required(value: boolean);
+    set required(value: BooleanInput);
     protected _required: boolean | undefined;
     /**
      * Implemented as part of MatFormFieldControl.
@@ -206,8 +206,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     private _updateFocusForDestroyedChips;
     /** Focus input element. */
     private _focusInput;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_required: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipGrid, "mat-chip-grid", never, { "tabIndex": "tabIndex"; "disabled": "disabled"; "placeholder": "placeholder"; "required": "required"; "value": "value"; "errorStateMatcher": "errorStateMatcher"; }, { "change": "change"; "valueChange": "valueChange"; }, ["_chips"], ["*"]>;
 }

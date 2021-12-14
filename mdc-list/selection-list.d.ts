@@ -53,7 +53,7 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     compareWith: (o1: any, o2: any) => boolean;
     /** Whether selection is limited to one or multiple items (default multiple). */
     get multiple(): boolean;
-    set multiple(value: boolean);
+    set multiple(value: BooleanInput);
     /** The currently selected options. */
     selectedOptions: SelectionModel<MatListOption>;
     /** View to model callback that should be called whenever the selected options change. */
@@ -113,7 +113,6 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     private _setAllOptionsSelected;
     /** The option components contained within this selection-list. */
     get options(): QueryList<MatListOption>;
-    static ngAcceptInputType_multiple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionList, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionList, "mat-selection-list", ["matSelectionList"], { "color": "color"; "compareWith": "compareWith"; "multiple": "multiple"; }, { "selectionChange": "selectionChange"; }, ["_items"], ["*"]>;
 }

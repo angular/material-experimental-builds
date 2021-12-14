@@ -23,7 +23,7 @@ import * as i0 from "@angular/core";
 export declare class MatTabNav extends _MatTabNavBase implements AfterContentInit {
     /** Whether the ink bar should fit its width to the size of the tab label content. */
     get fitInkBarToContent(): boolean;
-    set fitInkBarToContent(v: boolean);
+    set fitInkBarToContent(v: BooleanInput);
     _fitInkBarToContent: BehaviorSubject<boolean>;
     _items: QueryList<MatTabLink>;
     _tabListContainer: ElementRef;
@@ -34,8 +34,6 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     _inkBar: MatInkBar;
     constructor(elementRef: ElementRef, dir: Directionality, ngZone: NgZone, changeDetectorRef: ChangeDetectorRef, viewportRuler: ViewportRuler, platform: Platform, animationMode?: string, defaultConfig?: MatTabsConfig);
     ngAfterContentInit(): void;
-    static ngAcceptInputType_fitInkBarToContent: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabNav, [null, { optional: true; }, null, null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatTabNav, "[mat-tab-nav-bar]", ["matTabNavBar", "matTabNav"], { "color": "color"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, ["_items"], ["*"]>;
 }

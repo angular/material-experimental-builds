@@ -18,6 +18,13 @@ import * as i1$1 from '@angular/material-experimental/mdc-form-field';
 import { MatFormFieldControl, MAT_FORM_FIELD } from '@angular/material-experimental/mdc-form-field';
 
 /**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
  * alternative token to the actual `MatChipAvatar` class which could cause unnecessary
  * retention of the class and its directive metadata.
@@ -352,7 +359,7 @@ class MatChip extends _MatChipMixinBase {
     set disabled(value) {
         this._disabled = coerceBooleanProperty(value);
         if (this.removeIcon) {
-            this.removeIcon.disabled = value;
+            this.removeIcon.disabled = this._disabled;
         }
     }
     /** The value of the chip. Defaults to the content inside the mdc-chip__text element. */
@@ -2361,8 +2368,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImpor
     }, propDecorators: { disabled: [{
                 type: Input
             }], placeholder: [{
-                type: Input
-            }, {
                 type: Input
             }], required: [{
                 type: Input

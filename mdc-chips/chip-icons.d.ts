@@ -5,7 +5,6 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
 import { ChangeDetectorRef, ElementRef, InjectionToken, OnDestroy } from '@angular/core';
 import { CanDisable, HasTabIndex } from '@angular/material-experimental/mdc-core';
 import { Subject } from 'rxjs';
@@ -91,8 +90,6 @@ export declare class MatChipRemove extends _MatChipRemoveMixinBase implements Ca
     /** Emits a MouseEvent when the user clicks on the remove icon. */
     _handleClick(event: MouseEvent): void;
     focus(): void;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_tabIndex: NumberInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRemove, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipRemove, "[matChipRemove]", never, { "disabled": "disabled"; "tabIndex": "tabIndex"; }, {}, never>;
 }

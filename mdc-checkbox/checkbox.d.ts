@@ -52,7 +52,7 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
     id: string;
     /** Whether the checkbox is checked. */
     get checked(): boolean;
-    set checked(checked: boolean);
+    set checked(checked: BooleanInput);
     private _checked;
     /**
      * Whether the checkbox is indeterminate. This is also known as "mixed" mode and can be used to
@@ -61,15 +61,15 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
      * set to false.
      */
     get indeterminate(): boolean;
-    set indeterminate(indeterminate: boolean);
+    set indeterminate(indeterminate: BooleanInput);
     private _indeterminate;
     /** Whether the checkbox is required. */
     get required(): boolean;
-    set required(required: boolean);
+    set required(required: BooleanInput);
     private _required;
     /** Whether to disable the ripple on this checkbox. */
     get disableRipple(): boolean;
-    set disableRipple(disableRipple: boolean);
+    set disableRipple(disableRipple: BooleanInput);
     private _disableRipple;
     /** Event emitted when the checkbox's `checked` value changes. */
     readonly change: EventEmitter<MatCheckboxChange>;
@@ -155,11 +155,6 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
      * server-side rendering.
      */
     private _syncIndeterminate;
-    static ngAcceptInputType_checked: BooleanInput;
-    static ngAcceptInputType_indeterminate: BooleanInput;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_required: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatCheckbox, [null, null, { attribute: "tabindex"; }, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatCheckbox, "mat-checkbox", ["matCheckbox"], { "color": "color"; "disabled": "disabled"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "labelPosition": "labelPosition"; "name": "name"; "tabIndex": "tabIndex"; "value": "value"; "id": "id"; "checked": "checked"; "indeterminate": "indeterminate"; "required": "required"; "disableRipple": "disableRipple"; }, { "change": "change"; "indeterminateChange": "indeterminateChange"; }, never, ["*"]>;
 }
