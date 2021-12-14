@@ -99,7 +99,7 @@ export declare class MatSliderThumb implements AfterViewInit, ControlValueAccess
     private readonly _elementRef;
     /** The current value of this slider input. */
     get value(): number;
-    set value(v: number);
+    set value(v: NumberInput);
     /**
      * Emits when the raw value of the slider changes. This is here primarily
      * to facilitate the two-way binding for the `value` input.
@@ -206,7 +206,6 @@ export declare class MatSliderThumb implements AfterViewInit, ControlValueAccess
      * `displayWith` function is used to set the `aria-valuetext` attribute.
      */
     private _initializeAriaValueText;
-    static ngAcceptInputType_value: NumberInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSliderThumb, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatSliderThumb, "input[matSliderThumb], input[matSliderStartThumb], input[matSliderEndThumb]", ["matSliderThumb"], { "value": "value"; }, { "valueChange": "valueChange"; "dragStart": "dragStart"; "dragEnd": "dragEnd"; "_blur": "_blur"; "_focus": "_focus"; }, never>;
 }
@@ -234,27 +233,27 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     _inputs: QueryList<MatSliderThumb>;
     /** Whether the slider is disabled. */
     get disabled(): boolean;
-    set disabled(v: boolean);
+    set disabled(v: BooleanInput);
     private _disabled;
     /** Whether the slider displays a numeric value label upon pressing the thumb. */
     get discrete(): boolean;
-    set discrete(v: boolean);
+    set discrete(v: BooleanInput);
     private _discrete;
     /** Whether the slider displays tick marks along the slider track. */
     get showTickMarks(): boolean;
-    set showTickMarks(v: boolean);
+    set showTickMarks(v: BooleanInput);
     private _showTickMarks;
     /** The minimum value that the slider can have. */
     get min(): number;
-    set min(v: number);
+    set min(v: NumberInput);
     private _min;
     /** The maximum value that the slider can have. */
     get max(): number;
-    set max(v: number);
+    set max(v: NumberInput);
     private _max;
     /** The values at which the thumb will snap. */
     get step(): number;
-    set step(v: number);
+    set step(v: NumberInput);
     private _step;
     /**
      * Function that will be used to format the value before it is displayed
@@ -350,13 +349,6 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     _getTickMarkClass(tickMark: TickMark): string;
     /** Whether the slider thumb ripples should be disabled. */
     _isRippleDisabled(): boolean;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_discrete: BooleanInput;
-    static ngAcceptInputType_showTickMarks: BooleanInput;
-    static ngAcceptInputType_min: NumberInput;
-    static ngAcceptInputType_max: NumberInput;
-    static ngAcceptInputType_step: NumberInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSlider, [null, null, null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSlider, "mat-slider", ["matSlider"], { "color": "color"; "disableRipple": "disableRipple"; "disabled": "disabled"; "discrete": "discrete"; "showTickMarks": "showTickMarks"; "min": "min"; "max": "max"; "step": "step"; "displayWith": "displayWith"; }, {}, ["_inputs"], ["*"]>;
 }

@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directionality } from '@angular/cdk/bidi';
-import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
+import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, QueryList } from '@angular/core';
 import { HasTabIndex } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
@@ -65,7 +65,7 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     };
     /** Whether the chip set is disabled. */
     get disabled(): boolean;
-    set disabled(value: boolean);
+    set disabled(value: BooleanInput);
     protected _disabled: boolean;
     /** Whether the chip list contains chips or not. */
     get empty(): boolean;
@@ -124,8 +124,6 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
      */
     protected _originatesFromEditingChip(event: Event): boolean;
     private _checkForClassInHierarchy;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_tabIndex: NumberInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipSet, [null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipSet, "mat-chip-set", never, { "disabled": "disabled"; "role": "role"; }, {}, ["_chips"], ["*"]>;
 }

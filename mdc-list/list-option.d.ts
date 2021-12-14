@@ -61,7 +61,7 @@ export declare class MatListOption extends MatListItemBase implements ListOption
     private _value;
     /** Whether the option is selected. */
     get selected(): boolean;
-    set selected(value: boolean);
+    set selected(value: BooleanInput);
     private _selected;
     constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     ngOnInit(): void;
@@ -90,7 +90,6 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      * list changed.
      */
     _markForCheck(): void;
-    static ngAcceptInputType_selected: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListOption, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatListOption, "mat-list-option", ["matListOption"], { "checkboxPosition": "checkboxPosition"; "color": "color"; "value": "value"; "selected": "selected"; }, { "selectedChange": "selectedChange"; }, ["lines"], ["[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]", "*", "mat-divider"]>;
 }

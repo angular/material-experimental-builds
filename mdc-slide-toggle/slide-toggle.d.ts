@@ -52,7 +52,7 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     id: string;
     /** Tabindex for the input element. */
     get tabIndex(): number;
-    set tabIndex(value: number);
+    set tabIndex(value: NumberInput);
     private _tabIndex;
     /** Whether the label should appear after or before the slide-toggle. Defaults to 'after'. */
     labelPosition: 'before' | 'after';
@@ -64,17 +64,17 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     ariaDescribedby: string;
     /** Whether the slide-toggle is required. */
     get required(): boolean;
-    set required(value: boolean);
+    set required(value: BooleanInput);
     /** Whether the slide-toggle element is checked or not. */
     get checked(): boolean;
-    set checked(value: boolean);
+    set checked(value: BooleanInput);
     /** Whether to disable the ripple on this checkbox. */
     get disableRipple(): boolean;
-    set disableRipple(disableRipple: boolean);
+    set disableRipple(disableRipple: BooleanInput);
     private _disableRipple;
     /** Whether the slide toggle is disabled. */
     get disabled(): boolean;
-    set disabled(disabled: boolean);
+    set disabled(disabled: BooleanInput);
     private _disabled;
     /** An event will be dispatched each time the slide-toggle changes its value. */
     readonly change: EventEmitter<MatSlideToggleChange>;
@@ -102,11 +102,6 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     /** Toggles the checked state of the slide-toggle. */
     toggle(): void;
     _getAriaLabelledBy(): string | null;
-    static ngAcceptInputType_tabIndex: NumberInput;
-    static ngAcceptInputType_required: BooleanInput;
-    static ngAcceptInputType_checked: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
-    static ngAcceptInputType_disabled: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSlideToggle, [null, null, null, { attribute: "tabindex"; }, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSlideToggle, "mat-slide-toggle", ["matSlideToggle"], { "color": "color"; "name": "name"; "id": "id"; "tabIndex": "tabIndex"; "labelPosition": "labelPosition"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "required": "required"; "checked": "checked"; "disableRipple": "disableRipple"; "disabled": "disabled"; }, { "change": "change"; "toggleChange": "toggleChange"; }, never, ["*"]>;
 }

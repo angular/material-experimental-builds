@@ -60,7 +60,7 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
     get role(): string | null;
     /** Whether the user should be allowed to select multiple chips. */
     get multiple(): boolean;
-    set multiple(value: boolean);
+    set multiple(value: BooleanInput);
     private _multiple;
     /** The array of selected chips inside the chip listbox. */
     get selected(): MatChipOption[] | MatChipOption;
@@ -73,7 +73,7 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
      * the chips inside the chip listbox are always ignored.
      */
     get selectable(): boolean;
-    set selectable(value: boolean);
+    set selectable(value: BooleanInput);
     protected _selectable: boolean;
     /**
      * A function to compare the option values with the selected values. The first argument
@@ -85,7 +85,7 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
     private _compareWith;
     /** Whether this chip listbox is required. */
     get required(): boolean;
-    set required(value: boolean);
+    set required(value: BooleanInput);
     protected _required: boolean;
     /** Combined stream of all of the child chips' selection change events. */
     get chipSelectionChanges(): Observable<MatChipSelectionChange>;
@@ -184,9 +184,6 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
      * key manager state and focus the next closest chip.
      */
     private _updateFocusForDestroyedChips;
-    static ngAcceptInputType_multiple: BooleanInput;
-    static ngAcceptInputType_selectable: BooleanInput;
-    static ngAcceptInputType_required: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipListbox, [null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipListbox, "mat-chip-listbox", never, { "tabIndex": "tabIndex"; "multiple": "multiple"; "ariaOrientation": "aria-orientation"; "selectable": "selectable"; "compareWith": "compareWith"; "required": "required"; "value": "value"; }, { "change": "change"; }, ["_chips"], ["*"]>;
 }

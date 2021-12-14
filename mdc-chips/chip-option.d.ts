@@ -42,11 +42,11 @@ export declare class MatChipOption extends MatChip implements AfterContentInit {
      * non-selectable if its parent chip list is not selectable.
      */
     get selectable(): boolean;
-    set selectable(value: boolean);
+    set selectable(value: BooleanInput);
     protected _selectable: boolean;
     /** Whether the chip is selected. */
     get selected(): boolean;
-    set selected(value: boolean);
+    set selected(value: BooleanInput);
     /** The ARIA selected applied to the chip. */
     get ariaSelected(): string | null;
     /** The unstyled chip selector for this component. */
@@ -72,8 +72,6 @@ export declare class MatChipOption extends MatChip implements AfterContentInit {
     _click(event: MouseEvent): void;
     /** Handles custom key presses. */
     _keydown(event: KeyboardEvent): void;
-    static ngAcceptInputType_selectable: BooleanInput;
-    static ngAcceptInputType_selected: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipOption, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipOption, "mat-basic-chip-option, mat-chip-option", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "selectable": "selectable"; "selected": "selected"; }, { "selectionChange": "selectionChange"; }, never, ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"]>;
 }

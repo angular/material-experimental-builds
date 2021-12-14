@@ -6,6 +6,13 @@ import * as i2 from '@angular/material-experimental/mdc-core';
 import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 /** Inputs common to all buttons. */
 const MAT_BUTTON_INPUTS = ['disabled', 'disableRipple', 'color'];
 /** Shared host configuration for all buttons */

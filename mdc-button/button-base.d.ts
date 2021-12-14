@@ -5,7 +5,6 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { BooleanInput } from '@angular/cdk/coercion';
 import { Platform } from '@angular/cdk/platform';
 import { ElementRef, NgZone } from '@angular/core';
 import { CanColor, CanDisable, CanDisableRipple, MatRipple } from '@angular/material-experimental/mdc-core';
@@ -43,8 +42,6 @@ export declare class MatButtonBase extends _MatButtonMixin implements CanDisable
     /** Gets whether the button has one of the given attributes. */
     private _hasHostAttributes;
     _isRippleDisabled(): boolean;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatButtonBase, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatButtonBase, never, never, {}, {}, never>;
 }

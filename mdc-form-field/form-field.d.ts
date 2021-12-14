@@ -64,7 +64,7 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     _hintChildren: QueryList<MatHint>;
     /** Whether the required marker should be hidden. */
     get hideRequiredMarker(): boolean;
-    set hideRequiredMarker(value: boolean);
+    set hideRequiredMarker(value: BooleanInput);
     private _hideRequiredMarker;
     /** The color palette for the form-field. */
     color: ThemePalette;
@@ -184,7 +184,6 @@ export declare class MatFormField implements AfterViewInit, OnDestroy, AfterCont
     private _updateOutlineLabelOffset;
     /** Checks whether the form field is attached to the DOM. */
     private _isAttachedToDom;
-    static ngAcceptInputType_hideRequiredMarker: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormField, [null, null, null, null, null, { optional: true; }, { optional: true; }, null]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatFormField, "mat-form-field", ["matFormField"], { "hideRequiredMarker": "hideRequiredMarker"; "color": "color"; "floatLabel": "floatLabel"; "appearance": "appearance"; "hintLabel": "hintLabel"; }, {}, ["_labelChildNonStatic", "_labelChildStatic", "_formFieldControl", "_prefixChildren", "_suffixChildren", "_errorChildren", "_hintChildren"], ["mat-label", "[matPrefix], [matIconPrefix]", "[matTextPrefix]", "*", "[matTextSuffix]", "[matSuffix], [matIconSuffix]", "mat-error", "mat-hint:not([align='end'])", "mat-hint[align='end']"]>;
 }

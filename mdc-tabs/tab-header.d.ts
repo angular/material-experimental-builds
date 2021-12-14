@@ -5,7 +5,6 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { BooleanInput } from '@angular/cdk/coercion';
 import { ElementRef, QueryList, AfterContentInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { _MatTabHeaderBase } from '@angular/material/tabs';
 import { ViewportRuler } from '@angular/cdk/scrolling';
@@ -31,7 +30,6 @@ export declare class MatTabHeader extends _MatTabHeaderBase implements AfterCont
     _inkBar: MatInkBar;
     constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, viewportRuler: ViewportRuler, dir: Directionality, ngZone: NgZone, platform: Platform, animationMode?: string);
     ngAfterContentInit(): void;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabHeader, [null, null, null, { optional: true; }, null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatTabHeader, "mat-tab-header", never, { "selectedIndex": "selectedIndex"; }, { "selectFocusedIndex": "selectFocusedIndex"; "indexFocused": "indexFocused"; }, ["_items"], ["*"]>;
 }

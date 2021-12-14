@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Directionality } from '@angular/cdk/bidi';
-import { BooleanInput, NumberInput } from '@angular/cdk/coercion';
+import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
 import { CanColor, CanDisable, CanDisableRipple, HasTabIndex, MatRipple, RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { deprecated } from '@material/chips';
@@ -66,7 +66,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     /** A unique id for the chip. If none is supplied, it will be auto-generated. */
     id: string;
     get disabled(): boolean;
-    set disabled(value: boolean);
+    set disabled(value: BooleanInput);
     protected _disabled: boolean;
     private _textElement;
     /** The value of the chip. Defaults to the content inside the mdc-chip__text element. */
@@ -77,13 +77,13 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
      * Determines whether or not the chip displays the remove styling and emits (removed) events.
      */
     get removable(): boolean;
-    set removable(value: boolean);
+    set removable(value: BooleanInput);
     protected _removable: boolean;
     /**
      * Colors the chip for emphasis as if it were selected.
      */
     get highlighted(): boolean;
-    set highlighted(value: boolean);
+    set highlighted(value: BooleanInput);
     protected _highlighted: boolean;
     /** Emitted when the user interacts with the chip. */
     readonly interaction: EventEmitter<string>;
@@ -132,11 +132,6 @@ export declare class MatChip extends _MatChipMixinBase implements AfterContentIn
     protected _onEditStart(): void;
     /** Overridden by MatChipRow. */
     protected _onEditFinish(): void;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_removable: BooleanInput;
-    static ngAcceptInputType_highlighted: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
-    static ngAcceptInputType_tabIndex: NumberInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChip, [null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChip, "mat-basic-chip, mat-chip", ["matChip"], { "color": "color"; "disableRipple": "disableRipple"; "id": "id"; "disabled": "disabled"; "value": "value"; "removable": "removable"; "highlighted": "highlighted"; }, { "interaction": "interaction"; "destroyed": "destroyed"; "removed": "removed"; }, ["leadingIcon", "trailingIcon", "removeIcon"], ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"]>;
 }

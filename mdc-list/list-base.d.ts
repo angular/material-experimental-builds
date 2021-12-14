@@ -30,7 +30,7 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
     private _disableRipple;
     /** Whether the list-item is disabled. */
     get disabled(): boolean;
-    set disabled(value: boolean);
+    set disabled(value: BooleanInput);
     private _disabled;
     private _subscriptions;
     private _rippleRenderer;
@@ -57,8 +57,6 @@ export declare abstract class MatListItemBase implements AfterContentInit, OnDes
      * appropriately when they change.
      */
     private _monitorLines;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemBase, [null, null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemBase, never, never, { "disableRipple": "disableRipple"; "disabled": "disabled"; }, {}, ["_avatars", "_icons"]>;
 }
@@ -66,14 +64,12 @@ export declare abstract class MatListBase {
     _isNonInteractive: boolean;
     /** Whether ripples for all list items is disabled. */
     get disableRipple(): boolean;
-    set disableRipple(value: boolean);
+    set disableRipple(value: BooleanInput);
     private _disableRipple;
     /** Whether all list items are disabled. */
     get disabled(): boolean;
-    set disabled(value: boolean);
+    set disabled(value: BooleanInput);
     private _disabled;
-    static ngAcceptInputType_disabled: BooleanInput;
-    static ngAcceptInputType_disableRipple: BooleanInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListBase, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatListBase, never, never, { "disableRipple": "disableRipple"; "disabled": "disabled"; }, {}, never>;
 }
