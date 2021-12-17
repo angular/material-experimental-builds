@@ -8,8 +8,8 @@ import { MatDividerHarness } from '@angular/material/divider/testing';
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const iconSelector = '.mat-mdc-list-icon';
-const avatarSelector = '.mat-mdc-list-avatar';
+const iconSelector = '.mat-mdc-list-item-icon';
+const avatarSelector = '.mat-mdc-list-item-avatar';
 /**
  * Gets a `HarnessPredicate` that applies the given `BaseListItemHarnessFilters` to the given
  * list item harness.
@@ -19,7 +19,12 @@ const avatarSelector = '.mat-mdc-list-avatar';
  * @return A `HarnessPredicate` for the given harness type with the given options applied.
  */
 function getListItemPredicate(harnessType, options) {
-    return new HarnessPredicate(harnessType, options).addOption('text', options.text, (harness, text) => HarnessPredicate.stringMatches(harness.getText(), text));
+    return new HarnessPredicate(harnessType, options)
+        .addOption('text', options.text, (harness, text) => HarnessPredicate.stringMatches(harness.getText(), text))
+        .addOption('fullText', options.fullText, (harness, fullText) => HarnessPredicate.stringMatches(harness.getFullText(), fullText))
+        .addOption('title', options.title, (harness, title) => HarnessPredicate.stringMatches(harness.getTitle(), title))
+        .addOption('secondaryText', options.secondaryText, (harness, secondaryText) => HarnessPredicate.stringMatches(harness.getSecondaryText(), secondaryText))
+        .addOption('tertiaryText', options.tertiaryText, (harness, tertiaryText) => HarnessPredicate.stringMatches(harness.getTertiaryText(), tertiaryText));
 }
 /** Harness for interacting with a MDC-based list subheader. */
 class MatSubheaderHarness extends ComponentHarness {
@@ -39,18 +44,97 @@ MatSubheaderHarness.hostSelector = '.mat-mdc-subheader';
 class MatListItemHarnessBase extends ContentContainerComponentHarness {
     constructor() {
         super(...arguments);
-        this._lines = this.locatorForAll('.mat-line');
-        this._avatar = this.locatorForOptional('.mat-mdc-list-avatar');
-        this._icon = this.locatorForOptional('.mat-mdc-list-icon');
+        this._lines = this.locatorForAll('.mat-mdc-list-item-line');
+        this._primaryText = this.locatorFor('.mdc-list-item__primary-text');
+        this._avatar = this.locatorForOptional('.mat-mdc-list-item-avatar');
+        this._icon = this.locatorForOptional('.mat-mdc-list-item-icon');
+        this._unscopedTextContent = this.locatorFor('.mat-mdc-list-item-unscoped-content');
     }
-    /** Gets the full text content of the list item. */
+    /** Gets the type of the list item, currently describing how many lines there are. */
+    async getType() {
+        const host = await this.host();
+        const [isOneLine, isTwoLine] = await parallel(() => [
+            host.hasClass('mdc-list-item--with-one-line'),
+            host.hasClass('mdc-list-item--with-two-lines'),
+        ]);
+        if (isOneLine) {
+            return 0 /* ONE_LINE_ITEM */;
+        }
+        else if (isTwoLine) {
+            return 1 /* TWO_LINE_ITEM */;
+        }
+        else {
+            return 2 /* THREE_LINE_ITEM */;
+        }
+    }
+    /**
+     * Gets the full text content of the list item, excluding text
+     * from icons and avatars.
+     *
+     * @deprecated Use the `getFullText` method instead.
+     * @breaking-change 16.0.0
+     */
     async getText() {
+        return this.getFullText();
+    }
+    /**
+     * Gets the full text content of the list item, excluding text
+     * from icons and avatars.
+     */
+    async getFullText() {
         return (await this.host()).text({ exclude: `${iconSelector}, ${avatarSelector}` });
     }
-    /** Gets the lines of text (`mat-line` elements) in this nav list item. */
-    async getLinesText() {
-        const lines = await this._lines();
-        return parallel(() => lines.map(l => l.text()));
+    /** Gets the title of the list item. */
+    async getTitle() {
+        return (await this._primaryText()).text();
+    }
+    /**
+     * Gets the secondary line text of the list item. Null if the list item
+     * does not have a secondary line.
+     */
+    async getSecondaryText() {
+        const type = await this.getType();
+        if (type === 0 /* ONE_LINE_ITEM */) {
+            return null;
+        }
+        const [lines, unscopedTextContent] = await parallel(() => [
+            this._lines(),
+            this._unscopedTextContent(),
+        ]);
+        // If there is no explicit line for the secondary text, the unscoped text content
+        // is rendered as the secondary text (with potential text wrapping enabled).
+        if (lines.length >= 1) {
+            return lines[0].text();
+        }
+        else {
+            return unscopedTextContent.text();
+        }
+    }
+    /**
+     * Gets the tertiary line text of the list item. Null if the list item
+     * does not have a tertiary line.
+     */
+    async getTertiaryText() {
+        const type = await this.getType();
+        if (type !== 2 /* THREE_LINE_ITEM */) {
+            return null;
+        }
+        const [lines, unscopedTextContent] = await parallel(() => [
+            this._lines(),
+            this._unscopedTextContent(),
+        ]);
+        // First we check if there is an explicit line for the tertiary text. If so, we return it.
+        // If there is at least an explicit secondary line though, then we know that the unscoped
+        // text content corresponds to the tertiary line. If there are no explicit lines at all,
+        // we know that the unscoped text content from the secondary text just wraps into the third
+        // line, but there *no* actual dedicated tertiary text.
+        if (lines.length === 2) {
+            return lines[1].text();
+        }
+        else if (lines.length === 1) {
+            return unscopedTextContent.text();
+        }
+        return null;
     }
     /** Whether this list item has an avatar. */
     async hasAvatar() {

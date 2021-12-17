@@ -12,6 +12,7 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, InjectionToken, NgZone, On
 import { RippleGlobalOptions, ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatListBase, MatListItemBase } from './list-base';
 import { ListOption, MatListOptionCheckboxPosition } from './list-option-types';
+import { MatListItemLine, MatListItemTitle } from './list-item-sections';
 import * as i0 from "@angular/core";
 /**
  * Injection token that can be used to reference instances of an `SelectionList`. It serves
@@ -36,19 +37,16 @@ export interface SelectionList extends MatListBase {
 export declare class MatListOption extends MatListItemBase implements ListOption, OnInit, OnDestroy {
     _selectionList: SelectionList;
     private _changeDetectorRef;
-    /**
-     * This is set to true after the first OnChanges cycle so we don't
-     * clear the value of `selected` in the first cycle.
-     */
-    private _inputsInitialized;
+    _lines: QueryList<MatListItemLine>;
+    _titles: QueryList<MatListItemTitle>;
+    _unscopedContent: ElementRef<HTMLSpanElement>;
+    _itemText: ElementRef<HTMLElement>;
     /**
      * Emits when the selected state of the option has changed.
      * Use to facilitate two-data binding to the `selected` property.
      * @docs-private
      */
     readonly selectedChange: EventEmitter<boolean>;
-    _itemText: ElementRef<HTMLElement>;
-    lines: QueryList<ElementRef<Element>>;
     /** Whether the label should appear before or after the checkbox. Defaults to 'after' */
     checkboxPosition: MatListOptionCheckboxPosition;
     /** Theme color of the list option. This sets the color of the checkbox. */
@@ -63,6 +61,11 @@ export declare class MatListOption extends MatListItemBase implements ListOption
     get selected(): boolean;
     set selected(value: BooleanInput);
     private _selected;
+    /**
+     * This is set to true after the first OnChanges cycle so we don't
+     * clear the value of `selected` in the first cycle.
+     */
+    private _inputsInitialized;
     constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     ngOnInit(): void;
     ngOnDestroy(): void;
@@ -91,5 +94,5 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      */
     _markForCheck(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListOption, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatListOption, "mat-list-option", ["matListOption"], { "checkboxPosition": "checkboxPosition"; "color": "color"; "value": "value"; "selected": "selected"; }, { "selectedChange": "selectedChange"; }, ["lines"], ["[mat-list-avatar],[matListAvatar],[mat-list-icon],[matListIcon]", "*", "mat-divider"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatListOption, "mat-list-option", ["matListOption"], { "checkboxPosition": "checkboxPosition"; "color": "color"; "value": "value"; "selected": "selected"; }, { "selectedChange": "selectedChange"; }, ["_lines", "_titles"], ["[matListItemAvatar],[matListItemIcon]", "[matListItemTitle]", "[matListItemLine]", "*", "mat-divider"]>;
 }

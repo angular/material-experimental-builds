@@ -15,6 +15,14 @@ export interface NavListHarnessFilters extends BaseHarnessFilters {
 export interface SelectionListHarnessFilters extends BaseHarnessFilters {
 }
 export interface BaseListItemHarnessFilters extends BaseHarnessFilters {
+    title?: string | RegExp;
+    secondaryText?: string | RegExp | null;
+    tertiaryText?: string | RegExp | null;
+    fullText?: string | RegExp;
+    /**
+     * @deprecated Use the `fullText` filter instead.
+     * @breaking-change 16.0.0
+     */
     text?: string | RegExp;
 }
 export interface ListItemHarnessFilters extends BaseListItemHarnessFilters {
