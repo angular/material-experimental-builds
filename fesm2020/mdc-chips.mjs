@@ -874,7 +874,7 @@ class MatChipRow extends MatChip {
             clearTimeout(this._focusoutTimeout);
         }
         // Wait to see if focus moves to the other gridcell
-        this._focusoutTimeout = setTimeout(() => {
+        this._focusoutTimeout = window.setTimeout(() => {
             this._hasFocusInternal = false;
             this._onBlur.next({ chip: this });
             this._handleInteraction(event);
