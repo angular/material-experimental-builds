@@ -44,8 +44,10 @@ export declare class MatSliderVisualThumb implements AfterViewInit, OnDestroy {
     disableRipple: boolean;
     /** The MatRipple for this slider thumb. */
     private readonly _ripple;
-    /** The slider thumb knob */
+    /** The slider thumb knob. */
     _knob: ElementRef<HTMLElement>;
+    /** The slider thumb value indicator container. */
+    _valueIndicatorContainer: ElementRef<HTMLElement>;
     /** The slider input corresponding to this slider thumb. */
     private _sliderInput;
     /** The RippleRef for the slider thumbs hover state. */
@@ -83,6 +85,11 @@ export declare class MatSliderVisualThumb implements AfterViewInit, OnDestroy {
     _getHostElement(): HTMLElement;
     /** Gets the native HTML element of the slider thumb knob. */
     _getKnob(): HTMLElement;
+    /**
+     * Gets the native HTML element of the slider thumb value indicator
+     * container.
+     */
+    _getValueIndicatorContainer(): HTMLElement;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSliderVisualThumb, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSliderVisualThumb, "mat-slider-visual-thumb", never, { "discrete": "discrete"; "thumbPosition": "thumbPosition"; "valueIndicatorText": "valueIndicatorText"; "disableRipple": "disableRipple"; }, {}, never, never>;
 }
@@ -336,6 +343,11 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     _getThumbElement(thumbPosition: Thumb): HTMLElement;
     /** Gets the slider knob HTML element of the given thumb position. */
     _getKnobElement(thumbPosition: Thumb): HTMLElement;
+    /**
+     * Gets the slider value indicator container HTML element of the given thumb
+     * position.
+     */
+    _getValueIndicatorContainerElement(thumbPosition: Thumb): HTMLElement;
     /**
      * Sets the value indicator text of the given thumb position using the given value.
      *
