@@ -14,6 +14,6 @@ import * as i12 from "@angular/cdk/observers";
 import * as i13 from "@angular/cdk/a11y";
 export declare class MatTabsModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabsModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatTabsModule, [typeof i1.MatTabContent, typeof i2.MatTabLabel, typeof i3.MatTab, typeof i4.MatTabGroup, typeof i5.MatTabNav, typeof i5.MatTabLink, typeof i6.MatTabBody, typeof i6.MatTabBodyPortal, typeof i7.MatTabLabelWrapper, typeof i8.MatTabHeader], [typeof i9.CommonModule, typeof i10.MatCommonModule, typeof i11.PortalModule, typeof i10.MatRippleModule, typeof i12.ObserversModule, typeof i13.A11yModule], [typeof i10.MatCommonModule, typeof i1.MatTabContent, typeof i2.MatTabLabel, typeof i3.MatTab, typeof i4.MatTabGroup, typeof i5.MatTabNav, typeof i5.MatTabLink]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatTabsModule, [typeof i1.MatTabContent, typeof i2.MatTabLabel, typeof i3.MatTab, typeof i4.MatTabGroup, typeof i5.MatTabNav, typeof i5.MatTabNavPanel, typeof i5.MatTabLink, typeof i6.MatTabBody, typeof i6.MatTabBodyPortal, typeof i7.MatTabLabelWrapper, typeof i8.MatTabHeader], [typeof i9.CommonModule, typeof i10.MatCommonModule, typeof i11.PortalModule, typeof i10.MatRippleModule, typeof i12.ObserversModule, typeof i13.A11yModule], [typeof i10.MatCommonModule, typeof i1.MatTabContent, typeof i2.MatTabLabel, typeof i3.MatTab, typeof i4.MatTabGroup, typeof i5.MatTabNav, typeof i5.MatTabNavPanel, typeof i5.MatTabLink]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatTabsModule>;
 }

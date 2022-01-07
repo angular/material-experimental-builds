@@ -50,3 +50,14 @@ export declare class MatTabLink extends _MatTabLinkBase implements MatInkBarItem
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLink, [null, null, { optional: true; }, { attribute: "tabindex"; }, null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatTabLink, "[mat-tab-link], [matTabLink]", ["matTabLink"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, never, ["*"]>;
 }
+/**
+ * Tab panel component associated with MatTabNav.
+ */
+export declare class MatTabNavPanel {
+    /** Unique id for the tab panel. */
+    id: string;
+    /** Id of the active tab in the nav bar. */
+    _activeTabId?: string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabNavPanel, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabNavPanel, "mat-tab-nav-panel", ["matTabNavPanel"], { "id": "id"; }, {}, never, ["*"]>;
+}
