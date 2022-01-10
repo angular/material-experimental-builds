@@ -1323,8 +1323,8 @@ function getSelectionListAdapter(list) {
             }
             baseAdapter.setAttributeForElementIndex(index, attribute, value);
         },
-        notifyAction(index) {
-            list._emitChangeEvent([list._itemsArr[index]]);
+        notifySelectionChange(changedIndices) {
+            list._emitChangeEvent(changedIndices.map(index => list._itemsArr[index]));
         } });
 }
 
