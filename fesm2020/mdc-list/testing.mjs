@@ -536,5 +536,5 @@ MatListOptionHarness.hostSelector = '.mat-mdc-list-option';
  * found in the LICENSE file at https://angular.io/license
  */
 
-export { MatActionListHarness, MatActionListItemHarness, MatListHarness, MatListItemHarness, MatListOptionHarness, MatNavListHarness, MatNavListItemHarness, MatSelectionListHarness };
+export { MatActionListHarness, MatActionListItemHarness, MatListHarness, MatListItemHarness, MatListOptionHarness, MatNavListHarness, MatNavListItemHarness, MatSelectionListHarness, MatSubheaderHarness };
 //# sourceMappingURL=testing.mjs.map
