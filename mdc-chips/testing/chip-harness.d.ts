@@ -11,6 +11,7 @@ import { ChipAvatarHarnessFilters, ChipHarnessFilters, ChipRemoveHarnessFilters 
 import { MatChipRemoveHarness } from './chip-remove-harness';
 /** Harness for interacting with a mat-chip in tests. */
 export declare class MatChipHarness extends ContentContainerComponentHarness {
+    protected _primaryAction: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement>;
     static hostSelector: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip with specific attributes.

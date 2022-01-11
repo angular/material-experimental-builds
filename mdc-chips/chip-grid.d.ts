@@ -5,18 +5,17 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, DoCheck, ElementRef, EventEmitter, OnDestroy, QueryList } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { CanUpdateErrorState, ErrorStateMatcher } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatChipTextControl } from './chip-text-control';
 import { Observable } from 'rxjs';
 import { MatChipEvent } from './chip';
 import { MatChipRow } from './chip-row';
 import { MatChipSet } from './chip-set';
-import { GridFocusKeyManager } from './grid-focus-key-manager';
 import * as i0 from "@angular/core";
 /** Change event object that is emitted when the chip grid value has changed. */
 export declare class MatChipGridChange {
@@ -40,7 +39,7 @@ declare class MatChipGridBase extends MatChipSet {
     _parentFormGroup: FormGroupDirective;
     /** @docs-private */
     ngControl: NgControl;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _dir: Directionality, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, 
+    constructor(liveAnnouncer: LiveAnnouncer, document: any, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, 
     /** @docs-private */
     ngControl: NgControl);
 }
@@ -55,10 +54,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     readonly controlType: string;
-    /** Subscription to focus changes in the chips. */
-    private _chipFocusSubscription;
-    /** Subscription to blur changes in the chips. */
-    private _chipBlurSubscription;
     /** The chip input to add more chips */
     protected _chipInput: MatChipTextControl;
     /**
@@ -71,8 +66,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     _onChange: (value: any) => void;
-    /** The GridFocusKeyManager which handles focus. */
-    _keyManager: GridFocusKeyManager;
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
@@ -134,7 +127,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      */
     readonly valueChange: EventEmitter<any>;
     _chips: QueryList<MatChipRow>;
-    constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _dir: Directionality, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, _defaultErrorStateMatcher: ErrorStateMatcher, ngControl: NgControl);
+    constructor(liveAnnouncer: LiveAnnouncer, document: any, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, parentForm: NgForm, parentFormGroup: FormGroupDirective, defaultErrorStateMatcher: ErrorStateMatcher, ngControl: NgControl);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;
@@ -183,19 +176,10 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * user to tab out of it. This prevents the grid from capturing focus and redirecting
      * it back to the first chip, creating a focus trap, if it user tries to tab away.
      */
-    _allowFocusEscape(): void;
+    protected _allowFocusEscape(): void;
     /** Handles custom keyboard events. */
     _keydown(event: KeyboardEvent): void;
-    /** Unsubscribes from all chip events. */
-    protected _dropSubscriptions(): void;
-    /** Subscribes to events on the child chips. */
-    protected _subscribeToChipEvents(): void;
-    /** Initializes the key manager to manage focus. */
-    private _initKeyManager;
-    /** Subscribes to chip focus events. */
-    private _listenToChipsFocus;
-    /** Subscribes to chip blur events. */
-    private _listenToChipsBlur;
+    _focusLastChip(): void;
     /** Emits change event to set the model value. */
     private _propagateChanges;
     /** Mark the field as touched */
@@ -206,7 +190,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     private _updateFocusForDestroyedChips;
     /** Focus input element. */
     private _focusInput;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, null, null, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipGrid, "mat-chip-grid", never, { "tabIndex": "tabIndex"; "disabled": "disabled"; "placeholder": "placeholder"; "required": "required"; "value": "value"; "errorStateMatcher": "errorStateMatcher"; }, { "change": "change"; "valueChange": "valueChange"; }, ["_chips"], ["*"]>;
 }
 export {};

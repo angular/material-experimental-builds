@@ -6,7 +6,8 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { BooleanInput } from '@angular/cdk/coercion';
-import { EventEmitter, AfterContentInit } from '@angular/core';
+import { EventEmitter, AfterViewInit, OnInit } from '@angular/core';
+import { ActionInteractionEvent } from '@material/chips';
 import { MatChip } from './chip';
 import * as i0 from "@angular/core";
 /** Event object emitted by MatChipOption when selected or deselected. */
@@ -29,7 +30,14 @@ export declare class MatChipSelectionChange {
  * An extension of the MatChip component that supports chip selection.
  * Used with MatChipListbox.
  */
-export declare class MatChipOption extends MatChip implements AfterContentInit {
+export declare class MatChipOption extends MatChip implements OnInit, AfterViewInit {
+    /** Whether the component is done initializing. */
+    private _isInitialized;
+    /**
+     * Selected state that was assigned before the component was initializing
+     * and which needs to be synced back up with the foundation.
+     */
+    private _pendingSelectedState;
     /** Whether the chip list is selectable. */
     chipListSelectable: boolean;
     /** Whether the chip list is in multi-selection mode. */
@@ -53,7 +61,8 @@ export declare class MatChipOption extends MatChip implements AfterContentInit {
     protected basicChipAttrName: string;
     /** Emitted when the chip is selected or deselected. */
     readonly selectionChange: EventEmitter<MatChipSelectionChange>;
-    ngAfterContentInit(): void;
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
     /** Selects the chip. */
     select(): void;
     /** Deselects the chip. */
@@ -62,16 +71,11 @@ export declare class MatChipOption extends MatChip implements AfterContentInit {
     selectViaInteraction(): void;
     /** Toggles the current selected state of this chip. */
     toggleSelected(isUserInput?: boolean): boolean;
-    /** Emits a selection change event. */
-    private _dispatchSelectionChange;
-    /** Allows for programmatic focusing of the chip. */
-    focus(): void;
     /** Resets the state of the chip when it loses focus. */
     _blur(): void;
-    /** Handles click events on the chip. */
-    _click(event: MouseEvent): void;
-    /** Handles custom key presses. */
-    _keydown(event: KeyboardEvent): void;
+    protected _onChipInteraction(event: ActionInteractionEvent): void;
+    _hasLeadingGraphic(): import("@angular/material-experimental/mdc-chips").MatChipAvatar;
+    private _setSelectedState;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipOption, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipOption, "mat-basic-chip-option, mat-chip-option", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "selectable": "selectable"; "selected": "selected"; }, { "selectionChange": "selectionChange"; }, never, ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"]>;
 }

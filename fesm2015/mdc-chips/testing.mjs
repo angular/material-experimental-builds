@@ -44,6 +44,10 @@ MatChipRemoveHarness.hostSelector = '.mat-mdc-chip-remove';
 
 /** Harness for interacting with a mat-chip in tests. */
 class MatChipHarness extends ContentContainerComponentHarness {
+    constructor() {
+        super(...arguments);
+        this._primaryAction = this.locatorFor('.mdc-evolution-chip__action--primary');
+    }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip with specific attributes.
      */
@@ -226,7 +230,7 @@ class MatChipOptionHarness extends MatChipHarness {
     /** Toggles the selected state of the given chip. */
     toggle() {
         return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.host()).sendKeys(' ');
+            return (yield this._primaryAction()).click();
         });
     }
 }
@@ -292,13 +296,7 @@ class MatChipListboxHarness extends ComponentHarness {
 }
 MatChipListboxHarness.hostSelector = '.mat-mdc-chip-listbox';
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
+// TODO(crisbeto): add harness for the chip edit input inside the row.
 /** Harness for interacting with a mat-chip-row in tests. */
 class MatChipRowHarness extends MatChipHarness {
     /**
@@ -308,6 +306,18 @@ class MatChipRowHarness extends MatChipHarness {
     // methods. See https://github.com/microsoft/TypeScript/issues/5863
     static with(options = {}) {
         return new HarnessPredicate(MatChipRowHarness, options);
+    }
+    /** Whether the chip is editable. */
+    isEditable() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this.host()).hasClass('mat-mdc-chip-editable');
+        });
+    }
+    /** Whether the chip is currently being edited. */
+    isEditing() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this.host()).hasClass('mat-mdc-chip-editing');
+        });
     }
 }
 MatChipRowHarness.hostSelector = '.mat-mdc-chip-row';

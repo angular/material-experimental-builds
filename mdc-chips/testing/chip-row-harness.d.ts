@@ -15,4 +15,8 @@ export declare class MatChipRowHarness extends MatChipHarness {
      * Gets a `HarnessPredicate` that can be used to search for a chip row with specific attributes.
      */
     static with<T extends typeof MatChipHarness>(this: T, options?: ChipRowHarnessFilters): HarnessPredicate<InstanceType<T>>;
+    /** Whether the chip is editable. */
+    isEditable(): Promise<boolean>;
+    /** Whether the chip is currently being edited. */
+    isEditing(): Promise<boolean>;
 }
