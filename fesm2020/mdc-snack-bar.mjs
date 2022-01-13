@@ -1,8 +1,8 @@
 import * as i0 from '@angular/core';
-import { Directive, Component, ViewEncapsulation, ChangeDetectionStrategy, Inject, Optional, ViewChild, NgModule, Injectable } from '@angular/core';
+import { Directive, Component, ViewEncapsulation, ChangeDetectionStrategy, Inject, Optional, ViewChild, NgModule, Injectable, SkipSelf } from '@angular/core';
 import * as i1 from '@angular/material/snack-bar';
-import { MAT_SNACK_BAR_DATA, MatSnackBar as MatSnackBar$1 } from '@angular/material/snack-bar';
-export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, MatSnackBarConfig, MatSnackBarRef, SimpleSnackBar, matSnackBarAnimations } from '@angular/material/snack-bar';
+import { MAT_SNACK_BAR_DATA, _MatSnackBarBase, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, MatSnackBarConfig, MatSnackBarRef, matSnackBarAnimations } from '@angular/material/snack-bar';
 import * as i2 from '@angular/material-experimental/mdc-button';
 import { MatButtonModule } from '@angular/material-experimental/mdc-button';
 import * as i4 from '@angular/common';
@@ -13,6 +13,9 @@ import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MDCSnackbarFoundation } from '@material/snackbar';
 import * as i2$1 from '@angular/cdk/platform';
 import { Subject } from 'rxjs';
+import * as i2$2 from '@angular/cdk/a11y';
+import * as i3$1 from '@angular/cdk/layout';
+import * as i1$1 from '@angular/cdk/overlay';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatCommonModule } from '@angular/material-experimental/mdc-core';
 
@@ -73,7 +76,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImpor
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-class MatSimpleSnackBar {
+class SimpleSnackBar {
     constructor(snackBarRef, data) {
         this.snackBarRef = snackBarRef;
         this.data = data;
@@ -87,11 +90,11 @@ class MatSimpleSnackBar {
         return !!this.data.action;
     }
 }
-MatSimpleSnackBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSimpleSnackBar, deps: [{ token: i1.MatSnackBarRef }, { token: MAT_SNACK_BAR_DATA }], target: i0.ɵɵFactoryTarget.Component });
-MatSimpleSnackBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.1.0", type: MatSimpleSnackBar, selector: "mat-simple-snack-bar", host: { classAttribute: "mat-mdc-simple-snack-bar" }, exportAs: ["matSnackBar"], ngImport: i0, template: "<div matSnackBarLabel>\n  {{data.message}}\n</div>\n\n<div matSnackBarActions *ngIf=\"hasAction\">\n  <button mat-button matSnackBarAction (click)=\"action()\">\n    {{data.action}}\n  </button>\n</div>\n", styles: [".mat-mdc-simple-snack-bar{display:flex}\n"], components: [{ type: i2.MatButton, selector: "    button[mat-button], button[mat-raised-button], button[mat-flat-button],    button[mat-stroked-button]  ", inputs: ["disabled", "disableRipple", "color"], exportAs: ["matButton"] }], directives: [{ type: MatSnackBarLabel, selector: "[matSnackBarLabel]" }, { type: i4.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: MatSnackBarActions, selector: "[matSnackBarActions]" }, { type: MatSnackBarAction, selector: "[matSnackBarAction]" }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSimpleSnackBar, decorators: [{
+SimpleSnackBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: SimpleSnackBar, deps: [{ token: i1.MatSnackBarRef }, { token: MAT_SNACK_BAR_DATA }], target: i0.ɵɵFactoryTarget.Component });
+SimpleSnackBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.1.0", type: SimpleSnackBar, selector: "simple-snack-bar", host: { classAttribute: "mat-mdc-simple-snack-bar" }, exportAs: ["matSnackBar"], ngImport: i0, template: "<div matSnackBarLabel>\n  {{data.message}}\n</div>\n\n<div matSnackBarActions *ngIf=\"hasAction\">\n  <button mat-button matSnackBarAction (click)=\"action()\">\n    {{data.action}}\n  </button>\n</div>\n", styles: [".mat-mdc-simple-snack-bar{display:flex}\n"], components: [{ type: i2.MatButton, selector: "    button[mat-button], button[mat-raised-button], button[mat-flat-button],    button[mat-stroked-button]  ", inputs: ["disabled", "disableRipple", "color"], exportAs: ["matButton"] }], directives: [{ type: MatSnackBarLabel, selector: "[matSnackBarLabel]" }, { type: i4.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: MatSnackBarActions, selector: "[matSnackBarActions]" }, { type: MatSnackBarAction, selector: "[matSnackBarAction]" }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: SimpleSnackBar, decorators: [{
             type: Component,
-            args: [{ selector: 'mat-simple-snack-bar', exportAs: 'matSnackBar', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
+            args: [{ selector: 'simple-snack-bar', exportAs: 'matSnackBar', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
                         'class': 'mat-mdc-simple-snack-bar',
                     }, template: "<div matSnackBarLabel>\n  {{data.message}}\n</div>\n\n<div matSnackBarActions *ngIf=\"hasAction\">\n  <button mat-button matSnackBarAction (click)=\"action()\">\n    {{data.action}}\n  </button>\n</div>\n", styles: [".mat-mdc-simple-snack-bar{display:flex}\n"] }]
         }], ctorParameters: function () { return [{ type: i1.MatSnackBarRef }, { type: undefined, decorators: [{
@@ -296,7 +299,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImpor
 class MatSnackBarModule {
 }
 MatSnackBarModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBarModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatSnackBarModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBarModule, declarations: [MatSimpleSnackBar,
+MatSnackBarModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBarModule, declarations: [SimpleSnackBar,
         MatSnackBarContainer,
         MatSnackBarLabel,
         MatSnackBarActions,
@@ -318,7 +321,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImpor
                         MatSnackBarAction,
                     ],
                     declarations: [
-                        MatSimpleSnackBar,
+                        SimpleSnackBar,
                         MatSnackBarContainer,
                         MatSnackBarLabel,
                         MatSnackBarActions,
@@ -337,20 +340,27 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImpor
 /**
  * Service to dispatch Material Design snack bar messages.
  */
-class MatSnackBar extends MatSnackBar$1 {
-    constructor() {
-        super(...arguments);
-        this.simpleSnackBarComponent = MatSimpleSnackBar;
+class MatSnackBar extends _MatSnackBarBase {
+    constructor(overlay, live, injector, breakpointObserver, parentSnackBar, defaultConfig) {
+        super(overlay, live, injector, breakpointObserver, parentSnackBar, defaultConfig);
+        this.simpleSnackBarComponent = SimpleSnackBar;
         this.snackBarContainerComponent = MatSnackBarContainer;
         this.handsetCssClass = 'mat-mdc-snack-bar-handset';
     }
 }
-MatSnackBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBar, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
+MatSnackBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBar, deps: [{ token: i1$1.Overlay }, { token: i2$2.LiveAnnouncer }, { token: i0.Injector }, { token: i3$1.BreakpointObserver }, { token: MatSnackBar, optional: true, skipSelf: true }, { token: MAT_SNACK_BAR_DEFAULT_OPTIONS }], target: i0.ɵɵFactoryTarget.Injectable });
 MatSnackBar.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBar, providedIn: MatSnackBarModule });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatSnackBar, decorators: [{
             type: Injectable,
             args: [{ providedIn: MatSnackBarModule }]
-        }] });
+        }], ctorParameters: function () { return [{ type: i1$1.Overlay }, { type: i2$2.LiveAnnouncer }, { type: i0.Injector }, { type: i3$1.BreakpointObserver }, { type: MatSnackBar, decorators: [{
+                    type: Optional
+                }, {
+                    type: SkipSelf
+                }] }, { type: i1.MatSnackBarConfig, decorators: [{
+                    type: Inject,
+                    args: [MAT_SNACK_BAR_DEFAULT_OPTIONS]
+                }] }]; } });
 
 /**
  * @license
@@ -372,5 +382,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { MatSimpleSnackBar, MatSnackBar, MatSnackBarAction, MatSnackBarActions, MatSnackBarContainer, MatSnackBarLabel, MatSnackBarModule };
+export { MatSnackBar, MatSnackBarAction, MatSnackBarActions, MatSnackBarContainer, MatSnackBarLabel, MatSnackBarModule, SimpleSnackBar };
 //# sourceMappingURL=mdc-snack-bar.mjs.map
