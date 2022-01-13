@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { Platform } from '@angular/cdk/platform';
-import { ElementRef, NgZone } from '@angular/core';
+import { ElementRef, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CanColor, CanDisable, CanDisableRipple, MatRipple } from '@angular/material-experimental/mdc-core';
 import { FocusOrigin } from '@angular/cdk/a11y';
 import * as i0 from "@angular/core";
@@ -59,10 +59,12 @@ export declare const MAT_ANCHOR_HOST: {
 /**
  * Anchor button base.
  */
-export declare class MatAnchorBase extends MatButtonBase {
+export declare class MatAnchorBase extends MatButtonBase implements OnInit, OnDestroy {
     tabIndex: number;
     constructor(elementRef: ElementRef, platform: Platform, ngZone: NgZone, animationMode?: string);
-    _haltDisabledEvents(event: Event): void;
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    _haltDisabledEvents: (event: Event) => void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatAnchorBase, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatAnchorBase, never, never, {}, {}, never>;
 }

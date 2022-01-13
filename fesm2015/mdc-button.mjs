@@ -125,24 +125,27 @@ const MAT_ANCHOR_HOST = {
 class MatAnchorBase extends MatButtonBase {
     constructor(elementRef, platform, ngZone, animationMode) {
         super(elementRef, platform, ngZone, animationMode);
+        this._haltDisabledEvents = (event) => {
+            // A disabled button shouldn't apply any actions
+            if (this.disabled) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+        };
     }
-    _haltDisabledEvents(event) {
-        // A disabled button shouldn't apply any actions
-        if (this.disabled) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-        }
+    ngOnInit() {
+        this._ngZone.runOutsideAngular(() => {
+            this._elementRef.nativeElement.addEventListener('click', this._haltDisabledEvents);
+        });
+    }
+    ngOnDestroy() {
+        this._elementRef.nativeElement.removeEventListener('click', this._haltDisabledEvents);
     }
 }
 MatAnchorBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatAnchorBase, deps: "invalid", target: i0.ɵɵFactoryTarget.Directive });
-MatAnchorBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.1.0", type: MatAnchorBase, host: { listeners: { "click": "_haltDisabledEvents($event)" } }, usesInheritance: true, ngImport: i0 });
+MatAnchorBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.1.0", type: MatAnchorBase, usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatAnchorBase, decorators: [{
-            type: Directive,
-            args: [{
-                    host: {
-                        '(click)': '_haltDisabledEvents($event)',
-                    },
-                }]
+            type: Directive
         }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: i1.Platform }, { type: i0.NgZone }, { type: undefined }]; } });
 
 /**
