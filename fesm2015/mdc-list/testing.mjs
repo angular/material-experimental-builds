@@ -92,6 +92,12 @@ class MatListItemHarnessBase extends ContentContainerComponentHarness {
             return (yield this._primaryText()).text();
         });
     }
+    /** Whether the list item is disabled. */
+    isDisabled() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return (yield this.host()).hasClass('mdc-list-item--disabled');
+        });
+    }
     /**
      * Gets the secondary line text of the list item. Null if the list item
      * does not have a secondary line.
@@ -490,12 +496,6 @@ class MatListOptionHarness extends MatListItemHarnessBase {
     isSelected() {
         return __awaiter(this, void 0, void 0, function* () {
             return (yield (yield this.host()).getAttribute('aria-selected')) === 'true';
-        });
-    }
-    /** Whether the list option is disabled. */
-    isDisabled() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return (yield (yield this.host()).getAttribute('aria-disabled')) === 'true';
         });
     }
     /** Focuses the list option. */

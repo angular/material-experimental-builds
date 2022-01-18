@@ -88,6 +88,10 @@ class MatListItemHarnessBase extends ContentContainerComponentHarness {
     async getTitle() {
         return (await this._primaryText()).text();
     }
+    /** Whether the list item is disabled. */
+    async isDisabled() {
+        return (await this.host()).hasClass('mdc-list-item--disabled');
+    }
     /**
      * Gets the secondary line text of the list item. Null if the list item
      * does not have a secondary line.
@@ -477,10 +481,6 @@ class MatListOptionHarness extends MatListItemHarnessBase {
     /** Whether the list option is selected. */
     async isSelected() {
         return (await (await this.host()).getAttribute('aria-selected')) === 'true';
-    }
-    /** Whether the list option is disabled. */
-    async isDisabled() {
-        return (await (await this.host()).getAttribute('aria-disabled')) === 'true';
     }
     /** Focuses the list option. */
     async focus() {

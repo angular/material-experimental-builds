@@ -60,6 +60,8 @@ export declare abstract class MatListItemHarnessBase extends ContentContainerCom
     getFullText(): Promise<string>;
     /** Gets the title of the list item. */
     getTitle(): Promise<string>;
+    /** Whether the list item is disabled. */
+    isDisabled(): Promise<boolean>;
     /**
      * Gets the secondary line text of the list item. Null if the list item
      * does not have a secondary line.
