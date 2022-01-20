@@ -30,10 +30,10 @@ export declare class MatButtonBase extends _MatButtonMixin implements CanDisable
     _platform: Platform;
     _ngZone: NgZone;
     _animationMode?: string | undefined;
-    /** Whether the ripple is centered on the button. */
-    _isRippleCentered: boolean;
     /** Whether this button is a FAB. Used to apply the correct class on the ripple. */
     _isFab: boolean;
+    /** Whether this button is an icon button. Used to apply the correct class on the ripple. */
+    _isIconButton: boolean;
     /** Reference to the MatRipple instance of the button. */
     ripple: MatRipple;
     constructor(elementRef: ElementRef, _platform: Platform, _ngZone: NgZone, _animationMode?: string | undefined);
