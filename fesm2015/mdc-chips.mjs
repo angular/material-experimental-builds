@@ -2157,7 +2157,9 @@ class MatChipGrid extends _MatChipGridMixinBase {
             this._keyManager.setFirstCellActive();
         }
         else {
-            this._focusInput();
+            // Delay until the next tick, because this can cause a "changed after checked"
+            // error if the input does something on focus (e.g. opens an autocomplete).
+            Promise.resolve().then(() => this._chipInput.focus());
         }
         this.stateChanges.next();
     }
@@ -2327,10 +2329,6 @@ class MatChipGrid extends _MatChipGridMixinBase {
             }
         }
         this._lastDestroyedChipIndex = null;
-    }
-    /** Focus input element. */
-    _focusInput() {
-        this._chipInput.focus();
     }
 }
 MatChipGrid.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.1.0", ngImport: i0, type: MatChipGrid, deps: [{ token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: i1.Directionality, optional: true }, { token: i2$1.NgForm, optional: true }, { token: i2$1.FormGroupDirective, optional: true }, { token: i3.ErrorStateMatcher }, { token: i2$1.NgControl, optional: true, self: true }], target: i0.ɵɵFactoryTarget.Component });

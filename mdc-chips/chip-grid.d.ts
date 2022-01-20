@@ -204,8 +204,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * If the amount of chips changed, we need to focus the next closest chip.
      */
     private _updateFocusForDestroyedChips;
-    /** Focus input element. */
-    private _focusInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipGrid, "mat-chip-grid", never, { "tabIndex": "tabIndex"; "disabled": "disabled"; "placeholder": "placeholder"; "required": "required"; "value": "value"; "errorStateMatcher": "errorStateMatcher"; }, { "change": "change"; "valueChange": "valueChange"; }, ["_chips"], ["*"]>;
 }
