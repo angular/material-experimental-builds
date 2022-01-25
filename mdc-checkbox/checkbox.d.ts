@@ -87,10 +87,6 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
     get inputId(): string;
     /** The `MDCCheckboxFoundation` instance for this checkbox. */
     _checkboxFoundation: MDCCheckboxFoundation;
-    /** The set of classes that should be applied to the native input. */
-    _classes: {
-        [key: string]: boolean;
-    };
     /** ControlValueAccessor onChange */
     private _cvaOnChange;
     /** ControlValueAccessor onTouch */
@@ -144,8 +140,6 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
     _onClick(): void;
     /** Gets the value for the `aria-checked` attribute of the native input. */
     _getAriaChecked(): 'true' | 'false' | 'mixed';
-    /** Sets whether the given CSS class should be applied to the native input. */
-    private _setClass;
     /**
      * Syncs the indeterminate value with the checkbox DOM node.
      *
