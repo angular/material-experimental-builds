@@ -367,7 +367,7 @@ let nextUniqueId = 0;
 const DEFAULT_APPEARANCE = 'fill';
 /** Default appearance used by the form-field. */
 const DEFAULT_FLOAT_LABEL = 'auto';
-/** Default way that the suffix element height is set. */
+/** Default way that the subscript element height is set. */
 const DEFAULT_SUBSCRIPT_SIZING = 'fixed';
 /**
  * Default transform for docked floating labels in a MDC text-field. This value has been
@@ -394,7 +394,7 @@ class MatFormField {
         /** The color palette for the form-field. */
         this.color = 'primary';
         this._appearance = DEFAULT_APPEARANCE;
-        this._subscriptSizing = DEFAULT_SUBSCRIPT_SIZING;
+        this._subscriptSizing = null;
         this._hintLabel = '';
         this._hasIconPrefix = false;
         this._hasTextPrefix = false;
