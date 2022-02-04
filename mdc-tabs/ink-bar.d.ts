@@ -47,7 +47,7 @@ export declare class MatInkBarFoundation {
     /** Removes the ink bar from the current item. */
     deactivate(): void;
     /** Gets the ClientRect of the ink bar. */
-    computeContentClientRect(): ClientRect;
+    computeContentClientRect(): DOMRect;
     /** Initializes the foundation. */
     init(): void;
     /** Destroys the foundation. */
