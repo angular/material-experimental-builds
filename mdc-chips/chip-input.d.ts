@@ -22,11 +22,8 @@ export interface MatChipInputEvent {
     input: HTMLInputElement;
     /** The value of the input. */
     value: string;
-    /**
-     * Reference to the chip input that emitted the event.
-     * @breaking-change 13.0.0 This property will be made required.
-     */
-    chipInput?: MatChipInput;
+    /** Reference to the chip input that emitted the event. */
+    chipInput: MatChipInput;
 }
 /**
  * Directive that adds chip-specific behaviors to an input element inside `<mat-form-field>`.
