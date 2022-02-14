@@ -16,7 +16,7 @@ export declare const MAT_MENU_SCROLL_STRATEGY_FACTORY_PROVIDER: Provider;
 export declare class MatMenu extends _MatMenuBase {
     protected _elevationPrefix: string;
     protected _baseElevation: number;
-    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _defaultOptions: MatMenuDefaultOptions);
+    constructor(elementRef: ElementRef<HTMLElement>, ngZone: NgZone, defaultOptions: MatMenuDefaultOptions);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenu, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatMenu, "mat-menu", ["matMenu"], {}, {}, never, ["*"]>;
 }
