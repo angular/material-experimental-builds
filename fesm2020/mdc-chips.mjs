@@ -1719,13 +1719,23 @@ class MatChipGridChange {
  */
 class MatChipGridBase extends MatChipSet {
     constructor(liveAnnouncer, document, elementRef, changeDetectorRef, _defaultErrorStateMatcher, _parentForm, _parentFormGroup, 
-    /** @docs-private */
+    /**
+     * Form control bound to the component.
+     * Implemented as part of `MatFormFieldControl`.
+     * @docs-private
+     */
     ngControl) {
         super(liveAnnouncer, document, elementRef, changeDetectorRef);
         this._defaultErrorStateMatcher = _defaultErrorStateMatcher;
         this._parentForm = _parentForm;
         this._parentFormGroup = _parentFormGroup;
         this.ngControl = ngControl;
+        /**
+         * Emits whenever the component state changes and should cause the parent
+         * form-field to update. Implemented as part of `MatFormFieldControl`.
+         * @docs-private
+         */
+        this.stateChanges = new Subject();
     }
 }
 const _MatChipGridMixinBase = mixinErrorState(MatChipGridBase);

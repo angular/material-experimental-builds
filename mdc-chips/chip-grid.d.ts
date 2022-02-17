@@ -12,7 +12,7 @@ import { CanUpdateErrorState, ErrorStateMatcher } from '@angular/material-experi
 import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatChipTextControl } from './chip-text-control';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { MatChipEvent } from './chip';
 import { MatChipRow } from './chip-row';
 import { MatChipSet } from './chip-set';
@@ -37,10 +37,24 @@ declare class MatChipGridBase extends MatChipSet {
     _defaultErrorStateMatcher: ErrorStateMatcher;
     _parentForm: NgForm;
     _parentFormGroup: FormGroupDirective;
-    /** @docs-private */
+    /**
+     * Form control bound to the component.
+     * Implemented as part of `MatFormFieldControl`.
+     * @docs-private
+     */
     ngControl: NgControl;
+    /**
+     * Emits whenever the component state changes and should cause the parent
+     * form-field to update. Implemented as part of `MatFormFieldControl`.
+     * @docs-private
+     */
+    readonly stateChanges: Subject<void>;
     constructor(liveAnnouncer: LiveAnnouncer, document: any, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, 
-    /** @docs-private */
+    /**
+     * Form control bound to the component.
+     * Implemented as part of `MatFormFieldControl`.
+     * @docs-private
+     */
     ngControl: NgControl);
 }
 declare const _MatChipGridMixinBase: import("@angular/material-experimental/mdc-core")._Constructor<CanUpdateErrorState> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanUpdateErrorState> & typeof MatChipGridBase;
