@@ -24,13 +24,11 @@ export declare class MatFormFieldFloatingLabel {
     private _elementRef;
     /** Whether the label is floating. */
     floating: boolean;
-    /** Whether the label is required. */
-    required: boolean;
     constructor(_elementRef: ElementRef);
     /** Gets the width of the label. Used for the outline notch. */
     getWidth(): number;
     /** Gets the HTML element for the floating label. */
     get element(): HTMLElement;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldFloatingLabel, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldFloatingLabel, "label[matFormFieldFloatingLabel]", never, { "floating": "floating"; "required": "required"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldFloatingLabel, "label[matFormFieldFloatingLabel]", never, { "floating": "floating"; }, {}, never>;
 }
