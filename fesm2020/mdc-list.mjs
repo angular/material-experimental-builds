@@ -484,14 +484,23 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0", ngImpor
 class MatListItem extends MatListItemBase {
     constructor(element, ngZone, listBase, platform, globalRippleOptions, animationMode) {
         super(element, ngZone, listBase, platform, globalRippleOptions, animationMode);
+        this._activated = false;
+    }
+    /** Indicates whether an item in a `<mat-nav-list>` is the currently active page. */
+    get activated() {
+        return this._activated;
+    }
+    set activated(activated) {
+        this._activated = coerceBooleanProperty(activated);
     }
 }
 MatListItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.0", ngImport: i0, type: MatListItem, deps: [{ token: i0.ElementRef }, { token: i0.NgZone }, { token: MatListBase }, { token: i1.Platform }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
-MatListItem.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.0", type: MatListItem, selector: "mat-list-item, a[mat-list-item], button[mat-list-item]", host: { properties: { "class.mdc-list-item--with-leading-avatar": "_avatars.length !== 0", "class.mdc-list-item--with-leading-icon": "_icons.length !== 0", "class.mdc-list-item--with-trailing-meta": "_meta.length !== 0", "class._mat-animation-noopable": "_noopAnimations" }, classAttribute: "mat-mdc-list-item mdc-list-item" }, queries: [{ propertyName: "_lines", predicate: MatListItemLine, descendants: true }, { propertyName: "_titles", predicate: MatListItemTitle, descendants: true }, { propertyName: "_meta", predicate: MatListItemMeta, descendants: true }], viewQueries: [{ propertyName: "_unscopedContent", first: true, predicate: ["unscopedContent"], descendants: true }, { propertyName: "_itemText", first: true, predicate: ["text"], descendants: true }], exportAs: ["matListItem"], usesInheritance: true, ngImport: i0, template: "<ng-content select=\"[matListItemAvatar],[matListItemIcon]\"></ng-content>\n\n<span class=\"mdc-list-item__content\">\n  <ng-content select=\"[matListItemTitle]\"></ng-content>\n  <ng-content select=\"[matListItemLine]\"></ng-content>\n  <span #unscopedContent class=\"mat-mdc-list-item-unscoped-content\"\n        (cdkObserveContent)=\"_updateItemLines(true)\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n<ng-content select=\"[matListItemMeta]\"></ng-content>\n\n<ng-content select=\"mat-divider\"></ng-content>\n\n<!--\n  Strong focus indicator element. MDC uses the `::before` pseudo element for the default\n  focus/hover/selected state, so we need a separate element.\n-->\n<div class=\"mat-mdc-focus-indicator\"></div>\n", directives: [{ type: i3.CdkObserveContent, selector: "[cdkObserveContent]", inputs: ["cdkObserveContentDisabled", "debounce"], outputs: ["cdkObserveContent"], exportAs: ["cdkObserveContent"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+MatListItem.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.2.0", type: MatListItem, selector: "mat-list-item, a[mat-list-item], button[mat-list-item]", inputs: { activated: "activated" }, host: { properties: { "class.mdc-list-item--activated": "activated", "class.mdc-list-item--with-leading-avatar": "_avatars.length !== 0", "class.mdc-list-item--with-leading-icon": "_icons.length !== 0", "class.mdc-list-item--with-trailing-meta": "_meta.length !== 0", "class._mat-animation-noopable": "_noopAnimations" }, classAttribute: "mat-mdc-list-item mdc-list-item" }, queries: [{ propertyName: "_lines", predicate: MatListItemLine, descendants: true }, { propertyName: "_titles", predicate: MatListItemTitle, descendants: true }, { propertyName: "_meta", predicate: MatListItemMeta, descendants: true }], viewQueries: [{ propertyName: "_unscopedContent", first: true, predicate: ["unscopedContent"], descendants: true }, { propertyName: "_itemText", first: true, predicate: ["text"], descendants: true }], exportAs: ["matListItem"], usesInheritance: true, ngImport: i0, template: "<ng-content select=\"[matListItemAvatar],[matListItemIcon]\"></ng-content>\n\n<span class=\"mdc-list-item__content\">\n  <ng-content select=\"[matListItemTitle]\"></ng-content>\n  <ng-content select=\"[matListItemLine]\"></ng-content>\n  <span #unscopedContent class=\"mat-mdc-list-item-unscoped-content\"\n        (cdkObserveContent)=\"_updateItemLines(true)\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n<ng-content select=\"[matListItemMeta]\"></ng-content>\n\n<ng-content select=\"mat-divider\"></ng-content>\n\n<!--\n  Strong focus indicator element. MDC uses the `::before` pseudo element for the default\n  focus/hover/selected state, so we need a separate element.\n-->\n<div class=\"mat-mdc-focus-indicator\"></div>\n", directives: [{ type: i3.CdkObserveContent, selector: "[cdkObserveContent]", inputs: ["cdkObserveContentDisabled", "debounce"], outputs: ["cdkObserveContent"], exportAs: ["cdkObserveContent"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0", ngImport: i0, type: MatListItem, decorators: [{
             type: Component,
             args: [{ selector: 'mat-list-item, a[mat-list-item], button[mat-list-item]', exportAs: 'matListItem', host: {
                         'class': 'mat-mdc-list-item mdc-list-item',
+                        '[class.mdc-list-item--activated]': 'activated',
                         '[class.mdc-list-item--with-leading-avatar]': '_avatars.length !== 0',
                         '[class.mdc-list-item--with-leading-icon]': '_icons.length !== 0',
                         '[class.mdc-list-item--with-trailing-meta]': '_meta.length !== 0',
@@ -522,6 +531,8 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0", ngImpor
             }], _itemText: [{
                 type: ViewChild,
                 args: ['text']
+            }], activated: [{
+                type: Input
             }] } });
 
 /**

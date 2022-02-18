@@ -21,7 +21,11 @@ export declare class MatListItem extends MatListItemBase {
     _meta: QueryList<MatListItemMeta>;
     _unscopedContent: ElementRef<HTMLSpanElement>;
     _itemText: ElementRef<HTMLElement>;
+    /** Indicates whether an item in a `<mat-nav-list>` is the currently active page. */
+    get activated(): boolean;
+    set activated(activated: boolean);
+    _activated: boolean;
     constructor(element: ElementRef, ngZone: NgZone, listBase: MatListBase, platform: Platform, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItem, [null, null, null, null, { optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatListItem, "mat-list-item, a[mat-list-item], button[mat-list-item]", ["matListItem"], {}, {}, ["_lines", "_titles", "_meta"], ["[matListItemAvatar],[matListItemIcon]", "[matListItemTitle]", "[matListItemLine]", "*", "[matListItemMeta]", "mat-divider"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatListItem, "mat-list-item, a[mat-list-item], button[mat-list-item]", ["matListItem"], { "activated": "activated"; }, {}, ["_lines", "_titles", "_meta"], ["[matListItemAvatar],[matListItemIcon]", "[matListItemTitle]", "[matListItemLine]", "*", "[matListItemMeta]", "mat-divider"]>;
 }
