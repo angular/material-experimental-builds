@@ -70,6 +70,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     readonly controlType: string;
     /** The chip input to add more chips */
     protected _chipInput: MatChipTextControl;
+    protected _defaultRole: string;
     /**
      * Function when touched. Set as part of ControlValueAccessor implementation.
      * @docs-private
@@ -96,8 +97,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     get empty(): boolean;
-    /** The ARIA role applied to the chip grid. */
-    get role(): string | null;
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private

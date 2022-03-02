@@ -46,8 +46,7 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
      * @docs-private
      */
     _onChange: (value: any) => void;
-    /** The ARIA role applied to the chip listbox. */
-    get role(): string | null;
+    protected _defaultRole: string;
     /** Whether the user should be allowed to select multiple chips. */
     get multiple(): boolean;
     set multiple(value: BooleanInput);

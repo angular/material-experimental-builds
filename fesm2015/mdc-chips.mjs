@@ -1099,6 +1099,8 @@ class MatChipSet extends _MatChipSetMixinBase {
         this._lastDestroyedChipIndex = null;
         /** Subject that emits when the component has been destroyed. */
         this._destroyed = new Subject();
+        /** Role to use if it hasn't been overwritten by the user. */
+        this._defaultRole = 'presentation';
         /**
          * Implementation of the MDC chip-set adapter interface.
          * These methods are called by the chip set foundation.
@@ -1152,7 +1154,7 @@ class MatChipSet extends _MatChipSetMixinBase {
          */
         this._mdcClasses = {};
         this._disabled = false;
-        this._role = null;
+        this._explicitRole = null;
         this._handleChipAnimation = (event) => {
             this._chipSetFoundation.handleChipAnimation(event);
         };
@@ -1186,15 +1188,13 @@ class MatChipSet extends _MatChipSetMixinBase {
     }
     /** The ARIA role applied to the chip set. */
     get role() {
-        if (this._role) {
-            return this._role;
+        if (this._explicitRole) {
+            return this._explicitRole;
         }
-        else {
-            return this.empty ? null : 'presentation';
-        }
+        return this.empty ? null : this._defaultRole;
     }
     set role(value) {
-        this._role = value;
+        this._explicitRole = value;
     }
     /** Whether any of the chips inside of this chip-set has focus. */
     get focused() {
@@ -1380,6 +1380,8 @@ class MatChipListbox extends MatChipSet {
          * @docs-private
          */
         this._onChange = () => { };
+        // TODO: MDC uses `grid` here
+        this._defaultRole = 'listbox';
         this._multiple = false;
         /** Orientation of the chip list. */
         this.ariaOrientation = 'horizontal';
@@ -1388,11 +1390,6 @@ class MatChipListbox extends MatChipSet {
         this._required = false;
         /** Event emitted when the selected chip listbox value has been changed by the user. */
         this.change = new EventEmitter();
-    }
-    /** The ARIA role applied to the chip listbox. */
-    // TODO: MDC uses `grid` here
-    get role() {
-        return this.empty ? null : 'listbox';
     }
     /** Whether the user should be allowed to select multiple chips. */
     get multiple() {
@@ -1759,6 +1756,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
          * @docs-private
          */
         this.controlType = 'mat-chip-grid';
+        this._defaultRole = 'grid';
         /**
          * Function when touched. Set as part of ControlValueAccessor implementation.
          * @docs-private
@@ -1806,10 +1804,6 @@ class MatChipGrid extends _MatChipGridMixinBase {
      */
     get empty() {
         return ((!this._chipInput || this._chipInput.empty) && (!this._chips || this._chips.length === 0));
-    }
-    /** The ARIA role applied to the chip grid. */
-    get role() {
-        return this.empty ? null : 'grid';
     }
     /**
      * Implemented as part of MatFormFieldControl.
