@@ -14,14 +14,14 @@ import * as i0 from "@angular/core";
  */
 export class MatMenuBar extends CdkMenuBar {
 }
-MatMenuBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.4", ngImport: i0, type: MatMenuBar, deps: null, target: i0.ɵɵFactoryTarget.Component });
-MatMenuBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "14.0.0-next.4", type: MatMenuBar, selector: "mat-menubar", host: { attributes: { "role": "menubar", "tabindex": "0" }, properties: { "attr.aria-orientation": "orientation" }, classAttribute: "cdk-menu-bar mat-menubar" }, providers: [
+MatMenuBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.5", ngImport: i0, type: MatMenuBar, deps: null, target: i0.ɵɵFactoryTarget.Component });
+MatMenuBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "14.0.0-next.5", type: MatMenuBar, selector: "mat-menubar", host: { attributes: { "role": "menubar", "tabindex": "0" }, properties: { "attr.aria-orientation": "orientation" }, classAttribute: "cdk-menu-bar mat-menubar" }, providers: [
         { provide: CdkMenuGroup, useExisting: MatMenuBar },
         { provide: CdkMenuBar, useExisting: MatMenuBar },
         { provide: CDK_MENU, useExisting: MatMenuBar },
         { provide: MenuStack, useClass: MenuStack },
     ], exportAs: ["matMenubar"], usesInheritance: true, ngImport: i0, template: "<ng-content></ng-content>\n", styles: ["\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.4", ngImport: i0, type: MatMenuBar, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.5", ngImport: i0, type: MatMenuBar, decorators: [{
             type: Component,
             args: [{ selector: 'mat-menubar', exportAs: 'matMenubar', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
                         'role': 'menubar',
