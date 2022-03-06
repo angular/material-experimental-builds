@@ -11,6 +11,9 @@ import { _MatTooltipHarnessBase, TooltipHarnessFilters } from '@angular/material
 export declare class MatTooltipHarness extends _MatTooltipHarnessBase {
     protected _optionalPanel: import("@angular/cdk/testing").AsyncFactoryFn<import("@angular/cdk/testing").TestElement | null>;
     static hostSelector: string;
+    protected _hiddenClass: string;
+    protected _showAnimationName: string;
+    protected _hideAnimationName: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search
      * for a tooltip trigger with specific attributes.
