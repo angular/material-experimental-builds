@@ -39,10 +39,14 @@ export declare class MatTooltip extends _MatTooltipBase<TooltipComponent> {
 export declare class TooltipComponent extends _TooltipComponentBase {
     private _elementRef;
     _isMultiline: boolean;
-    constructor(changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef);
+    /** Reference to the internal tooltip element. */
+    _tooltip: ElementRef<HTMLElement>;
+    _showAnimation: string;
+    _hideAnimation: string;
+    constructor(changeDetectorRef: ChangeDetectorRef, _elementRef: ElementRef<HTMLElement>, animationMode?: string);
     protected _onShow(): void;
     /** Whether the tooltip text has overflown to the next line */
     private _isTooltipMultiline;
-    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipComponent, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipComponent, [null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<TooltipComponent, "mat-tooltip-component", never, {}, {}, never, never>;
 }

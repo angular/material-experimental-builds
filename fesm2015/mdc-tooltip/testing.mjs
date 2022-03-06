@@ -13,6 +13,9 @@ class MatTooltipHarness extends _MatTooltipHarnessBase {
     constructor() {
         super(...arguments);
         this._optionalPanel = this.documentRootLocatorFactory().locatorForOptional('.mat-mdc-tooltip');
+        this._hiddenClass = 'mat-mdc-tooltip-hide';
+        this._showAnimationName = 'mat-mdc-tooltip-show';
+        this._hideAnimationName = 'mat-mdc-tooltip-hide';
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search
