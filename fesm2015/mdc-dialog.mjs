@@ -219,7 +219,12 @@ class MatDialog extends _MatDialogBase {
      * @deprecated `_location` parameter to be removed.
      * @breaking-change 10.0.0
      */
-    location, defaultOptions, scrollStrategy, parentDialog, overlayContainer, animationMode) {
+    location, defaultOptions, scrollStrategy, parentDialog, overlayContainer, 
+    /**
+     * @deprecated No longer used. To be removed.
+     * @breaking-change 14.0.0
+     */
+    animationMode) {
         super(overlay, injector, defaultOptions, parentDialog, overlayContainer, scrollStrategy, MatDialogRef, MatDialogContainer, MAT_DIALOG_DATA, animationMode);
     }
 }
