@@ -24,7 +24,11 @@ export declare class MatTabGroup extends _MatTabGroupBase {
     get fitInkBarToContent(): boolean;
     set fitInkBarToContent(v: BooleanInput);
     private _fitInkBarToContent;
+    /** Whether tabs should be stretched to fill the header. */
+    get stretchTabs(): boolean;
+    set stretchTabs(v: BooleanInput);
+    private _stretchTabs;
     constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, defaultConfig?: MatTabsConfig, animationMode?: string);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabGroup, [null, null, { optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabGroup, "mat-tab-group", ["matTabGroup"], { "color": "color"; "disableRipple": "disableRipple"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, ["_allTabs"], never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabGroup, "mat-tab-group", ["matTabGroup"], { "color": "color"; "disableRipple": "disableRipple"; "fitInkBarToContent": "fitInkBarToContent"; "stretchTabs": "mat-stretch-tabs"; }, {}, ["_allTabs"], never>;
 }

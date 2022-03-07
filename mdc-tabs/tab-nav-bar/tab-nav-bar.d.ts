@@ -25,6 +25,10 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     get fitInkBarToContent(): boolean;
     set fitInkBarToContent(v: BooleanInput);
     _fitInkBarToContent: BehaviorSubject<boolean>;
+    /** Whether tabs should be stretched to fill the header. */
+    get stretchTabs(): boolean;
+    set stretchTabs(v: BooleanInput);
+    private _stretchTabs;
     _items: QueryList<MatTabLink>;
     _tabListContainer: ElementRef;
     _tabList: ElementRef;
@@ -35,7 +39,7 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     constructor(elementRef: ElementRef, dir: Directionality, ngZone: NgZone, changeDetectorRef: ChangeDetectorRef, viewportRuler: ViewportRuler, platform: Platform, animationMode?: string, defaultConfig?: MatTabsConfig);
     ngAfterContentInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabNav, [null, { optional: true; }, null, null, null, null, { optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabNav, "[mat-tab-nav-bar]", ["matTabNavBar", "matTabNav"], { "color": "color"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, ["_items"], ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabNav, "[mat-tab-nav-bar]", ["matTabNavBar", "matTabNav"], { "color": "color"; "fitInkBarToContent": "fitInkBarToContent"; "stretchTabs": "mat-stretch-tabs"; }, {}, ["_items"], ["*"]>;
 }
 /**
  * Link inside of a `mat-tab-nav-bar`.
