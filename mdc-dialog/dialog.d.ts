@@ -34,7 +34,12 @@ export declare class MatDialog extends _MatDialogBase<MatDialogContainer> {
      * @deprecated `_location` parameter to be removed.
      * @breaking-change 10.0.0
      */
-    location: Location, defaultOptions: MatDialogConfig, scrollStrategy: any, parentDialog: MatDialog, overlayContainer: OverlayContainer, animationMode?: 'NoopAnimations' | 'BrowserAnimations');
+    location: Location, defaultOptions: MatDialogConfig, scrollStrategy: any, parentDialog: MatDialog, overlayContainer: OverlayContainer, 
+    /**
+     * @deprecated No longer used. To be removed.
+     * @breaking-change 14.0.0
+     */
+    animationMode?: 'NoopAnimations' | 'BrowserAnimations');
     static ɵfac: i0.ɵɵFactoryDeclaration<MatDialog, [null, null, { optional: true; }, { optional: true; }, null, { optional: true; skipSelf: true; }, null, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<MatDialog>;
 }
