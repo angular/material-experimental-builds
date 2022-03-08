@@ -721,27 +721,33 @@ class MatSlider extends _MatSliderMixinBase {
     }
     /** Sets the disabled state based on the disabled state of the inputs (ControlValueAccessor). */
     _updateDisabled() {
-        const disabled = this._inputs.some(input => input._disabled);
+        var _a;
+        const disabled = ((_a = this._inputs) === null || _a === void 0 ? void 0 : _a.some(input => input._disabled)) || false;
         this._setDisabled(disabled);
     }
     /** Gets the slider thumb input of the given thumb position. */
     _getInput(thumbPosition) {
-        return thumbPosition === Thumb.END ? this._inputs.last : this._inputs.first;
+        var _a, _b;
+        return thumbPosition === Thumb.END ? (_a = this._inputs) === null || _a === void 0 ? void 0 : _a.last : (_b = this._inputs) === null || _b === void 0 ? void 0 : _b.first;
     }
     /** Gets the slider thumb HTML input element of the given thumb position. */
     _getInputElement(thumbPosition) {
-        return this._getInput(thumbPosition)._hostElement;
+        var _a;
+        return (_a = this._getInput(thumbPosition)) === null || _a === void 0 ? void 0 : _a._hostElement;
     }
     _getThumb(thumbPosition) {
-        return thumbPosition === Thumb.END ? this._thumbs.last : this._thumbs.first;
+        var _a, _b;
+        return thumbPosition === Thumb.END ? (_a = this._thumbs) === null || _a === void 0 ? void 0 : _a.last : (_b = this._thumbs) === null || _b === void 0 ? void 0 : _b.first;
     }
     /** Gets the slider thumb HTML element of the given thumb position. */
     _getThumbElement(thumbPosition) {
-        return this._getThumb(thumbPosition)._getHostElement();
+        var _a;
+        return (_a = this._getThumb(thumbPosition)) === null || _a === void 0 ? void 0 : _a._getHostElement();
     }
     /** Gets the slider knob HTML element of the given thumb position. */
     _getKnobElement(thumbPosition) {
-        return this._getThumb(thumbPosition)._getKnob();
+        var _a;
+        return (_a = this._getThumb(thumbPosition)) === null || _a === void 0 ? void 0 : _a._getKnob();
     }
     /**
      * Gets the slider value indicator container HTML element of the given thumb
@@ -982,22 +988,25 @@ class SliderAdapter {
             this._delegate._getThumbElement(thumbPosition).addEventListener(evtType, handler);
         };
         this.deregisterThumbEventHandler = (thumbPosition, evtType, handler) => {
-            this._delegate._getThumbElement(thumbPosition).removeEventListener(evtType, handler);
+            var _a;
+            (_a = this._delegate._getThumbElement(thumbPosition)) === null || _a === void 0 ? void 0 : _a.removeEventListener(evtType, handler);
         };
         this.registerInputEventHandler = (thumbPosition, evtType, handler) => {
+            var _a;
             if (evtType === 'change') {
                 this._saveChangeEventHandler(thumbPosition, handler);
             }
             else {
-                this._delegate._getInputElement(thumbPosition).addEventListener(evtType, handler);
+                (_a = this._delegate._getInputElement(thumbPosition)) === null || _a === void 0 ? void 0 : _a.addEventListener(evtType, handler);
             }
         };
         this.deregisterInputEventHandler = (thumbPosition, evtType, handler) => {
+            var _a;
             if (evtType === 'change') {
                 this._globalEventSubscriptions.unsubscribe();
             }
             else {
-                this._delegate._getInputElement(thumbPosition).removeEventListener(evtType, handler);
+                (_a = this._delegate._getInputElement(thumbPosition)) === null || _a === void 0 ? void 0 : _a.removeEventListener(evtType, handler);
             }
         };
         this.registerBodyEventHandler = (evtType, handler) => {
