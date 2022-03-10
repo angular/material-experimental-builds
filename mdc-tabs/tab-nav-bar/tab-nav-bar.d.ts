@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-import { ElementRef, QueryList, OnDestroy, AfterContentInit, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
+import { ElementRef, QueryList, OnDestroy, AfterContentInit, AfterViewInit, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
 import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { _MatTabNavBase, _MatTabLinkBase, MatTabsConfig } from '@angular/material/tabs';
@@ -20,7 +20,7 @@ import * as i0 from "@angular/core";
  * Navigation component matching the styles of the tab group header.
  * Provides anchored navigation with animated ink bar.
  */
-export declare class MatTabNav extends _MatTabNavBase implements AfterContentInit {
+export declare class MatTabNav extends _MatTabNavBase implements AfterContentInit, AfterViewInit {
     /** Whether the ink bar should fit its width to the size of the tab label content. */
     get fitInkBarToContent(): boolean;
     set fitInkBarToContent(v: BooleanInput);
@@ -38,6 +38,7 @@ export declare class MatTabNav extends _MatTabNavBase implements AfterContentIni
     _inkBar: MatInkBar;
     constructor(elementRef: ElementRef, dir: Directionality, ngZone: NgZone, changeDetectorRef: ChangeDetectorRef, viewportRuler: ViewportRuler, platform: Platform, animationMode?: string, defaultConfig?: MatTabsConfig);
     ngAfterContentInit(): void;
+    ngAfterViewInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabNav, [null, { optional: true; }, null, null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatTabNav, "[mat-tab-nav-bar]", ["matTabNavBar", "matTabNav"], { "color": "color"; "fitInkBarToContent": "fitInkBarToContent"; "stretchTabs": "mat-stretch-tabs"; }, {}, ["_items"], ["*"]>;
 }
