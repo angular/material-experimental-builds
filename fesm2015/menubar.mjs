@@ -1,6 +1,6 @@
 import * as i0 from '@angular/core';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule } from '@angular/core';
-import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MenuStack, CdkMenuItem, CdkMenuModule } from '@angular/cdk-experimental/menu';
+import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MENU_STACK, MenuStack, CdkMenuItem, CdkMenuModule } from '@angular/cdk-experimental/menu';
 
 /**
  * @license
@@ -20,7 +20,7 @@ MatMenuBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "1
         { provide: CdkMenuGroup, useExisting: MatMenuBar },
         { provide: CdkMenuBar, useExisting: MatMenuBar },
         { provide: CDK_MENU, useExisting: MatMenuBar },
-        { provide: MenuStack, useClass: MenuStack },
+        { provide: MENU_STACK, useClass: MenuStack },
     ], exportAs: ["matMenubar"], usesInheritance: true, ngImport: i0, template: "<ng-content></ng-content>\n", styles: ["\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.6", ngImport: i0, type: MatMenuBar, decorators: [{
             type: Component,
@@ -33,7 +33,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.6", 
                         { provide: CdkMenuGroup, useExisting: MatMenuBar },
                         { provide: CdkMenuBar, useExisting: MatMenuBar },
                         { provide: CDK_MENU, useExisting: MatMenuBar },
-                        { provide: MenuStack, useClass: MenuStack },
+                        { provide: MENU_STACK, useClass: MenuStack },
                     ], template: "<ng-content></ng-content>\n", styles: ["\n"] }]
         }] });
 
