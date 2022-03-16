@@ -7,4 +7,4 @@
  */
 export * from './module';
 export * from './paginator';
-export { MatPaginatorIntl, MAT_PAGINATOR_INTL_PROVIDER_FACTORY, MAT_PAGINATOR_INTL_PROVIDER, PageEvent, MatPaginatorSelectConfig, } from '@angular/material/paginator';
+export { MatPaginatorIntl, MAT_PAGINATOR_INTL_PROVIDER_FACTORY, MAT_PAGINATOR_INTL_PROVIDER, PageEvent, } from '@angular/material/paginator';

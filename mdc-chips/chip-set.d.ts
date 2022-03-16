@@ -42,8 +42,6 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     protected _chipSetFoundation: MDCChipSetFoundation;
     /** Subject that emits when the component has been destroyed. */
     protected _destroyed: Subject<void>;
-    /** Role to use if it hasn't been overwritten by the user. */
-    protected _defaultRole: string;
     /** Combined stream of all of the child chips' remove events. */
     get chipDestroyedChanges(): Observable<MatChipEvent>;
     /**
@@ -69,7 +67,7 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     /** The ARIA role applied to the chip set. */
     get role(): string | null;
     set role(value: string | null);
-    private _explicitRole;
+    private _role;
     /** Whether any of the chips inside of this chip-set has focus. */
     get focused(): boolean;
     /** The chips that are part of this chip set. */

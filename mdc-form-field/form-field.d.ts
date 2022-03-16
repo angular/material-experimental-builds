@@ -32,18 +32,9 @@ export declare type SubscriptSizing = 'fixed' | 'dynamic';
  * using the `MAT_FORM_FIELD_DEFAULT_OPTIONS` injection token.
  */
 export interface MatFormFieldDefaultOptions {
-    /** Default form field appearance style. */
     appearance?: MatFormFieldAppearance;
-    /** Default color of the form field. */
-    color?: ThemePalette;
-    /** Whether the required marker should be hidden by default. */
     hideRequiredMarker?: boolean;
-    /**
-     * Whether the label for form fields should by default float `always`,
-     * `never`, or `auto` (only when necessary).
-     */
     floatLabel?: FloatLabelType;
-    /** Whether the form field should reserve space for one line by default. */
     subscriptSizing?: SubscriptSizing;
 }
 /**
@@ -52,7 +43,7 @@ export interface MatFormFieldDefaultOptions {
  */
 export declare const MAT_FORM_FIELD_DEFAULT_OPTIONS: InjectionToken<MatFormFieldDefaultOptions>;
 /** Container for form controls that applies Material Design styling and behavior. */
-export declare class MatFormField implements AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy {
+export declare class MatFormField implements AfterViewInit, OnDestroy, AfterContentChecked, AfterContentInit {
     private _elementRef;
     private _changeDetectorRef;
     private _ngZone;
@@ -78,13 +69,13 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
     get hideRequiredMarker(): boolean;
     set hideRequiredMarker(value: BooleanInput);
     private _hideRequiredMarker;
-    /** The color palette for the form field. */
+    /** The color palette for the form-field. */
     color: ThemePalette;
     /** Whether the label should always float or float as the user types. */
     get floatLabel(): FloatLabelType;
     set floatLabel(value: FloatLabelType);
     private _floatLabel;
-    /** The form field appearance style. */
+    /** The form-field appearance style. */
     get appearance(): MatFormFieldAppearance;
     set appearance(value: MatFormFieldAppearance);
     private _appearance;
@@ -129,20 +120,20 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
      */
     getLabelId(): string | null;
     /**
-     * Gets an ElementRef for the element that a overlay attached to the form field
+     * Gets an ElementRef for the element that a overlay attached to the form-field
      * should be positioned relative to.
      */
     getConnectedOverlayOrigin(): ElementRef;
     /** Animates the placeholder up and locks it in position. */
     _animateAndLockLabel(): void;
-    /** Initializes the registered form field control. */
+    /** Initializes the registered form-field control. */
     private _initializeControl;
     private _checkPrefixAndSuffixTypes;
     /** Initializes the prefix and suffix containers. */
     private _initializePrefixAndSuffix;
     /**
      * Initializes the subscript by validating hints and synchronizing "aria-describedby" ids
-     * with the custom form field control. Also subscribes to hint and error changes in order
+     * with the custom form-field control. Also subscribes to hint and error changes in order
      * to be able to validate and synchronize ids on change.
      */
     private _initializeSubscript;
@@ -152,7 +143,7 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
     /**
      * The floating label in the docked state needs to account for prefixes. The horizontal offset
      * is calculated whenever the appearance changes to `outline`, the prefixes change, or when the
-     * form field is added to the DOM. This method sets up all subscriptions which are needed to
+     * form-field is added to the DOM. This method sets up all subscriptions which are needed to
      * trigger the label offset update. In general, we want to avoid performing measurements often,
      * so we rely on the `NgZone` as indicator when the offset should be recalculated, instead of
      * checking every change detection cycle.
@@ -164,7 +155,7 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
     /**
      * Whether the label should display in the infix. Labels in the outline appearance are
      * displayed as part of the notched-outline and are horizontally offset to account for
-     * form field prefix content. This won't work in server side rendering since we cannot
+     * form-field prefix content. This won't work in server side rendering since we cannot
      * measure the width of the prefix container. To make the docked label appear as if the
      * right offset has been calculated, we forcibly render the label inside the infix. Since
      * the label is part of the infix, the label cannot overflow the prefix content.

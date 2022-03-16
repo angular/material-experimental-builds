@@ -12,7 +12,7 @@ import { CanUpdateErrorState, ErrorStateMatcher } from '@angular/material-experi
 import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatChipTextControl } from './chip-text-control';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MatChipEvent } from './chip';
 import { MatChipRow } from './chip-row';
 import { MatChipSet } from './chip-set';
@@ -37,24 +37,10 @@ declare class MatChipGridBase extends MatChipSet {
     _defaultErrorStateMatcher: ErrorStateMatcher;
     _parentForm: NgForm;
     _parentFormGroup: FormGroupDirective;
-    /**
-     * Form control bound to the component.
-     * Implemented as part of `MatFormFieldControl`.
-     * @docs-private
-     */
+    /** @docs-private */
     ngControl: NgControl;
-    /**
-     * Emits whenever the component state changes and should cause the parent
-     * form-field to update. Implemented as part of `MatFormFieldControl`.
-     * @docs-private
-     */
-    readonly stateChanges: Subject<void>;
     constructor(liveAnnouncer: LiveAnnouncer, document: any, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, 
-    /**
-     * Form control bound to the component.
-     * Implemented as part of `MatFormFieldControl`.
-     * @docs-private
-     */
+    /** @docs-private */
     ngControl: NgControl);
 }
 declare const _MatChipGridMixinBase: import("@angular/material-experimental/mdc-core")._Constructor<CanUpdateErrorState> & import("@angular/material-experimental/mdc-core")._AbstractConstructor<CanUpdateErrorState> & typeof MatChipGridBase;
@@ -70,7 +56,6 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     readonly controlType: string;
     /** The chip input to add more chips */
     protected _chipInput: MatChipTextControl;
-    protected _defaultRole: string;
     /**
      * Function when touched. Set as part of ControlValueAccessor implementation.
      * @docs-private
@@ -97,6 +82,8 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      * @docs-private
      */
     get empty(): boolean;
+    /** The ARIA role applied to the chip grid. */
+    get role(): string | null;
     /**
      * Implemented as part of MatFormFieldControl.
      * @docs-private
