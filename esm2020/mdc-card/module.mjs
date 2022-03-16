@@ -28,8 +28,8 @@ const CARD_DIRECTIVES = [
 ];
 export class MatCardModule {
 }
-MatCardModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.0", ngImport: i0, type: MatCardModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MatCardModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.2.0", ngImport: i0, type: MatCardModule, declarations: [MatCard,
+MatCardModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatCardModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+MatCardModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatCardModule, declarations: [MatCard,
         MatCardActions,
         MatCardAvatar,
         MatCardContent,
@@ -56,8 +56,8 @@ MatCardModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: 
         MatCardTitle,
         MatCardTitleGroup,
         MatCardXlImage, MatCommonModule] });
-MatCardModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.2.0", ngImport: i0, type: MatCardModule, imports: [[MatCommonModule, CommonModule], MatCommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.0", ngImport: i0, type: MatCardModule, decorators: [{
+MatCardModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatCardModule, imports: [[MatCommonModule, CommonModule], MatCommonModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatCardModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [MatCommonModule, CommonModule],
