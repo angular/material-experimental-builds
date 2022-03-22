@@ -864,7 +864,7 @@ class MatChipEditInput {
         return this._elementRef.nativeElement;
     }
     setValue(value) {
-        this.getNativeElement().innerText = value;
+        this.getNativeElement().textContent = value;
         this._moveCursorToEndOfInput();
     }
     getValue() {
