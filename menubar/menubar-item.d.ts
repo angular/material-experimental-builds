@@ -6,6 +6,7 @@ import * as i0 from "@angular/core";
  * MatMenubar.
  */
 export declare class MatMenuBarItem extends CdkMenuItem {
+    getLabel(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenuBarItem, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBarItem, "mat-menubar-item", ["matMenubarItem"], {}, {}, never, ["*"]>;
 }

@@ -44,12 +44,27 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.6", 
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/** Removes all icons from within the given element. */
+function removeIcons(element) {
+    for (const icon of Array.from(element.querySelectorAll('mat-icon, .material-icons'))) {
+        icon.remove();
+    }
+}
 /**
  * A material design MenubarItem adhering to the functionality of CdkMenuItem and
  * CdkMenuItemTrigger. Its main purpose is to trigger menus and it lives inside of
  * MatMenubar.
  */
 class MatMenuBarItem extends CdkMenuItem {
+    getLabel() {
+        var _a;
+        if (this.typeahead !== undefined) {
+            return this.typeahead;
+        }
+        const clone = this._elementRef.nativeElement.cloneNode(true);
+        removeIcons(clone);
+        return ((_a = clone.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || '';
+    }
 }
 MatMenuBarItem.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.6", ngImport: i0, type: MatMenuBarItem, deps: null, target: i0.ɵɵFactoryTarget.Component });
 MatMenuBarItem.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "14.0.0-next.6", type: MatMenuBarItem, selector: "mat-menubar-item", host: { attributes: { "type": "button", "role": "menuitem" }, properties: { "tabindex": "_tabindex", "attr.aria-disabled": "disabled || null" }, classAttribute: "cdk-menu-item mat-menubar-item" }, providers: [{ provide: CdkMenuItem, useExisting: MatMenuBarItem }], exportAs: ["matMenubarItem"], usesInheritance: true, ngImport: i0, template: "<ng-content></ng-content>\n", styles: ["\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
