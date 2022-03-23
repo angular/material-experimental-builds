@@ -757,10 +757,13 @@ class MatFormField {
     _shouldLabelFloat() {
         return this._control.shouldLabelFloat || this._shouldAlwaysFloat();
     }
-    /** Determines whether a class from the NgControl should be forwarded to the host element. */
+    /**
+     * Determines whether a class from the AbstractControlDirective
+     * should be forwarded to the host element.
+     */
     _shouldForward(prop) {
-        const ngControl = this._control ? this._control.ngControl : null;
-        return ngControl && ngControl[prop];
+        const control = this._control ? this._control.ngControl : null;
+        return control && control[prop];
     }
     /** Determines whether to display hints or errors. */
     _getDisplayedMessages() {

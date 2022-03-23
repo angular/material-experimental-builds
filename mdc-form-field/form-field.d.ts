@@ -8,7 +8,7 @@
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentChecked, AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, QueryList } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { AbstractControlDirective } from '@angular/forms';
 import { ThemePalette } from '@angular/material-experimental/mdc-core';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatError } from './directives/error';
@@ -172,8 +172,11 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
     _forceDisplayInfixLabel(): boolean | 0;
     _hasFloatingLabel(): boolean;
     _shouldLabelFloat(): boolean;
-    /** Determines whether a class from the NgControl should be forwarded to the host element. */
-    _shouldForward(prop: keyof NgControl): boolean;
+    /**
+     * Determines whether a class from the AbstractControlDirective
+     * should be forwarded to the host element.
+     */
+    _shouldForward(prop: keyof AbstractControlDirective): boolean;
     /** Determines whether to display hints or errors. */
     _getDisplayedMessages(): 'error' | 'hint';
     /** Refreshes the width of the outline-notch, if present. */
