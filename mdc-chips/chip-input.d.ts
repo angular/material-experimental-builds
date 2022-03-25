@@ -37,6 +37,8 @@ export declare class MatChipInput implements MatChipTextControl, AfterContentIni
     private _defaultOptions;
     /** Used to prevent focus moving to chips while user is holding backspace */
     private _focusLastChipOnBackspace;
+    /** Value for ariaDescribedby property */
+    _ariaDescribedby?: string;
     /** Whether the control is focused. */
     focused: boolean;
     _chipGrid: MatChipGrid;
@@ -88,6 +90,7 @@ export declare class MatChipInput implements MatChipTextControl, AfterContentIni
     focus(): void;
     /** Clears the input */
     clear(): void;
+    setDescribedByIds(ids: string[]): void;
     /** Checks whether a keycode is one of the configured separators. */
     private _isSeparatorKey;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipInput, [null, null, { optional: true; }]>;

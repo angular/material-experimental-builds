@@ -1300,7 +1300,7 @@ class MatChipSet extends _MatChipSetMixinBase {
     }
 }
 MatChipSet.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatChipSet, deps: [{ token: i1.LiveAnnouncer }, { token: DOCUMENT }, { token: i0.ElementRef }, { token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
-MatChipSet.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.3.0", type: MatChipSet, selector: "mat-chip-set", inputs: { disabled: "disabled", role: "role" }, host: { properties: { "attr.role": "role", "attr.aria-describedby": "_ariaDescribedby || null" }, classAttribute: "mat-mdc-chip-set mdc-evolution-chip-set" }, queries: [{ propertyName: "_chips", predicate: MatChip, descendants: true }], usesInheritance: true, ngImport: i0, template: `
+MatChipSet.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.3.0", type: MatChipSet, selector: "mat-chip-set", inputs: { disabled: "disabled", role: "role" }, host: { properties: { "attr.role": "role" }, classAttribute: "mat-mdc-chip-set mdc-evolution-chip-set" }, queries: [{ propertyName: "_chips", predicate: MatChip, descendants: true }], usesInheritance: true, ngImport: i0, template: `
     <span class="mdc-evolution-chip-set__chips" role="presentation">
       <ng-content></ng-content>
     </span>
@@ -1314,8 +1314,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.0", ngImpor
   `, host: {
                         'class': 'mat-mdc-chip-set mdc-evolution-chip-set',
                         '[attr.role]': 'role',
-                        // TODO: replace this binding with use of AriaDescriber
-                        '[attr.aria-describedby]': '_ariaDescribedby || null',
                     }, encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, styles: [".mdc-evolution-chip-set{display:flex}.mdc-evolution-chip-set:focus{outline:none}.mdc-evolution-chip-set__chips{display:flex;flex-flow:wrap;min-width:0}.mdc-evolution-chip-set--overflow .mdc-evolution-chip-set__chips{flex-flow:nowrap}.mdc-evolution-chip-set .mdc-evolution-chip-set__chips{margin-left:-8px;margin-right:0}[dir=rtl] .mdc-evolution-chip-set .mdc-evolution-chip-set__chips,.mdc-evolution-chip-set .mdc-evolution-chip-set__chips[dir=rtl]{margin-left:0;margin-right:-8px}.mdc-evolution-chip-set .mdc-evolution-chip{margin-left:8px;margin-right:0}[dir=rtl] .mdc-evolution-chip-set .mdc-evolution-chip,.mdc-evolution-chip-set .mdc-evolution-chip[dir=rtl]{margin-left:0;margin-right:8px}.mdc-evolution-chip-set .mdc-evolution-chip{margin-top:4px;margin-bottom:4px}.mat-mdc-chip-set .mdc-evolution-chip-set__chips{min-width:100%}.mat-mdc-chip-set-stacked{flex-direction:column;align-items:flex-start}.mat-mdc-chip-set-stacked .mat-mdc-chip{width:100%}input.mat-mdc-chip-input{flex:1 0 150px;margin-left:8px}[dir=rtl] input.mat-mdc-chip-input{margin-left:0;margin-right:8px}\n"] }]
         }], ctorParameters: function () {
         return [{ type: i1.LiveAnnouncer }, { type: undefined, decorators: [{
@@ -1750,6 +1748,10 @@ class MatChipGrid extends _MatChipGridMixinBase {
          */
         this.controlType = 'mat-chip-grid';
         /**
+         * List of element ids to propagate to the chipInput's aria-describedby attribute.
+         */
+        this._ariaDescribedbyIds = [];
+        /**
          * Function when touched. Set as part of ControlValueAccessor implementation.
          * @docs-private
          */
@@ -1886,6 +1888,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
     /** Associates an HTML input element with this chip grid. */
     registerInput(inputElement) {
         this._chipInput = inputElement;
+        this._chipInput.setDescribedByIds(this._ariaDescribedbyIds);
     }
     /**
      * Implemented as part of MatFormFieldControl.
@@ -1923,7 +1926,17 @@ class MatChipGrid extends _MatChipGridMixinBase {
      * @docs-private
      */
     setDescribedByIds(ids) {
-        this._ariaDescribedby = ids.join(' ');
+        // We must keep this up to date to handle the case where ids are set
+        // before the chip input is registered.
+        this._ariaDescribedbyIds = ids;
+        if (this._chipInput) {
+            // Use a setTimeout in case this is being run during change detection
+            // and the chip input has already determined its host binding for
+            // aria-describedBy.
+            setTimeout(() => {
+                this._chipInput.setDescribedByIds(ids);
+            }, 0);
+        }
     }
     /**
      * Implemented as part of ControlValueAccessor.
@@ -2026,7 +2039,7 @@ class MatChipGrid extends _MatChipGridMixinBase {
     }
 }
 MatChipGrid.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatChipGrid, deps: [{ token: i1.LiveAnnouncer }, { token: DOCUMENT }, { token: i0.ElementRef }, { token: i0.ChangeDetectorRef }, { token: i2$1.NgForm, optional: true }, { token: i2$1.FormGroupDirective, optional: true }, { token: i3.ErrorStateMatcher }, { token: i2$1.NgControl, optional: true, self: true }], target: i0.ɵɵFactoryTarget.Component });
-MatChipGrid.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.3.0", type: MatChipGrid, selector: "mat-chip-grid", inputs: { tabIndex: "tabIndex", disabled: "disabled", placeholder: "placeholder", required: "required", value: "value", errorStateMatcher: "errorStateMatcher" }, outputs: { change: "change", valueChange: "valueChange" }, host: { listeners: { "focus": "focus()", "blur": "_blur()", "keydown": "_keydown($event)" }, properties: { "attr.role": "role", "tabIndex": "_chips && _chips.length === 0 ? -1 : tabIndex", "attr.aria-describedby": "_ariaDescribedby || null", "attr.aria-disabled": "disabled.toString()", "attr.aria-invalid": "errorState", "class.mat-mdc-chip-list-disabled": "disabled", "class.mat-mdc-chip-list-invalid": "errorState", "class.mat-mdc-chip-list-required": "required" }, classAttribute: "mat-mdc-chip-set mat-mdc-chip-grid mdc-evolution-chip-set" }, providers: [{ provide: MatFormFieldControl, useExisting: MatChipGrid }], queries: [{ propertyName: "_chips", predicate: MatChipRow, descendants: true }], usesInheritance: true, ngImport: i0, template: `
+MatChipGrid.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.3.0", type: MatChipGrid, selector: "mat-chip-grid", inputs: { tabIndex: "tabIndex", disabled: "disabled", placeholder: "placeholder", required: "required", value: "value", errorStateMatcher: "errorStateMatcher" }, outputs: { change: "change", valueChange: "valueChange" }, host: { listeners: { "focus": "focus()", "blur": "_blur()", "keydown": "_keydown($event)" }, properties: { "attr.role": "role", "tabIndex": "_chips && _chips.length === 0 ? -1 : tabIndex", "attr.aria-disabled": "disabled.toString()", "attr.aria-invalid": "errorState", "class.mat-mdc-chip-list-disabled": "disabled", "class.mat-mdc-chip-list-invalid": "errorState", "class.mat-mdc-chip-list-required": "required" }, classAttribute: "mat-mdc-chip-set mat-mdc-chip-grid mdc-evolution-chip-set" }, providers: [{ provide: MatFormFieldControl, useExisting: MatChipGrid }], queries: [{ propertyName: "_chips", predicate: MatChipRow, descendants: true }], usesInheritance: true, ngImport: i0, template: `
     <span class="mdc-evolution-chip-set__chips" role="presentation">
       <ng-content></ng-content>
     </span>
@@ -2041,8 +2054,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.0", ngImpor
                         'class': 'mat-mdc-chip-set mat-mdc-chip-grid mdc-evolution-chip-set',
                         '[attr.role]': 'role',
                         '[tabIndex]': '_chips && _chips.length === 0 ? -1 : tabIndex',
-                        // TODO: replace this binding with use of AriaDescriber
-                        '[attr.aria-describedby]': '_ariaDescribedby || null',
                         '[attr.aria-disabled]': 'disabled.toString()',
                         '[attr.aria-invalid]': 'errorState',
                         '[class.mat-mdc-chip-list-disabled]': 'disabled',
@@ -2243,13 +2254,16 @@ class MatChipInput {
         this.inputElement.value = '';
         this._focusLastChipOnBackspace = true;
     }
+    setDescribedByIds(ids) {
+        this._ariaDescribedby = ids.join(' ');
+    }
     /** Checks whether a keycode is one of the configured separators. */
     _isSeparatorKey(event) {
         return !hasModifierKey(event) && new Set(this.separatorKeyCodes).has(event.keyCode);
     }
 }
 MatChipInput.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatChipInput, deps: [{ token: i0.ElementRef }, { token: MAT_CHIPS_DEFAULT_OPTIONS }, { token: MAT_FORM_FIELD, optional: true }], target: i0.ɵɵFactoryTarget.Directive });
-MatChipInput.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.3.0", type: MatChipInput, selector: "input[matChipInputFor]", inputs: { chipGrid: ["matChipInputFor", "chipGrid"], addOnBlur: ["matChipInputAddOnBlur", "addOnBlur"], separatorKeyCodes: ["matChipInputSeparatorKeyCodes", "separatorKeyCodes"], placeholder: "placeholder", id: "id", disabled: "disabled" }, outputs: { chipEnd: "matChipInputTokenEnd" }, host: { listeners: { "keydown": "_keydown($event)", "keyup": "_keyup($event)", "blur": "_blur()", "focus": "_focus()", "input": "_onInput()" }, properties: { "id": "id", "attr.disabled": "disabled || null", "attr.placeholder": "placeholder || null", "attr.aria-invalid": "_chipGrid && _chipGrid.ngControl ? _chipGrid.ngControl.invalid : null", "attr.aria-required": "_chipGrid && _chipGrid.required || null", "attr.required": "_chipGrid && _chipGrid.required || null" }, classAttribute: "mat-mdc-chip-input mat-mdc-input-element mdc-text-field__input mat-input-element" }, exportAs: ["matChipInput", "matChipInputFor"], usesOnChanges: true, ngImport: i0 });
+MatChipInput.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "13.3.0", type: MatChipInput, selector: "input[matChipInputFor]", inputs: { chipGrid: ["matChipInputFor", "chipGrid"], addOnBlur: ["matChipInputAddOnBlur", "addOnBlur"], separatorKeyCodes: ["matChipInputSeparatorKeyCodes", "separatorKeyCodes"], placeholder: "placeholder", id: "id", disabled: "disabled" }, outputs: { chipEnd: "matChipInputTokenEnd" }, host: { listeners: { "keydown": "_keydown($event)", "keyup": "_keyup($event)", "blur": "_blur()", "focus": "_focus()", "input": "_onInput()" }, properties: { "id": "id", "attr.disabled": "disabled || null", "attr.placeholder": "placeholder || null", "attr.aria-invalid": "_chipGrid && _chipGrid.ngControl ? _chipGrid.ngControl.invalid : null", "attr.aria-describedby": "_ariaDescribedby || null", "attr.aria-required": "_chipGrid && _chipGrid.required || null", "attr.required": "_chipGrid && _chipGrid.required || null" }, classAttribute: "mat-mdc-chip-input mat-mdc-input-element mdc-text-field__input mat-input-element" }, exportAs: ["matChipInput", "matChipInputFor"], usesOnChanges: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatChipInput, decorators: [{
             type: Directive,
             args: [{
@@ -2269,6 +2283,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.0", ngImpor
                         '[attr.disabled]': 'disabled || null',
                         '[attr.placeholder]': 'placeholder || null',
                         '[attr.aria-invalid]': '_chipGrid && _chipGrid.ngControl ? _chipGrid.ngControl.invalid : null',
+                        '[attr.aria-describedby]': '_ariaDescribedby || null',
                         '[attr.aria-required]': '_chipGrid && _chipGrid.required || null',
                         '[attr.required]': '_chipGrid && _chipGrid.required || null',
                     },
