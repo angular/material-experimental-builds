@@ -72,6 +72,10 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     protected _chipInput: MatChipTextControl;
     protected _defaultRole: string;
     /**
+     * List of element ids to propagate to the chipInput's aria-describedby attribute.
+     */
+    private _ariaDescribedbyIds;
+    /**
      * Function when touched. Set as part of ControlValueAccessor implementation.
      * @docs-private
      */

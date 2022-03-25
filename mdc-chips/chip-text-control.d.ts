@@ -17,4 +17,6 @@ export interface MatChipTextControl {
     empty: boolean;
     /** Focuses the text control. */
     focus(): void;
+    /** Sets the list of ids the input is described by. */
+    setDescribedByIds(ids: string[]): void;
 }

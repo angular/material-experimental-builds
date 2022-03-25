@@ -51,8 +51,6 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
      * These methods are called by the chip set foundation.
      */
     protected _chipSetAdapter: MDCChipSetAdapter;
-    /** The aria-describedby attribute on the chip list for improved a11y. */
-    _ariaDescribedby: string;
     /**
      * Map from class to whether the class is enabled.
      * Enabled classes are set on the MDC chip-set div.
