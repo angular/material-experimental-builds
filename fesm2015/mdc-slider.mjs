@@ -609,6 +609,7 @@ class MatSlider extends _MatSliderMixinBase {
             this._foundation.init();
             this._foundation.layout();
             this._initialized = true;
+            this._observeHostResize();
         }
         // The MDC foundation requires access to the view and content children of the MatSlider. In
         // order to access the view and content children of MatSlider we need to wait until change
@@ -623,10 +624,14 @@ class MatSlider extends _MatSliderMixinBase {
         this._cdr.detectChanges();
     }
     ngOnDestroy() {
+        var _a;
         if (this._platform.isBrowser) {
             this._foundation.destroy();
         }
         this._dirChangeSubscription.unsubscribe();
+        (_a = this._resizeObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
+        this._resizeObserver = null;
+        clearTimeout(this._resizeTimer);
         this._removeUISyncEventListener();
     }
     /** Returns true if the language direction for this slider element is right to left. */
@@ -784,6 +789,29 @@ class MatSlider extends _MatSliderMixinBase {
     _isRippleDisabled() {
         var _a;
         return this.disabled || this.disableRipple || !!((_a = this._globalRippleOptions) === null || _a === void 0 ? void 0 : _a.disabled);
+    }
+    /** Starts observing and updating the slider if the host changes its size. */
+    _observeHostResize() {
+        if (typeof ResizeObserver === 'undefined' || !ResizeObserver) {
+            return;
+        }
+        // MDC only updates the slider when the window is resized which
+        // doesn't capture changes of the container itself. We use a resize
+        // observer to ensure that the layout is correct (see #24590).
+        this._ngZone.runOutsideAngular(() => {
+            // The callback will fire as soon as an element is observed and
+            // we only want to know after the initial layout.
+            let hasResized = false;
+            this._resizeObserver = new ResizeObserver(() => {
+                if (hasResized) {
+                    // Debounce the layouts since they can happen frequently.
+                    clearTimeout(this._resizeTimer);
+                    this._resizeTimer = setTimeout(this._layout, 50);
+                }
+                hasResized = true;
+            });
+            this._resizeObserver.observe(this._elementRef.nativeElement);
+        });
     }
 }
 MatSlider.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.0", ngImport: i0, type: MatSlider, deps: [{ token: i0.NgZone }, { token: i0.ChangeDetectorRef }, { token: i0.ElementRef }, { token: i3.Platform }, { token: GlobalChangeAndInputListener }, { token: DOCUMENT }, { token: i5.Directionality, optional: true }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
