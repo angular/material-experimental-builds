@@ -1,4 +1,4 @@
-export * from '@angular/material/form-field/testing/control';
+export { MatFormFieldControlHarness } from '@angular/material/form-field/testing/control';
 import { __awaiter } from 'tslib';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatFormFieldHarnessBase } from '@angular/material/form-field/testing';
