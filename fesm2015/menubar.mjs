@@ -16,7 +16,7 @@ import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MENU_STACK, MenuStack, CdkMenuItem,
 class MatMenuBar extends CdkMenuBar {
 }
 MatMenuBar.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.9", ngImport: i0, type: MatMenuBar, deps: null, target: i0.ɵɵFactoryTarget.Component });
-MatMenuBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "14.0.0-next.9", type: MatMenuBar, selector: "mat-menubar", host: { attributes: { "role": "menubar", "tabindex": "0" }, properties: { "attr.aria-orientation": "orientation" }, classAttribute: "cdk-menu-bar mat-menubar" }, providers: [
+MatMenuBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "14.0.0-next.9", type: MatMenuBar, selector: "mat-menubar", host: { properties: { "class.mat-menubar": "true" } }, providers: [
         { provide: CdkMenuGroup, useExisting: MatMenuBar },
         { provide: CdkMenuBar, useExisting: MatMenuBar },
         { provide: CDK_MENU, useExisting: MatMenuBar },
@@ -25,10 +25,7 @@ MatMenuBar.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "1
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.9", ngImport: i0, type: MatMenuBar, decorators: [{
             type: Component,
             args: [{ selector: 'mat-menubar', exportAs: 'matMenubar', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
-                        'role': 'menubar',
-                        'class': 'cdk-menu-bar mat-menubar',
-                        'tabindex': '0',
-                        '[attr.aria-orientation]': 'orientation',
+                        '[class.mat-menubar]': 'true',
                     }, providers: [
                         { provide: CdkMenuGroup, useExisting: MatMenuBar },
                         { provide: CdkMenuBar, useExisting: MatMenuBar },
