@@ -144,6 +144,9 @@ class MatProgressBar extends _MatProgressBarBase {
             this._animationEndSubscription = fromEvent(this._primaryBar, 'transitionend')
                 .pipe(filter((e) => e.target === this._primaryBar))
                 .subscribe(() => {
+                if (this.animationEnd.observers.length === 0) {
+                    return;
+                }
                 if (this.mode === 'determinate' || this.mode === 'buffer') {
                     this._ngZone.run(() => this.animationEnd.next({ value: this.value }));
                 }
