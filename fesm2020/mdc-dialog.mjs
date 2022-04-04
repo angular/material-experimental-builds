@@ -49,8 +49,7 @@ class MatDialogContainer extends _MatDialogContainerBase {
          */
         this._finishDialogOpen = () => {
             this._clearAnimationClasses();
-            this._trapFocus();
-            this._animationStateChanged.emit({ state: 'opened', totalTime: this._openAnimationDuration });
+            this._openAnimationDone(this._openAnimationDuration);
         };
         /**
          * Completes the dialog close by clearing potential animation classes, restoring
