@@ -24,7 +24,7 @@ export declare class MatChipAction extends _MatChipActionMixinBase implements Af
     private _adapter;
     /** Whether the action is interactive. */
     isInteractive: boolean;
-    _handleClick(_event: MouseEvent): void;
+    _handleClick(event: MouseEvent): void;
     _handleKeydown(event: KeyboardEvent): void;
     protected _createFoundation(adapter: MDCChipActionAdapter): MDCChipActionFoundation;
     constructor(_elementRef: ElementRef, _document: any, _changeDetectorRef: ChangeDetectorRef);
