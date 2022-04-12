@@ -93,11 +93,12 @@ class MatChipAction extends _MatChipActionMixinBase {
             _elementRef.nativeElement.setAttribute('type', 'button');
         }
     }
-    _handleClick(_event) {
+    _handleClick(event) {
         // Usually these events can't happen while the chip is disabled since the browser won't
         // allow them which is what MDC seems to rely on, however the event can be faked in tests.
         if (!this.disabled && this.isInteractive) {
             this._foundation.handleClick();
+            event.preventDefault();
         }
     }
     _handleKeydown(event) {
