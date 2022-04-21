@@ -7,7 +7,7 @@
  */
 import { AriaLivePoliteness } from '@angular/cdk/a11y';
 import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal } from '@angular/cdk/portal';
-import { AfterViewChecked, ComponentRef, ElementRef, EmbeddedViewRef, NgZone, OnDestroy } from '@angular/core';
+import { ComponentRef, ElementRef, EmbeddedViewRef, NgZone, OnDestroy } from '@angular/core';
 import { MatSnackBarConfig, _SnackBarContainer } from '@angular/material/snack-bar';
 import { MDCSnackbarFoundation } from '@material/snackbar';
 import { Platform } from '@angular/cdk/platform';
@@ -17,7 +17,7 @@ import * as i0 from "@angular/core";
  * Internal component that wraps user-provided snack bar content.
  * @docs-private
  */
-export declare class MatSnackBarContainer extends BasePortalOutlet implements _SnackBarContainer, AfterViewChecked, OnDestroy {
+export declare class MatSnackBarContainer extends BasePortalOutlet implements _SnackBarContainer, OnDestroy {
     private _elementRef;
     snackBarConfig: MatSnackBarConfig;
     private _platform;
@@ -55,7 +55,6 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
      */
     _label: ElementRef;
     constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform, _ngZone: NgZone, _animationMode?: string | undefined);
-    ngAfterViewChecked(): void;
     /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
     ngOnDestroy(): void;
     enter(): void;
@@ -74,6 +73,8 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
      * announce it.
      */
     private _screenReaderAnnounce;
+    /** Applies the correct CSS class to the label based on its content. */
+    private _applyLabelClass;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSnackBarContainer, [null, null, null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSnackBarContainer, "mat-snack-bar-container", never, {}, {}, never, never>;
 }
