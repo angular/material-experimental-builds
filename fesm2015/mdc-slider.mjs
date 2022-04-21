@@ -655,7 +655,7 @@ class MatSlider extends _MatSliderMixinBase {
         // would prefer to use "mousedown" as the default, for some reason it does not work (the
         // callback is never triggered).
         if (this._SUPPORTS_POINTER_EVENTS) {
-            this._elementRef.nativeElement.addEventListener('pointerdown', this._layout, passiveEventListenerOptions);
+            this._elementRef.nativeElement.addEventListener('pointerdown', this._layout);
         }
         else {
             this._elementRef.nativeElement.addEventListener('mouseenter', this._layout);
@@ -665,7 +665,7 @@ class MatSlider extends _MatSliderMixinBase {
     /** Removes the event listener that keeps sync the slider UI and the foundation in sync. */
     _removeUISyncEventListener() {
         if (this._SUPPORTS_POINTER_EVENTS) {
-            this._elementRef.nativeElement.removeEventListener('pointerdown', this._layout, passiveEventListenerOptions);
+            this._elementRef.nativeElement.removeEventListener('pointerdown', this._layout);
         }
         else {
             this._elementRef.nativeElement.removeEventListener('mouseenter', this._layout);
