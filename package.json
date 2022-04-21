@@ -434,6 +434,7 @@
     "@angular/material": "14.0.0-next.11"
   },
   "dependencies": {
+    "tslib": "^2.3.0",
     "@material/animation": "14.0.0-canary.9736ddce9.0",
     "@material/auto-init": "14.0.0-canary.9736ddce9.0",
     "@material/banner": "14.0.0-canary.9736ddce9.0",
@@ -480,8 +481,7 @@
     "@material/tooltip": "14.0.0-canary.9736ddce9.0",
     "@material/top-app-bar": "14.0.0-canary.9736ddce9.0",
     "@material/touch-target": "14.0.0-canary.9736ddce9.0",
-    "@material/typography": "14.0.0-canary.9736ddce9.0",
-    "tslib": "^2.3.0"
+    "@material/typography": "14.0.0-canary.9736ddce9.0"
   },
   "sideEffects": false,
   "fesm2020": "./fesm2020/material-experimental.mjs",
