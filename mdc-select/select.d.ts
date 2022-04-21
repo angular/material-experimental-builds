@@ -27,7 +27,7 @@ export declare class MatSelectChange {
  */
 export declare class MatSelectTrigger {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectTrigger, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectTrigger, "mat-select-trigger", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectTrigger, "mat-select-trigger", never, {}, {}, never, never, false>;
 }
 export declare class MatSelect extends _MatSelectBase<MatSelectChange> implements OnInit, AfterViewInit {
     options: QueryList<MatOption>;
@@ -50,5 +50,5 @@ export declare class MatSelect extends _MatSelectBase<MatSelectChange> implement
     /** Gets how wide the overlay panel should be. */
     private _getOverlayWidth;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelect, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelect, "mat-select", ["matSelect"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, ["customTrigger", "options", "optionGroups"], ["mat-select-trigger", "*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelect, "mat-select", ["matSelect"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, ["customTrigger", "options", "optionGroups"], ["mat-select-trigger", "*"], false>;
 }

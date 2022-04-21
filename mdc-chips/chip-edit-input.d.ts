@@ -21,5 +21,5 @@ export declare class MatChipEditInput {
     getValue(): string;
     private _moveCursorToEndOfInput;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipEditInput, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipEditInput, "span[matChipEditInput]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipEditInput, "span[matChipEditInput]", never, {}, {}, never, never, false>;
 }

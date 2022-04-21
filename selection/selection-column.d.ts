@@ -30,5 +30,5 @@ export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
     ngOnDestroy(): void;
     private _syncColumnDefName;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionColumn<any>, [{ optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": "name"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": "name"; }, {}, never, never, false>;
 }

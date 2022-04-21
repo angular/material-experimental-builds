@@ -33,5 +33,5 @@ export declare class MatFormFieldNotchedOutline implements AfterViewInit, OnChan
     /** Synchronizes the notched outline state to be based on the `width` and `open` inputs. */
     private _syncNotchedOutlineState;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldNotchedOutline, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatFormFieldNotchedOutline, "div[matFormFieldNotchedOutline]", never, { "width": "matFormFieldNotchedOutlineWidth"; "open": "matFormFieldNotchedOutlineOpen"; }, {}, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatFormFieldNotchedOutline, "div[matFormFieldNotchedOutline]", never, { "width": "matFormFieldNotchedOutlineWidth"; "open": "matFormFieldNotchedOutlineOpen"; }, {}, never, ["*"], false>;
 }

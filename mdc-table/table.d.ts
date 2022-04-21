@@ -14,7 +14,7 @@ import * as i0 from "@angular/core";
  */
 export declare class MatRecycleRows {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRecycleRows, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRecycleRows, "mat-table[recycleRows], table[mat-table][recycleRows]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRecycleRows, "mat-table[recycleRows], table[mat-table][recycleRows]", never, {}, {}, never, never, false>;
 }
 export declare class MatTable<T> extends CdkTable<T> implements OnInit {
     /** Overrides the sticky CSS class set by the `CdkTable`. */
@@ -23,5 +23,5 @@ export declare class MatTable<T> extends CdkTable<T> implements OnInit {
     protected needsPositionStickyOnElement: boolean;
     ngOnInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTable<any>, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatTable<any>, "mat-table, table[mat-table]", ["matTable"], {}, {}, never, ["caption", "colgroup, col"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTable<any>, "mat-table, table[mat-table]", ["matTable"], {}, {}, never, ["caption", "colgroup, col"], false>;
 }

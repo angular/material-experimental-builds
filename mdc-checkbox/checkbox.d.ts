@@ -150,6 +150,6 @@ export declare class MatCheckbox extends _MatCheckboxBase implements AfterViewIn
      */
     private _syncIndeterminate;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatCheckbox, [null, null, { attribute: "tabindex"; }, { optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatCheckbox, "mat-checkbox", ["matCheckbox"], { "color": "color"; "disabled": "disabled"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "labelPosition": "labelPosition"; "name": "name"; "tabIndex": "tabIndex"; "value": "value"; "id": "id"; "checked": "checked"; "indeterminate": "indeterminate"; "required": "required"; "disableRipple": "disableRipple"; }, { "change": "change"; "indeterminateChange": "indeterminateChange"; }, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatCheckbox, "mat-checkbox", ["matCheckbox"], { "color": "color"; "disabled": "disabled"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "labelPosition": "labelPosition"; "name": "name"; "tabIndex": "tabIndex"; "value": "value"; "id": "id"; "checked": "checked"; "indeterminate": "indeterminate"; "required": "required"; "disableRipple": "disableRipple"; }, { "change": "change"; "indeterminateChange": "indeterminateChange"; }, never, ["*"], false>;
 }
 export {};

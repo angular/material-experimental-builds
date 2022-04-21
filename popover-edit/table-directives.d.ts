@@ -8,7 +8,7 @@ import * as i0 from "@angular/core";
 export declare class MatPopoverEdit<C> extends CdkPopoverEdit<C> {
     protected panelClass(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEdit<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEdit<any>, "[matPopoverEdit]:not([matPopoverEditTabOut])", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEdit<any>, "[matPopoverEdit]:not([matPopoverEditTabOut])", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never, never, false>;
 }
 /**
  * Attaches an ng-template to a cell and shows it when instructed to by the
@@ -18,7 +18,7 @@ export declare class MatPopoverEdit<C> extends CdkPopoverEdit<C> {
 export declare class MatPopoverEditTabOut<C> extends CdkPopoverEditTabOut<C> {
     protected panelClass(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEditTabOut<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEditTabOut<any>, "[matPopoverEdit][matPopoverEditTabOut]", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEditTabOut<any>, "[matPopoverEdit][matPopoverEditTabOut]", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never, never, false>;
 }
 /**
  * A structural directive that shows its contents when the table row containing
@@ -29,7 +29,7 @@ export declare class MatRowHoverContent extends CdkRowHoverContent {
     protected makeElementHiddenButFocusable(element: HTMLElement): void;
     protected makeElementVisible(element: HTMLElement): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRowHoverContent, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowHoverContent, "[matRowHoverContent]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowHoverContent, "[matRowHoverContent]", never, {}, {}, never, never, false>;
 }
 /**
  * Opens the closest edit popover to this element, whether it's associated with this exact
@@ -37,5 +37,5 @@ export declare class MatRowHoverContent extends CdkRowHoverContent {
  */
 export declare class MatEditOpen extends CdkEditOpen {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditOpen, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditOpen, "[matEditOpen]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditOpen, "[matEditOpen]", never, {}, {}, never, never, false>;
 }

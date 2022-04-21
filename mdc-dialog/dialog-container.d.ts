@@ -49,5 +49,5 @@ export declare class MatDialogContainer extends _MatDialogContainerBase implemen
     private _clearAnimationClasses;
     private _waitForAnimationToComplete;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatDialogContainer, [null, null, null, { optional: true; }, null, null, null, { optional: true; }, null]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatDialogContainer, "mat-dialog-container", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatDialogContainer, "mat-dialog-container", never, {}, {}, never, never, false>;
 }

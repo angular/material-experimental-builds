@@ -31,7 +31,7 @@ export declare class MatRadioGroup extends _MatRadioGroupBase<MatRadioButton> {
     /** Child radio buttons. */
     _radios: QueryList<MatRadioButton>;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRadioGroup, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRadioGroup, "mat-radio-group", ["matRadioGroup"], {}, {}, ["_radios"]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRadioGroup, "mat-radio-group", ["matRadioGroup"], {}, {}, ["_radios"], never, false>;
 }
 export declare class MatRadioButton extends _MatRadioButtonBase implements AfterViewInit, OnDestroy {
     private _radioAdapter;
@@ -49,5 +49,5 @@ export declare class MatRadioButton extends _MatRadioButtonBase implements After
      */
     protected _setDisabled(value: boolean): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRadioButton, [{ optional: true; }, null, null, null, null, { optional: true; }, { optional: true; }, { attribute: "tabindex"; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatRadioButton, "mat-radio-button", ["matRadioButton"], { "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatRadioButton, "mat-radio-button", ["matRadioButton"], { "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, never, ["*"], false>;
 }

@@ -14,7 +14,7 @@ export declare class MatSelection<T> extends CdkSelection<T> {
     /** Emits when selection changes. */
     readonly change: EventEmitter<SelectionChange<T>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelection<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": "matSelectionMultiple"; }, { "change": "matSelectionChange"; }, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": "matSelectionMultiple"; }, { "change": "matSelectionChange"; }, never, never, false>;
 }
 /**
  * Represents the change in the selection set.

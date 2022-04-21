@@ -18,5 +18,5 @@ export declare class MatPrefix {
     _isText: boolean;
     constructor(elementRef: ElementRef);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPrefix, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPrefix, "[matPrefix], [matIconPrefix], [matTextPrefix]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPrefix, "[matPrefix], [matIconPrefix], [matTextPrefix]", never, {}, {}, never, never, false>;
 }

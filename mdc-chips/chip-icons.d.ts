@@ -21,7 +21,7 @@ export declare const MAT_CHIP_AVATAR: InjectionToken<MatChipAvatar>;
  */
 export declare class MatChipAvatar {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipAvatar, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipAvatar, "mat-chip-avatar, [matChipAvatar]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipAvatar, "mat-chip-avatar, [matChipAvatar]", never, {}, {}, never, never, false>;
 }
 /**
  * Injection token that can be used to reference instances of `MatChipTrailingIcon`. It serves as
@@ -41,7 +41,7 @@ export declare class MatChipTrailingIcon extends MatChipAction {
     isInteractive: boolean;
     protected _createFoundation(adapter: MDCChipActionAdapter): MDCChipTrailingActionFoundation;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipTrailingIcon, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipTrailingIcon, "mat-chip-trailing-icon, [matChipTrailingIcon]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipTrailingIcon, "mat-chip-trailing-icon, [matChipTrailingIcon]", never, {}, {}, never, never, false>;
 }
 /**
  * Injection token that can be used to reference instances of `MatChipRemove`. It serves as
@@ -69,5 +69,5 @@ export declare class MatChipRemove extends MatChipAction {
     _handleClick(event: MouseEvent): void;
     _handleKeydown(event: KeyboardEvent): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRemove, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipRemove, "[matChipRemove]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipRemove, "[matChipRemove]", never, {}, {}, never, never, false>;
 }

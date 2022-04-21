@@ -20,5 +20,5 @@ export declare class MatFormFieldLineRipple extends MDCLineRipple implements OnD
     constructor(elementRef: ElementRef);
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldLineRipple, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldLineRipple, "div[matFormFieldLineRipple]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldLineRipple, "div[matFormFieldLineRipple]", never, {}, {}, never, never, false>;
 }

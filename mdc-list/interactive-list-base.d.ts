@@ -35,7 +35,7 @@ export declare abstract class MatInteractiveListBase<T extends MatListItemBase> 
     _elementAtIndex(index: number): HTMLElement | undefined;
     _indexForElement(element: Element | null): number;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatInteractiveListBase<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatInteractiveListBase<any>, never, never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatInteractiveListBase<any>, never, never, {}, {}, never, never, false>;
 }
 /** Gets an instance of `MDcListAdapter` for the given interactive list. */
 export declare function getInteractiveListAdapter(list: MatInteractiveListBase<MatListItemBase>): MDCListAdapter;

@@ -103,7 +103,7 @@ export declare abstract class MatListItemBase implements AfterViewInit, OnDestro
     /** Checks whether the list item has unscoped text content. */
     private _checkDomForUnscopedTextContent;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemBase, [null, null, null, null, { optional: true; }, { optional: true; }]>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemBase, never, never, { "lines": "lines"; "disableRipple": "disableRipple"; "disabled": "disabled"; }, {}, ["_avatars", "_icons"]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemBase, never, never, { "lines": "lines"; "disableRipple": "disableRipple"; "disabled": "disabled"; }, {}, ["_avatars", "_icons"], never, false>;
 }
 export declare abstract class MatListBase {
     _isNonInteractive: boolean;
@@ -116,5 +116,5 @@ export declare abstract class MatListBase {
     set disabled(value: BooleanInput);
     private _disabled;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListBase, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListBase, never, never, { "disableRipple": "disableRipple"; "disabled": "disabled"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListBase, never, never, { "disableRipple": "disableRipple"; "disabled": "disabled"; }, {}, never, never, false>;
 }

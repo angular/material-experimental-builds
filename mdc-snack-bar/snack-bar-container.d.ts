@@ -76,5 +76,5 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
     /** Applies the correct CSS class to the label based on its content. */
     private _applyLabelClass;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSnackBarContainer, [null, null, null, null, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSnackBarContainer, "mat-snack-bar-container", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSnackBarContainer, "mat-snack-bar-container", never, {}, {}, never, never, false>;
 }

@@ -8,5 +8,5 @@ export declare const MAT_AUTOCOMPLETE_VALUE_ACCESSOR: any;
 export declare class MatAutocompleteTrigger extends _MatAutocompleteTriggerBase {
     protected _aboveClass: string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatAutocompleteTrigger, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAutocompleteTrigger, "input[matAutocomplete], textarea[matAutocomplete]", ["matAutocompleteTrigger"], {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAutocompleteTrigger, "input[matAutocomplete], textarea[matAutocomplete]", ["matAutocompleteTrigger"], {}, {}, never, never, false>;
 }

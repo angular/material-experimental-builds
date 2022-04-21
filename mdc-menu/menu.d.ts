@@ -18,5 +18,5 @@ export declare class MatMenu extends _MatMenuBase {
     protected _baseElevation: number;
     constructor(elementRef: ElementRef<HTMLElement>, ngZone: NgZone, defaultOptions: MatMenuDefaultOptions);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenu, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenu, "mat-menu", ["matMenu"], {}, {}, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenu, "mat-menu", ["matMenu"], {}, {}, never, ["*"], false>;
 }

@@ -21,5 +21,5 @@ export declare class MatColumnResize extends AbstractMatColumnResize {
     protected readonly notifier: ColumnResizeNotifierSource;
     constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatColumnResize, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatColumnResize, "table[mat-table][columnResize]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatColumnResize, "table[mat-table][columnResize]", never, {}, {}, never, never, false>;
 }

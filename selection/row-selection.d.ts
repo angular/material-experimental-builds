@@ -18,5 +18,5 @@ export declare class MatRowSelection<T> extends CdkRowSelection<T> {
     /** The value that is associated with the row */
     value: T;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRowSelection<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowSelection<any>, "[matRowSelection]", never, { "index": "matRowSelectionIndex"; "value": "matRowSelectionValue"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowSelection<any>, "[matRowSelection]", never, { "index": "matRowSelectionIndex"; "value": "matRowSelectionValue"; }, {}, never, never, false>;
 }

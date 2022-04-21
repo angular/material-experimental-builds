@@ -103,5 +103,5 @@ export declare class MatSlideToggle implements ControlValueAccessor, AfterViewIn
     toggle(): void;
     _getAriaLabelledBy(): string | null;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSlideToggle, [null, null, null, { attribute: "tabindex"; }, null, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSlideToggle, "mat-slide-toggle", ["matSlideToggle"], { "color": "color"; "name": "name"; "id": "id"; "tabIndex": "tabIndex"; "labelPosition": "labelPosition"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "required": "required"; "checked": "checked"; "disableRipple": "disableRipple"; "disabled": "disabled"; }, { "change": "change"; "toggleChange": "toggleChange"; }, never, ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSlideToggle, "mat-slide-toggle", ["matSlideToggle"], { "color": "color"; "name": "name"; "id": "id"; "tabIndex": "tabIndex"; "labelPosition": "labelPosition"; "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "required": "required"; "checked": "checked"; "disableRipple": "disableRipple"; "disabled": "disabled"; }, { "change": "change"; "toggleChange": "toggleChange"; }, never, ["*"], false>;
 }

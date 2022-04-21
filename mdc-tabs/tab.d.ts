@@ -18,5 +18,5 @@ export declare class MatTab extends BaseMatTab {
     get templateLabel(): MatTabLabel;
     set templateLabel(value: MatTabLabel);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTab, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatTab, "mat-tab", ["matTab"], { "disabled": "disabled"; }, {}, ["_explicitContent", "templateLabel"], ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTab, "mat-tab", ["matTab"], { "disabled": "disabled"; }, {}, ["_explicitContent", "templateLabel"], ["*"], false>;
 }

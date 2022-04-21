@@ -43,7 +43,7 @@ export declare class MatButtonBase extends _MatButtonMixin implements CanDisable
     private _hasHostAttributes;
     _isRippleDisabled(): boolean;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatButtonBase, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatButtonBase, never, never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatButtonBase, never, never, {}, {}, never, never, false>;
 }
 /** Shared inputs by buttons using the `<a>` tag */
 export declare const MAT_ANCHOR_INPUTS: string[];
@@ -66,5 +66,5 @@ export declare class MatAnchorBase extends MatButtonBase implements OnInit, OnDe
     ngOnDestroy(): void;
     _haltDisabledEvents: (event: Event) => void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatAnchorBase, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAnchorBase, never, never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAnchorBase, never, never, {}, {}, never, never, false>;
 }

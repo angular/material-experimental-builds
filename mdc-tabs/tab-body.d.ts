@@ -17,7 +17,7 @@ import * as i0 from "@angular/core";
 export declare class MatTabBodyPortal extends BaseMatTabBodyPortal {
     constructor(componentFactoryResolver: ComponentFactoryResolver, viewContainerRef: ViewContainerRef, host: MatTabBody, _document: any);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabBodyPortal, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatTabBodyPortal, "[matTabBodyHost]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatTabBodyPortal, "[matTabBodyHost]", never, {}, {}, never, never, false>;
 }
 /**
  * Wrapper for the contents of a tab.
@@ -27,5 +27,5 @@ export declare class MatTabBody extends _MatTabBodyBase {
     _portalHost: CdkPortalOutlet;
     constructor(elementRef: ElementRef<HTMLElement>, dir: Directionality, changeDetectorRef: ChangeDetectorRef);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabBody, [null, { optional: true; }, null]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabBody, "mat-tab-body", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabBody, "mat-tab-body", never, {}, {}, never, never, false>;
 }

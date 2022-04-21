@@ -18,5 +18,5 @@ export declare class MatSuffix {
     _isText: boolean;
     constructor(elementRef: ElementRef);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSuffix, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSuffix, "[matSuffix], [matIconSuffix], [matTextSuffix]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSuffix, "[matSuffix], [matIconSuffix], [matTextSuffix]", never, {}, {}, never, never, false>;
 }

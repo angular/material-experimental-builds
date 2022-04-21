@@ -18,7 +18,7 @@ export declare class MatListItemTitle {
     _elementRef: ElementRef<HTMLElement>;
     constructor(_elementRef: ElementRef<HTMLElement>);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemTitle, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemTitle, "[matListItemTitle]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemTitle, "[matListItemTitle]", never, {}, {}, never, never, false>;
 }
 /**
  * Directive capturing a line in a list item. A list item usually consists of a
@@ -30,7 +30,7 @@ export declare class MatListItemLine {
     _elementRef: ElementRef<HTMLElement>;
     constructor(_elementRef: ElementRef<HTMLElement>);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemLine, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemLine, "[matListItemLine]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemLine, "[matListItemLine]", never, {}, {}, never, never, false>;
 }
 /**
  * Directive matching an optional meta section for list items.
@@ -40,7 +40,7 @@ export declare class MatListItemLine {
  */
 export declare class MatListItemMeta {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemMeta, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemMeta, "[matListItemMeta]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemMeta, "[matListItemMeta]", never, {}, {}, never, never, false>;
 }
 /**
  * @docs-private
@@ -55,7 +55,7 @@ export declare class _MatListItemGraphicBase {
     constructor(_listOption: ListOption);
     _isAlignedAtStart(): boolean;
     static ɵfac: i0.ɵɵFactoryDeclaration<_MatListItemGraphicBase, [{ optional: true; }]>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<_MatListItemGraphicBase, never, never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<_MatListItemGraphicBase, never, never, {}, {}, never, never, false>;
 }
 /**
  * Directive matching an optional avatar within a list item.
@@ -64,7 +64,7 @@ export declare class _MatListItemGraphicBase {
  */
 export declare class MatListItemAvatar extends _MatListItemGraphicBase {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemAvatar, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemAvatar, "[matListItemAvatar]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemAvatar, "[matListItemAvatar]", never, {}, {}, never, never, false>;
 }
 /**
  * Directive matching an optional icon within a list item.
@@ -73,5 +73,5 @@ export declare class MatListItemAvatar extends _MatListItemGraphicBase {
  */
 export declare class MatListItemIcon extends _MatListItemGraphicBase {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListItemIcon, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemIcon, "[matListItemIcon]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatListItemIcon, "[matListItemIcon]", never, {}, {}, never, never, false>;
 }

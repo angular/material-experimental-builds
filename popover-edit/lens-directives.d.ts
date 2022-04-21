@@ -8,15 +8,15 @@ import * as i0 from "@angular/core";
  */
 export declare class MatEditLens<FormValue> extends CdkEditControl<FormValue> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditLens<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditLens<any>, "form[matEditLens]", never, { "clickOutBehavior": "matEditLensClickOutBehavior"; "preservedFormValue": "matEditLensPreservedFormValue"; "ignoreSubmitUnlessValid": "matEditLensIgnoreSubmitUnlessValid"; }, { "preservedFormValueChange": "matEditLensPreservedFormValueChange"; }, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditLens<any>, "form[matEditLens]", never, { "clickOutBehavior": "matEditLensClickOutBehavior"; "preservedFormValue": "matEditLensPreservedFormValue"; "ignoreSubmitUnlessValid": "matEditLensIgnoreSubmitUnlessValid"; }, { "preservedFormValueChange": "matEditLensPreservedFormValueChange"; }, never, never, false>;
 }
 /** Reverts the form to its initial or previously submitted state on click. */
 export declare class MatEditRevert<FormValue> extends CdkEditRevert<FormValue> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditRevert<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditRevert<any>, "button[matEditRevert]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditRevert<any>, "button[matEditRevert]", never, {}, {}, never, never, false>;
 }
 /** Closes the lens on click. */
 export declare class MatEditClose<FormValue> extends CdkEditClose<FormValue> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditClose<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditClose<any>, "[matEditClose]", never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditClose<any>, "[matEditClose]", never, {}, {}, never, never, false>;
 }

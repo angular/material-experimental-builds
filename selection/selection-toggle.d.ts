@@ -21,5 +21,5 @@ export declare class MatSelectionToggle<T> extends CdkSelectionToggle<T> {
     /** The value that is associated with the toggle */
     value: T;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionToggle<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": "matSelectionToggleIndex"; "value": "matSelectionToggleValue"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": "matSelectionToggleIndex"; "value": "matSelectionToggleValue"; }, {}, never, never, false>;
 }

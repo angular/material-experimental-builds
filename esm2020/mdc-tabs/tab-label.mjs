@@ -11,9 +11,9 @@ import * as i0 from "@angular/core";
 /** Used to flag tab labels for use with the portal directive */
 export class MatTabLabel extends BaseMatTabLabel {
 }
-MatTabLabel.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.13", ngImport: i0, type: MatTabLabel, deps: null, target: i0.ɵɵFactoryTarget.Directive });
-MatTabLabel.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "14.0.0-next.13", type: MatTabLabel, selector: "[mat-tab-label], [matTabLabel]", usesInheritance: true, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.13", ngImport: i0, type: MatTabLabel, decorators: [{
+MatTabLabel.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-next.14", ngImport: i0, type: MatTabLabel, deps: null, target: i0.ɵɵFactoryTarget.Directive });
+MatTabLabel.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "14.0.0-next.14", type: MatTabLabel, selector: "[mat-tab-label], [matTabLabel]", usesInheritance: true, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-next.14", ngImport: i0, type: MatTabLabel, decorators: [{
             type: Directive,
             args: [{
                     selector: '[mat-tab-label], [matTabLabel]',

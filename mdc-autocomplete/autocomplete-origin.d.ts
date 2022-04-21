@@ -6,5 +6,5 @@ import * as i0 from "@angular/core";
  */
 export declare class MatAutocompleteOrigin extends _MatAutocompleteOriginBase {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatAutocompleteOrigin, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAutocompleteOrigin, "[matAutocompleteOrigin]", ["matAutocompleteOrigin"], {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatAutocompleteOrigin, "[matAutocompleteOrigin]", ["matAutocompleteOrigin"], {}, {}, never, never, false>;
 }

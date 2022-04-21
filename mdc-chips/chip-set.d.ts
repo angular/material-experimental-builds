@@ -108,6 +108,6 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterCon
     private _handleChipInteraction;
     private _handleChipNavigation;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipSet, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipSet, "mat-chip-set", never, { "disabled": "disabled"; "role": "role"; }, {}, ["_chips"], ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipSet, "mat-chip-set", never, { "disabled": "disabled"; "role": "role"; }, {}, ["_chips"], ["*"], false>;
 }
 export {};

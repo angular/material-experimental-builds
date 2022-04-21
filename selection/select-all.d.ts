@@ -19,5 +19,5 @@ import * as i0 from "@angular/core";
  */
 export declare class MatSelectAll<T> extends CdkSelectAll<T> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectAll<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectAll<any>, "[matSelectAll]", ["matSelectAll"], {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectAll<any>, "[matSelectAll]", ["matSelectAll"], {}, {}, never, never, false>;
 }

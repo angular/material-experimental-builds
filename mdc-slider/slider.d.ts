@@ -91,7 +91,7 @@ export declare class MatSliderVisualThumb implements AfterViewInit, OnDestroy {
      */
     _getValueIndicatorContainer(): HTMLElement;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSliderVisualThumb, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSliderVisualThumb, "mat-slider-visual-thumb", never, { "discrete": "discrete"; "thumbPosition": "thumbPosition"; "valueIndicatorText": "valueIndicatorText"; "disableRipple": "disableRipple"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSliderVisualThumb, "mat-slider-visual-thumb", never, { "discrete": "discrete"; "thumbPosition": "thumbPosition"; "valueIndicatorText": "valueIndicatorText"; "disableRipple": "disableRipple"; }, {}, never, never, false>;
 }
 /**
  * Directive that adds slider-specific behaviors to an input element inside `<mat-slider>`.
@@ -214,7 +214,7 @@ export declare class MatSliderThumb implements AfterViewInit, ControlValueAccess
      */
     private _initializeAriaValueText;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSliderThumb, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSliderThumb, "input[matSliderThumb], input[matSliderStartThumb], input[matSliderEndThumb]", ["matSliderThumb"], { "value": "value"; }, { "valueChange": "valueChange"; "dragStart": "dragStart"; "dragEnd": "dragEnd"; "_blur": "_blur"; "_focus": "_focus"; }, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSliderThumb, "input[matSliderThumb], input[matSliderStartThumb], input[matSliderEndThumb]", ["matSliderThumb"], { "value": "value"; }, { "valueChange": "valueChange"; "dragStart": "dragStart"; "dragEnd": "dragEnd"; "_blur": "_blur"; "_focus": "_focus"; }, never, never, false>;
 }
 declare const _MatSliderMixinBase: import("@angular/material/core")._Constructor<import("@angular/material/core").CanColor> & import("@angular/material/core")._AbstractConstructor<import("@angular/material/core").CanColor> & import("@angular/material/core")._Constructor<CanDisableRipple> & import("@angular/material/core")._AbstractConstructor<CanDisableRipple> & {
     new (_elementRef: ElementRef<HTMLElement>): {
@@ -368,6 +368,6 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     /** Starts observing and updating the slider if the host changes its size. */
     private _observeHostResize;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSlider, [null, null, null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSlider, "mat-slider", ["matSlider"], { "color": "color"; "disableRipple": "disableRipple"; "disabled": "disabled"; "discrete": "discrete"; "showTickMarks": "showTickMarks"; "min": "min"; "max": "max"; "step": "step"; "displayWith": "displayWith"; }, {}, ["_inputs"], ["*"]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSlider, "mat-slider", ["matSlider"], { "color": "color"; "disableRipple": "disableRipple"; "disabled": "disabled"; "discrete": "discrete"; "showTickMarks": "showTickMarks"; "min": "min"; "max": "max"; "step": "step"; "displayWith": "displayWith"; }, {}, ["_inputs"], ["*"], false>;
 }
 export {};
