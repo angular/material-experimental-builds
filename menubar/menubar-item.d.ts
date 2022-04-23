@@ -1,4 +1,4 @@
-import { CdkMenuItem } from '@angular/cdk-experimental/menu';
+import { CdkMenuItem } from '@angular/cdk/menu';
 import * as i0 from "@angular/core";
 /**
  * A material design MenubarItem adhering to the functionality of CdkMenuItem and

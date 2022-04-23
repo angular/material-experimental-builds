@@ -1,4 +1,4 @@
-import { CdkMenuBar } from '@angular/cdk-experimental/menu';
+import { CdkMenuBar } from '@angular/cdk/menu';
 import * as i0 from "@angular/core";
 /**
  * A material design Menubar adhering to the functionality of CdkMenuBar. MatMenubar
