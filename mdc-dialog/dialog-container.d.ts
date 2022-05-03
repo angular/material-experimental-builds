@@ -6,7 +6,8 @@
  * found in the LICENSE file at https://angular.io/license
  */
 import { FocusMonitor, FocusTrapFactory, InteractivityChecker } from '@angular/cdk/a11y';
-import { ChangeDetectorRef, ElementRef, OnDestroy, NgZone } from '@angular/core';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { ElementRef, OnDestroy, NgZone } from '@angular/core';
 import { MatDialogConfig, _MatDialogContainerBase } from '@angular/material/dialog';
 import * as i0 from "@angular/core";
 /**
@@ -25,8 +26,8 @@ export declare class MatDialogContainer extends _MatDialogContainerBase implemen
     private _closeAnimationDuration;
     /** Current timer for dialog animations. */
     private _animationTimer;
-    constructor(elementRef: ElementRef, focusTrapFactory: FocusTrapFactory, changeDetectorRef: ChangeDetectorRef, document: any, config: MatDialogConfig, checker: InteractivityChecker, ngZone: NgZone, _animationMode?: string | undefined, focusMonitor?: FocusMonitor);
-    _initializeWithAttachedContent(): void;
+    constructor(elementRef: ElementRef, focusTrapFactory: FocusTrapFactory, document: any, dialogConfig: MatDialogConfig, checker: InteractivityChecker, ngZone: NgZone, overlayRef: OverlayRef, _animationMode?: string | undefined, focusMonitor?: FocusMonitor);
+    protected _contentAttached(): void;
     ngOnDestroy(): void;
     /** Starts the dialog open animation if enabled. */
     private _startOpenAnimation;
@@ -48,6 +49,6 @@ export declare class MatDialogContainer extends _MatDialogContainerBase implemen
     /** Clears all dialog animation classes. */
     private _clearAnimationClasses;
     private _waitForAnimationToComplete;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatDialogContainer, [null, null, null, { optional: true; }, null, null, null, { optional: true; }, null]>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatDialogContainer, [null, null, { optional: true; }, null, null, null, null, { optional: true; }, null]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatDialogContainer, "mat-dialog-container", never, {}, {}, never, never, false>;
 }

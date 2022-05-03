@@ -34,7 +34,12 @@ export declare class MatDialog extends _MatDialogBase<MatDialogContainer> {
      * @deprecated `_location` parameter to be removed.
      * @breaking-change 10.0.0
      */
-    location: Location, defaultOptions: MatDialogConfig, scrollStrategy: any, parentDialog: MatDialog, overlayContainer: OverlayContainer, 
+    location: Location, defaultOptions: MatDialogConfig, scrollStrategy: any, parentDialog: MatDialog, 
+    /**
+     * @deprecated No longer used. To be removed.
+     * @breaking-change 15.0.0
+     */
+    overlayContainer: OverlayContainer, 
     /**
      * @deprecated No longer used. To be removed.
      * @breaking-change 14.0.0
