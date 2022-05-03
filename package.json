@@ -40,7 +40,7 @@
       "default": "./package.json"
     },
     "./column-resize": {
-      "types": "./column-resize/column-resize_public_index.d.ts",
+      "types": "./column-resize/index.d.ts",
       "esm2020": "./esm2020/column-resize/column-resize_public_index.mjs",
       "es2020": "./fesm2020/column-resize.mjs",
       "es2015": "./fesm2015/column-resize.mjs",
@@ -48,7 +48,7 @@
       "default": "./fesm2020/column-resize.mjs"
     },
     "./mdc-autocomplete": {
-      "types": "./mdc-autocomplete/mdc-autocomplete_public_index.d.ts",
+      "types": "./mdc-autocomplete/index.d.ts",
       "esm2020": "./esm2020/mdc-autocomplete/mdc-autocomplete_public_index.mjs",
       "es2020": "./fesm2020/mdc-autocomplete.mjs",
       "es2015": "./fesm2015/mdc-autocomplete.mjs",
@@ -64,7 +64,7 @@
       "default": "./fesm2020/mdc-autocomplete/testing.mjs"
     },
     "./mdc-button": {
-      "types": "./mdc-button/mdc-button_public_index.d.ts",
+      "types": "./mdc-button/index.d.ts",
       "esm2020": "./esm2020/mdc-button/mdc-button_public_index.mjs",
       "es2020": "./fesm2020/mdc-button.mjs",
       "es2015": "./fesm2015/mdc-button.mjs",
@@ -80,7 +80,7 @@
       "default": "./fesm2020/mdc-button/testing.mjs"
     },
     "./mdc-card": {
-      "types": "./mdc-card/mdc-card_public_index.d.ts",
+      "types": "./mdc-card/index.d.ts",
       "esm2020": "./esm2020/mdc-card/mdc-card_public_index.mjs",
       "es2020": "./fesm2020/mdc-card.mjs",
       "es2015": "./fesm2015/mdc-card.mjs",
@@ -96,7 +96,7 @@
       "default": "./fesm2020/mdc-card/testing.mjs"
     },
     "./mdc-checkbox": {
-      "types": "./mdc-checkbox/mdc-checkbox_public_index.d.ts",
+      "types": "./mdc-checkbox/index.d.ts",
       "esm2020": "./esm2020/mdc-checkbox/mdc-checkbox_public_index.mjs",
       "es2020": "./fesm2020/mdc-checkbox.mjs",
       "es2015": "./fesm2015/mdc-checkbox.mjs",
@@ -112,7 +112,7 @@
       "default": "./fesm2020/mdc-checkbox/testing.mjs"
     },
     "./mdc-chips": {
-      "types": "./mdc-chips/mdc-chips_public_index.d.ts",
+      "types": "./mdc-chips/index.d.ts",
       "esm2020": "./esm2020/mdc-chips/mdc-chips_public_index.mjs",
       "es2020": "./fesm2020/mdc-chips.mjs",
       "es2015": "./fesm2015/mdc-chips.mjs",
@@ -128,7 +128,7 @@
       "default": "./fesm2020/mdc-chips/testing.mjs"
     },
     "./mdc-core": {
-      "types": "./mdc-core/mdc-core_public_index.d.ts",
+      "types": "./mdc-core/index.d.ts",
       "esm2020": "./esm2020/mdc-core/mdc-core_public_index.mjs",
       "es2020": "./fesm2020/mdc-core.mjs",
       "es2015": "./fesm2015/mdc-core.mjs",
@@ -144,7 +144,7 @@
       "default": "./fesm2020/mdc-core/testing.mjs"
     },
     "./mdc-dialog": {
-      "types": "./mdc-dialog/mdc-dialog_public_index.d.ts",
+      "types": "./mdc-dialog/index.d.ts",
       "esm2020": "./esm2020/mdc-dialog/mdc-dialog_public_index.mjs",
       "es2020": "./fesm2020/mdc-dialog.mjs",
       "es2015": "./fesm2015/mdc-dialog.mjs",
@@ -160,7 +160,7 @@
       "default": "./fesm2020/mdc-dialog/testing.mjs"
     },
     "./mdc-form-field": {
-      "types": "./mdc-form-field/mdc-form-field_public_index.d.ts",
+      "types": "./mdc-form-field/index.d.ts",
       "esm2020": "./esm2020/mdc-form-field/mdc-form-field_public_index.mjs",
       "es2020": "./fesm2020/mdc-form-field.mjs",
       "es2015": "./fesm2015/mdc-form-field.mjs",
@@ -176,7 +176,7 @@
       "default": "./fesm2020/mdc-form-field/testing.mjs"
     },
     "./mdc-input": {
-      "types": "./mdc-input/mdc-input_public_index.d.ts",
+      "types": "./mdc-input/index.d.ts",
       "esm2020": "./esm2020/mdc-input/mdc-input_public_index.mjs",
       "es2020": "./fesm2020/mdc-input.mjs",
       "es2015": "./fesm2015/mdc-input.mjs",
@@ -192,7 +192,7 @@
       "default": "./fesm2020/mdc-input/testing.mjs"
     },
     "./mdc-list": {
-      "types": "./mdc-list/mdc-list_public_index.d.ts",
+      "types": "./mdc-list/index.d.ts",
       "esm2020": "./esm2020/mdc-list/mdc-list_public_index.mjs",
       "es2020": "./fesm2020/mdc-list.mjs",
       "es2015": "./fesm2015/mdc-list.mjs",
@@ -208,7 +208,7 @@
       "default": "./fesm2020/mdc-list/testing.mjs"
     },
     "./mdc-menu": {
-      "types": "./mdc-menu/mdc-menu_public_index.d.ts",
+      "types": "./mdc-menu/index.d.ts",
       "esm2020": "./esm2020/mdc-menu/mdc-menu_public_index.mjs",
       "es2020": "./fesm2020/mdc-menu.mjs",
       "es2015": "./fesm2015/mdc-menu.mjs",
@@ -224,7 +224,7 @@
       "default": "./fesm2020/mdc-menu/testing.mjs"
     },
     "./mdc-paginator": {
-      "types": "./mdc-paginator/mdc-paginator_public_index.d.ts",
+      "types": "./mdc-paginator/index.d.ts",
       "esm2020": "./esm2020/mdc-paginator/mdc-paginator_public_index.mjs",
       "es2020": "./fesm2020/mdc-paginator.mjs",
       "es2015": "./fesm2015/mdc-paginator.mjs",
@@ -240,7 +240,7 @@
       "default": "./fesm2020/mdc-paginator/testing.mjs"
     },
     "./mdc-progress-bar": {
-      "types": "./mdc-progress-bar/mdc-progress-bar_public_index.d.ts",
+      "types": "./mdc-progress-bar/index.d.ts",
       "esm2020": "./esm2020/mdc-progress-bar/mdc-progress-bar_public_index.mjs",
       "es2020": "./fesm2020/mdc-progress-bar.mjs",
       "es2015": "./fesm2015/mdc-progress-bar.mjs",
@@ -248,7 +248,7 @@
       "default": "./fesm2020/mdc-progress-bar.mjs"
     },
     "./mdc-progress-bar/testing": {
-      "types": "./mdc-progress-bar/testing/testing_public_index.d.ts",
+      "types": "./mdc-progress-bar/testing/index.d.ts",
       "esm2020": "./esm2020/mdc-progress-bar/testing/testing_public_index.mjs",
       "es2020": "./fesm2020/mdc-progress-bar/testing.mjs",
       "es2015": "./fesm2015/mdc-progress-bar/testing.mjs",
@@ -256,7 +256,7 @@
       "default": "./fesm2020/mdc-progress-bar/testing.mjs"
     },
     "./mdc-progress-spinner": {
-      "types": "./mdc-progress-spinner/mdc-progress-spinner_public_index.d.ts",
+      "types": "./mdc-progress-spinner/index.d.ts",
       "esm2020": "./esm2020/mdc-progress-spinner/mdc-progress-spinner_public_index.mjs",
       "es2020": "./fesm2020/mdc-progress-spinner.mjs",
       "es2015": "./fesm2015/mdc-progress-spinner.mjs",
@@ -264,7 +264,7 @@
       "default": "./fesm2020/mdc-progress-spinner.mjs"
     },
     "./mdc-progress-spinner/testing": {
-      "types": "./mdc-progress-spinner/testing/testing_public_index.d.ts",
+      "types": "./mdc-progress-spinner/testing/index.d.ts",
       "esm2020": "./esm2020/mdc-progress-spinner/testing/testing_public_index.mjs",
       "es2020": "./fesm2020/mdc-progress-spinner/testing.mjs",
       "es2015": "./fesm2015/mdc-progress-spinner/testing.mjs",
@@ -272,7 +272,7 @@
       "default": "./fesm2020/mdc-progress-spinner/testing.mjs"
     },
     "./mdc-radio": {
-      "types": "./mdc-radio/mdc-radio_public_index.d.ts",
+      "types": "./mdc-radio/index.d.ts",
       "esm2020": "./esm2020/mdc-radio/mdc-radio_public_index.mjs",
       "es2020": "./fesm2020/mdc-radio.mjs",
       "es2015": "./fesm2015/mdc-radio.mjs",
@@ -288,7 +288,7 @@
       "default": "./fesm2020/mdc-radio/testing.mjs"
     },
     "./mdc-select": {
-      "types": "./mdc-select/mdc-select_public_index.d.ts",
+      "types": "./mdc-select/index.d.ts",
       "esm2020": "./esm2020/mdc-select/mdc-select_public_index.mjs",
       "es2020": "./fesm2020/mdc-select.mjs",
       "es2015": "./fesm2015/mdc-select.mjs",
@@ -304,7 +304,7 @@
       "default": "./fesm2020/mdc-select/testing.mjs"
     },
     "./mdc-slide-toggle": {
-      "types": "./mdc-slide-toggle/mdc-slide-toggle_public_index.d.ts",
+      "types": "./mdc-slide-toggle/index.d.ts",
       "esm2020": "./esm2020/mdc-slide-toggle/mdc-slide-toggle_public_index.mjs",
       "es2020": "./fesm2020/mdc-slide-toggle.mjs",
       "es2015": "./fesm2015/mdc-slide-toggle.mjs",
@@ -320,7 +320,7 @@
       "default": "./fesm2020/mdc-slide-toggle/testing.mjs"
     },
     "./mdc-slider": {
-      "types": "./mdc-slider/mdc-slider_public_index.d.ts",
+      "types": "./mdc-slider/index.d.ts",
       "esm2020": "./esm2020/mdc-slider/mdc-slider_public_index.mjs",
       "es2020": "./fesm2020/mdc-slider.mjs",
       "es2015": "./fesm2015/mdc-slider.mjs",
@@ -336,7 +336,7 @@
       "default": "./fesm2020/mdc-slider/testing.mjs"
     },
     "./mdc-snack-bar": {
-      "types": "./mdc-snack-bar/mdc-snack-bar_public_index.d.ts",
+      "types": "./mdc-snack-bar/index.d.ts",
       "esm2020": "./esm2020/mdc-snack-bar/mdc-snack-bar_public_index.mjs",
       "es2020": "./fesm2020/mdc-snack-bar.mjs",
       "es2015": "./fesm2015/mdc-snack-bar.mjs",
@@ -352,7 +352,7 @@
       "default": "./fesm2020/mdc-snack-bar/testing.mjs"
     },
     "./mdc-table": {
-      "types": "./mdc-table/mdc-table_public_index.d.ts",
+      "types": "./mdc-table/index.d.ts",
       "esm2020": "./esm2020/mdc-table/mdc-table_public_index.mjs",
       "es2020": "./fesm2020/mdc-table.mjs",
       "es2015": "./fesm2015/mdc-table.mjs",
@@ -368,7 +368,7 @@
       "default": "./fesm2020/mdc-table/testing.mjs"
     },
     "./mdc-tabs": {
-      "types": "./mdc-tabs/mdc-tabs_public_index.d.ts",
+      "types": "./mdc-tabs/index.d.ts",
       "esm2020": "./esm2020/mdc-tabs/mdc-tabs_public_index.mjs",
       "es2020": "./fesm2020/mdc-tabs.mjs",
       "es2015": "./fesm2015/mdc-tabs.mjs",
@@ -384,7 +384,7 @@
       "default": "./fesm2020/mdc-tabs/testing.mjs"
     },
     "./mdc-tooltip": {
-      "types": "./mdc-tooltip/mdc-tooltip_public_index.d.ts",
+      "types": "./mdc-tooltip/index.d.ts",
       "esm2020": "./esm2020/mdc-tooltip/mdc-tooltip_public_index.mjs",
       "es2020": "./fesm2020/mdc-tooltip.mjs",
       "es2015": "./fesm2015/mdc-tooltip.mjs",
@@ -400,7 +400,7 @@
       "default": "./fesm2020/mdc-tooltip/testing.mjs"
     },
     "./menubar": {
-      "types": "./menubar/menubar_public_index.d.ts",
+      "types": "./menubar/index.d.ts",
       "esm2020": "./esm2020/menubar/menubar_public_index.mjs",
       "es2020": "./fesm2020/menubar.mjs",
       "es2015": "./fesm2015/menubar.mjs",
@@ -408,7 +408,7 @@
       "default": "./fesm2020/menubar.mjs"
     },
     "./popover-edit": {
-      "types": "./popover-edit/popover-edit_public_index.d.ts",
+      "types": "./popover-edit/index.d.ts",
       "esm2020": "./esm2020/popover-edit/popover-edit_public_index.mjs",
       "es2020": "./fesm2020/popover-edit.mjs",
       "es2015": "./fesm2015/popover-edit.mjs",
@@ -416,7 +416,7 @@
       "default": "./fesm2020/popover-edit.mjs"
     },
     "./selection": {
-      "types": "./selection/selection_public_index.d.ts",
+      "types": "./selection/index.d.ts",
       "esm2020": "./esm2020/selection/selection_public_index.mjs",
       "es2020": "./fesm2020/selection.mjs",
       "es2015": "./fesm2015/selection.mjs",
