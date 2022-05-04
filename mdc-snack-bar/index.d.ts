@@ -144,6 +144,8 @@ export declare class MatSnackBarContainer extends BasePortalOutlet implements _S
     private _applySnackBarClasses;
     /** Asserts that no content is already attached to the container. */
     private _assertNotAttached;
+    /** Finishes the exit sequence of the container. */
+    private _finishExit;
     /**
      * Starts a timeout to move the snack bar content to the live region so screen readers will
      * announce it.

@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material-experimental/mdc-button';
 import * as i3$1 from '@angular/cdk/portal';
 import { BasePortalOutlet, CdkPortalOutlet, PortalModule } from '@angular/cdk/portal';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import { MDCSnackbarFoundation } from '@material/snackbar';
+import { MDCSnackbarFoundation, cssClasses } from '@material/snackbar';
 import * as i2$1 from '@angular/cdk/platform';
 import { Subject } from 'rxjs';
 import * as i2$2 from '@angular/cdk/a11y';
@@ -133,10 +133,7 @@ class MatSnackBarContainer extends BasePortalOutlet {
             addClass: (className) => this._setClass(className, true),
             removeClass: (className) => this._setClass(className, false),
             announce: () => { },
-            notifyClosed: () => {
-                this._onExit.next();
-                this._mdcFoundation.destroy();
-            },
+            notifyClosed: () => this._finishExit(),
             notifyClosing: () => { },
             notifyOpened: () => this._onEnter.next(),
             notifyOpening: () => { },
@@ -181,15 +178,23 @@ class MatSnackBarContainer extends BasePortalOutlet {
         }
     }
     exit() {
-        // It's common for snack bars to be opened by random outside calls like HTTP requests or
-        // errors. Run inside the NgZone to ensure that it functions correctly.
-        this._ngZone.run(() => {
-            this._exiting = true;
-            this._mdcFoundation.close();
-            // If the snack bar hasn't been announced by the time it exits it wouldn't have been open
-            // long enough to visually read it either, so clear the timeout for announcing.
-            clearTimeout(this._announceTimeoutId);
-        });
+        const classList = this._elementRef.nativeElement.classList;
+        // MDC won't complete the closing sequence if it starts while opening hasn't finished.
+        // If that's the case, destroy immediately to ensure that our stream emits as expected.
+        if (classList.contains(cssClasses.OPENING) || !classList.contains(cssClasses.OPEN)) {
+            this._finishExit();
+        }
+        else {
+            // It's common for snack bars to be opened by random outside calls like HTTP requests or
+            // errors. Run inside the NgZone to ensure that it functions correctly.
+            this._ngZone.run(() => {
+                this._exiting = true;
+                this._mdcFoundation.close();
+            });
+        }
+        // If the snack bar hasn't been announced by the time it exits it wouldn't have been open
+        // long enough to visually read it either, so clear the timeout for announcing.
+        clearTimeout(this._announceTimeoutId);
         return this._onExit;
     }
     /** Attach a component portal as content to this snack bar container. */
@@ -228,6 +233,14 @@ class MatSnackBarContainer extends BasePortalOutlet {
     _assertNotAttached() {
         if (this._portalOutlet.hasAttached() && (typeof ngDevMode === 'undefined' || ngDevMode)) {
             throw Error('Attempting to attach snack bar content after content is already attached');
+        }
+    }
+    /** Finishes the exit sequence of the container. */
+    _finishExit() {
+        this._onExit.next();
+        this._onExit.complete();
+        if (this._platform.isBrowser) {
+            this._mdcFoundation.destroy();
         }
     }
     /**
