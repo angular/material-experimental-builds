@@ -18,13 +18,13 @@ class MatTooltipHarness extends _MatTooltipHarnessBase {
         this._hideAnimationName = 'mat-mdc-tooltip-hide';
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search
-     * for a tooltip trigger with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a tooltip trigger with specific
+     * attributes.
      * @param options Options for narrowing the search.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTooltipHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 MatTooltipHarness.hostSelector = '.mat-mdc-tooltip-trigger';

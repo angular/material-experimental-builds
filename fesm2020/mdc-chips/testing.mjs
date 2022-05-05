@@ -10,13 +10,13 @@ import { ComponentHarness, HarnessPredicate, ContentContainerComponentHarness, T
 /** Harness for interacting with a standard Material chip avatar in tests. */
 class MatChipAvatarHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatChipAvatarHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a chip avatar with specific
+     * attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatChipAvatarHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 MatChipAvatarHarness.hostSelector = '.mat-mdc-chip-avatar';
@@ -31,13 +31,13 @@ MatChipAvatarHarness.hostSelector = '.mat-mdc-chip-avatar';
 /** Harness for interacting with a standard Material chip remove button in tests. */
 class MatChipRemoveHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatChipRemoveHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a chip remove with specific
+     * attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatChipRemoveHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Clicks the remove button. */
     async click() {
@@ -61,11 +61,11 @@ class MatChipHarness extends ContentContainerComponentHarness {
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip with specific attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    // Note(mmalerba): generics are used as a workaround for lack of polymorphic `this` in static
-    // methods. See https://github.com/microsoft/TypeScript/issues/5863
     static with(options = {}) {
-        return new HarnessPredicate(MatChipHarness, options).addOption('text', options.text, (harness, label) => {
+        return new HarnessPredicate(this, options).addOption('text', options.text, (harness, label) => {
             return HarnessPredicate.stringMatches(harness.getText(), label);
         });
     }
@@ -119,13 +119,13 @@ MatChipHarness.hostSelector = '.mat-mdc-basic-chip, .mat-mdc-chip';
 /** Harness for interacting with a grid's chip input in tests. */
 class MatChipInputHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatChipInputHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a chip input with specific
+     * attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatChipInputHarness, options)
+        return new HarnessPredicate(this, options)
             .addOption('value', options.value, async (harness, value) => {
             return (await harness.getValue()) === value;
         })
@@ -202,9 +202,9 @@ class MatChipOptionHarness extends MatChipHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip option with specific
      * attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    // Note(mmalerba): generics are used as a workaround for lack of polymorphic `this` in static
-    // methods. See https://github.com/microsoft/TypeScript/issues/5863
     static with(options = {}) {
         return new HarnessPredicate(MatChipOptionHarness, options)
             .addOption('text', options.text, (harness, label) => HarnessPredicate.stringMatches(harness.getText(), label))
@@ -245,9 +245,11 @@ class MatChipListboxHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip listbox with specific
      * attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatChipListboxHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Gets whether the chip listbox is disabled. */
     async isDisabled() {
@@ -298,14 +300,6 @@ MatChipListboxHarness.hostSelector = '.mat-mdc-chip-listbox';
 // TODO(crisbeto): add harness for the chip edit input inside the row.
 /** Harness for interacting with a mat-chip-row in tests. */
 class MatChipRowHarness extends MatChipHarness {
-    /**
-     * Gets a `HarnessPredicate` that can be used to search for a chip row with specific attributes.
-     */
-    // Note(mmalerba): generics are used as a workaround for lack of polymorphic `this` in static
-    // methods. See https://github.com/microsoft/TypeScript/issues/5863
-    static with(options = {}) {
-        return new HarnessPredicate(MatChipRowHarness, options);
-    }
     /** Whether the chip is editable. */
     async isEditable() {
         return (await this.host()).hasClass('mat-mdc-chip-editable');
@@ -328,9 +322,11 @@ MatChipRowHarness.hostSelector = '.mat-mdc-chip-row';
 class MatChipGridHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip grid with specific attributes.
+     * @param options Options for filtering which chip grid instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatChipGridHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Gets whether the chip grid is disabled. */
     async isDisabled() {
@@ -366,9 +362,11 @@ MatChipGridHarness.hostSelector = '.mat-mdc-chip-grid';
 class MatChipSetHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip set with specific attributes.
+     * @param options Options for filtering which chip set instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatChipSetHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Gets promise of the harnesses for the chips. */
     async getChips(filter = {}) {

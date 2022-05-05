@@ -16,13 +16,12 @@ class MatSnackBarHarness extends MatSnackBarHarness$1 {
         this._actionButtonSelector = '.mat-mdc-snack-bar-action';
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSnackBarHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a snack bar with specific attributes.
      * @param options Options for filtering which snack bar instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSnackBarHarness, options);
+        return new HarnessPredicate(this, options);
     }
     async _assertContentAnnotated() { }
 }

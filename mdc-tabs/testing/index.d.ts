@@ -1,5 +1,6 @@
 import { BaseHarnessFilters } from '@angular/cdk/testing';
 import { ComponentHarness } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { ContentContainerComponentHarness } from '@angular/cdk/testing';
 import { HarnessLoader } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
@@ -9,12 +10,11 @@ export declare class MatTabGroupHarness extends ComponentHarness {
     /** The selector for the host element of a `MatTabGroup` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabGroupHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab group with specific attributes.
      * @param options Options for filtering which tab group instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: TabGroupHarnessFilters): HarnessPredicate<MatTabGroupHarness>;
+    static with<T extends MatTabGroupHarness>(this: ComponentHarnessConstructor<T>, options?: TabGroupHarnessFilters): HarnessPredicate<T>;
     /**
      * Gets the list of tabs in the tab group.
      * @param filter Optionally filters which tabs are included.
@@ -35,12 +35,11 @@ export declare class MatTabHarness extends ContentContainerComponentHarness<stri
     /** The selector for the host element of a `MatTab` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab with specific attributes.
      * @param options Options for filtering which tab instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: TabHarnessFilters): HarnessPredicate<MatTabHarness>;
+    static with<T extends MatTabHarness>(this: ComponentHarnessConstructor<T>, options?: TabHarnessFilters): HarnessPredicate<T>;
     /** Gets the label of the tab. */
     getLabel(): Promise<string>;
     /** Gets the aria-label of the tab. */
@@ -65,12 +64,11 @@ export declare class MatTabLinkHarness extends ComponentHarness {
     /** The selector for the host element of a `MatTabLink` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabLinkHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab link with specific attributes.
      * @param options Options for filtering which tab link instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: TabLinkHarnessFilters): HarnessPredicate<MatTabLinkHarness>;
+    static with<T extends MatTabLinkHarness>(this: ComponentHarnessConstructor<T>, options?: TabLinkHarnessFilters): HarnessPredicate<T>;
     /** Gets the label of the link. */
     getLabel(): Promise<string>;
     /** Whether the link is active. */
@@ -86,12 +84,12 @@ export declare class MatTabNavBarHarness extends ComponentHarness {
     /** The selector for the host element of a `MatTabNavBar` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabNavBar` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab nav bar with specific
+     * attributes.
      * @param options Options for filtering which tab nav bar instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: TabNavBarHarnessFilters): HarnessPredicate<MatTabNavBarHarness>;
+    static with<T extends MatTabNavBarHarness>(this: ComponentHarnessConstructor<T>, options?: TabNavBarHarnessFilters): HarnessPredicate<T>;
     /**
      * Gets the list of links in the nav bar.
      * @param filter Optionally filters which links are included.
@@ -114,12 +112,12 @@ declare class MatTabNavPanelHarness extends ContentContainerComponentHarness {
     /** The selector for the host element of a `MatTabNavPanel` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabNavPanel` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab nav panel with specific
+     * attributes.
      * @param options Options for filtering which tab nav panel instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: TabNavPanelHarnessFilters): HarnessPredicate<MatTabNavPanelHarness>;
+    static with<T extends MatTabNavPanelHarness>(this: ComponentHarnessConstructor<T>, options?: TabNavPanelHarnessFilters): HarnessPredicate<T>;
     /** Gets the tab panel text content. */
     getTextContent(): Promise<string>;
 }

@@ -1,4 +1,5 @@
 import { AsyncFactoryFn } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { FormFieldHarnessFilters } from '@angular/material/form-field/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { MatDatepickerInputHarness } from '@angular/material/datepicker/testing';
@@ -20,12 +21,12 @@ export { MatFormFieldControlHarness }
 export declare class MatFormFieldHarness extends _MatFormFieldHarnessBase<FormFieldControlHarness> {
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatFormFieldHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a form field with specific
+     * attributes.
      * @param options Options for filtering which form field instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: FormFieldHarnessFilters): HarnessPredicate<MatFormFieldHarness>;
+    static with<T extends MatFormFieldHarness>(this: ComponentHarnessConstructor<T>, options?: FormFieldHarnessFilters): HarnessPredicate<T>;
     protected _prefixContainer: AsyncFactoryFn<TestElement | null>;
     protected _suffixContainer: AsyncFactoryFn<TestElement | null>;
     protected _label: AsyncFactoryFn<TestElement | null>;

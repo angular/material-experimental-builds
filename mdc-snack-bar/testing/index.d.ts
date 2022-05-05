@@ -1,3 +1,4 @@
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { MatSnackBarHarness as MatSnackBarHarness_2 } from '@angular/material/snack-bar/testing';
 import { SnackBarHarnessFilters } from '@angular/material/snack-bar/testing';
@@ -9,12 +10,11 @@ export declare class MatSnackBarHarness extends MatSnackBarHarness_2 {
     protected _messageSelector: string;
     protected _actionButtonSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSnackBarHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a snack bar with specific attributes.
      * @param options Options for filtering which snack bar instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: SnackBarHarnessFilters): HarnessPredicate<MatSnackBarHarness_2>;
+    static with<T extends MatSnackBarHarness_2>(this: ComponentHarnessConstructor<T>, options?: SnackBarHarnessFilters): HarnessPredicate<T>;
     protected _assertContentAnnotated(): Promise<void>;
 }
 

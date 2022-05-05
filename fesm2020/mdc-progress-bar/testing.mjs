@@ -13,9 +13,11 @@ class MatProgressBarHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a progress bar with specific
      * attributes.
+     * @param options Options for filtering which progress bar instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatProgressBarHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Gets a promise for the progress bar's value. */
     async getValue() {

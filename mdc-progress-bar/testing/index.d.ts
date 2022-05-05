@@ -1,4 +1,5 @@
 import { ComponentHarness } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { ProgressBarHarnessFilters } from '@angular/material/progress-bar/testing';
 
@@ -8,8 +9,10 @@ export declare class MatProgressBarHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a progress bar with specific
      * attributes.
+     * @param options Options for filtering which progress bar instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ProgressBarHarnessFilters): HarnessPredicate<MatProgressBarHarness>;
+    static with<T extends MatProgressBarHarness>(this: ComponentHarnessConstructor<T>, options?: ProgressBarHarnessFilters): HarnessPredicate<T>;
     /** Gets a promise for the progress bar's value. */
     getValue(): Promise<number | null>;
     /** Gets a promise for the progress bar's mode. */

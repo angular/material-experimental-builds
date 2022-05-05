@@ -21,13 +21,12 @@ class MatDialogHarness extends _MatDialogHarnessBase {
         this._actions = this.locatorForOptional(".mat-mdc-dialog-actions" /* MatDialogSection.ACTIONS */);
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatDialogHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a dialog with specific attributes.
      * @param options Options for filtering which dialog instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatDialogHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatDialog` instance. */

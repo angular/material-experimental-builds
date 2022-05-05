@@ -28,13 +28,13 @@ class MatFormFieldHarness extends _MatFormFieldHarnessBase {
         this._mdcTextField = this.locatorFor('.mat-mdc-text-field-wrapper');
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatFormFieldHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a form field with specific
+     * attributes.
      * @param options Options for filtering which form field instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatFormFieldHarness, options)
+        return new HarnessPredicate(this, options)
             .addOption('floatingLabelText', options.floatingLabelText, async (harness, text) => HarnessPredicate.stringMatches(await harness.getLabel(), text))
             .addOption('hasErrors', options.hasErrors, async (harness, hasErrors) => (await harness.hasErrors()) === hasErrors);
     }

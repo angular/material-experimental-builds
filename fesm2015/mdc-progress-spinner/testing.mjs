@@ -5,13 +5,13 @@ import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
 /** Harness for interacting with a MDC based mat-progress-spinner in tests. */
 class MatProgressSpinnerHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatProgressSpinnerHarness` that
-     * meets certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a progress spinnner with specific
+     * attributes.
      * @param options Options for filtering which progress spinner instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatProgressSpinnerHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Gets the progress spinner's value. */
     getValue() {

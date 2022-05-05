@@ -5,13 +5,12 @@ import { coerceNumberProperty } from '@angular/cdk/coercion';
 /** Harness for interacting with a thumb inside of a Material slider in tests. */
 class MatSliderThumbHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSliderThumbHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a slider thumb with specific attributes.
      * @param options Options for filtering which thumb instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSliderThumbHarness, options).addOption('position', options.position, (harness, value) => __awaiter(this, void 0, void 0, function* () {
+        return new HarnessPredicate(this, options).addOption('position', options.position, (harness, value) => __awaiter(this, void 0, void 0, function* () {
             return (yield harness.getPosition()) === value;
         }));
     }
@@ -117,13 +116,12 @@ MatSliderThumbHarness.hostSelector = 'input[matSliderThumb], input[matSliderStar
 /** Harness for interacting with a MDC mat-slider in tests. */
 class MatSliderHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSliderHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a slider with specific attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSliderHarness, options).addOption('isRange', options.isRange, (harness, value) => __awaiter(this, void 0, void 0, function* () {
+        return new HarnessPredicate(this, options).addOption('isRange', options.isRange, (harness, value) => __awaiter(this, void 0, void 0, function* () {
             return (yield harness.isRange()) === value;
         }));
     }

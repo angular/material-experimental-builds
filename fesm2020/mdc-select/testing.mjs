@@ -18,13 +18,12 @@ class MatSelectHarness extends _MatSelectHarnessBase {
         this._optionGroupClass = MatOptgroupHarness;
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSelectHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a select with specific attributes.
      * @param options Options for filtering which select instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatSelectHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 MatSelectHarness.hostSelector = '.mat-mdc-select';

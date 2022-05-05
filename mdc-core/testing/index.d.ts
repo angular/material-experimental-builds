@@ -1,5 +1,6 @@
 import { BaseHarnessFilters } from '@angular/cdk/testing';
 import { ComponentHarness } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 
 /** Harness for interacting with an MDC-based `mat-optgroup` in tests. */
@@ -8,12 +9,12 @@ export declare class MatOptgroupHarness extends ComponentHarness {
     static hostSelector: string;
     private _label;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatOptgroupHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a option group with specific
+     * attributes.
      * @param options Options for filtering which option instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: OptgroupHarnessFilters): HarnessPredicate<MatOptgroupHarness>;
+    static with<T extends MatOptgroupHarness>(this: ComponentHarnessConstructor<T>, options?: OptgroupHarnessFilters): HarnessPredicate<T>;
     /** Gets the option group's label text. */
     getLabelText(): Promise<string>;
     /** Gets whether the option group is disabled. */
@@ -32,12 +33,11 @@ export declare class MatOptionHarness extends ComponentHarness {
     /** Element containing the option's text. */
     private _text;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatOptionsHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for an option with specific attributes.
      * @param options Options for filtering which option instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: OptionHarnessFilters): HarnessPredicate<MatOptionHarness>;
+    static with<T extends MatOptionHarness>(this: ComponentHarnessConstructor<T>, options?: OptionHarnessFilters): HarnessPredicate<T>;
     /** Clicks the option. */
     click(): Promise<void>;
     /** Gets the option's label text. */

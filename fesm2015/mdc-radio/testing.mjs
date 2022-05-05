@@ -9,13 +9,13 @@ class MatRadioGroupHarness extends _MatRadioGroupHarnessBase {
         this._buttonClass = MatRadioButtonHarness;
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatRadioGroupHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a radio group with specific
+     * attributes.
      * @param options Options for filtering which radio group instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatRadioGroupHarness, options).addOption('name', options.name, this._checkRadioGroupName);
+        return new HarnessPredicate(this, options).addOption('name', options.name, MatRadioGroupHarness._checkRadioGroupName);
     }
 }
 /** The selector for the host element of a `MatRadioGroup` instance. */
@@ -28,13 +28,13 @@ class MatRadioButtonHarness extends _MatRadioButtonHarnessBase {
         this._clickLabel = this._textLabel;
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatRadioButtonHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a radio button with specific
+     * attributes.
      * @param options Options for filtering which radio button instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatRadioButtonHarness, options)
+        return new HarnessPredicate(this, options)
             .addOption('label', options.label, (harness, label) => HarnessPredicate.stringMatches(harness.getLabelText(), label))
             .addOption('name', options.name, (harness, name) => __awaiter(this, void 0, void 0, function* () { return (yield harness.getName()) === name; }))
             .addOption('checked', options.checked, (harness, checked) => __awaiter(this, void 0, void 0, function* () { return (yield harness.isChecked()) == checked; }));

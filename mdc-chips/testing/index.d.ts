@@ -1,6 +1,7 @@
 import { AsyncFactoryFn } from '@angular/cdk/testing';
 import { BaseHarnessFilters } from '@angular/cdk/testing';
 import { ComponentHarness } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { ContentContainerComponentHarness } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { TestElement } from '@angular/cdk/testing';
@@ -45,12 +46,12 @@ export declare interface ChipSetHarnessFilters extends BaseHarnessFilters {
 export declare class MatChipAvatarHarness extends ComponentHarness {
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatChipAvatarHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a chip avatar with specific
+     * attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ChipAvatarHarnessFilters): HarnessPredicate<MatChipAvatarHarness>;
+    static with<T extends MatChipAvatarHarness>(this: ComponentHarnessConstructor<T>, options?: ChipAvatarHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with a mat-chip-grid in tests. */
@@ -58,8 +59,10 @@ export declare class MatChipGridHarness extends ComponentHarness {
     static hostSelector: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip grid with specific attributes.
+     * @param options Options for filtering which chip grid instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ChipGridHarnessFilters): HarnessPredicate<MatChipGridHarness>;
+    static with<T extends MatChipGridHarness>(this: ComponentHarnessConstructor<T>, options?: ChipGridHarnessFilters): HarnessPredicate<T>;
     /** Gets whether the chip grid is disabled. */
     isDisabled(): Promise<boolean>;
     /** Gets whether the chip grid is required. */
@@ -78,8 +81,10 @@ export declare class MatChipHarness extends ContentContainerComponentHarness {
     static hostSelector: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip with specific attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    static with<T extends typeof MatChipHarness>(this: T, options?: ChipHarnessFilters): HarnessPredicate<InstanceType<T>>;
+    static with<T extends MatChipHarness>(this: ComponentHarnessConstructor<T>, options?: ChipHarnessFilters): HarnessPredicate<T>;
     /** Gets a promise for the text content the option. */
     getText(): Promise<string>;
     /** Whether the chip is disabled. */
@@ -102,12 +107,12 @@ export declare class MatChipHarness extends ContentContainerComponentHarness {
 export declare class MatChipInputHarness extends ComponentHarness {
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatChipInputHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a chip input with specific
+     * attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ChipInputHarnessFilters): HarnessPredicate<MatChipInputHarness>;
+    static with<T extends MatChipInputHarness>(this: ComponentHarnessConstructor<T>, options?: ChipInputHarnessFilters): HarnessPredicate<T>;
     /** Whether the input is disabled. */
     isDisabled(): Promise<boolean>;
     /** Whether the input is required. */
@@ -143,8 +148,10 @@ export declare class MatChipListboxHarness extends ComponentHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip listbox with specific
      * attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ChipListboxHarnessFilters): HarnessPredicate<MatChipListboxHarness>;
+    static with<T extends MatChipListboxHarness>(this: ComponentHarnessConstructor<T>, options?: ChipListboxHarnessFilters): HarnessPredicate<T>;
     /** Gets whether the chip listbox is disabled. */
     isDisabled(): Promise<boolean>;
     /** Gets whether the chip listbox is required. */
@@ -172,8 +179,10 @@ export declare class MatChipOptionHarness extends MatChipHarness {
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip option with specific
      * attributes.
+     * @param options Options for narrowing the search.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    static with<T extends typeof MatChipHarness>(this: T, options?: ChipOptionHarnessFilters): HarnessPredicate<InstanceType<T>>;
+    static with<T extends MatChipHarness>(this: ComponentHarnessConstructor<T>, options?: ChipOptionHarnessFilters): HarnessPredicate<T>;
     /** Whether the chip is selected. */
     isSelected(): Promise<boolean>;
     /** Selects the given chip. Only applies if it's selectable. */
@@ -188,12 +197,12 @@ export declare class MatChipOptionHarness extends MatChipHarness {
 export declare class MatChipRemoveHarness extends ComponentHarness {
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatChipRemoveHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a chip remove with specific
+     * attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ChipRemoveHarnessFilters): HarnessPredicate<MatChipRemoveHarness>;
+    static with<T extends MatChipRemoveHarness>(this: ComponentHarnessConstructor<T>, options?: ChipRemoveHarnessFilters): HarnessPredicate<T>;
     /** Clicks the remove button. */
     click(): Promise<void>;
 }
@@ -201,10 +210,6 @@ export declare class MatChipRemoveHarness extends ComponentHarness {
 /** Harness for interacting with a mat-chip-row in tests. */
 export declare class MatChipRowHarness extends MatChipHarness {
     static hostSelector: string;
-    /**
-     * Gets a `HarnessPredicate` that can be used to search for a chip row with specific attributes.
-     */
-    static with<T extends typeof MatChipHarness>(this: T, options?: ChipRowHarnessFilters): HarnessPredicate<InstanceType<T>>;
     /** Whether the chip is editable. */
     isEditable(): Promise<boolean>;
     /** Whether the chip is currently being edited. */
@@ -216,8 +221,10 @@ export declare class MatChipSetHarness extends ComponentHarness {
     static hostSelector: string;
     /**
      * Gets a `HarnessPredicate` that can be used to search for a chip set with specific attributes.
+     * @param options Options for filtering which chip set instances are considered a match.
+     * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ChipSetHarnessFilters): HarnessPredicate<MatChipSetHarness>;
+    static with<T extends MatChipSetHarness>(this: ComponentHarnessConstructor<T>, options?: ChipSetHarnessFilters): HarnessPredicate<T>;
     /** Gets promise of the harnesses for the chips. */
     getChips(filter?: ChipHarnessFilters): Promise<MatChipHarness[]>;
 }

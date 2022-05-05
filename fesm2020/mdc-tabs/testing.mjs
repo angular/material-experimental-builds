@@ -10,13 +10,12 @@ import { ContentContainerComponentHarness, HarnessPredicate, ComponentHarness, p
 /** Harness for interacting with an MDC_based Angular Material tab in tests. */
 class MatTabHarness extends ContentContainerComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab with specific attributes.
      * @param options Options for filtering which tab instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTabHarness, options).addOption('label', options.label, (harness, label) => HarnessPredicate.stringMatches(harness.getLabel(), label));
+        return new HarnessPredicate(this, options).addOption('label', options.label, (harness, label) => HarnessPredicate.stringMatches(harness.getLabel(), label));
     }
     /** Gets the label of the tab. */
     async getLabel() {
@@ -74,13 +73,12 @@ MatTabHarness.hostSelector = '.mat-mdc-tab';
 /** Harness for interacting with an MDC-based mat-tab-group in tests. */
 class MatTabGroupHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabGroupHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab group with specific attributes.
      * @param options Options for filtering which tab group instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTabGroupHarness, options).addOption('selectedTabLabel', options.selectedTabLabel, async (harness, label) => {
+        return new HarnessPredicate(this, options).addOption('selectedTabLabel', options.selectedTabLabel, async (harness, label) => {
             const selectedTab = await harness.getSelectedTab();
             return HarnessPredicate.stringMatches(await selectedTab.getLabel(), label);
         });
@@ -129,13 +127,12 @@ MatTabGroupHarness.hostSelector = '.mat-mdc-tab-group';
 /** Harness for interacting with an MDC-based Angular Material tab link in tests. */
 class MatTabLinkHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabLinkHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab link with specific attributes.
      * @param options Options for filtering which tab link instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTabLinkHarness, options).addOption('label', options.label, (harness, label) => HarnessPredicate.stringMatches(harness.getLabel(), label));
+        return new HarnessPredicate(this, options).addOption('label', options.label, (harness, label) => HarnessPredicate.stringMatches(harness.getLabel(), label));
     }
     /** Gets the label of the link. */
     async getLabel() {
@@ -169,13 +166,13 @@ MatTabLinkHarness.hostSelector = '.mat-mdc-tab-link';
 /** Harness for interacting with a standard mat-tab-nav-panel in tests. */
 class MatTabNavPanelHarness extends ContentContainerComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabNavPanel` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab nav panel with specific
+     * attributes.
      * @param options Options for filtering which tab nav panel instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTabNavPanelHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /** Gets the tab panel text content. */
     async getTextContent() {
@@ -195,13 +192,13 @@ MatTabNavPanelHarness.hostSelector = '.mat-mdc-tab-nav-panel';
 /** Harness for interacting with an MDC-based mat-tab-nav-bar in tests. */
 class MatTabNavBarHarness extends ComponentHarness {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatTabNavBar` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a tab nav bar with specific
+     * attributes.
      * @param options Options for filtering which tab nav bar instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTabNavBarHarness, options);
+        return new HarnessPredicate(this, options);
     }
     /**
      * Gets the list of links in the nav bar.

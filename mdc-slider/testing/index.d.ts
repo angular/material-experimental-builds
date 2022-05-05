@@ -1,17 +1,17 @@
 import { BaseHarnessFilters } from '@angular/cdk/testing';
 import { ComponentHarness } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 
 /** Harness for interacting with a MDC mat-slider in tests. */
 export declare class MatSliderHarness extends ComponentHarness {
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSliderHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a slider with specific attributes.
      * @param options Options for filtering which input instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: SliderHarnessFilters): HarnessPredicate<MatSliderHarness>;
+    static with<T extends MatSliderHarness>(this: ComponentHarnessConstructor<T>, options?: SliderHarnessFilters): HarnessPredicate<T>;
     /** Gets the start thumb of the slider (only applicable for range sliders). */
     getStartThumb(): Promise<MatSliderThumbHarness>;
     /** Gets the thumb (for single point sliders), or the end thumb (for range sliders). */
@@ -32,12 +32,11 @@ export declare class MatSliderHarness extends ComponentHarness {
 export declare class MatSliderThumbHarness extends ComponentHarness {
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatSliderThumbHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a slider thumb with specific attributes.
      * @param options Options for filtering which thumb instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: SliderThumbHarnessFilters): HarnessPredicate<MatSliderThumbHarness>;
+    static with<T extends MatSliderThumbHarness>(this: ComponentHarnessConstructor<T>, options?: SliderThumbHarnessFilters): HarnessPredicate<T>;
     /** Gets the position of the thumb inside the slider. */
     getPosition(): Promise<ThumbPosition>;
     /** Gets the value of the thumb. */
