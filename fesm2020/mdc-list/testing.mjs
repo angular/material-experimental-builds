@@ -58,13 +58,13 @@ class MatListItemHarnessBase extends ContentContainerComponentHarness {
             host.hasClass('mdc-list-item--with-two-lines'),
         ]);
         if (isOneLine) {
-            return 0 /* ONE_LINE_ITEM */;
+            return 0 /* MatListItemType.ONE_LINE_ITEM */;
         }
         else if (isTwoLine) {
-            return 1 /* TWO_LINE_ITEM */;
+            return 1 /* MatListItemType.TWO_LINE_ITEM */;
         }
         else {
-            return 2 /* THREE_LINE_ITEM */;
+            return 2 /* MatListItemType.THREE_LINE_ITEM */;
         }
     }
     /**
@@ -98,7 +98,7 @@ class MatListItemHarnessBase extends ContentContainerComponentHarness {
      */
     async getSecondaryText() {
         const type = await this.getType();
-        if (type === 0 /* ONE_LINE_ITEM */) {
+        if (type === 0 /* MatListItemType.ONE_LINE_ITEM */) {
             return null;
         }
         const [lines, unscopedTextContent] = await parallel(() => [
@@ -120,7 +120,7 @@ class MatListItemHarnessBase extends ContentContainerComponentHarness {
      */
     async getTertiaryText() {
         const type = await this.getType();
-        if (type !== 2 /* THREE_LINE_ITEM */) {
+        if (type !== 2 /* MatListItemType.THREE_LINE_ITEM */) {
             return null;
         }
         const [lines, unscopedTextContent] = await parallel(() => [
