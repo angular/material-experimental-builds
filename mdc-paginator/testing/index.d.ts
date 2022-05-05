@@ -1,4 +1,5 @@
 import { AsyncFactoryFn } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatPaginatorHarnessBase } from '@angular/material/paginator/testing';
 import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
@@ -17,12 +18,11 @@ export declare class MatPaginatorHarness extends _MatPaginatorHarnessBase {
     protected _pageSizeFallback: AsyncFactoryFn<TestElement>;
     protected _rangeLabel: AsyncFactoryFn<TestElement>;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatPaginatorHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a paginator with specific attributes.
      * @param options Options for filtering which paginator instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: PaginatorHarnessFilters): HarnessPredicate<MatPaginatorHarness>;
+    static with<T extends MatPaginatorHarness>(this: ComponentHarnessConstructor<T>, options?: PaginatorHarnessFilters): HarnessPredicate<T>;
 }
 
 export { PaginatorHarnessFilters }

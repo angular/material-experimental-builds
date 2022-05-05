@@ -1,4 +1,5 @@
 import { BaseHarnessFilters } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatAutocompleteHarnessBase } from '@angular/material/autocomplete/testing';
 import { MatOptgroupHarness } from '@angular/material-experimental/mdc-core/testing';
@@ -20,12 +21,12 @@ export declare class MatAutocompleteHarness extends _MatAutocompleteHarnessBase<
     /** The selector for the host element of a `MatAutocomplete` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatAutocompleteHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for an autocomplete with specific
+     * attributes.
      * @param options Options for filtering which autocomplete instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: AutocompleteHarnessFilters): HarnessPredicate<MatAutocompleteHarness>;
+    static with<T extends MatAutocompleteHarness>(this: ComponentHarnessConstructor<T>, options?: AutocompleteHarnessFilters): HarnessPredicate<T>;
 }
 
 export { }

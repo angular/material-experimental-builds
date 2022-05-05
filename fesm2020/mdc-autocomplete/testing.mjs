@@ -18,13 +18,13 @@ class MatAutocompleteHarness extends _MatAutocompleteHarnessBase {
         this._optionGroupClass = MatOptgroupHarness;
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatAutocompleteHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for an autocomplete with specific
+     * attributes.
      * @param options Options for filtering which autocomplete instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatAutocompleteHarness, options).addOption('value', options.value, (harness, value) => HarnessPredicate.stringMatches(harness.getValue(), value));
+        return new HarnessPredicate(this, options).addOption('value', options.value, (harness, value) => HarnessPredicate.stringMatches(harness.getValue(), value));
     }
 }
 /** The selector for the host element of a `MatAutocomplete` instance. */

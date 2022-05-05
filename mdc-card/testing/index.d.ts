@@ -1,4 +1,5 @@
 import { BaseHarnessFilters } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { ContentContainerComponentHarness } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 
@@ -17,12 +18,11 @@ export declare class MatCardHarness extends ContentContainerComponentHarness<Mat
     /** The selector for the host element of a `MatCard` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatCardHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a card with specific attributes.
      * @param options Options for filtering which card instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: CardHarnessFilters): HarnessPredicate<MatCardHarness>;
+    static with<T extends MatCardHarness>(this: ComponentHarnessConstructor<T>, options?: CardHarnessFilters): HarnessPredicate<T>;
     private _title;
     private _subtitle;
     /** Gets all of the card's content as text. */

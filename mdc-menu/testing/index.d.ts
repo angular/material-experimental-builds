@@ -1,3 +1,4 @@
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatMenuHarnessBase } from '@angular/material/menu/testing';
 import { _MatMenuItemHarnessBase } from '@angular/material/menu/testing';
@@ -10,12 +11,11 @@ export declare class MatMenuHarness extends _MatMenuHarnessBase<typeof MatMenuIt
     static hostSelector: string;
     protected _itemClass: typeof MatMenuItemHarness;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatMenuHarness` that meets certain
-     * criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a menu with specific attributes.
      * @param options Options for filtering which menu instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: MenuHarnessFilters): HarnessPredicate<MatMenuHarness>;
+    static with<T extends MatMenuHarness>(this: ComponentHarnessConstructor<T>, options?: MenuHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with an MDC-based mat-menu-item in tests. */
@@ -24,12 +24,11 @@ export declare class MatMenuItemHarness extends _MatMenuItemHarnessBase<typeof M
     static hostSelector: string;
     protected _menuClass: typeof MatMenuHarness;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatMenuItemHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a menu item with specific attributes.
      * @param options Options for filtering which menu item instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: MenuItemHarnessFilters): HarnessPredicate<MatMenuItemHarness>;
+    static with<T extends MatMenuItemHarness>(this: ComponentHarnessConstructor<T>, options?: MenuItemHarnessFilters): HarnessPredicate<T>;
 }
 
 export { MenuHarnessFilters }

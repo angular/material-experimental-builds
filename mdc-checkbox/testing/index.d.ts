@@ -1,5 +1,6 @@
 import { AsyncFactoryFn } from '@angular/cdk/testing';
 import { CheckboxHarnessFilters } from '@angular/material/checkbox/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatCheckboxHarnessBase } from '@angular/material/checkbox/testing';
 import { TestElement } from '@angular/cdk/testing';
@@ -17,7 +18,7 @@ export declare class MatCheckboxHarness extends _MatCheckboxHarnessBase {
      *   - `name` finds a checkbox with specific name.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: CheckboxHarnessFilters): HarnessPredicate<MatCheckboxHarness>;
+    static with<T extends MatCheckboxHarness>(this: ComponentHarnessConstructor<T>, options?: CheckboxHarnessFilters): HarnessPredicate<T>;
     protected _input: AsyncFactoryFn<TestElement>;
     protected _label: AsyncFactoryFn<TestElement>;
     private _inputContainer;

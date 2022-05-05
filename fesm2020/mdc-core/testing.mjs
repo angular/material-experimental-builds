@@ -15,13 +15,12 @@ class MatOptionHarness extends ComponentHarness {
         this._text = this.locatorFor('.mdc-list-item__primary-text');
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatOptionsHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for an option with specific attributes.
      * @param options Options for filtering which option instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatOptionHarness, options)
+        return new HarnessPredicate(this, options)
             .addOption('text', options.text, async (harness, title) => HarnessPredicate.stringMatches(await harness.getText(), title))
             .addOption('isSelected', options.isSelected, async (harness, isSelected) => (await harness.isSelected()) === isSelected);
     }
@@ -75,13 +74,13 @@ class MatOptgroupHarness extends ComponentHarness {
         this._label = this.locatorFor('.mat-mdc-optgroup-label');
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatOptgroupHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a option group with specific
+     * attributes.
      * @param options Options for filtering which option instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatOptgroupHarness, options).addOption('labelText', options.labelText, async (harness, title) => HarnessPredicate.stringMatches(await harness.getLabelText(), title));
+        return new HarnessPredicate(this, options).addOption('labelText', options.labelText, async (harness, title) => HarnessPredicate.stringMatches(await harness.getLabelText(), title));
     }
     /** Gets the option group's label text. */
     async getLabelText() {

@@ -16,7 +16,7 @@ class MatCellHarness extends MatCellHarness$1 {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return MatCellHarness$1._getCellPredicate(MatCellHarness, options);
+        return MatCellHarness$1._getCellPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatCellHarness` instance. */
@@ -24,13 +24,13 @@ MatCellHarness.hostSelector = '.mat-mdc-cell';
 /** Harness for interacting with an MDC-based Angular Material table header cell. */
 class MatHeaderCellHarness extends MatHeaderCellHarness$1 {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table header cell with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table header cell with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return MatHeaderCellHarness$1._getCellPredicate(MatHeaderCellHarness, options);
+        return MatHeaderCellHarness$1._getCellPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatHeaderCellHarness` instance. */
@@ -38,13 +38,13 @@ MatHeaderCellHarness.hostSelector = '.mat-mdc-header-cell';
 /** Harness for interacting with an MDC-based Angular Material table footer cell. */
 class MatFooterCellHarness extends MatFooterCellHarness$1 {
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table footer cell with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table footer cell with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return MatFooterCellHarness$1._getCellPredicate(MatFooterCellHarness, options);
+        return MatFooterCellHarness$1._getCellPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatFooterCellHarness` instance. */
@@ -69,7 +69,7 @@ class MatRowHarness extends _MatRowHarnessBase {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatRowHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatRowHarness` instance. */
@@ -81,13 +81,13 @@ class MatHeaderRowHarness extends _MatRowHarnessBase {
         this._cellHarness = MatHeaderCellHarness;
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table header row with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table header row with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatHeaderRowHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatHeaderRowHarness` instance. */
@@ -99,13 +99,13 @@ class MatFooterRowHarness extends _MatRowHarnessBase {
         this._cellHarness = MatFooterCellHarness;
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table footer row cell with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table footer row cell with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatFooterRowHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatFooterRowHarness` instance. */
@@ -132,7 +132,7 @@ class MatTableHarness extends _MatTableHarnessBase {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatTableHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 /** The selector for the host element of a `MatTableHarness` instance. */

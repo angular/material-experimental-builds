@@ -1,4 +1,5 @@
 import { ButtonHarnessFilters } from '@angular/material/button/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { ContentContainerComponentHarness } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 
@@ -14,7 +15,7 @@ export declare class MatButtonHarness extends ContentContainerComponentHarness {
      *   - `text` finds a button with specific text content.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: ButtonHarnessFilters): HarnessPredicate<MatButtonHarness>;
+    static with<T extends MatButtonHarness>(this: ComponentHarnessConstructor<T>, options?: ButtonHarnessFilters): HarnessPredicate<T>;
     /**
      * Clicks the button at the given position relative to its top-left.
      * @param relativeX The relative x position of the click.

@@ -9,13 +9,12 @@ class MatOptionHarness extends ComponentHarness {
         this._text = this.locatorFor('.mdc-list-item__primary-text');
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatOptionsHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for an option with specific attributes.
      * @param options Options for filtering which option instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatOptionHarness, options)
+        return new HarnessPredicate(this, options)
             .addOption('text', options.text, (harness, title) => __awaiter(this, void 0, void 0, function* () { return HarnessPredicate.stringMatches(yield harness.getText(), title); }))
             .addOption('isSelected', options.isSelected, (harness, isSelected) => __awaiter(this, void 0, void 0, function* () { return (yield harness.isSelected()) === isSelected; }));
     }
@@ -66,13 +65,13 @@ class MatOptgroupHarness extends ComponentHarness {
         this._label = this.locatorFor('.mat-mdc-optgroup-label');
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatOptgroupHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a option group with specific
+     * attributes.
      * @param options Options for filtering which option instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatOptgroupHarness, options).addOption('labelText', options.labelText, (harness, title) => __awaiter(this, void 0, void 0, function* () { return HarnessPredicate.stringMatches(yield harness.getLabelText(), title); }));
+        return new HarnessPredicate(this, options).addOption('labelText', options.labelText, (harness, title) => __awaiter(this, void 0, void 0, function* () { return HarnessPredicate.stringMatches(yield harness.getLabelText(), title); }));
     }
     /** Gets the option group's label text. */
     getLabelText() {

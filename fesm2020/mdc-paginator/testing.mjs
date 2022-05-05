@@ -24,13 +24,12 @@ class MatPaginatorHarness extends _MatPaginatorHarnessBase {
         this._rangeLabel = this.locatorFor('.mat-mdc-paginator-range-label');
     }
     /**
-     * Gets a `HarnessPredicate` that can be used to search for a `MatPaginatorHarness` that meets
-     * certain criteria.
+     * Gets a `HarnessPredicate` that can be used to search for a paginator with specific attributes.
      * @param options Options for filtering which paginator instances are considered a match.
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return new HarnessPredicate(MatPaginatorHarness, options);
+        return new HarnessPredicate(this, options);
     }
 }
 /** Selector used to find paginator instances. */

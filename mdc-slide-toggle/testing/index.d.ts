@@ -1,4 +1,5 @@
 import { AsyncFactoryFn } from '@angular/cdk/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatSlideToggleHarnessBase } from '@angular/material/slide-toggle/testing';
 import { SlideToggleHarnessFilters } from '@angular/material/slide-toggle/testing';
@@ -15,7 +16,7 @@ export declare class MatSlideToggleHarness extends _MatSlideToggleHarnessBase {
      *   - `label` finds a slide-toggle with specific label text.
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: SlideToggleHarnessFilters): HarnessPredicate<MatSlideToggleHarness>;
+    static with<T extends MatSlideToggleHarness>(this: ComponentHarnessConstructor<T>, options?: SlideToggleHarnessFilters): HarnessPredicate<T>;
     toggle(): Promise<void>;
     isRequired(): Promise<boolean>;
     isChecked(): Promise<boolean>;

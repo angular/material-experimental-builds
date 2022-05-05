@@ -1,4 +1,5 @@
 import { CellHarnessFilters } from '@angular/material/table/testing';
+import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { MatCellHarness as MatCellHarness_2 } from '@angular/material/table/testing';
 import { MatFooterCellHarness as MatFooterCellHarness_2 } from '@angular/material/table/testing';
@@ -21,7 +22,7 @@ export declare class MatCellHarness extends MatCellHarness_2 {
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: CellHarnessFilters): HarnessPredicate<MatCellHarness>;
+    static with<T extends MatCellHarness>(this: ComponentHarnessConstructor<T>, options?: CellHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with an MDC-based Angular Material table footer cell. */
@@ -29,12 +30,12 @@ export declare class MatFooterCellHarness extends MatFooterCellHarness_2 {
     /** The selector for the host element of a `MatFooterCellHarness` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table footer cell with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table footer cell with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: CellHarnessFilters): HarnessPredicate<MatFooterCellHarness>;
+    static with<T extends MatFooterCellHarness>(this: ComponentHarnessConstructor<T>, options?: CellHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with an MDC-based Angular Material table footer row. */
@@ -43,12 +44,12 @@ export declare class MatFooterRowHarness extends _MatRowHarnessBase<typeof MatFo
     static hostSelector: string;
     protected _cellHarness: typeof MatFooterCellHarness;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table footer row cell with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table footer row cell with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: RowHarnessFilters): HarnessPredicate<MatFooterRowHarness>;
+    static with<T extends MatFooterRowHarness>(this: ComponentHarnessConstructor<T>, options?: RowHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with an MDC-based Angular Material table header cell. */
@@ -56,12 +57,12 @@ export declare class MatHeaderCellHarness extends MatHeaderCellHarness_2 {
     /** The selector for the host element of a `MatHeaderCellHarness` instance. */
     static hostSelector: string;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table header cell with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table header cell with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: CellHarnessFilters): HarnessPredicate<MatHeaderCellHarness>;
+    static with<T extends MatHeaderCellHarness>(this: ComponentHarnessConstructor<T>, options?: CellHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with an MDC-based Angular Material table header row. */
@@ -70,12 +71,12 @@ export declare class MatHeaderRowHarness extends _MatRowHarnessBase<typeof MatHe
     static hostSelector: string;
     protected _cellHarness: typeof MatHeaderCellHarness;
     /**
-     * Gets a `HarnessPredicate` that can be used to search for
-     * a table header row with specific attributes.
+     * Gets a `HarnessPredicate` that can be used to search for a table header row with specific
+     * attributes.
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: RowHarnessFilters): HarnessPredicate<MatHeaderRowHarness>;
+    static with<T extends MatHeaderRowHarness>(this: ComponentHarnessConstructor<T>, options?: RowHarnessFilters): HarnessPredicate<T>;
 }
 
 /** Harness for interacting with an MDC-based Angular Material table row. */
@@ -88,7 +89,7 @@ export declare class MatRowHarness extends _MatRowHarnessBase<typeof MatCellHarn
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: RowHarnessFilters): HarnessPredicate<MatRowHarness>;
+    static with<T extends MatRowHarness>(this: ComponentHarnessConstructor<T>, options?: RowHarnessFilters): HarnessPredicate<T>;
 }
 
 export { MatRowHarnessColumnsText }
@@ -105,7 +106,7 @@ export declare class MatTableHarness extends _MatTableHarnessBase<typeof MatHead
      * @param options Options for narrowing the search
      * @return a `HarnessPredicate` configured with the given options.
      */
-    static with(options?: TableHarnessFilters): HarnessPredicate<MatTableHarness>;
+    static with<T extends MatTableHarness>(this: ComponentHarnessConstructor<T>, options?: TableHarnessFilters): HarnessPredicate<T>;
 }
 
 export { MatTableHarnessColumnsText }
