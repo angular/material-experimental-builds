@@ -25,7 +25,7 @@ class MatSliderThumbHarness extends ComponentHarness {
     async getPosition() {
         // Meant to mimic MDC's logic where `matSliderThumb` is treated as END.
         const isStart = (await (await this.host()).getAttribute('matSliderStartThumb')) != null;
-        return isStart ? 0 /* START */ : 1 /* END */;
+        return isStart ? 0 /* ThumbPosition.START */ : 1 /* ThumbPosition.END */;
     }
     /** Gets the value of the thumb. */
     async getValue() {
@@ -120,11 +120,11 @@ class MatSliderHarness extends ComponentHarness {
             throw Error('`getStartThumb` is only applicable for range sliders. ' +
                 'Did you mean to use `getEndThumb`?');
         }
-        return this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* START */ }))();
+        return this.locatorFor(MatSliderThumbHarness.with({ position: 0 /* ThumbPosition.START */ }))();
     }
     /** Gets the thumb (for single point sliders), or the end thumb (for range sliders). */
     async getEndThumb() {
-        return this.locatorFor(MatSliderThumbHarness.with({ position: 1 /* END */ }))();
+        return this.locatorFor(MatSliderThumbHarness.with({ position: 1 /* ThumbPosition.END */ }))();
     }
     /** Gets whether the slider is a range slider. */
     async isRange() {

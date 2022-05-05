@@ -16,9 +16,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 class MatDialogHarness extends _MatDialogHarnessBase {
     constructor() {
         super(...arguments);
-        this._title = this.locatorForOptional(".mat-mdc-dialog-title" /* TITLE */);
-        this._content = this.locatorForOptional(".mat-mdc-dialog-content" /* CONTENT */);
-        this._actions = this.locatorForOptional(".mat-mdc-dialog-actions" /* ACTIONS */);
+        this._title = this.locatorForOptional(".mat-mdc-dialog-title" /* MatDialogSection.TITLE */);
+        this._content = this.locatorForOptional(".mat-mdc-dialog-content" /* MatDialogSection.CONTENT */);
+        this._actions = this.locatorForOptional(".mat-mdc-dialog-actions" /* MatDialogSection.ACTIONS */);
     }
     /**
      * Gets a `HarnessPredicate` that can be used to search for a `MatDialogHarness` that meets
