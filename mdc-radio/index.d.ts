@@ -1,4 +1,3 @@
-import { AfterViewInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { FocusMonitor } from '@angular/cdk/a11y';
@@ -12,8 +11,6 @@ import { _MatRadioButtonBase } from '@angular/material/radio';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatRadioDefaultOptions } from '@angular/material/radio';
 import { _MatRadioGroupBase } from '@angular/material/radio';
-import { MDCRadioFoundation } from '@material/radio';
-import { OnDestroy } from '@angular/core';
 import { QueryList } from '@angular/core';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 
@@ -46,21 +43,8 @@ export declare const MAT_RADIO_GROUP: InjectionToken<_MatRadioGroupBase<_MatRadi
  */
 export declare const MAT_RADIO_GROUP_CONTROL_VALUE_ACCESSOR: any;
 
-export declare class MatRadioButton extends _MatRadioButtonBase implements AfterViewInit, OnDestroy {
-    private _radioAdapter;
-    _radioFoundation: MDCRadioFoundation;
-    _classes: {
-        [key: string]: boolean;
-    };
+export declare class MatRadioButton extends _MatRadioButtonBase {
     constructor(radioGroup: MatRadioGroup, elementRef: ElementRef, _changeDetector: ChangeDetectorRef, _focusMonitor: FocusMonitor, _radioDispatcher: UniqueSelectionDispatcher, animationMode?: string, _providerOverride?: MatRadioDefaultOptions, tabIndex?: string);
-    ngAfterViewInit(): void;
-    ngOnDestroy(): void;
-    private _setClass;
-    /**
-     * Overrides the parent function so that the foundation can be set with the current
-     * disabled state.
-     */
-    protected _setDisabled(value: boolean): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRadioButton, [{ optional: true; }, null, null, null, null, { optional: true; }, { optional: true; }, { attribute: "tabindex"; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatRadioButton, "mat-radio-button", ["matRadioButton"], { "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, never, ["*"], false>;
 }
