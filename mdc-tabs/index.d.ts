@@ -31,7 +31,7 @@ import { _MatTabHeaderBase } from '@angular/material/tabs';
 import { MatTabHeaderPosition } from '@angular/material/tabs';
 import { MatTabLabel as MatTabLabel_2 } from '@angular/material/tabs';
 import { MatTabLabelWrapper as MatTabLabelWrapper_2 } from '@angular/material/tabs';
-import { _MatTabLinkBase } from '@angular/material/tabs';
+import { _MatTabLinkBase as _MatTabLinkBase_2 } from '@angular/material/tabs';
 import { _MatTabNavBase } from '@angular/material/tabs';
 import { matTabsAnimations } from '@angular/material/tabs';
 import { MatTabsConfig } from '@angular/material/tabs';
@@ -121,55 +121,14 @@ export declare class MatInkBar {
 }
 
 /**
- * Implementation of MDC's sliding tab indicator (ink bar) foundation.
- * @docs-private
- */
-declare class MatInkBarFoundation {
-    private _hostElement;
-    private _document;
-    private _destroyed;
-    private _foundation;
-    private _inkBarElement;
-    private _inkBarContentElement;
-    private _fitToContent;
-    private _adapter;
-    constructor(_hostElement: HTMLElement, _document: Document);
-    /** Aligns the ink bar to the current item. */
-    activate(clientRect?: ClientRect): void;
-    /** Removes the ink bar from the current item. */
-    deactivate(): void;
-    /** Gets the ClientRect of the ink bar. */
-    computeContentClientRect(): DOMRect;
-    /** Initializes the foundation. */
-    init(): void;
-    /** Destroys the foundation. */
-    destroy(): void;
-    /**
-     * Sets whether the ink bar should be appended to the content, which will cause the ink bar
-     * to match the width of the content rather than the tab host element.
-     */
-    setFitToContent(fitToContent: boolean): void;
-    /**
-     * Gets whether the ink bar should be appended to the content, which will cause the ink bar
-     * to match the width of the content rather than the tab host element.
-     */
-    getFitToContent(): boolean;
-    /** Creates and appends the ink bar element. */
-    private _createInkBarElement;
-    /**
-     * Appends the ink bar to the tab host element or content, depending on whether
-     * the ink bar should fit to content.
-     */
-    private _appendInkBarElement;
-}
-
-/**
  * Item inside a tab header relative to which the ink bar can be aligned.
  * @docs-private
  */
-declare interface MatInkBarItem {
-    _foundation: MatInkBarFoundation;
+declare interface MatInkBarItem extends OnInit, OnDestroy {
     elementRef: ElementRef<HTMLElement>;
+    activateInkBar(previousIndicatorClientRect?: ClientRect): void;
+    deactivateInkBar(): void;
+    fitInkBarToContent: boolean;
 }
 
 export { _MatInkBarPositioner }
@@ -274,32 +233,25 @@ export declare class MatTabLabel extends MatTabLabel_2 {
  * Used in the `mat-tab-group` view to display tab labels.
  * @docs-private
  */
-export declare class MatTabLabelWrapper extends MatTabLabelWrapper_2 implements MatInkBarItem, OnInit, OnDestroy {
-    private _document;
-    _foundation: MatInkBarFoundation;
-    /** Whether the ink bar should fit its width to the size of the tab label content. */
-    get fitInkBarToContent(): boolean;
-    set fitInkBarToContent(v: BooleanInput);
-    constructor(elementRef: ElementRef, _document: any);
-    ngOnInit(): void;
-    ngOnDestroy(): void;
+export declare class MatTabLabelWrapper extends _MatTabLabelWrapperBase implements MatInkBarItem {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLabelWrapper, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatTabLabelWrapper, "[matTabLabelWrapper]", never, { "disabled": "disabled"; "fitInkBarToContent": "fitInkBarToContent"; }, {}, never, never, false>;
 }
 
+declare const _MatTabLabelWrapperBase: typeof MatTabLabelWrapper_2 & (new (...args: any[]) => MatInkBarItem);
+
 /**
  * Link inside of a `mat-tab-nav-bar`.
  */
-export declare class MatTabLink extends _MatTabLinkBase implements MatInkBarItem, OnInit, OnDestroy {
-    private _document;
-    _foundation: MatInkBarFoundation;
+export declare class MatTabLink extends _MatTabLinkBase implements MatInkBarItem, OnDestroy {
     private readonly _destroyed;
-    constructor(tabNavBar: MatTabNav, elementRef: ElementRef, globalRippleOptions: RippleGlobalOptions | null, tabIndex: string, focusMonitor: FocusMonitor, _document: any, animationMode?: string);
-    ngOnInit(): void;
+    constructor(tabNavBar: MatTabNav, elementRef: ElementRef, globalRippleOptions: RippleGlobalOptions | null, tabIndex: string, focusMonitor: FocusMonitor, animationMode?: string);
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLink, [null, null, { optional: true; }, { attribute: "tabindex"; }, null, null, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabLink, "[mat-tab-link], [matTabLink]", ["matTabLink"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; }, {}, never, ["*"], false>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatTabLink, [null, null, { optional: true; }, { attribute: "tabindex"; }, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatTabLink, "[mat-tab-link], [matTabLink]", ["matTabLink"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "active": "active"; "id": "id"; }, {}, never, ["*"], false>;
 }
+
+declare const _MatTabLinkBase: typeof _MatTabLinkBase_2 & (new (...args: any[]) => MatInkBarItem);
 
 /**
  * Navigation component matching the styles of the tab group header.

@@ -1,7 +1,7 @@
 import * as i1$2 from '@angular/common';
 import { DOCUMENT, CommonModule } from '@angular/common';
 import * as i0 from '@angular/core';
-import { forwardRef, Directive, Inject, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, ViewChild, Input, TemplateRef, ContentChild, ContentChildren, Attribute, NgModule } from '@angular/core';
+import { forwardRef, Directive, Inject, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, ViewChild, TemplateRef, ContentChild, ContentChildren, Input, Attribute, NgModule } from '@angular/core';
 import * as i4 from '@angular/material-experimental/mdc-core';
 import { MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 import * as i2 from '@angular/cdk/portal';
@@ -10,10 +10,9 @@ import * as i5 from '@angular/cdk/observers';
 import { ObserversModule } from '@angular/cdk/observers';
 import * as i6 from '@angular/cdk/a11y';
 import { A11yModule } from '@angular/cdk/a11y';
-import { MatTabBodyPortal as MatTabBodyPortal$1, _MatTabBodyBase, matTabsAnimations, MatTabContent as MatTabContent$1, MatTabLabel as MatTabLabel$1, MatTabLabelWrapper as MatTabLabelWrapper$1, MatTab as MatTab$1, MAT_TAB, _MatTabHeaderBase, _MatTabGroupBase, MAT_TABS_CONFIG, MAT_TAB_GROUP, _MatTabNavBase, _MatTabLinkBase } from '@angular/material/tabs';
+import { MatTabBodyPortal as MatTabBodyPortal$1, _MatTabBodyBase, matTabsAnimations, MatTabContent as MatTabContent$1, MatTabLabel as MatTabLabel$1, MatTabLabelWrapper as MatTabLabelWrapper$1, MatTab as MatTab$1, MAT_TAB, _MatTabHeaderBase, _MatTabGroupBase, MAT_TABS_CONFIG, MAT_TAB_GROUP, _MatTabLinkBase as _MatTabLinkBase$1, _MatTabNavBase } from '@angular/material/tabs';
 export { MAT_TAB, MAT_TABS_CONFIG, MAT_TAB_GROUP, MatTabChangeEvent, _MAT_INK_BAR_POSITIONER, matTabsAnimations } from '@angular/material/tabs';
 import * as i1 from '@angular/cdk/bidi';
-import { MDCSlidingTabIndicatorFoundation } from '@material/tab-indicator';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import * as i1$1 from '@angular/cdk/scrolling';
 import * as i3 from '@angular/cdk/platform';
@@ -117,6 +116,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-rc.0", ng
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/** Class that is applied when a tab indicator is active. */
+const ACTIVE_CLASS = 'mdc-tab-indicator--active';
+/** Class that is applied when the tab indicator should not transition. */
+const NO_TRANSITION_CLASS = 'mdc-tab-indicator--no-transition';
 /**
  * Abstraction around the MDC tab indicator that acts as the tab header's ink bar.
  * @docs-private
@@ -127,137 +130,112 @@ class MatInkBar {
     }
     /** Hides the ink bar. */
     hide() {
-        this._items.forEach(item => item._foundation.deactivate());
+        this._items.forEach(item => item.deactivateInkBar());
     }
     /** Aligns the ink bar to a DOM node. */
     alignToElement(element) {
         const correspondingItem = this._items.find(item => item.elementRef.nativeElement === element);
         const currentItem = this._currentItem;
-        if (currentItem) {
-            currentItem._foundation.deactivate();
-        }
+        currentItem?.deactivateInkBar();
         if (correspondingItem) {
-            const clientRect = currentItem
-                ? currentItem._foundation.computeContentClientRect()
-                : undefined;
+            const clientRect = currentItem?.elementRef.nativeElement.getBoundingClientRect?.();
             // The ink bar won't animate unless we give it the `ClientRect` of the previous item.
-            correspondingItem._foundation.activate(clientRect);
+            correspondingItem.activateInkBar(clientRect);
             this._currentItem = correspondingItem;
         }
     }
 }
 /**
- * Implementation of MDC's sliding tab indicator (ink bar) foundation.
+ * Mixin that can be used to apply the `MatInkBarItem` behavior to a class.
+ * Base on MDC's `MDCSlidingTabIndicatorFoundation`:
+ * https://github.com/material-components/material-components-web/blob/c0a11ef0d000a098fd0c372be8f12d6a99302855/packages/mdc-tab-indicator/sliding-foundation.ts
  * @docs-private
  */
-class MatInkBarFoundation {
-    constructor(_hostElement, _document) {
-        this._hostElement = _hostElement;
-        this._document = _document;
-        this._fitToContent = false;
-        this._adapter = {
-            addClass: className => {
-                if (!this._destroyed) {
-                    this._hostElement.classList.add(className);
+function mixinInkBarItem(base) {
+    return class extends base {
+        constructor(...args) {
+            super(...args);
+            this._fitToContent = false;
+        }
+        /** Whether the ink bar should fit to the entire tab or just its content. */
+        get fitInkBarToContent() {
+            return this._fitToContent;
+        }
+        set fitInkBarToContent(v) {
+            const newValue = coerceBooleanProperty(v);
+            if (this._fitToContent !== newValue) {
+                this._fitToContent = newValue;
+                if (this._inkBarElement) {
+                    this._appendInkBarElement();
                 }
-            },
-            removeClass: className => {
-                if (!this._destroyed) {
-                    this._hostElement.classList.remove(className);
-                }
-            },
-            setContentStyleProperty: (propName, value) => {
-                if (!this._destroyed) {
-                    this._inkBarContentElement.style.setProperty(propName, value);
-                }
-            },
-            computeContentClientRect: () => {
-                // `getBoundingClientRect` isn't available on the server.
-                return this._destroyed || !this._inkBarContentElement.getBoundingClientRect
-                    ? {
-                        width: 0,
-                        height: 0,
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        x: 0,
-                        y: 0,
-                    }
-                    : this._inkBarContentElement.getBoundingClientRect();
-            },
-        };
-        this._foundation = new MDCSlidingTabIndicatorFoundation(this._adapter);
-    }
-    /** Aligns the ink bar to the current item. */
-    activate(clientRect) {
-        this._foundation.activate(clientRect);
-    }
-    /** Removes the ink bar from the current item. */
-    deactivate() {
-        this._foundation.deactivate();
-    }
-    /** Gets the ClientRect of the ink bar. */
-    computeContentClientRect() {
-        return this._foundation.computeContentClientRect();
-    }
-    /** Initializes the foundation. */
-    init() {
-        this._createInkBarElement();
-        this._foundation.init();
-    }
-    /** Destroys the foundation. */
-    destroy() {
-        this._inkBarElement.remove();
-        this._hostElement = this._inkBarElement = this._inkBarContentElement = null;
-        this._foundation.destroy();
-        this._destroyed = true;
-    }
-    /**
-     * Sets whether the ink bar should be appended to the content, which will cause the ink bar
-     * to match the width of the content rather than the tab host element.
-     */
-    setFitToContent(fitToContent) {
-        if (this._fitToContent !== fitToContent) {
-            this._fitToContent = fitToContent;
-            if (this._inkBarElement) {
-                this._appendInkBarElement();
             }
         }
-    }
-    /**
-     * Gets whether the ink bar should be appended to the content, which will cause the ink bar
-     * to match the width of the content rather than the tab host element.
-     */
-    getFitToContent() {
-        return this._fitToContent;
-    }
-    /** Creates and appends the ink bar element. */
-    _createInkBarElement() {
-        this._inkBarElement = this._document.createElement('span');
-        this._inkBarContentElement = this._document.createElement('span');
-        this._inkBarElement.className = 'mdc-tab-indicator';
-        this._inkBarContentElement.className =
-            'mdc-tab-indicator__content' + ' mdc-tab-indicator__content--underline';
-        this._inkBarElement.appendChild(this._inkBarContentElement);
-        this._appendInkBarElement();
-    }
-    /**
-     * Appends the ink bar to the tab host element or content, depending on whether
-     * the ink bar should fit to content.
-     */
-    _appendInkBarElement() {
-        if (!this._inkBarElement && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-            throw Error('Ink bar element has not been created and cannot be appended');
+        /** Aligns the ink bar to the current item. */
+        activateInkBar(previousIndicatorClientRect) {
+            const element = this.elementRef.nativeElement;
+            // Early exit if no indicator is present to handle cases where an indicator
+            // may be activated without a prior indicator state
+            if (!previousIndicatorClientRect ||
+                !element.getBoundingClientRect ||
+                !this._inkBarContentElement) {
+                element.classList.add(ACTIVE_CLASS);
+                return;
+            }
+            // This animation uses the FLIP approach. You can read more about it at the link below:
+            // https://aerotwist.com/blog/flip-your-animations/
+            // Calculate the dimensions based on the dimensions of the previous indicator
+            const currentClientRect = element.getBoundingClientRect();
+            const widthDelta = previousIndicatorClientRect.width / currentClientRect.width;
+            const xPosition = previousIndicatorClientRect.left - currentClientRect.left;
+            element.classList.add(NO_TRANSITION_CLASS);
+            this._inkBarContentElement.style.setProperty('transform', `translateX(${xPosition}px) scaleX(${widthDelta})`);
+            // Force repaint before updating classes and transform to ensure the transform properly takes effect
+            element.getBoundingClientRect();
+            element.classList.remove(NO_TRANSITION_CLASS);
+            element.classList.add(ACTIVE_CLASS);
+            this._inkBarContentElement.style.setProperty('transform', '');
         }
-        const parentElement = this._fitToContent
-            ? this._hostElement.querySelector('.mdc-tab__content')
-            : this._hostElement;
-        if (!parentElement && (typeof ngDevMode === 'undefined' || ngDevMode)) {
-            throw Error('Missing element to host the ink bar');
+        /** Removes the ink bar from the current item. */
+        deactivateInkBar() {
+            this.elementRef.nativeElement.classList.remove(ACTIVE_CLASS);
         }
-        parentElement.appendChild(this._inkBarElement);
-    }
+        /** Initializes the foundation. */
+        ngOnInit() {
+            this._createInkBarElement();
+        }
+        /** Destroys the foundation. */
+        ngOnDestroy() {
+            this._inkBarElement?.remove();
+            this._inkBarElement = this._inkBarContentElement = null;
+        }
+        /** Creates and appends the ink bar element. */
+        _createInkBarElement() {
+            const documentNode = this.elementRef.nativeElement.ownerDocument || document;
+            this._inkBarElement = documentNode.createElement('span');
+            this._inkBarContentElement = documentNode.createElement('span');
+            this._inkBarElement.className = 'mdc-tab-indicator';
+            this._inkBarContentElement.className =
+                'mdc-tab-indicator__content mdc-tab-indicator__content--underline';
+            this._inkBarElement.appendChild(this._inkBarContentElement);
+            this._appendInkBarElement();
+        }
+        /**
+         * Appends the ink bar to the tab host element or content, depending on whether
+         * the ink bar should fit to content.
+         */
+        _appendInkBarElement() {
+            if (!this._inkBarElement && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+                throw Error('Ink bar element has not been created and cannot be appended');
+            }
+            const parentElement = this._fitToContent
+                ? this.elementRef.nativeElement.querySelector('.mdc-tab__content')
+                : this.elementRef.nativeElement;
+            if (!parentElement && (typeof ngDevMode === 'undefined' || ngDevMode)) {
+                throw Error('Missing element to host the ink bar');
+            }
+            parentElement.appendChild(this._inkBarElement);
+        }
+    };
 }
 
 /**
@@ -267,48 +245,26 @@ class MatInkBarFoundation {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+const _MatTabLabelWrapperBase = mixinInkBarItem(MatTabLabelWrapper$1);
 /**
  * Used in the `mat-tab-group` view to display tab labels.
  * @docs-private
  */
-class MatTabLabelWrapper extends MatTabLabelWrapper$1 {
-    constructor(elementRef, _document) {
-        super(elementRef);
-        this._document = _document;
-        this._foundation = new MatInkBarFoundation(elementRef.nativeElement, this._document);
-    }
-    /** Whether the ink bar should fit its width to the size of the tab label content. */
-    get fitInkBarToContent() {
-        return this._foundation.getFitToContent();
-    }
-    set fitInkBarToContent(v) {
-        this._foundation.setFitToContent(coerceBooleanProperty(v));
-    }
-    ngOnInit() {
-        this._foundation.init();
-    }
-    ngOnDestroy() {
-        this._foundation.destroy();
-    }
+class MatTabLabelWrapper extends _MatTabLabelWrapperBase {
 }
-MatTabLabelWrapper.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-rc.0", ngImport: i0, type: MatTabLabelWrapper, deps: [{ token: i0.ElementRef }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Directive });
+MatTabLabelWrapper.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-rc.0", ngImport: i0, type: MatTabLabelWrapper, deps: null, target: i0.ɵɵFactoryTarget.Directive });
 MatTabLabelWrapper.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.0.0-rc.0", type: MatTabLabelWrapper, selector: "[matTabLabelWrapper]", inputs: { disabled: "disabled", fitInkBarToContent: "fitInkBarToContent" }, host: { properties: { "class.mat-mdc-tab-disabled": "disabled", "attr.aria-disabled": "!!disabled" } }, usesInheritance: true, ngImport: i0 });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-rc.0", ngImport: i0, type: MatTabLabelWrapper, decorators: [{
             type: Directive,
             args: [{
                     selector: '[matTabLabelWrapper]',
-                    inputs: ['disabled'],
+                    inputs: ['disabled', 'fitInkBarToContent'],
                     host: {
                         '[class.mat-mdc-tab-disabled]': 'disabled',
                         '[attr.aria-disabled]': '!!disabled',
                     },
                 }]
-        }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: undefined, decorators: [{
-                    type: Inject,
-                    args: [DOCUMENT]
-                }] }]; }, propDecorators: { fitInkBarToContent: [{
-                type: Input
-            }] } });
+        }] });
 
 /**
  * @license
@@ -489,6 +445,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-rc.0", ng
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+const _MatTabLinkBase = mixinInkBarItem(_MatTabLinkBase$1);
 /**
  * Navigation component matching the styles of the tab group header.
  * Provides anchored navigation with animated ink bar.
@@ -587,30 +544,24 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-rc.0", ng
  * Link inside of a `mat-tab-nav-bar`.
  */
 class MatTabLink extends _MatTabLinkBase {
-    constructor(tabNavBar, elementRef, globalRippleOptions, tabIndex, focusMonitor, _document, animationMode) {
+    constructor(tabNavBar, elementRef, globalRippleOptions, tabIndex, focusMonitor, animationMode) {
         super(tabNavBar, elementRef, globalRippleOptions, tabIndex, focusMonitor, animationMode);
-        this._document = _document;
-        this._foundation = new MatInkBarFoundation(this.elementRef.nativeElement, this._document);
         this._destroyed = new Subject();
         tabNavBar._fitInkBarToContent.pipe(takeUntil(this._destroyed)).subscribe(fitInkBarToContent => {
-            this._foundation.setFitToContent(fitInkBarToContent);
+            this.fitInkBarToContent = fitInkBarToContent;
         });
-    }
-    ngOnInit() {
-        this._foundation.init();
     }
     ngOnDestroy() {
         this._destroyed.next();
         this._destroyed.complete();
         super.ngOnDestroy();
-        this._foundation.destroy();
     }
 }
-MatTabLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-rc.0", ngImport: i0, type: MatTabLink, deps: [{ token: MatTabNav }, { token: i0.ElementRef }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: 'tabindex', attribute: true }, { token: i6.FocusMonitor }, { token: DOCUMENT }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
-MatTabLink.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.0.0-rc.0", type: MatTabLink, selector: "[mat-tab-link], [matTabLink]", inputs: { disabled: "disabled", disableRipple: "disableRipple", tabIndex: "tabIndex" }, host: { listeners: { "focus": "_handleFocus()", "keydown": "_handleKeydown($event)" }, properties: { "attr.aria-controls": "_getAriaControls()", "attr.aria-current": "_getAriaCurrent()", "attr.aria-disabled": "disabled", "attr.aria-selected": "_getAriaSelected()", "attr.id": "id", "attr.tabIndex": "_getTabIndex()", "attr.role": "_getRole()", "class.mat-mdc-tab-disabled": "disabled", "class.mdc-tab--active": "active" }, classAttribute: "mdc-tab mat-mdc-tab-link mat-mdc-focus-indicator" }, exportAs: ["matTabLink"], usesInheritance: true, ngImport: i0, template: "<span class=\"mdc-tab__ripple\"></span>\n\n<div\n  class=\"mat-mdc-tab-ripple\"\n  mat-ripple\n  [matRippleTrigger]=\"elementRef.nativeElement\"\n  [matRippleDisabled]=\"rippleDisabled\"></div>\n\n<span class=\"mdc-tab__content\">\n  <span class=\"mdc-tab__text-label\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n", styles: [".mat-mdc-tab-link.mdc-tab{height:48px;flex-grow:0}.mat-mdc-tab-link .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none}.mat-mdc-tab-link .mdc-tab__content{position:relative}.mat-mdc-tab-link:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab-link.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab-link.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.cdk-high-contrast-active .mat-mdc-tab-link.cdk-program-focused,.cdk-high-contrast-active .mat-mdc-tab-link.cdk-keyboard-focused{outline:dotted 2px;outline-offset:-2px}.cdk-high-contrast-active :host .mat-mdc-tab-link.cdk-program-focused,.cdk-high-contrast-active :host .mat-mdc-tab-link.cdk-keyboard-focused{outline:dotted 2px;outline-offset:-2px}.mat-mdc-tab-link .mat-ripple-element{opacity:.12}.mat-mdc-tab-link.mat-mdc-tab-disabled{pointer-events:none;opacity:.4}.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link{flex-grow:1}@media(max-width: 599px){.mat-mdc-tab-link{min-width:72px}}"], dependencies: [{ kind: "directive", type: i4.MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
+MatTabLink.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.0-rc.0", ngImport: i0, type: MatTabLink, deps: [{ token: MatTabNav }, { token: i0.ElementRef }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: 'tabindex', attribute: true }, { token: i6.FocusMonitor }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
+MatTabLink.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "14.0.0-rc.0", type: MatTabLink, selector: "[mat-tab-link], [matTabLink]", inputs: { disabled: "disabled", disableRipple: "disableRipple", tabIndex: "tabIndex", active: "active", id: "id" }, host: { listeners: { "focus": "_handleFocus()", "keydown": "_handleKeydown($event)" }, properties: { "attr.aria-controls": "_getAriaControls()", "attr.aria-current": "_getAriaCurrent()", "attr.aria-disabled": "disabled", "attr.aria-selected": "_getAriaSelected()", "attr.id": "id", "attr.tabIndex": "_getTabIndex()", "attr.role": "_getRole()", "class.mat-mdc-tab-disabled": "disabled", "class.mdc-tab--active": "active" }, classAttribute: "mdc-tab mat-mdc-tab-link mat-mdc-focus-indicator" }, exportAs: ["matTabLink"], usesInheritance: true, ngImport: i0, template: "<span class=\"mdc-tab__ripple\"></span>\n\n<div\n  class=\"mat-mdc-tab-ripple\"\n  mat-ripple\n  [matRippleTrigger]=\"elementRef.nativeElement\"\n  [matRippleDisabled]=\"rippleDisabled\"></div>\n\n<span class=\"mdc-tab__content\">\n  <span class=\"mdc-tab__text-label\">\n    <ng-content></ng-content>\n  </span>\n</span>\n\n", styles: [".mat-mdc-tab-link.mdc-tab{height:48px;flex-grow:0}.mat-mdc-tab-link .mdc-tab__ripple::before{content:\"\";display:block;position:absolute;top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:none}.mat-mdc-tab-link .mdc-tab__content{position:relative}.mat-mdc-tab-link:hover .mdc-tab__ripple::before{opacity:.04}.mat-mdc-tab-link.cdk-program-focused .mdc-tab__ripple::before,.mat-mdc-tab-link.cdk-keyboard-focused .mdc-tab__ripple::before{opacity:.12}.cdk-high-contrast-active .mat-mdc-tab-link.cdk-program-focused,.cdk-high-contrast-active .mat-mdc-tab-link.cdk-keyboard-focused{outline:dotted 2px;outline-offset:-2px}.cdk-high-contrast-active :host .mat-mdc-tab-link.cdk-program-focused,.cdk-high-contrast-active :host .mat-mdc-tab-link.cdk-keyboard-focused{outline:dotted 2px;outline-offset:-2px}.mat-mdc-tab-link .mat-ripple-element{opacity:.12}.mat-mdc-tab-link.mat-mdc-tab-disabled{pointer-events:none;opacity:.4}.mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs .mat-mdc-tab-link{flex-grow:1}@media(max-width: 599px){.mat-mdc-tab-link{min-width:72px}}"], dependencies: [{ kind: "directive", type: i4.MatRipple, selector: "[mat-ripple], [matRipple]", inputs: ["matRippleColor", "matRippleUnbounded", "matRippleCentered", "matRippleRadius", "matRippleAnimation", "matRippleDisabled", "matRippleTrigger"], exportAs: ["matRipple"] }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-rc.0", ngImport: i0, type: MatTabLink, decorators: [{
             type: Component,
-            args: [{ selector: '[mat-tab-link], [matTabLink]', exportAs: 'matTabLink', inputs: ['disabled', 'disableRipple', 'tabIndex'], changeDetection: ChangeDetectionStrategy.OnPush, encapsulation: ViewEncapsulation.None, host: {
+            args: [{ selector: '[mat-tab-link], [matTabLink]', exportAs: 'matTabLink', inputs: ['disabled', 'disableRipple', 'tabIndex', 'active', 'id'], changeDetection: ChangeDetectionStrategy.OnPush, encapsulation: ViewEncapsulation.None, host: {
                         'class': 'mdc-tab mat-mdc-tab-link mat-mdc-focus-indicator',
                         '[attr.aria-controls]': '_getAriaControls()',
                         '[attr.aria-current]': '_getAriaCurrent()',
@@ -633,9 +584,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.0-rc.0", ng
                     type: Attribute,
                     args: ['tabindex']
                 }] }, { type: i6.FocusMonitor }, { type: undefined, decorators: [{
-                    type: Inject,
-                    args: [DOCUMENT]
-                }] }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
