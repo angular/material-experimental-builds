@@ -314,6 +314,8 @@ export declare class MatNavListItemHarness extends MatListItemHarnessBase {
     blur(): Promise<void>;
     /** Whether the nav list item is focused. */
     isFocused(): Promise<boolean>;
+    /** Whether the list item is activated. Should only be used for nav list items. */
+    isActivated(): Promise<boolean>;
 }
 
 /** Harness for interacting with a MDC_based selection-list in tests. */
@@ -357,6 +359,7 @@ export declare interface NavListHarnessFilters extends BaseHarnessFilters {
 
 export declare interface NavListItemHarnessFilters extends BaseListItemHarnessFilters {
     href?: string | RegExp | null;
+    activated?: boolean;
 }
 
 export declare interface SelectionListHarnessFilters extends BaseHarnessFilters {

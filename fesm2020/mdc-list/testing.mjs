@@ -378,7 +378,9 @@ class MatNavListItemHarness extends MatListItemHarnessBase {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return getListItemPredicate(this, options).addOption('href', options.href, async (harness, href) => HarnessPredicate.stringMatches(harness.getHref(), href));
+        return getListItemPredicate(this, options)
+            .addOption('href', options.href, async (harness, href) => HarnessPredicate.stringMatches(harness.getHref(), href))
+            .addOption('activated', options.activated, async (harness, activated) => (await harness.isActivated()) === activated);
     }
     /** Gets the href for this nav list item. */
     async getHref() {
@@ -399,6 +401,10 @@ class MatNavListItemHarness extends MatListItemHarnessBase {
     /** Whether the nav list item is focused. */
     async isFocused() {
         return (await this.host()).isFocused();
+    }
+    /** Whether the list item is activated. Should only be used for nav list items. */
+    async isActivated() {
+        return (await this.host()).hasClass('mdc-list-item--activated');
     }
 }
 /** The selector for the host element of a `MatListItem` instance. */
