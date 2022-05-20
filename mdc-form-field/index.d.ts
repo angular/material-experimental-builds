@@ -19,9 +19,7 @@ import { _MAT_HINT } from '@angular/material/form-field';
 import { matFormFieldAnimations } from '@angular/material/form-field';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatPlaceholder } from '@angular/material/form-field';
-import { MDCLineRipple } from '@material/line-ripple';
 import { NgZone } from '@angular/core';
-import { OnChanges } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 import { QueryList } from '@angular/core';
@@ -202,9 +200,7 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
     private _destroyed;
     private _isFocused;
     private _explicitFormFieldControl;
-    private _foundation;
     private _needsOutlineLabelOffsetUpdateOnStable;
-    private _adapter;
     constructor(_elementRef: ElementRef, _changeDetectorRef: ChangeDetectorRef, _ngZone: NgZone, _dir: Directionality, _platform: Platform, _defaults?: MatFormFieldDefaultOptions | undefined, _animationMode?: string | undefined, _document?: any);
     ngAfterViewInit(): void;
     ngAfterContentInit(): void;
@@ -341,7 +337,7 @@ declare class MatFormFieldFloatingLabel {
     private _elementRef;
     /** Whether the label is floating. */
     floating: boolean;
-    constructor(_elementRef: ElementRef);
+    constructor(_elementRef: ElementRef<HTMLElement>);
     /** Gets the width of the label. Used for the outline notch. */
     getWidth(): number;
     /** Gets the HTML element for the floating label. */
@@ -358,8 +354,12 @@ declare class MatFormFieldFloatingLabel {
  * The directive sets up the styles for the line-ripple and provides an API for activating
  * and deactivating the line-ripple.
  */
-declare class MatFormFieldLineRipple extends MDCLineRipple implements OnDestroy {
-    constructor(elementRef: ElementRef);
+declare class MatFormFieldLineRipple implements OnDestroy {
+    private _elementRef;
+    constructor(_elementRef: ElementRef<HTMLElement>, ngZone: NgZone);
+    activate(): void;
+    deactivate(): void;
+    private _handleTransitionEnd;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldLineRipple, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatFormFieldLineRipple, "div[matFormFieldLineRipple]", never, {}, {}, never, never, false>;
@@ -372,29 +372,21 @@ export declare class MatFormFieldModule {
 }
 
 /**
- * Internal component that creates an instance of the MDC notched-outline component. Using
- * a directive allows us to conditionally render a notched-outline in the template without
- * having to manually create and destroy the `MDCNotchedOutline` component whenever the
- * appearance changes.
+ * Internal component that creates an instance of the MDC notched-outline component.
  *
  * The component sets up the HTML structure and styles for the notched-outline. It provides
  * inputs to toggle the notch state and width.
  */
-declare class MatFormFieldNotchedOutline implements AfterViewInit, OnChanges, OnDestroy {
+declare class MatFormFieldNotchedOutline implements AfterViewInit {
     private _elementRef;
-    private _platform;
+    private _ngZone;
     /** Width of the notch. */
     width: number;
     /** Whether the notch should be opened. */
     open: boolean;
-    /** Instance of the MDC notched outline. */
-    private _mdcNotchedOutline;
-    constructor(_elementRef: ElementRef, _platform: Platform);
+    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone);
     ngAfterViewInit(): void;
-    ngOnChanges(): void;
-    ngOnDestroy(): void;
-    /** Synchronizes the notched outline state to be based on the `width` and `open` inputs. */
-    private _syncNotchedOutlineState;
+    _getNotchWidth(): string | null;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldNotchedOutline, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatFormFieldNotchedOutline, "div[matFormFieldNotchedOutline]", never, { "width": "matFormFieldNotchedOutlineWidth"; "open": "matFormFieldNotchedOutlineOpen"; }, {}, never, ["*"], false>;
 }
