@@ -1,4 +1,5 @@
 import { _AbstractConstructor } from '@angular/material-experimental/mdc-core';
+import { ActionInteractionEvent } from '@material/chips';
 import { AfterContentInit } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { BooleanInput } from '@angular/cdk/coercion';
@@ -14,7 +15,6 @@ import { DoCheck } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material-experimental/mdc-core';
 import { EventEmitter } from '@angular/core';
-import { FocusKeyManager } from '@angular/cdk/a11y';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { FormGroupDirective } from '@angular/forms';
 import { HasTabIndex } from '@angular/material-experimental/mdc-core';
@@ -22,10 +22,19 @@ import * as i0 from '@angular/core';
 import * as i11 from '@angular/material-experimental/mdc-core';
 import * as i12 from '@angular/common';
 import { InjectionToken } from '@angular/core';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatChipAvatar as MatChipAvatar_2 } from '@angular/material-experimental/mdc-chips';
 import { MatFormField } from '@angular/material-experimental/mdc-form-field';
 import { MatFormFieldControl } from '@angular/material-experimental/mdc-form-field';
 import { MatRipple } from '@angular/material-experimental/mdc-core';
+import { MDCChipActionAdapter } from '@material/chips';
+import { MDCChipActionFoundation } from '@material/chips';
+import { MDCChipActionType } from '@material/chips';
+import { MDCChipAdapter } from '@material/chips';
+import { MDCChipFoundation } from '@material/chips';
+import { MDCChipSetAdapter } from '@material/chips';
+import { MDCChipSetFoundation } from '@material/chips';
+import { MDCChipTrailingActionFoundation } from '@material/chips';
 import { NgControl } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { NgZone } from '@angular/core';
@@ -35,6 +44,7 @@ import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { QueryList } from '@angular/core';
 import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
+import { SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
 
 declare namespace i1 {
@@ -58,8 +68,11 @@ declare namespace i2 {
 
 declare namespace i3 {
     export {
+        MAT_CHIP_AVATAR,
         MatChipAvatar,
+        MAT_CHIP_TRAILING_ICON,
         MatChipTrailingIcon,
+        MAT_CHIP_REMOVE,
         MatChipRemove
     }
 }
@@ -107,16 +120,11 @@ declare namespace i9 {
 }
 
 /**
- * Injection token used to avoid a circular dependency between the `MatChip` and `MatChipAction`.
- */
-export declare const MAT_CHIP: InjectionToken<unknown>;
-
-/**
  * Injection token that can be used to reference instances of `MatChipAvatar`. It serves as
  * alternative token to the actual `MatChipAvatar` class which could cause unnecessary
  * retention of the class and its directive metadata.
  */
-export declare const MAT_CHIP_AVATAR: InjectionToken<unknown>;
+export declare const MAT_CHIP_AVATAR: InjectionToken<MatChipAvatar>;
 
 /**
  * Provider Expression that allows mat-chip-listbox to register as a ControlValueAccessor.
@@ -130,14 +138,14 @@ export declare const MAT_CHIP_LISTBOX_CONTROL_VALUE_ACCESSOR: any;
  * alternative token to the actual `MatChipRemove` class which could cause unnecessary
  * retention of the class and its directive metadata.
  */
-export declare const MAT_CHIP_REMOVE: InjectionToken<unknown>;
+export declare const MAT_CHIP_REMOVE: InjectionToken<MatChipRemove>;
 
 /**
  * Injection token that can be used to reference instances of `MatChipTrailingIcon`. It serves as
  * alternative token to the actual `MatChipTrailingIcon` class which could cause unnecessary
  * retention of the class and its directive metadata.
  */
-export declare const MAT_CHIP_TRAILING_ICON: InjectionToken<unknown>;
+export declare const MAT_CHIP_TRAILING_ICON: InjectionToken<MatChipTrailingIcon>;
 
 /** Injection token to be used to override the default options for the chips module. */
 export declare const MAT_CHIPS_DEFAULT_OPTIONS: InjectionToken<MatChipsDefaultOptions>;
@@ -151,6 +159,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterViewInit,
     _changeDetectorRef: ChangeDetectorRef;
     protected _ngZone: NgZone;
     private _focusMonitor;
+    private _dir;
     private _globalRippleOptions?;
     protected _document: Document;
     /** Whether the ripple is centered on the chip. */
@@ -164,7 +173,7 @@ export declare class MatChip extends _MatChipMixinBase implements AfterViewInit,
     /** Role for the root of the chip. */
     role: string | null;
     /** Whether the chip has focus. */
-    private _hasFocusInternal;
+    protected _hasFocusInternal: boolean;
     /** Whether moving focus into the chip is pending. */
     private _pendingFocus;
     /** Whether animations for the chip are enabled. */
@@ -174,6 +183,9 @@ export declare class MatChip extends _MatChipMixinBase implements AfterViewInit,
     id: string;
     /** ARIA label for the content of the chip. */
     ariaLabel: string | null;
+    get disabled(): boolean;
+    set disabled(value: BooleanInput);
+    protected _disabled: boolean;
     private _textElement;
     /**
      * The value of the chip. Defaults to the content inside
@@ -198,6 +210,8 @@ export declare class MatChip extends _MatChipMixinBase implements AfterViewInit,
     readonly removed: EventEmitter<MatChipEvent>;
     /** Emitted when the chip is destroyed. */
     readonly destroyed: EventEmitter<MatChipEvent>;
+    /** The MDC foundation containing business logic for MDC chip. */
+    _chipFoundation: MDCChipFoundation;
     /** The unstyled chip selector for this component. */
     protected basicChipAttrName: string;
     /** The chip's leading icon. */
@@ -210,7 +224,12 @@ export declare class MatChip extends _MatChipMixinBase implements AfterViewInit,
     ripple: MatRipple;
     /** Action receiving the primary set of user interactions. */
     primaryAction: MatChipAction;
-    constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _focusMonitor: FocusMonitor, _document: any, animationMode?: string, _globalRippleOptions?: RippleGlobalOptions | undefined, tabIndex?: string);
+    /**
+     * Implementation of the MDC chip adapter interface.
+     * These methods are called by the chip foundation.
+     */
+    protected _chipAdapter: MDCChipAdapter;
+    constructor(_changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _focusMonitor: FocusMonitor, _document: any, _dir: Directionality, animationMode?: string, _globalRippleOptions?: RippleGlobalOptions | undefined, tabIndex?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     /**
@@ -219,62 +238,54 @@ export declare class MatChip extends _MatChipMixinBase implements AfterViewInit,
      * Informs any listeners of the removal request. Does not remove the chip from the DOM.
      */
     remove(): void;
+    /** Sets whether the given CSS class should be applied to the MDC chip. */
+    private _setMdcClass;
     /** Whether or not the ripple should be disabled. */
     _isRippleDisabled(): boolean;
-    /** Returns whether the chip has a trailing icon. */
+    _getAction(type: MDCChipActionType): MDCChipActionFoundation | undefined;
+    _getFoundation(): MDCChipFoundation;
     _hasTrailingIcon(): boolean;
-    /** Handles keyboard events on the chip. */
-    _handleKeydown(event: KeyboardEvent): void;
     /** Allows for programmatic focusing of the chip. */
     focus(): void;
-    /** Gets the action that contains a specific target node. */
-    _getSourceAction(target: Node): MatChipAction | undefined;
-    /** Gets all of the actions within the chip. */
-    _getActions(): MatChipAction[];
-    /** Handles interactions with the primary action of the chip. */
-    _handlePrimaryActionInteraction(): void;
-    /** Starts the focus monitoring process on the chip. */
-    private _monitorFocus;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatChip, [null, null, null, null, null, { optional: true; }, { optional: true; }, { attribute: "tabindex"; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatChip, "mat-basic-chip, mat-chip", ["matChip"], { "color": "color"; "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "role": "role"; "id": "id"; "ariaLabel": "aria-label"; "value": "value"; "removable": "removable"; "highlighted": "highlighted"; }, { "removed": "removed"; "destroyed": "destroyed"; }, ["leadingIcon", "trailingIcon", "removeIcon"], ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"], false>;
+    /** Overridden by MatChipOption. */
+    protected _onChipInteraction(event: ActionInteractionEvent): void;
+    private _handleActionInteraction;
+    private _handleActionNavigation;
+    private _handleTransitionend;
+    private _handleAnimationend;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChip, [null, null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }, { attribute: "tabindex"; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChip, "mat-basic-chip, mat-chip", ["matChip"], { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "role": "role"; "id": "id"; "ariaLabel": "aria-label"; "disabled": "disabled"; "value": "value"; "removable": "removable"; "highlighted": "highlighted"; }, { "removed": "removed"; "destroyed": "destroyed"; }, ["leadingIcon", "trailingIcon", "removeIcon"], ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"], false>;
 }
 
 /**
- * Section within a chip.
+ * Interactive element within a chip.
  * @docs-private
  */
-declare class MatChipAction extends _MatChipActionMixinBase implements HasTabIndex {
-    _elementRef: ElementRef<HTMLElement>;
-    protected _parentChip: {
-        _handlePrimaryActionInteraction(): void;
-        remove(): void;
-        disabled: boolean;
-    };
+declare class MatChipAction extends _MatChipActionMixinBase implements AfterViewInit, OnDestroy, CanDisable, HasTabIndex, OnChanges {
+    _elementRef: ElementRef;
+    private _changeDetectorRef;
+    private _document;
+    private _foundation;
+    private _adapter;
     /** Whether the action is interactive. */
     isInteractive: boolean;
-    /** Whether this is the primary action in the chip. */
-    _isPrimary: boolean;
-    /** Whether the action is disabled. */
-    get disabled(): boolean;
-    set disabled(value: BooleanInput);
-    private _disabled;
-    constructor(_elementRef: ElementRef<HTMLElement>, _parentChip: {
-        _handlePrimaryActionInteraction(): void;
-        remove(): void;
-        disabled: boolean;
-    });
-    focus(): void;
     _handleClick(event: MouseEvent): void;
     _handleKeydown(event: KeyboardEvent): void;
+    protected _createFoundation(adapter: MDCChipActionAdapter): MDCChipActionFoundation;
+    constructor(_elementRef: ElementRef, _document: any, _changeDetectorRef: ChangeDetectorRef);
+    ngAfterViewInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    ngOnDestroy(): void;
+    focus(): void;
+    _getFoundation(): MDCChipActionFoundation;
+    _updateTabindex(value: number): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipAction, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipAction, "[matChipAction]", never, { "disabled": "disabled"; "tabIndex": "tabIndex"; "isInteractive": "isInteractive"; }, {}, never, never, false>;
 }
 
-declare abstract class _MatChipActionBase {
-    abstract disabled: boolean;
-}
-
-declare const _MatChipActionMixinBase: _Constructor<HasTabIndex> & _AbstractConstructor<HasTabIndex> & typeof _MatChipActionBase;
+declare const _MatChipActionMixinBase: _Constructor<HasTabIndex> & _AbstractConstructor<HasTabIndex> & _Constructor<CanDisable> & _AbstractConstructor<CanDisable> & {
+    new (): {};
+};
 
 /**
  * Directive to add CSS classes to chip leading icon.
@@ -283,6 +294,16 @@ declare const _MatChipActionMixinBase: _Constructor<HasTabIndex> & _AbstractCons
 export declare class MatChipAvatar {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipAvatar, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipAvatar, "mat-chip-avatar, [matChipAvatar]", never, {}, {}, never, never, false>;
+}
+
+/**
+ * Boilerplate for applying mixins to MatChip.
+ * @docs-private
+ */
+declare abstract class MatChipBase {
+    _elementRef: ElementRef;
+    abstract disabled: boolean;
+    constructor(_elementRef: ElementRef);
 }
 
 /** Represents an event fired on an individual `mat-chip` when it is edited. */
@@ -389,6 +410,8 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
     errorStateMatcher: ErrorStateMatcher;
     /** Combined stream of all of the child chips' blur events. */
     get chipBlurChanges(): Observable<MatChipEvent>;
+    /** Combined stream of all of the child chips' focus events. */
+    get chipFocusChanges(): Observable<MatChipEvent>;
     /** Emits when the chip grid value has been changed by the user. */
     readonly change: EventEmitter<MatChipGridChange>;
     /**
@@ -398,7 +421,7 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      */
     readonly valueChange: EventEmitter<any>;
     _chips: QueryList<MatChipRow>;
-    constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, dir: Directionality, parentForm: NgForm, parentFormGroup: FormGroupDirective, defaultErrorStateMatcher: ErrorStateMatcher, ngControl: NgControl);
+    constructor(liveAnnouncer: LiveAnnouncer, document: any, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, parentForm: NgForm, parentFormGroup: FormGroupDirective, defaultErrorStateMatcher: ErrorStateMatcher, ngControl: NgControl);
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
     ngDoCheck(): void;
@@ -449,13 +472,17 @@ export declare class MatChipGrid extends _MatChipGridMixinBase implements AfterC
      */
     protected _allowFocusEscape(): void;
     /** Handles custom keyboard events. */
-    _handleKeydown(event: KeyboardEvent): void;
+    _keydown(event: KeyboardEvent): void;
     _focusLastChip(): void;
     /** Emits change event to set the model value. */
     private _propagateChanges;
     /** Mark the field as touched */
     private _markAsTouched;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
+    /**
+     * If the amount of chips changed, we need to focus the next closest chip.
+     */
+    private _updateFocusForDestroyedChips;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipGrid, [null, null, null, null, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipGrid, "mat-chip-grid", never, { "tabIndex": "tabIndex"; "disabled": "disabled"; "placeholder": "placeholder"; "required": "required"; "value": "value"; "errorStateMatcher": "errorStateMatcher"; }, { "change": "change"; "valueChange": "valueChange"; }, ["_chips"], ["*"], false>;
 }
 
@@ -479,7 +506,7 @@ declare class MatChipGridBase extends MatChipSet {
      * @docs-private
      */
     readonly stateChanges: Subject<void>;
-    constructor(elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, dir: Directionality, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, 
+    constructor(liveAnnouncer: LiveAnnouncer, document: any, elementRef: ElementRef, changeDetectorRef: ChangeDetectorRef, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, 
     /**
      * Form control bound to the component.
      * Implemented as part of `MatFormFieldControl`.
@@ -624,13 +651,17 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
      * is a value from an option. The second is a value from the selection. A boolean
      * should be returned.
      */
-    compareWith: (o1: any, o2: any) => boolean;
+    get compareWith(): (o1: any, o2: any) => boolean;
+    set compareWith(fn: (o1: any, o2: any) => boolean);
+    private _compareWith;
     /** Whether this chip listbox is required. */
     get required(): boolean;
     set required(value: BooleanInput);
     protected _required: boolean;
     /** Combined stream of all of the child chips' selection change events. */
     get chipSelectionChanges(): Observable<MatChipSelectionChange>;
+    /** Combined stream of all of the child chips' focus events. */
+    get chipFocusChanges(): Observable<MatChipEvent>;
     /** Combined stream of all of the child chips' blur events. */
     get chipBlurChanges(): Observable<MatChipEvent>;
     /** The value of the listbox, which is the combined value of the selected chips. */
@@ -676,6 +707,10 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
     /** Emits change event to set the model value. */
     private _propagateChanges;
     /**
+     * Initializes the chip listbox selection state to reflect any chips that were preselected.
+     */
+    private _initializeSelection;
+    /**
      * Deselects every chip in the listbox.
      * @param skip Chip that should not be deselected.
      */
@@ -689,6 +724,11 @@ export declare class MatChipListbox extends MatChipSet implements AfterContentIn
     private _syncListboxProperties;
     /** Returns the first selected chip in this listbox, or undefined if no chips are selected. */
     private _getFirstSelectedChip;
+    /**
+     * If the amount of chips changed, we need to update the
+     * key manager state and focus the next closest chip.
+     */
+    private _updateFocusForDestroyedChips;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipListbox, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipListbox, "mat-chip-listbox", never, { "tabIndex": "tabIndex"; "multiple": "multiple"; "ariaOrientation": "aria-orientation"; "selectable": "selectable"; "compareWith": "compareWith"; "required": "required"; "value": "value"; }, { "change": "change"; }, ["_chips"], ["*"], false>;
 }
@@ -706,21 +746,20 @@ export declare class MatChipListboxChange {
     value: any);
 }
 
-/**
- * Boilerplate for applying mixins to MatChip.
- * @docs-private
- */
-declare const _MatChipMixinBase: _Constructor<HasTabIndex> & _AbstractConstructor<HasTabIndex> & _Constructor<CanColor> & _AbstractConstructor<CanColor> & _Constructor<CanDisableRipple> & _AbstractConstructor<CanDisableRipple> & _Constructor<CanDisable> & _AbstractConstructor<CanDisable> & {
-    new (_elementRef: ElementRef<HTMLElement>): {
-        _elementRef: ElementRef<HTMLElement>;
-    };
-};
+declare const _MatChipMixinBase: _Constructor<HasTabIndex> & _AbstractConstructor<HasTabIndex> & _Constructor<CanColor> & _AbstractConstructor<CanColor> & _Constructor<CanDisableRipple> & _AbstractConstructor<CanDisableRipple> & typeof MatChipBase;
 
 /**
  * An extension of the MatChip component that supports chip selection.
  * Used with MatChipListbox.
  */
-export declare class MatChipOption extends MatChip implements OnInit {
+export declare class MatChipOption extends MatChip implements OnInit, AfterViewInit {
+    /** Whether the component is done initializing. */
+    private _isInitialized;
+    /**
+     * Selected state that was assigned before the component was initializing
+     * and which needs to be synced back up with the foundation.
+     */
+    private _pendingSelectedState;
     /** Whether the chip list is selectable. */
     chipListSelectable: boolean;
     /** Whether the chip list is in multi-selection mode. */
@@ -738,7 +777,6 @@ export declare class MatChipOption extends MatChip implements OnInit {
     /** Whether the chip is selected. */
     get selected(): boolean;
     set selected(value: BooleanInput);
-    private _selected;
     /** The ARIA selected applied to the chip. */
     get ariaSelected(): string | null;
     /** The unstyled chip selector for this component. */
@@ -746,6 +784,7 @@ export declare class MatChipOption extends MatChip implements OnInit {
     /** Emitted when the chip is selected or deselected. */
     readonly selectionChange: EventEmitter<MatChipSelectionChange>;
     ngOnInit(): void;
+    ngAfterViewInit(): void;
     /** Selects the chip. */
     select(): void;
     /** Deselects the chip. */
@@ -754,11 +793,13 @@ export declare class MatChipOption extends MatChip implements OnInit {
     selectViaInteraction(): void;
     /** Toggles the current selected state of this chip. */
     toggleSelected(isUserInput?: boolean): boolean;
-    _handlePrimaryActionInteraction(): void;
+    /** Resets the state of the chip when it loses focus. */
+    _blur(): void;
+    protected _onChipInteraction(event: ActionInteractionEvent): void;
     _hasLeadingGraphic(): MatChipAvatar_2;
     private _setSelectedState;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipOption, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipOption, "mat-basic-chip-option, mat-chip-option", never, { "color": "color"; "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "selectable": "selectable"; "selected": "selected"; }, { "selectionChange": "selectionChange"; }, never, ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipOption, "mat-basic-chip-option, mat-chip-option", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "selectable": "selectable"; "selected": "selected"; }, { "selectionChange": "selectionChange"; }, never, ["mat-chip-avatar, [matChipAvatar]", "*", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"], false>;
 }
 
 /**
@@ -777,7 +818,7 @@ export declare class MatChipOption extends MatChip implements OnInit {
  * ```
  */
 export declare class MatChipRemove extends MatChipAction {
-    _isPrimary: boolean;
+    protected _createFoundation(adapter: MDCChipActionAdapter): MDCChipTrailingActionFoundation;
     _handleClick(event: MouseEvent): void;
     _handleKeydown(event: KeyboardEvent): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRemove, never>;
@@ -798,12 +839,25 @@ export declare class MatChipRow extends MatChip implements AfterViewInit {
     /** The projected chip edit input. */
     contentEditInput?: MatChipEditInput;
     _isEditing: boolean;
-    constructor(changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef, ngZone: NgZone, focusMonitor: FocusMonitor, _document: any, animationMode?: string, globalRippleOptions?: RippleGlobalOptions, tabIndex?: string);
+    /**
+     * Timeout used to give some time between `focusin` and `focusout`
+     * in order to determine whether focus has left the chip.
+     */
+    private _focusoutTimeout;
+    constructor(changeDetectorRef: ChangeDetectorRef, elementRef: ElementRef, ngZone: NgZone, focusMonitor: FocusMonitor, _document: any, dir: Directionality, animationMode?: string, globalRippleOptions?: RippleGlobalOptions, tabIndex?: string);
     _hasTrailingIcon(): boolean;
+    /**
+     * Emits a blur event when one of the gridcells loses focus, unless focus moved
+     * to the other gridcell.
+     */
+    _focusout(): void;
+    /** Records that the chip has focus when one of the gridcells is focused. */
+    _focusin(): void;
     /** Sends focus to the first gridcell when the user clicks anywhere inside the chip. */
     _mousedown(event: MouseEvent): void;
-    _handleKeydown(event: KeyboardEvent): void;
-    _doubleclick(event: MouseEvent): void;
+    /** Handles custom key presses. */
+    _keydown(event: KeyboardEvent): void;
+    _doubleclick(): void;
     private _startEditing;
     private _onEditFinish;
     /**
@@ -811,8 +865,8 @@ export declare class MatChipRow extends MatChip implements AfterViewInit {
      * two values is guaranteed to be defined.
      */
     private _getEditInput;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRow, [null, null, null, null, null, { optional: true; }, { optional: true; }, { attribute: "tabindex"; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipRow, "mat-chip-row, mat-basic-chip-row", never, { "color": "color"; "disabled": "disabled"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "editable": "editable"; }, { "edited": "edited"; }, ["contentEditInput"], ["mat-chip-avatar, [matChipAvatar]", "*", "[matChipEditInput]", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"], false>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipRow, [null, null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }, { attribute: "tabindex"; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatChipRow, "mat-chip-row, mat-basic-chip-row", never, { "color": "color"; "disableRipple": "disableRipple"; "tabIndex": "tabIndex"; "editable": "editable"; }, { "edited": "edited"; }, ["contentEditInput"], ["mat-chip-avatar, [matChipAvatar]", "*", "[matChipEditInput]", "mat-chip-trailing-icon,[matChipRemove],[matChipTrailingIcon]"], false>;
 }
 
 /** Default options, for the chips module, that can be overridden. */
@@ -843,22 +897,37 @@ export declare class MatChipSelectionChange {
  *
  * Extended by MatChipListbox and MatChipGrid for different interaction patterns.
  */
-export declare class MatChipSet extends _MatChipSetMixinBase implements AfterViewInit, HasTabIndex, OnDestroy {
+export declare class MatChipSet extends _MatChipSetMixinBase implements AfterContentInit, AfterViewInit, HasTabIndex, OnDestroy {
+    private _liveAnnouncer;
+    private _document;
     protected _elementRef: ElementRef<HTMLElement>;
     protected _changeDetectorRef: ChangeDetectorRef;
-    private _dir;
-    /** Index of the last destroyed chip that had focus. */
-    private _lastDestroyedFocusedChipIndex;
-    /** Used to manage focus within the chip list. */
-    protected _keyManager: FocusKeyManager<MatChipAction>;
+    /**
+     * When a chip is destroyed, we store the index of the destroyed chip until the chips
+     * query list notifies about the update. This is necessary because we cannot determine an
+     * appropriate chip that should receive focus until the array of chips updated completely.
+     */
+    protected _lastDestroyedChipIndex: number | null;
+    /** The MDC foundation containing business logic for MDC chip-set. */
+    protected _chipSetFoundation: MDCChipSetFoundation;
     /** Subject that emits when the component has been destroyed. */
     protected _destroyed: Subject<void>;
     /** Role to use if it hasn't been overwritten by the user. */
     protected _defaultRole: string;
-    /** Combined stream of all of the child chips' focus events. */
-    get chipFocusChanges(): Observable<MatChipEvent>;
     /** Combined stream of all of the child chips' remove events. */
     get chipDestroyedChanges(): Observable<MatChipEvent>;
+    /**
+     * Implementation of the MDC chip-set adapter interface.
+     * These methods are called by the chip set foundation.
+     */
+    protected _chipSetAdapter: MDCChipSetAdapter;
+    /**
+     * Map from class to whether the class is enabled.
+     * Enabled classes are set on the MDC chip-set div.
+     */
+    _mdcClasses: {
+        [key: string]: boolean;
+    };
     /** Whether the chip set is disabled. */
     get disabled(): boolean;
     set disabled(value: BooleanInput);
@@ -873,10 +942,9 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterVie
     get focused(): boolean;
     /** The chips that are part of this chip set. */
     _chips: QueryList<MatChip>;
-    /** Flat list of all the actions contained within the chips. */
-    _chipActions: QueryList<MatChipAction>;
-    constructor(_elementRef: ElementRef<HTMLElement>, _changeDetectorRef: ChangeDetectorRef, _dir: Directionality);
+    constructor(_liveAnnouncer: LiveAnnouncer, _document: any, _elementRef: ElementRef<HTMLElement>, _changeDetectorRef: ChangeDetectorRef);
     ngAfterViewInit(): void;
+    ngAfterContentInit(): void;
     ngOnDestroy(): void;
     /** Checks whether any of the chips is focused. */
     protected _hasFocusedChip(): boolean;
@@ -884,8 +952,6 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterVie
     protected _syncChipsState(): void;
     /** Dummy method for subclasses to override. Base chip set cannot be focused. */
     focus(): void;
-    /** Handles keyboard events on the chip set. */
-    _handleKeydown(event: KeyboardEvent): void;
     /**
      * Utility to ensure all indexes are valid.
      *
@@ -893,6 +959,8 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterVie
      * @returns True if the index is valid for our list of chips.
      */
     protected _isValidIndex(index: number): boolean;
+    /** Checks whether an event comes from inside a chip element. */
+    protected _originatesFromChip(event: Event): boolean;
     /**
      * Removes the `tabindex` from the chip grid and resets it back afterwards, allowing the
      * user to tab out of it. This prevents the grid from capturing focus and redirecting
@@ -904,20 +972,12 @@ export declare class MatChipSet extends _MatChipSetMixinBase implements AfterVie
      * The stream will automatically incorporate any newly-added chips.
      */
     protected _getChipStream<T, C extends MatChip = MatChip>(mappingFunction: (chip: C) => Observable<T>): Observable<T>;
-    /** Checks whether an event comes from inside a chip element. */
-    protected _originatesFromChip(event: Event): boolean;
-    /** Sets up the chip set's focus management logic. */
-    private _setUpFocusManagement;
-    /** Listens to changes in the chip set and syncs up the state of the individual chips. */
-    private _trackChipSetChanges;
-    /** Starts tracking the destroyed chips in order to capture the focused one. */
-    private _trackDestroyedFocusedChip;
-    /**
-     * Finds the next appropriate chip to move focus to,
-     * if the currently-focused chip is destroyed.
-     */
-    private _redirectDestroyedChipFocus;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipSet, [null, null, { optional: true; }]>;
+    protected _checkForClassInHierarchy(event: Event, className: string): boolean;
+    private _chipFoundation;
+    private _handleChipAnimation;
+    private _handleChipInteraction;
+    private _handleChipNavigation;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatChipSet, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatChipSet, "mat-chip-set", never, { "disabled": "disabled"; "role": "role"; }, {}, ["_chips"], ["*"], false>;
 }
 
@@ -965,7 +1025,7 @@ export declare class MatChipTrailingIcon extends MatChipAction {
      * but we support non-interactive trailing icons.
      */
     isInteractive: boolean;
-    _isPrimary: boolean;
+    protected _createFoundation(adapter: MDCChipActionAdapter): MDCChipTrailingActionFoundation;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatChipTrailingIcon, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<MatChipTrailingIcon, "mat-chip-trailing-icon, [matChipTrailingIcon]", never, {}, {}, never, never, false>;
 }
