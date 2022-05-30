@@ -13,8 +13,6 @@ import { InjectionToken } from '@angular/core';
 import { MAT_LIST } from '@angular/material/list';
 import { MAT_NAV_LIST } from '@angular/material/list';
 import { MAT_SELECTION_LIST_VALUE_ACCESSOR } from '@angular/material/list';
-import { MDCListAdapter } from '@material/list';
-import { MDCListFoundation } from '@material/list';
 import { NgZone } from '@angular/core';
 import { OnChanges } from '@angular/core';
 import { OnDestroy } from '@angular/core';
@@ -98,42 +96,6 @@ export declare class MatActionList extends MatListBase {
     _isNonInteractive: boolean;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatActionList, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatActionList, "mat-action-list", ["matActionList"], {}, {}, never, ["*"], false>;
-}
-
-declare abstract class MatInteractiveListBase<T extends MatListItemBase> extends MatListBase implements AfterViewInit, OnDestroy {
-    _element: ElementRef<HTMLElement>;
-    _handleKeydown(event: KeyboardEvent): void;
-    _handleClick(event: MouseEvent): void;
-    _handleFocusin(event: FocusEvent): void;
-    _handleFocusout(event: FocusEvent): void;
-    /** Items in the interactive list. */
-    abstract _items: QueryList<T>;
-    _itemsArr: T[];
-    _document: Document;
-    protected _foundation: MDCListFoundation;
-    protected _adapter: MDCListAdapter;
-    private _subscriptions;
-    protected constructor(_element: ElementRef<HTMLElement>, document: any);
-    protected _initWithAdapter(adapter: MDCListAdapter): void;
-    ngAfterViewInit(): void;
-    ngOnDestroy(): void;
-    protected _watchListItems(): void;
-    /**
-     * Clears the tabindex of all items so that no items are reachable through tab key.
-     * MDC intends to always have only one tabbable item that will receive focus first.
-     * This first item is selected by MDC automatically on blur or by manually invoking
-     * the `setTabindexToFirstSelectedOrFocusedItem` method.
-     */
-    private _clearTabindexForAllItems;
-    /**
-     * Resets tabindex for all options and sets tabindex for the first selected option or
-     * previously focused item so that an item can be reached when users tab into the list.
-     */
-    protected _resetTabindexToFirstSelectedOrFocusedItem(): void;
-    _elementAtIndex(index: number): HTMLElement | undefined;
-    _indexForElement(element: Element | null): number;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatInteractiveListBase<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatInteractiveListBase<any>, never, never, {}, {}, never, never, false>;
 }
 
 export declare class MatList extends MatListBase {
@@ -235,11 +197,9 @@ declare abstract class MatListItemBase implements AfterViewInit, OnDestroy, Ripp
      * @docs-private
      */
     get rippleDisabled(): boolean;
-    protected constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _listBase: MatListBase, _platform: Platform, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
+    constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _listBase: MatListBase, _platform: Platform, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    /** Gets the label for the list item. This is used for the typeahead. */
-    _getItemLabel(): string;
     /** Whether the list item has icons or avatars. */
     _hasIconOrAvatar(): boolean;
     private _initInteractiveListItem;
@@ -345,12 +305,11 @@ export declare class MatListModule {
 }
 
 export declare class MatListOption extends MatListItemBase implements ListOption, OnInit, OnDestroy {
-    _selectionList: SelectionList;
+    private _selectionList;
     private _changeDetectorRef;
     _lines: QueryList<MatListItemLine>;
     _titles: QueryList<MatListItemTitle>;
     _unscopedContent: ElementRef<HTMLSpanElement>;
-    _itemText: ElementRef<HTMLElement>;
     /**
      * Emits when the selected state of the option has changed.
      * Use to facilitate two-data binding to the `selected` property.
@@ -376,13 +335,15 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      * clear the value of `selected` in the first cycle.
      */
     private _inputsInitialized;
-    constructor(element: ElementRef, ngZone: NgZone, platform: Platform, _selectionList: SelectionList, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
+    constructor(elementRef: ElementRef<HTMLElement>, ngZone: NgZone, _selectionList: SelectionList, platform: Platform, _changeDetectorRef: ChangeDetectorRef, globalRippleOptions?: RippleGlobalOptions, animationMode?: string);
     ngOnInit(): void;
     ngOnDestroy(): void;
     /** Toggles the selection state of the option. */
     toggle(): void;
     /** Allows for programmatic focusing of the option. */
     focus(): void;
+    /** Gets the text label of the list option. Used for the typeahead functionality in the list. */
+    getLabel(): string;
     /** Whether a checkbox is shown at the given position. */
     _hasCheckboxAt(position: MatListOptionCheckboxPosition): boolean;
     /** Whether icons or avatars are shown at the given position. */
@@ -403,6 +364,10 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      * list changed.
      */
     _markForCheck(): void;
+    /** Toggles the option's value based on a user interacion. */
+    _toggleOnInteraction(): void;
+    /** Sets the tabindex of the list option. */
+    _setTabindex(value: number): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatListOption, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatListOption, "mat-list-option", ["matListOption"], { "checkboxPosition": "checkboxPosition"; "color": "color"; "value": "value"; "selected": "selected"; }, { "selectedChange": "selectedChange"; }, ["_lines", "_titles"], ["[matListItemAvatar],[matListItemIcon]", "[matListItemTitle]", "[matListItemLine]", "*", "mat-divider"], false>;
 }
@@ -428,9 +393,17 @@ export declare class MatNavList extends MatListBase {
     static ɵcmp: i0.ɵɵComponentDeclaration<MatNavList, "mat-nav-list", ["matNavList"], {}, {}, never, ["*"], false>;
 }
 
-export declare class MatSelectionList extends MatInteractiveListBase<MatListOption> implements SelectionList, ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy {
-    private _multiple;
+export declare class MatSelectionList extends MatListBase implements SelectionList, ControlValueAccessor, AfterViewInit, OnChanges, OnDestroy {
+    _element: ElementRef<HTMLElement>;
+    private _ngZone;
     private _initialized;
+    private _keyManager;
+    /** Emits when the list has been destroyed. */
+    private _destroyed;
+    /** Whether the list has been destroyed. */
+    private _isDestroyed;
+    /** View to model callback that should be called whenever the selected options change. */
+    private _onChange;
     _items: QueryList<MatListOption>;
     /** Emits a change event whenever the selected state of an option changes. */
     readonly selectionChange: EventEmitter<MatSelectionListChange>;
@@ -445,19 +418,14 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     /** Whether selection is limited to one or multiple items (default multiple). */
     get multiple(): boolean;
     set multiple(value: BooleanInput);
+    private _multiple;
     /** The currently selected options. */
     selectedOptions: SelectionModel<MatListOption>;
-    /** View to model callback that should be called whenever the selected options change. */
-    private _onChange;
     /** Keeps track of the currently-selected value. */
     _value: string[] | null;
-    /** Emits when the list has been destroyed. */
-    private _destroyed;
     /** View to model callback that should be called if the list or its options lost focus. */
     _onTouched: () => void;
-    /** Whether the list has been destroyed. */
-    private _isDestroyed;
-    constructor(element: ElementRef<HTMLElement>, document: any);
+    constructor(_element: ElementRef<HTMLElement>, _ngZone: NgZone);
     ngAfterViewInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     ngOnDestroy(): void;
@@ -479,18 +447,8 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     registerOnChange(fn: (value: any) => void): void;
     /** Implemented as part of ControlValueAccessor. */
     registerOnTouched(fn: () => void): void;
-    /**
-     * Resets tabindex for all options and sets tabindex for the first selected option so that
-     * it will become active when users tab into the selection-list. This will be a noop if the
-     * list is currently focused as otherwise multiple options might become reachable through tab.
-     * e.g. A user currently already focused an option. We set tabindex to a new option but the
-     * focus on the current option does persist. Pressing `TAB` then might go to the other option
-     * that received a tabindex. We can skip the reset here as the MDC foundation resets the
-     * tabindex to the first selected option automatically once the current item is blurred.
-     */
-    private _resetTabindexForItemsIfBlurred;
+    /** Watches for changes in the selected state of the options and updates the list accordingly. */
     private _watchForSelectionChange;
-    private _syncSelectedOptionsWithFoundation;
     /** Sets the selected options based on the specified values. */
     private _setOptionsFromValues;
     /** Returns the values of the selected options. */
@@ -504,6 +462,23 @@ export declare class MatSelectionList extends MatInteractiveListBase<MatListOpti
     private _setAllOptionsSelected;
     /** The option components contained within this selection-list. */
     get options(): QueryList<MatListOption>;
+    /** Handles keydown events within the list. */
+    _handleKeydown(event: KeyboardEvent): void;
+    /** Handles focusout events within the list. */
+    private _handleFocusout;
+    /** Handles focusin events within the list. */
+    private _handleFocusin;
+    /** Sets up the logic for maintaining the roving tabindex. */
+    private _setupRovingTabindex;
+    /**
+     * Sets an option as active.
+     * @param index Index of the active option. If set to -1, no option will be active.
+     */
+    private _setActiveOption;
+    /** Resets the active option to the first selected option. */
+    private _resetActiveOption;
+    /** Returns whether the focus is currently within the list. */
+    private _containsFocus;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionList, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionList, "mat-selection-list", ["matSelectionList"], { "color": "color"; "compareWith": "compareWith"; "multiple": "multiple"; }, { "selectionChange": "selectionChange"; }, ["_items"], ["*"], false>;
 }
@@ -551,8 +526,9 @@ export declare interface SelectionList extends MatListBase {
     selectedOptions: SelectionModel<MatListOption>;
     compareWith: (o1: any, o2: any) => boolean;
     _value: string[] | null;
-    _reportValueChange: () => void;
-    _onTouched: () => void;
+    _reportValueChange(): void;
+    _emitChangeEvent(options: MatListOption[]): void;
+    _onTouched(): void;
 }
 
 export { }
