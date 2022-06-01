@@ -1,8 +1,8 @@
 import { _AbstractConstructor } from '@angular/material-experimental/mdc-core';
 import { AfterViewInit } from '@angular/core';
 import { CanColor } from '@angular/material-experimental/mdc-core';
+import { ChangeDetectorRef } from '@angular/core';
 import { _Constructor } from '@angular/material-experimental/mdc-core';
-import { Directionality } from '@angular/cdk/bidi';
 import { ElementRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import * as i0 from '@angular/core';
@@ -31,12 +31,9 @@ export { MAT_PROGRESS_BAR_LOCATION_FACTORY }
 
 export declare class MatProgressBar extends _MatProgressBarBase implements AfterViewInit, OnDestroy, CanColor {
     private _ngZone;
+    private _changeDetectorRef;
     _animationMode?: string | undefined;
-    constructor(elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, dir?: Directionality, _animationMode?: string | undefined, defaults?: MatProgressBarDefaultOptions);
-    /** Implements all of the logic of the MDC progress bar. */
-    private _foundation;
-    /** Adapter used by MDC to interact with the DOM. */
-    private _adapter;
+    constructor(elementRef: ElementRef<HTMLElement>, _ngZone: NgZone, _changeDetectorRef: ChangeDetectorRef, _animationMode?: string | undefined, defaults?: MatProgressBarDefaultOptions);
     /** Flag that indicates whether NoopAnimations mode is set to true. */
     _isNoopAnimation: boolean;
     /** Value of the progress bar. Defaults to zero. Mirrored to aria-valuenow. */
@@ -47,18 +44,12 @@ export declare class MatProgressBar extends _MatProgressBarBase implements After
     get bufferValue(): number;
     set bufferValue(v: number);
     private _bufferValue;
-    private _primaryBar;
-    private _bufferBar;
     /**
      * Event emitted when animation of the primary progress bar completes. This event will not
      * be emitted when animations are disabled, nor will it be emitted for modes with continuous
      * animations (indeterminate and query).
      */
     readonly animationEnd: EventEmitter<ProgressAnimationEnd>;
-    /** Reference to animation end subscription to be unsubscribed on destroy. */
-    private _animationEndSubscription;
-    /** Subscription to when the layout direction changes. */
-    private _dirChangeSubscription;
     /**
      * Mode of the progress bar.
      *
@@ -71,16 +62,22 @@ export declare class MatProgressBar extends _MatProgressBarBase implements After
     private _mode;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    /** Syncs the state of the progress bar with the MDC foundation. */
-    private _syncFoundation;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatProgressBar, [null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
+    /** Gets the transform style that should be applied to the primary bar. */
+    _getPrimaryBarTransform(): string;
+    /** Gets the `flex-basis` value that should be applied to the buffer bar. */
+    _getBufferBarFlexBasis(): string;
+    /** Returns whether the progress bar is indeterminate. */
+    _isIndeterminate(): boolean;
+    /** Event handler for `transitionend` events. */
+    private _transitionendHandler;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatProgressBar, [null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatProgressBar, "mat-progress-bar", ["matProgressBar"], { "color": "color"; "value": "value"; "bufferValue": "bufferValue"; "mode": "mode"; }, { "animationEnd": "animationEnd"; }, never, never, false>;
 }
 
 /** @docs-private */
 declare const _MatProgressBarBase: _Constructor<CanColor> & _AbstractConstructor<CanColor> & {
-    new (_elementRef: ElementRef): {
-        _elementRef: ElementRef;
+    new (_elementRef: ElementRef<HTMLElement>): {
+        _elementRef: ElementRef<HTMLElement>;
     };
 };
 
