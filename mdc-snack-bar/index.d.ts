@@ -1,11 +1,5 @@
-import { AriaLivePoliteness } from '@angular/cdk/a11y';
-import { BasePortalOutlet } from '@angular/cdk/portal';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { CdkPortalOutlet } from '@angular/cdk/portal';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { ComponentRef } from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { EmbeddedViewRef } from '@angular/core';
 import * as i0 from '@angular/core';
 import * as i4 from '@angular/cdk/overlay';
 import * as i5 from '@angular/cdk/portal';
@@ -20,19 +14,12 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY } from '@angular/material/snack-b
 import { matSnackBarAnimations } from '@angular/material/snack-bar';
 import { _MatSnackBarBase } from '@angular/material/snack-bar';
 import { MatSnackBarConfig } from '@angular/material/snack-bar';
+import { _MatSnackBarContainerBase } from '@angular/material/snack-bar';
 import { MatSnackBarDismiss } from '@angular/material/snack-bar';
 import { MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 import { MatSnackBarRef } from '@angular/material/snack-bar';
 import { MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { MDCSnackbarFoundation } from '@material/snackbar';
-import { NgZone } from '@angular/core';
-import { Observable } from 'rxjs';
-import { OnDestroy } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
-import { Platform } from '@angular/cdk/platform';
-import { _SnackBarContainer } from '@angular/material/snack-bar';
-import { Subject } from 'rxjs';
-import { TemplatePortal } from '@angular/cdk/portal';
 import { TextOnlySnackBar } from '@angular/material/snack-bar';
 
 declare namespace i1 {
@@ -93,67 +80,16 @@ export { MatSnackBarConfig }
  * Internal component that wraps user-provided snack bar content.
  * @docs-private
  */
-export declare class MatSnackBarContainer extends BasePortalOutlet implements _SnackBarContainer, OnDestroy {
-    private _elementRef;
-    snackBarConfig: MatSnackBarConfig;
-    private _platform;
-    private _ngZone;
-    _animationMode?: string | undefined;
-    /** The number of milliseconds to wait before announcing the snack bar's content. */
-    private readonly _announceDelay;
-    /** The timeout for announcing the snack bar's content. */
-    private _announceTimeoutId;
-    /** Subject for notifying that the snack bar has announced to screen readers. */
-    readonly _onAnnounce: Subject<void>;
-    /** Subject for notifying that the snack bar has exited from view. */
-    readonly _onExit: Subject<void>;
-    /** Subject for notifying that the snack bar has finished entering the view. */
-    readonly _onEnter: Subject<void>;
-    /** aria-live value for the live region. */
-    _live: AriaLivePoliteness;
-    /** Whether the snack bar is currently exiting. */
-    _exiting: boolean;
-    /**
-     * Role of the live region. This is only for Firefox as there is a known issue where Firefox +
-     * JAWS does not read out aria-live message.
-     */
-    _role?: 'status' | 'alert';
-    private _mdcAdapter;
-    _mdcFoundation: MDCSnackbarFoundation;
-    /** The portal outlet inside of this container into which the snack bar content will be loaded. */
-    _portalOutlet: CdkPortalOutlet;
-    /** Element that acts as the MDC surface container which should contain the label and actions. */
-    _surface: ElementRef;
+export declare class MatSnackBarContainer extends _MatSnackBarContainerBase {
     /**
      * Element that will have the `mdc-snackbar__label` class applied if the attached component
      * or template does not have it. This ensures that the appropriate structure, typography, and
      * color is applied to the attached view.
      */
     _label: ElementRef;
-    constructor(_elementRef: ElementRef<HTMLElement>, snackBarConfig: MatSnackBarConfig, _platform: Platform, _ngZone: NgZone, _animationMode?: string | undefined);
-    /** Makes sure the exit callbacks have been invoked when the element is destroyed. */
-    ngOnDestroy(): void;
-    enter(): void;
-    exit(): Observable<void>;
-    /** Attach a component portal as content to this snack bar container. */
-    attachComponentPortal<T>(portal: ComponentPortal<T>): ComponentRef<T>;
-    /** Attach a template portal as content to this snack bar container. */
-    attachTemplatePortal<C>(portal: TemplatePortal<C>): EmbeddedViewRef<C>;
-    private _setClass;
-    /** Applies the user-configured CSS classes to the snack bar. */
-    private _applySnackBarClasses;
-    /** Asserts that no content is already attached to the container. */
-    private _assertNotAttached;
-    /** Finishes the exit sequence of the container. */
-    private _finishExit;
-    /**
-     * Starts a timeout to move the snack bar content to the live region so screen readers will
-     * announce it.
-     */
-    private _screenReaderAnnounce;
     /** Applies the correct CSS class to the label based on its content. */
-    private _applyLabelClass;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatSnackBarContainer, [null, null, null, null, { optional: true; }]>;
+    protected _afterPortalAttached(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSnackBarContainer, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSnackBarContainer, "mat-snack-bar-container", never, {}, {}, never, never, false>;
 }
 
