@@ -1,6 +1,6 @@
 import * as i0 from '@angular/core';
-import { InjectionToken, Directive, Optional, Inject, ContentChildren, Input, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, EventEmitter, ANIMATION_MODULE_TYPE as ANIMATION_MODULE_TYPE$1, Output, forwardRef, NgModule } from '@angular/core';
-import { coerceNumberProperty, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { InjectionToken, Directive, Optional, Inject, Input, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, EventEmitter, ANIMATION_MODULE_TYPE as ANIMATION_MODULE_TYPE$1, Output, forwardRef, NgModule } from '@angular/core';
+import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 import { RippleRenderer, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { Subscription, merge, Subject } from 'rxjs';
@@ -178,6 +178,43 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.1", ngImpor
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+/** @docs-private */
+class MatListBase {
+    constructor() {
+        this._isNonInteractive = true;
+        this._disableRipple = false;
+        this._disabled = false;
+    }
+    /** Whether ripples for all list items is disabled. */
+    get disableRipple() {
+        return this._disableRipple;
+    }
+    set disableRipple(value) {
+        this._disableRipple = coerceBooleanProperty(value);
+    }
+    /** Whether all list items are disabled. */
+    get disabled() {
+        return this._disabled;
+    }
+    set disabled(value) {
+        this._disabled = coerceBooleanProperty(value);
+    }
+}
+MatListBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.1", ngImport: i0, type: MatListBase, deps: [], target: i0.ɵɵFactoryTarget.Directive });
+MatListBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.0.1", type: MatListBase, inputs: { disableRipple: "disableRipple", disabled: "disabled" }, host: { properties: { "class.mat-mdc-list-non-interactive": "_isNonInteractive", "attr.aria-disabled": "disabled" } }, ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.1", ngImport: i0, type: MatListBase, decorators: [{
+            type: Directive,
+            args: [{
+                    host: {
+                        '[class.mat-mdc-list-non-interactive]': '_isNonInteractive',
+                        '[attr.aria-disabled]': 'disabled',
+                    },
+                }]
+        }], propDecorators: { disableRipple: [{
+                type: Input
+            }], disabled: [{
+                type: Input
+            }] } });
 /** @docs-private */
 class MatListItemBase {
     constructor(_elementRef, _ngZone, _listBase, _platform, globalRippleOptions, animationMode) {
@@ -369,43 +406,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.1", ngImpor
             }], lines: [{
                 type: Input
             }], disableRipple: [{
-                type: Input
-            }], disabled: [{
-                type: Input
-            }] } });
-/** @docs-private */
-class MatListBase {
-    constructor() {
-        this._isNonInteractive = true;
-        this._disableRipple = false;
-        this._disabled = false;
-    }
-    /** Whether ripples for all list items is disabled. */
-    get disableRipple() {
-        return this._disableRipple;
-    }
-    set disableRipple(value) {
-        this._disableRipple = coerceBooleanProperty(value);
-    }
-    /** Whether all list items are disabled. */
-    get disabled() {
-        return this._disabled;
-    }
-    set disabled(value) {
-        this._disabled = coerceBooleanProperty(value);
-    }
-}
-MatListBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.1", ngImport: i0, type: MatListBase, deps: [], target: i0.ɵɵFactoryTarget.Directive });
-MatListBase.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.0.1", type: MatListBase, inputs: { disableRipple: "disableRipple", disabled: "disabled" }, host: { properties: { "class.mat-mdc-list-non-interactive": "_isNonInteractive", "attr.aria-disabled": "disabled" } }, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.0.1", ngImport: i0, type: MatListBase, decorators: [{
-            type: Directive,
-            args: [{
-                    host: {
-                        '[class.mat-mdc-list-non-interactive]': '_isNonInteractive',
-                        '[attr.aria-disabled]': 'disabled',
-                    },
-                }]
-        }], propDecorators: { disableRipple: [{
                 type: Input
             }], disabled: [{
                 type: Input
