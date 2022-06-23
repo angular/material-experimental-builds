@@ -379,9 +379,7 @@ class MatNavListItemHarness extends MatListItemHarnessBase {
      * @return a `HarnessPredicate` configured with the given options.
      */
     static with(options = {}) {
-        return getListItemPredicate(this, options)
-            .addOption('href', options.href, (harness, href) => __awaiter(this, void 0, void 0, function* () { return HarnessPredicate.stringMatches(harness.getHref(), href); }))
-            .addOption('activated', options.activated, (harness, activated) => __awaiter(this, void 0, void 0, function* () { return (yield harness.isActivated()) === activated; }));
+        return getListItemPredicate(this, options).addOption('href', options.href, (harness, href) => __awaiter(this, void 0, void 0, function* () { return HarnessPredicate.stringMatches(harness.getHref(), href); }));
     }
     /** Gets the href for this nav list item. */
     getHref() {
@@ -411,12 +409,6 @@ class MatNavListItemHarness extends MatListItemHarnessBase {
     isFocused() {
         return __awaiter(this, void 0, void 0, function* () {
             return (yield this.host()).isFocused();
-        });
-    }
-    /** Whether the list item is activated. Should only be used for nav list items. */
-    isActivated() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return (yield this.host()).hasClass('mdc-list-item--activated');
         });
     }
 }
