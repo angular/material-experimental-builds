@@ -470,7 +470,13 @@ class MatFormField {
     }
     set appearance(value) {
         const oldValue = this._appearance;
-        this._appearance = value || this._defaults?.appearance || DEFAULT_APPEARANCE;
+        const newAppearance = value || this._defaults?.appearance || DEFAULT_APPEARANCE;
+        if (typeof ngDevMode === 'undefined' || ngDevMode) {
+            if (newAppearance !== 'fill' && newAppearance !== 'outline') {
+                throw new Error(`MatFormField: Invalid appearance "${newAppearance}", valid values are "fill" or "outline".`);
+            }
+        }
+        this._appearance = newAppearance;
         if (this._appearance === 'outline' && this._appearance !== oldValue) {
             this._refreshOutlineNotchWidth();
             // If the appearance has been switched to `outline`, the label offset needs to be updated.
