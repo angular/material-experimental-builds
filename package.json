@@ -79,22 +79,6 @@
       "node": "./fesm2015/mdc-button/testing.mjs",
       "default": "./fesm2020/mdc-button/testing.mjs"
     },
-    "./mdc-card": {
-      "types": "./mdc-card/index.d.ts",
-      "esm2020": "./esm2020/mdc-card/mdc-card_public_index.mjs",
-      "es2020": "./fesm2020/mdc-card.mjs",
-      "es2015": "./fesm2015/mdc-card.mjs",
-      "node": "./fesm2015/mdc-card.mjs",
-      "default": "./fesm2020/mdc-card.mjs"
-    },
-    "./mdc-card/testing": {
-      "types": "./mdc-card/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-card/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-card/testing.mjs",
-      "es2015": "./fesm2015/mdc-card/testing.mjs",
-      "node": "./fesm2015/mdc-card/testing.mjs",
-      "default": "./fesm2020/mdc-card/testing.mjs"
-    },
     "./mdc-checkbox": {
       "types": "./mdc-checkbox/index.d.ts",
       "esm2020": "./esm2020/mdc-checkbox/mdc-checkbox_public_index.mjs",
