@@ -192,8 +192,8 @@ export declare class MatFormField implements AfterContentInit, AfterContentCheck
     readonly _hintLabelId: string;
     /** State of the mat-hint and mat-error animations. */
     _subscriptAnimationState: string;
-    /** Width of the outline notch. */
-    _outlineNotchWidth: number;
+    /** Width of the label element (at scale=1). */
+    _labelWidth: number;
     /** Gets the current form field control */
     get _control(): MatFormFieldControl<any>;
     set _control(value: MatFormFieldControl<any>);
@@ -380,15 +380,15 @@ export declare class MatFormFieldModule {
 declare class MatFormFieldNotchedOutline implements AfterViewInit {
     private _elementRef;
     private _ngZone;
-    /** Width of the notch. */
-    width: number;
+    /** Width of the label (original scale) */
+    labelWidth: number;
     /** Whether the notch should be opened. */
     open: boolean;
     constructor(_elementRef: ElementRef<HTMLElement>, _ngZone: NgZone);
     ngAfterViewInit(): void;
     _getNotchWidth(): string | null;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFormFieldNotchedOutline, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatFormFieldNotchedOutline, "div[matFormFieldNotchedOutline]", never, { "width": "matFormFieldNotchedOutlineWidth"; "open": "matFormFieldNotchedOutlineOpen"; }, {}, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatFormFieldNotchedOutline, "div[matFormFieldNotchedOutline]", never, { "labelWidth": "matFormFieldNotchedOutlineLabelWidth"; "open": "matFormFieldNotchedOutlineOpen"; }, {}, never, ["*"], false>;
 }
 
 /** Hint text to be shown underneath the form field control. */
