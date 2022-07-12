@@ -99,8 +99,6 @@ declare class MatButtonBase extends _MatButtonMixin implements CanDisable, CanCo
     _animationMode?: string | undefined;
     /** Whether this button is a FAB. Used to apply the correct class on the ripple. */
     _isFab: boolean;
-    /** Whether this button is an icon button. Used to apply the correct class on the ripple. */
-    _isIconButton: boolean;
     /** Reference to the MatRipple instance of the button. */
     ripple: MatRipple;
     constructor(elementRef: ElementRef, _platform: Platform, _ngZone: NgZone, _animationMode?: string | undefined);
@@ -173,7 +171,6 @@ export declare interface MatFabDefaultOptions {
  * See https://material.io/develop/web/components/buttons/icon-buttons/
  */
 export declare class MatIconAnchor extends MatAnchorBase {
-    _isIconButton: boolean;
     constructor(elementRef: ElementRef, platform: Platform, ngZone: NgZone, animationMode?: string);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatIconAnchor, [null, null, null, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatIconAnchor, "a[mat-icon-button]", ["matButton", "matAnchor"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "color": "color"; "tabIndex": "tabIndex"; }, {}, never, [".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd])", "*", ".material-icons[iconPositionEnd], mat-icon[iconPositionEnd]"], false>;
@@ -185,10 +182,9 @@ export declare class MatIconAnchor extends MatAnchorBase {
  * See https://material.io/develop/web/components/buttons/icon-buttons/
  */
 export declare class MatIconButton extends MatButtonBase {
-    _isIconButton: boolean;
     constructor(elementRef: ElementRef, platform: Platform, ngZone: NgZone, animationMode?: string);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatIconButton, [null, null, null, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatIconButton, "button[mat-icon-button]", ["matButton"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "color": "color"; }, {}, never, [".material-icons:not([iconPositionEnd]), mat-icon:not([iconPositionEnd])", "*", ".material-icons[iconPositionEnd], mat-icon[iconPositionEnd]"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatIconButton, "button[mat-icon-button]", ["matButton"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "color": "color"; }, {}, never, ["*"], false>;
 }
 
 /**
