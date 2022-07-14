@@ -14,7 +14,7 @@ import * as i3 from "@angular/material-experimental/mdc-button";
 import * as i4 from "@angular/material-experimental/mdc-form-field";
 import * as i5 from "@angular/material-experimental/mdc-select";
 import * as i6 from "@angular/material-experimental/mdc-core";
-import * as i7 from "@angular/material-experimental/mdc-tooltip";
+import * as i7 from "@angular/material/tooltip";
 /** Injection token that can be used to provide the default options for the paginator module. */
 export const MAT_PAGINATOR_DEFAULT_OPTIONS = new InjectionToken('MAT_PAGINATOR_DEFAULT_OPTIONS');
 let nextUniqueId = 0;

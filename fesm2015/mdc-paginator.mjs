@@ -9,8 +9,8 @@ import * as i3 from '@angular/material-experimental/mdc-button';
 import { MatButtonModule } from '@angular/material-experimental/mdc-button';
 import * as i5 from '@angular/material-experimental/mdc-select';
 import { MatSelectModule } from '@angular/material-experimental/mdc-select';
-import * as i7 from '@angular/material-experimental/mdc-tooltip';
-import { MatTooltipModule } from '@angular/material-experimental/mdc-tooltip';
+import * as i7 from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import * as i4 from '@angular/material-experimental/mdc-form-field';
 import * as i6 from '@angular/material-experimental/mdc-core';
 
