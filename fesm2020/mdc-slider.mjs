@@ -778,6 +778,10 @@ class MatSlider extends _MatSliderMixinBase {
     _isRippleDisabled() {
         return this.disabled || this.disableRipple || !!this._globalRippleOptions?.disabled;
     }
+    /** Gets the dimensions of the host element. */
+    _getHostDimensions() {
+        return this._cachedHostRect || this._elementRef.nativeElement.getBoundingClientRect();
+    }
     /** Starts observing and updating the slider if the host changes its size. */
     _observeHostResize() {
         if (typeof ResizeObserver === 'undefined' || !ResizeObserver) {
@@ -785,18 +789,18 @@ class MatSlider extends _MatSliderMixinBase {
         }
         // MDC only updates the slider when the window is resized which
         // doesn't capture changes of the container itself. We use a resize
-        // observer to ensure that the layout is correct (see #24590).
+        // observer to ensure that the layout is correct (see #24590 and #25286).
         this._ngZone.runOutsideAngular(() => {
-            // The callback will fire as soon as an element is observed and
-            // we only want to know after the initial layout.
-            let hasResized = false;
-            this._resizeObserver = new ResizeObserver(() => {
-                if (hasResized) {
-                    // Debounce the layouts since they can happen frequently.
-                    clearTimeout(this._resizeTimer);
-                    this._resizeTimer = setTimeout(this._layout, 50);
-                }
-                hasResized = true;
+            this._resizeObserver = new ResizeObserver(entries => {
+                clearTimeout(this._resizeTimer);
+                this._resizeTimer = setTimeout(() => {
+                    // The `layout` call is going to call `getBoundingClientRect` to update the dimensions
+                    // of the host. Since the `ResizeObserver` already calculated them, we can save some
+                    // work by returning them instead of having to check the DOM again.
+                    this._cachedHostRect = entries[0]?.contentRect;
+                    this._layout();
+                    this._cachedHostRect = null;
+                }, 50);
             });
             this._resizeObserver.observe(this._elementRef.nativeElement);
         });
@@ -933,7 +937,7 @@ class SliderAdapter {
             return this._delegate._getThumbElement(thumbPosition).getBoundingClientRect();
         };
         this.getBoundingClientRect = () => {
-            return this._delegate._elementRef.nativeElement.getBoundingClientRect();
+            return this._delegate._getHostDimensions();
         };
         this.getValueIndicatorContainerWidth = (thumbPosition) => {
             return this._delegate._getValueIndicatorContainerElement(thumbPosition).getBoundingClientRect()
