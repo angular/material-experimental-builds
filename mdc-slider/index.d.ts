@@ -138,6 +138,8 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     private _resizeObserver;
     /** Timeout used to debounce resize listeners. */
     private _resizeTimer;
+    /** Cached dimensions of the host element. */
+    private _cachedHostRect;
     constructor(_ngZone: NgZone, _cdr: ChangeDetectorRef, elementRef: ElementRef<HTMLElement>, _platform: Platform, _globalChangeAndInputListener: GlobalChangeAndInputListener<'input' | 'change'>, document: any, _dir: Directionality, _globalRippleOptions?: RippleGlobalOptions | undefined, animationMode?: string);
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
@@ -203,6 +205,8 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     _getTickMarkClass(tickMark: TickMark): string;
     /** Whether the slider thumb ripples should be disabled. */
     _isRippleDisabled(): boolean;
+    /** Gets the dimensions of the host element. */
+    _getHostDimensions(): DOMRect;
     /** Starts observing and updating the slider if the host changes its size. */
     private _observeHostResize;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSlider, [null, null, null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
