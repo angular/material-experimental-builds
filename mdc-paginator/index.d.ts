@@ -36,7 +36,7 @@ export { MAT_PAGINATOR_INTL_PROVIDER_FACTORY }
 export declare class MatPaginator extends _MatPaginatorBase<MatPaginatorDefaultOptions> {
     /** If set, styles the "page size" form field with the designated style. */
     _formFieldAppearance?: MatFormFieldAppearance;
-    /** ID for the DOM node containing the pagiators's items per page label. */
+    /** ID for the DOM node containing the paginator's items per page label. */
     readonly _pageSizeLabelId: string;
     constructor(intl: MatPaginatorIntl, changeDetectorRef: ChangeDetectorRef, defaults?: MatPaginatorDefaultOptions);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPaginator, [null, null, { optional: true; }]>;
