@@ -32,7 +32,7 @@ let nextUniqueId = 0;
 class MatPaginator extends _MatPaginatorBase {
     constructor(intl, changeDetectorRef, defaults) {
         super(intl, changeDetectorRef, defaults);
-        /** ID for the DOM node containing the pagiators's items per page label. */
+        /** ID for the DOM node containing the paginator's items per page label. */
         this._pageSizeLabelId = `mat-paginator-page-size-label-${nextUniqueId++}`;
         this._formFieldAppearance = (defaults === null || defaults === void 0 ? void 0 : defaults.formFieldAppearance) || 'outline';
     }

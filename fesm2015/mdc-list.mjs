@@ -688,7 +688,7 @@ class MatListOption extends MatListItemBase {
     _markForCheck() {
         this._changeDetectorRef.markForCheck();
     }
-    /** Toggles the option's value based on a user interacion. */
+    /** Toggles the option's value based on a user interaction. */
     _toggleOnInteraction() {
         if (!this.disabled) {
             if (this._selectionList.multiple) {
