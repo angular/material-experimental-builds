@@ -364,7 +364,7 @@ export declare class MatListOption extends MatListItemBase implements ListOption
      * list changed.
      */
     _markForCheck(): void;
-    /** Toggles the option's value based on a user interacion. */
+    /** Toggles the option's value based on a user interaction. */
     _toggleOnInteraction(): void;
     /** Sets the tabindex of the list option. */
     _setTabindex(value: number): void;
