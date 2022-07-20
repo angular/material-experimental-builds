@@ -3,7 +3,7 @@ import * as i0 from '@angular/core';
 import * as i2 from '@angular/common';
 import * as i3 from '@angular/material-experimental/mdc-button';
 import * as i4 from '@angular/material-experimental/mdc-select';
-import * as i5 from '@angular/material/tooltip';
+import * as i5 from '@angular/material-experimental/mdc-tooltip';
 import { InjectionToken } from '@angular/core';
 import { MAT_PAGINATOR_INTL_PROVIDER } from '@angular/material/paginator';
 import { MAT_PAGINATOR_INTL_PROVIDER_FACTORY } from '@angular/material/paginator';

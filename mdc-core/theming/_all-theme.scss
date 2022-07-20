@@ -5,6 +5,7 @@
 @use '../../mdc-button/button-theme';
 @use '../../mdc-button/fab-theme';
 @use '../../mdc-button/icon-button-theme';
+@use '../../mdc-card/card-theme';
 @use '../../mdc-checkbox/checkbox-theme';
 @use '../../mdc-chips/chips-theme';
 @use '../../mdc-dialog/dialog-theme';
@@ -17,6 +18,7 @@
 @use '../../mdc-snack-bar/snack-bar-theme';
 @use '../../mdc-tabs/tabs-theme';
 @use '../../mdc-table/table-theme';
+@use '../../mdc-tooltip/tooltip-theme';
 @use '../../mdc-paginator/paginator-theme';
 @use '../../mdc-progress-bar/progress-bar-theme';
 @use '../../mdc-progress-spinner/progress-spinner-theme';
@@ -32,7 +34,7 @@
     @include dialog-theme.theme($theme-or-color-config);
     @include fab-theme.theme($theme-or-color-config);
     @include icon-button-theme.theme($theme-or-color-config);
-    @include mat.card-theme($theme-or-color-config);
+    @include card-theme.theme($theme-or-color-config);
     @include checkbox-theme.theme($theme-or-color-config);
     @include chips-theme.theme($theme-or-color-config);
     @include list-theme.theme($theme-or-color-config);
@@ -49,7 +51,7 @@
     @include form-field-theme.theme($theme-or-color-config);
     @include input-theme.theme($theme-or-color-config);
     @include tabs-theme.theme($theme-or-color-config);
-    @include mat.tooltip-theme($theme-or-color-config);
+    @include tooltip-theme.theme($theme-or-color-config);
   }
 }
 
