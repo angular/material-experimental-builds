@@ -209,6 +209,8 @@ export declare class MatSlider extends _MatSliderMixinBase implements AfterViewI
     _getHostDimensions(): DOMRect;
     /** Starts observing and updating the slider if the host changes its size. */
     private _observeHostResize;
+    /** Whether any of the thumbs are currently active. */
+    private _isActive;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSlider, [null, null, null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; }]>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSlider, "mat-slider", ["matSlider"], { "color": "color"; "disableRipple": "disableRipple"; "disabled": "disabled"; "discrete": "discrete"; "showTickMarks": "showTickMarks"; "min": "min"; "max": "max"; "step": "step"; "displayWith": "displayWith"; }, {}, ["_inputs"], ["*"], false>;
 }
@@ -393,7 +395,7 @@ declare class MatSliderVisualThumb implements AfterViewInit, OnDestroy {
     /** The RippleRef for the slider thumbs active state. */
     private _activeRippleRef;
     /** Whether the slider thumb is currently being pressed. */
-    private _isActive;
+    readonly _isActive = false;
     /** Whether the slider thumb is currently being hovered. */
     private _isHovered;
     constructor(_ngZone: NgZone, _slider: MatSlider, _elementRef: ElementRef<HTMLElement>);
