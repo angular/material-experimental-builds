@@ -807,19 +807,29 @@ class MatSlider extends _MatSliderMixinBase {
         // observer to ensure that the layout is correct (see #24590 and #25286).
         this._ngZone.runOutsideAngular(() => {
             this._resizeObserver = new ResizeObserver(entries => {
+                // Triggering a layout while the user is dragging can throw off the alignment.
+                if (this._isActive()) {
+                    return;
+                }
                 clearTimeout(this._resizeTimer);
                 this._resizeTimer = setTimeout(() => {
                     var _a;
                     // The `layout` call is going to call `getBoundingClientRect` to update the dimensions
                     // of the host. Since the `ResizeObserver` already calculated them, we can save some
                     // work by returning them instead of having to check the DOM again.
-                    this._cachedHostRect = (_a = entries[0]) === null || _a === void 0 ? void 0 : _a.contentRect;
-                    this._layout();
-                    this._cachedHostRect = null;
+                    if (!this._isActive()) {
+                        this._cachedHostRect = (_a = entries[0]) === null || _a === void 0 ? void 0 : _a.contentRect;
+                        this._layout();
+                        this._cachedHostRect = null;
+                    }
                 }, 50);
             });
             this._resizeObserver.observe(this._elementRef.nativeElement);
         });
+    }
+    /** Whether any of the thumbs are currently active. */
+    _isActive() {
+        return this._getThumb(Thumb.START)._isActive || this._getThumb(Thumb.END)._isActive;
     }
 }
 MatSlider.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.0.1", ngImport: i0, type: MatSlider, deps: [{ token: i0.NgZone }, { token: i0.ChangeDetectorRef }, { token: i0.ElementRef }, { token: i3.Platform }, { token: GlobalChangeAndInputListener }, { token: DOCUMENT }, { token: i5.Directionality, optional: true }, { token: MAT_RIPPLE_GLOBAL_OPTIONS, optional: true }, { token: ANIMATION_MODULE_TYPE, optional: true }], target: i0.ɵɵFactoryTarget.Component });
