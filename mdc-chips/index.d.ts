@@ -790,6 +790,12 @@ export declare class MatChipRemove extends MatChipAction {
  */
 export declare class MatChipRow extends MatChip implements AfterViewInit {
     protected basicChipAttrName: string;
+    /**
+     * The editing action has to be triggered in a timeout. While we're waiting on it, a blur
+     * event might occur which will interrupt the editing. This flag is used to avoid interruptions
+     * while the editing action is being initialized.
+     */
+    private _editStartPending;
     editable: boolean;
     /** Emitted when the chip is edited. */
     readonly edited: EventEmitter<MatChipEditedEvent>;
