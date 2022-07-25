@@ -14,8 +14,8 @@ import { FocusKeyManager } from '@angular/cdk/a11y';
 import * as i1$1 from '@angular/cdk/bidi';
 import * as i2$1 from '@angular/forms';
 import { NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-import * as i1$2 from '@angular/material-experimental/mdc-form-field';
-import { MatFormFieldControl, MAT_FORM_FIELD } from '@angular/material-experimental/mdc-form-field';
+import * as i1$2 from '@angular/material/form-field';
+import { MatFormFieldControl, MAT_FORM_FIELD } from '@angular/material/form-field';
 
 /**
  * @license

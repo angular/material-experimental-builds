@@ -7,7 +7,7 @@ import * as i5 from '@angular/material/tooltip';
 import { InjectionToken } from '@angular/core';
 import { MAT_PAGINATOR_INTL_PROVIDER } from '@angular/material/paginator';
 import { MAT_PAGINATOR_INTL_PROVIDER_FACTORY } from '@angular/material/paginator';
-import { MatFormFieldAppearance } from '@angular/material-experimental/mdc-form-field';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { _MatPaginatorBase } from '@angular/material/paginator';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorSelectConfig } from '@angular/material/paginator';

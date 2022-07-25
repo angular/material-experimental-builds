@@ -8,7 +8,7 @@ import * as i2 from '@angular/common';
 import * as i3 from '@angular/cdk/overlay';
 import * as i4 from '@angular/material-experimental/mdc-core';
 import * as i5 from '@angular/cdk/scrolling';
-import * as i6 from '@angular/material-experimental/mdc-form-field';
+import * as i6 from '@angular/material/form-field';
 import { MAT_SELECT_CONFIG } from '@angular/material/select';
 import { MAT_SELECT_SCROLL_STRATEGY } from '@angular/material/select';
 import { MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';
