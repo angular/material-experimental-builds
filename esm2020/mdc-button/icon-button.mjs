@@ -11,7 +11,7 @@ import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { MAT_ANCHOR_HOST, MAT_ANCHOR_INPUTS, MAT_BUTTON_HOST, MAT_BUTTON_INPUTS, MatAnchorBase, MatButtonBase, } from './button-base';
 import * as i0 from "@angular/core";
 import * as i1 from "@angular/cdk/platform";
-import * as i2 from "@angular/material-experimental/mdc-core";
+import * as i2 from "@angular/material/core";
 /**
  * Material Design icon button component. This type of button displays a single interactive icon for
  * users to perform an action.

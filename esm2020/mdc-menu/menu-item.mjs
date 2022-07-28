@@ -9,7 +9,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/
 import { MatMenuItem as BaseMatMenuItem } from '@angular/material/menu';
 import * as i0 from "@angular/core";
 import * as i1 from "@angular/common";
-import * as i2 from "@angular/material-experimental/mdc-core";
+import * as i2 from "@angular/material/core";
 /**
  * Single item inside of a `mat-menu`. Provides the menu item styling and accessibility treatment.
  */

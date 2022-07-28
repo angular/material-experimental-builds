@@ -13,7 +13,7 @@ import * as i2$1 from '@angular/cdk/a11y';
 import * as i3$1 from '@angular/cdk/layout';
 import * as i1$2 from '@angular/cdk/overlay';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatCommonModule } from '@angular/material-experimental/mdc-core';
+import { MatCommonModule } from '@angular/material/core';
 
 /**
  * @license

@@ -1,7 +1,7 @@
 import * as i0 from '@angular/core';
 import { InjectionToken, Directive, Optional, Inject, Input, ContentChildren, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, EventEmitter, ANIMATION_MODULE_TYPE as ANIMATION_MODULE_TYPE$1, Output, forwardRef, NgModule } from '@angular/core';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
-import { RippleRenderer, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
+import { RippleRenderer, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { Subscription, merge, Subject } from 'rxjs';
 import * as i1 from '@angular/cdk/platform';

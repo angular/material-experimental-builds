@@ -1,10 +1,10 @@
-import { _AbstractConstructor } from '@angular/material-experimental/mdc-core';
-import { CanColor } from '@angular/material-experimental/mdc-core';
-import { _Constructor } from '@angular/material-experimental/mdc-core';
+import { _AbstractConstructor } from '@angular/material/core';
+import { CanColor } from '@angular/material/core';
+import { _Constructor } from '@angular/material/core';
 import { ElementRef } from '@angular/core';
 import * as i0 from '@angular/core';
 import * as i2 from '@angular/common';
-import * as i3 from '@angular/material-experimental/mdc-core';
+import * as i3 from '@angular/material/core';
 import { MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS } from '@angular/material/progress-spinner';
 import { MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS_FACTORY } from '@angular/material/progress-spinner';
 import { MatProgressSpinnerDefaultOptions } from '@angular/material/progress-spinner';

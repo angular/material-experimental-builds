@@ -13,7 +13,7 @@ import { numbers, cssClasses } from '@material/dialog';
 import * as i4 from '@angular/cdk/portal';
 import { PortalModule } from '@angular/cdk/portal';
 import { DialogModule } from '@angular/cdk/dialog';
-import { MatCommonModule } from '@angular/material-experimental/mdc-core';
+import { MatCommonModule } from '@angular/material/core';
 
 /**
  * @license

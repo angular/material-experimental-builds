@@ -1,11 +1,11 @@
 import { BaseHarnessFilters } from '@angular/cdk/testing';
 import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
-import { MatOptgroupHarness } from '@angular/material-experimental/mdc-core/testing';
-import { MatOptionHarness } from '@angular/material-experimental/mdc-core/testing';
+import { MatOptgroupHarness } from '@angular/material/core/testing';
+import { MatOptionHarness } from '@angular/material/core/testing';
 import { _MatSelectHarnessBase } from '@angular/material/select/testing';
-import { OptgroupHarnessFilters } from '@angular/material-experimental/mdc-core/testing';
-import { OptionHarnessFilters } from '@angular/material-experimental/mdc-core/testing';
+import { OptgroupHarnessFilters } from '@angular/material/core/testing';
+import { OptionHarnessFilters } from '@angular/material/core/testing';
 
 /** Harness for interacting with an MDC-based mat-select in tests. */
 export declare class MatSelectHarness extends _MatSelectHarnessBase<typeof MatOptionHarness, MatOptionHarness, OptionHarnessFilters, typeof MatOptgroupHarness, MatOptgroupHarness, OptgroupHarnessFilters> {

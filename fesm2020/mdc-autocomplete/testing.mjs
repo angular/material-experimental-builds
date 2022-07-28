@@ -1,5 +1,5 @@
 import { HarnessPredicate } from '@angular/cdk/testing';
-import { MatOptionHarness, MatOptgroupHarness } from '@angular/material-experimental/mdc-core/testing';
+import { MatOptionHarness, MatOptgroupHarness } from '@angular/material/core/testing';
 import { _MatAutocompleteHarnessBase } from '@angular/material/autocomplete/testing';
 
 /**

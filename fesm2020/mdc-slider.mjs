@@ -7,13 +7,12 @@ import { DOCUMENT, CommonModule } from '@angular/common';
 import * as i0 from '@angular/core';
 import { Injectable, Inject, forwardRef, Component, ChangeDetectionStrategy, ViewEncapsulation, Input, ViewChild, EventEmitter, Directive, Output, Optional, ViewChildren, ContentChildren, NgModule } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatRipple, mixinColor, mixinDisableRipple, MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
+import * as i2 from '@angular/material/core';
+import { MatRipple, mixinColor, mixinDisableRipple, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { Thumb, MDCSliderFoundation, TickMark } from '@material/slider';
 import { Subject, fromEvent, Subscription } from 'rxjs';
 import { takeUntil, finalize, share } from 'rxjs/operators';
-import * as i2 from '@angular/material-experimental/mdc-core';
-import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
 
 /**
  * @license

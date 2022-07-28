@@ -5,8 +5,8 @@ import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import * as i1 from '@angular/cdk/a11y';
 import { _MatSlideToggleBase, _MatSlideToggleRequiredValidatorModule } from '@angular/material/slide-toggle';
 export { MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR, MatSlideToggleRequiredValidator } from '@angular/material/slide-toggle';
-import * as i2 from '@angular/material-experimental/mdc-core';
-import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
+import * as i2 from '@angular/material/core';
+import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 
 /**

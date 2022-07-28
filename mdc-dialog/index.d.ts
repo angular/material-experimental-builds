@@ -8,7 +8,7 @@ import * as i0 from '@angular/core';
 import * as i3 from '@angular/cdk/dialog';
 import * as i4 from '@angular/cdk/overlay';
 import * as i5 from '@angular/cdk/portal';
-import * as i6 from '@angular/material-experimental/mdc-core';
+import * as i6 from '@angular/material/core';
 import { InjectionToken } from '@angular/core';
 import { Injector } from '@angular/core';
 import { InteractivityChecker } from '@angular/cdk/a11y';

@@ -14,7 +14,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as i0 from "@angular/core";
 import * as i1 from "@angular/cdk/a11y";
 import * as i2 from "@angular/cdk/collections";
-import * as i3 from "@angular/material-experimental/mdc-core";
+import * as i3 from "@angular/material/core";
 // Re-export symbols used by the base Material radio component so that users do not need to depend
 // on both packages.
 export { MatRadioChange, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';

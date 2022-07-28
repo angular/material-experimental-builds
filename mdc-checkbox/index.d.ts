@@ -1,10 +1,10 @@
-import { CanColor } from '@angular/material-experimental/mdc-core';
-import { CanDisable } from '@angular/material-experimental/mdc-core';
+import { CanColor } from '@angular/material/core';
+import { CanDisable } from '@angular/material/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { ElementRef } from '@angular/core';
 import * as i0 from '@angular/core';
-import * as i2 from '@angular/material-experimental/mdc-core';
+import * as i2 from '@angular/material/core';
 import * as i3 from '@angular/material/checkbox';
 import { MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
 import { MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY } from '@angular/material/checkbox';

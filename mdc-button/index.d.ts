@@ -1,20 +1,20 @@
-import { _AbstractConstructor } from '@angular/material-experimental/mdc-core';
+import { _AbstractConstructor } from '@angular/material/core';
 import { BooleanInput } from '@angular/cdk/coercion';
-import { CanColor } from '@angular/material-experimental/mdc-core';
-import { CanDisable } from '@angular/material-experimental/mdc-core';
-import { CanDisableRipple } from '@angular/material-experimental/mdc-core';
-import { _Constructor } from '@angular/material-experimental/mdc-core';
+import { CanColor } from '@angular/material/core';
+import { CanDisable } from '@angular/material/core';
+import { CanDisableRipple } from '@angular/material/core';
+import { _Constructor } from '@angular/material/core';
 import { ElementRef } from '@angular/core';
 import { FocusOrigin } from '@angular/cdk/a11y';
 import * as i0 from '@angular/core';
-import * as i4 from '@angular/material-experimental/mdc-core';
+import * as i4 from '@angular/material/core';
 import { InjectionToken } from '@angular/core';
-import { MatRipple } from '@angular/material-experimental/mdc-core';
+import { MatRipple } from '@angular/material/core';
 import { NgZone } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
-import { ThemePalette } from '@angular/material-experimental/mdc-core';
+import { ThemePalette } from '@angular/material/core';
 
 declare namespace i1 {
     export {

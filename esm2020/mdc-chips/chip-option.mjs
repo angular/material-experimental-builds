@@ -11,7 +11,7 @@ import { MatChip } from './chip';
 import { MAT_CHIP } from './tokens';
 import * as i0 from "@angular/core";
 import * as i1 from "@angular/common";
-import * as i2 from "@angular/material-experimental/mdc-core";
+import * as i2 from "@angular/material/core";
 import * as i3 from "./chip-action";
 /** Event object emitted by MatChipOption when selected or deselected. */
 export class MatChipSelectionChange {

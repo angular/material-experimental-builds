@@ -18,7 +18,7 @@ import { Subscription } from 'rxjs';
 import { GlobalChangeAndInputListener } from './global-change-and-input-listener';
 import * as i0 from "@angular/core";
 import * as i1 from "@angular/common";
-import * as i2 from "@angular/material-experimental/mdc-core";
+import * as i2 from "@angular/material/core";
 import * as i3 from "@angular/cdk/platform";
 import * as i4 from "./global-change-and-input-listener";
 import * as i5 from "@angular/cdk/bidi";

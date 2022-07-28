@@ -13,7 +13,7 @@ import { _MatSlideToggleBase } from '@angular/material/slide-toggle';
 import { MAT_SLIDE_TOGGLE_DEFAULT_OPTIONS, } from './slide-toggle-config';
 import * as i0 from "@angular/core";
 import * as i1 from "@angular/cdk/a11y";
-import * as i2 from "@angular/material-experimental/mdc-core";
+import * as i2 from "@angular/material/core";
 /** @docs-private */
 export const MAT_SLIDE_TOGGLE_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,

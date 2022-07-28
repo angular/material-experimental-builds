@@ -2,7 +2,7 @@ import { ElementRef } from '@angular/core';
 import { fadeInItems } from '@angular/material/menu';
 import * as i0 from '@angular/core';
 import * as i4 from '@angular/common';
-import * as i5 from '@angular/material-experimental/mdc-core';
+import * as i5 from '@angular/material/core';
 import * as i6 from '@angular/cdk/overlay';
 import * as i7 from '@angular/cdk/scrolling';
 import { MAT_MENU_CONTENT } from '@angular/material/menu';

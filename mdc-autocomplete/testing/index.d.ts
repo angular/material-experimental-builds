@@ -2,10 +2,10 @@ import { BaseHarnessFilters } from '@angular/cdk/testing';
 import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatAutocompleteHarnessBase } from '@angular/material/autocomplete/testing';
-import { MatOptgroupHarness } from '@angular/material-experimental/mdc-core/testing';
-import { MatOptionHarness } from '@angular/material-experimental/mdc-core/testing';
-import { OptgroupHarnessFilters } from '@angular/material-experimental/mdc-core/testing';
-import { OptionHarnessFilters } from '@angular/material-experimental/mdc-core/testing';
+import { MatOptgroupHarness } from '@angular/material/core/testing';
+import { MatOptionHarness } from '@angular/material/core/testing';
+import { OptgroupHarnessFilters } from '@angular/material/core/testing';
+import { OptionHarnessFilters } from '@angular/material/core/testing';
 
 /** A set of criteria that can be used to filter a list of `MatAutocompleteHarness` instances. */
 export declare interface AutocompleteHarnessFilters extends BaseHarnessFilters {

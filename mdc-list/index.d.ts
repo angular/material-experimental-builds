@@ -5,7 +5,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { ElementRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import * as i0 from '@angular/core';
-import * as i10 from '@angular/material-experimental/mdc-core';
+import * as i10 from '@angular/material/core';
 import * as i11 from '@angular/material/divider';
 import * as i8 from '@angular/cdk/observers';
 import * as i9 from '@angular/common';
@@ -19,12 +19,12 @@ import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 import { QueryList } from '@angular/core';
-import { RippleConfig } from '@angular/material-experimental/mdc-core';
-import { RippleGlobalOptions } from '@angular/material-experimental/mdc-core';
-import { RippleTarget } from '@angular/material-experimental/mdc-core';
+import { RippleConfig } from '@angular/material/core';
+import { RippleGlobalOptions } from '@angular/material/core';
+import { RippleTarget } from '@angular/material/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { SimpleChanges } from '@angular/core';
-import { ThemePalette } from '@angular/material-experimental/mdc-core';
+import { ThemePalette } from '@angular/material/core';
 
 declare namespace i1 {
     export {

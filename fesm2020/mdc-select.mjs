@@ -4,7 +4,7 @@ import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
 import * as i0 from '@angular/core';
 import { Directive, Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, ContentChild, NgModule } from '@angular/core';
-import { _countGroupLabelsBeforeOption, _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MatOption, MAT_OPTGROUP, MatOptionModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
+import { _countGroupLabelsBeforeOption, _getOptionScrollPosition, MAT_OPTION_PARENT_COMPONENT, MatOption, MAT_OPTGROUP, MatOptionModule, MatCommonModule } from '@angular/material/core';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 import { MAT_SELECT_TRIGGER, _MatSelectBase, MAT_SELECT_SCROLL_STRATEGY_PROVIDER } from '@angular/material/select';

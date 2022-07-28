@@ -15,7 +15,7 @@ import { CdkRowDef } from '@angular/cdk/table';
 import { CdkTable } from '@angular/cdk/table';
 import { CdkTextColumn } from '@angular/cdk/table';
 import * as i0 from '@angular/core';
-import * as i5 from '@angular/material-experimental/mdc-core';
+import * as i5 from '@angular/material/core';
 import * as i6 from '@angular/cdk/table';
 import { _MatTableDataSource } from '@angular/material/table';
 import { MatTableDataSourcePageEvent } from '@angular/material/table';

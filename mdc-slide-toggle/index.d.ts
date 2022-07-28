@@ -4,13 +4,13 @@ import { ElementRef } from '@angular/core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import * as i0 from '@angular/core';
 import * as i2 from '@angular/material/slide-toggle';
-import * as i3 from '@angular/material-experimental/mdc-core';
+import * as i3 from '@angular/material/core';
 import * as i4 from '@angular/common';
 import { InjectionToken } from '@angular/core';
 import { MAT_SLIDE_TOGGLE_REQUIRED_VALIDATOR } from '@angular/material/slide-toggle';
 import { _MatSlideToggleBase } from '@angular/material/slide-toggle';
 import { MatSlideToggleRequiredValidator } from '@angular/material/slide-toggle';
-import { ThemePalette } from '@angular/material-experimental/mdc-core';
+import { ThemePalette } from '@angular/material/core';
 import { Type } from '@angular/core';
 
 declare namespace i1 {

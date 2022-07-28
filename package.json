@@ -119,14 +119,6 @@
       "node": "./fesm2015/mdc-core.mjs",
       "default": "./fesm2020/mdc-core.mjs"
     },
-    "./mdc-core/testing": {
-      "types": "./mdc-core/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-core/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-core/testing.mjs",
-      "es2015": "./fesm2015/mdc-core/testing.mjs",
-      "node": "./fesm2015/mdc-core/testing.mjs",
-      "default": "./fesm2020/mdc-core/testing.mjs"
-    },
     "./mdc-dialog": {
       "types": "./mdc-dialog/index.d.ts",
       "esm2020": "./esm2020/mdc-dialog/mdc-dialog_public_index.mjs",

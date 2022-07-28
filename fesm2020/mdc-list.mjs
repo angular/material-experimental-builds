@@ -3,7 +3,7 @@ import { InjectionToken, Directive, Optional, Inject, Input, ContentChildren, Co
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 import * as i1 from '@angular/cdk/platform';
 import { _getFocusedElementPierceShadowDom } from '@angular/cdk/platform';
-import { RippleRenderer, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material-experimental/mdc-core';
+import { RippleRenderer, MAT_RIPPLE_GLOBAL_OPTIONS, MatCommonModule, MatRippleModule, MatPseudoCheckboxModule } from '@angular/material/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { Subscription, merge, Subject } from 'rxjs';
 import * as i3 from '@angular/cdk/observers';

@@ -1,6 +1,6 @@
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatSelectHarnessBase } from '@angular/material/select/testing';
-import { MatOptionHarness, MatOptgroupHarness } from '@angular/material-experimental/mdc-core/testing';
+import { MatOptionHarness, MatOptgroupHarness } from '@angular/material/core/testing';
 
 /**
  * @license

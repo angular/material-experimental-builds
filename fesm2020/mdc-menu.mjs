@@ -5,8 +5,8 @@ import { MAT_MENU_SCROLL_STRATEGY, _MatMenuBase, MAT_MENU_DEFAULT_OPTIONS, MAT_M
 export { MAT_MENU_CONTENT, MAT_MENU_DEFAULT_OPTIONS, MAT_MENU_PANEL, MAT_MENU_SCROLL_STRATEGY, fadeInItems, matMenuAnimations, transformMenu } from '@angular/material/menu';
 import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
-import * as i2 from '@angular/material-experimental/mdc-core';
-import { MatRippleModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
+import * as i2 from '@angular/material/core';
+import { MatRippleModule, MatCommonModule } from '@angular/material/core';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';
 
 /**

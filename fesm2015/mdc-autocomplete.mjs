@@ -1,6 +1,6 @@
 import * as i0 from '@angular/core';
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, ContentChildren, forwardRef, Directive, NgModule } from '@angular/core';
-import { MAT_OPTION_PARENT_COMPONENT, MAT_OPTGROUP, MatOption, MatOptionModule, MatCommonModule } from '@angular/material-experimental/mdc-core';
+import { MAT_OPTION_PARENT_COMPONENT, MAT_OPTGROUP, MatOption, MatOptionModule, MatCommonModule } from '@angular/material/core';
 import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { CdkScrollableModule } from '@angular/cdk/scrolling';

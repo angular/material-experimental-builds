@@ -4,8 +4,8 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { _MatCheckboxBase, MAT_CHECKBOX_DEFAULT_OPTIONS, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 export { MAT_CHECKBOX_DEFAULT_OPTIONS, MAT_CHECKBOX_DEFAULT_OPTIONS_FACTORY, MAT_CHECKBOX_REQUIRED_VALIDATOR, MatCheckboxRequiredValidator, _MatCheckboxRequiredValidatorModule } from '@angular/material/checkbox';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import * as i1 from '@angular/material-experimental/mdc-core';
-import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
+import * as i1 from '@angular/material/core';
+import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 
 /**
  * @license

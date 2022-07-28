@@ -1,7 +1,7 @@
 import { getMatAutocompleteMissingPanelError } from '@angular/material/autocomplete';
 import * as i0 from '@angular/core';
 import * as i4 from '@angular/cdk/overlay';
-import * as i5 from '@angular/material-experimental/mdc-core';
+import * as i5 from '@angular/material/core';
 import * as i6 from '@angular/common';
 import * as i7 from '@angular/cdk/scrolling';
 import { MAT_AUTOCOMPLETE_DEFAULT_OPTIONS } from '@angular/material/autocomplete';
@@ -15,8 +15,8 @@ import { MatAutocompleteDefaultOptions } from '@angular/material/autocomplete';
 import { _MatAutocompleteOriginBase } from '@angular/material/autocomplete';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { _MatAutocompleteTriggerBase } from '@angular/material/autocomplete';
-import { MatOptgroup } from '@angular/material-experimental/mdc-core';
-import { MatOption } from '@angular/material-experimental/mdc-core';
+import { MatOptgroup } from '@angular/material/core';
+import { MatOption } from '@angular/material/core';
 import { QueryList } from '@angular/core';
 
 export { getMatAutocompleteMissingPanelError }

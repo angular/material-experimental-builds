@@ -6,8 +6,8 @@ import * as i1 from '@angular/cdk/a11y';
 import * as i2 from '@angular/cdk/collections';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import * as i3 from '@angular/material-experimental/mdc-core';
-import { MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
+import * as i3 from '@angular/material/core';
+import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 
 /**

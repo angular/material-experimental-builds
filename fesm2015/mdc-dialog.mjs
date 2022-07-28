@@ -13,7 +13,7 @@ import * as i1 from '@angular/cdk/a11y';
 import * as i4 from '@angular/cdk/portal';
 import { PortalModule } from '@angular/cdk/portal';
 import { DialogModule } from '@angular/cdk/dialog';
-import { MatCommonModule } from '@angular/material-experimental/mdc-core';
+import { MatCommonModule } from '@angular/material/core';
 
 /**
  * Internal component that wraps user-provided dialog content in a MDC dialog.

@@ -2,7 +2,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import * as i0 from '@angular/core';
-import * as i2 from '@angular/material-experimental/mdc-core';
+import * as i2 from '@angular/material/core';
 import * as i3 from '@angular/common';
 import { InjectionToken } from '@angular/core';
 import { MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';

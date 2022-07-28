@@ -2,8 +2,8 @@ import * as i1 from '@angular/cdk/platform';
 import * as i0 from '@angular/core';
 import { Directive, ViewChild, Component, ViewEncapsulation, ChangeDetectionStrategy, Optional, Inject, InjectionToken, NgModule } from '@angular/core';
 import { ANIMATION_MODULE_TYPE } from '@angular/platform-browser/animations';
-import * as i2 from '@angular/material-experimental/mdc-core';
-import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material-experimental/mdc-core';
+import * as i2 from '@angular/material/core';
+import { mixinColor, mixinDisabled, mixinDisableRipple, MatRipple, MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 /**
