@@ -1,5 +1,5 @@
 import { HarnessPredicate } from '@angular/cdk/testing';
-import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
+import { MatSelectHarness } from '@angular/material/select/testing';
 import { _MatPaginatorHarnessBase } from '@angular/material/paginator/testing';
 
 /**

@@ -2,7 +2,7 @@ import { AsyncFactoryFn } from '@angular/cdk/testing';
 import { ComponentHarnessConstructor } from '@angular/cdk/testing';
 import { HarnessPredicate } from '@angular/cdk/testing';
 import { _MatPaginatorHarnessBase } from '@angular/material/paginator/testing';
-import { MatSelectHarness } from '@angular/material-experimental/mdc-select/testing';
+import { MatSelectHarness } from '@angular/material/select/testing';
 import { PaginatorHarnessFilters } from '@angular/material/paginator/testing';
 import { TestElement } from '@angular/cdk/testing';
 
