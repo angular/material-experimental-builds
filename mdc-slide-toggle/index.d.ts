@@ -51,16 +51,16 @@ export declare class MatSlideToggle extends _MatSlideToggleBase<MatSlideToggleCh
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSlideToggle, "mat-slide-toggle", ["matSlideToggle"], { "disabled": "disabled"; "disableRipple": "disableRipple"; "color": "color"; "tabIndex": "tabIndex"; }, {}, never, ["*"], false>;
 }
 
-/** Change event object emitted by a MatSlideToggle. */
+/** Change event object emitted by a slide toggle. */
 export declare class MatSlideToggleChange {
-    /** The source MatSlideToggle of the event. */
+    /** The source slide toggle of the event. */
     source: MatSlideToggle;
-    /** The new `checked` value of the MatSlideToggle. */
+    /** The new `checked` value of the slide toggle. */
     checked: boolean;
     constructor(
-    /** The source MatSlideToggle of the event. */
+    /** The source slide toggle of the event. */
     source: MatSlideToggle, 
-    /** The new `checked` value of the MatSlideToggle. */
+    /** The new `checked` value of the slide toggle. */
     checked: boolean);
 }
 

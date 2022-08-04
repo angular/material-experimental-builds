@@ -63,22 +63,6 @@
       "node": "./fesm2015/mdc-button/testing.mjs",
       "default": "./fesm2020/mdc-button/testing.mjs"
     },
-    "./mdc-checkbox": {
-      "types": "./mdc-checkbox/index.d.ts",
-      "esm2020": "./esm2020/mdc-checkbox/mdc-checkbox_public_index.mjs",
-      "es2020": "./fesm2020/mdc-checkbox.mjs",
-      "es2015": "./fesm2015/mdc-checkbox.mjs",
-      "node": "./fesm2015/mdc-checkbox.mjs",
-      "default": "./fesm2020/mdc-checkbox.mjs"
-    },
-    "./mdc-checkbox/testing": {
-      "types": "./mdc-checkbox/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-checkbox/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-checkbox/testing.mjs",
-      "es2015": "./fesm2015/mdc-checkbox/testing.mjs",
-      "node": "./fesm2015/mdc-checkbox/testing.mjs",
-      "default": "./fesm2020/mdc-checkbox/testing.mjs"
-    },
     "./mdc-chips": {
       "types": "./mdc-chips/index.d.ts",
       "esm2020": "./esm2020/mdc-chips/mdc-chips_public_index.mjs",
