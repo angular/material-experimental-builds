@@ -47,22 +47,6 @@
       "node": "./fesm2015/column-resize.mjs",
       "default": "./fesm2020/column-resize.mjs"
     },
-    "./mdc-autocomplete": {
-      "types": "./mdc-autocomplete/index.d.ts",
-      "esm2020": "./esm2020/mdc-autocomplete/mdc-autocomplete_public_index.mjs",
-      "es2020": "./fesm2020/mdc-autocomplete.mjs",
-      "es2015": "./fesm2015/mdc-autocomplete.mjs",
-      "node": "./fesm2015/mdc-autocomplete.mjs",
-      "default": "./fesm2020/mdc-autocomplete.mjs"
-    },
-    "./mdc-autocomplete/testing": {
-      "types": "./mdc-autocomplete/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-autocomplete/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-autocomplete/testing.mjs",
-      "es2015": "./fesm2015/mdc-autocomplete/testing.mjs",
-      "node": "./fesm2015/mdc-autocomplete/testing.mjs",
-      "default": "./fesm2020/mdc-autocomplete/testing.mjs"
-    },
     "./mdc-button": {
       "types": "./mdc-button/index.d.ts",
       "esm2020": "./esm2020/mdc-button/mdc-button_public_index.mjs",
