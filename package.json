@@ -135,22 +135,6 @@
       "node": "./fesm2015/mdc-progress-spinner/testing.mjs",
       "default": "./fesm2020/mdc-progress-spinner/testing.mjs"
     },
-    "./mdc-slider": {
-      "types": "./mdc-slider/index.d.ts",
-      "esm2020": "./esm2020/mdc-slider/mdc-slider_public_index.mjs",
-      "es2020": "./fesm2020/mdc-slider.mjs",
-      "es2015": "./fesm2015/mdc-slider.mjs",
-      "node": "./fesm2015/mdc-slider.mjs",
-      "default": "./fesm2020/mdc-slider.mjs"
-    },
-    "./mdc-slider/testing": {
-      "types": "./mdc-slider/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-slider/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-slider/testing.mjs",
-      "es2015": "./fesm2015/mdc-slider/testing.mjs",
-      "node": "./fesm2015/mdc-slider/testing.mjs",
-      "default": "./fesm2020/mdc-slider/testing.mjs"
-    },
     "./mdc-snack-bar": {
       "types": "./mdc-snack-bar/index.d.ts",
       "esm2020": "./esm2020/mdc-snack-bar/mdc-snack-bar_public_index.mjs",
