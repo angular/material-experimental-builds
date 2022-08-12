@@ -5,8 +5,8 @@ import { InjectionToken, Component, ChangeDetectionStrategy, ViewEncapsulation, 
 import * as i1 from '@angular/material/paginator';
 import { _MatPaginatorBase, MAT_PAGINATOR_INTL_PROVIDER } from '@angular/material/paginator';
 export { MAT_PAGINATOR_INTL_PROVIDER, MAT_PAGINATOR_INTL_PROVIDER_FACTORY, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
-import * as i3 from '@angular/material-experimental/mdc-button';
-import { MatButtonModule } from '@angular/material-experimental/mdc-button';
+import * as i3 from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import * as i5 from '@angular/material/select';
 import { MatSelectModule } from '@angular/material/select';
 import * as i7 from '@angular/material/tooltip';

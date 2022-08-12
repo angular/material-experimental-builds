@@ -5,8 +5,8 @@ import { MAT_SNACK_BAR_DATA, _MatSnackBarContainerBase, matSnackBarAnimations, _
 export { MAT_SNACK_BAR_DATA, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY, MatSnackBarConfig, MatSnackBarRef, matSnackBarAnimations } from '@angular/material/snack-bar';
 import * as i2 from '@angular/common';
 import { CommonModule } from '@angular/common';
-import * as i3 from '@angular/material-experimental/mdc-button';
-import { MatButtonModule } from '@angular/material-experimental/mdc-button';
+import * as i3 from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import * as i1$1 from '@angular/cdk/portal';
 import { PortalModule } from '@angular/cdk/portal';
 import * as i1$2 from '@angular/cdk/overlay';

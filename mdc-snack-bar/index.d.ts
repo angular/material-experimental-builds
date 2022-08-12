@@ -4,7 +4,7 @@ import * as i0 from '@angular/core';
 import * as i4 from '@angular/cdk/overlay';
 import * as i5 from '@angular/cdk/portal';
 import * as i6 from '@angular/common';
-import * as i7 from '@angular/material-experimental/mdc-button';
+import * as i7 from '@angular/material/button';
 import * as i8 from '@angular/material/core';
 import { Injector } from '@angular/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';

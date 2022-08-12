@@ -1,7 +1,7 @@
 import { ChangeDetectorRef } from '@angular/core';
 import * as i0 from '@angular/core';
 import * as i2 from '@angular/common';
-import * as i3 from '@angular/material-experimental/mdc-button';
+import * as i3 from '@angular/material/button';
 import * as i4 from '@angular/material/select';
 import * as i5 from '@angular/material/tooltip';
 import { InjectionToken } from '@angular/core';
