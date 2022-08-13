@@ -55,22 +55,6 @@
       "node": "./fesm2015/mdc-core.mjs",
       "default": "./fesm2020/mdc-core.mjs"
     },
-    "./mdc-paginator": {
-      "types": "./mdc-paginator/index.d.ts",
-      "esm2020": "./esm2020/mdc-paginator/mdc-paginator_public_index.mjs",
-      "es2020": "./fesm2020/mdc-paginator.mjs",
-      "es2015": "./fesm2015/mdc-paginator.mjs",
-      "node": "./fesm2015/mdc-paginator.mjs",
-      "default": "./fesm2020/mdc-paginator.mjs"
-    },
-    "./mdc-paginator/testing": {
-      "types": "./mdc-paginator/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-paginator/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-paginator/testing.mjs",
-      "es2015": "./fesm2015/mdc-paginator/testing.mjs",
-      "node": "./fesm2015/mdc-paginator/testing.mjs",
-      "default": "./fesm2020/mdc-paginator/testing.mjs"
-    },
     "./mdc-progress-spinner": {
       "types": "./mdc-progress-spinner/index.d.ts",
       "esm2020": "./esm2020/mdc-progress-spinner/mdc-progress-spinner_public_index.mjs",
