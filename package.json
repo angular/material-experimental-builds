@@ -71,22 +71,6 @@
       "node": "./fesm2015/mdc-progress-spinner/testing.mjs",
       "default": "./fesm2020/mdc-progress-spinner/testing.mjs"
     },
-    "./mdc-table": {
-      "types": "./mdc-table/index.d.ts",
-      "esm2020": "./esm2020/mdc-table/mdc-table_public_index.mjs",
-      "es2020": "./fesm2020/mdc-table.mjs",
-      "es2015": "./fesm2015/mdc-table.mjs",
-      "node": "./fesm2015/mdc-table.mjs",
-      "default": "./fesm2020/mdc-table.mjs"
-    },
-    "./mdc-table/testing": {
-      "types": "./mdc-table/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-table/testing/index.mjs",
-      "es2020": "./fesm2020/mdc-table/testing.mjs",
-      "es2015": "./fesm2015/mdc-table/testing.mjs",
-      "node": "./fesm2015/mdc-table/testing.mjs",
-      "default": "./fesm2020/mdc-table/testing.mjs"
-    },
     "./menubar": {
       "types": "./menubar/index.d.ts",
       "esm2020": "./esm2020/menubar/menubar_public_index.mjs",
