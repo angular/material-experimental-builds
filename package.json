@@ -55,22 +55,6 @@
       "node": "./fesm2015/mdc-core.mjs",
       "default": "./fesm2020/mdc-core.mjs"
     },
-    "./mdc-progress-spinner": {
-      "types": "./mdc-progress-spinner/index.d.ts",
-      "esm2020": "./esm2020/mdc-progress-spinner/mdc-progress-spinner_public_index.mjs",
-      "es2020": "./fesm2020/mdc-progress-spinner.mjs",
-      "es2015": "./fesm2015/mdc-progress-spinner.mjs",
-      "node": "./fesm2015/mdc-progress-spinner.mjs",
-      "default": "./fesm2020/mdc-progress-spinner.mjs"
-    },
-    "./mdc-progress-spinner/testing": {
-      "types": "./mdc-progress-spinner/testing/index.d.ts",
-      "esm2020": "./esm2020/mdc-progress-spinner/testing/testing_public_index.mjs",
-      "es2020": "./fesm2020/mdc-progress-spinner/testing.mjs",
-      "es2015": "./fesm2015/mdc-progress-spinner/testing.mjs",
-      "node": "./fesm2015/mdc-progress-spinner/testing.mjs",
-      "default": "./fesm2020/mdc-progress-spinner/testing.mjs"
-    },
     "./menubar": {
       "types": "./menubar/index.d.ts",
       "esm2020": "./esm2020/menubar/menubar_public_index.mjs",
