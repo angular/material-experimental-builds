@@ -21,21 +21,6 @@
       "node": "./fesm2015/material-experimental.mjs",
       "default": "./fesm2020/material-experimental.mjs"
     },
-    "./mdc-core/theming/prebuilt/indigo-pink.css": {
-      "style": "./mdc-core/theming/prebuilt/indigo-pink.css"
-    },
-    "./mdc-core/theming/prebuilt/deeppurple-amber.css": {
-      "style": "./mdc-core/theming/prebuilt/deeppurple-amber.css"
-    },
-    "./mdc-core/theming/prebuilt/pink-bluegrey.css": {
-      "style": "./mdc-core/theming/prebuilt/pink-bluegrey.css"
-    },
-    "./mdc-core/theming/prebuilt/purple-green.css": {
-      "style": "./mdc-core/theming/prebuilt/purple-green.css"
-    },
-    "./mdc-core/theming/prebuilt/*": {
-      "style": "./mdc-core/theming/prebuilt/*.css"
-    },
     "./package.json": {
       "default": "./package.json"
     },
@@ -46,14 +31,6 @@
       "es2015": "./fesm2015/column-resize.mjs",
       "node": "./fesm2015/column-resize.mjs",
       "default": "./fesm2020/column-resize.mjs"
-    },
-    "./mdc-core": {
-      "types": "./mdc-core/index.d.ts",
-      "esm2020": "./esm2020/mdc-core/mdc-core_public_index.mjs",
-      "es2020": "./fesm2020/mdc-core.mjs",
-      "es2015": "./fesm2015/mdc-core.mjs",
-      "node": "./fesm2015/mdc-core.mjs",
-      "default": "./fesm2020/mdc-core.mjs"
     },
     "./menubar": {
       "types": "./menubar/index.d.ts",
