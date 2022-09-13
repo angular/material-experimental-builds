@@ -90,7 +90,7 @@ export declare class MatColumnResize extends AbstractMatColumnResize {
     protected readonly notifier: ColumnResizeNotifierSource;
     constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatColumnResize, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatColumnResize, "table[mat-table][columnResize]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatColumnResize, "table[mat-table][columnResize]", never, {}, {}, never, never, false, never>;
 }
 
 export declare class MatColumnResizeCommonModule {
@@ -111,7 +111,7 @@ export declare class MatColumnResizeFlex extends AbstractMatColumnResize {
     protected readonly notifier: ColumnResizeNotifierSource;
     constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatColumnResizeFlex, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatColumnResizeFlex, "mat-table[columnResize]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatColumnResizeFlex, "mat-table[columnResize]", never, {}, {}, never, never, false, never>;
 }
 
 export declare class MatColumnResizeModule {
@@ -139,7 +139,7 @@ export declare class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
     constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, resizeNotifier: ColumnResizeNotifierSource, resizeRef: ResizeRef, styleScheduler: _CoalescedStyleScheduler, document: any);
     protected updateResizeActive(active: boolean): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatColumnResizeOverlayHandle, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatColumnResizeOverlayHandle, "ng-component", never, {}, {}, never, never, false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatColumnResizeOverlayHandle, "ng-component", never, {}, {}, never, never, false, never>;
 }
 
 /**
@@ -154,7 +154,7 @@ export declare class MatDefaultEnabledColumnResize extends AbstractMatColumnResi
     protected readonly notifier: ColumnResizeNotifierSource;
     constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatDefaultEnabledColumnResize, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultEnabledColumnResize, "table[mat-table]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultEnabledColumnResize, "table[mat-table]", never, {}, {}, never, never, false, never>;
 }
 
 /**
@@ -169,7 +169,7 @@ export declare class MatDefaultEnabledColumnResizeFlex extends AbstractMatColumn
     protected readonly notifier: ColumnResizeNotifierSource;
     constructor(columnResizeNotifier: ColumnResizeNotifier, elementRef: ElementRef<HTMLElement>, eventDispatcher: HeaderRowEventDispatcher, ngZone: NgZone, notifier: ColumnResizeNotifierSource);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatDefaultEnabledColumnResizeFlex, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultEnabledColumnResizeFlex, "mat-table", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultEnabledColumnResizeFlex, "mat-table", never, {}, {}, never, never, false, never>;
 }
 
 export declare class MatDefaultEnabledColumnResizeModule {
@@ -199,7 +199,7 @@ export declare class MatDefaultResizable extends AbstractMatResizable {
     protected readonly document: Document;
     constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, document: any, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, injector: Injector, ngZone: NgZone, overlay: Overlay, resizeNotifier: ColumnResizeNotifierSource, resizeStrategy: ResizeStrategy, styleScheduler: _CoalescedStyleScheduler, viewContainerRef: ViewContainerRef, changeDetectorRef: ChangeDetectorRef);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatDefaultResizable, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultResizable, "mat-header-cell:not([disableResize]), th[mat-header-cell]:not([disableResize])", never, { "minWidthPx": "matResizableMinWidthPx"; "maxWidthPx": "matResizableMaxWidthPx"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatDefaultResizable, "mat-header-cell:not([disableResize]), th[mat-header-cell]:not([disableResize])", never, { "minWidthPx": "matResizableMinWidthPx"; "maxWidthPx": "matResizableMaxWidthPx"; }, {}, never, never, false, never>;
 }
 
 /**
@@ -232,7 +232,7 @@ export declare class MatResizable extends AbstractMatResizable {
     protected readonly document: Document;
     constructor(columnDef: CdkColumnDef, columnResize: ColumnResize, directionality: Directionality, document: any, elementRef: ElementRef, eventDispatcher: HeaderRowEventDispatcher, injector: Injector, ngZone: NgZone, overlay: Overlay, resizeNotifier: ColumnResizeNotifierSource, resizeStrategy: ResizeStrategy, styleScheduler: _CoalescedStyleScheduler, viewContainerRef: ViewContainerRef, changeDetectorRef: ChangeDetectorRef);
     static ɵfac: i0.ɵɵFactoryDeclaration<MatResizable, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatResizable, "mat-header-cell[resizable], th[mat-header-cell][resizable]", never, { "minWidthPx": "matResizableMinWidthPx"; "maxWidthPx": "matResizableMaxWidthPx"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatResizable, "mat-header-cell[resizable], th[mat-header-cell][resizable]", never, { "minWidthPx": "matResizableMinWidthPx"; "maxWidthPx": "matResizableMaxWidthPx"; }, {}, never, never, false, never>;
 }
 
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER }

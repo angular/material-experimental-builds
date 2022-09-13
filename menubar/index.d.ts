@@ -21,7 +21,7 @@ declare namespace i2 {
  */
 export declare class MatMenuBar extends CdkMenuBar {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenuBar, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBar, "mat-menubar", ["matMenubar"], {}, {}, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBar, "mat-menubar", ["matMenubar"], {}, {}, never, ["*"], false, never>;
 }
 
 /**
@@ -32,7 +32,7 @@ export declare class MatMenuBar extends CdkMenuBar {
 export declare class MatMenuBarItem extends CdkMenuItem {
     getLabel(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenuBarItem, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBarItem, "mat-menubar-item", ["matMenubarItem"], {}, {}, never, ["*"], false>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBarItem, "mat-menubar-item", ["matMenubarItem"], {}, {}, never, ["*"], false, never>;
 }
 
 export declare class MatMenuBarModule {

@@ -29,7 +29,7 @@ declare namespace i2 {
 /** Closes the lens on click. */
 export declare class MatEditClose<FormValue> extends CdkEditClose<FormValue> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditClose<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditClose<any>, "[matEditClose]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditClose<any>, "[matEditClose]", never, {}, {}, never, never, false, never>;
 }
 
 /**
@@ -40,7 +40,7 @@ export declare class MatEditClose<FormValue> extends CdkEditClose<FormValue> {
  */
 export declare class MatEditLens<FormValue> extends CdkEditControl<FormValue> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditLens<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditLens<any>, "form[matEditLens]", never, { "clickOutBehavior": "matEditLensClickOutBehavior"; "preservedFormValue": "matEditLensPreservedFormValue"; "ignoreSubmitUnlessValid": "matEditLensIgnoreSubmitUnlessValid"; }, { "preservedFormValueChange": "matEditLensPreservedFormValueChange"; }, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditLens<any>, "form[matEditLens]", never, { "clickOutBehavior": "matEditLensClickOutBehavior"; "preservedFormValue": "matEditLensPreservedFormValue"; "ignoreSubmitUnlessValid": "matEditLensIgnoreSubmitUnlessValid"; }, { "preservedFormValueChange": "matEditLensPreservedFormValueChange"; }, never, never, false, never>;
 }
 
 /**
@@ -49,13 +49,13 @@ export declare class MatEditLens<FormValue> extends CdkEditControl<FormValue> {
  */
 export declare class MatEditOpen extends CdkEditOpen {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditOpen, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditOpen, "[matEditOpen]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditOpen, "[matEditOpen]", never, {}, {}, never, never, false, never>;
 }
 
 /** Reverts the form to its initial or previously submitted state on click. */
 export declare class MatEditRevert<FormValue> extends CdkEditRevert<FormValue> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatEditRevert<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditRevert<any>, "button[matEditRevert]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatEditRevert<any>, "button[matEditRevert]", never, {}, {}, never, never, false, never>;
 }
 
 /**
@@ -66,7 +66,7 @@ export declare class MatEditRevert<FormValue> extends CdkEditRevert<FormValue> {
 export declare class MatPopoverEdit<C> extends CdkPopoverEdit<C> {
     protected panelClass(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEdit<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEdit<any>, "[matPopoverEdit]:not([matPopoverEditTabOut])", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEdit<any>, "[matPopoverEdit]:not([matPopoverEditTabOut])", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never, never, false, never>;
 }
 
 export declare class MatPopoverEditModule {
@@ -83,7 +83,7 @@ export declare class MatPopoverEditModule {
 export declare class MatPopoverEditTabOut<C> extends CdkPopoverEditTabOut<C> {
     protected panelClass(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEditTabOut<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEditTabOut<any>, "[matPopoverEdit][matPopoverEditTabOut]", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEditTabOut<any>, "[matPopoverEdit][matPopoverEditTabOut]", never, { "template": "matPopoverEdit"; "context": "matPopoverEditContext"; "colspan": "matPopoverEditColspan"; "disabled": "matPopoverEditDisabled"; }, {}, never, never, false, never>;
 }
 
 /**
@@ -95,7 +95,7 @@ export declare class MatRowHoverContent extends CdkRowHoverContent {
     protected makeElementHiddenButFocusable(element: HTMLElement): void;
     protected makeElementVisible(element: HTMLElement): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRowHoverContent, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowHoverContent, "[matRowHoverContent]", never, {}, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowHoverContent, "[matRowHoverContent]", never, {}, {}, never, never, false, never>;
 }
 
 export { }
