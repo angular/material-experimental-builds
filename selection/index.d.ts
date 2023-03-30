@@ -54,7 +54,7 @@ export declare class MatRowSelection<T> extends CdkRowSelection<T> {
     /** The value that is associated with the row */
     value: T;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRowSelection<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowSelection<any>, "[matRowSelection]", never, { "index": "matRowSelectionIndex"; "value": "matRowSelectionValue"; }, {}, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowSelection<any>, "[matRowSelection]", never, { "index": { "alias": "matRowSelectionIndex"; "required": false; }; "value": { "alias": "matRowSelectionValue"; "required": false; }; }, {}, never, never, false, never>;
 }
 
 /**
@@ -85,7 +85,7 @@ export declare class MatSelection<T> extends CdkSelection<T> {
     /** Emits when selection changes. */
     readonly change: EventEmitter<SelectionChange<T>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelection<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": "matSelectionMultiple"; }, { "change": "matSelectionChange"; }, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": { "alias": "matSelectionMultiple"; "required": false; }; }, { "change": "matSelectionChange"; }, never, never, false, never>;
 }
 
 /**
@@ -109,7 +109,7 @@ export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
     ngOnDestroy(): void;
     private _syncColumnDefName;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionColumn<any>, [{ optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": "name"; }, {}, never, never, false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": { "alias": "name"; "required": false; }; }, {}, never, never, false, never>;
 }
 
 export declare class MatSelectionModule {
@@ -132,7 +132,7 @@ export declare class MatSelectionToggle<T> extends CdkSelectionToggle<T> {
     /** The value that is associated with the toggle */
     value: T;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionToggle<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": "matSelectionToggleIndex"; "value": "matSelectionToggleValue"; }, {}, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": { "alias": "matSelectionToggleIndex"; "required": false; }; "value": { "alias": "matSelectionToggleValue"; "required": false; }; }, {}, never, never, false, never>;
 }
 
 export { SelectionChange }
