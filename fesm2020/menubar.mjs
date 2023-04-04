@@ -3,13 +3,6 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy, NgModule } from 
 import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MENU_STACK, MenuStack, CdkMenuItem, CdkMenuModule } from '@angular/cdk/menu';
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * A material design Menubar adhering to the functionality of CdkMenuBar. MatMenubar
  * should contain MatMenubarItems which trigger their own sub-menus.
  */
@@ -34,13 +27,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     ], template: "<ng-content></ng-content>\n" }]
         }] });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /** Removes all icons from within the given element. */
 function removeIcons(element) {
     for (const icon of Array.from(element.querySelectorAll('mat-icon, .material-icons'))) {
@@ -75,13 +61,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     }, providers: [{ provide: CdkMenuItem, useExisting: MatMenuBarItem }], template: "<ng-content></ng-content>\n" }]
         }] });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 class MatMenuBarModule {
 }
 MatMenuBarModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.5", ngImport: i0, type: MatMenuBarModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
@@ -95,22 +74,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     declarations: [MatMenuBar, MatMenuBarItem],
                 }]
         }] });
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 
 /**
  * Generated bundle index. Do not edit.

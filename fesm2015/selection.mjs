@@ -10,13 +10,6 @@ import * as i3 from '@angular/material/checkbox';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Manages the selection states of the items and provides methods to check and update the selection
  * states.
  * It must be applied to the parent element if `matSelectionToggle`, `matSelectAll`,
@@ -54,13 +47,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
             }] } });
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Makes the element a select-all toggle.
  *
  * Must be used within a parent `MatSelection` directive. It toggles the selection states
@@ -83,13 +69,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 }]
         }] });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Makes the element a selection toggle.
  *
@@ -117,13 +96,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 args: ['matSelectionToggleValue']
             }] } });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Column that adds row selecting checkboxes and a select-all checkbox if `matSelectionMultiple` is
  * `true`.
@@ -229,13 +201,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
             }] } });
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Applies `mat-selected` class and `aria-selected` to an element.
  *
  * Must be used within a parent `MatSelection` directive.
@@ -262,13 +227,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 args: ['matRowSelectionValue']
             }] } });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
+// TODO(yifange): Move the table-specific code to a separate module from the other selection
 class MatSelectionModule {
 }
 MatSelectionModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.5", ngImport: i0, type: MatSelectionModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
@@ -292,22 +251,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     ],
                 }]
         }] });
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 
 /**
  * Generated bundle index. Do not edit.

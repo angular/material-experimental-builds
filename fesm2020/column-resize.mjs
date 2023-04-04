@@ -12,13 +12,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import * as i3 from '@angular/cdk/bidi';
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
@@ -45,13 +38,6 @@ const FLEX_RESIZE_STRATEGY_PROVIDER = {
     useClass: MatFlexTableResizeStrategy,
 };
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 const PROVIDERS = [
     ColumnResizeNotifier,
     HeaderRowEventDispatcher,
@@ -74,13 +60,6 @@ class AbstractMatColumnResize extends ColumnResize {
     }
 }
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Explicitly enables column resizing for a table-based mat-table.
  * Individual columns must be annotated specifically.
@@ -107,13 +86,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
         }], ctorParameters: function () { return [{ type: i1.ColumnResizeNotifier }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }]; } });
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Explicitly enables column resizing for a flexbox-based mat-table.
  * Individual columns must be annotated specifically.
  */
@@ -138,13 +110,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 }]
         }], ctorParameters: function () { return [{ type: i1.ColumnResizeNotifier }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }]; } });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Implicitly enables column resizing for a table-based mat-table.
  * Individual columns will be resizable unless opted out.
@@ -177,13 +142,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
         }], ctorParameters: function () { return [{ type: i1.ColumnResizeNotifier }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }]; } });
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Implicitly enables column resizing for a flexbox-based mat-table.
  * Individual columns will be resizable unless opted out.
  */
@@ -214,13 +172,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 }]
         }], ctorParameters: function () { return [{ type: i1.ColumnResizeNotifier }, { type: i0.ElementRef }, { type: i1.HeaderRowEventDispatcher }, { type: i0.NgZone }, { type: i1.ColumnResizeNotifierSource }]; } });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Component shown over the edge of a resizable column that is responsible
  * for handling column resize mouse events and displaying a vertical line along the column edge.
@@ -271,13 +222,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 args: ['top', { static: true }]
             }] } });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 class AbstractMatResizable extends Resizable {
     constructor() {
         super(...arguments);
@@ -298,13 +242,6 @@ const RESIZABLE_INPUTS = [
     'maxWidthPx: matResizableMaxWidthPx',
 ];
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Implicitly enables column resizing for a mat-header-cell unless the disableResize attribute
  * is present.
@@ -346,13 +283,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 }] }, { type: i0.ViewContainerRef }, { type: i0.ChangeDetectorRef }]; } });
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * Explicitly enables column resizing for a mat-header-cell.
  */
 class MatResizable extends AbstractMatResizable {
@@ -391,13 +321,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     args: [_COALESCED_STYLE_SCHEDULER]
                 }] }, { type: i0.ViewContainerRef }, { type: i0.ChangeDetectorRef }]; } });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 const ENTRY_COMMON_COMPONENTS = [MatColumnResizeOverlayHandle];
 class MatColumnResizeCommonModule {
 }
@@ -444,22 +367,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     exports: [MatColumnResize, MatColumnResizeFlex, MatResizable],
                 }]
         }] });
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 
 /**
  * Generated bundle index. Do not edit.

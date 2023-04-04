@@ -4,13 +4,6 @@ import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, C
 import { MatCommonModule } from '@angular/material/core';
 
 /**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
  * A component that attaches to a form within the edit.
  * It coordinates the form state with the table-wide edit system and handles
  * closing the edit when the form is submitted or the user clicks
@@ -60,13 +53,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
             args: [{ selector: '[matEditClose]' }]
         }] });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 const POPOVER_EDIT_HOST_BINDINGS = {
     '[attr.tabindex]': 'disabled ? null : 0',
     'class': 'mat-popover-edit-cell',
@@ -174,13 +160,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                 }]
         }] });
 
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 class MatPopoverEditModule {
 }
 MatPopoverEditModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.5", ngImport: i0, type: MatPopoverEditModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
@@ -224,22 +203,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.5", 
                     ],
                 }]
         }] });
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-
-/**
- * @license
- * Copyright Google LLC All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 
 /**
  * Generated bundle index. Do not edit.
