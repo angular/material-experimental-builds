@@ -206,9 +206,9 @@ export declare class MatDefaultResizable extends AbstractMatResizable {
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 export declare class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
-    constructor(columnResize: ColumnResize, styleScheduler: _CoalescedStyleScheduler, table: CdkTable<unknown>, document: any);
+    constructor(columnResize: ColumnResize, styleScheduler: _CoalescedStyleScheduler, table: CdkTable<unknown>, document: any, nonce?: string | null);
     protected getColumnCssClass(cssFriendlyColumnName: string): string;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatFlexTableResizeStrategy, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatFlexTableResizeStrategy, [null, null, null, null, { optional: true; }]>;
     static ɵprov: i0.ɵɵInjectableDeclaration<MatFlexTableResizeStrategy>;
 }
 

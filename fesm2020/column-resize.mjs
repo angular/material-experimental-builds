@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { Injectable, Inject, Directive, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
+import { CSP_NONCE, Injectable, Inject, Optional, Directive, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
 import * as i1 from '@angular/cdk-experimental/column-resize';
 import { CdkFlexTableResizeStrategy, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ResizeOverlayHandle, Resizable } from '@angular/cdk-experimental/column-resize';
 export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
@@ -15,14 +15,14 @@ import * as i3 from '@angular/cdk/bidi';
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
  */
 class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
-    constructor(columnResize, styleScheduler, table, document) {
-        super(columnResize, styleScheduler, table, document);
+    constructor(columnResize, styleScheduler, table, document, nonce) {
+        super(columnResize, styleScheduler, table, document, nonce);
     }
     getColumnCssClass(cssFriendlyColumnName) {
         return `mat-column-${cssFriendlyColumnName}`;
     }
 }
-MatFlexTableResizeStrategy.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.7", ngImport: i0, type: MatFlexTableResizeStrategy, deps: [{ token: i1.ColumnResize }, { token: _COALESCED_STYLE_SCHEDULER }, { token: i1$1.CdkTable }, { token: DOCUMENT }], target: i0.ɵɵFactoryTarget.Injectable });
+MatFlexTableResizeStrategy.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.0.0-next.7", ngImport: i0, type: MatFlexTableResizeStrategy, deps: [{ token: i1.ColumnResize }, { token: _COALESCED_STYLE_SCHEDULER }, { token: i1$1.CdkTable }, { token: DOCUMENT }, { token: CSP_NONCE, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
 MatFlexTableResizeStrategy.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.0.0-next.7", ngImport: i0, type: MatFlexTableResizeStrategy });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.7", ngImport: i0, type: MatFlexTableResizeStrategy, decorators: [{
             type: Injectable
@@ -32,6 +32,11 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0-next.7", 
                 }] }, { type: i1$1.CdkTable }, { type: undefined, decorators: [{
                     type: Inject,
                     args: [DOCUMENT]
+                }] }, { type: undefined, decorators: [{
+                    type: Inject,
+                    args: [CSP_NONCE]
+                }, {
+                    type: Optional
                 }] }]; } });
 const FLEX_RESIZE_STRATEGY_PROVIDER = {
     provide: ResizeStrategy,
