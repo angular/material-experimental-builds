@@ -15,46 +15,36 @@
     ".": {
       "sass": "./_index.scss",
       "types": "./index.d.ts",
-      "esm2020": "./esm2020/index.mjs",
-      "es2020": "./fesm2020/material-experimental.mjs",
-      "es2015": "./fesm2015/material-experimental.mjs",
-      "node": "./fesm2015/material-experimental.mjs",
-      "default": "./fesm2020/material-experimental.mjs"
+      "esm2022": "./esm2022/index.mjs",
+      "esm": "./esm2022/index.mjs",
+      "default": "./fesm2022/material-experimental.mjs"
     },
     "./package.json": {
       "default": "./package.json"
     },
     "./column-resize": {
       "types": "./column-resize/index.d.ts",
-      "esm2020": "./esm2020/column-resize/column-resize_public_index.mjs",
-      "es2020": "./fesm2020/column-resize.mjs",
-      "es2015": "./fesm2015/column-resize.mjs",
-      "node": "./fesm2015/column-resize.mjs",
-      "default": "./fesm2020/column-resize.mjs"
+      "esm2022": "./esm2022/column-resize/column-resize_public_index.mjs",
+      "esm": "./esm2022/column-resize/column-resize_public_index.mjs",
+      "default": "./fesm2022/column-resize.mjs"
     },
     "./menubar": {
       "types": "./menubar/index.d.ts",
-      "esm2020": "./esm2020/menubar/menubar_public_index.mjs",
-      "es2020": "./fesm2020/menubar.mjs",
-      "es2015": "./fesm2015/menubar.mjs",
-      "node": "./fesm2015/menubar.mjs",
-      "default": "./fesm2020/menubar.mjs"
+      "esm2022": "./esm2022/menubar/menubar_public_index.mjs",
+      "esm": "./esm2022/menubar/menubar_public_index.mjs",
+      "default": "./fesm2022/menubar.mjs"
     },
     "./popover-edit": {
       "types": "./popover-edit/index.d.ts",
-      "esm2020": "./esm2020/popover-edit/popover-edit_public_index.mjs",
-      "es2020": "./fesm2020/popover-edit.mjs",
-      "es2015": "./fesm2015/popover-edit.mjs",
-      "node": "./fesm2015/popover-edit.mjs",
-      "default": "./fesm2020/popover-edit.mjs"
+      "esm2022": "./esm2022/popover-edit/popover-edit_public_index.mjs",
+      "esm": "./esm2022/popover-edit/popover-edit_public_index.mjs",
+      "default": "./fesm2022/popover-edit.mjs"
     },
     "./selection": {
       "types": "./selection/index.d.ts",
-      "esm2020": "./esm2020/selection/selection_public_index.mjs",
-      "es2020": "./fesm2020/selection.mjs",
-      "es2015": "./fesm2015/selection.mjs",
-      "node": "./fesm2015/selection.mjs",
-      "default": "./fesm2020/selection.mjs"
+      "esm2022": "./esm2022/selection/selection_public_index.mjs",
+      "esm": "./esm2022/selection/selection_public_index.mjs",
+      "default": "./fesm2022/selection.mjs"
     }
   },
   "peerDependencies": {
@@ -117,11 +107,7 @@
     "@material/typography": "15.0.0-canary.684e33d25.0"
   },
   "sideEffects": false,
-  "fesm2020": "./fesm2020/material-experimental.mjs",
-  "fesm2015": "./fesm2015/material-experimental.mjs",
-  "esm2020": "./esm2020/index.mjs",
+  "module": "./fesm2022/material-experimental.mjs",
   "typings": "./index.d.ts",
-  "module": "./fesm2015/material-experimental.mjs",
-  "es2020": "./fesm2020/material-experimental.mjs",
   "type": "module"
 }
