@@ -2,8 +2,8 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from '@angular/cdk-experimental/selection';
 import * as i0 from '@angular/core';
 import { EventEmitter, Directive, Input, Output, Component, ChangeDetectionStrategy, ViewEncapsulation, Optional, Inject, ViewChild, NgModule } from '@angular/core';
-import * as i2 from '@angular/material/legacy-table';
-import { MatLegacyTable, MatLegacyColumnDef, MatLegacyCellDef, MatLegacyHeaderCellDef, MatLegacyTableModule } from '@angular/material/legacy-table';
+import * as i2 from '@angular/material/table';
+import { MatTable, MatColumnDef, MatCellDef, MatHeaderCellDef, MatTableModule } from '@angular/material/table';
 import * as i1 from '@angular/common';
 import { CommonModule } from '@angular/common';
 import * as i3 from '@angular/material/checkbox';
@@ -145,8 +145,8 @@ class MatSelectionColumn {
             this._columnDef.name = this._name;
         }
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatSelectionColumn, deps: [{ token: MatLegacyTable, optional: true }, { token: MatSelection, optional: true }], target: i0.ɵɵFactoryTarget.Component }); }
-    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "16.1.1", type: MatSelectionColumn, selector: "mat-selection-column", inputs: { name: "name" }, viewQueries: [{ propertyName: "_columnDef", first: true, predicate: MatLegacyColumnDef, descendants: true, static: true }, { propertyName: "_cell", first: true, predicate: MatLegacyCellDef, descendants: true, static: true }, { propertyName: "_headerCell", first: true, predicate: MatLegacyHeaderCellDef, descendants: true, static: true }], ngImport: i0, template: `
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatSelectionColumn, deps: [{ token: MatTable, optional: true }, { token: MatSelection, optional: true }], target: i0.ɵɵFactoryTarget.Component }); }
+    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "16.1.1", type: MatSelectionColumn, selector: "mat-selection-column", inputs: { name: "name" }, viewQueries: [{ propertyName: "_columnDef", first: true, predicate: MatColumnDef, descendants: true, static: true }, { propertyName: "_cell", first: true, predicate: MatCellDef, descendants: true, static: true }, { propertyName: "_headerCell", first: true, predicate: MatHeaderCellDef, descendants: true, static: true }], ngImport: i0, template: `
     <ng-container matColumnDef>
       <th mat-header-cell *matHeaderCellDef class="mat-selection-column-header">
         <mat-checkbox *ngIf="selection.multiple"
@@ -161,7 +161,7 @@ class MatSelectionColumn {
             [matSelectionToggleIndex]="i"></mat-checkbox>
       </td>
     </ng-container>
-  `, isInline: true, styles: ["th.mat-selection-column-header,td.mat-selection-column-cell{text-align:center;width:48px}"], dependencies: [{ kind: "directive", type: i1.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { kind: "directive", type: i2.MatLegacyHeaderCellDef, selector: "[matHeaderCellDef]" }, { kind: "directive", type: i2.MatLegacyColumnDef, selector: "[matColumnDef]", inputs: ["sticky", "matColumnDef"] }, { kind: "directive", type: i2.MatLegacyCellDef, selector: "[matCellDef]" }, { kind: "directive", type: i2.MatLegacyHeaderCell, selector: "mat-header-cell, th[mat-header-cell]" }, { kind: "directive", type: i2.MatLegacyCell, selector: "mat-cell, td[mat-cell]" }, { kind: "component", type: i3.MatCheckbox, selector: "mat-checkbox", inputs: ["disableRipple", "color", "tabIndex"], exportAs: ["matCheckbox"] }, { kind: "directive", type: MatSelectAll, selector: "[matSelectAll]", exportAs: ["matSelectAll"] }, { kind: "directive", type: MatSelectionToggle, selector: "[matSelectionToggle]", inputs: ["matSelectionToggleIndex", "matSelectionToggleValue"], exportAs: ["matSelectionToggle"] }, { kind: "pipe", type: i1.AsyncPipe, name: "async" }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None }); }
+  `, isInline: true, styles: ["th.mat-selection-column-header,td.mat-selection-column-cell{text-align:center;width:48px}"], dependencies: [{ kind: "directive", type: i1.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { kind: "directive", type: i2.MatHeaderCellDef, selector: "[matHeaderCellDef]" }, { kind: "directive", type: i2.MatColumnDef, selector: "[matColumnDef]", inputs: ["sticky", "matColumnDef"] }, { kind: "directive", type: i2.MatCellDef, selector: "[matCellDef]" }, { kind: "directive", type: i2.MatHeaderCell, selector: "mat-header-cell, th[mat-header-cell]" }, { kind: "directive", type: i2.MatCell, selector: "mat-cell, td[mat-cell]" }, { kind: "component", type: i3.MatCheckbox, selector: "mat-checkbox", inputs: ["disableRipple", "color", "tabIndex"], exportAs: ["matCheckbox"] }, { kind: "directive", type: MatSelectAll, selector: "[matSelectAll]", exportAs: ["matSelectAll"] }, { kind: "directive", type: MatSelectionToggle, selector: "[matSelectionToggle]", inputs: ["matSelectionToggleIndex", "matSelectionToggleValue"], exportAs: ["matSelectionToggle"] }, { kind: "pipe", type: i1.AsyncPipe, name: "async" }], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatSelectionColumn, decorators: [{
             type: Component,
@@ -181,11 +181,11 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.1", ngImpor
       </td>
     </ng-container>
   `, changeDetection: ChangeDetectionStrategy.OnPush, encapsulation: ViewEncapsulation.None, styles: ["th.mat-selection-column-header,td.mat-selection-column-cell{text-align:center;width:48px}"] }]
-        }], ctorParameters: function () { return [{ type: i2.MatLegacyTable, decorators: [{
+        }], ctorParameters: function () { return [{ type: i2.MatTable, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
-                    args: [MatLegacyTable]
+                    args: [MatTable]
                 }] }, { type: MatSelection, decorators: [{
                     type: Optional
                 }, {
@@ -195,13 +195,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.1", ngImpor
                 type: Input
             }], _columnDef: [{
                 type: ViewChild,
-                args: [MatLegacyColumnDef, { static: true }]
+                args: [MatColumnDef, { static: true }]
             }], _cell: [{
                 type: ViewChild,
-                args: [MatLegacyCellDef, { static: true }]
+                args: [MatCellDef, { static: true }]
             }], _headerCell: [{
                 type: ViewChild,
-                args: [MatLegacyHeaderCellDef, { static: true }]
+                args: [MatHeaderCellDef, { static: true }]
             }] } });
 
 /**
@@ -238,13 +238,13 @@ class MatSelectionModule {
             MatSelection,
             MatSelectionToggle,
             MatSelectionColumn,
-            MatRowSelection], imports: [CommonModule, MatLegacyTableModule, MatCheckboxModule], exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection] }); }
-    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatSelectionModule, imports: [CommonModule, MatLegacyTableModule, MatCheckboxModule] }); }
+            MatRowSelection], imports: [CommonModule, MatTableModule, MatCheckboxModule], exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection] }); }
+    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatSelectionModule, imports: [CommonModule, MatTableModule, MatCheckboxModule] }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatSelectionModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [CommonModule, MatLegacyTableModule, MatCheckboxModule],
+                    imports: [CommonModule, MatTableModule, MatCheckboxModule],
                     exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection],
                     declarations: [
                         MatSelectAll,
