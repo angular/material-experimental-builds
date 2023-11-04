@@ -18,15 +18,15 @@ import { MatSelectionColumn } from './selection-column';
 import { MatRowSelection } from './row-selection';
 import * as i0 from "@angular/core";
 export class MatSelectionModule {
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-rc.0", ngImport: i0, type: MatSelectionModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0-rc.0", ngImport: i0, type: MatSelectionModule, declarations: [MatSelectAll,
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-rc.2", ngImport: i0, type: MatSelectionModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
+    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0-rc.2", ngImport: i0, type: MatSelectionModule, declarations: [MatSelectAll,
             MatSelection,
             MatSelectionToggle,
             MatSelectionColumn,
             MatRowSelection], imports: [CommonModule, MatTableModule, MatCheckboxModule], exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection] }); }
-    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0-rc.0", ngImport: i0, type: MatSelectionModule, imports: [CommonModule, MatTableModule, MatCheckboxModule] }); }
+    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0-rc.2", ngImport: i0, type: MatSelectionModule, imports: [CommonModule, MatTableModule, MatCheckboxModule] }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-rc.0", ngImport: i0, type: MatSelectionModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-rc.2", ngImport: i0, type: MatSelectionModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [CommonModule, MatTableModule, MatCheckboxModule],
