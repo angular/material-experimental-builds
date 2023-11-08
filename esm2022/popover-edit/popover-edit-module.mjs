@@ -12,8 +12,8 @@ import { MatPopoverEdit, MatPopoverEditTabOut, MatRowHoverContent, MatEditOpen, 
 import { MatEditLens, MatEditRevert, MatEditClose } from './lens-directives';
 import * as i0 from "@angular/core";
 export class MatPopoverEditModule {
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatPopoverEditModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "16.1.1", ngImport: i0, type: MatPopoverEditModule, declarations: [MatPopoverEdit,
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
+    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, declarations: [MatPopoverEdit,
             MatPopoverEditTabOut,
             MatRowHoverContent,
             MatEditLens,
@@ -27,9 +27,9 @@ export class MatPopoverEditModule {
             MatEditClose,
             MatEditOpen,
             CdkEditable] }); }
-    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule, MatCommonModule] }); }
+    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule, MatCommonModule] }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.1", ngImport: i0, type: MatPopoverEditModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [CdkPopoverEditModule, MatCommonModule],
