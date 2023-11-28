@@ -11,7 +11,7 @@ import { MatCommonModule } from '@angular/material/core';
  */
 class MatEditLens extends CdkEditControl {
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditLens, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditLens, selector: "form[matEditLens]", inputs: { clickOutBehavior: ["matEditLensClickOutBehavior", "clickOutBehavior"], preservedFormValue: ["matEditLensPreservedFormValue", "preservedFormValue"], ignoreSubmitUnlessValid: ["matEditLensIgnoreSubmitUnlessValid", "ignoreSubmitUnlessValid"] }, outputs: { preservedFormValueChange: "matEditLensPreservedFormValueChange" }, host: { classAttribute: "mat-edit-lens" }, providers: [EditRef], usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditLens, isStandalone: true, selector: "form[matEditLens]", inputs: { clickOutBehavior: ["matEditLensClickOutBehavior", "clickOutBehavior"], preservedFormValue: ["matEditLensPreservedFormValue", "preservedFormValue"], ignoreSubmitUnlessValid: ["matEditLensIgnoreSubmitUnlessValid", "ignoreSubmitUnlessValid"] }, outputs: { preservedFormValueChange: "matEditLensPreservedFormValueChange" }, host: { classAttribute: "mat-edit-lens" }, providers: [EditRef], usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditLens, decorators: [{
             type: Directive,
@@ -27,12 +27,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                     ],
                     outputs: ['preservedFormValueChange: matEditLensPreservedFormValueChange'],
                     providers: [EditRef],
+                    standalone: true,
                 }]
         }] });
 /** Reverts the form to its initial or previously submitted state on click. */
 class MatEditRevert extends CdkEditRevert {
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditRevert, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditRevert, selector: "button[matEditRevert]", host: { attributes: { "type": "button" } }, usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditRevert, isStandalone: true, selector: "button[matEditRevert]", host: { attributes: { "type": "button" } }, usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditRevert, decorators: [{
             type: Directive,
@@ -41,16 +42,20 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                     host: {
                         'type': 'button', // Prevents accidental form submits.
                     },
+                    standalone: true,
                 }]
         }] });
 /** Closes the lens on click. */
 class MatEditClose extends CdkEditClose {
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditClose, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditClose, selector: "[matEditClose]", usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditClose, isStandalone: true, selector: "[matEditClose]", usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditClose, decorators: [{
             type: Directive,
-            args: [{ selector: '[matEditClose]' }]
+            args: [{
+                    selector: '[matEditClose]',
+                    standalone: true,
+                }]
         }] });
 
 const POPOVER_EDIT_HOST_BINDINGS = {
@@ -79,7 +84,7 @@ class MatPopoverEdit extends CdkPopoverEdit {
         return EDIT_PANE_CLASS;
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEdit, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatPopoverEdit, selector: "[matPopoverEdit]:not([matPopoverEditTabOut])", inputs: { template: ["matPopoverEdit", "template"], context: ["matPopoverEditContext", "context"], colspan: ["matPopoverEditColspan", "colspan"], disabled: ["matPopoverEditDisabled", "disabled"] }, host: { properties: { "attr.tabindex": "disabled ? null : 0", "attr.aria-haspopup": "!disabled" }, classAttribute: "mat-popover-edit-cell" }, usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatPopoverEdit, isStandalone: true, selector: "[matPopoverEdit]:not([matPopoverEditTabOut])", inputs: { template: ["matPopoverEdit", "template"], context: ["matPopoverEditContext", "context"], colspan: ["matPopoverEditColspan", "colspan"], disabled: ["matPopoverEditDisabled", "disabled"] }, host: { properties: { "attr.tabindex": "disabled ? null : 0", "attr.aria-haspopup": "!disabled" }, classAttribute: "mat-popover-edit-cell" }, usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEdit, decorators: [{
             type: Directive,
@@ -87,6 +92,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                     selector: '[matPopoverEdit]:not([matPopoverEditTabOut])',
                     host: POPOVER_EDIT_HOST_BINDINGS,
                     inputs: POPOVER_EDIT_INPUTS,
+                    standalone: true,
                 }]
         }] });
 /**
@@ -99,7 +105,7 @@ class MatPopoverEditTabOut extends CdkPopoverEditTabOut {
         return EDIT_PANE_CLASS;
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditTabOut, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatPopoverEditTabOut, selector: "[matPopoverEdit][matPopoverEditTabOut]", inputs: { template: ["matPopoverEdit", "template"], context: ["matPopoverEditContext", "context"], colspan: ["matPopoverEditColspan", "colspan"], disabled: ["matPopoverEditDisabled", "disabled"] }, host: { properties: { "attr.tabindex": "disabled ? null : 0", "attr.aria-haspopup": "!disabled" }, classAttribute: "mat-popover-edit-cell" }, usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatPopoverEditTabOut, isStandalone: true, selector: "[matPopoverEdit][matPopoverEditTabOut]", inputs: { template: ["matPopoverEdit", "template"], context: ["matPopoverEditContext", "context"], colspan: ["matPopoverEditColspan", "colspan"], disabled: ["matPopoverEditDisabled", "disabled"] }, host: { properties: { "attr.tabindex": "disabled ? null : 0", "attr.aria-haspopup": "!disabled" }, classAttribute: "mat-popover-edit-cell" }, usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditTabOut, decorators: [{
             type: Directive,
@@ -107,6 +113,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                     selector: '[matPopoverEdit][matPopoverEditTabOut]',
                     host: POPOVER_EDIT_HOST_BINDINGS,
                     inputs: POPOVER_EDIT_INPUTS,
+                    standalone: true,
                 }]
         }] });
 /**
@@ -137,12 +144,13 @@ class MatRowHoverContent extends CdkRowHoverContent {
         });
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatRowHoverContent, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatRowHoverContent, selector: "[matRowHoverContent]", usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatRowHoverContent, isStandalone: true, selector: "[matRowHoverContent]", usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatRowHoverContent, decorators: [{
             type: Directive,
             args: [{
                     selector: '[matRowHoverContent]',
+                    standalone: true,
                 }]
         }] });
 /**
@@ -151,24 +159,27 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
  */
 class MatEditOpen extends CdkEditOpen {
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditOpen, deps: null, target: i0.ɵɵFactoryTarget.Directive }); }
-    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditOpen, selector: "[matEditOpen]", usesInheritance: true, ngImport: i0 }); }
+    static { this.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "17.0.0", type: MatEditOpen, isStandalone: true, selector: "[matEditOpen]", usesInheritance: true, ngImport: i0 }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatEditOpen, decorators: [{
             type: Directive,
             args: [{
                     selector: '[matEditOpen]',
+                    standalone: true,
                 }]
         }] });
 
 class MatPopoverEditModule {
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, declarations: [MatPopoverEdit,
+    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule,
+            MatCommonModule,
+            MatPopoverEdit,
             MatPopoverEditTabOut,
             MatRowHoverContent,
             MatEditLens,
             MatEditRevert,
             MatEditClose,
-            MatEditOpen], imports: [CdkPopoverEditModule, MatCommonModule], exports: [MatPopoverEdit,
+            MatEditOpen], exports: [MatPopoverEdit,
             MatPopoverEditTabOut,
             MatRowHoverContent,
             MatEditLens,
@@ -176,12 +187,23 @@ class MatPopoverEditModule {
             MatEditClose,
             MatEditOpen,
             CdkEditable] }); }
-    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule, MatCommonModule] }); }
+    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule,
+            MatCommonModule] }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatPopoverEditModule, decorators: [{
             type: NgModule,
             args: [{
-                    imports: [CdkPopoverEditModule, MatCommonModule],
+                    imports: [
+                        CdkPopoverEditModule,
+                        MatCommonModule,
+                        MatPopoverEdit,
+                        MatPopoverEditTabOut,
+                        MatRowHoverContent,
+                        MatEditLens,
+                        MatEditRevert,
+                        MatEditClose,
+                        MatEditOpen,
+                    ],
                     exports: [
                         MatPopoverEdit,
                         MatPopoverEditTabOut,
@@ -191,15 +213,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImpor
                         MatEditClose,
                         MatEditOpen,
                         CdkEditable,
-                    ],
-                    declarations: [
-                        MatPopoverEdit,
-                        MatPopoverEditTabOut,
-                        MatRowHoverContent,
-                        MatEditLens,
-                        MatEditRevert,
-                        MatEditClose,
-                        MatEditOpen,
                     ],
                 }]
         }] });

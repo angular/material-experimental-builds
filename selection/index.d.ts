@@ -4,40 +4,40 @@ import { CdkSelection } from '@angular/cdk-experimental/selection';
 import { CdkSelectionToggle } from '@angular/cdk-experimental/selection';
 import { EventEmitter } from '@angular/core';
 import * as i0 from '@angular/core';
-import * as i6 from '@angular/common';
-import * as i7 from '@angular/material/table';
-import * as i8 from '@angular/material/checkbox';
+import * as i1 from '@angular/common';
+import * as i2 from '@angular/material/table';
+import * as i3 from '@angular/material/checkbox';
 import { MatTable } from '@angular/material/table';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { SelectionChange } from '@angular/cdk-experimental/selection';
 
-declare namespace i1 {
+declare namespace i4 {
     export {
         MatSelectAll
     }
 }
 
-declare namespace i2 {
+declare namespace i5 {
     export {
         MatSelection,
         SelectionChange
     }
 }
 
-declare namespace i3 {
+declare namespace i6 {
     export {
         MatSelectionToggle
     }
 }
 
-declare namespace i4 {
+declare namespace i7 {
     export {
         MatSelectionColumn
     }
 }
 
-declare namespace i5 {
+declare namespace i8 {
     export {
         MatRowSelection
     }
@@ -54,7 +54,7 @@ export declare class MatRowSelection<T> extends CdkRowSelection<T> {
     /** The value that is associated with the row */
     value: T;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatRowSelection<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowSelection<any>, "[matRowSelection]", never, { "index": { "alias": "matRowSelectionIndex"; "required": false; }; "value": { "alias": "matRowSelectionValue"; "required": false; }; }, {}, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatRowSelection<any>, "[matRowSelection]", never, { "index": { "alias": "matRowSelectionIndex"; "required": false; }; "value": { "alias": "matRowSelectionValue"; "required": false; }; }, {}, never, never, true, never>;
 }
 
 /**
@@ -69,7 +69,7 @@ export declare class MatRowSelection<T> extends CdkRowSelection<T> {
  */
 export declare class MatSelectAll<T> extends CdkSelectAll<T> {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectAll<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectAll<any>, "[matSelectAll]", ["matSelectAll"], {}, {}, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectAll<any>, "[matSelectAll]", ["matSelectAll"], {}, {}, never, never, true, never>;
 }
 
 /**
@@ -85,7 +85,7 @@ export declare class MatSelection<T> extends CdkSelection<T> {
     /** Emits when selection changes. */
     readonly change: EventEmitter<SelectionChange<T>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelection<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": { "alias": "matSelectionMultiple"; "required": false; }; }, { "change": "matSelectionChange"; }, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelection<any>, "[matSelection]", ["matSelection"], { "multiple": { "alias": "matSelectionMultiple"; "required": false; }; }, { "change": "matSelectionChange"; }, never, never, true, never>;
 }
 
 /**
@@ -109,12 +109,12 @@ export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
     ngOnDestroy(): void;
     private _syncColumnDefName;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionColumn<any>, [{ optional: true; }, { optional: true; }]>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": { "alias": "name"; "required": false; }; }, {}, never, never, false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": { "alias": "name"; "required": false; }; }, {}, never, never, true, never>;
 }
 
 export declare class MatSelectionModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatSelectionModule, [typeof i1.MatSelectAll, typeof i2.MatSelection, typeof i3.MatSelectionToggle, typeof i4.MatSelectionColumn, typeof i5.MatRowSelection], [typeof i6.CommonModule, typeof i7.MatTableModule, typeof i8.MatCheckboxModule], [typeof i1.MatSelectAll, typeof i2.MatSelection, typeof i3.MatSelectionToggle, typeof i4.MatSelectionColumn, typeof i5.MatRowSelection]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatSelectionModule, never, [typeof i1.CommonModule, typeof i2.MatTableModule, typeof i3.MatCheckboxModule, typeof i4.MatSelectAll, typeof i5.MatSelection, typeof i6.MatSelectionToggle, typeof i7.MatSelectionColumn, typeof i8.MatRowSelection], [typeof i4.MatSelectAll, typeof i5.MatSelection, typeof i6.MatSelectionToggle, typeof i7.MatSelectionColumn, typeof i8.MatRowSelection]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatSelectionModule>;
 }
 
@@ -132,7 +132,7 @@ export declare class MatSelectionToggle<T> extends CdkSelectionToggle<T> {
     /** The value that is associated with the toggle */
     value: T;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionToggle<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": { "alias": "matSelectionToggleIndex"; "required": false; }; "value": { "alias": "matSelectionToggleValue"; "required": false; }; }, {}, never, never, false, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatSelectionToggle<any>, "[matSelectionToggle]", ["matSelectionToggle"], { "index": { "alias": "matSelectionToggleIndex"; "required": false; }; "value": { "alias": "matSelectionToggleValue"; "required": false; }; }, {}, never, never, true, never>;
 }
 
 export { SelectionChange }

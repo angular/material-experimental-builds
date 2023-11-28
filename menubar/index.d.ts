@@ -1,15 +1,15 @@
 import { CdkMenuBar } from '@angular/cdk/menu';
 import { CdkMenuItem } from '@angular/cdk/menu';
 import * as i0 from '@angular/core';
-import * as i3 from '@angular/cdk/menu';
+import * as i1 from '@angular/cdk/menu';
 
-declare namespace i1 {
+declare namespace i2 {
     export {
         MatMenuBar
     }
 }
 
-declare namespace i2 {
+declare namespace i3 {
     export {
         MatMenuBarItem
     }
@@ -21,7 +21,7 @@ declare namespace i2 {
  */
 export declare class MatMenuBar extends CdkMenuBar {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenuBar, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBar, "mat-menubar", ["matMenubar"], {}, {}, never, ["*"], false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBar, "mat-menubar", ["matMenubar"], {}, {}, never, ["*"], true, never>;
 }
 
 /**
@@ -32,12 +32,12 @@ export declare class MatMenuBar extends CdkMenuBar {
 export declare class MatMenuBarItem extends CdkMenuItem {
     getLabel(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenuBarItem, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBarItem, "mat-menubar-item", ["matMenubarItem"], {}, {}, never, ["*"], false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MatMenuBarItem, "mat-menubar-item", ["matMenubarItem"], {}, {}, never, ["*"], true, never>;
 }
 
 export declare class MatMenuBarModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatMenuBarModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatMenuBarModule, [typeof i1.MatMenuBar, typeof i2.MatMenuBarItem], [typeof i3.CdkMenuModule], [typeof i1.MatMenuBar, typeof i2.MatMenuBarItem]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatMenuBarModule, never, [typeof i1.CdkMenuModule, typeof i2.MatMenuBar, typeof i3.MatMenuBarItem], [typeof i2.MatMenuBar, typeof i3.MatMenuBarItem]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatMenuBarModule>;
 }
 
