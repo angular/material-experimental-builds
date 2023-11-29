@@ -13,15 +13,15 @@ import * as i0 from "@angular/core";
  * should contain MatMenubarItems which trigger their own sub-menus.
  */
 export class MatMenuBar extends CdkMenuBar {
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatMenuBar, deps: null, target: i0.ɵɵFactoryTarget.Component }); }
-    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.0.0", type: MatMenuBar, isStandalone: true, selector: "mat-menubar", host: { properties: { "class.mat-menubar": "true" } }, providers: [
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.4", ngImport: i0, type: MatMenuBar, deps: null, target: i0.ɵɵFactoryTarget.Component }); }
+    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "17.0.4", type: MatMenuBar, isStandalone: true, selector: "mat-menubar", host: { properties: { "class.mat-menubar": "true" } }, providers: [
             { provide: CdkMenuGroup, useExisting: MatMenuBar },
             { provide: CdkMenuBar, useExisting: MatMenuBar },
             { provide: CDK_MENU, useExisting: MatMenuBar },
             { provide: MENU_STACK, useClass: MenuStack },
         ], exportAs: ["matMenubar"], usesInheritance: true, ngImport: i0, template: "<ng-content></ng-content>\n", styles: [""], changeDetection: i0.ChangeDetectionStrategy.OnPush, encapsulation: i0.ViewEncapsulation.None }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0", ngImport: i0, type: MatMenuBar, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.4", ngImport: i0, type: MatMenuBar, decorators: [{
             type: Component,
             args: [{ selector: 'mat-menubar', exportAs: 'matMenubar', encapsulation: ViewEncapsulation.None, changeDetection: ChangeDetectionStrategy.OnPush, host: {
                         '[class.mat-menubar]': 'true',
