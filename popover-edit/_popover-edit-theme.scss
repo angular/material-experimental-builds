@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@angular/cdk';
 @use '@angular/material' as mat;
 
@@ -5,8 +6,12 @@
   @return linear-gradient($direction, rgba($background-color, 0), $background-color 8px);
 }
 
-@mixin color($theme) {
-  $background-color: mat.get-theme-color($theme, background, 'card');
+@mixin color($config-or-theme) {
+  $config: mat.get-color-config($config-or-theme);
+  $background: map.get($config, background);
+  $foreground: map.get($config, foreground);
+  $primary: map.get($config, primary);
+  $background-color: mat.get-color-from-palette($background, 'card');
 
   // TODO: these structural styles don't belong in the `color` part of a theme.
   // We should figure out a better place for them.
@@ -42,7 +47,7 @@
     position: relative;
 
     &::after {
-      background-color: mat.get-theme-color($theme, primary);
+      background-color: mat.get-color-from-palette($primary);
       bottom: 0;
       content: '';
       height: 2px;
@@ -76,9 +81,9 @@
   }
 
   .mat-edit-pane {
-    @include mat.private-theme-elevation(2, $theme);
+    @include mat.private-theme-elevation(2, $config);
     background: $background-color;
-    color: mat.get-theme-color($theme, foreground, text);
+    color: mat.get-color-from-palette($foreground, text);
     display: block;
     padding: 16px 24px;
 
@@ -142,26 +147,32 @@
   }
 }
 
-@mixin typography($theme) {
+@mixin typography($config-or-theme) {
+  $config: mat.private-typography-to-2014-config(
+      mat.get-typography-config($config-or-theme));
   [mat-edit-title] {
-    font: mat.get-theme-typography($theme, headline-6, font);
-    letter-spacing: mat.get-theme-typography($theme, headline-6, letter-spacing);
+    @include mat.typography-level($config, title);
   }
 }
 
 
-@mixin density($theme) {}
+@mixin density($config-or-theme) {}
 
-@mixin theme($theme) {
+@mixin theme($theme-or-color-config) {
+  $theme: mat.private-legacy-get-theme($theme-or-color-config);
   @include mat.private-check-duplicate-theme-styles($theme, 'mat-popover-edit') {
-    @if mat.theme-has($theme, color) {
-      @include color($theme);
+    $color: mat.get-color-config($theme);
+    $density: mat.get-density-config($theme);
+    $typography: mat.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
     }
-    @if mat.theme-has($theme, density) {
-      @include density($theme);
+    @if $density != null {
+      @include density($density);
     }
-    @if mat.theme-has($theme, typography) {
-      @include typography($theme);
+    @if $typography != null {
+      @include typography($typography);
     }
   }
 }
