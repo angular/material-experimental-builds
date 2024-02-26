@@ -21,9 +21,9 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.2.0", ngImpor
                         'class': 'mat-edit-lens',
                     },
                     inputs: [
-                        'clickOutBehavior: matEditLensClickOutBehavior',
-                        'preservedFormValue: matEditLensPreservedFormValue',
-                        'ignoreSubmitUnlessValid: matEditLensIgnoreSubmitUnlessValid',
+                        { name: 'clickOutBehavior', alias: 'matEditLensClickOutBehavior' },
+                        { name: 'preservedFormValue', alias: 'matEditLensPreservedFormValue' },
+                        { name: 'ignoreSubmitUnlessValid', alias: 'matEditLensIgnoreSubmitUnlessValid' },
                     ],
                     outputs: ['preservedFormValueChange: matEditLensPreservedFormValueChange'],
                     providers: [EditRef],
@@ -64,10 +64,10 @@ const POPOVER_EDIT_HOST_BINDINGS = {
     '[attr.aria-haspopup]': '!disabled',
 };
 const POPOVER_EDIT_INPUTS = [
-    'template: matPopoverEdit',
-    'context: matPopoverEditContext',
-    'colspan: matPopoverEditColspan',
-    'disabled: matPopoverEditDisabled',
+    { name: 'template', alias: 'matPopoverEdit' },
+    { name: 'context', alias: 'matPopoverEditContext' },
+    { name: 'colspan', alias: 'matPopoverEditColspan' },
+    { name: 'disabled', alias: 'matPopoverEditDisabled' },
 ];
 const EDIT_PANE_CLASS = 'mat-edit-pane';
 const MAT_ROW_HOVER_CLASS = 'mat-row-hover-content';

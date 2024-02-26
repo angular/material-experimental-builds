@@ -94,7 +94,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.2.0", ngImpor
             args: [{
                     selector: '[matSelectionToggle]',
                     exportAs: 'matSelectionToggle',
-                    inputs: ['index: matSelectionToggleIndex'],
+                    inputs: [{ name: 'index', alias: 'matSelectionToggleIndex' }],
                     providers: [{ provide: CdkSelectionToggle, useExisting: MatSelectionToggle }],
                     standalone: true,
                 }]
@@ -239,7 +239,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.2.0", ngImpor
                         '[attr.aria-selected]': '_selection.isSelected(this.value, this.index)',
                     },
                     providers: [{ provide: CdkRowSelection, useExisting: MatRowSelection }],
-                    inputs: ['index: matRowSelectionIndex'],
+                    inputs: [{ name: 'index', alias: 'matRowSelectionIndex' }],
                     standalone: true,
                 }]
         }], propDecorators: { value: [{

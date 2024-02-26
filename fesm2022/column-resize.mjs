@@ -248,8 +248,8 @@ const RESIZABLE_HOST_BINDINGS = {
     'class': 'mat-resizable',
 };
 const RESIZABLE_INPUTS = [
-    'minWidthPx: matResizableMinWidthPx',
-    'maxWidthPx: matResizableMaxWidthPx',
+    { name: 'minWidthPx', alias: 'matResizableMinWidthPx' },
+    { name: 'maxWidthPx', alias: 'matResizableMaxWidthPx' },
 ];
 
 /**
