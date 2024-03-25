@@ -11,11 +11,11 @@ import { MatMenuBar } from './menubar';
 import { MatMenuBarItem } from './menubar-item';
 import * as i0 from "@angular/core";
 export class MatMenuBarModule {
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.0", ngImport: i0, type: MatMenuBarModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "18.0.0-next.0", ngImport: i0, type: MatMenuBarModule, imports: [CdkMenuModule, MatMenuBar, MatMenuBarItem], exports: [MatMenuBar, MatMenuBarItem] }); }
-    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "18.0.0-next.0", ngImport: i0, type: MatMenuBarModule, imports: [CdkMenuModule] }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0-next.1", ngImport: i0, type: MatMenuBarModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
+    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "18.0.0-next.1", ngImport: i0, type: MatMenuBarModule, imports: [CdkMenuModule, MatMenuBar, MatMenuBarItem], exports: [MatMenuBar, MatMenuBarItem] }); }
+    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "18.0.0-next.1", ngImport: i0, type: MatMenuBarModule, imports: [CdkMenuModule] }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.0", ngImport: i0, type: MatMenuBarModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0-next.1", ngImport: i0, type: MatMenuBarModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [CdkMenuModule, MatMenuBar, MatMenuBarItem],
