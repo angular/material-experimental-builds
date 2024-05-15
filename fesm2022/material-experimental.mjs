@@ -1,7 +1,7 @@
 import { Version } from '@angular/core';
 
 /** Current version of the Material experimental package. */
-const VERSION = new Version('17.3.8');
+const VERSION = new Version('17.3.9');
 
 export { VERSION };
 //# sourceMappingURL=material-experimental.mjs.map
