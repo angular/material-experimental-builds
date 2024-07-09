@@ -66,7 +66,7 @@ export declare class MatEditRevert<FormValue> extends CdkEditRevert<FormValue> {
 export declare class MatPopoverEdit<C> extends CdkPopoverEdit<C> {
     protected panelClass(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEdit<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEdit<any>, "[matPopoverEdit]:not([matPopoverEditTabOut])", never, { "template": { "alias": "matPopoverEdit"; "required": false; }; "context": { "alias": "matPopoverEditContext"; "required": false; }; "colspan": { "alias": "matPopoverEditColspan"; "required": false; }; "disabled": { "alias": "matPopoverEditDisabled"; "required": false; }; }, {}, never, never, true, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEdit<any>, "[matPopoverEdit]:not([matPopoverEditTabOut])", never, { "template": { "alias": "matPopoverEdit"; "required": false; }; "context": { "alias": "matPopoverEditContext"; "required": false; }; "colspan": { "alias": "matPopoverEditColspan"; "required": false; }; "disabled": { "alias": "matPopoverEditDisabled"; "required": false; }; "ariaLabel": { "alias": "matPopoverEditAriaLabel"; "required": false; }; }, {}, never, never, true, never>;
 }
 
 export declare class MatPopoverEditModule {
@@ -83,7 +83,7 @@ export declare class MatPopoverEditModule {
 export declare class MatPopoverEditTabOut<C> extends CdkPopoverEditTabOut<C> {
     protected panelClass(): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEditTabOut<any>, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEditTabOut<any>, "[matPopoverEdit][matPopoverEditTabOut]", never, { "template": { "alias": "matPopoverEdit"; "required": false; }; "context": { "alias": "matPopoverEditContext"; "required": false; }; "colspan": { "alias": "matPopoverEditColspan"; "required": false; }; "disabled": { "alias": "matPopoverEditDisabled"; "required": false; }; }, {}, never, never, true, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MatPopoverEditTabOut<any>, "[matPopoverEdit][matPopoverEditTabOut]", never, { "template": { "alias": "matPopoverEdit"; "required": false; }; "context": { "alias": "matPopoverEditContext"; "required": false; }; "colspan": { "alias": "matPopoverEditColspan"; "required": false; }; "disabled": { "alias": "matPopoverEditDisabled"; "required": false; }; "ariaLabel": { "alias": "matPopoverEditAriaLabel"; "required": false; }; }, {}, never, never, true, never>;
 }
 
 /**
