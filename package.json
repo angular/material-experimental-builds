@@ -15,8 +15,6 @@
     ".": {
       "sass": "./_index.scss",
       "types": "./index.d.ts",
-      "esm2022": "./esm2022/index.mjs",
-      "esm": "./esm2022/index.mjs",
       "default": "./fesm2022/material-experimental.mjs"
     },
     "./package.json": {
@@ -24,26 +22,18 @@
     },
     "./column-resize": {
       "types": "./column-resize/index.d.ts",
-      "esm2022": "./esm2022/column-resize/column-resize_public_index.mjs",
-      "esm": "./esm2022/column-resize/column-resize_public_index.mjs",
       "default": "./fesm2022/column-resize.mjs"
     },
     "./menubar": {
       "types": "./menubar/index.d.ts",
-      "esm2022": "./esm2022/menubar/menubar_public_index.mjs",
-      "esm": "./esm2022/menubar/menubar_public_index.mjs",
       "default": "./fesm2022/menubar.mjs"
     },
     "./popover-edit": {
       "types": "./popover-edit/index.d.ts",
-      "esm2022": "./esm2022/popover-edit/popover-edit_public_index.mjs",
-      "esm": "./esm2022/popover-edit/popover-edit_public_index.mjs",
       "default": "./fesm2022/popover-edit.mjs"
     },
     "./selection": {
       "types": "./selection/index.d.ts",
-      "esm2022": "./esm2022/selection/selection_public_index.mjs",
-      "esm": "./esm2022/selection/selection_public_index.mjs",
       "default": "./fesm2022/selection.mjs"
     }
   },
