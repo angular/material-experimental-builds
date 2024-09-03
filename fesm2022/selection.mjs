@@ -1,8 +1,7 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from '@angular/cdk-experimental/selection';
 import * as i0 from '@angular/core';
-import { EventEmitter, Directive, Input, Output, Component, ChangeDetectionStrategy, ViewEncapsulation, Optional, Inject, ViewChild, NgModule } from '@angular/core';
-import * as i1 from '@angular/material/table';
+import { EventEmitter, Directive, Input, Output, inject, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
 import { MatTable, MatColumnDef, MatCellDef, MatHeaderCellDef, MatHeaderCell, MatCell, MatTableModule } from '@angular/material/table';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
@@ -110,6 +109,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.2", 
  * Must be used within a parent `MatSelection` directive.
  */
 class MatSelectionColumn {
+    constructor() {
+        this._table = inject(MatTable, { optional: true });
+        this.selection = inject(MatSelection, { optional: true });
+    }
     /** Column name that should be used to reference this column. */
     get name() {
         return this._name;
@@ -117,10 +120,6 @@ class MatSelectionColumn {
     set name(name) {
         this._name = name;
         this._syncColumnDefName();
-    }
-    constructor(_table, selection) {
-        this._table = _table;
-        this.selection = selection;
     }
     ngOnInit() {
         if (!this.selection && (typeof ngDevMode === 'undefined' || ngDevMode)) {
@@ -146,11 +145,11 @@ class MatSelectionColumn {
             this._columnDef.name = this._name;
         }
     }
-    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.0.0-next.2", ngImport: i0, type: MatSelectionColumn, deps: [{ token: MatTable, optional: true }, { token: MatSelection, optional: true }], target: i0.ɵɵFactoryTarget.Component }); }
+    static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.0.0-next.2", ngImport: i0, type: MatSelectionColumn, deps: [], target: i0.ɵɵFactoryTarget.Component }); }
     static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "17.0.0", version: "19.0.0-next.2", type: MatSelectionColumn, isStandalone: true, selector: "mat-selection-column", inputs: { name: "name" }, viewQueries: [{ propertyName: "_columnDef", first: true, predicate: MatColumnDef, descendants: true, static: true }, { propertyName: "_cell", first: true, predicate: MatCellDef, descendants: true, static: true }, { propertyName: "_headerCell", first: true, predicate: MatHeaderCellDef, descendants: true, static: true }], ngImport: i0, template: `
     <ng-container matColumnDef>
       <th mat-header-cell *matHeaderCellDef class="mat-selection-column-header">
-        @if (selection.multiple) {
+        @if (selection && selection.multiple) {
           <mat-checkbox
               matSelectAll
               #allToggler="matSelectAll"
@@ -171,7 +170,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.2", 
             args: [{ selector: 'mat-selection-column', template: `
     <ng-container matColumnDef>
       <th mat-header-cell *matHeaderCellDef class="mat-selection-column-header">
-        @if (selection.multiple) {
+        @if (selection && selection.multiple) {
           <mat-checkbox
               matSelectAll
               #allToggler="matSelectAll"
@@ -196,17 +195,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.2", 
                         MatSelectionToggle,
                         AsyncPipe,
                     ], styles: ["th.mat-selection-column-header,td.mat-selection-column-cell{text-align:center;width:48px}"] }]
-        }], ctorParameters: () => [{ type: i1.MatTable, decorators: [{
-                    type: Optional
-                }, {
-                    type: Inject,
-                    args: [MatTable]
-                }] }, { type: MatSelection, decorators: [{
-                    type: Optional
-                }, {
-                    type: Inject,
-                    args: [MatSelection]
-                }] }], propDecorators: { name: [{
+        }], propDecorators: { name: [{
                 type: Input
             }], _columnDef: [{
                 type: ViewChild,

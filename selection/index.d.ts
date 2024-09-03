@@ -7,7 +7,6 @@ import * as i0 from '@angular/core';
 import * as i1 from '@angular/common';
 import * as i2 from '@angular/material/table';
 import * as i3 from '@angular/material/checkbox';
-import { MatTable } from '@angular/material/table';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { SelectionChange } from '@angular/cdk-experimental/selection';
@@ -96,7 +95,7 @@ export declare class MatSelection<T> extends CdkSelection<T> {
  */
 export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
     private _table;
-    readonly selection: MatSelection<T>;
+    readonly selection: MatSelection<T> | null;
     /** Column name that should be used to reference this column. */
     get name(): string;
     set name(name: string);
@@ -104,11 +103,10 @@ export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
     private readonly _columnDef;
     private readonly _cell;
     private readonly _headerCell;
-    constructor(_table: MatTable<T>, selection: MatSelection<T>);
     ngOnInit(): void;
     ngOnDestroy(): void;
     private _syncColumnDefName;
-    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionColumn<any>, [{ optional: true; }, { optional: true; }]>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionColumn<any>, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<MatSelectionColumn<any>, "mat-selection-column", never, { "name": { "alias": "name"; "required": false; }; }, {}, never, never, true, never>;
 }
 
