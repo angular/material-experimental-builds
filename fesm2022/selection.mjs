@@ -3,7 +3,7 @@ import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from 
 import * as i0 from '@angular/core';
 import { EventEmitter, Directive, Input, Output, inject, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
 import { MatTable, MatColumnDef, MatCellDef, MatHeaderCellDef, MatHeaderCell, MatCell, MatTableModule } from '@angular/material/table';
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 
 /**
@@ -240,16 +240,14 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.10",
 // TODO(yifange): Move the table-specific code to a separate module from the other selection
 class MatSelectionModule {
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "19.0.0-next.10", ngImport: i0, type: MatSelectionModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.0.0-next.10", ngImport: i0, type: MatSelectionModule, imports: [CommonModule,
-            MatTableModule,
+    static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "19.0.0-next.10", ngImport: i0, type: MatSelectionModule, imports: [MatTableModule,
             MatCheckboxModule,
             MatSelectAll,
             MatSelection,
             MatSelectionToggle,
             MatSelectionColumn,
             MatRowSelection], exports: [MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection] }); }
-    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.0.0-next.10", ngImport: i0, type: MatSelectionModule, imports: [CommonModule,
-            MatTableModule,
+    static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "19.0.0-next.10", ngImport: i0, type: MatSelectionModule, imports: [MatTableModule,
             MatCheckboxModule,
             MatSelectionColumn] }); }
 }
@@ -257,7 +255,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.0.0-next.10",
             type: NgModule,
             args: [{
                     imports: [
-                        CommonModule,
                         MatTableModule,
                         MatCheckboxModule,
                         MatSelectAll,
