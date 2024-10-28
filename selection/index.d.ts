@@ -4,39 +4,38 @@ import { CdkSelection } from '@angular/cdk-experimental/selection';
 import { CdkSelectionToggle } from '@angular/cdk-experimental/selection';
 import { EventEmitter } from '@angular/core';
 import * as i0 from '@angular/core';
-import * as i1 from '@angular/common';
-import * as i2 from '@angular/material/table';
-import * as i3 from '@angular/material/checkbox';
+import * as i1 from '@angular/material/table';
+import * as i2 from '@angular/material/checkbox';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { SelectionChange } from '@angular/cdk-experimental/selection';
 
-declare namespace i4 {
+declare namespace i3 {
     export {
         MatSelectAll
     }
 }
 
-declare namespace i5 {
+declare namespace i4 {
     export {
         MatSelection,
         SelectionChange
     }
 }
 
-declare namespace i6 {
+declare namespace i5 {
     export {
         MatSelectionToggle
     }
 }
 
-declare namespace i7 {
+declare namespace i6 {
     export {
         MatSelectionColumn
     }
 }
 
-declare namespace i8 {
+declare namespace i7 {
     export {
         MatRowSelection
     }
@@ -112,7 +111,7 @@ export declare class MatSelectionColumn<T> implements OnInit, OnDestroy {
 
 export declare class MatSelectionModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatSelectionModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatSelectionModule, never, [typeof i1.CommonModule, typeof i2.MatTableModule, typeof i3.MatCheckboxModule, typeof i4.MatSelectAll, typeof i5.MatSelection, typeof i6.MatSelectionToggle, typeof i7.MatSelectionColumn, typeof i8.MatRowSelection], [typeof i4.MatSelectAll, typeof i5.MatSelection, typeof i6.MatSelectionToggle, typeof i7.MatSelectionColumn, typeof i8.MatRowSelection]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatSelectionModule, never, [typeof i1.MatTableModule, typeof i2.MatCheckboxModule, typeof i3.MatSelectAll, typeof i4.MatSelection, typeof i5.MatSelectionToggle, typeof i6.MatSelectionColumn, typeof i7.MatRowSelection], [typeof i3.MatSelectAll, typeof i4.MatSelection, typeof i5.MatSelectionToggle, typeof i6.MatSelectionColumn, typeof i7.MatRowSelection]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatSelectionModule>;
 }
 
