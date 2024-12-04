@@ -2,9 +2,11 @@ import { CdkColumnDef } from '@angular/cdk/table';
 import { CdkFlexTableResizeStrategy } from '@angular/cdk-experimental/column-resize';
 import { ChangeDetectorRef } from '@angular/core';
 import { _CoalescedStyleScheduler } from '@angular/cdk/table';
+import { COLUMN_RESIZE_OPTIONS } from '@angular/cdk-experimental/column-resize';
 import { ColumnResize } from '@angular/cdk-experimental/column-resize';
 import { ColumnResizeNotifier } from '@angular/cdk-experimental/column-resize';
 import { ColumnResizeNotifierSource } from '@angular/cdk-experimental/column-resize';
+import { ColumnResizeOptions } from '@angular/cdk-experimental/column-resize';
 import { Directionality } from '@angular/cdk/bidi';
 import { ElementRef } from '@angular/core';
 import { HeaderRowEventDispatcher } from '@angular/cdk-experimental/column-resize';
@@ -32,6 +34,10 @@ declare abstract class AbstractMatResizable extends Resizable<MatColumnResizeOve
     protected getInlineHandleCssClassName(): string;
     protected getOverlayHandleComponentType(): Type<MatColumnResizeOverlayHandle>;
 }
+
+export { COLUMN_RESIZE_OPTIONS }
+
+export { ColumnResizeOptions }
 
 export declare const FLEX_RESIZE_STRATEGY_PROVIDER: Provider;
 

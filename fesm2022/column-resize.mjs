@@ -1,7 +1,7 @@
 import * as i0 from '@angular/core';
 import { Injectable, inject, ElementRef, NgZone, Directive, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { CdkFlexTableResizeStrategy, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
-export { TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
+export { COLUMN_RESIZE_OPTIONS, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { MatCommonModule } from '@angular/material/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { DOCUMENT } from '@angular/common';
