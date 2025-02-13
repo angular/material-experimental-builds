@@ -49,6 +49,17 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
+  "ng-update": {
+    "packageGroup": [
+      "@angular/material",
+      "@angular/cdk",
+      "@angular/cdk-experimental",
+      "@angular/material-experimental",
+      "@angular/material-luxon-adapter",
+      "@angular/material-moment-adapter",
+      "@angular/material-date-fns-adapter"
+    ]
+  },
   "sideEffects": false,
   "module": "./fesm2022/material-experimental.mjs",
   "typings": "./index.d.ts",
