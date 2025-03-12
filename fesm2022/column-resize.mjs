@@ -1,7 +1,7 @@
+import { CdkFlexTableResizeStrategy, ResizeStrategy, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
+export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import * as i0 from '@angular/core';
 import { Injectable, inject, ElementRef, NgZone, Directive, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
-import { CdkFlexTableResizeStrategy, ResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
-export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { MatCommonModule } from '@angular/material/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { DOCUMENT } from '@angular/common';
@@ -313,10 +313,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "19.2.0", ngImpor
                     exports: [MatColumnResize, MatColumnResizeFlex, MatResizable],
                 }]
         }] });
-
-/**
- * Generated bundle index. Do not edit.
- */
 
 export { FLEX_RESIZE_STRATEGY_PROVIDER, MatColumnResize, MatColumnResizeCommonModule, MatColumnResizeFlex, MatColumnResizeModule, MatColumnResizeOverlayHandle, MatDefaultEnabledColumnResize, MatDefaultEnabledColumnResizeFlex, MatDefaultEnabledColumnResizeModule, MatDefaultResizable, MatFlexTableResizeStrategy, MatResizable };
 //# sourceMappingURL=column-resize.mjs.map
