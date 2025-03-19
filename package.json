@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-experimental",
-  "version": "19.2.3",
+  "version": "19.2.4",
   "description": "Experimental components for Angular Material",
   "repository": {
     "type": "git",
@@ -38,12 +38,12 @@
     }
   },
   "peerDependencies": {
-    "@angular/cdk": "19.2.3",
+    "@angular/cdk": "19.2.4",
     "@angular/core": "^19.0.0 || ^20.0.0",
     "@angular/common": "^19.0.0 || ^20.0.0",
     "@angular/forms": "^19.0.0 || ^20.0.0",
     "@angular/platform-browser": "^19.0.0 || ^20.0.0",
-    "@angular/material": "19.2.3"
+    "@angular/material": "19.2.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"
