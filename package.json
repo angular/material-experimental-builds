@@ -38,12 +38,18 @@
     }
   },
   "peerDependencies": {
+    "@angular/cdk-experimental": "19.2.8",
     "@angular/cdk": "19.2.8",
     "@angular/core": "^19.0.0 || ^20.0.0",
     "@angular/common": "^19.0.0 || ^20.0.0",
     "@angular/forms": "^19.0.0 || ^20.0.0",
     "@angular/platform-browser": "^19.0.0 || ^20.0.0",
     "@angular/material": "19.2.8"
+  },
+  "devDependencies": {
+    "@angular/cdk-experimental": "workspace:*",
+    "@angular/cdk": "workspace:*",
+    "@angular/material": "workspace:*"
   },
   "dependencies": {
     "tslib": "^2.3.0"
