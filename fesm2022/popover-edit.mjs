@@ -1,6 +1,6 @@
 import * as i0 from '@angular/core';
 import { Directive, NgModule } from '@angular/core';
-import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, _closest, _CELL_SELECTOR, CdkEditOpen, CdkPopoverEditModule, CdkEditable } from '@angular/cdk-experimental/popover-edit';
+import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, _closest, _CELL_SELECTOR, CdkEditOpen, CdkEditable, CdkPopoverEditModule } from '@angular/cdk-experimental/popover-edit';
 import { MatCommonModule } from '@angular/material/core';
 
 /**
