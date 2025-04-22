@@ -1,8 +1,8 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from '@angular/cdk-experimental/selection';
 import * as i0 from '@angular/core';
-import { EventEmitter, Directive, Input, Output, inject, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
-import { MatTable, MatColumnDef, MatCellDef, MatHeaderCellDef, MatHeaderCell, MatCell, MatTableModule } from '@angular/material/table';
+import { EventEmitter, Output, Input, Directive, inject, ViewChild, ViewEncapsulation, ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatTableModule } from '@angular/material/table';
 import { AsyncPipe } from '@angular/common';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 
