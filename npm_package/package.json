@@ -1,0 +1,72 @@
+{
+  "name": "@angular/material-experimental",
+  "version": "19.2.11",
+  "description": "Experimental components for Angular Material",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/components.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/components/issues"
+  },
+  "homepage": "https://github.com/angular/components#readme",
+  "exports": {
+    ".": {
+      "sass": "./_index.scss",
+      "types": "./index.d.ts",
+      "default": "./fesm2022/material-experimental.mjs"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    "./column-resize": {
+      "types": "./column-resize/index.d.ts",
+      "default": "./fesm2022/column-resize.mjs"
+    },
+    "./menubar": {
+      "types": "./menubar/index.d.ts",
+      "default": "./fesm2022/menubar.mjs"
+    },
+    "./popover-edit": {
+      "types": "./popover-edit/index.d.ts",
+      "default": "./fesm2022/popover-edit.mjs"
+    },
+    "./selection": {
+      "types": "./selection/index.d.ts",
+      "default": "./fesm2022/selection.mjs"
+    }
+  },
+  "peerDependencies": {
+    "@angular/cdk": "19.2.11",
+    "@angular/core": "^19.0.0 || ^20.0.0",
+    "@angular/common": "^19.0.0 || ^20.0.0",
+    "@angular/forms": "^19.0.0 || ^20.0.0",
+    "@angular/platform-browser": "^19.0.0 || ^20.0.0",
+    "@angular/material": "19.2.11",
+    "@angular/cdk-experimental": "19.2.11"
+  },
+  "devDependencies": {
+    "@angular/material": "workspace:*",
+    "@angular/cdk": "workspace:*",
+    "@angular/cdk-experimental": "workspace:*"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "ng-update": {
+    "packageGroup": [
+      "@angular/material",
+      "@angular/cdk",
+      "@angular/cdk-experimental",
+      "@angular/material-experimental",
+      "@angular/material-luxon-adapter",
+      "@angular/material-moment-adapter",
+      "@angular/material-date-fns-adapter"
+    ]
+  },
+  "sideEffects": false,
+  "module": "./fesm2022/material-experimental.mjs",
+  "typings": "./index.d.ts",
+  "type": "module"
+}
