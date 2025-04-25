@@ -3,7 +3,7 @@ export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRAT
 import * as i0 from '@angular/core';
 import { Injectable, inject, ElementRef, NgZone, Directive, DOCUMENT, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
-import { Overlay, OverlayModule } from '@angular/cdk/overlay';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
 import { CdkColumnDef, _COALESCED_STYLE_SCHEDULER } from '@angular/cdk/table';
 
@@ -218,7 +218,6 @@ class MatDefaultResizable extends AbstractMatResizable {
     eventDispatcher = inject(HeaderRowEventDispatcher);
     injector = inject(Injector);
     ngZone = inject(NgZone);
-    overlay = inject(Overlay);
     resizeNotifier = inject(ColumnResizeNotifierSource);
     resizeStrategy = inject(ResizeStrategy);
     styleScheduler = inject(_COALESCED_STYLE_SCHEDULER);
@@ -248,7 +247,6 @@ class MatResizable extends AbstractMatResizable {
     eventDispatcher = inject(HeaderRowEventDispatcher);
     injector = inject(Injector);
     ngZone = inject(NgZone);
-    overlay = inject(Overlay);
     resizeNotifier = inject(ColumnResizeNotifierSource);
     resizeStrategy = inject(ResizeStrategy);
     styleScheduler = inject(_COALESCED_STYLE_SCHEDULER);

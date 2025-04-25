@@ -6,7 +6,6 @@ import { CdkColumnDef, _CoalescedStyleScheduler } from '@angular/cdk/table';
 import { Directionality } from '@angular/cdk/bidi';
 import * as i2 from '@angular/material/core';
 import * as i3 from '@angular/cdk/overlay';
-import { Overlay } from '@angular/cdk/overlay';
 
 declare abstract class AbstractMatColumnResize extends ColumnResize {
     getTableHeight(): number;
@@ -107,7 +106,6 @@ declare class MatDefaultResizable extends AbstractMatResizable {
     protected readonly eventDispatcher: HeaderRowEventDispatcher;
     protected readonly injector: Injector;
     protected readonly ngZone: NgZone;
-    protected readonly overlay: Overlay;
     protected readonly resizeNotifier: ColumnResizeNotifierSource;
     protected readonly resizeStrategy: ResizeStrategy;
     protected readonly styleScheduler: _CoalescedStyleScheduler;
@@ -129,7 +127,6 @@ declare class MatResizable extends AbstractMatResizable {
     protected readonly eventDispatcher: HeaderRowEventDispatcher;
     protected readonly injector: Injector;
     protected readonly ngZone: NgZone;
-    protected readonly overlay: Overlay;
     protected readonly resizeNotifier: ColumnResizeNotifierSource;
     protected readonly resizeStrategy: ResizeStrategy;
     protected readonly styleScheduler: _CoalescedStyleScheduler;
