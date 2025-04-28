@@ -1,11 +1,11 @@
-import { CdkFlexTableResizeStrategy, ResizeStrategy, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
+import { CdkFlexTableResizeStrategy, ResizeStrategy, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, _COALESCED_STYLE_SCHEDULER, _CoalescedStyleScheduler, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import * as i0 from '@angular/core';
 import { Injectable, inject, ElementRef, NgZone, Directive, DOCUMENT, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { MatCommonModule } from '@angular/material/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
-import { CdkColumnDef, _COALESCED_STYLE_SCHEDULER } from '@angular/cdk/table';
+import { CdkColumnDef } from '@angular/cdk/table';
 
 /**
  * Overrides CdkFlexTableResizeStrategy to match mat-column elements.
@@ -29,6 +29,7 @@ const PROVIDERS = [
     ColumnResizeNotifier,
     HeaderRowEventDispatcher,
     ColumnResizeNotifierSource,
+    { provide: _COALESCED_STYLE_SCHEDULER, useClass: _CoalescedStyleScheduler },
 ];
 const TABLE_PROVIDERS = [
     ...PROVIDERS,
