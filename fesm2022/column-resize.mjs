@@ -2,7 +2,6 @@ import { CdkFlexTableResizeStrategy, ResizeStrategy, TABLE_LAYOUT_FIXED_RESIZE_S
 export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import * as i0 from '@angular/core';
 import { Injectable, inject, ElementRef, NgZone, Directive, DOCUMENT, Component, ChangeDetectionStrategy, ViewEncapsulation, ViewChild, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
-import { MatCommonModule } from '@angular/material/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
 import { CdkColumnDef } from '@angular/cdk/table';
@@ -279,10 +278,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.2.0-next.2", 
                     exports: ENTRY_COMMON_COMPONENTS,
                 }]
         }] });
-const IMPORTS = [MatCommonModule, OverlayModule, MatColumnResizeCommonModule];
+const IMPORTS = [OverlayModule, MatColumnResizeCommonModule];
 class MatDefaultEnabledColumnResizeModule {
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, imports: [MatCommonModule, OverlayModule, MatColumnResizeCommonModule, MatDefaultEnabledColumnResize,
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, imports: [OverlayModule, MatColumnResizeCommonModule, MatDefaultEnabledColumnResize,
             MatDefaultEnabledColumnResizeFlex,
             MatDefaultResizable], exports: [MatDefaultEnabledColumnResize, MatDefaultEnabledColumnResizeFlex, MatDefaultResizable] });
     static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatDefaultEnabledColumnResizeModule, imports: [IMPORTS] });
@@ -301,7 +300,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.2.0-next.2", 
         }] });
 class MatColumnResizeModule {
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatColumnResizeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatColumnResizeModule, imports: [MatCommonModule, OverlayModule, MatColumnResizeCommonModule, MatColumnResize, MatColumnResizeFlex, MatResizable], exports: [MatColumnResize, MatColumnResizeFlex, MatResizable] });
+    static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatColumnResizeModule, imports: [OverlayModule, MatColumnResizeCommonModule, MatColumnResize, MatColumnResizeFlex, MatResizable], exports: [MatColumnResize, MatColumnResizeFlex, MatResizable] });
     static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatColumnResizeModule, imports: [IMPORTS] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatColumnResizeModule, decorators: [{

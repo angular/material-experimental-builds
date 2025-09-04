@@ -1,7 +1,6 @@
 import * as i1 from '@angular/cdk-experimental/popover-edit';
 import { CdkEditControl, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, CdkEditOpen } from '@angular/cdk-experimental/popover-edit';
 import * as i0 from '@angular/core';
-import * as i2 from '@angular/material/core';
 
 /**
  * A component that attaches to a form within the edit.
@@ -66,7 +65,7 @@ declare class MatEditOpen extends CdkEditOpen {
 
 declare class MatPopoverEditModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatPopoverEditModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatPopoverEditModule, never, [typeof i1.CdkPopoverEditModule, typeof i2.MatCommonModule, typeof MatPopoverEdit, typeof MatPopoverEditTabOut, typeof MatRowHoverContent, typeof MatEditLens, typeof MatEditRevert, typeof MatEditClose, typeof MatEditOpen], [typeof MatPopoverEdit, typeof MatPopoverEditTabOut, typeof MatRowHoverContent, typeof MatEditLens, typeof MatEditRevert, typeof MatEditClose, typeof MatEditOpen, typeof i1.CdkEditable]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatPopoverEditModule, never, [typeof i1.CdkPopoverEditModule, typeof MatPopoverEdit, typeof MatPopoverEditTabOut, typeof MatRowHoverContent, typeof MatEditLens, typeof MatEditRevert, typeof MatEditClose, typeof MatEditOpen], [typeof MatPopoverEdit, typeof MatPopoverEditTabOut, typeof MatRowHoverContent, typeof MatEditLens, typeof MatEditRevert, typeof MatEditClose, typeof MatEditOpen, typeof i1.CdkEditable]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatPopoverEditModule>;
 }
 

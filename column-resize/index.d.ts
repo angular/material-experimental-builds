@@ -4,8 +4,7 @@ import { ColumnResize, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnRes
 export { COLUMN_RESIZE_OPTIONS, ColumnResizeOptions, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { Directionality } from '@angular/cdk/bidi';
-import * as i2 from '@angular/material/core';
-import * as i3 from '@angular/cdk/overlay';
+import * as i2 from '@angular/cdk/overlay';
 
 declare abstract class AbstractMatColumnResize extends ColumnResize {
     getTableHeight(): number;
@@ -144,12 +143,12 @@ declare class MatColumnResizeCommonModule {
 }
 declare class MatDefaultEnabledColumnResizeModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatDefaultEnabledColumnResizeModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatDefaultEnabledColumnResizeModule, never, [typeof i2.MatCommonModule, typeof i3.OverlayModule, typeof MatColumnResizeCommonModule, typeof MatDefaultEnabledColumnResize, typeof MatDefaultEnabledColumnResizeFlex, typeof MatDefaultResizable], [typeof MatDefaultEnabledColumnResize, typeof MatDefaultEnabledColumnResizeFlex, typeof MatDefaultResizable]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatDefaultEnabledColumnResizeModule, never, [typeof i2.OverlayModule, typeof MatColumnResizeCommonModule, typeof MatDefaultEnabledColumnResize, typeof MatDefaultEnabledColumnResizeFlex, typeof MatDefaultResizable], [typeof MatDefaultEnabledColumnResize, typeof MatDefaultEnabledColumnResizeFlex, typeof MatDefaultResizable]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatDefaultEnabledColumnResizeModule>;
 }
 declare class MatColumnResizeModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<MatColumnResizeModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<MatColumnResizeModule, never, [typeof i2.MatCommonModule, typeof i3.OverlayModule, typeof MatColumnResizeCommonModule, typeof MatColumnResize, typeof MatColumnResizeFlex, typeof MatResizable], [typeof MatColumnResize, typeof MatColumnResizeFlex, typeof MatResizable]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<MatColumnResizeModule, never, [typeof i2.OverlayModule, typeof MatColumnResizeCommonModule, typeof MatColumnResize, typeof MatColumnResizeFlex, typeof MatResizable], [typeof MatColumnResize, typeof MatColumnResizeFlex, typeof MatResizable]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<MatColumnResizeModule>;
 }
 

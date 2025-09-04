@@ -1,7 +1,6 @@
 import * as i0 from '@angular/core';
 import { Directive, NgModule } from '@angular/core';
 import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, _closest, _CELL_SELECTOR, CdkEditOpen, CdkPopoverEditModule, CdkEditable } from '@angular/cdk-experimental/popover-edit';
-import { MatCommonModule } from '@angular/material/core';
 
 /**
  * A component that attaches to a form within the edit.
@@ -166,7 +165,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.2.0-next.2", 
 class MatPopoverEditModule {
     static ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatPopoverEditModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
     static ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule,
-            MatCommonModule,
             MatPopoverEdit,
             MatPopoverEditTabOut,
             MatRowHoverContent,
@@ -181,15 +179,13 @@ class MatPopoverEditModule {
             MatEditClose,
             MatEditOpen,
             CdkEditable] });
-    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule,
-            MatCommonModule] });
+    static ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatPopoverEditModule, imports: [CdkPopoverEditModule] });
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "20.2.0-next.2", ngImport: i0, type: MatPopoverEditModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [
                         CdkPopoverEditModule,
-                        MatCommonModule,
                         MatPopoverEdit,
                         MatPopoverEditTabOut,
                         MatRowHoverContent,
