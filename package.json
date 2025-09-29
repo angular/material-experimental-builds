@@ -14,26 +14,26 @@
   "exports": {
     ".": {
       "sass": "./_index.scss",
-      "types": "./index.d.ts",
+      "types": "./types/material-experimental.d.ts",
       "default": "./fesm2022/material-experimental.mjs"
     },
     "./package.json": {
       "default": "./package.json"
     },
     "./column-resize": {
-      "types": "./column-resize/index.d.ts",
+      "types": "./types/column-resize.d.ts",
       "default": "./fesm2022/column-resize.mjs"
     },
     "./menubar": {
-      "types": "./menubar/index.d.ts",
+      "types": "./types/menubar.d.ts",
       "default": "./fesm2022/menubar.mjs"
     },
     "./popover-edit": {
-      "types": "./popover-edit/index.d.ts",
+      "types": "./types/popover-edit.d.ts",
       "default": "./fesm2022/popover-edit.mjs"
     },
     "./selection": {
-      "types": "./selection/index.d.ts",
+      "types": "./types/selection.d.ts",
       "default": "./fesm2022/selection.mjs"
     }
   },
@@ -67,6 +67,6 @@
   },
   "sideEffects": false,
   "module": "./fesm2022/material-experimental.mjs",
-  "typings": "./index.d.ts",
+  "typings": "./types/material-experimental.d.ts",
   "type": "module"
 }
