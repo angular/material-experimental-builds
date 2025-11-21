@@ -16,7 +16,7 @@ class MatSelection extends CdkSelection {
   change = new EventEmitter();
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelection,
     deps: null,
@@ -24,7 +24,7 @@ class MatSelection extends CdkSelection {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatSelection,
     isStandalone: true,
     selector: "[matSelection]",
@@ -45,7 +45,7 @@ class MatSelection extends CdkSelection {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatSelection,
   decorators: [{
@@ -74,7 +74,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatSelectAll extends CdkSelectAll {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelectAll,
     deps: null,
@@ -82,7 +82,7 @@ class MatSelectAll extends CdkSelectAll {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatSelectAll,
     isStandalone: true,
     selector: "[matSelectAll]",
@@ -97,7 +97,7 @@ class MatSelectAll extends CdkSelectAll {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatSelectAll,
   decorators: [{
@@ -117,7 +117,7 @@ class MatSelectionToggle extends CdkSelectionToggle {
   value = undefined;
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelectionToggle,
     deps: null,
@@ -125,7 +125,7 @@ class MatSelectionToggle extends CdkSelectionToggle {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatSelectionToggle,
     isStandalone: true,
     selector: "[matSelectionToggle]",
@@ -144,7 +144,7 @@ class MatSelectionToggle extends CdkSelectionToggle {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatSelectionToggle,
   decorators: [{
@@ -213,7 +213,7 @@ class MatSelectionColumn {
   }
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelectionColumn,
     deps: [],
@@ -221,7 +221,7 @@ class MatSelectionColumn {
   });
   static ɵcmp = i0.ɵɵngDeclareComponent({
     minVersion: "17.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatSelectionColumn,
     isStandalone: true,
     selector: "mat-selection-column",
@@ -318,7 +318,7 @@ class MatSelectionColumn {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatSelectionColumn,
   decorators: [{
@@ -378,7 +378,7 @@ class MatRowSelection extends CdkRowSelection {
   value = undefined;
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatRowSelection,
     deps: null,
@@ -386,7 +386,7 @@ class MatRowSelection extends CdkRowSelection {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatRowSelection,
     isStandalone: true,
     selector: "[matRowSelection]",
@@ -410,7 +410,7 @@ class MatRowSelection extends CdkRowSelection {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatRowSelection,
   decorators: [{
@@ -442,7 +442,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatSelectionModule {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelectionModule,
     deps: [],
@@ -450,7 +450,7 @@ class MatSelectionModule {
   });
   static ɵmod = i0.ɵɵngDeclareNgModule({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelectionModule,
     imports: [MatTableModule, MatCheckboxModule, MatSelectAll, MatSelection, MatSelectionToggle, MatSelectionColumn, MatRowSelection],
@@ -458,7 +458,7 @@ class MatSelectionModule {
   });
   static ɵinj = i0.ɵɵngDeclareInjector({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatSelectionModule,
     imports: [MatTableModule, MatCheckboxModule, MatSelectionColumn]
@@ -466,7 +466,7 @@ class MatSelectionModule {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatSelectionModule,
   decorators: [{

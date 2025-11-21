@@ -5,7 +5,7 @@ import { CdkEditControl, EditRef, CdkEditRevert, CdkEditClose, CdkPopoverEdit, C
 class MatEditLens extends CdkEditControl {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatEditLens,
     deps: null,
@@ -13,7 +13,7 @@ class MatEditLens extends CdkEditControl {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatEditLens,
     isStandalone: true,
     selector: "form[matEditLens]",
@@ -35,7 +35,7 @@ class MatEditLens extends CdkEditControl {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatEditLens,
   decorators: [{
@@ -63,7 +63,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatEditRevert extends CdkEditRevert {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatEditRevert,
     deps: null,
@@ -71,7 +71,7 @@ class MatEditRevert extends CdkEditRevert {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatEditRevert,
     isStandalone: true,
     selector: "button[matEditRevert]",
@@ -86,7 +86,7 @@ class MatEditRevert extends CdkEditRevert {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatEditRevert,
   decorators: [{
@@ -102,7 +102,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatEditClose extends CdkEditClose {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatEditClose,
     deps: null,
@@ -110,7 +110,7 @@ class MatEditClose extends CdkEditClose {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatEditClose,
     isStandalone: true,
     selector: "[matEditClose]",
@@ -120,7 +120,7 @@ class MatEditClose extends CdkEditClose {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatEditClose,
   decorators: [{
@@ -163,7 +163,7 @@ class MatPopoverEdit extends CdkPopoverEdit {
   }
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatPopoverEdit,
     deps: null,
@@ -171,7 +171,7 @@ class MatPopoverEdit extends CdkPopoverEdit {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatPopoverEdit,
     isStandalone: true,
     selector: "[matPopoverEdit]:not([matPopoverEditTabOut])",
@@ -195,7 +195,7 @@ class MatPopoverEdit extends CdkPopoverEdit {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatPopoverEdit,
   decorators: [{
@@ -213,7 +213,7 @@ class MatPopoverEditTabOut extends CdkPopoverEditTabOut {
   }
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatPopoverEditTabOut,
     deps: null,
@@ -221,7 +221,7 @@ class MatPopoverEditTabOut extends CdkPopoverEditTabOut {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatPopoverEditTabOut,
     isStandalone: true,
     selector: "[matPopoverEdit][matPopoverEditTabOut]",
@@ -245,7 +245,7 @@ class MatPopoverEditTabOut extends CdkPopoverEditTabOut {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatPopoverEditTabOut,
   decorators: [{
@@ -281,7 +281,7 @@ class MatRowHoverContent extends CdkRowHoverContent {
   }
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatRowHoverContent,
     deps: null,
@@ -289,7 +289,7 @@ class MatRowHoverContent extends CdkRowHoverContent {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatRowHoverContent,
     isStandalone: true,
     selector: "[matRowHoverContent]",
@@ -299,7 +299,7 @@ class MatRowHoverContent extends CdkRowHoverContent {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatRowHoverContent,
   decorators: [{
@@ -312,7 +312,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatEditOpen extends CdkEditOpen {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatEditOpen,
     deps: null,
@@ -320,7 +320,7 @@ class MatEditOpen extends CdkEditOpen {
   });
   static ɵdir = i0.ɵɵngDeclareDirective({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     type: MatEditOpen,
     isStandalone: true,
     selector: "[matEditOpen]",
@@ -330,7 +330,7 @@ class MatEditOpen extends CdkEditOpen {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatEditOpen,
   decorators: [{
@@ -344,7 +344,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatPopoverEditModule {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatPopoverEditModule,
     deps: [],
@@ -352,7 +352,7 @@ class MatPopoverEditModule {
   });
   static ɵmod = i0.ɵɵngDeclareNgModule({
     minVersion: "14.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatPopoverEditModule,
     imports: [CdkPopoverEditModule, MatPopoverEdit, MatPopoverEditTabOut, MatRowHoverContent, MatEditLens, MatEditRevert, MatEditClose, MatEditOpen],
@@ -360,7 +360,7 @@ class MatPopoverEditModule {
   });
   static ɵinj = i0.ɵɵngDeclareInjector({
     minVersion: "12.0.0",
-    version: "20.2.0-next.2",
+    version: "21.0.0",
     ngImport: i0,
     type: MatPopoverEditModule,
     imports: [CdkPopoverEditModule]
@@ -368,7 +368,7 @@ class MatPopoverEditModule {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "20.2.0-next.2",
+  version: "21.0.0",
   ngImport: i0,
   type: MatPopoverEditModule,
   decorators: [{
