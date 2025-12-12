@@ -5,7 +5,7 @@ import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MENU_STACK, MenuStack, CdkMenuItem,
 class MatMenuBar extends CdkMenuBar {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     ngImport: i0,
     type: MatMenuBar,
     deps: null,
@@ -13,7 +13,7 @@ class MatMenuBar extends CdkMenuBar {
   });
   static ɵcmp = i0.ɵɵngDeclareComponent({
     minVersion: "14.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     type: MatMenuBar,
     isStandalone: true,
     selector: "mat-menubar",
@@ -46,7 +46,7 @@ class MatMenuBar extends CdkMenuBar {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "21.0.0",
+  version: "21.0.3",
   ngImport: i0,
   type: MatMenuBar,
   decorators: [{
@@ -93,7 +93,7 @@ class MatMenuBarItem extends CdkMenuItem {
   }
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     ngImport: i0,
     type: MatMenuBarItem,
     deps: null,
@@ -101,7 +101,7 @@ class MatMenuBarItem extends CdkMenuItem {
   });
   static ɵcmp = i0.ɵɵngDeclareComponent({
     minVersion: "14.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     type: MatMenuBarItem,
     isStandalone: true,
     selector: "mat-menubar-item",
@@ -131,7 +131,7 @@ class MatMenuBarItem extends CdkMenuItem {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "21.0.0",
+  version: "21.0.3",
   ngImport: i0,
   type: MatMenuBarItem,
   decorators: [{
@@ -160,7 +160,7 @@ i0.ɵɵngDeclareClassMetadata({
 class MatMenuBarModule {
   static ɵfac = i0.ɵɵngDeclareFactory({
     minVersion: "12.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     ngImport: i0,
     type: MatMenuBarModule,
     deps: [],
@@ -168,7 +168,7 @@ class MatMenuBarModule {
   });
   static ɵmod = i0.ɵɵngDeclareNgModule({
     minVersion: "14.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     ngImport: i0,
     type: MatMenuBarModule,
     imports: [CdkMenuModule, MatMenuBar, MatMenuBarItem],
@@ -176,7 +176,7 @@ class MatMenuBarModule {
   });
   static ɵinj = i0.ɵɵngDeclareInjector({
     minVersion: "12.0.0",
-    version: "21.0.0",
+    version: "21.0.3",
     ngImport: i0,
     type: MatMenuBarModule,
     imports: [CdkMenuModule]
@@ -184,7 +184,7 @@ class MatMenuBarModule {
 }
 i0.ɵɵngDeclareClassMetadata({
   minVersion: "12.0.0",
-  version: "21.0.0",
+  version: "21.0.3",
   ngImport: i0,
   type: MatMenuBarModule,
   decorators: [{
