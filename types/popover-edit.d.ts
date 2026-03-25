@@ -1,5 +1,5 @@
 import * as i1 from '@angular/cdk-experimental/popover-edit';
-import { CdkEditControl, CdkEditRevert, CdkEditClose, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent, CdkEditOpen } from '@angular/cdk-experimental/popover-edit';
+import { CdkEditClose, CdkEditControl, CdkEditRevert, CdkEditOpen, CdkPopoverEdit, CdkPopoverEditTabOut, CdkRowHoverContent } from '@angular/cdk-experimental/popover-edit';
 import * as i0 from '@angular/core';
 
 /**
