@@ -1,7 +1,7 @@
 import { ResizeStrategy, CdkFlexTableResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, _CoalescedStyleScheduler, _COALESCED_STYLE_SCHEDULER, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import * as i0 from '@angular/core';
-import { Injectable, inject, ElementRef, NgZone, Directive, DOCUMENT, ViewChild, ViewEncapsulation, ChangeDetectionStrategy, Component, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
+import { Service, inject, ElementRef, NgZone, Directive, DOCUMENT, ViewChild, ViewEncapsulation, ChangeDetectionStrategy, Component, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
 import { CdkColumnDef } from '@angular/cdk/table';
@@ -15,14 +15,15 @@ class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
     version: "22.0.0-next.9",
     ngImport: i0,
     type: MatFlexTableResizeStrategy,
-    deps: null,
-    target: i0.ɵɵFactoryTarget.Injectable
+    deps: [],
+    target: i0.ɵɵFactoryTarget.Service
   });
-  static ɵprov = i0.ɵɵngDeclareInjectable({
-    minVersion: "12.0.0",
+  static ɵprov = i0.ɵɵngDeclareService({
+    minVersion: "22.0.0",
     version: "22.0.0-next.9",
     ngImport: i0,
-    type: MatFlexTableResizeStrategy
+    type: MatFlexTableResizeStrategy,
+    autoProvided: false
   });
 }
 i0.ɵɵngDeclareClassMetadata({
@@ -31,7 +32,10 @@ i0.ɵɵngDeclareClassMetadata({
   ngImport: i0,
   type: MatFlexTableResizeStrategy,
   decorators: [{
-    type: Injectable
+    type: Service,
+    args: [{
+      autoProvided: false
+    }]
   }]
 });
 const FLEX_RESIZE_STRATEGY_PROVIDER = {
