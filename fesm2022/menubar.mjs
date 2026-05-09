@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { ChangeDetectionStrategy, ViewEncapsulation, Component, NgModule } from '@angular/core';
+import { ViewEncapsulation, Component, NgModule } from '@angular/core';
 import { CdkMenuBar, CdkMenuGroup, CDK_MENU, MenuStack, MENU_STACK, CdkMenuItem, CdkMenuModule } from '@angular/cdk/menu';
 
 class MatMenuBar extends CdkMenuBar {
@@ -40,7 +40,6 @@ class MatMenuBar extends CdkMenuBar {
     ngImport: i0,
     template: "<ng-content></ng-content>\n",
     styles: ["\n"],
-    changeDetection: i0.ChangeDetectionStrategy.OnPush,
     encapsulation: i0.ViewEncapsulation.None
   });
 }
@@ -55,7 +54,6 @@ i0.ɵɵngDeclareClassMetadata({
       selector: 'mat-menubar',
       exportAs: 'matMenubar',
       encapsulation: ViewEncapsulation.None,
-      changeDetection: ChangeDetectionStrategy.OnPush,
       host: {
         '[class.mat-menubar]': 'true'
       },
@@ -125,7 +123,6 @@ class MatMenuBarItem extends CdkMenuItem {
     ngImport: i0,
     template: "<ng-content></ng-content>\n",
     styles: ["\n"],
-    changeDetection: i0.ChangeDetectionStrategy.OnPush,
     encapsulation: i0.ViewEncapsulation.None
   });
 }
@@ -140,7 +137,6 @@ i0.ɵɵngDeclareClassMetadata({
       selector: 'mat-menubar-item',
       exportAs: 'matMenubarItem',
       encapsulation: ViewEncapsulation.None,
-      changeDetection: ChangeDetectionStrategy.OnPush,
       host: {
         '[tabindex]': '_tabindex',
         'type': 'button',
