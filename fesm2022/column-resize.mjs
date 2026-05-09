@@ -1,7 +1,7 @@
 import { ResizeStrategy, CdkFlexTableResizeStrategy, ColumnResizeNotifier, HeaderRowEventDispatcher, ColumnResizeNotifierSource, _CoalescedStyleScheduler, _COALESCED_STYLE_SCHEDULER, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER, ColumnResize, ResizeOverlayHandle, ResizeRef, Resizable } from '@angular/cdk-experimental/column-resize';
 export { COLUMN_RESIZE_OPTIONS, ColumnSizeStore, TABLE_LAYOUT_FIXED_RESIZE_STRATEGY_PROVIDER } from '@angular/cdk-experimental/column-resize';
 import * as i0 from '@angular/core';
-import { Service, inject, ElementRef, NgZone, Directive, DOCUMENT, ViewChild, ViewEncapsulation, ChangeDetectionStrategy, Component, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
+import { Service, inject, ElementRef, NgZone, Directive, DOCUMENT, ViewChild, ViewEncapsulation, Component, Injector, ViewContainerRef, ChangeDetectorRef, NgModule } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { Directionality } from '@angular/cdk/bidi';
 import { CdkColumnDef } from '@angular/cdk/table';
@@ -305,7 +305,6 @@ class MatColumnResizeOverlayHandle extends ResizeOverlayHandle {
     ngImport: i0,
     template: '<div #top class="mat-column-resize-overlay-thumb-top"></div>',
     isInline: true,
-    changeDetection: i0.ChangeDetectionStrategy.OnPush,
     encapsulation: i0.ViewEncapsulation.None
   });
 }
@@ -317,7 +316,6 @@ i0.ɵɵngDeclareClassMetadata({
   decorators: [{
     type: Component,
     args: [{
-      changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation.None,
       host: {
         'class': 'mat-column-resize-overlay-thumb'

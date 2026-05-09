@@ -1,6 +1,6 @@
 import { CdkSelection, CdkSelectAll, CdkSelectionToggle, CdkRowSelection } from '@angular/cdk-experimental/selection';
 import * as i0 from '@angular/core';
-import { EventEmitter, Output, Input, Directive, inject, ViewChild, ViewEncapsulation, ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { EventEmitter, Output, Input, Directive, inject, ViewChild, ViewEncapsulation, Component, NgModule } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatTableModule } from '@angular/material/table';
 import { AsyncPipe } from '@angular/common';
@@ -312,7 +312,6 @@ class MatSelectionColumn {
       type: AsyncPipe,
       name: "async"
     }],
-    changeDetection: i0.ChangeDetectionStrategy.OnPush,
     encapsulation: i0.ViewEncapsulation.None
   });
 }
@@ -343,7 +342,6 @@ i0.ɵɵngDeclareClassMetadata({
       </td>
     </ng-container>
   `,
-      changeDetection: ChangeDetectionStrategy.OnPush,
       encapsulation: ViewEncapsulation.None,
       imports: [MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCheckbox, MatSelectAll, MatCellDef, MatCell, MatSelectionToggle, AsyncPipe],
       styles: ["th.mat-selection-column-header,\ntd.mat-selection-column-cell {\n  text-align: center;\n  width: 48px;\n}\n"]
