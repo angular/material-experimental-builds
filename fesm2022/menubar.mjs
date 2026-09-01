@@ -76,7 +76,8 @@ i0.ɵɵngDeclareClassMetadata({
 });
 
 function removeIcons(element) {
-  for (const icon of Array.from(element.querySelectorAll('mat-icon, .material-icons'))) {
+  const icons = element.querySelectorAll('mat-icon, .material-icons, .material-symbols-outlined, ' + '.material-symbols-rounded, .material-symbols-sharp');
+  for (const icon of Array.from(icons)) {
     icon.remove();
   }
 }
