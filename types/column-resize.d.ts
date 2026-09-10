@@ -158,7 +158,7 @@ declare class MatColumnResizeModule {
 declare class MatFlexTableResizeStrategy extends CdkFlexTableResizeStrategy {
     protected getColumnCssClass(cssFriendlyColumnName: string): string;
     static ɵfac: i0.ɵɵFactoryDeclaration<MatFlexTableResizeStrategy, never>;
-    static ɵprov: i0.ɵɵInjectableDeclaration<MatFlexTableResizeStrategy>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
 declare const FLEX_RESIZE_STRATEGY_PROVIDER: Provider;
 
