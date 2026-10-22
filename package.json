@@ -1,6 +1,6 @@
 {
   "name": "@angular/material-experimental",
-  "version": "22.2.4+sha-f70c3cc",
+  "version": "22.2.4+sha-1edc5bf",
   "description": "Experimental components for Angular Material",
   "repository": {
     "type": "git",
@@ -38,13 +38,13 @@
     }
   },
   "peerDependencies": {
-    "@angular/cdk": "22.2.4+sha-f70c3cc",
+    "@angular/cdk": "22.2.4+sha-1edc5bf",
     "@angular/core": "^22.0.0 || ^23.0.0",
     "@angular/common": "^22.0.0 || ^23.0.0",
     "@angular/forms": "^22.0.0 || ^23.0.0",
     "@angular/platform-browser": "^22.0.0 || ^23.0.0",
-    "@angular/material": "22.2.4+sha-f70c3cc",
-    "@angular/cdk-experimental": "22.2.4+sha-f70c3cc"
+    "@angular/material": "22.2.4+sha-1edc5bf",
+    "@angular/cdk-experimental": "22.2.4+sha-1edc5bf"
   },
   "devDependencies": {
     "@angular/material": "workspace:*",
